@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Snapshot building for main (1.1) branch
+#
+set -e
+
+# Checkout dir
+CHECKOUTDIR=/home/fpc/build/main
+STARTPP=/home/fpc/bin/ppc1010
+INSTALLCOMPILER=/home/fpc/bin/ppc11
+MAILFILE=/home/fpc/logs/snapshot.mail
+LOGFILE=/home/fpc/logs/snapshot.log
+FTPDIR=deadlock.et.tudelft.nl:ftp/snapshot/v11/linux-i386
+LIBGDBZIP=/home/fpc/libgdb/libgdb-621-i386-linux.zip
+
+# Include common makesnapshot script
+. $HOME/scripts/makesnapshot

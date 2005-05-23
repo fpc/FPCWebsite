@@ -1,0 +1,34 @@
+#!/bin/sh
+
+set -e
+
+FTPDIR=/home/extra/ftp/fpc/beta
+VERSION=1.9.6
+ZIP='zip -D9j'
+
+dozip()
+{
+  echo Creating $1.zip
+  rm -f $1.zip
+  $ZIP $*
+}
+
+dotarget()
+{
+  if [ -d $FTPDIR/$1-$VERSION ]; then
+    cd $FTPDIR/$1-$VERSION
+    dozip $2 separate/*
+  fi
+}
+
+# Sources 
+if [ -d $FTPDIR/source-$VERSION ]; then
+  cd $FTPDIR/source-$VERSION
+  dozip fpc-$VERSION.source *
+  dozip src$NAMEVERSION -X fpc-$VERSION-* *
+fi
+
+# Targets
+dotarget i386-win32 fpc-$VERSION.i386-win32
+dotarget i386-go32v2 dos$NAMEVERSION
+dotarget i386-os2 os2$NAMEVERSION

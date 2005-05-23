@@ -1,0 +1,48 @@
+<FORM ACTION="http://tflily.fys.kuleuven.ac.be/cgi-bin/contrib?mode=add">
+<H2>Contributing a unit or package</H2>
+
+To contribute a unit or package, please fill in the form below, and press
+'submit' to confirm. You will be informed if your data has been added, or
+informed of any failure.<P>
+
+Please take care, your package will be uniquely identified by the name and
+author pair. If you want to update information, you must provide
+<B>exactly</B> the same pair. So don't include version information in the
+package name, but instead put it in the version input field.
+<P>
+
+<TABLE WIDTH="100%" CELLPADDING=2 CELLSPACING=1 BORDER=1>
+<TR><TD>Name:</TD><TD><INPUT NAME="name" MAXLENGTH=128 SIZE=50></TD></TR>
+<TR><TD>Author:</TD><TD><INPUT NAME="author" MAXLENGTH=128 SIZE=50></TD></TR>
+<TR><TD>Version:</TD><TD><INPUT NAME="version" MAXLENGTH=30 SIZE=30></TD></TR>
+<TR><TD>File URL:</TD><TD><INPUT NAME="file" MAXLENGTH=80 SIZE=50 VALUE="ftp://"></TD></TR>
+<TR><TD>Homepage URL:</TD><TD><INPUT NAME="homepage" MAXLENGTH=80 SIZE=50></TD></TR>
+<TR><TD>E-mail:</TD><TD><INPUT NAME="email" MAXLENGTH=80 SIZE=50></TD></TR>
+<TR><TD>Date:</TD><TD><INPUT NAME="date" MAXLENGTH=8 SIZE=8 VALUE="DD/MM/YY"></TD></TR>
+<TR><TD>Supported OSes:</TD><TD><INPUT NAME="os" MAXLENGTH=30 SIZE=30></TD></TR>
+<TR><TD>description:<BR></TD><TD><TEXTAREA NAME="desc" ROWS=10 COLS=50></TEXTAREA></TD></TR>
+</TABLE>
+<P>
+Please provide a password. If you are adding a new entry, this password will
+be stored in the database. If you are replacing an existing entry, this
+password will be checked against the entry password before changing the
+entry.<P>
+Password: <INPUT TYPE="password" NAME="pwd" MAXLENGTH=30>
+<P>
+Select a category under which you would like to store your entry:
+<SELECT NAME="category">
+<OPTION>Database
+<OPTION>File Handling
+<OPTION>Graphics
+<OPTION>Internet
+<OPTION SELECTED>Miscellaneous
+</SELECT>
+<P>
+What would you like to do ?<P>
+<INPUT TYPE="radio" Name="mode" VALUE="add" CHECKED>Add entry<BR>
+<INPUT TYPE="radio" Name="mode" VALUE="replace">Replace entry<BR>
+<INPUT TYPE="radio" Name="mode" VALUE="remove">Remove entry<P>
+
+<INPUT TYPE="submit" VALUE="Submit">
+<INPUT TYPE="reset" VALUE="Clear form">
+</FORM>

@@ -1,0 +1,4 @@
+#!/bin/csh
+setenv REQUEST_METHOD GET
+setenv QUERY_STRING "mode=showunfixed"
+bugrep >unf.html

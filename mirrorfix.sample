@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# This script aws sent to us by the Slovenian mirror maintainer, he uses it to
+# fix the links in the down* files.
+#
+
+for i in `ls down*.html`
+do
+  cat $i | sed s/"ftp.freepascal.org"/"fpc.tps.sk"/g > x
+  mv x $i
+done

@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Updatesourcezips for 1.1 branch
+#
+
+WORKDIR=/tmp/fpc
+DESTDIR=$HOME/ftp/snapshot/v11/source
+CHECKOUTDIR=$WORKDIR/cvs
+TAG=HEAD
+MODULES='fpc'
+SUFFIX=
+#ZIPPACKAGES='rtl compiler utils fcl packages ide demo'
+ZIPPACKAGES=
+
+. $HOME/updatesourcezips

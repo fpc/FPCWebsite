@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Snapshot building for the 1.0.x branch
+#
+set -e
+
+# Checkout dir
+CHECKOUTDIR=/home/fpc/build/fixes
+STARTPP=/home/fpc/bin/ppc1010
+INSTALLCOMPILER=/home/fpc/bin/ppc1011
+MAILFILE=/home/fpc/logs/snapshot10.mail
+LOGFILE=/home/fpc/logs/snapshot10.log
+FTPDIR=deadlock.et.tudelft.nl:ftp/snapshot/v10/linux-i386
+
+# Include common makesnapshot script
+. $HOME/scripts/makesnapshot
+

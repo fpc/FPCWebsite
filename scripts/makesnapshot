@@ -1,0 +1,91 @@
+#!/bin/sh
+# Generic snapshot building
+#
+
+if [ "$CHECKOUTDIR" == "" ]; then
+    echo "No CHECKOUTDIR set"
+    exit 1
+fi
+
+# Limit resources (64mb data, 1mb stack)
+ulimit -d 65536 -s 1024
+
+# Checkout dir
+CVSROOT=/FPC/CVS
+
+#errormailaddr=core@freepascal.org
+#errormailaddr=peter@freepascal.org
+
+PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
+export CVSROOT
+(
+# Clean, ignore errors makefile can be broken
+cd $CHECKOUTDIR
+rm -rf libgdb
+rm -f *.tar.gz
+make distclean FPC=$STARTPP || true
+make -C tests distclean FPC=$STARTPP TEST_FPC=$STARTPP || true
+
+# Run cvs update
+cd $CHECKOUTDIR
+cvs up -CPd
+
+# add needed files (libgdb.a)
+if [ "$LIBGDBZIP" != "" ]; then
+        cd $CHECKOUTDIR
+        unzip -o ${LIBGDBZIP}
+fi
+
+# Copy fv, not needed anymore for 1.9.x
+#cd $CHECKOUTDIR/../fv
+#cvs up -CPd
+#cd $CHECKOUTDIR
+#cp -a ../fv $CHECKOUTDIR
+
+# make the snapshot!
+cd $CHECKOUTDIR
+make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP
+
+# copy current compiler to bin dir
+cp $CHECKOUTDIR/compiler/ppc386 $INSTALLCOMPILER
+
+# run testsuite and store results in database
+cd $CHECKOUTDIR/tests
+# fpc -iV returns exitcode 1, workaround with || true
+FPCVERSION=0
+[ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
+make fulldb FPC=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest
+make clean fulldb YES FPC=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER TEST_OPT=-O2rp3 DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest DBDIGESTOPT="-C -O2rp3"
+
+# move snapshot
+cd $CHECKOUTDIR
+if [ $? = 0 ]; then
+   #  FTP machine must trust this account. Copy public key to that machine
+   # if needed Everything is set
+   scp *.tar.gz ${FTPDIR}
+   if [ $? = 0 ]; then   
+     set errormailaddr = ""
+   fi
+fi
+
+# clean up, ignore errors... Makefile can be broken
+cd $CHECKOUTDIR
+rm -rf libgdb
+make distclean PP=$INSTALLCOMPILER || true
+make -C tests distclean PP=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER || true
+
+) > $LOGFILE 2>&1 </dev/null
+
+# send result to webmaster
+if [ "${errormailaddr}" != "" ]; then
+        # Create email
+        echo "To: ${errormailaddr}" > $MAILFILE
+        echo "From: fpc@freepascal.org" >> $MAILFILE
+        echo "Subject: Daily compile routine on deadlock" >> $MAILFILE
+        echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
+        # truncate the log to only the last 100 lines
+        /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
+        /usr/sbin/sendmail -f fpc@freepascal.org ${errormailaddr} < $MAILFILE >/dev/null 2>&1
+fi
+
+# End of script.

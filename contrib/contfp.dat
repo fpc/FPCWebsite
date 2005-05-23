@@ -1,0 +1,13 @@
+NAME: ZIP File System
+CATEGORY: File Handling
+PWD: ZIP
+FILE: ftp://tflily.fys.kuleuven.ac.be/pub/fpc/contrib/zfs003b.zip
+VERSION: 0.03b
+DATE: June 10, 1998
+OS: GO32V2
+AUTHOR: Iván Montes Velencoso
+EMAIL: imv@SoftHome.net
+HOMEPAGE: http://members.xoom.com/imontes/
+DESC: This unit allows you to use compressed files packed into a ZIP
+DESC: file as if it was on the disk. The decompression is made
+DESC: transparently to the programmer.

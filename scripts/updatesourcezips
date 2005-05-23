@@ -1,0 +1,127 @@
+#
+# Common part of the UpdateArchive script for Free Pascal
+#
+# This script will create the daily sources and log files.
+# It supports both the main branch as the 1.0.x branch
+#
+
+if [ "$WORKDIR" == "" ]; then
+    echo "Error workdir not set, this is a include script"
+    exit 1
+fi
+
+##########################
+# Configuration
+#
+
+PATH='.:$HOME/bin:/bin:/usr/bin:/usr/local/bin'
+
+CVSROOT=:pserver:peter@cvs.freepascal.org:/FPC/CVS
+export CVSROOT
+CVSOPT=-z3
+
+
+##########################
+# Procedures
+#
+
+# checkoutmodules <checkoutdir> <tag> <modules>
+checkoutmodules() {
+  echo
+  echo "Checkout modules $3 with tag $2"
+  echo
+  # Create dir and go to the dir
+  [ ! -d $1 ] && mkdir $1
+  cd $1
+  if [ "$2" != HEAD ]; then
+    TAGOPT="-r $2"
+  else
+    TAGOPT=
+  fi
+  for f in $3; do
+    cvs $CVSOPT co -P $TAGOPT $f
+  done
+}
+
+# copychanges <checkoutdir> <modules>
+copychanges() {
+    if [ -d $f/logs ]; then
+        echo
+        echo "Copying changes for modules $2"
+        echo
+        cd $1
+        for f in $2; do
+	    cp $f/logs/Changes.* $DESTDIR
+	    for j in $DESTDIR/Changes.*; do
+		touch --date "`head --bytes 16 $j`" $j
+    	    done
+        done
+    else
+        echo
+        echo "No changes found for modules $2"
+        echo
+    fi
+}
+
+# zipmodules <checkoutdir> <modules> <destdir> <suffix>
+zipmodules() {
+  echo
+  echo "Zipping modules $2 (suffix $4)"
+  cd $1
+  for f in $2; do
+    zip -o -q -r $f$4.zip $f -x '*CVS*' -x '*.#*'     
+    mv -f $f$4.zip $3
+  done
+}
+
+
+# zippackages <fpcdir> <packages> <destdir> <suffix>
+zippackages() {
+  if [ "$2" != "" ]; then
+    echo
+    echo "Zipping packages $2 (suffix $4) $3"
+    cd $1
+    for f in $2; do
+      zip -o -q -r $f$4.zip $f -x '*CVS*' -x '*.#*'     
+      mv -f $f$4.zip $3
+    done
+  fi    
+}
+
+
+########################
+# Main
+########################
+
+echo
+echo "Creating working dirs"
+
+# Create safe workdir
+[ ! -d $WORKDIR ] && mkdir $WORKDIR
+chmod 700 $WORKDIR
+
+# Create the checkoutdir
+[ ! -d $CHECKOUTDIR ] && mkdir $CHECKOUTDIR
+
+# Update from cvs
+checkoutmodules $CHECKOUTDIR $TAG "$MODULES"
+
+# install logs also and set the timestamp to latest change
+copychanges $CHECKOUTDIR "$MODULES"
+
+# Create zips of the modules
+zipmodules $CHECKOUTDIR "$MODULES" $DESTDIR $SUFFIX
+
+if [ "$ZIPPACKAGES" != "" ]; then
+    # Create zips of the packages
+    zippackages $FPCDIR "$ZIPPACKAGES" $DESTDIR $SUFFIX
+
+    # base dir, only the top Makefile,Makefile.fpc
+    cd $CHECKOUTDIR/fpc
+    zip -q -o base.zip Makefile Makefile.fpc
+    mv -f base.zip $DESTDIR
+fi
+
+# Add directory listing.
+cd $DESTDIR
+ls -l >index.txt

@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# This copies the mailing lists files to the correct directories
+# so they are accessible externally
+
+~/scramble /var/lib/mailman/archives/public ~/lists 1 > ~/logs/scramble.log

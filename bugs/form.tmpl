@@ -1,0 +1,112 @@
+<FORM ACTION="add.php3">
+<H2>Reporting a bug</H2>
+
+To report a bug, please fill in the form below, and press
+'submit' to confirm. You will be informed if your data has been added, or
+informed of any failure.<P>
+
+Before reporting a bug, please take a moment before adding it to consider
+the following points:
+<OL>
+<LI> Is it really a bug ? Make sure you didn't make any errors in your
+logic. Try to isolate the problem as much as possible.
+<LI> Is the bug already reported? It may be that the bug is aleady in the
+database, but with a different description or title.
+<LI> Try to be clear in your description; the text 'my program doesn't
+compile' is not enough; it should be clear from the description what the
+problem is.
+<LI> Choose a category for the bug:
+<UL> 
+<LI><B>Compiler : </B> Bugs that cause an error when compiling, but not a
+crash.
+<LI><B>Crash : </B> Bugs that cause the compiler to crash.
+(or an internal error)
+<LI><B>RTL :</B> Bugs in the Run-Time Library. Standard functions that don't
+behave as they should.
+<LI><B>Language :</B> Pascal constructs that are not recognized by the
+compiler.
+<LI><B>Compatibility : </B> Things (pascal constructs, options) 
+that are supported by Borland Pascal or Delphi, but not by Free Pascal.
+</UL>
+<LI> The description must be typed in 1024 characters.
+<LI> When you add a program that shows a bug:
+<B>KEEP IT AS SHORT AS POSSIBLE</B>. Anything above 6k is chopped off. 
+This will force you to cut down the code to the essential things.
+</OL>
+
+When all this has been taken into account, you can fill in the form
+below:<P>
+If you fill in the e-mail address correctly, you will get an automatic 
+notification if the bug is fixed.<P>
+<INPUT TYPE="hidden" NAME="confirm" VALUE="yes">
+<TABLE WIDTH="100%" CELLPADDING=2 CELLSPACING=1 BORDER=1>
+<TR><TD>Bug Title:</TD><TD><INPUT NAME="title" MAXLENGTH=128 SIZE=50></TD></TR>
+<TR><TD>Your name:</TD><TD><INPUT NAME="name" MAXLENGTH=128 SIZE=50></TD></TR>
+<TR><TD>E-mail:</TD><TD><INPUT NAME="email" MAXLENGTH=80 SIZE=50></TD></TR>
+<TR><TD>description:<BR></TD><TD><TEXTAREA NAME="descr" ROWS=10 COLS=50></TEXTAREA></TD></TR>
+<TR><TD>Program:<BR></TD><TD><TEXTAREA NAME="prog" ROWS=10 COLS=50></TEXTAREA></TD></TR>
+</TABLE>
+<P>
+Select a category under which you think the bugs falls:
+<SELECT NAME="category">
+<OPTION value="0" SELECTED>Compiler
+<OPTION value="1" >RTL
+<OPTION value="2" >IDE
+<OPTION value="4" >Misc
+<OPTION value="5" >Documentation
+<OPTION value="6" >FCL
+<OPTION value="7" >Packages
+<OPTION value="8" >Installer
+<OPTION value="9" >Free Vision
+</SELECT>
+<P>
+Select a type under which you think the bugs falls:
+<SELECT NAME="BugType">
+<OPTION value="1" SELECTED>Error
+<OPTION value="2">Crash
+<OPTION value="3">Wishlist
+<OPTION value="4">Compatibilty
+</SELECT>
+<P>
+What version of the compiler and RTL did you use ?
+<SELECT NAME="BugVersion">
+<OPTION>1.9.9
+<OPTION SELECTED>1.9.8
+<OPTION>1.9.7
+<OPTION>1.9.6
+<OPTION>1.9.5
+<OPTION>1.9.4
+<OPTION>1.9.3
+<OPTION>1.9.2
+<OPTION>1.9.1
+<OPTION>1.9.0
+<OPTION>1.1.0
+<OPTION>1.0.10
+<OPTION>1.0.8
+<OPTION>1.0.7
+<OPTION>1.0.6
+<OPTION>Older
+<OPTION>?
+</SELECT>
+<P>
+What operating system did you test this bug on:
+<SELECT NAME="os">
+<OPTION SELECTED>All
+<OPTION>GO32V2
+<OPTION>Linux
+<OPTION>OS/2
+<OPTION>Win32
+<OPTION>BeOS
+<OPTION>SunOS
+<OPTION>FreeBSD
+<OPTION>NetBSD
+<OPTION>AmigaOS
+<OPTION>PalmOS
+<OPTION>NetWare
+<OPTION>Darwin
+<OPTION>Mac OS X
+</SELECT>
+<P>
+<INPUT TYPE="submit" VALUE="Submit bug">
+<INPUT TYPE="reset" VALUE="Clear form">
+</FORM>

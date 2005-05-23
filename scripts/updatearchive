@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# UpdateArchive script for Free Pascal
+#
+# This script will create the daily sources and log files.
+# It supports both the main branch as the 1.0.x branch
+#
+
+##########################
+# Configuration
+#
+
+PATH='.:$HOME/bin:/bin:/usr/bin:/usr/local/bin'
+
+# Starting compiler for snapshots
+LOGFILE=$HOME/logs/updatearchive.log
+FTPDIR=$HOME/ftp/snapshot
+
+(
+# Update 1.0.x sources
+echo
+echo "Updating 1.0.x sources"
+$HOME/updatesourcezips10
+
+# Update 1.1 sources
+echo
+echo "Updating 1.1 sources"
+$HOME/updatesourcezips11
+
+# Update HTML
+echo
+echo "Updating html pages"
+$HOME/updatehtml
+
+# Put the date on the ftp sites so mirrors can check that the ftp site has
+# been updated.
+date +'y:%Y m:%b d:%e'>$FTPDIR/last_update
+
+# signal all rsync mirrors
+$HOME/runmirrors
+
+echo
+echo "Done"
+) > $LOGFILE 2>&1 < /dev/null
+
+# end of script.

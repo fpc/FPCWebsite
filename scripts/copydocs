@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+VERSION=1.0.8
+
+DOCDIR=$HOME/ftp/docs
+PDFDOC=$DOCDIR/docs-pdf.zip
+HTMLDOC=$DOCDIR/doc-html.zip
+HTMDOC=$DOCDIR/doc-htm.zip
+DIST=$HOME/ftp/dist
+
+cp $PDFDOC $HTMDOC $DIST/dos-$VERSION/separate
+cp $PDFDOC $HTMDOC $DIST/os2-$VERSION/separate
+cp $PDFDOC $HTMLDOC $DIST/win32-$VERSION/separate

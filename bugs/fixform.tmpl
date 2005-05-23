@@ -1,0 +1,65 @@
+<FORM ACTION="edit.php3">
+<H1>Updating bug report:</H1>
+<INPUT NAME="ID" TYPE="hidden" VALUE="<?php echo $row->BugId ?>">
+<INPUT NAME="confirm" TYPE="hidden" VALUE="yes">
+<TABLE WIDTH="100%" CELLPADDING=2 CELLSPACING=1 BORDER=1>
+<TR><TD><B>Bug ID:</B></TD><TD>
+<?php echo $row->BugId; ?> </TD></TR>
+<TR><TD><B>Title:</B></TD><TD>
+<INPUT NAME="bugtitle" MAXLENGTH=128 SIZE=50 VALUE="<?php echo $row->Title; ?>"></TD></TR>
+</TD></TR>
+<TR><TD COLSPAN=2><B>Description:</B><BR><?php echo $row->Descr; ?></TD></TR>
+<TR><TD>Fixer name:</TD><TD>
+<INPUT NAME="fixer" MAXLENGTH=128 SIZE=50></TD></TR>
+<TR><TD>Fixed in version:</TD><TD>
+<SELECT NAME="fixversion">
+<OPTION SELECTED>2.0.1
+<OPTION>2.1.1
+<OPTION>2.0.0
+<OPTION>earlier
+<OPTION>N/A
+</SELECT>
+</TD></TR>
+<TR><TD>New category:</TD><TD>
+<SELECT NAME="category">
+<OPTION VALUE="0" <?php if ($row) { if ($row->Category==0) {echo "SELECTED";}}?> >Compiler
+<OPTION VALUE="1" <?php if ($row) { if ($row->Category==1) {echo "SELECTED";}}?> >RTL
+<OPTION VALUE="2" <?php if ($row) { if ($row->Category==2) {echo "SELECTED";}}?> >IDE
+<OPTION VALUE="4" <?php if ($row) { if ($row->Category==4) {echo "SELECTED";}}?> >Misc
+<OPTION VALUE="5" <?php if ($row) { if ($row->Category==5) {echo "SELECTED";}}?> >Documentation
+<OPTION VALUE="6" <?php if ($row) { if ($row->Category==6) {echo "SELECTED";}}?> >FCL
+<OPTION VALUE="7" <?php if ($row) { if ($row->Category==7) {echo "SELECTED";}}?> >Packages
+<OPTION VALUE="8" <?php if ($row) { if ($row->Category==8) {echo "SELECTED";}}?> >Installer
+<OPTION VALUE="9" <?php if ($row) { if ($row->Category==9) {echo "SELECTED";}}?> >Free Vision
+</SELECT>
+</TD></TR>
+<TR><TD>New type:</TD><TD>
+<SELECT NAME="BugType">
+<OPTION VALUE="1" <?php if ($row) { if ($row->bugtype==1) {echo "SELECTED";}}?> >Error
+<OPTION VALUE="2" <?php if ($row) { if ($row->bugtype==2) {echo "SELECTED";}}?> >Crash
+<OPTION VALUE="3" <?php if ($row) { if ($row->bugtype==3) {echo "SELECTED";}}?> >Wishlist
+<OPTION VALUE="4" <?php if ($row) { if ($row->bugtype==4) {echo "SELECTED";}}?> >Compatibility
+</SELECT>
+</TD></TR>
+<TR><TD>Comment:<BR></TD><TD><TEXTAREA NAME="comment" ROWS=5 COLS=50
+MAXLENGTH=512></TEXTAREA></TD></TR>
+</TABLE>
+<P>
+New status for bug :
+<SELECT NAME="status">
+<OPTION>Unfixed
+<OPTION SELECTED>Fixed
+<OPTION>Unreproducable
+<OPTION>Not a bug
+</SELECT>
+<P>
+Password:
+<INPUT TYPE="password" NAME="pwd"><BR>
+This password will be checked before modifying the entry.
+<P>
+
+
+<P>
+<INPUT TYPE="submit" VALUE="Submit">
+<INPUT TYPE="reset" VALUE="Clear form">
+</FORM>

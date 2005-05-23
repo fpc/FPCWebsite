@@ -1,0 +1,37 @@
+H1, H2, H3, H4, P, TD, A, B {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H1
+{
+  font-size:21px
+}
+H2
+{
+  font-size:17px
+}
+H3
+{
+  font-size:15px
+}
+H4
+{
+  font-size:14px
+}
+P, TD, B, H5
+{
+  font-size:13px
+}
+TD.menu {
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+        background-color:#3020ef
+}
+PRE {
+	FONT-FAMILY: courier
+}
+A.navi {        
+	COLOR: #e8f0f0; TEXT-DECORATION: underline
+}
+B.curnavi {
+	COLOR: white; FONT-WEIGHT: bold; TEXT-DECORATION: none; 
+}
+
