@@ -89,7 +89,6 @@ contrib/update.gif -text svneol=unset#image/gif
 /esplit.fp svneol=native#text/plain
 /faq.fp svneol=native#text/plain
 /favicon.ico -text svneol=unset#image/ico
-fcl/.cvsignore -text
 fcl/classchart.gif -text svneol=unset#image/gif
 fcl/fcl.fp svneol=native#text/plain
 /fixdoc.pp svneol=native#text/plain
@@ -144,7 +143,6 @@ html_d/unitsrtl.fp svneol=native#text/plain
 /mirrors.lst -text
 /moreinfo.fp svneol=native#text/plain
 /news.fp svneol=native#text/plain
-packages/.cvsignore -text
 packages/amunits.fp svneol=native#text/plain
 packages/bfd.fp svneol=native#text/plain
 packages/cdrom.fp svneol=native#text/plain
@@ -232,7 +230,6 @@ pic/unitsrtl.gif -text svneol=unset#image/gif
 /probs.fp svneol=native#text/plain
 /prog.fp svneol=native#text/plain
 /resources.html svneol=native#text/plain
-rtl/.cvsignore -text
 rtl/rtl.fp svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
