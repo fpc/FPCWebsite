@@ -1,6 +1,3 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-                        "http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML>
 <HEAD>
    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
    <META NAME="Author" CONTENT="Free Pascal Web Team">
@@ -73,6 +70,18 @@
      <TD><IMG height=12 src="pic/shadowrb.png" width=12 alt=""></TD>
   </TR>
   </TABLE>
+
+  <center>
+   <br>
+   <a href="http://www.lazarus.freepascal.org"><img src="pic/lazarus_produced_logo.gif" alt="Lazarus Logo" border=0 height="57" width="125" /></a><br>
+   <br>
+   <a href="http://www.ffii.org"><img src="http://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" border=0 height="31" width="88" /></a><br>
+   <br>
+   <a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a><br>
+   <br>
+   <a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" border=0 height="31" width="88" /></a><br>
+  </center>
+
   </TD>
   <TD BGCOLOR="#E6E6E6" WIDTH="100%" HEIGHT="100%">
 
@@ -89,4 +98,3 @@
 <!-- MODIFY -->
 
 </BODY>
-</HTML>

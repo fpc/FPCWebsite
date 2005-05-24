@@ -447,6 +447,7 @@ begin
      Close(f);
      Close(t);
    end;
+  write(g,'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">'#10);
   write(g,'<HTML>'#10);
 {Parse the template and fill in the stuff}
   while not eof(t) do
@@ -505,7 +506,7 @@ begin
                     Delete(s,j,4);
                     Insert('</B>',s,j);
                   end;
-                 skipmaindir:=true; 
+                 skipmaindir:=true;
                 end;
                { Check if the entry can be removed }
                if i>6 then

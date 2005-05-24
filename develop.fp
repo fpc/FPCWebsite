@@ -18,7 +18,7 @@ development is progressing you can take a peek at the developer versions.</p>
   <LI><A HREF="#sourcesv20">Download Daily Source Snapshot of Release Tree (version 2.0.x)</A></LI>
   <LI><A HREF="#snapshotsv21">Download Daily Update of Development Tree (version 2.1.x)</A></LI>
   <LI><A HREF="#svn">Connect to Source Repository with SVN</A></LI>
-  <LI><A HREF="#future">Bugs and the Future</A></LI>
+  <LI><A HREF="#future">Bugs and the Future<</A></LI>
 <!-- IDXEND -->
 </Ul>
 
