@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -33,5 +31,3 @@ DoAnchor('db.php3','back to summary view.');
 mysql_close($db);
 readfile ($foot);
 ?>
-</BODY>
-</HTML>

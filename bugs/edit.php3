@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -73,5 +71,3 @@ if ( $confirm == "yes") {
 }
 readfile($foot);
 ?>
-</BODY>
-</HTML>

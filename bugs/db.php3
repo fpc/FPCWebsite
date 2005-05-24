@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -134,5 +132,3 @@ EmitBugsMenu ();
 echo "<P>";
 readfile ($foot);
 ?>
-</BODY>
-</HTML>
