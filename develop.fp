@@ -24,8 +24,8 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <hr>
 
-<ul>
-<A NAME="sourcesv21"></A><H3><LI>Download Daily Source Snapshot of Development Tree (version 2.1.x)</LI></H3>
+
+<A NAME="sourcesv21"></A><H3>Download Daily Source Snapshot of Development Tree (version 2.1.x)</H3>
 <P>
 You can download todays development (v2.1.x) sources in form of a packed
 snapshot from the SVN source repository: these snapshots are updated on
@@ -37,7 +37,7 @@ Entire public sources archive of v2.1.x:
 <A href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/source/fpc.zip">fpc.zip</a> (24 MB)
 </p>
 
-<A NAME="sourcesv20"></A><H3><LI>Download Daily Source Snapshot of Release Tree (version 2.0.x)</LI></H3>
+<A NAME="sourcesv20"></A><H3>Download Daily Source Snapshot of Release Tree (version 2.0.x)</H3>
 <P>
 You can download todays development (v2.0.x) sources that will lead to the next
 stable release in form of a packed
@@ -50,13 +50,12 @@ Entire public sources archive of v2.0.x:
 <A href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/source/fpc.zip">fpc.zip</a> (24 MB)
 </p>
 
-</ul>
 <br>
 
 
 <hr>
 
-<A NAME="snapshotsv21"></A><H3><LI>Download Daily Update of Development Tree (version 2.1.x)</LI></H3>
+<A NAME="snapshotsv21"></A><H3>Download Daily Update of Development Tree (version 2.1.x)</H3>
 <p>
 These snapshots contain the latest development updates and bug fixes. There is no
 guarantee that the new development updates are fully working and that the snapshot
@@ -65,7 +64,7 @@ is bugfree.
 <p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/">Freepascal ftp site</A>. 
 </p>
 
-<H3><LI><A NAME="snapshotsv20">Download Daily Update of Release Tree (version 2.0.x)</a></LI></H3>
+<H3><A NAME="snapshotsv20">Download Daily Update of Release Tree (version 2.0.x)</a></H3>
 <p>
 These snapshots contain the latest bug fixes, without any major new
 feature. This should be more stable than the development snapshots (and even
@@ -75,13 +74,11 @@ snapshots are bugfree.
 <p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/">Freepascal ftp site</A>. 
 </p>
 
-</UL>
 <br>
-
 
 <hr>
 
-<A NAME="svn"></A><H3><LI>Connect to Source Repository with SVN</LI></H3>
+<A NAME="svn"></A><H3>Connect to Source Repository with SVN</H3>
 <p>
 As an alternative to the daily zip files of the SVN sources,
 the SVN repository has been made accessible for everyone,
@@ -200,7 +197,7 @@ anything :-)
 
 <hr>
 
-<a name="svnweb"></A><H3><LI>Browse the Source Repository with a Web Browser</LI></H3>
+<a name="svnweb"></A><H3>Browse the Source Repository with a Web Browser</H3>
 
 <p>
 The contents of the SVN archive can also be browsed with your web-browser
@@ -210,7 +207,7 @@ through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">v
 
 <hr>
 
-<A NAME="future"></A><H3><LI>Bugs and the Future</LI></H3>
+<A NAME="future"></A><H3>Bugs and the Future<</H3>
 <P>
 A list of known bugs is available <A HREF="bugs.html">here</A>.<BR>
 And the future plans of Free Pascal can be viewed <A HREF="future.html">here</A>.
