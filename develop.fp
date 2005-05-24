@@ -24,6 +24,7 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <hr>
 
+<ul>
 <A NAME="sourcesv21"></A><H3><LI>Download Daily Source Snapshot of Development Tree (version 2.1.x)</LI></H3>
 <P>
 You can download todays development (v2.1.x) sources in form of a packed
@@ -49,7 +50,7 @@ Entire public sources archive of v2.0.x:
 <A href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/source/fpc.zip">fpc.zip</a> (24 MB)
 </p>
 
-</UL>
+</ul>
 <br>
 
 

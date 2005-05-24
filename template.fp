@@ -6,7 +6,7 @@
    <META NAME="Author" CONTENT="Free Pascal Web Team">
    <META name="description" content="Free Pascal: free 32/64-bit Pascal compiler (x86,m68k,powerpc,sparc,arm) for DOS, Linux, Darwin, NetBSD, FreeBSD, Solaris, MacOS, BeOS, Win32 and OS/2.">
    <META NAME="keywords" content="32 bit, 64 bit, protected mode, compiler, native, pascal, Object Pascal, FPC, FPC Pascal, Free Pascal">
-   <LINK href="/styles.css" rel=stylesheet type=text/css>
+   <LINK href="/styles.css" rel=stylesheet type="text/css">
    <LINK REL="SHORTCUT ICON" href="/favicon.ico">
    <TITLE>$TITLE</TITLE>
 
@@ -69,8 +69,8 @@
     <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" width=12></TD>
   </TR>
   <TR>
-     <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12></TD>
-     <TD><IMG height=12 src="pic/shadowrb.png" width=12></TD>
+     <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
+     <TD><IMG height=12 src="pic/shadowrb.png" width=12 alt=""></TD>
   </TR>
   </TABLE>
   </TD>
