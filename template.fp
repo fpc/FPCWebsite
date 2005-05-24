@@ -63,7 +63,7 @@
   ____<A HREF="http://www.freepascal.org/contrib/add.php3" class="navi">Contribute a unit.</A>
   <BR><BR>
   </TD>
-    <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" width=12></TD>
+    <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" alt="" width=12></TD>
   </TR>
   <TR>
      <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
@@ -79,7 +79,7 @@
    <br>
    <a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" border="0" alt="SourceForge.net Logo" /></a><br>
    <br>
-   <a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" border=0 height="31" width="88" /></a><br>
+<!--   <a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" border=0 height="31" width="88" /></a><br> -->
   </center>
 
   </TD>
