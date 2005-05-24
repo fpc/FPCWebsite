@@ -76,23 +76,11 @@ else
 EXE=.exe
 endif
 
-ifeq ($(OS),win32)
-OBJ=.ow
-else
 OBJ=.o
-endif
 
-ifeq ($(OS),linux)
+# require GNU Fileutils
 RM=rm -f
-else
-RM=del
-endif
-
-ifeq ($(OS),linux)
-MV=mv
-else
-MV=ren
-endif
+MV=mv -f
 
 # Directory separator
 SL=/
