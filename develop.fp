@@ -17,8 +17,7 @@ development is progressing you can take a peek at the developer versions.</p>
   <LI><A HREF="#sourcesv21">Download Daily Source Snapshot of Development Tree (version 2.1.x)</A></LI>
   <LI><A HREF="#sourcesv20">Download Daily Source Snapshot of Release Tree (version 2.0.x)</A></LI>
   <LI><A HREF="#snapshotsv21">Download Daily Update of Development Tree (version 2.1.x)</A></LI>
-  <LI><A HREF="#cvs">Connect to Source Repository with GNU CVS</A></LI>
-  <LI><A HREF="#cvsweb">Browse the Source Repository with a Web Browser</A></LI>
+  <LI><A HREF="#svn">Connect to Source Repository with SVN</A></LI>
   <LI><A HREF="#future">Bugs and the Future</A></LI>
 <!-- IDXEND -->
 </Ul>
@@ -28,9 +27,9 @@ development is progressing you can take a peek at the developer versions.</p>
 <A NAME="sourcesv21"></A><H3><LI>Download Daily Source Snapshot of Development Tree (version 2.1.x)</LI></H3>
 <P>
 You can download todays development (v2.1.x) sources in form of a packed
-snapshot from the CVS source repository: these snapshots are updated on
+snapshot from the SVN source repository: these snapshots are updated on
 a daily basis, and reflect the state of the source repository.
-The files are kept at the site which has the CVS archive.
+The files are kept at the site which has the SVN archive.
 </P>
 <p>
 Entire public sources archive of v2.1.x:
@@ -41,9 +40,9 @@ Entire public sources archive of v2.1.x:
 <P>
 You can download todays development (v2.0.x) sources that will lead to the next
 stable release in form of a packed
-snapshot from the CVS source repository: these snapshots are updated on
+snapshot from the SVN source repository: these snapshots are updated on
 a daily basis, and reflect the state of the source repository.
-The files are kept at the site which has the CVS archive.
+The files are kept at the site which has the SVN archive.
 </P>
 <p>
 Entire public sources archive of v2.0.x:
@@ -81,69 +80,48 @@ snapshots are bugfree.
 
 <hr>
 
-<A NAME="cvs"></A><H3><LI>Connect to Source Repository with GNU CVS</LI></H3>
+<A NAME="svn"></A><H3><LI>Connect to Source Repository with SVN</LI></H3>
 <p>
-As an alternative to the daily zip files of the CVS sources,
-the CVS repository has been made accessible for everyone,
+As an alternative to the daily zip files of the SVN sources,
+the SVN repository has been made accessible for everyone,
 with read-only access. This means that you can directly access the code, and
 you will have really the last-minute sources available. It is also a method
-which requires less bandwidth once you have done the first download (checkout in CVS lingo).
+which requires less bandwidth once you have done the first download (checkout in SVN lingo).
 </P>
 <p>
-Together with the release of version 1.0, the CVS archive has been freshly set up,
-all the modules are now available with a single CVS command. Besides
-the development snapshots, also the fixes branch of the 1.0 release is publically
-available.
+Together with the release of version 2.0, FPC has migrated to SVN. For now,
+there is no CVS mirror yet, so you've to use SVN to get the FPC sources.
 </p>
 <p>
 <b>Development snapshots</b>
 </p>
 <p>
 How to do this? Generally, you need 3 steps:<BR>
-(If you have CVS installed, of course. Look <A HREF="http://www.cyclic.com/">here</A> for instructions on
+(If you have SVN installed, of course. Look <a href="http://subversion.tigriis.org">here</A> for instructions on
 how to do that.)
 </P>
 
 <OL>
-<LI> Log in to the server. <BR>
-To do that, type the following on the command line:
-<font size="-1">
-<PRE>
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS login
-</PRE>
-</font>
-You will be prompted for a password:
-<PRE>
-(Logging in to cvs&#x040;cvs.freepascal.org)
-CVS password:
-</PRE>
-<p>
-The password is '<TT>cvs</TT>' (don't type the quotes). <BR>
-This step needs to be performed only once. Your CVS client will remember the
-password.
-</P>
 <LI> To retrieve the full source repository, all publically available modules,
 type
 <font size="-1">
 <PRE>
-cvs -z 3 -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS checkout fpc
+svn checkout http://svn.freepascal.org/svn/fpc/trunk fpc
 </PRE>
 </font>
-This will create a directory fpc in your CVS repository directory, containing
+This will create a directory fpc in your SVN repository directory, containing
 subdirectories with the following packages:
 
 <UL>
 <LI><B>rtl</B>, the RunTime Library source for all platforms.</LI>
 <LI><B>compiler</B>, the compiler source.</LI>
-<LI><B>docs</B>, the documentation (LaTeX) source.</LI>
 <LI><B>fcl</B>, the Free Component Library source.
 <LI><B>packages</B>, Packages source (contains gtk, ncurses, mysql and many more)</LI>
 <LI><B>utils</B>, the utils sources.</li>
-<LI><B>fvision</b>, the start of the new Free Vision that doesn't have copyright problems</li>
+<LI><B>fv</b>, Free Vision</li>
 <LI><B>tests</b>, the compiler and RTL tests.</LI>
 <LI><B>ide</b>, the IDE sources. (can't be build. Need proprietary library)</LI>
 <LI><B>install</b>, everything needed to create a release. Installer, demoes etc</LI>
-<LI><B>logs</b>, Daily changelogs</LI>
 </UL>
 </P>
 
@@ -152,7 +130,7 @@ with
 
 <font size="-1">
 <PRE>
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS checkout fpc/rtl fpc/compiler
+svn checkout http://svn.freepascal.org/svn/fpc/trunk/rtl fpc/rtl
 </PRE>
 </font>
 
@@ -162,53 +140,56 @@ Normally, you should perform this step just once.
 <LI> To update the sources which were downloaded (checkout) above
 <font size="-1">
 <PRE>
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS -z 3 update -Pd fpc
+svn update fpc
 </PRE>
 </font>
 or
 <font size="-1">
 <PRE>
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS -z 3 update -Pd fpc/compiler
+svn update fpc/rtl
 </PRE>
 </font>
-if you only downloaded some separate packages, the compiler sources in this case.
-
-(please do not use factor 9, since it will burden our server a lot, and will
-give no significant gain in bandwidth).<BR>
+if you only downloaded some separate packages, the rtl sources in this case.<BR>
 This will retrieve patches <em>ONLY</EM> for the files that have
 changed. <BR>
-The <TT>-z 3</TT> tells cvs to use the compression when sending files over the net.
 <P>
 This step you can repeat whenever you want to update your sources. It is by
 far the most economic in terms of bandwidth.
 
 </OL>
 <p>
-<b>Fixes to 1.0.x </b>
-</p>
-<p>
-Note: The Free Pascal team has stopped applying bugfixes to the 1.0.x compiler branch. The current
-1.9.x releases are already more stable than 1.0.x ever will get.<br>
+<b>Fixes to 2.0.x </b>
 </p>
 <p>
 The fixes need a separate directory, create a separate directory fixes, enter it, and repeat
-the above commands with  -r FIXES&undersc;1&undersc;0&undersc;0 (case sensitive) appended after the update or checkout command:
+the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;0:
 </p>
 <pre>
-cd \mycvs\fixes
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS -z 3 checkout -r FIXES&undersc;1&undersc;0&undersc;0 fpc
+cd mysvn/fixes
+svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;0 fpc
 </pre>
 
 and to update:
 
 <pre>
-cvs -d :pserver:cvs&#x040;cvs.freepascal.org:/FPC/CVS -z 3 update -r FIXES&undersc;1&undersc;0&undersc;0 -Pd fpc
+svn update fpc
 </pre>
 
 <P>
-To checkout the 1.00 release use RELEASE&undersc;1&undersc;0&undersc;0 as the tag. And
-for the 1.0.2 release use RELEASE&undersc;1&undersc;0&undersc;2 as the tag, etc.
+To checkout release, you've to checkout the tagged versions, e.g.
+svn checkout http://svn.freepascal.org/svn/fpc/tages/release&undersc;2&undersc;0&undersc;2 fpc
 </P>
+
+<p>
+The sources of docs are in a separate repository called fpcdocs, so the command to get them is
+<pre>
+svn checkout http://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
+</pre>
+
+<p>
+If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a> 
+which is also available online in different formats for free.
+</p>
 
 <P>
 For the curious: You have only read-only access, so don't try to commit
@@ -218,11 +199,11 @@ anything :-)
 
 <hr>
 
-<A NAME="cvsweb"></A><H3><LI>Browse the Source Repository with a Web Browser</LI></H3>
+<a name="svnweb"></A><H3><LI>Browse the Source Repository with a Web Browser</LI></H3>
 
 <p>
-The contents of the CVS archive can also be browsed with your web-browser
-through this <A HREF="http://www.freepascal.org/cgi-bin/viewcvs.cgi/fpc">viewcvs</A> interface.
+The contents of the SVN archive can also be browsed with your web-browser
+through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">viewcvs</A> interface.
 </P>
 
 
