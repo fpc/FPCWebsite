@@ -9,7 +9,8 @@
  */
 readfile ($head);
 EmitContribsMenu ();
-$db = mysql_connect('','michael','geen');
+include('contribpwd.php');
+$db = mysql_connect($DBHost,$DBUser,$DBPassword);
 CheckMySQLError($foot);
 mysql_select_db('FPC');
 if (($category=="all") || ($category=="")) {
