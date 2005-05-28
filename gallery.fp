@@ -112,8 +112,8 @@ that have been written using Free Pascal.
       <FONT size=-1><A href='gallery/Seksi.png'>
       <IMG src='gallery/Seksi.thumb.png' alt='' align='left'></A>
       The <A href='http://radekc.regnet.cz'>Seksi Commander</A> is a graphical
-      file manager inspired by Total Commander combined with some innovative
-      ideas.
+      file manager inspired by Total Commander and Midnight Commander combined
+      with some innovative ideas.
       </FONT>
     </TD>
     <TD width=50%>
