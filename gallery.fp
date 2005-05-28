@@ -13,7 +13,8 @@ that have been written using Free Pascal.
 <TABLE width=100% cellspacing=5>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Lentil%5fwars.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Lentil%5fwars.jpg'>
+      <IMG src='gallery/Lentil%5fwars.thumb.png' alt='' align='left'></A>
       <A href='http://lwars.sourceforge.net'>Lentil Wars</A> is an arcade
       action game for Linux and Windows that is still in development.
       Players combat each other in multiple nicely designed levels. Lentil
@@ -21,7 +22,8 @@ that have been written using Free Pascal.
       </FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Voxel%5fworld.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Voxel%5fworld.jpg'
+      <IMG src='gallery/Voxel%5fworld.thumb.png' alt='' align='left'></A>
       <A href='http://dmitry.ancientspledge.com'>Voxel World</A> is a 3D
       terrain renderer. It features volumetric animated clouds, a built-in
       fractal generator, procedural texturing, superscalability. It's map
@@ -31,7 +33,8 @@ that have been written using Free Pascal.
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Infrabase.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Infrabase.jpg>
+      <IMG src='gallery/Infrabase.thumb.png' alt='' align='left'></A>
       Belgian telecom company <A href='http://www.belgacom.be'>Belgacom</A>
       develop their telecom network management software with Free Pascal. It
       is used to downloads data from telephone exchanges, supervise alarms,
