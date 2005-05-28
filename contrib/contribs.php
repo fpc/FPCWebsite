@@ -8,7 +8,8 @@ $foot="foot.tmpl";
  * Connect to the contribs database.
 */
 function ConnectToFPC () {
-  $db = mysql_connect('','FPCUser','FPC');
+  include('contribpwd.php');
+  $db = mysql_connect($DBhost,$DBUser,$DBPassword);
   CheckMySQLError($foot);
   mysql_select_db('FPC');
   CheckMySQLError($foot);

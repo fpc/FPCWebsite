@@ -45,7 +45,6 @@ if ( $confirm == "yes") {
     if ( mysql_affected_rows($db)==1 ) {
       Header1("Confirmation of deletion:");
       echo "The record was successfully deleted.<P>";
-      EmitContribsMenu ();
     } else { 
       Header1("Deletion failed:");
       echo "The record was NOT successfully deleted, please try again.<P>";
