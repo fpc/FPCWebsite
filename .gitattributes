@@ -103,6 +103,8 @@ gallery/Delphineos.png -text svneol=unset#image/png
 gallery/Delphineos.thumb.png -text svneol=unset#image/png
 gallery/GLwaves.jpg -text svneol=unset#image/jpeg
 gallery/GLwaves.thumb.png -text svneol=unset#image/png
+gallery/Infrabase.jpg -text
+gallery/Infrabase.thumb.png -text
 gallery/Lazarus.gif -text
 gallery/Lentil_wars.jpg -text svneol=unset#image/jpeg
 gallery/Lentil_wars.thumb.png -text svneol=unset#image/png
