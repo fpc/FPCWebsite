@@ -26,23 +26,24 @@ that have been written using Free Pascal.
       <IMG src='gallery/Voxel%5fworld.thumb.png' alt='' align='left'></A>
       <A href='http://dmitry.ancientspledge.com'>Voxel World</A> is a 3D
       terrain renderer. It features volumetric animated clouds, a built-in
-      fractal generator, procedural texturing, superscalability. It's map
+      fractal generator, procedural texturing, superscalability. Its map
       loader can read any about raw map to be visualized.
       </FONT>
     </TD>
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><A href='gallery/Infrabase.jpg>
+      <FONT size=-1><A href='gallery/Infrabase.jpg'>
       <IMG src='gallery/Infrabase.thumb.png' alt='' align='left'></A>
       Belgian telecom company <A href='http://www.belgacom.be'>Belgacom</A>
       develop their telecom network management software with Free Pascal. It
-      is used to downloads data from telephone exchanges, supervise alarms,
+      is used to download data from telephone exchanges, supervise alarms,
       manage the expansion of the broadband network, manage the different
       services, ....</FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Checkbook.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Checkbook.jpg'>
+      <IMG src='gallery/Checkbook.thumb.png' alt='' align='left'></A>
       <A href='http://tony.maro.net/mod.php?mod=userpage&menu=9&page%5fid=4'>
       Checkbook Tracker</A> is a financial managemant package. It can do scheduled
       payments and do balanced forecasts and many other features It supports
@@ -51,7 +52,8 @@ that have been written using Free Pascal.
    </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Pixel32.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Pixel32.jpg'>
+      <IMG src='gallery/Pixel32.thumb.png' alt='' align='left'></A>
       <A href='http://www.kanzelsberger.com' >Pixel</A> is a bitmap graphics editor
       for web design, paper-based printing and digital photo retouching. Pixel
       contains creative tools, a vast amount of brushes, textures and effects.
@@ -60,14 +62,16 @@ that have been written using Free Pascal.
       </FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Delphineos.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Delphineos.png'>
+      <IMG src='gallery/Delphineos.thumb.png' alt='' align='left'></A>
       <A href='http://delphine.sourceforge.net'>DelphineOS</A> is a 32-bit
       Unix-like operating system for x86 processors.</FONT
     </TD>
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/GLwaves.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/GLWaves.jpg'>
+      <IMG src='gallery/GLwaves.thumb.png' alt='' align='left'></A>
       <A href='http://glwaves.sourceforge.net'>GLwaves</A> is an educative
       program to visualize electromagnetic waves in order to make it easier
       for students to understand them.. GLwaves has simulations for
@@ -75,7 +79,8 @@ that have been written using Free Pascal.
       </FONT
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/modworm.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/modworm.jpg'>
+      <IMG src='gallery/modworm.thumb.png' alt='' align='left'></A>
       <A href='http://hem.bredband.net/lidsam/modworm/'>ModWorm</A> is a
       worms/liero-like game engine which is very moddable. You can easilly
       create your own worm "mod" with own levels, missions, graphics, weapons
@@ -85,14 +90,16 @@ that have been written using Free Pascal.
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/DMines.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/DMines.png'>
+      <IMG src='gallery/DMines.thumb.png' alt='' align='left'></A>
       <A href='http://dmines.sourceforge.net'>DMines</A> is an edition of
       the classic game Minesweeper with a dynamic twist, unrevealed mines
       can change location every set number of seconds.
       </FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Lonewolf.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Lonewolf.jpg'>
+      <IMG src='gallery/Lonewolf.thumb.png' alt='' align='left'></A>
       <A href='http://www.venomsoftware.de/'>Lone Wolf II</A>
       Lone Wolf 2 is a fast and bombastic software 2D/3D rendered action
       game with highscore. It features a software rendered graphics engine that
@@ -102,14 +109,16 @@ that have been written using Free Pascal.
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Seksi.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Seksi.png'>
+      <IMG src='gallery/Seksi.thumb.png' alt='' align='left'></A>
       The <A href='http://radekc.regnet.cz'>Seksi Commander</A> is a graphical
       file manager inspired by Total Commander combined with some innovative
       ideas.
       </FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Lptk.thumb.png' alt='' align='left'>
+      <FONT size=-1><A href='gallery/Lptk.png'>
+      <IMG src='gallery/Lptk.thumb.png' alt='' align='left'></A>
       The <A href='http://lptk.sourceforge.net'>Light Pascal Toolkit</A> is
       a widget library like GTK or QT that allows programmers to build good
       looking GUI applications without the overhead and dependency hell of
