@@ -101,7 +101,7 @@ that have been written using Free Pascal.
       <FONT size=-1><A href='gallery/Lonewolf.jpg'>
       <IMG src='gallery/Lonewolf.thumb.png' alt='' align='left'></A>
       <A href='http://www.venomsoftware.de/'>Lone Wolf II</A>
-      Lone Wolf 2 is a fast and bombastic software 2D/3D rendered action
+      is a fast and bombastic software 2D/3D rendered action
       game with highscore. It features a software rendered graphics engine that
       mixes 2D and 3D. It is combined with good music and sound effects.
       </FONT>
