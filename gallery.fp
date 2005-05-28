@@ -95,6 +95,9 @@ that have been written using Free Pascal.
       game with highscore. It features a software rendered graphics engine that
       mixes 2D and 3D. It is combined with good music and sound effects.
       </FONT>
+    </TD>
+  </TR>
+  <TR>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Seksi.thumb.png' alt='' align='left'>
       The <A href='http://radekc.regnet.cz'>Seksi Commander</A> is a graphical
