@@ -33,10 +33,10 @@ that have been written using Free Pascal.
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Infrabase.thumb.png' alt='' align='left'>
       Belgian telecom company <A href='http://www.belgacom.be'>Belgacom</A>
-      develop their telecom network management with Free Pascal. It is used
-      to downloads data from telephone exchanges, supervise alarms, manage 
-      the expansion of the broadband network, manage the different services,
-      ....</FONT>
+      develop their telecom network management software with Free Pascal. It
+      is used to downloads data from telephone exchanges, supervise alarms,
+      manage the expansion of the broadband network, manage the different
+      services, ....</FONT>
     </TD>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Checkbook.thumb.png' alt='' align='left'>
