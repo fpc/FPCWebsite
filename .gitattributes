@@ -97,6 +97,8 @@ fcl/fcl.fp svneol=native#text/plain
 /fpc_noswpat.html svneol=native#text/plain
 /future.fp svneol=native#text/plain
 /gallery.fp svneol=native#text/plain
+gallery/Checkbook.jpg -text
+gallery/Checkbook.thumb.png -text
 gallery/DMines.jpg -text
 gallery/DMines.thumb.png -text
 gallery/Delphineos.png -text svneol=unset#image/png
