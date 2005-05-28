@@ -87,6 +87,7 @@ that have been written using Free Pascal.
       <A href='http://dmines.sourceforge.net'>DMines</A> is an edition of
       the classic game Minesweeper with a dynamic twist, unrevealed mines
       can change location every set number of seconds.
+      </FONT>
     </TD>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Lonewolf.thumb.png' alt='' align='left'>
@@ -103,9 +104,16 @@ that have been written using Free Pascal.
       The <A href='http://radekc.regnet.cz'>Seksi Commander</A> is a graphical
       file manager inspired by Total Commander combined with some innovative
       ideas.
+      </FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Lonewold.thumb.png' alt='' align='left'>
+      <FONT size=-1><IMG src='gallery/Lptk.thumb.png' alt='' align='left'>
+      The <A href='http://lptk.sourceforge.net'>Light Pascal Toolkit</A> is
+      a widget library like GTK or QT that allows programmers to build good
+      looking GUI applications without the overhead and dependency hell of
+      those libraries. The library is available for both Windows and Linux
+      and requires no source code changes to support both operating systems.
+      Applications get the same look and feel on both operating systems.
       </FONT>
     </TD>
   </TR>
