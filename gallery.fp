@@ -39,7 +39,7 @@ that have been written using Free Pascal.
       ....</FONT>
     </TD>
     <TD width=50%>
-      <FONT size=-1><IMG src='gallery/Checkbook%5ftracker.thumb.png' alt='' align='left'>
+      <FONT size=-1><IMG src='gallery/Checkbook.thumb.png' alt='' align='left'>
       Checkbook tracker is a financial managemant packages. It can do scheduled
       payments and do balanced forecasts and many other features It supports
       QIF and OBB data and can import from CBB for the X-window system.</FONT>
