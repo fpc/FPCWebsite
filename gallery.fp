@@ -49,7 +49,7 @@ that have been written using Free Pascal.
   <TR>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Pixel32.thumb.png' alt='' align='left'>
-      <A href='http://pixel32.box.sk' >Pixel</A> is a bitmap graphics editor
+      <A href='http://www.kanzelsberger.com' >Pixel</A> is a bitmap graphics editor
       for web design, paper-based printing and digital photo retouching. Pixel
       contains creative tools, a vast amount of brushes, textures and effects.
       It follows industry standards by supporting layers, styles, RGB/CMYK/HDR
