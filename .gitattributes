@@ -97,14 +97,19 @@ fcl/fcl.fp svneol=native#text/plain
 /fpc_noswpat.html svneol=native#text/plain
 /future.fp svneol=native#text/plain
 /gallery.fp svneol=native#text/plain
+gallery/DMines.jpg -text
+gallery/DMines.thumb.png -text
 gallery/Delphineos.png -text svneol=unset#image/png
 gallery/Delphineos.thumb.png -text svneol=unset#image/png
 gallery/GLwaves.jpg -text svneol=unset#image/jpeg
 gallery/GLwaves.thumb.png -text svneol=unset#image/png
+gallery/Lazarus.gif -text
 gallery/Lentil_wars.jpg -text svneol=unset#image/jpeg
 gallery/Lentil_wars.thumb.png -text svneol=unset#image/png
 gallery/Pixel32.jpg -text svneol=unset#image/jpeg
 gallery/Pixel32.thumb.png -text svneol=unset#image/png
+gallery/Seksi.png -text
+gallery/Seksi.thumb.png -text
 gallery/Voxel_world.jpg -text svneol=unset#image/jpeg
 gallery/Voxel_world.thumb.png -text svneol=unset#image/png
 gallery/modworm.jpg -text svneol=unset#image/jpeg
