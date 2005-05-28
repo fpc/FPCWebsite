@@ -111,9 +111,7 @@ that have been written using Free Pascal.
       The <A href='http://lptk.sourceforge.net'>Light Pascal Toolkit</A> is
       a widget library like GTK or QT that allows programmers to build good
       looking GUI applications without the overhead and dependency hell of
-      those libraries. The library is available for both Windows and Linux
-      and requires no source code changes to support both operating systems.
-      Applications get the same look and feel on both operating systems.
+      those libraries. The library is available for both Windows and Linux.
       </FONT>
     </TD>
   </TR>
