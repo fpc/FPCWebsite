@@ -89,6 +89,21 @@ that have been written using Free Pascal.
       can change location every set number of seconds.
     </TD>
     <TD width=50%>
+      <FONT size=-1><IMG src='gallery/Lonewolf.thumb.png' alt='' align='left'>
+      <A href='http://www.venomsoftware.de/'>Lone Wolf II</A>
+      Lone Wolf 2 is a fast and bombastic software 2D/3D rendered action
+      game with highscore. It features a software rendered graphics engine that
+      mixes 2D and 3D. It is combined with good music and sound effects.
+      </FONT>
+    <TD width=50%>
+      <FONT size=-1><IMG src='gallery/Seksi.thumb.png' alt='' align='left'>
+      The <A href='http://radekc.regnet.cz'>Seksi Commander</A> is a graphical
+      file manager inspired by Total Commander combined with some innovative
+      ideas.
+    </TD>
+    <TD width=50%>
+      <FONT size=-1><IMG src='gallery/Lonewold.thumb.png' alt='' align='left'>
+      </FONT>
     </TD>
   </TR>
 </HTML>
