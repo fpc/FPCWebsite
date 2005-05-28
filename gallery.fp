@@ -114,6 +114,7 @@ that have been written using Free Pascal.
       </FONT>
     </TD>
   </TR>
-  Did we forget your superb program? E-mail to our 
-  <A href='mailto:webmaster&#x040;freepascal.org'>webmaster</A> and we'll add it.
+</TABLE>
+Did we forget your superb program? Send an e-mail to our 
+<A href='mailto:webmaster&#x040;freepascal.org'>webmaster</A> and we'll add it.
 </HTML>
