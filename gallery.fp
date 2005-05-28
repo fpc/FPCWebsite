@@ -7,7 +7,7 @@
 -->
 <H2>Programs written with Free Pascal</H2>
 Free Pascal is a professional development tool and can be used to write
-an program you can imagine. On this page we show a selection of programs
+any program you can imagine. On this page we show a selection of programs
 that have been written using Free Pascal.
 <P>
 <TABLE width=100% cellspacing=5>
@@ -120,7 +120,7 @@ that have been written using Free Pascal.
       <FONT size=-1><A href='gallery/Lptk.png'>
       <IMG src='gallery/Lptk.thumb.png' alt='' align='left'></A>
       The <A href='http://lptk.sourceforge.net'>Light Pascal Toolkit</A> is
-      a widget library like GTK or QT that allows programmers to build good
+      a widget library like GTK or QT that allows programmers to build cool
       looking GUI applications without the overhead and dependency hell of
       those libraries. The library is available for both Windows and Linux.
       </FONT>
