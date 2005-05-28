@@ -58,7 +58,7 @@ that have been written using Free Pascal.
     </TD>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Delphineos.thumb.png' alt='' align='left'>
-      <A href=' http://delphineos.sourceforge.net'>DelphineOS</A> is a 32-bit
+      <A href='http://delphine.sourceforge.net'>DelphineOS</A> is a 32-bit
       Unix-like operating system for x86 processors.</FONT
     </TD>
   </TR>
