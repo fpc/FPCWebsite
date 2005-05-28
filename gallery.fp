@@ -40,7 +40,7 @@ that have been written using Free Pascal.
     </TD>
     <TD width=50%>
       <FONT size=-1><IMG src='gallery/Checkbook.thumb.png' alt='' align='left'>
-      <A href='http://tony.maro.net/mod.php?mod=userpage&menu=9&page_id=4'>
+      <A href='http://tony.maro.net/mod.php?mod=userpage&menu=9&page%5fid=4'>
       Checkbook Tracker</A> is a financial managemant package. It can do scheduled
       payments and do balanced forecasts and many other features It supports
       QIF and OBB data and can import from CBB for the X-window system.</FONT>
