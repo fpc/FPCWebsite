@@ -70,7 +70,7 @@ that have been written using Free Pascal.
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><A href='gallery/GLWaves.jpg'>
+      <FONT size=-1><A href='gallery/GLwaves.jpg'>
       <IMG src='gallery/GLwaves.thumb.png' alt='' align='left'></A>
       <A href='http://glwaves.sourceforge.net'>GLwaves</A> is an educative
       program to visualize electromagnetic waves in order to make it easier
@@ -90,7 +90,7 @@ that have been written using Free Pascal.
   </TR>
   <TR>
     <TD width=50%>
-      <FONT size=-1><A href='gallery/DMines.png'>
+      <FONT size=-1><A href='gallery/DMines.jpg'>
       <IMG src='gallery/DMines.thumb.png' alt='' align='left'></A>
       <A href='http://dmines.sourceforge.net'>DMines</A> is an edition of
       the classic game Minesweeper with a dynamic twist, unrevealed mines
