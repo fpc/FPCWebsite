@@ -218,9 +218,11 @@ function MailRecord ($row,$NewBug = 0) {
   $mailtext .= "Date fixed   : $row->FixDate\n";
   $mailtext .= "Fixer        : $row->Fixer\n";
   $mailtext .= "Fix version  : $row->FixVersion\n";
-  $mailtext .= "Comment      :\n$row->comment\n";
   }
   $mailtext .= "Description:\n$row->Descr\n";
+  if ($row->Status!='Unfixed') {
+  $mailtext .= "Comment      :\n$row->comment\n";
+  }
   $mailtext .= "\nProgram:\n$row->Prog\n";
   mail("core@freepascal.org",$Subject,$mailtext,'From: bugs@freepascal.org');
   if ($row->Status!='Unfixed') {
