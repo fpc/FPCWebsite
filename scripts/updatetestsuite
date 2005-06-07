@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Don't stop on errors
+#set -e
+
+TESTSUITEDIR=$HOME/testsuite
+INCOMINGDIR=$TESTSUITEDIR/incoming
+WORKDIR=$TESTSUITEDIR/work
+LOGFILE=$HOME/logs/updatetestsuite.log
+TESTSOURCEDIR=$TESTSUITEDIR/tests
+
+# processfile <file>
+processfile() {
+  echo
+  echo "Found file $1"
+  echo
+
+  rm -rf $WORKDIR
+  mkdir -p $WORKDIR
+
+  cd $WORKDIR
+  tar xfvz $1
+  
+  if [ -f dbdigest.cfg ]; then
+    echo "DatabaseName=TESTSUITE" >> dbdigest.cfg
+    echo "UserName=FPCUser" >> dbdigest.cfg
+    echo "PassWord=Shimrod" >> dbdigest.cfg
+    date=`echo $1 | sed 's/[^0-9]*\([0-9]*\)[^0-9]*/\1/'`
+    echo "Date=$date" >> dbdigest.cfg
+    echo "TestSrcDir=$TESTSOURCEDIR" >> dbdigest.cfg
+
+    $HOME/bin/dbdigest || true
+  else
+    echo "ERROR: No dbdigest.cfg found!"
+  fi
+      
+  rm -f $1
+  echo "Done"
+}
+
+
+#
+# First check if there are new files to process
+#
+FILES=`ls $INCOMINGDIR/*.tar.gz 2> /dev/null`
+if [ "$FILES" == "" ]; then
+  exit 0
+fi
+
+PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
+(
+date
+
+# Update sources
+pushd $TESTSOURCEDIR 
+svn up
+popd
+
+for f in $FILES; do
+    processfile $f
+done
+) > $LOGFILE 2>&1 </dev/null

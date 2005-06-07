@@ -2,72 +2,53 @@
 
 set -e
 
-CHECKOUTDIR=$HOME/build
-LOGFILE=$HOME/logs/updatelog.log
+REPOS="fpc html fpc/trunk fpc/branches/fixes_2_0 fpcdocs/trunk"
 
-# Main branch
-FPCDIR=$CHECKOUTDIR/main
-TAG=HEAD
-LOGPACKAGES='rtl compiler utils fcl packages install installer ide docs tests fv demo lazarus'
+LOGSDIR=$HOME/snapshot/logs
 
-# Fixes branch
-FPCDIR10=$CHECKOUTDIR/fixes
-TAG10=FIXES_1_0_0
-LOGPACKAGES10='rtl compiler'
-
-# Lazarus (and possible other projects)
-PROJECTSDIR=$CHECKOUTDIR/projects
-PROJECTSTAG=HEAD
-LOGPROJECTS='lazarus'
-
-# CVS2CL
-CVSROOT=/FPC/CVS
-CVSOPT='-z3'
-CVS2CL=/home/fpc/bin/cvs2cl
-CVSROOTDIR=$CHECKOUTDIR/CVSROOT
-CVS2CLUSERS=$CVSROOTDIR/users
-
-# logpackages <fpcdir> <tag> <packages>
-logpackages() {
-  echo
-  echo "Logging dir $1 with tag $2"
-  echo
-  # make logs subdir
-  cd $1
-  cvs up -d logs
-  # if not the head branch then use the Follow branch option
-  # else use the -b to show branch info
-  if [ "$2" != HEAD ]; then
-    TAGOPT="-F $2"
-  else
-    TAGOPT="-F trunk"
-  fi
-  cd $1
-  for f in $3; do
-    cvs up -dP $f
-    # Create the changelog in the logs repository
-    $CVS2CL -S -P -U $CVS2CLUSERS -g "$CVSOPT" $TAGOPT -f CLtmp $f
-    # Nuke $Log: updatelogs,v $
-    # Nuke Revision 1.2  2005/02/17 16:20:43  fpc
-    # Nuke   * latest revs from idefix
-    # Nuke seqs to overcome an always commit
-    [ -f CLtmp ] && ( sed -e 's/\$[lL]og//g' CLtmp > $1/logs/Changes.$f
-                      rm CLtmp )
-  done
-  # commit the logfiles
-  cd $1/logs
-  cvs $CVSOPT commit -m 'auto'
-}
+SVNROOT=/FPC/svn
+SVNURL=file://$SVNROOT
+LOGFILE=$HOME/logs/updatelogs.log
 
 (
 date
 
-# Update CVSROOT
-cd $CVSROOTDIR
-cvs -z3 up
+export PATH=/usr/local/bin:$PATH
 
-logpackages $FPCDIR $TAG "$LOGPACKAGES" 
-# logpackages $FPCDIR10 $TAG10 "$LOGPACKAGES10"
-logpackages $PROJECTSDIR $PROJECTSTAG "$LOGPROJECTS"
+cd $LOGSDIR
+svn up
+
+for r in $REPOS; do
+   repos=`echo $r | sed 's+\([^/]*\)/.*+\1+'`
+   branch=`echo $r | sed 's+.*/\(.*\)$+\1+'`
+
+   if [  "$branch" == "$r" ]; then
+     changes=$repos-"all.log"
+   else
+     changes=$repos-$branch.log
+   fi
+   
+   echo
+   echo "Creating log $changes"
+   echo "  repository=$repos"
+   echo "  branch=$branch"
+   echo
+   
+   # Add non existing files
+   if [ ! -f $changes ]; then
+     echo > $changes
+     svn add $changes
+   fi
+   
+   # Don't include the first import in the log and write the log reverted
+   # so the new entries come first
+   svn log -r HEAD:2 --xml --verbose $SVNURL/$r > $changes.xml && \
+     $HOME/bin/svn2cl $changes.xml > $changes || true
+   rm -f $changes.xml
+done
+
+svn ci -m "Updatelogs script"
+
+date
 ) > $LOGFILE 2>&1 </dev/null
 

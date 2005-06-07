@@ -7,28 +7,27 @@ if [ "$CHECKOUTDIR" == "" ]; then
     exit 1
 fi
 
-# Limit resources (64mb data, 1mb stack)
-ulimit -d 65536 -s 1024
-
-# Checkout dir
-CVSROOT=/FPC/CVS
+# Limit resources (64mb data, 8mb stack)
+ulimit -d 65536 -s 8192
 
 #errormailaddr=core@freepascal.org
 #errormailaddr=peter@freepascal.org
 
 PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
-export CVSROOT
 (
+date
+
 # Clean, ignore errors makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
 rm -f *.tar.gz
-make distclean FPC=$STARTPP || true
-make -C tests distclean FPC=$STARTPP TEST_FPC=$STARTPP || true
+make distclean TEST_FPC=$STARTPP || true
+make -C tests distclean TEST_FPC=$STARTPP || true
 
 # Run cvs update
 cd $CHECKOUTDIR
-cvs up -CPd
+svn cleanup
+svn up
 
 # add needed files (libgdb.a)
 if [ "$LIBGDBZIP" != "" ]; then
@@ -54,8 +53,10 @@ cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-make fulldb FPC=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest
-make clean fulldb YES FPC=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER TEST_OPT=-O2rp3 DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest DBDIGESTOPT="-C -O2rp3"
+make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest
+if [ "$TESTSUITEOPT" != "" ]; then
+    make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
+fi
 
 # move snapshot
 cd $CHECKOUTDIR
@@ -71,9 +72,10 @@ fi
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
-make distclean PP=$INSTALLCOMPILER || true
-make -C tests distclean PP=$INSTALLCOMPILER TEST_FPC=$INSTALLCOMPILER || true
+make distclean || true
+make -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
 
+date
 ) > $LOGFILE 2>&1 </dev/null
 
 # send result to webmaster
