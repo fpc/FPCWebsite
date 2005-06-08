@@ -48,7 +48,7 @@ Contributes the following work to the project:
 <IMG SRC="pic/fk.jpg" ALT="picture of Florian" HEIGHT=247 WIDTH=200>
 <P>
 Year of birth: 1975<BR>
-Job: studying electrical engineering at the University
+Job: Developing software for medical devices and preparing a PhD
 Erlangen-N&uuml;rnberg, Germany<BR>
 Hobbies: computers, classical music, painting and free climbing<BR>
 <P>
