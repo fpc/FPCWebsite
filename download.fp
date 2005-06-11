@@ -121,3 +121,11 @@ IDE and a couple of other packages on the <A HREF="develop.html">development pag
 are compiled versions of the current sources with all fixes and improvements since the last
 official release, so please try them if you have any problems. Of course, they may also contain
 new bugs.
+
+
+<H2>Old releases</H2>
+<P>
+Links to some old releases (not supported any more) of FPC for platforms for
+which no better alternative exists can be found
+<A HREF="old-down.html">here</A>. Don't bother to report any bugs with these
+old releases - we will not fix them.
