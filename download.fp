@@ -127,5 +127,5 @@ new bugs.
 <P>
 Links to some old releases (not supported any more) of FPC for platforms for
 which no better alternative exists can be found
-<A HREF="old-down.html">here</A>. Don't bother to report any bugs with these
-old releases - we will not fix them.
+<A HREF="old-down-$MIRRORSUFFIX.html">here</A>. Don't bother to report any bugs
+with these old releases - we will not fix them.

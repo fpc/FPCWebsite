@@ -27,5 +27,5 @@ See the README inside for more information about the status of this port.
 
 <HR>
 <P>
-<A HREF="old-down.html">Back to all old releases</A>
+<A HREF="old-down-$MIRRORSUFFIX.html">Back to all old releases</A>
 <P>

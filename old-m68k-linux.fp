@@ -55,5 +55,5 @@ downloaded, and offer to install them.
 
 <HR>
 <P>
-<A HREF="old-down.html">Back to all old releases</A>
+<A HREF="old-down-$MIRRORSUFFIX.html">Back to all old releases</A>
 <P>

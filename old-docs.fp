@@ -29,5 +29,5 @@ downloaded in the following formats:
 
 <hr>
 <p>
-<A HREF="old-down.html">Back to download of old releases</A>
+<A HREF="old-down-$MIRRORSUFFIX.html">Back to download of old releases</A>
 <p>

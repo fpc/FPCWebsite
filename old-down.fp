@@ -22,25 +22,25 @@
 <P>
   You can download the 1.0.10(a) release for the following operating systems:
 <UL>
-<!--  <LI><A HREF="old-i386-go32v2.html">GO32v2</A> -->
-  <LI><A HREF="old-m68k-linux.html">Linux (Motorola 68k)</A>
-  <LI><A HREF="old-i386-os2.html">OS/2 &amp; DOS</A> (EMX - RTL allows to run executables under both OS/2 and DOS natively)
-  <LI><A HREF="old-i386-netbsd.html">NetBSD (Intel x86)</A>
-  <LI><A HREF="old-m68k-netbsd.html">NetBSD (Motorola 68k)</A>
-  <LI><A HREF="old-i386-solaris.html">Solaris (Intel x86)</A>
-  <LI><A HREF="old-i386-beos.html">BeOS (Intel x86)</A>
-  <LI><A HREF="old-i386-qnx.html">QNX (Intel x86)</A>
-  <LI><A HREF="old-m68k-amiga.html">Amiga (Motorola 68k)</A>
+<!--  <LI><A HREF="old-i386-go32v2-$MIRRORSUFFIX.html">GO32v2</A> -->
+  <LI><A HREF="old-m68k-linux-$MIRRORSUFFIX.html">Linux (Motorola 68k)</A>
+  <LI><A HREF="old-i386-emx-$MIRRORSUFFIX.html">OS/2 &amp; DOS</A> (EMX - RTL allows to run executables under both OS/2 and DOS natively)
+  <LI><A HREF="old-i386-netbsd-$MIRRORSUFFIX.html">NetBSD (Intel x86)</A>
+  <LI><A HREF="old-m68k-netbsd-$MIRRORSUFFIX.html">NetBSD (Motorola 68k)</A>
+  <LI><A HREF="old-i386-solaris-$MIRRORSUFFIX.html">Solaris (Intel x86)</A>
+  <LI><A HREF="old-i386-beos-$MIRRORSUFFIX.html">BeOS (Intel x86)</A>
+  <LI><A HREF="old-i386-qnx-$MIRRORSUFFIX.html">QNX (Intel x86)</A>
+  <LI><A HREF="old-m68k-amiga-$MIRRORSUFFIX.html">Amiga (Motorola 68k)</A>
 </UL>
 
 <P>
 Furthermore, you can download the following:
 <UL>
-<LI><A HREF="old-docs.html">Documentation</A> for this (old) version 1.0.10
+<LI><A HREF="old-docs-$MIRRORSUFFIX.html">Documentation</A> for this (old) version 1.0.10
 in different formats.
 </UL>
 
 <HR>
 <P>
-<A HREF="download.html">Back to the general download page</A>
+<A HREF="download-$MIRRORSUFFIX.html">Back to the general download page</A>
 <P>

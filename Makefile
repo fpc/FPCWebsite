@@ -110,6 +110,7 @@ DOMAKEMIRROR=$(MAKEMIRROR)
 .SUFFIXES: .fp .html
 
 PAGES=$(patsubst template%,,$(patsubst down%,,$(patsubst %.fp,%,$(wildcard *.fp))))
+OLDDOWN=$(patsubst template%,,$(patsubst old%,,$(patsubst %.fp,%,$(wildcard *.fp))))
 TOOLSPAGES=$(patsubst tools/%.fp,%,$(wildcard tools/*.fp))
 RTLPAGES=rtl
 FCLPAGES=fcl
@@ -120,15 +121,18 @@ TOOLSHTML=$(addprefix tools$(SL), $(addsuffix .html, $(TOOLSPAGES)))
 RTLHTML=$(addprefix rtl$(SL), $(addsuffix .html, $(RTLPAGES)))
 FCLHTML=$(addprefix fcl$(SL), $(addsuffix .html, $(FCLPAGES)))
 PAGES:=$(addsuffix .html, $(PAGES))
-HTML:=$(PAGES) $(TOOLSHTML) $(RTLHTML) $(FCLHTML) $(PACKAGEHTML)
+OLDDOWN:=$(addsuffix .html, $(OLDDOWN))
+HTML:=$(PAGES) $(OLDDOWN) $(TOOLSHTML) $(RTLHTML) $(FCLHTML) $(PACKAGEHTML)
 
 DOWNLOADPAGES=$(patsubst %.fp,%,$(wildcard down*.fp))
+DOWNLOADOLD=$(patsubst %.fp,%,$(wildcard old*.fp))
 DOWNLOADCHK=$(addsuffix .chk,$(DOWNLOADPAGES))
+DOWNLOADOLDCHK=$(addsuffix .chk,$(DOWNLOADOLD))
 
 
 .PHONY: tolily all clean distclean tar zip
 
-all: $(HTML) $(DOWNLOADCHK)
+all: $(HTML) $(DOWNLOADCHK) $(DOWNLOADOLDCHK)
 # headfoot
 
 clean:
