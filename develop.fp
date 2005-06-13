@@ -95,7 +95,7 @@ there is no CVS mirror yet, so you've to use SVN to get the FPC sources.
 </p>
 <p>
 How to do this? Generally, you need 3 steps:<BR>
-(If you have SVN installed, of course. Look <a href="http://subversion.tigriis.org">here</A> for instructions on
+(If you have SVN installed, of course. Look <a href="http://subversion.tigris.org">here</A> for instructions on
 how to do that.)
 </P>
 
