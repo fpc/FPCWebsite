@@ -14,7 +14,7 @@ examined yet more deeply. To view that list, select one of the following :
 <UL>
 <LI>  <A HREF="http://www.freepascal.org/bugs/db.php3">List of known bugs, short format</A>
 <LI>  <A HREF="http://www.freepascal.org/bugs/db.php3?statusfield=Unfixed">List of unfixed bugs, short format</A>
-<LI>  <A HREF="http://www.freepascal.org/bugs/db.php3?age=today">List of todays bugs, short format</A>
+<LI>  <A HREF="http://www.freepascal.org/bugs/db.php3?age=Today">List of todays bugs, short format</A>
 </UL>
 To submit a bug report, click <A
 HREF="http://www.freepascal.org/bugs/add.php3">here</A>.
