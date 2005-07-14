@@ -95,6 +95,7 @@ fcl/fcl.fp svneol=native#text/plain
 /fp2html.pp svneol=native#text/plain
 /fpc.fp svneol=native#text/plain
 /fpc_noswpat.html svneol=native#text/plain
+/fpcmac.fp svneol=native#text/plain
 /future.fp svneol=native#text/plain
 /gallery.fp svneol=native#text/plain
 gallery/Checkbook.jpg -text
