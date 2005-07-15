@@ -181,7 +181,6 @@ packages/gdbm.fp svneol=native#text/plain
 packages/ggi.fp svneol=native#text/plain
 packages/gtk.fp svneol=native#text/plain
 packages/ibase.fp svneol=native#text/plain
-packages/inet.fp svneol=native#text/plain
 packages/libasync.fp svneol=native#text/plain
 packages/libgd.fp svneol=native#text/plain
 packages/libpng.fp svneol=native#text/plain
