@@ -21,7 +21,7 @@
 <EM>Remark:</EM>you must have javascript and style sheets enabled in order
 to view these pages correctly.
 <UL>
-<LI> Documentation table of contents (<A HREF="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</A>/<A href="docs-html/fpchelp.html">without</A> comments).
+<LI> Documentation table of contents (<A HREF="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</A>/<A href="docs-html/fpctoc.html">without</A> comments).
   <LI>User's guide (<A HREF="http://community.freepascal.org:10000/docs-html/user/user.html">with</A>/<A href="docs-html/user/user.html">without</A> comments).
   <LI>Programmer's guide (<A HREF="http://community.freepascal.org:10000/docs-html/prog/prog.html">with</A>/<A href="docs-html/prog/prog.html">without</A> comments).
   <LI>Reference guide for the system unit, and supported Pascal constructs (<A HREF="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</A>/<A href="docs-html/ref/ref.html">without</A> comments).
