@@ -23,8 +23,8 @@ to view these pages correctly.
 <UL>
 <LI> Documentation table of contents (<A HREF="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</A>/<A href="docs-html/fpchelp.html">without</A> comments).
   <LI>User's guide (<A HREF="http://community.freepascal.org:10000/docs-html/user/user.html">with</A>/<A href="docs-html/user/user.html">without</A> comments).
-  <LI>Programmer's guide (<A HREF="http://community.freepascal.org:10000/prog/prog.html">with</A>/<A href="docs-html/prog/prog.html">without</A> comments).
-  <LI>Reference guide for the system unit, and supported Pascal constructs (<A HREF="http://community.freepascal.org:10000/ref/ref.html">with</A>/<A href="docs-html/ref/ref.html">without</A> comments).
+  <LI>Programmer's guide (<A HREF="http://community.freepascal.org:10000/docs-html/prog/prog.html">with</A>/<A href="docs-html/prog/prog.html">without</A> comments).
+  <LI>Reference guide for the system unit, and supported Pascal constructs (<A HREF="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</A>/<A href="docs-html/ref/ref.html">without</A> comments).
   <LI>Standard units reference manual (<A HREF="http://community.freepascal.org:10000/docs-html/rtl/index.html">with</A>/<A href="docs-html/rtl/index.html">without</A> comments).
   <LI>fpdoc documentation tool reference manual (<A HREF="http://community.freepascal.org:10000/docs-html/fpdoc/fpdoc.html">with</A>/<A href="docs-html/fpdoc/fpdoc.html">without</A> comments).
 </UL>
