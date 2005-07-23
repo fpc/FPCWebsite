@@ -21,12 +21,12 @@
 <EM>Remark:</EM>you must have javascript and style sheets enabled in order
 to view these pages correctly.
 <UL>
-<LI> <A HREF="docs-html/fpchelp.html">Documentation table of contents</A>
-  <LI><A HREF="docs-html/user/user.html">User's guide</A>.
-  <LI><A HREF="docs-html/prog/prog.html">Programmer's guide</A>.
-  <LI><A HREF="docs-html/ref/ref.html">Reference guide</A> for the system unit, and supported Pascal constructs.
-  <LI><A HREF="docs-html/rtl/index.html">Standard units reference manual</A>.
-  <LI><A HREF="docs-html/fpdoc/fpdoc.html">fpdoc documentation tool reference manual</A>.
+<LI> Documentation table of contents (<A HREF="http://community.freepascal.org:10000/docs-html/fpc-toc.html">with</A>/<A href="docs-html/fpchelp.html">without</A> comments).
+  <LI>User's guide<A HREF="http://community.freepascal.org:10000/docs-html/user/user.html">with</A>/<A href="docs-html/user/user.html">without</A> comments).
+  <LI>Programmer's guide<A HREF="http://community.freepascal.org:10000/proc/prog.html">with</A>/<A href="docs-html/prog/prog.html">without</A> comments).
+  <LI>Reference guide for the system unit, and supported Pascal constructs.<A HREF="http://community.freepascal.org:10000/ref.html">with</A>/<A href="docs-html/ref/ref.html">without</A> comments).
+  <LI>Standard units reference manual<A HREF="http://community.freepascal.org:10000/docs-html/rtl/index.html">with</A>/<A href="docs-html/rtl/index.html">without</A> comments).
+  <LI>fpdoc documentation tool reference manual<A HREF="http://community.freepascal.org:10000/docs-html/fpdoc/fpdoc.html">with</A>/<A href="docs-html/fpdoc/fpdoc.html">without</A> comments).
 </UL>
 
 You can also download the documentation in some alternative formats.
