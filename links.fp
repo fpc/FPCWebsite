@@ -123,7 +123,7 @@ your chances to contact them ;-).
     is an attempt to translate the Pascal language to Spanish. It is based on
     the 1.0.4 freepascal source code. Later it will be translated in other
     languages. This is still in a development stage.
-  <li><a href="http://www.fp.sdl.de.vu>Free Pascal meets SDL</a> contains lots of information how to
+  <li><a href="http://www.fp.sdl.de.vu">Free Pascal meets SDL</a> contains lots of information how to
     develop Simple Direct Media Layer applications using Free Pascal
   </ul>
 
