@@ -12,14 +12,34 @@ especially for you who want to write a program for the Macintosh.
 </P>
 
 <H2>News:</H2>
-
-
+<b>2005-07-23:</b>
+<br>
+<br>
+A new FPC 2.1.1 snapshot is available at
+<A href=
+ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg
+>
+here</A> (10.4 MB)
+<BR>
+<BR>
+Some changes:
+<UL>
+<LI>
+No more "_main" symbol in the system unit (so can link with C main programs)
+</LI>
+<LI>
+Shared library creation support under Mac OS X
+</LI>
+<LI>
+Several bugfixes related to overflow checking on PPC
+</LI>
+</UL>
 <b>2005-06-29:</b>
 <br>
 <br>
 There is now a
 <A href=http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal>
-wiki page </A> covering porting issues, from traditional mac
+wiki page</A> covering porting issues, from traditional mac
 pascals to FPC.
 <br>
 <br>
@@ -28,9 +48,10 @@ pascals to FPC.
 <br>
 A FPC 2.1.1 snapshot is available
 <A href=
-'http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg'>
-here
-</A> (10.8 MB, does not include the PDF documentation). It includes:
+'http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg'
+>
+here</A>
+(10.8 MB, does not include the PDF documentation). It includes:
 <UL>
 <LI>
 Support for Macintosh Object Pascal in Macpas mode (includes  
