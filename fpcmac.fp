@@ -17,7 +17,7 @@ especially for you who want to write a program for the Macintosh.
 <br>
 A new FPC 2.1.1 snapshot is available at
 <A href=
-ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg
+"ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg"
 >
 here</A> (10.4 MB)
 <BR>
@@ -38,7 +38,7 @@ Several bugfixes related to overflow checking on PPC
 <br>
 <br>
 There is now a
-<A href=http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal>
+<A href="http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal">
 wiki page</A> covering porting issues, from traditional mac
 pascals to FPC.
 <br>
@@ -48,7 +48,7 @@ pascals to FPC.
 <br>
 A FPC 2.1.1 snapshot is available
 <A href=
-'http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg'
+"http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg"
 >
 here</A>
 (10.8 MB, does not include the PDF documentation). It includes:
@@ -87,7 +87,7 @@ as well as for other targets.
 <br>
 <br>
 This means Free Pascal for the mac is not considered beta anymore.
-Get it on one of the <A href='download.html'>
+Get it on one of the <A href="download.html">
 mirror download sites</A>.
 <br>
 <br>
@@ -175,11 +175,12 @@ and choose a mirror site near you (to limit net traffic).
 The documentation is included, but can also be downloaded separatelly. 
 If you want the source code, it has to be downloaded separatelly.</P>
 
-There is a also a FPC 2.1.1 snapshot is available
+There most recent FPC 2.1.1 snapshot is available
 <A href=
-'http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg'>
-here
-</A> with, among others, support for mac style object pascal. See above under NEWS. 
+"ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg"
+>
+here</A> (10.4 MB)
+with, among others, support for mac style object pascal. See above under NEWS. 
 
 <P>Note that the compiler is a unix style program and is run from the
 Terminal on MacOS X.</P>
@@ -339,5 +340,5 @@ in particular FPC-pascal for questions about using Free Pascal.
 <A HREF="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</A>
 </P>
 
-<P>Latest modified 2005-07-15</P>
+<P>Latest modified 2005-07-28</P>
 </HTML>
