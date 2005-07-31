@@ -18,7 +18,7 @@ development is progressing you can take a peek at the developer versions.</p>
   <LI><A HREF="#sourcesv20">Download Daily Source Snapshot of Release Tree (version 2.0.x)</A></LI>
   <LI><A HREF="#snapshotsv21">Download Daily Update of Development Tree (version 2.1.x)</A></LI>
   <LI><A HREF="#svn">Connect to Source Repository with SVN</A></LI>
-  <LI><A HREF="#future">Bugs and the Future<</A></LI>
+  <LI><A HREF="#future">Bugs and the Future</A></LI>
 <!-- IDXEND -->
 </Ul>
 
@@ -100,7 +100,7 @@ how to do that.)
 </P>
 
 <OL>
-<LI> To retrieve the full source repository, all publically available modules,
+<LI> To retrieve the full fpc source repository,
 type
 <font size="-1">
 <PRE>
@@ -118,8 +118,8 @@ subdirectories with the following packages:
 <LI><B>utils</B>, the utils sources.</li>
 <LI><B>fv</b>, Free Vision</li>
 <LI><B>tests</b>, the compiler and RTL tests.</LI>
-<LI><B>ide</b>, the IDE sources. (can't be build. Need proprietary library)</LI>
-<LI><B>install</b>, everything needed to create a release. Installer, demoes etc</LI>
+<LI><B>ide</b>, the IDE sources.</LI>
+<LI><B>installer</b>, the text mode installer sources.</LI>
 </UL>
 </P>
 
@@ -189,11 +189,20 @@ If you want to learn more about subversion, read this excellent <a href="http://
 which is also available online in different formats for free.
 </p>
 
-<P>
-For the curious: You have only read-only access, so don't try to commit
-anything :-)
-</P>
+<hr>
 
+<p>
+<a name="morerepos"></a><h3>Other repositories</h3>
+The fpc svn server hosts more repositories than only the fpc repository, you can get them by
+svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt; is:<br>
+<b>fpcprojects</b> Several fpc related projects like a converted TTT 5.10, gdbpas or the FPC irc bot.<br>
+<b>lazarus</b> <a href="http://www.lazarus.freepascal.org">Lazarus</a>.<br>
+<b>fpcdocs</b> The fpc documentation sources.<br>
+<b>html</b> The sources of the fpc website you're just browsing.<br> 
+<b>fpcbuild</b> Everything needed to build fpc releases. This links
+to several other repositories, so this checkout is really big.<br>
+<b>logs</b> Log files of the repositories mentioned above.<br>
+</p>
 
 <hr>
 
@@ -204,11 +213,12 @@ The contents of the SVN archive can also be browsed with your web-browser
 through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">viewcvs</A> interface.
 </P>
 
-
 <hr>
 
-<A NAME="future"></A><H3>Bugs and the Future<</H3>
+<A NAME="future"></A><H3>Bugs and the Future</H3>
 <P>
-A list of known bugs is available <A HREF="bugs.html">here</A>.<BR>
-And the future plans of Free Pascal can be viewed <A HREF="future.html">here</A>.
+A list of known bugs is available <a href="bugs.html">here</a>.<br>
+And the future plans of Free Pascal can be viewed <A HREF="future.html">here</A>.<br>
+If you're interested in FPC development, you might be also interested in the 
+<a href="http://www.freepascal.org/wiki">wiki</a>.
 </P>
