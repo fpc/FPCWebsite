@@ -7,13 +7,13 @@
 
 <H3>The following PDF documents are online available:</H3>
 <UL>
-<LI> <A HREF="docs/fpchelp.pdf">Documentation table of contents</A>
-  <LI><A HREF="docs/user.pdf">User's guide</A>.
-  <LI><A HREF="docs/prog.pdf">Programmer's guide</A>.
-  <LI><A HREF="docs/ref.pdf">Reference guide</A> for the system unit, and supported Pascal constructs.
-  <LI><A HREF="docs/rtl.pdf">Standard units reference manual</A>.
-  <LI><A HREF="docs/fpdoc.pdf">fpdoc documentation tool reference manual</A>.
-  <LI><A HREF="docs/chart.pdf">Reference chart with all compiler options and switches</A>.
+<LI> <A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpchelp.pdf">Documentation table of contents</A>
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf">User's guide</A>.
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/prog.pdf">Programmer's guide</A>.
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/ref.pdf">Reference guide</A> for the system unit, and supported Pascal constructs.
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/rtl.pdf">Standard units reference manual</A>.
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpdoc.pdf">fpdoc documentation tool reference manual</A>.
+  <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/chart.pdf">Reference chart with all compiler options and switches</A>.
 </UL>
 <P>
 
