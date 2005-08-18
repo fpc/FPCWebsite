@@ -7,6 +7,9 @@
 -->
 
 <H2>Latest News</H2>
+
+<p> <em>August 18, 2005</em> Free Pascal can be installed on Fedora from the Fedora Extras.
+    see <a href="news.html">the news page</A> for short instructions.
 <p>
    <em>16 May 2005</em> <A href='http://www.osnews.com'>OSNews</A> features
    <A href='http://www.osnews.com/story.php?news%5fid=10607'>an article</A> written by Free Pascal

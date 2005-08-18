@@ -11,11 +11,27 @@
 <H3>Latest changes:</H3>
 <UL>
 <p>
+  <li>August 18, 2005</li>
+  <ul>
+  <li>Free Pascal can be installed on Fedora from the Fedora Extras. To do so, 
+   add Extras to your Yum-repository (see <a HREF="http://www.fedoraproject.org/wiki/Extras">here</A> for instructions)
+   and then install using
+<pre>
+yum install fpc
+</pre>
+Documentation and src-package for Lazarus are available with
+<pre>
+yum install fpc-doc
+yum install fpc-src
+</pre>
+  </li>
+  </ul>
+<p>
    <li>16 May 2005</li>
    <ul>
      <li>
      <A href='http://www.osnews.com'>OSNews</A> features
-     <A href='http://www.osnews.com/story.php?news%5fid=10607'>an article</A> written by Free Pascal
+<A href='http://www.osnews.com/story.php?news%5fid=10607'>an article</A> written by Free Pascal
      developer Dani&euml;l Mantione today.
      </li>
    </ul>
