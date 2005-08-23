@@ -8,6 +8,10 @@
 
 <H2>Latest News</H2>
 
+<p> <em>August 22, 2005</em> The ARM port of Free Pascal can now be used to
+develop games for the Gameboy Advanced. See the
+<a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
+
 <p> <em>August 18, 2005</em> Free Pascal can be installed on Fedora from the Fedora Extras.
     see <a href="news.html">the news page</A> for short instructions.
 <p>
