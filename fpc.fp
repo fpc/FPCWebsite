@@ -23,13 +23,6 @@ develop games for the Gameboy Advanced. See the
    <A href='download.html'>one of the mirrors</A>!
 </p>
 <p>
-   <em>30 Mar 2005</em> The task of porting the Free Pascal Compiler to Linux/PowerPC64
-   has been added to IBM's <a href="http://www.linuxonpower.com">Linux On Power</a> contest,
-   which means you can earn a PowerMac dual G5/2GHz by completing this port!
-   More information <a href="http://www.nl.freepascal.org/lists/fpc-devel/2005-March/004871.html">in this post</a>
-   to the <a href="http://www.freepascal.org/maillist.html">fpc-devel mailing list</a>.
-</p>
-<p>
 <a href="news.html">Older News</a>
 </p>
 <h2>Current Version</h2>
