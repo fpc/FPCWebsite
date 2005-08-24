@@ -13,7 +13,7 @@
 <p>
   <li>August 22, 2005</li>
 <ul><li> ARM port of Free Pascal can now be used to
-develop games for the Gameboy Advanced. See the
+develop games for the Gameboy Advance. See the
 <a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
 </li>
 </ul>
