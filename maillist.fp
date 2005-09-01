@@ -65,10 +65,10 @@ messages separately.
 <h3> How to access mailing-list archives ?</h3>
 The mailing list messages are archived. To access the archives, go here:
 <OL>
-<LI><A HREF="http://www.nl.freepascal.org/lists/fpc-pascal/">for fpc-pascal </A>
-<LI><A HREF="http://www.nl.freepascal.org/lists/fpc-devel/">for fpc-devel </A>
-<LI><A HREF="http://www.nl.freepascal.org/lists/fpc-announce/">for fpc-announce</A>
-<LI><A HREF="http://www.nl.freepascal.org/lists/fpc-other/">for fpc-other</A>
+<LI><A HREF="http://lists.freepascal.org/lists/lists/fpc-pascal/">for fpc-pascal </A>
+<LI><A HREF="http://lists.freepascal.org/lists/fpc-devel/">for fpc-devel </A>
+<LI><A HREF="http://lists.freepascal.org/lists/fpc-announce/">for fpc-announce</A>
+<LI><A HREF="http://lists.freepascal.org/lists/fpc-other/">for fpc-other</A>
 </OL>
 If the main archive doesn't work, the mailing lists are archived by third party mailing list archives too.
 <h4>The Mail Archive</h4>
