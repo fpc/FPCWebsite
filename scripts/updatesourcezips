@@ -2,10 +2,10 @@
 # Common part of the UpdateArchive script for Free Pascal
 #
 # This script will create the daily sources and log files.
-# It supports both the main branch as the 1.0.x branch
+# It supports both the main branch as the fixes branch
 #
 
-if [ "$WORKDIR" == "" ]; then
+if [ "$WORKDIR" = "" ]; then
     echo "Error workdir not set, this is a include script"
     exit 1
 fi
@@ -16,9 +16,8 @@ fi
 
 PATH='.:$HOME/bin:/bin:/usr/bin:/usr/local/bin'
 
-CVSROOT=:pserver:peter@cvs.freepascal.org:/FPC/CVS
-export CVSROOT
-CVSOPT=-z3
+SVNROOT='http://svn.freepascal.org/svn'
+export SVNROOT
 
 
 ##########################
@@ -28,18 +27,18 @@ CVSOPT=-z3
 # checkoutmodules <checkoutdir> <tag> <modules>
 checkoutmodules() {
   echo
-  echo "Checkout modules $3 with tag $2"
+  echo "Checkout modules $3 branch $2"
   echo
   # Create dir and go to the dir
   [ ! -d $1 ] && mkdir $1
   cd $1
-  if [ "$2" != HEAD ]; then
-    TAGOPT="-r $2"
+  if [ "$2" != trunk ]; then
+    BRANCH="branches/$2"
   else
-    TAGOPT=
+    BRANCH="trunk"
   fi
   for f in $3; do
-    cvs $CVSOPT co -P $TAGOPT $f
+    svn co $SVNOPT $SVNROOT/$f/$BRANCH $f
   done
 }
 
@@ -66,10 +65,10 @@ copychanges() {
 # zipmodules <checkoutdir> <modules> <destdir> <suffix>
 zipmodules() {
   echo
-  echo "Zipping modules $2 (suffix $4)"
+  echo "Zipping modules $2 suffix $4"
   cd $1
   for f in $2; do
-    zip -o -q -r $f$4.zip $f -x '*CVS*' -x '*.#*'     
+    zip -o -q -r $f$4.zip $f -x '*.svn*' -x '*.#*'     
     mv -f $f$4.zip $3
   done
 }
@@ -79,10 +78,10 @@ zipmodules() {
 zippackages() {
   if [ "$2" != "" ]; then
     echo
-    echo "Zipping packages $2 (suffix $4) $3"
+    echo "Zipping packages $2 suffix $4 $3"
     cd $1
     for f in $2; do
-      zip -o -q -r $f$4.zip $f -x '*CVS*' -x '*.#*'     
+      zip -o -q -r $f$4.zip $f -x '*.svn*' -x '*.#*'     
       mv -f $f$4.zip $3
     done
   fi    
@@ -107,7 +106,7 @@ chmod 700 $WORKDIR
 checkoutmodules $CHECKOUTDIR $TAG "$MODULES"
 
 # install logs also and set the timestamp to latest change
-copychanges $CHECKOUTDIR "$MODULES"
+# copychanges $CHECKOUTDIR "$MODULES"
 
 # Create zips of the modules
 zipmodules $CHECKOUTDIR "$MODULES" $DESTDIR $SUFFIX
