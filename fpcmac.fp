@@ -22,6 +22,16 @@ A new FPC 2.1.1 snapshot is available at
 here</A> (10.4 MB)
 <BR>
 <BR>
+<B><FONT COLOR="#AF0000">
+NOTE !!! Some users have had 
+problems with this installer package.
+</FONT></B>
+<BR>
+<BR>
+If you really need to be up to date with FPC,
+please consider using Subversion, and build the compiler by your self.
+<BR>
+<BR>
 Some changes:
 <UL>
 <LI>
