@@ -8,16 +8,18 @@
 
 <H2>Latest News</H2>
 
+<p> <em>September 22, 2005</em>
+The <a href="http://www.kanzelsberger.com">Pixel image editor</a> is one
+of the projects which show the power of FPC: Pavel Kanzelsberger made an image editing program using FPC
+which works on <a href="http://www.kanzelsberger.com/pixel/?page_id=5">8 platforms</a> and which beat
+even programs like GIMP, PaintShop Pro and PhotoImpact according to a <a href="http://www.kanzelsberger.com/pixel/?p=33">
+recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was released.
 <p> <em>August 22, 2005</em> The ARM port of Free Pascal can now be used to
 develop games for the Gameboy Advance. See the
 <a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
 
 <p> <em>August 18, 2005</em> Free Pascal can be installed on Fedora from the Fedora Extras.
     see <a href="news.html">the news page</A> for short instructions.
-<p>
-   <em>16 May 2005</em> <A href='http://www.osnews.com'>OSNews</A> features
-   <A href='http://www.osnews.com/story.php?news%5fid=10607'>an article</A> written by Free Pascal
-   developer Dani&euml;l Mantione today.
 <p>
    <em>15 May 2005</em> After 5 years of development, Free Pascal <b>2.0</b> is released! Go get it at
    <A href='download.html'>one of the mirrors</A>!
