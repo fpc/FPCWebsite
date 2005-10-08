@@ -75,6 +75,7 @@
 <OPTION value="6">FCL
 <OPTION value="7">Packages
 <OPTION value="8">Installer
+<OPTION value="9">Free vision
 </SELECT>
 </TD>
 </TR>
