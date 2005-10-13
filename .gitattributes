@@ -292,6 +292,7 @@ tools/ptop.fp svneol=native#text/plain
 tools/rstconv.fp svneol=native#text/plain
 tools/tools.fp svneol=native#text/plain
 tools/tply.fp svneol=native#text/plain
+/txlogo.gif -text
 /units.fp svneol=native#text/plain
 /unitsrtl.fp svneol=native#text/plain
 /xcode.html svneol=native#text/plain
