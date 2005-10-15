@@ -21,6 +21,7 @@ bugs/form.tmpl svneol=native#text/plain
 bugs/head.tmpl svneol=native#text/plain
 bugs/html.pp svneol=native#text/plain
 bugs/import.pp svneol=native#text/plain
+bugs/index.html svneol=native#text/plain
 bugs/menu.php svneol=native#text/plain
 bugs/showrec.php3 svneol=native#text/plain
 bugs/showsource.php3 svneol=native#text/plain
