@@ -36,7 +36,7 @@ if ($db) {
         .$row->Prog;
       $fs=strlen($Src);
       header('Content-Type: text/plain');
-      Header("Content-Disposition: file; filename=tw$ID.pp');
+      Header("Content-Disposition: file; filename=tw$ID.pp");
       Header("Content-length: $fs");
       echo $Src;
       }
