@@ -30,11 +30,15 @@ if ($db) {
       echo "<B>Return to bug report</B>: ". MakeAnchor("showrec.php3?ID=$ID","$ID");
       readfile($foot);
     } else {
+      $Src="{ Source provided for Free Pascal Bug Report $ID }\n"
+        ."{ Submitted by \"$row->Name\" on  $row->AddDate }\n"
+        ."{ e-mail: $row->Email }\n"
+        .$row->Prog;
+      $fs=strlen($Src);
       header('Content-Type: text/plain');
-      echo "{ Source provided for Free Pascal Bug Report $ID }\n";
-      echo "{ Submitted by \"$row->Name\" on  $row->AddDate }\n";
-      echo "{ e-mail: $row->Email }\n";
-      echo $row->Prog;
+      Header("Content-Disposition: file; filename=tw$ID.pp');
+      Header("Content-length: $fs");
+      echo $Src;
       }
     }
   }
