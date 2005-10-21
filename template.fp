@@ -20,7 +20,7 @@
 <TD BGCOLOR="#E6E6E6">
 <TABLE border=0 cellPadding=0 cellSpacing=0 WIDTH=180 HEIGHT="100%">
 <TR VALIGN=TOP>
-  <TD BGCOLOR="#A0B0FF" class="menu" WIDTH="100%" HEIGHT="100%">
+  <TD BGCOLOR="#A0B0FF" class="menu" WIDTH="100%">
   <BR>
   _<A HREF="fpc.html" class="navi">Introduction</A><BR>
   _<A HREF="download.html" class="navi">Download</A><BR>
@@ -69,9 +69,8 @@
      <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
      <TD><IMG height=12 src="pic/shadowrb.png" width=12 alt=""></TD>
   </TR>
-  </TABLE>
-
-  <center>
+  <TR>
+  <TD COLSPAN=2 VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" HEIGHT="100%">
    <br>
    <a href="http://www.lazarus.freepascal.org"><img src="pic/lazarus_produced_logo.gif" alt="Lazarus Logo" border=0 height="57" width="125" /></a><br>
    <br>
@@ -82,7 +81,9 @@
    <a href="http://www.toolbox-mag.de/"><img src="txlogo.gif" width="128" height="48" border="0" alt="Toolbox Logo" /></a><br>
    <br>
 <!--   <a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" border=0 height="31" width="88" /></a><br> -->
-  </center>
+  </TD>
+  </TR>
+  </TABLE>
 
   </TD>
   <TD BGCOLOR="#E6E6E6" WIDTH="100%" HEIGHT="100%">
