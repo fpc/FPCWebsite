@@ -122,6 +122,8 @@ gallery/Seksi.png -text
 gallery/Seksi.thumb.png -text
 gallery/Voxel_world.jpg -text svneol=unset#image/jpeg
 gallery/Voxel_world.thumb.png -text svneol=unset#image/png
+gallery/cape.png -text svneol=unset#image/png
+gallery/cape.thumb.png -text svneol=unset#image/png
 gallery/modworm.jpg -text svneol=unset#image/jpeg
 gallery/modworm.thumb.png -text svneol=unset#image/png
 /hartnegg_fpk -text
