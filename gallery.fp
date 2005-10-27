@@ -126,6 +126,18 @@ that have been written using Free Pascal.
       </FONT>
     </TD>
   </TR>
+  <TR>
+    <TD width=50%>
+      <FONT size=-1>
+     <A href="gallery/cape.png"><img src="gallery/cape.thumb.png" alt="thumbnail" align="left"></a>
+     <A HREF="http://CoraxNetworks.com/">CAPE</A> is a policy based application engine intended for large network clients.
+It reduces development time of large scale applications by factor of 10, code maintenance by factor of 20.  It uses policy (advanced rules) to replace
+Java, COBOL, C, etc.
+      </FONT>
+    </TD>
+    <TD width=50%>
+    </TD>
+  </TR>
 </TABLE>
 Did we forget your superb program? Send an e-mail to our 
 <A href='mailto:webmaster&#x040;freepascal.org'>webmaster</A> and we'll add it.
