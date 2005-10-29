@@ -26,9 +26,6 @@
   <a href="http://mirror.mirimar.net/freepascal/">Israel (FTP only)</a>
   (maintained by <a href="mailto:kanerido&#x040;actcom.net.il">Ido Kanner</a>)
 <LI>
-  <A HREF="http://deadlock.et.tudelft.nl/~fpc">The Netherlands</A>
-  (maintained by <A HREF="mailto:daniel&#x040;deadlock.et.tudelft.nl">Dani&euml;l Mantione</A>)
-<LI>
   <A HREF="http://freepascal.stack.nl/">The Netherlands 2</A>
   (maintained by <A HREF="http://www.stack.nl">MCGV Stack</A>)
 <LI>
