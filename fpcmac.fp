@@ -24,8 +24,10 @@ here</A> (10.4 MB)
 <BR>
 <B><FONT COLOR="#AF0000">
 NOTE !!! Some users have had 
-problems with this installer package.
+problems with this installer package, due to privilege problems.
 </FONT></B>
+If this is the case, try launch the installer package from the terminal,
+from within <B>sudo</B>.
 <BR>
 <BR>
 If you really need to be up to date with FPC,
