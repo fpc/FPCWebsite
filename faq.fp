@@ -693,9 +693,9 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
             <PRE>
               const
                  { possible values for filemode }
-                 READ_ONLY = 0;
-                 WRITE_ONLY = 1;
-                 READ_WRITE = 2;
+                 READ&#95;ONLY = 0;
+                 WRITE&#95;ONLY = 1;
+                 READ&#95;WRITE = 2;
               var
                  oldfilemode : byte;
                  f: file;
@@ -703,13 +703,13 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
                  assign(f,'myfile.txt');
                  oldfilemode := filemode;
                  { reset will open read-only }
-                 filemode := READ_ONLY;
+                 filemode := READ&#95;ONLY;
                  reset(f,1);
                  { restore file mode value }
                  filemode := oldfilemode;
-                  ...
+                 // ...
                  close(f);
-              end;
+              end.
             </PRE>
 
             <P> For more information, consult the Free Pascal reference manual</P>
