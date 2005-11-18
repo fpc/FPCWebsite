@@ -85,12 +85,7 @@ MV=mv -f
 # Directory separator
 SL=/
 
-#
-# See if we have ALPHA, then we don't make the exe's an must use the
-# emulator
-#
 
-# NOT on alpha
 FP2HTML=fp2html$(EXE)
 CONTFP=contfp$(EXE)
 MAKEIDX=makeidx$(EXE)
@@ -103,6 +98,7 @@ DOCONTFP=$(CONTFP)
 DOMAKEIDX=$(MAKEIDX)
 DOMAKEMIRROR=$(MAKEMIRROR)
 
+export inlinux EXE PWD MV RM
 
 #
 # Main targets
@@ -124,15 +120,19 @@ PAGES:=$(addsuffix .html, $(PAGES))
 OLDDOWN:=$(addsuffix .html, $(OLDDOWN))
 HTML:=$(PAGES) $(OLDDOWN) $(TOOLSHTML) $(RTLHTML) $(FCLHTML) $(PACKAGEHTML)
 
-DOWNLOADPAGES=$(patsubst %.fp,%,$(wildcard down*.fp))
-DOWNLOADOLD=$(patsubst %.fp,%,$(wildcard old*.fp))
+DOWNLOADPAGES=$(patsubst %.fp,%,$(wildcard down/*/*.fp))
+DOWNLOADOLD=$(patsubst %.fp,%,$(wildcard down/*/old*.fp))
 DOWNLOADCHK=$(addsuffix .chk,$(DOWNLOADPAGES))
 DOWNLOADOLDCHK=$(addsuffix .chk,$(DOWNLOADOLD))
 
 
-.PHONY: tolily all clean distclean tar zip
+.PHONY: tolily all clean distclean tar zip download
 
-all: $(HTML) $(DOWNLOADCHK) $(DOWNLOADOLDCHK)
+all: $(HTML) download
+# $(DOWNLOADCHK) $(DOWNLOADOLDCHK)
+
+download:
+	$(MAKE) -C down all
 # headfoot
 
 clean:
@@ -141,6 +141,7 @@ clean:
 	-$(RM) down*.html down*.chk
 	-$(RM) htmls.tar.gz
 	-$(RM) htmls.zip
+	$(MAKE) -C down clean
 
 distclean: clean
 	$(RM) $(FP2HTML) $(MAKEIDX) $(MAKEMIRROR) $(CONTFP) $(FIXDOC)

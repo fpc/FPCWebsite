@@ -8,6 +8,7 @@ const
 
 var
 {General}
+  TemplateFile,
   ModifyFile,
   InFile,
   OutFile   : string[80];
@@ -96,9 +97,9 @@ var
   j : byte;
 begin
   j:=length(Hstr);
-  while (j>0) and (Hstr[j]<>'.') do
+  while (j>0) and (Hstr[j]<>'.') and (Hstr[J]<>DirectorySeparator) do
    dec(j);
-  if j=0 then
+  if (j=0) or (Hstr[J]<>'.') then
    j:=254;
   SplitExtension:=Copy(Hstr,j+1,255);
 end;
@@ -123,7 +124,7 @@ begin
   while (j>0) and (Hstr[j]<>'.') do
    dec(j);
   if j=0 then
-   j:=255;
+   j:=Length(Hstr)+1;
   ForceExtension:=Copy(Hstr,1,j-1)+'.'+Ext;
 end;
 
@@ -428,13 +429,13 @@ begin
   if Title='' then
    Title:='Free Pascal - Home Page';
 {Read the template}
-  assign(t,'template.fp');
+  assign(t,TemplateFile);
   {$I-}
    reset(t);
   {$I+}
   if ioresult<>0 then
    begin
-     WriteLn('template.fp not found!');
+     WriteLn('template file "',TemplateFile,'" not found!');
      Close(f);
    end;
 {Open output}
@@ -601,13 +602,15 @@ var
     writeln('Usage : '+SplitName(ParamStr(0))+' [Options] <InFile(s)>'#10);
     writeln('<Options> can be : -O<OutFile>  Specify OutFile Mask');
     writeln('                   -M<file>     Use <file> for modifying');
+    writeln('                   -T<file>     Use <file> as template file');
     writeln('                   -V           be more verbose');
     writeln('             -? or -H           This HelpScreen');
     halt(1);
   end;
 
 begin
-  for i:=1to paramcount do
+  TemplateFile:='template.fp';
+  for i:=1 to paramcount do
    begin
      para:=paramstr(i);
      if (para[1]='-') then
@@ -618,6 +621,7 @@ begin
          'O' : OutFile:=AddExtension(Para,OutputExt);
          'M' : ModifyFile:=Para;
          'V' : verbose:=true;
+         'T' : TemplateFile:=Para;
      '?','H' : helpscreen;
         end;
      end
