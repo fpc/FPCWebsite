@@ -45,11 +45,7 @@ const
 {$endif}
 
 const
-{$IFDEF LINUX}
-  PathCh='/';
-{$ELSE}
-  PathCh='\';
-{$ENDIF}
+  PathCh=DirectorySeparator;
 
 Function SplitPath(Const HStr:String):String;
 var
