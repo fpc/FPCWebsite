@@ -69,6 +69,30 @@
      <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
      <TD><IMG height=12 src="pic/shadowrb.png" width=12 alt=""></TD>
   </TR>
+<TR VALIGN=TOP>
+  <TD BGCOLOR="#A0B0FF" class="menu" WIDTH="100%">
+  <BR>
+    <CENTER>
+    <H2>Search</H2>
+    <SMALL>
+    Search documentation, forums & mailing lists.
+    <FORM action="http://community.freepascal.org:10000/search/search" method="GET">
+    <BR>
+    <INPUT type="text" name="q" size=20 maxlength=256>
+    <BR>
+    <INPUT type="submit" value="Search" name="t">
+    <INPUT type="submit" value="Feeling Lucky" name="t">
+    </FORM>
+    </SMALL>
+    </CENTER>
+  <BR><BR>
+  </TD>
+    <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" alt="" width=12></TD>
+  </TR>
+  <TR>
+     <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
+     <TD><IMG height=12 src="pic/shadowrb.png" width=12 alt=""></TD>
+  </TR>
   <TR>
   <TD COLSPAN=2 VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" HEIGHT="100%">
    <br>
