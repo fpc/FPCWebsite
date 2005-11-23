@@ -73,6 +73,7 @@
   <TD BGCOLOR="#A0B0FF" class="menu" WIDTH="100%">
   <BR>
     <CENTER>
+    <FONT color="#FFFFFF">
     <H2>Search</H2>
     <SMALL>
     Search documentation, forums & mailing lists.
@@ -84,6 +85,7 @@
     <INPUT type="submit" value="Feeling Lucky" name="t">
     </FORM>
     </SMALL>
+    </FONT>
     </CENTER>
   <BR><BR>
   </TD>
