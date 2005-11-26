@@ -20,6 +20,9 @@
   <A HREF="http://gd.tuwien.ac.at/www.freepascal.org">Austria</A>
   (maintained by <A HREF="mailto:antonin.sprinzl&#x040;tuwien.ac.at">Antonin Sprinzl</A>)
 <LI>
+  <A HREF="http://www.ca.freepascal.org">Canada</A>
+  (maintained by <A HREF="mailto:pdavidson&#x040;coraxnetworks.com">Paul Davidson</A>)
+<LI>
   <A HREF="http://www.de.freepascal.org">Germany</A>
   (maintained by <A HREF="mailto:florian&#x040;freepascal.org">Florian Kl&auml;mpfl</A>)
 <li>

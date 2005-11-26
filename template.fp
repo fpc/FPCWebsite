@@ -63,7 +63,7 @@
   ____<A HREF="http://www.freepascal.org/contrib/add.php3" class="navi">Contribute a unit.</A>
   <BR><BR>
   </TD>
-    <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" alt="" width=12></TD>
+  <TD background="pic/shadowr.png"  BGCOLOR="#f0f0ff" vAlign=top><IMG height=12 src="pic/shadowrt.png" alt="" width=12></TD>
   </TR>
   <TR>
      <TD background="pic/shadowb.png" vAlign=bottom><IMG height=12 src="pic/shadowlb.png" width=12 alt=""></TD>
