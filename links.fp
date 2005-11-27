@@ -52,9 +52,6 @@
 <LI>
   <A HREF="http://fpc.planetmirror.com/">Australia</A>
   (maintained by <A HREF="mailto:jason&#x040;dstc.edu.au">Jason Andrade</A>)
-<LI>
-  <A HREF="http://www.ca.freepascal.org">Canada</A>
-  (maintained by <A HREF="mailto:pdavidson&#x040;coraxnetworks.com">Paul Davidson</A>)
 
 <!--  
 <LI>
