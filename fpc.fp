@@ -17,13 +17,6 @@ recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was relea
 <p> <em>August 22, 2005</em> The ARM port of Free Pascal can now be used to
 develop games for the Gameboy Advance. See the
 <a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
-
-<p> <em>August 18, 2005</em> Free Pascal can be installed on Fedora from the Fedora Extras.
-    see <a href="news.html">the news page</A> for short instructions.
-<p>
-   <em>15 May 2005</em> After 5 years of development, Free Pascal <b>2.0</b> is released! Go get it at
-   <A href='download.html'>one of the mirrors</A>!
-</p>
 <p>
 <a href="news.html">Older News</a>
 </p>
