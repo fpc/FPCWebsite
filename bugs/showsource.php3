@@ -7,7 +7,7 @@ require "bugs.php";
 if (!isset($ID)) {
   die("This script needs an numeric ID parameter.");
 }
-if (!is_integer($ID)) {
+if (!settype($ID,'integer')) {
   die("ID not numeric. This script needs an numeric ID parameter.");
 }
 $db=ConnectToFPC();
