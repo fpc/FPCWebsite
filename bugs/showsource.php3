@@ -4,6 +4,12 @@ require "bugs.php";
 /*
  * Main program
  */
+if (!isset($ID)) {
+  die("This script needs an numeric ID parameter.");
+}
+if (!is_integer($ID)) {
+  die("ID not numeric. This script needs an numeric ID parameter.");
+}
 $db=ConnectToFPC();
 if ($db) {
   $res = mysql_query("select Prog,Name,AddDate,Email from bugs where BugId=$ID",$db);

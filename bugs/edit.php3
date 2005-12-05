@@ -19,6 +19,12 @@ function EmitEditForm ( $db, $ID ) {
  * Start of program
  */
 readfile ($head);
+if (!isset($ID)) {
+  die("This script needs an numeric ID parameter.");
+}
+if (!is_integer($ID)) {
+  die("ID not numeric. This script needs an numeric ID parameter.");
+}
 /* Connect to database */
 $db = ConnectToFPC();
 /*
