@@ -8,6 +8,9 @@
 
 <H2>Latest News</H2>
 
+<p> <em>December 8, 2005</em>
+FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found 
+<a href="ftp://ftp.freepascal.org/pub/fpc/dist/whatsnew.txt">here</a>.
 <p> <em>September 22, 2005</em>
 The <a href="http://www.kanzelsberger.com">Pixel image editor</a> is one
 of the projects which show the power of FPC: Pavel Kanzelsberger made an image editing program using FPC
@@ -22,7 +25,7 @@ develop games for the Gameboy Advance. See the
 </p>
 <h2>Current Version</h2>
 <p>
-  Version <em>2.0.0</EM> is the latest stable version the Free Pascal.
+  Version <em>2.0.2</EM> is the latest stable version the Free Pascal.
   Hit the <A HREF="download.html">download</A> link and select a mirror close
   to you to download your copy.
   The development releases have version numbers <EM>2.1.x</EM>.

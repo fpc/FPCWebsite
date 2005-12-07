@@ -11,17 +11,17 @@
 <UL>
   <LI>.zip
     <UL>
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-pdf.zip">PDF</A> (5.5 MB) (Default and preferred format)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-html.zip">HTML</A> (7.0 MB)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-ps.zip">PostScript</A> (3.6 MB)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-dvi.zip">DVI</A> (1.7 MB)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-txt.zip">Plain text</A> (830 kB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-pdf.zip">PDF</A> (6.3 MB) (Default and preferred format)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-html.zip">HTML</A> (7.4 MB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-ps.zip">PostScript</A> (3.9 MB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-dvi.zip">DVI</A> (1.9 MB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-txt.zip">Plain text</A> (800 kB)
     </ul>
   <LI>.tar.gz (for Unix platforms)
     <UL>
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-pdf.tar.gz">PDF</A> (5.5 MB) (Default and Preferred format)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-html.tar.gz">HTML</A> (2.0 MB)
-      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.0/doc-ps.tar.gz">PostScript</A> (3.6 MB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-pdf.tar.gz">PDF</A> (6.3 MB) (Default and Preferred format)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-html.tar.gz">HTML</A> (1.6 MB)
+      <LI> <A HREF="$MIRRORURL/dist/docs-2.0.2/doc-ps.tar.gz">PostScript</A> (3.9 MB)
     </ul>
 </UL>
 <HR>

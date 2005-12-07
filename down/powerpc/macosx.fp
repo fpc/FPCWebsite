@@ -10,11 +10,11 @@
 *****************************************************************************
 -->
 
-The latest release version is <B>2.0.0</B>.
+The latest release version is <B>2.0.2</B>.
 
 <H3><A NAME="macosxdmg">Download in 1 big file:</a></h3>
 <UL>
-<LI> <a href="$MIRRORURL/dist/powerpc-macosx-2.0.0/fpc-2.0.0.powerpc-macosx.dmg">fpc-2.0.0.powerpc-macosx.dmg</A> (14.9 MB)
+<LI> <a href="$MIRRORURL/dist/powerpc-macosx-2.0.2/fpc-2.0.2.powerpc-macosx.dmg">fpc-2.0.2.powerpc-macosx.dmg</A> (20.2 MB)
 contains an installation package<BR>
 </UL>
 <H3><A NAME="XCodeIntegration">XCode Integration Toolkit:</A></H3>

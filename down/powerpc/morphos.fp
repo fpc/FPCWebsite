@@ -10,7 +10,7 @@
 *****************************************************************************
 -->
 
-The latest release version is <B>2.0.0</B>.
+The latest release version is <B>2.0.2</B>.
 
 <P>
 This package consist of compiler and run time library.
@@ -19,7 +19,7 @@ Please download documentation and source code separatelly.
 
 <H3><A NAME="macossit">Download in 1 file:</a></h3>
 <ul>
-<li> <a href="$MIRRORURL/dist/powerpc-morphos-2.0.0/fpc-2.0.0.powerpc-morphos.lha">fpc-2.0.0.powerpc-morphos.lha</A> (10.6 MB)
+<li> <a href="$MIRRORURL/dist/powerpc-morphos-2.0.2/fpc-2.0.2.powerpc-morphos.lha">fpc-2.0.2.powerpc-morphos.lha</A> (12.2 MB)
 contains an installation package<BR>
 </UL>
 

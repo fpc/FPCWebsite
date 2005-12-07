@@ -10,6 +10,23 @@
 
 <H3>Latest changes:</H3>
 <UL>
+<p> 
+<li>December 8, 2005</li>
+<ul><li>
+FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found 
+<a href="ftp://ftp.freepascal.org/pub/fpc/dist/whatsnew.txt">here</a>.
+</li>
+</ul>
+<p>
+<li>September 22, 2005</li>
+<ul><li>
+The <a href="http://www.kanzelsberger.com">Pixel image editor</a> is one
+of the projects which show the power of FPC: Pavel Kanzelsberger made an image editing program using FPC
+which works on <a href="http://www.kanzelsberger.com/pixel/?page_id=5">8 platforms</a> and which beat
+even programs like GIMP, PaintShop Pro and PhotoImpact according to a <a href="http://www.kanzelsberger.com/pixel/?p=33">
+recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was released.
+</li>
+</ul>
 <p>
   <li>August 22, 2005</li>
 <ul><li> ARM port of Free Pascal can now be used to

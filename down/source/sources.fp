@@ -10,9 +10,9 @@ The complete sources can be downloaded in the following formats:
 <P>
 <DL>
   <DT>Zip file:</DT>
-  <DD><A HREF="$MIRRORURL/dist/source-2.0.0/fpc-2.0.0.source.tar.gz">fpc-2.0.0.source.tar.gz</a></DD>
+  <DD><A HREF="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.tar.gz">fpc-2.0.2.source.tar.gz</a></DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><A HREF="$MIRRORURL/dist/source-2.0.0/fpc-2.0.0.source.zip">fpc-2.0.0.source.zip</a></DD>
+  <DD><A HREF="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.zip">fpc-2.0.2.source.zip</a></DD>
 </DL>
 The archive files contain the sources of
 <UL>

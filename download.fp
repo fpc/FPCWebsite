@@ -11,37 +11,41 @@
   get you up and running in no time. All packages contain a README file,
   which you should read for installation instructions and latest news.
 <P>
-  The latest release is <B>2.0.0</B>.
+  The latest release is <B>2.0.2</B>.
 <P>
+Because of a lack of release builders and testers, 2.0.2 is only available for a limited
+number of platforms and not in all package formats. If you want to change this and build and test future
+releases, contact us via the mailing lists.
+<p>
 
 <A NAME="binary"></A><H3>Binaries</H3>
 <P>
-  You can download the 2.0.0 release for the following cpu and operating systems:
+  You can download the 2.0.x release for the following cpu and operating systems:
 <P>  
 <UL>
-  <LI>arm
+    <LI>arm
     <UL>
-      <LI><A HREF="down/arm/linux.html">Linux</A>
-    </UL>  
+      <LI><A HREF="down/arm/linux.html">Linux</A> (2.0.0 only)
+    </UL>
   <LI>intel/i386
     <UL>
-<!--      <LI><A HREF="down/i386/go32v2.html">Dos</A> (GO32v2 extender) -->
+      <LI><A HREF="down/i386/go32v2.html">Dos</A> (GO32v2 extender)
       <LI><A HREF="down/i386/freebsd.html">FreeBSD</A> (FreeBSD 4.x and probably 5.x too)
       <LI><A HREF="down/i386/linux.html">Linux</A>
-      <LI><A HREF="down/i386/netware.html">Netware</A>
-      <LI><A HREF="down/i386/os2.html">OS/2</A>
+      <LI><A HREF="down/i386/netware.html">Netware</A> (2.0.0 only)
+      <LI><A HREF="down/i386/os2.html">OS/2</A> (2.0.0 only)
       <LI><A HREF="down/i386/win32.html">Win32</A> (Windows 95, 98, ME, NT, 2000, XP, 2003)
     </UL>  
   <LI>powerpc
     <UL>
-      <LI><A HREF="down/powerpc/linux.html">Linux</A>
+      <LI><A HREF="down/powerpc/linux.html">Linux</A> (2.0.0 only)
       <LI><A HREF="down/powerpc/macos.html">Mac OS</A>
       <LI><A HREF="down/powerpc/macosx.html">Mac OS X</A>
       <LI><A HREF="down/powerpc/morphos.html">MorphOS</A>
     </UL>  
   <LI>sparc
     <UL>
-      <LI><A HREF="down/sparc/linux.html">Linux</A>
+      <LI><A HREF="down/sparc/linux.html">Linux</A> (2.0.0 only)
     </UL>  
   <LI>amd64/x86_64
     <UL>
@@ -49,10 +53,6 @@
     </UL>  
 </UL>
 
-Sorry, no Dos release yet. The Dos platform is missing a maintainer and is not
-of acceptable quality for 2.0.
-<A href='http://community.freepascal.org:10000/bboard/q-and-a-fetch-msg.tcl?msg%5fid=0001q7&topic%5fid=31&topic=Special%20discussions'>
-Find more information and discuss this here.</a>
 <P>
 
 <A NAME="source"></A><H3>Source</H3>
