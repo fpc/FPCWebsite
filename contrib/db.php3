@@ -13,8 +13,12 @@ include('contribpwd.php');
 $db = mysql_connect($DBHost,$DBUser,$DBPassword);
 CheckMySQLError($foot);
 mysql_select_db('FPC');
+if (strpos($category,'"')) {
+  echo '<p>Invalid category name ?';
+  $category='';
+}
 if (($category=="all") || ($category=="")) {
-  if ($category<>'') { 
+  if (($category<>'') && (!strpos($category,'"'))) { 
     Header1("Contributed units, sorted by category");
   } else {
     Header1("Contributed units: Select a category");
@@ -47,6 +51,7 @@ if (($category=="all") || ($category=="")) {
 }
 else {
   Header1("Contributed units, category: $category");
+
   $query="select * from contribs where Category=\"$category\"";  
   $LastOrder = $category;
 }
