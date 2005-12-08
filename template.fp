@@ -1,8 +1,8 @@
 <HEAD>
    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
    <META NAME="Author" CONTENT="Free Pascal Web Team">
-   <META name="description" content="Free Pascal: free 32/64-bit Pascal compiler (x86,m68k,powerpc,sparc,arm) for DOS, Linux, Darwin, NetBSD, FreeBSD, Solaris, MacOS, BeOS, Win32 and OS/2.">
-   <META NAME="keywords" content="32 bit, 64 bit, protected mode, compiler, native, pascal, Object Pascal, FPC, FPC Pascal, Free Pascal">
+   <META name="description" content="Free Pascal: free 32/64-bit compiler for the Pascal programming language (x86,m68k,powerpc,sparc,arm) for DOS, Linux, Darwin, NetBSD, FreeBSD, Solaris, MacOS, BeOS, Win32 and OS/2.">
+   <META NAME="keywords" content="32 bit, 64 bit, protected mode, compiler, native, pascal, Object Pascal, FPC, FPC Pascal, Free Pascal, programming language">
    <LINK href="/styles.css" rel=stylesheet type="text/css">
    <LINK REL="SHORTCUT ICON" href="/favicon.ico">
    <TITLE>$TITLE</TITLE>
