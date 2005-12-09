@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Mac OS X PowerPC
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

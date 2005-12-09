@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Sources
 #MODIFY
+#PICDIR ../../pic/
 -->
 <A NAME="source"></A><H1>Source</H1>
 <P>

@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Linux PowerPC
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

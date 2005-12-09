@@ -3,6 +3,7 @@
 #ENTRY download 
 #HEADER Download documentation
 #MODIFY
+#PICDIR ../../pic/
 -->
 <A NAME="docs"></A><H1>Documentation</H1>
 <P>

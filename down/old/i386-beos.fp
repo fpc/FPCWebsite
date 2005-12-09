@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download BeOS
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

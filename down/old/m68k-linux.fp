@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download Linux for m68k
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

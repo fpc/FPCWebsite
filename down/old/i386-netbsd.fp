@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download NetBSD (x86)
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

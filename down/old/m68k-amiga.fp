@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download Amiga
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

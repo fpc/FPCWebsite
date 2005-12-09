@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Linux AMD64/x86_64
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

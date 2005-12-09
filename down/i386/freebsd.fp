@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download FreeBSD Intel x86
 #MODIFY
+#PICDIR ../../pic/
 -->
 <!--
 *****************************************************************************

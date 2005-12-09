@@ -2,6 +2,7 @@
 #TITLE Free Pascal - Select Download Mirror
 #ENTRY download
 #HEADER Select Download Mirror
+#PICDIR ../../pic/
 -->
 
 Please select the site from which you want to download:
