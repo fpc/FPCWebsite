@@ -4,6 +4,7 @@
 #HEADER Download documentation
 #MODIFY
 #PICDIR ../../pic/
+#MAINDIR ../../
 -->
 <A NAME="docs"></A><H1>Documentation</H1>
 <P>

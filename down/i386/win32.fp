@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Win32
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

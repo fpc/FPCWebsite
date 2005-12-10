@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Intel/i386 Linux
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 

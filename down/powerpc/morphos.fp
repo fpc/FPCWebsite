@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download MorphOS PowerPC
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

@@ -389,6 +389,7 @@ begin
          maindir:=Copy(s,10,30);
          if (maindir<>'') and (maindir[length(maindir)]<>'/') then
           maindir:=maindir+'/';
+         Writeln('Set main dir to ',Maindir);   
        end
      else
       if Copy(s,1,7)='#PICDIR' then
@@ -531,7 +532,9 @@ begin
             end;
            { insert maindir }
            if (not skipmaindir) and
-              (s<>'') and (maindir<>'') then
+              (S<>'') and
+              (not (Copy(S,i+9,7)='http://')) and
+              (maindir<>'') then
             insert(maindir,s,i+9);
          end;
         WriteHtml(s);

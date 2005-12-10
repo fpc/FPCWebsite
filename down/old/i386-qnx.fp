@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download QNX
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

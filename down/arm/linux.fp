@@ -1,9 +1,11 @@
 <!--
 #TITLE Free Pascal - Download Linux
 #ENTRY download
+#SUBENTRY arm-linux
 #HEADER Download Linux ARM
 #MODIFY
 #PICDIR ../../pic/
+#MAINDIR ../../
 -->
 <!--
 *****************************************************************************

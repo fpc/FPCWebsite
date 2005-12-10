@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Netware (4.x and higher)
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

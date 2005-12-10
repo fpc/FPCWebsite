@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download EMX
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

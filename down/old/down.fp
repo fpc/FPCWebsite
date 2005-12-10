@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download of unsupported versions
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <A NAME="release"></A>

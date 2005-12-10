@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download Linux Sparc
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download GO32v2
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

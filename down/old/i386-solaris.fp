@@ -4,6 +4,7 @@
 #HEADGIF download
 #HEADALT Download Solaris
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

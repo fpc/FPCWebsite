@@ -3,6 +3,7 @@
 #ENTRY download
 #HEADER Download OS/2
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 <!--

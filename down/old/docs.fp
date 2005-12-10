@@ -3,6 +3,7 @@
 #HEADGIF download
 #HEADALT Download old documentation
 #MODIFY
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 

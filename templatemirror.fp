@@ -1,7 +1,9 @@
 <!--
 #TITLE Free Pascal - Select Download Mirror
 #ENTRY download
+#SUBENTRY platform
 #HEADER Select Download Mirror
+#MAINDIR ../../
 #PICDIR ../../pic/
 -->
 
