@@ -25,7 +25,7 @@ You can download the whole package as 1 big zipped file:
 <h3>Sources</h3>
 <ul>
 <li>
-Get the sources here: <a href="$MIRRORURL/dist/i386-os2-2.0.0/source">src200.zip</a>
+Get the sources here: <a href="$MIRRORURL/dist/source-2.0.0/short/">src200.zip</a>
 </ul>
 
 <p>

@@ -19,7 +19,7 @@ isn't supposed to work in Windows NT/2000/XP/2003.
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="$MIRRORURL/dist/i386-go32v2-2.0.2/dos196.zip">dos196.zip</a> (12.6 MB)
+<a href="$MIRRORURL/dist/i386-go32v2-2.0.2/dos202.zip">dos202.zip</a> (12.6 MB)
 <!-- <li>Alternatively, you can download individual packages from <a href="$MIRRORURL/dist/i386-go32v2-2.0.2/separate">here</a>. -->
 </ul>
 
@@ -28,7 +28,7 @@ You can download the whole package as 1 big zipped file:
 <h3>Sources</h3>
 <ul>
 <li>
-Get there sources <a href="$MIRRORURL/dist/i386-go32v2-2.0.2/source">here</a>
+Get there sources <a href="$MIRRORURL/dist/source-2.0.2/">here</a>
 </ul>
 
 <p>
@@ -43,6 +43,6 @@ Get there sources <a href="$MIRRORURL/dist/i386-go32v2-2.0.2/source">here</a>
 
 <hr>
 <p>
-<a href="freebsd.html">Back to mirror list</a><br/>
+<a href="go32v2.html">Back to mirror list</a><br/>
 <a href="../../download.html">Back to general download page</a>
 <p>
