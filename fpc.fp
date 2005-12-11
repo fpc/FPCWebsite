@@ -1,10 +1,20 @@
 <HTML>
 <!--
-#TITLE Free Pascal - Home Page
+#TITLE Free Pascal - Advanced open source Pascal compiler for Pascal and Object Pascal - Home Page
 #ENTRY fpc
 #HEADER Introduction
 #MODIFY
 -->
+
+<H2>Overview</H2>
+<P>
+  Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
+  It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
+  Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
+  The following operating systems are supported: Linux, FreeBSD,
+  <a href="fpcmac.html">Mac OS X/Darwin</A>, <A HREF="fpcmac.html">Mac OS classic</A>, DOS, Win32, OS/2,
+  Netware (libc and classic) and MorphOS.
+</P>
 
 <H2>Latest News</H2>
 
@@ -17,9 +27,6 @@ of the projects which show the power of FPC: Pavel Kanzelsberger made an image e
 which works on <a href="http://www.kanzelsberger.com/pixel/?page_id=5">8 platforms</a> and which beat
 even programs like GIMP, PaintShop Pro and PhotoImpact according to a <a href="http://www.kanzelsberger.com/pixel/?p=33">
 recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was released.
-<p> <em>August 22, 2005</em> The ARM port of Free Pascal can now be used to
-develop games for the Gameboy Advance. See the
-<a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
 <p>
 <a href="news.html">Older News</a>
 </p>
@@ -31,16 +38,6 @@ develop games for the Gameboy Advance. See the
   The development releases have version numbers <EM>2.1.x</EM>.
   See the <A HREF="develop.html">development</A> page how to obtain the latest sources and support development.
 </p>
-
-<H2>Overview</H2>
-<P>
-  Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
-  It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
-  Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
-  The following operating systems are supported: Linux, FreeBSD,
-  <a href="fpcmac.html">Mac OS X/Darwin</A>, <A HREF="fpcmac.html">Mac OS classic</A>, DOS, Win32, OS/2,
-  Netware (libc and classic) and MorphOS.
-</P>
 
 <H2>Features</H2>
 <P>
