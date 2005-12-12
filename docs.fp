@@ -16,6 +16,8 @@
   <LI><A HREF="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/chart.pdf">Reference chart with all compiler options and switches</A>.
 </UL>
 <P>
+A user-contributed (from Tiziani) class chart in PDF format is also 
+available <a HREF="docs/ClassChart1.pdf">here</A>.
 
 <H3>The following HTML documents are online available:</H3>
 <EM>Remark:</EM>you must have javascript and style sheets enabled in order
