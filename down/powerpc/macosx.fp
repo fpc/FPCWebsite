@@ -21,7 +21,7 @@ contains an installation package<BR>
 </UL>
 <H3><A NAME="XCodeIntegration">XCode Integration Toolkit:</A></H3>
 <UL>
-<LI> <A HREF="xcode.html">XCode Integration Toolkit</A>
+<LI> <A HREF="http://www.freepascal.org/xcode.html">XCode Integration Toolkit</A>
 (goes to an external site, not included in the above download)
 </UL>
 
