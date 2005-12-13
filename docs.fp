@@ -17,7 +17,7 @@
 </UL>
 <P>
 A user-contributed (from Tiziani) class chart in PDF format is also 
-available <a HREF="docs/ClassChart1.pdf">here</A>.
+available <a HREF="http://www.freepascal.org/docs/ClassChart1.pdf">here</A>.
 
 <H3>The following HTML documents are online available:</H3>
 <EM>Remark:</EM>you must have javascript and style sheets enabled in order
