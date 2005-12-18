@@ -125,6 +125,7 @@ $CategoryNR['Documentation']=5;
 $CategoryNr['FCL']=6;
 $CategoryNr['Packages']=7;
 $CategoryNR['Installer']=8;
+$CategoryNR['Web site']=9;
 /*
  * Category names
  */
@@ -137,6 +138,7 @@ $CategoryNames[]='Documentation';
 $CategoryNames[]='FCL';
 $CategoryNames[]='Packages';
 $CategoryNames[]='Installer';
+$CategoryNames[]='Web site';
 /*
  * Bug type names
  */
