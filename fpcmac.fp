@@ -12,22 +12,16 @@ especially for you who want to write a program for the Macintosh.
 </P>
 
 <H2>News:</H2>
+<b>2005-12-18:</b>
+<br>
+<br>
+Version 2.0.2 that was released a few weeks ago has all fixes and improvements of the 2.1.1 snapshot that was here (like Mac Pascal style objects and creation
+of dynamic libraries). Additionally, it doesn't suffer from the installation
+problems the 2.1.1 snapshot installer had. Get the release <a href="http://www.freepascal.org/down/powerpc/macosx.html">here</a>.
 <b>2005-07-23:</b>
 <br>
 <br>
-A new FPC 2.1.1 snapshot is available at
-<A href=
-"ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg"
->
-here</A> (10.4 MB)
-<BR>
-<BR>
-<B><FONT COLOR="#AF0000">
-NOTE !!! Some users have had 
-problems with this installer package, due to privilege problems.
-</FONT></B>
-If this is the case, try launch the installer package from the terminal,
-from within <B>sudo</B>.
+The 2.1.1 snapshot that was here is no longer available.
 <BR>
 <BR>
 If you really need to be up to date with FPC,
