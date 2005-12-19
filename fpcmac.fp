@@ -18,6 +18,8 @@ especially for you who want to write a program for the Macintosh.
 Version 2.0.2 that was released a few weeks ago has all fixes and improvements of the 2.1.1 snapshot that was here (like Mac Pascal style objects and creation
 of dynamic libraries). Additionally, it doesn't suffer from the installation
 problems the 2.1.1 snapshot installer had. Get the release <a href="http://www.freepascal.org/down/powerpc/macosx.html">here</a>.
+<br>
+<br>
 <b>2005-07-23:</b>
 <br>
 <br>
