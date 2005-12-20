@@ -29,9 +29,11 @@ compiler.
 that are supported by Borland Pascal or Delphi, but not by Free Pascal.
 </UL>
 <LI> The description must be typed in 1024 characters.
-<LI> When you add a program that shows a bug:
+<LI> When you add source code of a program that shows a bug:
 <B>KEEP IT AS SHORT AS POSSIBLE</B>. Anything above 6k is chopped off. 
-This will force you to cut down the code to the essential things.
+This will force you to cut down the code to the essential things. Only fill
+the program field where applicable and do not fill anything else than source
+code (possibly including Pascal comments) there.
 </OL>
 
 When all this has been taken into account, you can fill in the form
@@ -58,6 +60,7 @@ Select a category under which you think the bugs falls:
 <OPTION value="7" >Packages
 <OPTION value="8" >Installer
 <OPTION value="9" >Free Vision
+<OPTION value="10" >Web site
 </SELECT>
 <P>
 Select a type under which you think the bugs falls:
@@ -72,9 +75,9 @@ What version of the compiler and RTL did you use ?
 <SELECT NAME="BugVersion">
 <OPTION>2.1.1
 <OPTION>2.0.3
-<OPTION>2.0.2
+<OPTION SELECTED>2.0.2
 <OPTION>2.0.1
-<OPTION SELECTED>2.0.0
+<OPTION>2.0.0
 <OPTION>1.9.9
 <OPTION>1.9.8
 <OPTION>1.9.7

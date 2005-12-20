@@ -20,6 +20,25 @@
 <OPTION>N/A
 </SELECT>
 </TD></TR>
+<TR><TD>New system:</TD><TD>
+<SELECT NAME="os">
+<OPTION <?php if ($row) { if ($row->os=="All") {echo "SELECTED";}}?> >All
+<OPTION <?php if ($row) { if ($row->os=="GO32V2") {echo "SELECTED";}}?> >GO32V2
+<OPTION <?php if ($row) { if ($row->os=="Linux") {echo "SELECTED";}}?> >Linux
+<OPTION <?php if ($row) { if ($row->os=="OS/2") {echo "SELECTED";}}?> >OS/2
+<OPTION <?php if ($row) { if ($row->os=="Win32") {echo "SELECTED";}}?> >Win32
+<OPTION <?php if ($row) { if ($row->os=="BeOS") {echo "SELECTED";}}?> >BeOS
+<OPTION <?php if ($row) { if ($row->os=="SunOS") {echo "SELECTED";}}?> >SunOS
+<OPTION <?php if ($row) { if ($row->os=="FreeBSD") {echo "SELECTED";}}?> >FreeBSD
+<OPTION <?php if ($row) { if ($row->os=="NetBSD") {echo "SELECTED";}}?> >NetBSD
+<OPTION <?php if ($row) { if ($row->os=="AmigaOS") {echo "SELECTED";}}?> >AmigaOS
+<OPTION <?php if ($row) { if ($row->os=="PalmOS") {echo "SELECTED";}}?> >PalmOS
+<OPTION <?php if ($row) { if ($row->os=="NetWare") {echo "SELECTED";}}?> >NetWare
+<OPTION <?php if ($row) { if ($row->os=="Darwin") {echo "SELECTED";}}?> >Darwin
+<OPTION <?php if ($row) { if ($row->os=="Mac OS X") {echo "SELECTED";}}?> >Mac OS X
+<OPTION <?php if ($row) { if ($row->os=="MorphOS") {echo "SELECTED";}}?> >MorphOS
+</SELECT>
+</TD></TR>
 <TR><TD>New category:</TD><TD>
 <SELECT NAME="category">
 <OPTION VALUE="0" <?php if ($row) { if ($row->Category==0) {echo "SELECTED";}}?> >Compiler
@@ -31,6 +50,7 @@
 <OPTION VALUE="7" <?php if ($row) { if ($row->Category==7) {echo "SELECTED";}}?> >Packages
 <OPTION VALUE="8" <?php if ($row) { if ($row->Category==8) {echo "SELECTED";}}?> >Installer
 <OPTION VALUE="9" <?php if ($row) { if ($row->Category==9) {echo "SELECTED";}}?> >Free Vision
+<OPTION VALUE="10" <?php if ($row) { if ($row->Category==10) {echo "SELECTED";}}?> >Web site
 </SELECT>
 </TD></TR>
 <TR><TD>New type:</TD><TD>
