@@ -99,6 +99,8 @@ your chances to contact them ;-).
 <A NAME="otherfpc"></A>
 <H2>Other Free Pascal related sites:</H2>
 <ul>
+  <li><a href='http://www.pascalgamedevelopment.com'>Pascal Game Development</a> is a website dedicated
+    to develop computer games in the Pascal language.
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</A>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
   Win32 platforms, as well as general information on FPC. </LI>
