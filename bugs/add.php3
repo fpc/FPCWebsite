@@ -36,7 +36,7 @@ if ( $confirm == "yes") {
   $ID = mysql_insert_id ();
   $res = mysql_query ("select * from bugs where BugId=$ID",$db);
   CheckMySQLError ($foot);
-  Header1("Entry $ID successfully Added :");
+  Header1("Entry $ID successfully added :");
   echo "Your entry has been successfull added in the database with the following data:<P>\n";
   $row = mysql_fetch_object($res);
   DumpRecord ($row);
