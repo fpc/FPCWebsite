@@ -47,6 +47,7 @@ if ( $confirm == "yes") {
     $query .= ", comment=" . EscapeSQL($comment);
     $query .= ", category=" . $category;
     $query .= ", bugtype=" . $BugType;
+    $query .= ", os=" . EscapeSQL($os);
     $query .= " WHERE BugId=$ID ";
 /*
      echo "executing $query";
