@@ -117,7 +117,6 @@ your chances to contact them ;-).
     you can find a nice pascal tutorial. It covers basic pascal, but does not
     treat Object Oriented Programming.
   <li><a href="http://dmoz.org/Computers/Programming/Languages/Pascal/Tutorials/">More</A> links to Pascal tutorials.
-  <li><a href="http://www.dgdev.tk">DGDev</a> and <a href="http://www.delphigamer.com">DelphiGamer</a> merging into PGD: The community for Pascal Game Development
   <li><a href="http://www.geocities.com/agleight/hispascal/hispascal.html">Spanish pascal</A>
     is an attempt to translate the Pascal language to Spanish. It is based on
     the 1.0.4 freepascal source code. Later it will be translated in other
