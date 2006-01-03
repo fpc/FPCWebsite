@@ -48,5 +48,11 @@ available on <A HREF="http://msdn.microsoft.com/library/default.asp">Microsofts 
 <P>
 The Free pascal manuals have been translated to German by <B>C&amp;L</B>, and can be purchased
 from the <A HREF="http://www.cul.de/freepascal.html">C&amp;L website</A>.
+
+<H3>New to programming?</H3>
+Our manuals are written for people who already know how to program in Pascal.
+If you are looking for information how you can learn Pascal,
+Toa Yue's <A href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</A>
+is a good choice.
 </P>
 </HTML>
