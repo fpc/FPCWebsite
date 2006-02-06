@@ -11,14 +11,17 @@
 <H3>Latest changes:</H3>
 <UL>
 <p> 
-
+<LI>February 6, 2005</LI>
+<UL><LI>Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
+<A href='http://www.skyos.org/software/fpc.zip'>here</A>.
+</UL>
 <LI>January 10, 2006</LI>
 <UL><LI>The Pascal Game Development Annual Competition is about to start. Can you code a game in Free Pascal?
 <A href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=1'>Then join the competition!</A>
 </LI></UL>
 <li>December 8, 2005</li>
 <ul><li>
-FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found 
+FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found
 <a href="ftp://ftp.freepascal.org/pub/fpc/dist/whatsnew.txt">here</a>.
 </li>
 </ul>
