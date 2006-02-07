@@ -18,12 +18,13 @@
 
 <H2>Latest News</H2>
 
+<P><EM>February 7, 2005</EM>
+Francesco Lombardi is making great progres <A href='http://fpc4gba.pascalgamedevelopment.com'>porting
+Free Pascal to the Game Boy Advance</A>. Checkout <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=19224'>
+this forum thread on Pascal Game Development</A> to view some screenshots.
 <P> <EM>February 6, 2005</EM>
 Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
 <A href='http://www.skyos.org/software/fpc.zip'>here</A>.
-<p> <em>January 10, 2006</em>
-The Pascal Game Development Annual Competition is about to start. Can you code a game in Free Pascal?
-<A href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=1'>Then join the competition!</A>
 <p>
 <a href="news.html">Older News</a>
 </p>
