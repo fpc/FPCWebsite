@@ -11,12 +11,12 @@
 <H3>Latest changes:</H3>
 <UL>
 <p> 
-<LI>February 7, 2005</LI>
+<LI>February 7, 2006</LI>
 <UL><LI>Francesco Lombardi is making great progres <A href='http://fpc4gba.pascalgamedevelopment.com'>porting
 Free Pascal to the Game Boy Advance</A>. Checkout <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=19224'>
 this forum thread on Pascal Game Development</A> to see some screenshots.
 </UL>
-<LI>February 6, 2005</LI>
+<LI>February 6, 2006</LI>
 <UL><LI>Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
 <A href='http://www.skyos.org/software/fpc.zip'>here</A>.
 </UL>
