@@ -50,7 +50,8 @@ Contributes the following work to the project:
 Year of birth: 1975<BR>
 Job: Developing software for medical devices and preparing a PhD
 Erlangen-N&uuml;rnberg, Germany<BR>
-Hobbies: computers, classical music, painting and free climbing<BR>
+Hobbies: computers, classical music, rc planes, books<br>
+Blog: <a href="http://www.de.freepascal.org/~florian/nucleus/">Link</a><br>
 <P>
 Contributes the following work to the project:
 <UL>
