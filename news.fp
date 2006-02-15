@@ -11,26 +11,29 @@
 <H3>Latest changes:</H3>
 <UL>
 <p> 
-<LI>February 7, 2006</LI>
-<UL><LI>Francesco Lombardi is making great progres <A href='http://fpc4gba.pascalgamedevelopment.com'>porting
+<LI>February 15, 2006</LI>
+<ul><li>An FPC port for Solaris/Sparc has been created. Get a snapshot 
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.
+</ul>
+<li>February 7, 2006</li>
+<ul><li>Francesco Lombardi is making great progres <A href='http://fpc4gba.pascalgamedevelopment.com'>porting
 Free Pascal to the Game Boy Advance</A>. Checkout <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=19224'>
 this forum thread on Pascal Game Development</A> to see some screenshots.
-</UL>
-<LI>February 6, 2006</LI>
-<UL><LI>Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
-<A href='http://www.skyos.org/software/fpc.zip'>here</A>.
-</UL>
-<LI>January 10, 2006</LI>
-<UL><LI>The Pascal Game Development Annual Competition is about to start. Can you code a game in Free Pascal?
-<A href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=1'>Then join the competition!</A>
-</LI></UL>
+</ul>
+<li>February 6, 2006</li>
+<ul><li>Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
+<a href='http://www.skyos.org/software/fpc.zip'>here</a>.
+</ul>
+<li>January 10, 2006</li>
+<ul><li>The Pascal Game Development Annual Competition is about to start. Can you code a game in Free Pascal?
+<a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=1'>Then join the competition!</a>
+</li></ul>
 <li>December 8, 2005</li>
 <ul><li>
 FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found
 <a href="ftp://ftp.freepascal.org/pub/fpc/dist/whatsnew.txt">here</a>.
 </li>
 </ul>
-<p>
 <li>September 22, 2005</li>
 <ul><li>
 The <a href="http://www.kanzelsberger.com">Pixel image editor</a> is one
@@ -40,8 +43,7 @@ even programs like GIMP, PaintShop Pro and PhotoImpact according to a <a href="h
 recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was released.
 </li>
 </ul>
-<p>
-  <li>August 22, 2005</li>
+<li>August 22, 2005</li>
 <ul><li> ARM port of Free Pascal can now be used to
 develop games for the Gameboy Advance. See the
 <a HREF="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</A> site for more information.
