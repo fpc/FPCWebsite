@@ -14,7 +14,8 @@
 <LI>March 2006 summary</LI> <p/>
 Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:
 <ul>
-<li>Thomas Schatzl is making good progress with the linux 64-bit PowerPC port.</lI>
+<li>Thomas Schatzl is making good progress with the linux 64-bit PowerPC port. A snapshot is 
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc64-linux/fpc-2.1.1.powerpc64-linux.tar.gz">here</a></lI>
 <li>Peter did a Titanic work, and crafted an internal linker for win32 and win64, reducing
 linking times tremendously. For such a complex new subsystem, it is already quite stable.</lI>
 <lI>DWARF debugging info support is slowly starting to work. Stabs will be phased out in time.</li>
