@@ -23,7 +23,6 @@ linking times tremendously. For such a complex new subsystem, it is already quit
 GCC and the binutils don't even support this target. (Internal linker!)</li>
 <lI>Jonas reported that he has ported to Darwin/i386 with remarkable little effort. Snapshots
 are expected in the coming weeks. </li>
-<li>Marco mostly sat on the couch and ate potato chips.</lI>
 </ul>
 </ul>
 

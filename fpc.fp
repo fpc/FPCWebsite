@@ -18,6 +18,22 @@
 
 <H2>Latest News</H2>
 
+<p> 
+<p><em>March 2006 summary</em>
+<p/>
+Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:
+<ul>
+<li>Thomas Schatzl is making good progress with the linux 64-bit PowerPC port. A snapshot is 
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc64-linux/fpc-2.1.1.powerpc64-linux.tar.gz">here</a></lI>
+<li>Peter did a Titanic work, and crafted an internal linker for win32 and win64, reducing
+linking times tremendously. For such a complex new subsystem, it is already quite stable.</lI>
+<lI>DWARF debugging info support is slowly starting to work. Stabs will be phased out in time.</li>
+<li>Florian just showed a first &quot;Hello world&quot; program for Win64. This is remarkable since
+GCC and the binutils don't even support this target. (Internal linker!)</li>
+<lI>Jonas reported that he has ported to Darwin/i386 with remarkable little effort. Snapshots
+are expected in the coming weeks. </li>
+</ul>
+
 <p><em>February 15, 2006</em>
 An FPC port for Solaris/Sparc has been created. Get it 
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.
