@@ -23,6 +23,9 @@
   <A HREF="http://www.ca.freepascal.org">Canada</A>
   (maintained by <A HREF="mailto:pdavidson&#x040;coraxnetworks.com">Paul Davidson</A>)
 <LI>
+  <A HREF="http://www.cn.freepascal.org">China</A>
+  (maintained by <A HREF="mailto:iUltra&#x040;msn.com">Jerry Li</A>)
+<LI>
   <A HREF="http://www.de.freepascal.org">Germany</A>
   (maintained by <A HREF="mailto:florian&#x040;freepascal.org">Florian Kl&auml;mpfl</A>)
 <li>
