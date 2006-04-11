@@ -21,7 +21,7 @@ the mirroring account.
 
 <H2> Some help to get you going</H2>
 
-Below are some quick tips for setting up a mirror. Propably you need more
+Below are some quick tips for setting up a mirror. Probably you need more
 information; but as this depends on your computer, operating system and
 other factors, we recommend you to send us an email, so we can help you.
 
@@ -31,10 +31,10 @@ To mirror the WWW pages there are 3 possibilities;
 <LI> Use some script to get all the pages one by one; there are many on the
 net that do this.
 <LI>Get the file 
-<A HREF="ftp://ftp.freepascal.org/pub/fpc/dist/htmls.tar.gz">htmls.tar.gz</A>
+<A HREF="ftp://ftpmaster.freepascal.org/pub/fpc/dist/htmls.tar.gz">htmls.tar.gz</A>
 from our ftp site. It contains the complete web-site in tar.gz format.
-<LI>Use cvs. By doing anonymous cvs you can receive the html pages directly
-from our cvs archives. You need the module html.
+<LI>Use svn. By doing anonymous svn you can receive the html pages directly
+from our svn repository. You need repository html.
 </OL>
 The URL's are relative, so you should be able to set it up under any
 directory tree (with the exception of the images, maybe).
@@ -45,17 +45,17 @@ Mirroring the FTP site can be done using:
 perl script.
 There is also a <A HREF="ftp://ftp.freepascal.org/pub/fpc/mirror/www.freepascal.org">configuration
 file</A> for the mirror script with a description for mirroring our site.
-<LI> rsync, ftp.freepascal.org is offering rsync services both as a normal
+<LI> rsync, ftpmaster.freepascal.org is offering rsync services both as a normal
 rsync server and as a Push server.
 Push mirroring minimalizes the time it takes for changed to propagate to
-mirrors by signaling immediately after ftp.freepascal.org has been
+mirrors by signaling immediately after ftpmaster.freepascal.org has been
 updated. It uses a ssh-trigger to signal the mirrors to execute the mirrorscript, for details see 
 <A HREF="http://www.debian.org/mirror/explain">this page at www.debian.org</A> 
 For using rsync you will need the following need the following files:
 <OL> 
-<LI><A HREF=ftp://ftp.freepascal.org/pub/fpc/mirror/ftpsync>ftpsync</A>,the rsync script.
-<LI><A HREF=ftp://ftp.freepascal.org/pub/fpc/mirror/ftpsync.conf>ftpsync.conf</A>,the configfile for the rsync script.
-<LI><A HREF=ftp://ftp.freepascal.org/pub/fpc/mirror/fpc-mirror.pub>fpc-mirror.pub</A>,the public key needed if you want your mirror to be pushed.
+<LI><A HREF=ftp://ftpmaster.freepascal.org/pub/fpc/mirror/ftpsync>ftpsync</A>,the rsync script.
+<LI><A HREF=ftp://ftpmaster.freepascal.org/pub/fpc/mirror/ftpsync.conf>ftpsync.conf</A>,the configfile for the rsync script.
+<LI><A HREF=ftp://ftpmaster.freepascal.org/pub/fpc/mirror/fpc-mirror.pub>fpc-mirror.pub</A>,the public key needed if you want your mirror to be pushed.
 </OL>
 The ftpsync files have to reside in the homedir of the user that will rsync, 
 preferably an ordinary user.
