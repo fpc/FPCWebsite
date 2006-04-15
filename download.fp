@@ -65,6 +65,7 @@ releases, contact us via the mailing lists.
   The documentation can be downloaded in several formats from one of our
   <A HREF="down/docs/docs.html">download sites</A>.
 
+<!--
 <A NAME="other"></A><H3>Other downloads</H3>
 <P>
 <P>
@@ -72,6 +73,7 @@ releases, contact us via the mailing lists.
 <UL>
   <LI>There are some third party <A HREF="down-utils.html">utilities</A> that can be used with Free Pascal.
 </UL>
+-->
 
 <!--
 <H2>Official beta releases</H2>
