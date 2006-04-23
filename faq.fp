@@ -29,6 +29,8 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
     <LI><A href="#installsnap"> Installing a snapshot</A></LI>
     <LI><A href="#KnownBugs">Known bugs / Reporting bugs</A></LI>
     <LI><A href="#HOMEWORK">I have to write a program for homework. Can you help?</A></LI>
+    <LI><A href="#windowsapp">How do I make a real Windows application with windows and menu bars?</A></LI>
+    <LI><A href="#game">How do I make a game with Free Pascal? Can I make a game like Doom 3?</A></LI>
     <LI><A href="#ErrorPos">Getting more information when an application crashes</A></LI>
     <LI><A href="#general-heap">Increasing the heap size</A></LI>
     <LI><A href="#general-doesntfindfiles">Compiler seems to skip files in directories -Fu points to</A></LI>
@@ -41,7 +43,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
     <LI><A href="#debugshared">Debugging shared library (dynamic linked library) code does not fully work</A></LI>
     <LI><A href="#cantfindunit">PPU files binary compatibility between versions</A></LI>
     <LI><A href="#cantfindunit">Can't compile a program using a binary only version of a unit</A></LI>
-    <LI><A href="#dotnet">What about .NET?</A></LI>   
+    <LI><A href="#dotnet">What about .NET?</A></LI>
    </OL>
    <LI> Pascal language related information </LI>
    <OL>
@@ -444,7 +446,25 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
             Pascal compiler and are trying to always reply to emails. If we get
             emails like this, this becomes harder and harder. </P>
         </LI>
-
+        <LI><A name="windowsapp"></A>
+            <H3>How do I make a real Windows application with windows and menu bars?</H3>
+            The easiest way is to <A href='http://www.lazarus.freepascal.org'>download Lazarus</A>.
+            It won't be just a Windows application, it will also work under Linux, FreeBSD and
+            MacOS X.
+        </LI>
+        <LI><A name="game"></A>
+            <H3>How do I make a game with Free Pascal? Can I make a game like Doom 3?</H3>
+            Yes, you can make games with Free Pascal and if you are really good you can make
+            a game like Doom 3. Making games is difficult, you need to be an experienced
+            programmer to make them. The web site <A href='http://www.pascalgamedevelopment.com'>
+            www.pascalgamedevelopment.com</A> is a community of people who program games in Free
+            Pascal and Delphi.
+            <P>
+            If you want a start, please start to study <A href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</A>
+            or <A href='http://ptcpas.sourceforge.net'>PTCPas</A>. Also you can try to study an existing game, for example
+            <A href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</A> is a very simple game and it should not be
+            very hard to understand its code.
+        </LI>
         <LI><A name=ErrorPos></A>
             <H3>Getting more information when an application crashes</H3>
 
@@ -777,7 +797,27 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	attempt would have little synergy with the FPC project as it is
 	today.<p>
        </LI>
+        <LI><A name="windowsapp"></A>
+            <H3>How do I make a real Windows application with windows and menu bars?</H3>
+            The easiest way is to <A href='http://www.lazarus.freepascal.org'>download Lazarus</A>.
+            It won't be just a Windows application, it will also work under Linux, FreeBSD and
+            MacOS X.
+        </LI>
+        <LI><A name="game"></A>
+            <H3>How do I make a game with Free Pascal? Can I make a game like Doom 3?</H3>
+            Yes, you can make games with Free Pascal and if you are really good you can make
+            a game like Doom 3. Making games is difficult, you need to be an experienced
+            programmer to make them. The web site <A href='http://www.pascalgamedevelopment.com'>
+            www.pascalgamedevelopment.com</A> is a community of people who program games in Free
+            Pascal and Delphi.
+            <P>
+            If you want a start, please start to study <A href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</A>
+            or <A href='http://ptcpas.sourceforge.net'>PTCPas</A>. Also you can try to study an existing game, for example
+            <A href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</A> is a very simple game and it should not be
+            very hard to understand its code.
+        </LI>
    </OL>
+
 
    <H2><LI>Pascal language related information</LI></H2>
    <OL>
