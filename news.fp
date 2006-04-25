@@ -11,6 +11,14 @@
 <H3>Latest changes:</H3>
 <UL>
 <p> 
+<LI>April  2006 summary</LI> <p/>
+<ul>
+<li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
+</ul>
+</ul>
+
+<UL>
+<p> 
 <LI>March 2006 summary</LI> <p/>
 Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:
 <ul>
