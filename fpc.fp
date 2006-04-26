@@ -23,7 +23,7 @@
 
 <UL>
 <p> 
-<p><em>April  2006 summary<em> <p/>
+<p><em>April  2006 summary</em> <p/>
 <ul>
 <li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
 </ul>
