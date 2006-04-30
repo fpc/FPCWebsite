@@ -11,34 +11,43 @@ function EmitAddForm ( ) {
 /*
  * Start of program
  */
+function DoCheck($ATitle,$ADescr,$AText) {
+  if (!(strpos($ADescr,$AText)===false)) {
+    return True;
+  }
+  if (!(strpos($ATitle,$AText)===false)) {
+    return True;
+  }
+  return False;
+}
+
+$SpamWords = array('viagra','cialis','porno','valium','reductil');
+
 function Spam($ATitle,$ADescr) {
+  global $SpamWords;
   $ATitle=strtolower($ATitle);
   $ADescr=strtolower($ADescr);
-  if (strpos($ADescr,'viagra')===FALSE) {
+  while ( list($key,$val) = each($SpamWords) ) {
+    if (DoCheck($ADescr,$ATitle,$val)) {
+      return True;
+    }
+  }
+  return False;
+/*
+  if (!(strpos($ADescr,'valium')===false)) {
     return True;
   }
-  if (strpos($ADescr,'cialis')===FALSE) {
-    return True;
-  }
-  if (strpos($ADescr,'porno')===FALSE) {
-    return True;
-  }
-  if (strpos($ATitle,'viagra')===FALSE) {
-    return True;
-  }
-  if (strpos($ATitle,'cialis')===FALSE) {
-    return True;
-  }
-  if (strpos($ATitle,'porno')===FALSE) {
+  if (!(strpos($ATitle,'valium')===false)) {
     return True;
   }
   return FALSE;
+*/
 }
+readfile ($head);
 if ( $confirm == "yes") {
   if (Spam($title,$descr)) {
     exit('Spam entry not allowed');
   }
-readfile ($head);
 /* Connect to database */
 $db = ConnectToFPC();
 /*
