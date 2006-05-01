@@ -21,7 +21,7 @@ function DoCheck($ATitle,$ADescr,$AText) {
   return False;
 }
 
-$SpamWords = array('viagra','cialis','porno','valium','reductil');
+$SpamWords = array('viagra','cialis','porno','valium','reductil','propecia');
 
 function Spam($ATitle,$ADescr) {
   global $SpamWords;
