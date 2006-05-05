@@ -39,7 +39,7 @@ linking times tremendously. For such a complex new subsystem, it is already quit
 <lI>DWARF debugging info support is slowly starting to work. Stabs will be phased out in time.</li>
 <li>Florian just showed a first &quot;Hello world&quot; program for Win64. This is remarkable since
 GCC and the binutils don't even support this target. (Internal linker!)</li>
-<lI>Jonas reported that he has ported to Darwin/i386 with remarkable little effort. Snapshots
+<lI>Jonas reported that he has ported to Darwin/i386 with remarkably little effort. Snapshots
 are expected in the coming weeks. </li>
 </ul>
 
