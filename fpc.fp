@@ -17,19 +17,10 @@
 </P>
 
 <H2>Latest News</H2>
-
-<p> 
-
-
-<UL>
-<p> 
-<p><em>April  2006 summary</em> <p/>
-<ul>
-<li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
+<em>April 2006</em> The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
 </ul>
 
 <p><em>March 2006 summary</em>
-<p/>
 Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:
 <ul>
 <li>Thomas Schatzl is making good progress with the linux 64-bit PowerPC port. A snapshot is 
@@ -42,21 +33,13 @@ GCC and the binutils don't even support this target. (Internal linker!)</li>
 <lI>Jonas reported that he has ported to Darwin/i386 with remarkably little effort. Snapshots
 are expected in the coming weeks. </li>
 </ul>
-
 <p><em>February 15, 2006</em>
 An FPC port for Solaris/Sparc has been created. Get it 
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.
 <p>
-<P><EM>February 7, 2006</EM>
-Francesco Lombardi is making great progres <a href='http://fpc4gba.pascalgamedevelopment.com'>porting
-Free Pascal to the Game Boy Advance</A>. Checkout <a href='http://www.pascalgamedevelopment.com/viewtopic.php?p=19224'>
-this forum thread on Pascal Game Development</A> to view some screenshots.
-<P> <EM>February 6, 2006</EM>
-Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof of concept can be downloaded
-<A href='http://www.skyos.org/software/fpc.zip'>here</A>.
-<p>
 <a href="news.html">Older News</a>
 </p>
+
 <h2>Current Version</h2>
 <p>
   Version <em>2.0.2</EM> is the latest stable version the Free Pascal.
@@ -65,7 +48,6 @@ Free Pascal has been ported to <A href='http://www.skyos.org'>SkyOS</A>! A proof
   The development releases have version numbers <EM>2.1.x</EM>.
   See the <A HREF="develop.html">development</A> page how to obtain the latest sources and support development.
 </p>
-
 <H2>Features</H2>
 <P>
   The language syntax has excellent compatibility with TP 7.0 as well as
