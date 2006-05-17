@@ -175,7 +175,7 @@ svn update fpc
 
 <P>
 To checkout release, you've to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tages/release&undersc;2&undersc;0&undersc;2 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/tags/release&undersc;2&undersc;0&undersc;2 fpc
 </P>
 
 <p>
