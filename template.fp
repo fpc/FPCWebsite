@@ -52,7 +52,7 @@
   ____<A HREF="aboutus.html" class="navi">Authors</A><BR>
   ____<A HREF="credits.html" class="navi">Credits</A><BR>
   _<A HREF="links.html" class="navi">Links/Mirrors</A><BR>
-  _<A HREF="http://www.freepascal.org/mantis/set_project.php?project_id=6" class="navi" target="_new">Bugs</A><BR>
+  _<A HREF="http://www.freepascal.org/mantis/set_project.php?project_id=6" class="navi">Bugs</A><BR>
   _<A HREF="units.html" class="navi">Units</A><BR>
   ____<A HREF="http://www.freepascal.org/contrib/db.php3" class="navi">Contributed Units</A><BR>
   ____<A HREF="http://www.freepascal.org/contrib/add.php3" class="navi">Contribute a unit.</A>
