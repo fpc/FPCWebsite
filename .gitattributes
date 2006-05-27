@@ -2,7 +2,7 @@
 /Makefile svneol=native#text/plain
 /aboutus.fp svneol=native#text/plain
 /advantage.fp svneol=native#text/plain
-/bugs.fp svneol=native#text/plain
+/bugs.html svneol=native#text/plain
 contrib/Makefile svneol=native#text/plain
 contrib/README -text
 contrib/add.fig svneol=native#text/plain
