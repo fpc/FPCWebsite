@@ -61,7 +61,7 @@ These snapshots contain the latest development updates and bug fixes. There is n
 guarantee that the new development updates are fully working and that the snapshot
 is bugfree.
 </p>
-<p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/">Freepascal ftp site</A>. 
+<p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/">Freepascal ftp site</A>.
 </p>
 
 <H3><A NAME="snapshotsv20">Download Daily Update of Release Tree (version 2.0.x)</a></H3>
@@ -71,7 +71,7 @@ feature. This should be more stable than the development snapshots (and even
 the last official release), but there is still no guarantee that these
 snapshots are bugfree.
 </p>
-<p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/">Freepascal ftp site</A>. 
+<p> The files are available from the <A HREF="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/">Freepascal ftp site</A>.
 </p>
 
 <br>
@@ -185,7 +185,7 @@ svn checkout http://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
 </pre>
 
 <p>
-If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a> 
+If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a>
 which is also available online in different formats for free.
 </p>
 
@@ -198,7 +198,7 @@ svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt;
 <b>fpcprojects</b> Several fpc related projects like a converted TTT 5.10, gdbpas or the FPC irc bot.<br>
 <b>lazarus</b> <a href="http://www.lazarus.freepascal.org">Lazarus</a>.<br>
 <b>fpcdocs</b> The fpc documentation sources.<br>
-<b>html</b> The sources of the fpc website you're just browsing.<br> 
+<b>html</b> The sources of the fpc website you're just browsing.<br>
 <b>fpcbuild</b> Everything needed to build fpc releases. This links
 to several other repositories, so this checkout is really big.<br>
 <b>logs</b> Log files of the repositories mentioned above.<br>
@@ -217,8 +217,8 @@ through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">v
 
 <A NAME="future"></A><H3>Bugs and the Future</H3>
 <P>
-A list of known bugs is available <a href="bugs.html">here</a>.<br>
-And the future plans of Free Pascal can be viewed <A HREF="future.html">here</A>.<br>
-If you're interested in FPC development, you might be also interested in the 
+A list of known bugs is available <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6">here</a>.<br>
+And the future plans of Free Pascal can be viewed <a href="future.html">here</A>.<br>
+If you're interested in FPC development, you might be also interested in the
 <a href="http://www.freepascal.org/wiki">wiki</a>.
 </P>
