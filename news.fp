@@ -9,9 +9,19 @@
 </P>
 
 <H3>Latest changes:</H3>
+
 <UL>
 <p> 
-<LI>April  2006 summary</LI> <p/>
+<LI>June 1 2006</LI><P>
+<ul>
+<li>Francesco Lombardi has a released snapshot of his <A href='http://itaprogaming.free.fr'>Gameboy Advance Free Pascal port</A>,
+download it <A href='ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip'>here</A>.
+</ul>
+</ul>
+
+<UL>
+<p> 
+<LI>April  2006 summary</LI><P>
 <ul>
 <li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
 </ul>

@@ -17,28 +17,11 @@
 </P>
 
 <H2>Latest News</H2>
-<em>April 2006</em> The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site</li>
-</ul>
-
-<p><em>March 2006 summary</em>
-Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:
-<ul>
-<li>Thomas Schatzl is making good progress with the linux 64-bit PowerPC port. A snapshot is 
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc64-linux/fpc-2.1.1.powerpc64-linux.tar.gz">here</a></lI>
-<li>Peter did a Titanic work, and crafted an internal linker for win32 and win64, reducing
-linking times tremendously. For such a complex new subsystem, it is already quite stable.</lI>
-<lI>DWARF debugging info support is slowly starting to work. Stabs will be phased out in time.</li>
-<li>Florian just showed a first &quot;Hello world&quot; program for Win64. This is remarkable since
-GCC and the binutils don't even support this target. (Internal linker!)</li>
-<lI>Jonas reported that he has ported to Darwin/i386 with remarkably little effort. Snapshots
-are expected in the coming weeks. </li>
-</ul>
-<p><em>February 15, 2006</em>
-An FPC port for Solaris/Sparc has been created. Get it 
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.
-<p>
-<a href="news.html">Older News</a>
-</p>
+<EM>1 June 2006</EM>
+Francesco Lombardi has released a snapshot of his <A href='http://itaprogaming.free.fr'>Gameboy Advance Free Pascal port</A>,
+download it <A href='ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip'>here</A>.
+<P>
+<em>April 2006</em> The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site
 
 <h2>Current Version</h2>
 <p>
