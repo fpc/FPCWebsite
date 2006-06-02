@@ -16,6 +16,11 @@
   Netware (libc and classic) and MorphOS.
 </P>
 
+<H2>Server downtime</H2>
+<FONT color='#FF000000'><B>
+  Community, ftp server, mailing lists, FPCBot and Lazarus Wiki will be temporarily off line starting 5 June 2006.
+</B></FONT>
+
 <H2>Latest News</H2>
 <EM>1 June 2006</EM>
 Francesco Lombardi has released a snapshot of his <A href='http://itaprogaming.free.fr'>Gameboy Advance Free Pascal port</A>,
