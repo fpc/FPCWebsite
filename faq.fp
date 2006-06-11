@@ -306,8 +306,8 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
             or proprietary software using Free Pascal.
             </P>
 
- 	    <P>This extra exception to the LGPL is added:<br> As a special
-		exception, the copyright holders of this library give you
+        <P>This extra exception to the LGPL is added:<br><I> As a special
+        exception, the copyright holders of this library give you
 		permission to link this library with independent modules to
 		produce an executable, regardless of the license terms of
 		these independent modules, and to copy and distribute the
@@ -318,8 +318,20 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 		based on this library. If you modify this library, you may
 		extend this exception to your version of the library, but
 		you not obligated to do so. If you do not wish to do so,
-		delete this exception statement from your version.</P>
+		delete this exception statement from your version.</I></P>
 
+        Please note that you still have to comply to the LGPL, which, for example,
+        requires you to provide the source code of the runtime library. If you want
+        to write proprietary closed source software, please do this to comply:
+        <UL>
+           <LI>Most people can satisfy the source code requirement by mentioning
+           the rtl source code can be downloaded at the Free Pascal
+           web site: if you did not modify the rtl this is considered adequate to
+           satisfy the LGPL requirement of providing source code.
+           <LI>If you made modifications to the runtime library, you cannot keep them
+           for yourself, you must make them available if requested.
+           <LI>Distribute the LGPL license with your product.
+        </UL>
 
             <P> The compiler source code, on the other hand, comes under
             the GNU Public license, which means that any usage of the compiler
