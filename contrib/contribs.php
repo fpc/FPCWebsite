@@ -28,13 +28,14 @@ RowStart;
   CellStart(); echo "Date: <B>$row->date</B>"; CellEnd();
   CellStart(); echo "Supported OS: <B>$row->os</B>"; CellEnd();
   CellStart('ALIGN="RIGHT"');
-  doanchor ("edit.php3?ID=$row->ID","<IMG SRC=\"update.gif\"  HEIGHT=23 WIDTH=51 BORDER=0 ALT=\"Update\">");
-  doanchor ("delete.php3?ID=$row->ID","<IMG SRC=\"delete.gif\" HEIGHT=23 WIDTH=45 BORDER=0 ALT=\"Delete\">");
+  doanchor ("edit.php3?ID=$row->ID","Update");
+  echo " ";
+  doanchor ("delete.php3?ID=$row->ID","Delete");
   CellEnd();
 RowEnd();
 RowStart();
   CellStart("COLSPAN=3");
-  echo "Email:";
+  echo "Email: ";
   doanchor("mailto:".$row->email,$row->author);
   CellEnd();
   CellStart("COLSPAN=3");
@@ -84,6 +85,7 @@ function MailRecord ($row,$email,$adding=0) {
  * Emit a menu for contributed units.
  */ 
 function EmitContribsMenu () {
+/*
   $this="db.php3";
   doanchor($this . "?category=all","<IMG SRC=\"all.gif\" WIDTH=96 HEIGHT=23 BORDER=0 ALT=\"ALL categories\"></IMG>");
   doanchor($this . "?category=Database","<IMG SRC=\"database.gif\" WIDTH=70 HEIGHT=23 BORDER=0 ALT=\"Database units\"></IMG>");
@@ -92,6 +94,7 @@ function EmitContribsMenu () {
   doanchor($this . "?category=Internet","<IMG SRC=\"internet.gif\" WIDTH=61 HEIGHT=23 BORDER=0 ALT=\"Internet units\"></IMG>");
   doanchor($this . "?category=Miscellaneous","<IMG SRC=\"miscellaneous.gif\" WIDTH=99 HEIGHT=23 BORDER=0 ALT=\"Miscellaneous units\"></IMG>");
   doanchor("add.php3","<IMG SRC=\"add.gif\" WIDTH=77 HEIGHT=23 BORDER=0 ALT=\"Add a unit\"></IMG>");
+*/
 }
 function VerifyPassword ($db,$pwd, $ID) {
   $query = "select * from contribs where pwd=\"$pwd\" and ID=$ID";

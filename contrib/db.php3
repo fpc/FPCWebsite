@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -76,5 +74,3 @@ mysql_close($db);
 EmitContribsMenu ();
 readfile ($foot);
 ?>
-</BODY>
-</HTML>

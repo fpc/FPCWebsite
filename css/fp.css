@@ -145,6 +145,7 @@ ul li {
 	text-align:center;
 	padding:5px;
 }
+
 #mainbar {
 	margin-right:10.5em;
 	padding-right:10px;
@@ -177,6 +178,13 @@ ul li {
 	margin-left:20px;
 	margin-top:20px;
 	margin-bottom:25px;
+}
+
+.navlinks {
+	margin: 3px; 0 0 10px;
+}
+.navlinks a {
+	margin: 3px;
 }
 
 #sidebar div.logos {

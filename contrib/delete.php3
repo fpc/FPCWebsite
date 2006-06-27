@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -69,5 +67,3 @@ if ( $confirm == "yes") {
 EmitContribsMenu ();
 readfile($foot);
 ?>
-</BODY>
-</HTML>

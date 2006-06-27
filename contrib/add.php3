@@ -1,5 +1,3 @@
-<HTML>
-<BODY>
 <?php
  /* input some needed stuff */
  require "html.php";
@@ -61,11 +59,9 @@ if ( $confirm == "yes") {
   /* 
    * We need to emit a confirmation form.
    */
-  Header1("Contibute a unit:");
+  Header1("Contribute a unit:");
   EmitAddForm();
 }
 EmitContribsMenu ();
 readfile($foot);
 ?>
-</BODY>
-</HTML>
