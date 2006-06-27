@@ -38,7 +38,7 @@ $db = ConnectToFPC();
  * is this confirmed with password ? See if we can delete...
  */ 
 if ( $confirm == "yes") {
-  if (($pwd=='Fixme') || VerifyPassword($db,$pwd,$ID)) {
+  if (($pwd=='Shimrod') || VerifyPassword($db,$pwd,$ID)) {
     $query = "delete from contribs where ID = $ID";
     $res=mysql_query($query,$db);
     CheckMySQLError;
