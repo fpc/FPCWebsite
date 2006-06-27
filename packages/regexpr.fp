@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -8,17 +8,17 @@
 #HEADER regexpr
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>Regexpr : Regular expressions</H1>
+<h1>Regexpr : Regular expressions</h1>
 The <tt>regexpr</tt> unit contains some routines to handle regular
 expressions in Free Pascal. It handles most regular expressions as 
 GNU regexpr.
-(<A HREF="http://www.freepascal.org/docs-html/packages/regexpr">View interface</A>)
-<P>
+(<a href="http://www.freepascal.org/docs-html/packages/regexpr">View interface</a>)
+<p>
 The <TT>testreg1</TT> test program demonstrates the supported regular
 expressions.
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

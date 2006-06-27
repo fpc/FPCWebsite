@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -8,11 +8,11 @@
 #HEADER template
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>Template</H1>
+<h1>Template</h1>
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

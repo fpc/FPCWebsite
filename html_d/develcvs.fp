@@ -5,29 +5,29 @@
 #HEADER Development
 -->
 
-<H3><a name="cvs">Abrufen mit GNU CVS</a></H3>
+<h3><a name="cvs">Abrufen mit GNU CVS</a></h3>
 
 <ol>
 <!-- IDXSTART -->
-  <LI><A HREF="#introduc">CVS, eine Einf&uuml;hrung</A></LI>
-  <LI><A HREF="#obtaincvs">Bezug von CVS</A></LI>
-  <LI><A HREF="#setup">Installation und Einrichtung von CVS</A></LI>
-  <LI><A HREF="#login">Einloggen in den CVS Server</A></LI>
-  <LI><A HREF="#checkout">Erstmaliges Herunterladen (checkout) eines Paketes</A></LI>
-  <LI><A HREF="#update">Aktualisieren eines Paketes</A></LI>
+  <li><a href="#introduc">CVS, eine Einf&uuml;hrung</a></li>
+  <li><a href="#obtaincvs">Bezug von CVS</a></li>
+  <li><a href="#setup">Installation und Einrichtung von CVS</a></li>
+  <li><a href="#login">Einloggen in den CVS Server</a></li>
+  <li><a href="#checkout">Erstmaliges Herunterladen (checkout) eines Paketes</a></li>
+  <li><a href="#update">Aktualisieren eines Paketes</a></li>
 <!-- IDXEND -->
 </ol>
 
-Dieses Dokument wurde zuletzt aktualisiert: 2000-Jan-18.<BR>
-(&Uuml;bersetzung ins Deutsche: 2000-Apr-21.)<BR>
+Dieses Dokument wurde zuletzt aktualisiert: 2000-Jan-18.<br>
+(&Uuml;bersetzung ins Deutsche: 2000-Apr-21.)<br>
 Kommentare und Anregungen an
 <a href="mailto:marco@freepascal.org">Marco@freepascal.org</a>.
 
 <ol>
-<A NAME="introduc"></A>
-<H3><LI>CVS, eine Einf&uuml;hrung</LI></H3>
+<a name="introduc"></a>
+<h3><li>CVS, eine Einf&uuml;hrung</li></h3>
 <p>
-<A HREF="http://www.cyclic.com/">CVS</A> ist eine <a href="http://www.gnu.org">GNU</a> Anwendung
+<a href="http://www.cyclic.com/">CVS</a> ist eine <a href="http://www.gnu.org">GNU</a> Anwendung
 die Versions-Management vereinfacht und das Arbeiten an grossen Projekten mit mehreren
 Entwicklern gleichzeitig erlaubt.
 </p>
@@ -47,26 +47,26 @@ Nach dem anf&auml;nglichen grossen Download werden die t&auml;glichen Updates re
 klein und schnell.
 </p>
 
-<A NAME="obtaincvs"></A>
-<H3><LI>Bezug von CVS</LI></H3>
+<a name="obtaincvs"></a>
+<h3><li>Bezug von CVS</li></h3>
 <p>
 <ol>
-<lI><b>Linux/FreeBSD</b> - Die meisten grossen Linux Distributionen enthalten
+<li><b>Linux/FreeBSD</b> - Die meisten grossen Linux Distributionen enthalten
 CVS. Mit dem Installationsprogramm der Distribution (Paket-Manager) sollte sich
 CVS installieren lassen. (Slackware: pkgtool, RedHat: RPM or its X-windows companion).
 CVS benutzt das RCS Paket, darum sollte RCS ebenfalls Installiert werden.
 Beide Pakete zusammen ben&ouml;tigen etwa 5 MB Plattenplatz, je nach Distribution.
 </li>
-<lI><b>Windows</b> - Am einfachsten laden sie sich WinCVS herunter (etwa 1,7 MB)
+<li><b>Windows</b> - Am einfachsten laden sie sich WinCVS herunter (etwa 1,7 MB)
 welche unter <a href="www.wincvs.org">www.wincvs.org</a> zu finden ist.
 Dieses Archiv enth&auml;lt auch eine Datei namens cvs.hlp welche eine gute Referenz zu CVS ist.</li>
 <li><b>MAC</b> - Ein Client ist verf&uuml;gbar auf der <a href="http://www.wincvs.org">WinCVS</a> Homepage.
 <li><b>Andere Betriebssysteme</b> - M&ouml;glicherweise exisitert ein passender Client auf der
-<A HREF="http://www.cyclic.com/">cyclic</a> CVS web site.</li>
+<a href="http://www.cyclic.com/">cyclic</a> CVS web site.</li>
 </ol>
 
-<A NAME="setup"></A>
-<H3><LI>Installation und Einrichtung von CVS</LI></H3>
+<a name="setup"></a>
+<h3><li>Installation und Einrichtung von CVS</li></h3>
 
 Erzeugen sie zuerst ein leeres Basis-Verzeichnis f&uuml;r die Sourcen,
 z.B.<p>
@@ -88,7 +88,7 @@ path %PATH%;c:\tools\wincvs
 </pre>
 <p>
 Sie k&ouml;nnen dieses Verzeichnis auch zur PATH-Zeile in Ihrer autoexec.bat
-hinzuf&uuml;gen.</P>
+hinzuf&uuml;gen.</p>
 Weiterhin ben&uuml;tzt CVS ein Verzeichnis f&uuml;r mehrere sehr kleine Konfigurationsdateien.
 Unter Unix/Linux wird automatisch das Home-Verzeichnis f&uuml;r diesen Zweck verwendet.
 Unter DOS/Win32 dagegen muss das Verzeichnis das f&uuml;r diesen Zweck verwendet wird
@@ -101,12 +101,12 @@ set HOME=c:\tools\wincvs
 Es kann jeder Verzeichnis verwendet werden das NICHT unter CVS genutzt wird.
 In diesem Sinne darf das Verzeichnis im dem die FPC Sourcen abgelegt werden
 nicht angegeben werden.
-</P>
+</p>
 <p>
 Um unn&ouml;tig lange Befehlszeilen zu vermeiden geben wir weiterhin den Server
 mit dem CVS eine Verbindung aufbauen soll in einer Umgebungsvaraiblen an,
 sowohl unter Linux wie auch unter DOS.
-</P>
+</p>
 DOS: (in Ihrer autoexec.bat oder Ihrer Login Batch-Datei)
 <pre>
 set CVSROOT=:pserver:cvs@cvs.freepascal.org:/FPC/CVS
@@ -117,8 +117,8 @@ Linux(bash): (in Ihre .bash_profile Datei einf&uuml;gen)
 export CVSROOT=":pserver:cvs@cvs.freepascal.org:/FPC/CVS"
 </pre>
 
-<A NAME="login"></A>
-<H3><LI>Einloggen in den CVS Server</LI></H3>
+<a name="login"></a>
+<h3><li>Einloggen in den CVS Server</li></h3>
 <p>
 Sie m&uuml;ssen sich nur einmal mit dieser Prozedur einloggen. Das Client-Programm
 speichert ihre Login-Information in einer .cvspass Datei in ihrem Home-Verzeichnis ab.
@@ -154,11 +154,11 @@ echo Bitte Passwort eingeben (="cvs")
 cvs login
 </pre>
 <p>
-<A NAME="checkout"></A>
-<H3><LI>Erstmaliges Herunterladen (checkout) eines Paketes</LI></H3>
+<a name="checkout"></a>
+<h3><li>Erstmaliges Herunterladen (checkout) eines Paketes</li></h3>
 <p>
 Um den allerersten Download (auch checkout genannt) eines Paketes zu intieren geben sie folgendes ein:
-</P>
+</p>
 <pre>
 cvs -z 3 checkout &lt;modulename&gt;
 </pre>
@@ -169,29 +169,29 @@ cvs -z 3 -d :pserver:cvs@cvs.freepascal.org:/FPC/CVS checkout &lt;modulename&gt;
 
 wobei &lt;modulename&gt; eines der follogenden Module sein kann:
 
-<UL>
-<LI><B>base</B> enth&auml;lt mehrere Makefile Vorlagen, nicht notwendig f&uuml;r normales Compilieren.</li>
-<LI><B>rtl</B> enth&auml;lt die Quellen der RTL (Run-Time Library).</li>
-<LI><B>compiler</B> enth&auml;lt die Quellen des Compilers (ben&ouml;tigt die RTL f&uuml;r die šbersetzung).</lI>
-<LI><B>fcl</B> enth&auml;lt die Quellen der Free Component Library (ben&ouml;tigt PACKAGES/paszlib).</li>
-<LI><b>utils</b> enth&auml;lt die Quellen mehrerer Utilitys die innerhalb des FPC-Projekts benutzt werden (manche ben&ouml;tigen die FCL).</li>
-<LI><B>gtk</B> enth&auml;lt die GTK Bindings Quellen.</li>
-<LI><B>api</B> enth&auml;lt die API Quellen (ben&ouml;tigt von FV und allem das darauf aufbaut).</li>
-<LI><B>docs</B> enth&auml;lt die Quellen der Dokumentation (TeX).</LI>
+<ul>
+<li><b>base</b> enth&auml;lt mehrere Makefile Vorlagen, nicht notwendig f&uuml;r normales Compilieren.</li>
+<li><b>rtl</b> enth&auml;lt die Quellen der RTL (Run-Time Library).</li>
+<li><b>compiler</b> enth&auml;lt die Quellen des Compilers (ben&ouml;tigt die RTL f&uuml;r die šbersetzung).</li>
+<li><b>fcl</b> enth&auml;lt die Quellen der Free Component Library (ben&ouml;tigt PACKAGES/paszlib).</li>
+<li><b>utils</b> enth&auml;lt die Quellen mehrerer Utilitys die innerhalb des FPC-Projekts benutzt werden (manche ben&ouml;tigen die FCL).</li>
+<li><b>gtk</b> enth&auml;lt die GTK Bindings Quellen.</li>
+<li><b>api</b> enth&auml;lt die API Quellen (ben&ouml;tigt von FV und allem das darauf aufbaut).</li>
+<li><b>docs</b> enth&auml;lt die Quellen der Dokumentation (TeX).</li>
 <li><b>gdbpas</b> enth&auml;lt einen Patch f&uuml;r die GDB Quellen um Pascal in GDB zu integrieren.
 Sie werden gcc (oder djgpp) und bevorzugt die GDB v4.18 Quellen ben&ouml;tigen um dies zu &uuml;bersetzten.</li>
 <li><b>ide</b> enth&auml;lt die Textmodus-IDE.
 Diese l&auml;sst sich derzeit nicht &uuml;bersetzen, da die FreeVision
 Quellen wegen eines Copyright Problems nicht &ouml;ffentlich verf&uuml;gbar sind.</li>
-<LI><B>bugs</B> enth&auml;lt das Fehler Archiv.
-<LI><b>install</b> enth&auml;lt Dateien die erg&auml;nzt und verwendet werden
+<li><b>bugs</b> enth&auml;lt das Fehler Archiv.
+<li><b>install</b> enth&auml;lt Dateien die erg&auml;nzt und verwendet werden
 um Releases zu erzeugen.
 (RPM Steuer-Dateien, die Quellen des Installations-Programms und die Demos).</li>
 <!-- noch nicht aktiv...
-<Li><b>kcl</b> enth&auml;lt das Kassandra/KCL Projekt, das zum Ziel hat
-eine portable Visual Component Library zu erzeugen, die nicht notwendigerweise Delphi's entpsricht (ben&ouml;tigt FCL und GTK).</lI>
+<li><b>kcl</b> enth&auml;lt das Kassandra/KCL Projekt, das zum Ziel hat
+eine portable Visual Component Library zu erzeugen, die nicht notwendigerweise Delphi's entpsricht (ben&ouml;tigt FCL und GTK).</li>
 -->
-<li><b>lazarus</b> enth&auml;lt die Dateien des Lazarus Projekts, welches zum Ziel hat eine Delphi compatible VCL zu erzeugen.</lI>
+<li><b>lazarus</b> enth&auml;lt die Dateien des Lazarus Projekts, welches zum Ziel hat eine Delphi compatible VCL zu erzeugen.</li>
 <li><b>packages</b> enth&auml;lt mehrere kleinere Packete und das KCL/Kassandra Projekt
 (api, forms, gdbint, ggi, gtk, ibase, inet, mysql, ncurses,
 opengl, paszlib, postgres, svgalib, uncgi, utmp, x11, zlib).</li>
@@ -204,14 +204,14 @@ von lediglich der RTL und dem Compiler als ZIP gepackte Sourcen ben&ouml;tigt
 lediglich 20 Minuten bei bleicher Verbindungs-Geschwindigkeit.
 </p>
 
-<A NAME="update"></A>
-<H3><LI>Aktualisieren eines Paketes</LI></H3>
+<a name="update"></a>
+<h3><li>Aktualisieren eines Paketes</li></h3>
 <p>
 Den Vorteil: das Updaten eines ausgecheckten Paketes am n&auml;chsten Tag geht
 schnell vor sich. Typischerweise werden nur 1,5 Minuten ben&ouml;tigt um das
 komplette Projekt zu aktualisieren (unter der Annahme dass Žnderungen im
 Archiv stattgefunden haben und die Verbindung mit 44k0 l&auml;uft).
-</P>
+</p>
 Die Syntax f&uuml;r das Aktualiserungs-Kommando ist &auml;hnlich dem checkout Kommando:<p>
 <pre>
 cvs -z 3 update -Pd &lt;modulename&gt;
@@ -225,7 +225,7 @@ Der Schalter -Pd sagt Ihrem Client dass er leere Verzeichnisse entfernen soll (d
 sollte man nie per Hand entfernen!). Verschieben sie den Schalter -Pd nie vor das
 Schl&uuml;sselwort update, or vor einen der anderen Schalter nach dem update Schl&uuml;sselwort.
 Die Reihenfolge der Schalter ist wichtig!
-</P>
+</p>
 Der Schalter -z 3 sagt dem CVS Server dass er alle Daten vor dem Versenden packen soll.
 Bitte verwenden Sie die maximale Kompression (-z 9) nicht, da dies kaum schneller ist,
 aber dem Server eine grosse Auslastung beschert.
@@ -280,8 +280,8 @@ cvs  -z 3 update -Pd base
 cvs  -z 3 update -Pd html 
 </pre>
 
-<P>
-F&uuml;r die Neugierigen und Experimentierfreudigen:<BR>
+<p>
+F&uuml;r die Neugierigen und Experimentierfreudigen:<br>
 Sie haben lediglich Nur-Lesen Zugriff, versuchen sie nicht irgendetwas zu erg&auml;nzen. :-)
 </p>
-</HTML>
+</html>

@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Zuk&uuml;nftige Pl&auml;ne
 #ENTRY develop
@@ -6,23 +6,23 @@
 #HEADER Future Plans
 -->
 
-<H3>Planungen f&uuml;r die n&auml;chste Version</H3>
-<B>Version 1.0</B> (gesch&auml;tztes Release Datum: Januar 2000)
-<UL>
-  <LI>Alle bekannten Fehler behoben</LI>
-  <LI>API Units verf&uuml;gbar unter DOS/Go32v2, Linux</LI>
-  <LI>Integrierte Entwicklungs Umgebung (Debugger Unterst&uuml;tzung wird Beta sein)</LI>
-</UL>
-<P>
+<h3>Planungen f&uuml;r die n&auml;chste Version</h3>
+<b>Version 1.0</b> (gesch&auml;tztes Release Datum: Januar 2000)
+<ul>
+  <li>Alle bekannten Fehler behoben</li>
+  <li>API Units verf&uuml;gbar unter DOS/Go32v2, Linux</li>
+  <li>Integrierte Entwicklungs Umgebung (Debugger Unterst&uuml;tzung wird Beta sein)</li>
+</ul>
+<p>
 
-<H3>Planungen f&uuml;r sp&auml;tere Versionen</H3>
-<UL>
-  <LI>Inline Direktive f&uuml;r Inlinen-Prozeduren</LI>
-  <LI>OOP GUI API. (objekt orientierte Schnittstelle f&uuml;r grafische Benutzeroberfl&auml;che)</LI>
-</UL>
-<P>
+<h3>Planungen f&uuml;r sp&auml;tere Versionen</h3>
+<ul>
+  <li>Inline Direktive f&uuml;r Inlinen-Prozeduren</li>
+  <li>OOP GUI API. (objekt orientierte Schnittstelle f&uuml;r grafische Benutzeroberfl&auml;che)</li>
+</ul>
+<p>
 
-<H3>Api Units</H3>
+<h3>Api Units</h3>
 Die folgenden Units existieren bereits und werden in der n&auml;chsten Version
 enthalten sein:
 <dl>
@@ -37,6 +37,6 @@ enthalten sein:
   <dt>Mouse    <dd> system-unabh&auml;ngige Maus-Operationen
                  (derzeitig in der Designphase)
 </dl>
-<P>
+<p>
 
-</HTML>
+</html>

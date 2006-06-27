@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -8,23 +8,23 @@
 #HEADER Oracle interface
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>Oracle - Oracle server interface</H1>
+<h1>Oracle - Oracle server interface</h1>
 
 The oracle server interface exists of one unit, <tt>oraoci</tt>, which is a
 straight translation of the oracle interface header files. 
-(<A HREF="http://www.freepascal.org/docs-html/packages/oraoci">View
-interface</A>)
-<P>
+(<a href="http://www.freepascal.org/docs-html/packages/oraoci">View
+interface</a>)
+<p>
 There are 2 example programs:
-<UL>
-<LI><B>oraclew</b> contains some utility routines for the oracle interface,
+<ul>
+<li><b>oraclew</b> contains some utility routines for the oracle interface,
 for easier management of result sets. Needs the classes unit from the FCL.
-<LI><B>test01</B> a simple test program to demonstrate the interface.
-</UL>
+<li><b>test01</b> a simple test program to demonstrate the interface.
+</ul>
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

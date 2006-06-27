@@ -11,7 +11,7 @@ Please select the site from which you want to download:
 <p>
 
 <ul>
-  <li><a target=_new href="http://sourceforge.net/project/showfiles.php?group_id=2174">SourceForge</A></li>
+  <li><a target=_new href="http://sourceforge.net/project/showfiles.php?group_id=2174">SourceForge</a></li>
 </ul>
 
 <p>

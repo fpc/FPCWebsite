@@ -43,8 +43,8 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 
 <h3><a name="linuxdeb">Debian Packages:</a></h3>
 <ul>
-<li> <A HREF="$MIRRORURL/dist/x86_64-linux-2.0.2/deb/">This directory</A> contains
-     the unofficial debian .deb packages.<BR>
+<li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.2/deb/">This directory</a> contains
+     the unofficial debian .deb packages.<br>
 </ul>
 
 -->

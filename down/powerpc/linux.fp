@@ -16,7 +16,7 @@ The latest release version is <b>2.0.0</b>.
 
 The FPC package for is available in one easy to choose format:
 <ul>
-  <li> <a HREF="#linuxbig">Everything in 1 big package</a>
+  <li> <a href="#linuxbig">Everything in 1 big package</a>
 </ul>
 
 <h3><a name="linuxbig">Download in 1 big file:</a></h3>
@@ -30,7 +30,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 
 <hr>
 <p>
-<a href="linux.html">Back to mirror list</A><BR/>
-<A HREF="../../download.html">Back to general download page</A>
+<a href="linux.html">Back to mirror list</a><BR/>
+<a href="../../download.html">Back to general download page</a>
 <p>
 

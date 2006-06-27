@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -8,14 +8,14 @@
 #HEADER bfd
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>bfd: Binary File Descriptor Library</H1>
+<h1>bfd: Binary File Descriptor Library</h1>
 This unit is essentially the translation of the <TT>bfd.h</TT> header file
 for the libbfd library which can be used to examine executable files. 
-(<A HREF="http://www.freepascal.org/docs-html/packages/bfd">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/bfd">View interface</a>)
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

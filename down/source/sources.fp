@@ -6,25 +6,25 @@
 #MAINDIR ../../
 #PICDIR ../../pic/
 -->
-<A NAME="source"></A><H1>Source</H1>
-<P>
+<a name="source"></a><h1>Source</h1>
+<p>
 The complete sources can be downloaded in the following formats:
-<P>
+<p>
 <DL>
   <DT>Zip file:</DT>
-  <DD><A HREF="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.tar.gz">fpc-2.0.2.source.tar.gz</a></DD>
+  <DD><a href="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.tar.gz">fpc-2.0.2.source.tar.gz</a></DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><A HREF="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.zip">fpc-2.0.2.source.zip</a></DD>
+  <DD><a href="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.zip">fpc-2.0.2.source.zip</a></DD>
 </DL>
 The archive files contain the sources of
-<UL>
-<LI>The compiler.
-<LI>The Run-Time Library (RTL).
-<LI>The Packages.
-<LI>Free Vision.
-<LI>The Free Component Library (FCL).
-</UL>
-<P>
+<ul>
+<li>The compiler.
+<li>The Run-Time Library (RTL).
+<li>The Packages.
+<li>Free Vision.
+<li>The Free Component Library (FCL).
+</ul>
+<p>
 <hr>
 <p>
 <a href="sources.html">Back to mirror list</a><BR/>

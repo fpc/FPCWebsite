@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - syslog package
 #ENTRY prog
@@ -8,17 +8,17 @@
 #HEADER syslog
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/syslog">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/syslog">View interface</a>)
  -->
-<H1>Syslog package</H1>
+<h1>Syslog package</h1>
 The <b>systemlog</b> contains a translation of the (linux) C system log 
 interface. It contains routines to add system logging to your application, 
 and links to the C library for the implementation of these routines.
-(<A HREF="http://www.freepascal.org/docs-html/packages/systemlog">View interface</A>)
-<P>
+(<a href="http://www.freepascal.org/docs-html/packages/systemlog">View interface</a>)
+<p>
 There is an example called <b>testlog</b> which shows how the unit should be
 used.
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

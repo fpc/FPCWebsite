@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - png package
 #ENTRY prog
@@ -8,15 +8,15 @@
 #HEADER png
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/png">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/png">View interface</a>)
  -->
-<H1>libPNG package</H1>
+<h1>libPNG package</h1>
 The <b>png</b> unit contains a straight translation of the
 <TT>png.h</TT> header file from the libpng library. This library can be used 
 to read/write/manipulate image files in PNG format. 
-(<A HREF="http://www.freepascal.org/docs-html/packages/png">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/png">View interface</a>)
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

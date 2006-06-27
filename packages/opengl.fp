@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -7,21 +7,21 @@
 #MAINDIR ..
 #HEADER OPEN GL
 -->
-<H1>OpenGL interface units</H1>
+<h1>OpenGL interface units</h1>
 These units provide an interface to the OpenGL libraries on windows and
 linux.
 The following units are available on all platforms:
-<UL>
+<ul>
 <li><b>gl</b> libgl interface.
-(<A HREF="http://www.freepascal.org/docs-html/packages/opengl/gl">view interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/opengl/gl">view interface</a>)
 <li><b>glu</b> libglu interface.
-(<A HREF="http://www.freepascal.org/docs-html/packages/opengl/glu">view interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/opengl/glu">view interface</a>)
 <li><b>glut</b> libglut interface.
-(<A HREF="http://www.freepascal.org/docs-html/packages/opengl/glut">view interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/opengl/glut">view interface</a>)
 <li><b>glx</b> libglx interface.
-(<A HREF="http://www.freepascal.org/docs-html/packages/opengl/glx">view interface</A>)
-</UL>
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+(<a href="http://www.freepascal.org/docs-html/packages/opengl/glx">view interface</a>)
+</ul>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

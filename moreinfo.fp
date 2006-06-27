@@ -1,38 +1,38 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - More Information
 #ENTRY moreinfo
 #HEADER More Information
 -->
 
-<P>If you need more information you can:</P>
+<p>If you need more information you can:</p>
 <ul type=disc>
   <li>read the <a href="docs.html">documentation</a> online.
-  <BR>German users can buy the german translation of the book from
-  <A HREF="http://www.cul.de/freepascal.html">C&amp;L</a>.</li>
+  <br>German users can buy the german translation of the book from
+  <a href="http://www.cul.de/freepascal.html">C&amp;L</a>.</li>
   <li>read the <a href="faq.html">General FAQ</a>.</li>
   <li>read the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">Building faq (PDF)</a>.</li>
   <li>read the <a href="news.html">news</a>.</li>
-  <LI>join one of the <A HREF="maillist.html">mailing lists</a>.</li>
-  <LI>have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>. 
-  The log of this channel is available <a href="http://www.de.freepascal.org/cgi-bin/cgifpcbot?channel=fpc">
+  <li>join one of the <a href="maillist.html">mailing lists</a>.</li>
+  <li>have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>. 
+  The log of this channel is available <a href="http://www.hu.freepascal.org/cgi-bin/cgifpcbot?channel=fpc">
   here</a>.</li>
   <li>search the <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>.</li>
-  <li>or contact us via email:</LI>
+  <li>or contact us via email:</li>
   <ul>
-    General and DOS: <A HREF="mailto:florian&#x040;freepascal.org">Florian Klaempfl</A><BR>
-    Linux: <A HREF="mailto:michael&#x040;freepascal.org">Michael Van Canneyt</A><BR>
-    680x0 / BeOS versions: <A HREF="mailto:cecodere&#x040;yahoo.ca">Carl Eric Codere</A><BR>
-    EMX (OS/2 & Dos): <A HREF="mailto:d.s.p.mantione&#x040;twi.tudelft.nl">Dani&euml;l Mantione</A><BR>
-    FreeBSD: <A HREF="mailto:marco&#x040;freepascal.org">Marco van de Voort</A><BR>
-    MacOSX / Darwin: <A HREF="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</A><BR>
-    MacOS classic: <A HREF="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</A><BR>
-  </UL>
-  <LI>if you have general pascal questions, please post them to one of the following
-      newsgroups:</LI>
-  <UL>
-    <A HREF="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</A><BR>
-    <A HREF="news:comp.lang.pascal.borland">comp.lang.pascal.borland</A><BR>
-    <A HREF="news:comp.lang.pascal.misc">comp.lang.pascal.misc</A><BR>
+    General and DOS: <a href="mailto:florian&#x040;freepascal.org">Florian Klaempfl</a><br>
+    Linux: <a href="mailto:michael&#x040;freepascal.org">Michael Van Canneyt</a><br>
+    680x0 / BeOS versions: <a href="mailto:cecodere&#x040;yahoo.ca">Carl Eric Codere</a><br>
+    EMX (OS/2 & Dos): <a href="mailto:d.s.p.mantione&#x040;twi.tudelft.nl">Dani&euml;l Mantione</a><br>
+    FreeBSD: <a href="mailto:marco&#x040;freepascal.org">Marco van de Voort</a><br>
+    MacOSX / Darwin: <a href="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a><br>
+    MacOS classic: <a href="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</a><br>
+  </ul>
+  <li>if you have general pascal questions, please post them to one of the following
+      newsgroups:</li>
+  <ul>
+    <a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a><br>
+    <a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a><br>
+    <a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a><br>
   </ul>
 </ul>

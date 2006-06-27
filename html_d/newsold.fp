@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Alte Newsletter
 #ENTRY news
@@ -6,20 +6,20 @@
 #HEADER Alte Newsletter
 -->
 
-<UL>
+<ul>
 
-<H3>Free Pascal Newsletter</H3>
-<P>
+<h3>Free Pascal Newsletter</h3>
+<p>
   Hier finden Sie alle Newsletter mit Nachrichten &uuml;ber Free Pascal
-</P>
-<UL>
-  <LI><A HREF="news9811.html">November 98</A></LI>
-  <LI><A HREF="news9809.html">September 98</A></LI>
-  <LI><A HREF="news9805.html">Mai 98</A></LI>
-  <LI><A HREF="news9804.html">April 98</A></LI>
-  <LI><A HREF="news9803.html">M&auml;rz 98</A></LI>
-  <LI><A HREF="news9802.html">Februar 98</A></LI>
-  <LI><A HREF="news9711.html">November 97</A></LI>
-</UL>
+</p>
+<ul>
+  <li><a href="news9811.html">November 98</a></li>
+  <li><a href="news9809.html">September 98</a></li>
+  <li><a href="news9805.html">Mai 98</a></li>
+  <li><a href="news9804.html">April 98</a></li>
+  <li><a href="news9803.html">M&auml;rz 98</a></li>
+  <li><a href="news9802.html">Februar 98</a></li>
+  <li><a href="news9711.html">November 97</a></li>
+</ul>
 
-</HTML>
+</html>

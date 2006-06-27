@@ -5,109 +5,109 @@
 #MODIFY
 -->
 
-<A NAME="release"></A><H2>Official releases</H2>
-<P>
+<a name="release"></a><h2>Official releases</h2>
+<p>
   These are ready made packages, together with an install program, to
   get you up and running in no time. All packages contain a README file,
   which you should read for installation instructions and latest news.
-<P>
-  The latest release is <B>2.0.2</B>.
-<P>
+<p>
+  The latest release is <b>2.0.2</b>.
+<p>
 Because of a lack of release builders and testers, 2.0.2 is only available for a limited
 number of platforms and not in all package formats. If you want to change this and build and test future
 releases, contact us via the mailing lists.
 <p>
 
-<A NAME="binary"></A><H3>Binaries</H3>
-<P>
+<a name="binary"></a><h3>Binaries</h3>
+<p>
   You can download the 2.0.x release for the following cpu and operating systems:
-<P>  
-<UL>
-    <LI>arm
-    <UL>
-      <LI><A HREF="down/arm/linux.html">Linux</A> (2.0.0 only)
-    </UL>
-  <LI>intel/i386
-    <UL>
-      <LI><A HREF="down/i386/go32v2.html">Dos</A> (GO32v2 extender)
-      <LI><A HREF="down/i386/freebsd.html">FreeBSD</A> (FreeBSD 4.x and probably 5.x too)
-      <LI><A HREF="down/i386/linux.html">Linux</A>
-      <LI><A HREF="down/i386/netware.html">Netware</A> (2.0.0 only)
-      <LI><A HREF="down/i386/os2.html">OS/2</A> (2.0.0 only)
-      <LI><A HREF="down/i386/win32.html">Win32</A> (Windows 95, 98, ME, NT, 2000, XP, 2003)
-    </UL>  
-  <LI>powerpc
-    <UL>
-      <LI><A HREF="down/powerpc/linux.html">Linux</A> (2.0.0 only)
-      <LI><A HREF="down/powerpc/macos.html">Mac OS</A>
-      <LI><A HREF="down/powerpc/macosx.html">Mac OS X</A>
-      <LI><A HREF="down/powerpc/morphos.html">MorphOS</A>
-    </UL>  
-  <LI>sparc
-    <UL>
-      <LI><A HREF="down/sparc/linux.html">Linux</A> (2.0.0 only)
-    </UL>  
-  <LI>amd64/x86_64
-    <UL>
-      <LI><A HREF="down/x86_64/linux.html">Linux</A>
-    </UL>  
-</UL>
+<p>  
+<ul>
+    <li>arm
+    <ul>
+      <li><a href="down/arm/linux.html">Linux</a> (2.0.0 only)
+    </ul>
+  <li>intel/i386
+    <ul>
+      <li><a href="down/i386/go32v2.html">Dos</a> (GO32v2 extender)
+      <li><a href="down/i386/freebsd.html">FreeBSD</a> (FreeBSD 4.x and probably 5.x too)
+      <li><a href="down/i386/linux.html">Linux</a>
+      <li><a href="down/i386/netware.html">Netware</a> (2.0.0 only)
+      <li><a href="down/i386/os2.html">OS/2</a> (2.0.0 only)
+      <li><a href="down/i386/win32.html">Win32</a> (Windows 95, 98, ME, NT, 2000, XP, 2003)
+    </ul>  
+  <li>powerpc
+    <ul>
+      <li><a href="down/powerpc/linux.html">Linux</a> (2.0.0 only)
+      <li><a href="down/powerpc/macos.html">Mac OS</a>
+      <li><a href="down/powerpc/macosx.html">Mac OS X</a>
+      <li><a href="down/powerpc/morphos.html">MorphOS</a>
+    </ul>  
+  <li>sparc
+    <ul>
+      <li><a href="down/sparc/linux.html">Linux</a> (2.0.0 only)
+    </ul>  
+  <li>amd64/x86_64
+    <ul>
+      <li><a href="down/x86_64/linux.html">Linux</a>
+    </ul>  
+</ul>
 
-<P>
+<p>
 
-<A NAME="source"></A><H3>Source</H3>
-<P>
-  The source can be downloaded separately in a <b>zip</b> file or a <b>tar.gz</b> from one of the <A HREF="down/source/sources.html">download sites</A>.
-<P>
+<a name="source"></a><h3>Source</h3>
+<p>
+  The source can be downloaded separately in a <b>zip</b> file or a <b>tar.gz</b> from one of the <a href="down/source/sources.html">download sites</a>.
+<p>
 
-<A NAME="docs"></A><H3>Documentation</H3>
-<P>
+<a name="docs"></a><h3>Documentation</h3>
+<p>
   The documentation can be downloaded in several formats from one of our
-  <A HREF="down/docs/docs.html">download sites</A>.
+  <a href="down/docs/docs.html">download sites</a>.
 
 <!--
-<A NAME="other"></A><H3>Other downloads</H3>
-<P>
-<P>
+<a name="other"></a><h3>Other downloads</h3>
+<p>
+<p>
   Furthermore, you can download the following:
-<UL>
-  <LI>There are some third party <A HREF="down-utils.html">utilities</A> that can be used with Free Pascal.
-</UL>
+<ul>
+  <li>There are some third party <a href="down-utils.html">utilities</a> that can be used with Free Pascal.
+</ul>
 -->
 
 <!--
-<H2>Official beta releases</H2>
-<P>
+<h2>Official beta releases</h2>
+<p>
   These are ready made packages, together with an install program, to
   get you up and running in no time. All packages contain a README file,
   which you should read for installation instructions and latest news.
-<P>
-  The latest beta is <B>2.1.2</B>.
-<P>
+<p>
+  The latest beta is <b>2.1.2</b>.
+<p>
   You can download the 2.1.2 release for the following operating systems:
-<UL>
-  <LI><A HREF="down2-i386-linux.html">Linux (Intel X86)</A>
-</UL>
-<P>
+<ul>
+  <li><a href="down2-i386-linux.html">Linux (Intel X86)</a>
+</ul>
+<p>
   Furthermore, you can download the following:
 <ul>
-  <LI><A HREF="down2-docs.html">Documentation</A> in different formats
-  <LI><A HREF="down2-source.html">Sources</A>
-</UL>
+  <li><a href="down2-docs.html">Documentation</a> in different formats
+  <li><a href="down2-source.html">Sources</a>
+</ul>
 -->
 
-<H2>Snapshots</H2>
-<P>
+<h2>Snapshots</h2>
+<p>
 In addition to the official releases, we also offer so-called "snapshots" of the compiler, RTL,
-IDE and a couple of other packages on the <A HREF="develop.html">development page</A>. These
+IDE and a couple of other packages on the <a href="develop.html">development page</a>. These
 are compiled versions of the current sources with all fixes and improvements since the last
 official release, so please try them if you have any problems. Of course, they may also contain
 new bugs.
 
 
-<H2>Old releases</H2>
-<P>
+<h2>Old releases</h2>
+<p>
 Links to some old releases (not supported any more) of FPC for platforms for
 which no better alternative exists can be found
-<A HREF="down/old/down.html">here</A>. Don't bother to report any bugs
+<a href="down/old/down.html">here</a>. Don't bother to report any bugs
 with these old releases - we will not fix them.

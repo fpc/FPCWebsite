@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,9 +7,9 @@
 #MAINDIR ..
 #HEADER delp
 -->
-<H1>DELP - Free Pascal file deletion tool.</H1>
+<h1>DELP - Free Pascal file deletion tool.</h1>
 What follows is the Free Pascal File deletion tool manual page. If you have
-the manual pages installed, you can view them using the <B>man</B> command.
+the manual pages installed, you can view them using the <b>man</b> command.
 <PRE>
 
 
@@ -17,16 +17,16 @@ the manual pages installed, you can view them using the <B>man</B> command.
 delp(1)           Free Pascal file deletion tool          delp(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        delp - The Free Pascal file deletion tool.
 
 
-<B>SYNOPSIS</B>
-       <B>delp</B>
+<b>SYNOPSIS</b>
+       <b>delp</b>
 
 
-<B>DESCRIPTION</B>
-       <B>delp  </B>deletes files in the current directory that are left
+<b>DESCRIPTION</b>
+       <b>delp  </b>deletes files in the current directory that are left
        over from a Free Pascal compilation process. It knows what
        files can be produced by the compile steps and deletes any
        such files it finds. At the end it gives a summary of  the
@@ -34,12 +34,12 @@ delp(1)           Free Pascal file deletion tool          delp(1)
        amount of bytes freed by this process.
 
 
-<B>USAGE</B>
-       <B>fpcmake </B>takes no options at this time. It just attempts to
+<b>USAGE</b>
+       <b>fpcmake </b>takes no options at this time. It just attempts to
        delete all known files.
 
 
-<B>FILE TYPES:</B>
+<b>FILE TYPES:</b>
        The following file types are recognized by the program and
        are deleted:
 
@@ -90,8 +90,8 @@ delp(1)           Free Pascal file deletion tool          delp(1)
               Batch  files,  link  script  and  makefile  utility
               files.
 
-<B>SEE ALSO</B>
-              <B>fpcmake</B>(1) <B>ppc386</B>(1) <B>make</B>(1)
+<b>SEE ALSO</b>
+              <b>fpcmake</b>(1) <b>ppc386</b>(1) <b>make</b>(1)
 
 
 
@@ -144,4 +144,4 @@ FreePascal                 12 Dec 1999                          2
 
 
 </PRE>
-</HTML>
+</html>

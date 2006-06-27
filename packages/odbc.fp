@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -8,21 +8,21 @@
 #HEADER odbc
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>ODBC : Universal database access.</H1>
+<h1>ODBC : Universal database access.</h1>
 This package contains one unit <tt>odbcsql</tt> which contains the header
 file translations of the ODBC system. It works on the windows ODBC
 implementation and works with UnixODBC as well - it was tested on both. 
-(<A HREF="http://www.freepascal.org/docs-html/packages/odbcsql">View interface</A>)
-<P> 
+(<a href="http://www.freepascal.org/docs-html/packages/odbcsql">View interface</a>)
+<p> 
 The test program <TT>testodbc</TT> accesses a MS-Access database and runs a
 query on it.
-<P>
+<p>
 The FCL contains a unit fpodbc which contains an OOP wrapper around the ODBC
 calls, which makes ODBC programming considerably easier and more
 pascal-like.
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

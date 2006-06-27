@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - amunits package
 #ENTRY prog
@@ -8,9 +8,9 @@
 #HEADER amunits
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>amunits: Various units for the Amiga</H1>
+<h1>amunits: Various units for the Amiga</h1>
 The Amigalib package provides pascal units and includes for interfacing
 with the Classic Amiga Operating System (version 2.04 or later). 
 <p>
@@ -18,7 +18,7 @@ Documentation for these interfaces (C version) can be found in the
 Amiga Rom Kernal Reference Manual 3th Edition: Includes &amp Autodocs book 
 (The Amiga Classic developer CD also contains this documentation).
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

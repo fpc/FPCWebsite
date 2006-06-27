@@ -6,7 +6,7 @@
 -->
 
 <Center>
-<H2>How to create, install and use a development compiler and RTL</h2>
+<h2>How to create, install and use a development compiler and RTL</h2>
 </center>
 
 <center>Alias the <b>&quot; Make Cycle&quot; FAQ</b></center><p>
@@ -63,9 +63,9 @@ have the compiler and a precompiled RTL on board. <br>
 (under linux) possible.<br>if you occasionally need the RTL sources you need the RTL anyway</td></tr> <tr><td>Filenames</td><td>     
 rtl.zip(1100kb), compiler.zip(1100kb)<br>
  </td></tr> 
-</table></lI>
+</table></li>
 </ol>
-<P>
+<p>
 <b>The methods that require compiling also require:</b>
 <ul>
 <li>the RELEASE compiler (ppc386(.exe))</li>
@@ -301,7 +301,7 @@ So always, always start make cycle with the release binary, unless the developpe
 to start make cycle with a (recent) development snapshot.</b></h2>
 (0.99.10, 0.99.12, the even numbers are the releases, the odd the developpers snapshots)<p>
 
-<b>RTL</b><P>
+<b>RTL</b><p>
 
 The RTL is a different case, it is not needed for 'make cycle'. The only reason to save the 
 RTL in objectformat is to check if your own sources still compile (and function right) with the 
@@ -322,7 +322,7 @@ Again we see three separate cases: (the ones from <a href="#whatyouneed">What yo
 <li>Binary snapshot (snapshot.zip, snapshot.tar.gz or snapshot-win32.zip</li>
 <li>IDE snapshot ide-full.zip or .tar.gz, ide-comp.zip or .tar.gz. 
         plus optionally the RTL source package) </li>
-<lI>All source; rtl.zip and compiler.zip</li>
+<li>All source; rtl.zip and compiler.zip</li>
 </ol>
 
 <a name="binsnap"></a>
@@ -357,7 +357,7 @@ etc
 If that is correct, the binary is setup correctly.</li>
 <li> Make sure your ppc386.cfg is set up correctly</li>
 <li> Clean up the rtl directory first, backup all *.o *.ow, *.ppu and *.ppw files)
-<lI>Copy the RTL (*.o and *.ppu or *.ow and *.ppw files) from the temporary directory to the   
+<li>Copy the RTL (*.o and *.ppu or *.ow and *.ppw files) from the temporary directory to the   
     /usr/lib/fpc/0.99.13/units/linux/rtl directory.</li> 
 </ol>
 

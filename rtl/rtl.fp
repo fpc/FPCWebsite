@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Runtime Library Units
 #ENTRY prog
@@ -7,43 +7,43 @@
 #HEADER Runtime Library Units
 -->
 
-<UL>
+<ul>
 
-<LI><H3>The standard units</H3></LI>
-<UL>
-  <LI><A HREF="docs-html/ref/ref.html#system">System</A></LI>
-  <LI><A HREF="docs-html/units/units.html#strings">Strings</A></LI>
-  <LI><A HREF="docs-html/units/units.html#dos">Dos</A></LI>
-  <LI><A HREF="docs-html/units/units.html#crt">Crt</A></LI>
-  <LI><A HREF="docs-html/units/units.html#printer">Printer</A></LI>
-</UL>
-</P>
+<li><h3>The standard units</h3></li>
+<ul>
+  <li><a href="docs-html/ref/ref.html#system">System</a></li>
+  <li><a href="docs-html/units/units.html#strings">Strings</a></li>
+  <li><a href="docs-html/units/units.html#dos">Dos</a></li>
+  <li><a href="docs-html/units/units.html#crt">Crt</a></li>
+  <li><a href="docs-html/units/units.html#printer">Printer</a></li>
+</ul>
+</p>
 
-<LI><H3>i386 specific units</H3></LI>
-<UL>
-  <LI><A HREF="docs-html/units/units.html#getopts">Getopts</A></LI>
-  <LI><A HREF="docs-html/units/units.html#mmx">MMX</A></LI>
-</UL>
-</P>
+<li><h3>i386 specific units</h3></li>
+<ul>
+  <li><a href="docs-html/units/units.html#getopts">Getopts</a></li>
+  <li><a href="docs-html/units/units.html#mmx">MMX</a></li>
+</ul>
+</p>
 
-<LI><H3>Go32v2 and Go32v1 specific units</H3></LI>
-<UL>
-  <LI><A HREF="docs-html/units/units.html#go32">Go32</A></LI>
-  <LI><A HREF="docs-html/units/units.html#graph">Graph</A></LI>
-</UL>
-</P>
+<li><h3>Go32v2 and Go32v1 specific units</h3></li>
+<ul>
+  <li><a href="docs-html/units/units.html#go32">Go32</a></li>
+  <li><a href="docs-html/units/units.html#graph">Graph</a></li>
+</ul>
+</p>
 
-<LI><H3>Linux specific units</H3></LI>
-<UL>
-  <LI><A HREF="docs-html/units/units.html#linux">Linux</A></LI>
-  <LI><A HREF="docs-html/units/units.html#sockets">Sockets</A></LI>
-</UL>
-</P>
+<li><h3>Linux specific units</h3></li>
+<ul>
+  <li><a href="docs-html/units/units.html#linux">Linux</a></li>
+  <li><a href="docs-html/units/units.html#sockets">Sockets</a></li>
+</ul>
+</p>
 
-<LI><H3>OS/2 specific units</H3></LI>
-<UL>
+<li><h3>OS/2 specific units</h3></li>
+<ul>
   None yet
-</UL>
-</P>
+</ul>
+</p>
 
-</HTML>
+</html>

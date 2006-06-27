@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - mmsystem package
 #ENTRY prog
@@ -8,16 +8,16 @@
 #HEADER mmsystem
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/mmsystem">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/mmsystem">View interface</a>)
  -->
-<H1>mmsystem</H1>
+<h1>mmsystem</h1>
 The <b>mmsystem</b> unit contains the translation of the windows
 multimedia system SDK headers. It is a straight translation of the
 header files, and contains no extra functionality. For more
 information, the Microsoft SDK manuals should be consulted.
-(<A HREF="http://www.freepascal.org/docs-html/packages/mmsystem">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/mmsystem">View interface</a>)
 
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

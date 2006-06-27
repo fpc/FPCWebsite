@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,10 +7,10 @@
 #MAINDIR ..
 #HEADER ppufiles
 -->
-<H1>PPUFILES - Free Pascal object file lister.</H1>
-What follows below is the contents of the manual page of <B>ppufiles</B>. 
-If you have installed the man pages then you can view them with the <B>man</B> command.
-<HR>
+<h1>PPUFILES - Free Pascal object file lister.</h1>
+What follows below is the contents of the manual page of <b>ppufiles</b>. 
+If you have installed the man pages then you can view them with the <b>man</b> command.
+<hr>
 <PRE>
 
 
@@ -18,53 +18,53 @@ If you have installed the man pages then you can view them with the <B>man</B> c
 ppufiles(1)    Free Pascal unit object file lister    ppufiles(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        ppufiles - The FPC Pascal unit object file lister.
 
 
-<B>SYNOPSIS</B>
-       <B>ppufiles </B>[options] [file [file [file]]]
+<b>SYNOPSIS</b>
+       <b>ppufiles </b>[options] [file [file [file]]]
 
 
-<B>Description</B>
-       <B>ppufiles  </B>lists  all  the  binary files that are needed to
+<b>Description</b>
+       <b>ppufiles  </b>lists  all  the  binary files that are needed to
        link a unit  file.  This  includes  any  object  files  or
        libraries that must be linked in through some directive in
        the unit.
 
 
-<B>Usage</B>
-       You can invoke <B>ppufiles </B>with as arguments the name of  the
+<b>Usage</b>
+       You can invoke <b>ppufiles </b>with as arguments the name of  the
        units  whose  object  files you wish to list. An extension
        must be given. This can be useful for creating  a  listing
        of  all  created object files and deleting them in a Make-
        file.
 
 
-<B>Options</B>
-       <B>ppufiles </B>has several options, which are case insensitive:
+<b>Options</b>
+       <b>ppufiles </b>has several options, which are case insensitive:
 
 
-              <B>-a     </B>This  option  tells  <B>ppufiles  </B>to  list  all
+              <b>-a     </b>This  option  tells  <b>ppufiles  </b>to  list  all
                      files.
 
-              <B>-h     </B>Help screen.
+              <b>-h     </b>Help screen.
 
-              <B>-l     </B>This  option  tells  <B>ppufiles  </B>to  list only
+              <b>-l     </b>This  option  tells  <b>ppufiles  </b>to  list only
                      shared libraries.
 
-              <B>-o     </B>This option  tells  <B>ppufiles  </B>to  list  only
+              <b>-o     </b>This option  tells  <b>ppufiles  </b>to  list  only
                      object files.
 
-              <B>-s     </B>This  option  tells  <B>ppufiles  </B>to  list only
+              <b>-s     </b>This  option  tells  <b>ppufiles  </b>to  list only
                      static libraries.
 
-<B>ERRORS</B>
+<b>ERRORS</b>
        In case the unit is in an older  or  unrecognised  format,
        ppufiles will complain about that.
 
-<B>SEE ALSO</B>
-              <B>ppc386</B>(1) <B>ppumove</B>(1) <B>make</B>(1)
+<b>SEE ALSO</b>
+              <b>ppc386</b>(1) <b>ppumove</b>(1) <b>make</b>(1)
 
 
 
@@ -79,4 +79,4 @@ FreePascal                 9 June 1999                          1
 
 
 </PRE>
-</HTML>
+</html>

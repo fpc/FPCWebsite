@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Future Plans
 #ENTRY develop
@@ -6,59 +6,59 @@
 #HEADER Future Plans
 -->
 
-<UL>
+<ul>
 
-<LI><H3>Planned for next versions</H3></LI>
+<li><h3>Planned for next versions</h3></li>
 <p>
-<UL>
- <LI><B>Next major Version (2.2)</B></li>
-  <UL>
-   <LI><b>Language:</b></LI>
-    <UL>
-      <LI>Support for DispInterface and dispid (OLE binding on Windows).</LI>
-      <LI>Support for dynamic libararies</LI>
-      <LI>Support for delegation to interface</LI>
-    </UL>
+<ul>
+ <li><b>Next major Version (2.2)</b></li>
+  <ul>
+   <li><b>Language:</b></li>
+    <ul>
+      <li>Support for DispInterface and dispid (OLE binding on Windows).</li>
+      <li>Support for dynamic libararies</li>
+      <li>Support for delegation to interface</li>
+    </ul>
    <li><b>Compiler:</b></li>
-    <UL>
-	<LI>Better optimizations (static single assignment)</LI>
-        <LI>Improved threading.</LI>
-	<LI>Internal assembler for non-x86 platforms.</LI>
-	<LI>Internal linker.</LI>
-	<li>Cleanup of unit system and (better) support for dynamic linking and packages.</lI>
-    </UL>
-    <LI><B>RTL:</B>:
-    <UL>
-     <LI>More compatibility with later Delphi versions.</li>
-    </UL>
-    <LI><B>In progress(RTL)</B>:</li>
-    <UL>
+    <ul>
+	<li>Better optimizations (static single assignment)</li>
+        <li>Improved threading.</li>
+	<li>Internal assembler for non-x86 platforms.</li>
+	<li>Internal linker.</li>
+	<li>Cleanup of unit system and (better) support for dynamic linking and packages.</li>
+    </ul>
+    <li><b>RTL:</b>:
+    <ul>
+     <li>More compatibility with later Delphi versions.</li>
+    </ul>
+    <li><b>In progress(RTL)</b>:</li>
+    <ul>
      <li> Update and modernize some 1.0.x targets:</li>
      <li> Solaris (important for Sparc support!) </li>
-     <LI> More winapi units and 3rd party packages (Socket suite?)</li>
-    </UL>
-   </UL></LI>
-</UL>
-<P>
+     <li> More winapi units and 3rd party packages (Socket suite?)</li>
+    </ul>
+   </ul></li>
+</ul>
+<p>
 
-<LI><H3>Planned for later versions</H3></LI>
-<UL>
-  <LI>Linking with C++ code (Objective C?)</LI>
-  <LI>Higher level optimizer including liveliness analysis</LI>
+<li><h3>Planned for later versions</h3></li>
+<ul>
+  <li>Linking with C++ code (Objective C?)</li>
+  <li>Higher level optimizer including liveliness analysis</li>
   <li>Full DWARF support (debugging format)</li>
   <li>more architectures (m68k?, Alpha?, IA64?)</li>
   <li>Corba support?</li>
-  <LI>reworking set handling
+  <li>reworking set handling
    <ul>
      <li>Allow More than 256 elements</li>
      <li>set of 255..256 uses one byte (lower bound is not automatically ord(0))</li>
      <li>More control about packing of sets. (depending on a packset directive)</li>
-     <li>allow sets larger than 32 bytes. (2**32/8=512 MB)</LI>
-   </UL>
-<P>
-</UL>
+     <li>allow sets larger than 32 bytes. (2**32/8=512 MB)</li>
+   </ul>
 <p>
-<li><H3>Maintenance tasks still open (Junior developer tasks)</h3></li>
+</ul>
+<p>
+<li><h3>Maintenance tasks still open (Junior developer tasks)</h3></li>
 
 Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
 
@@ -100,4 +100,4 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
 </ul>
 </li>
 </ul>
-</HTML>
+</html>

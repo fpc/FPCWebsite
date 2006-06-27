@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,10 +7,10 @@
 #MAINDIR ..
 #HEADER ppdep
 -->
-<H1>PPDEP - Free Pascal unit dependency lister</H1>
-What follows below is the contents of the manual page of <B>ppdep</B>. 
-If you have installed the man pages then you can view them with the <B>man</B> command.
-<HR>
+<h1>PPDEP - Free Pascal unit dependency lister</h1>
+What follows below is the contents of the manual page of <b>ppdep</b>. 
+If you have installed the man pages then you can view them with the <b>man</b> command.
+<hr>
 <PRE>
 
 
@@ -18,59 +18,59 @@ If you have installed the man pages then you can view them with the <B>man</B> c
 ppdep(1)       Free Pascal unit dependency tracking      ppdep(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        ppdep - The FPC Pascal unit dependency tracking program.
 
 
-<B>SYNOPSIS</B>
-       <B>ppdep </B>[-DDefine] [-oFile] [-eext] [-V] [-h] [A[call]] file
+<b>SYNOPSIS</b>
+       <b>ppdep </b>[-DDefine] [-oFile] [-eext] [-V] [-h] [A[call]] file
 
 
-<B>Description</B>
-       <B>ppdep </B>dumps the dependencies of a unit in  a  format  that
-       can  be  understood  by  GNU <B>make </B>output. It takes care of
+<b>Description</b>
+       <b>ppdep </b>dumps the dependencies of a unit in  a  format  that
+       can  be  understood  by  GNU <b>make </b>output. It takes care of
        dependencies both in the interface and implemntation  sec-
        tion of the unit, and it can handle conditional defines.
 
 
-<B>Usage</B>
-       You  can  invoke  <B>ppdep </B>with as the only required argument
+<b>Usage</b>
+       You  can  invoke  <b>ppdep </b>with as the only required argument
        the name of the file (program or unit)  whose  dependecies
        you  wish to list. You don't need to specify an extension,
-       by default <B>.pp </B>is assumed.
+       by default <b>.pp </b>is assumed.
 
 
-<B>Options</B>
-       <B>ppdep </B>has several options, which are case insensitive:
+<b>Options</b>
+       <b>ppdep </b>has several options, which are case insensitive:
 
 
-       <B>-a</B><I>call </I>This option tells <B>ppdep </B>to generate a compiler call
+       <b>-a</b><I>call </I>This option tells <b>ppdep </b>to generate a compiler call
               for  the makefile. The compiler call will be gener-
               ated for each file that is  found  in  the  current
               directory.  If  you  do no specify an explicit com-
-              piler call, <B>ppc386 </B>is used.
+              piler call, <b>ppc386 </b>is used.
 
-       <B>-d</B><I>keyword</I>
-              This option defines <B>keyword</B>
+       <b>-d</b><I>keyword</I>
+              This option defines <b>keyword</b>
                that can be used to  verify  conditional  defines.
-              <B>ppdep  </B>understands  conditional defines, you should
+              <b>ppdep  </b>understands  conditional defines, you should
               use this switch if the <I>uses </I>clause of the  programs
               or units can contain conditional defines.
 
-       <B>-e</B><I>ext  </I>This  allows  you  to specify a different extension
-              for the unit files.  By default, <B>.ppu  </B>is  assumed.
+       <b>-e</b><I>ext  </I>This  allows  you  to specify a different extension
+              for the unit files.  By default, <b>.ppu  </b>is  assumed.
               This extension is written to the makefile.
 
-       <B>-f</B><I>[call]</I>
-              This option tells <B>ppdep </B>to generate a compiler call
+       <b>-f</b><I>[call]</I>
+              This option tells <b>ppdep </b>to generate a compiler call
               for the makefile. The compiler call will be  gener-
               ated  only  for  the file that was specified on the
-              <B>ppdep </B>command line. If you want to generate a  com-
+              <b>ppdep </b>command line. If you want to generate a  com-
               piler  call for each file found, use the <I>-a </I>option.
               If you do no specify  an  explicit  compiler  call,
-              <B>ppc386 </B>is used.
+              <b>ppc386 </b>is used.
 
-       <B>-h     </B>Shows a short help screen.
+       <b>-h     </b>Shows a short help screen.
 
 
 
@@ -84,22 +84,22 @@ FreePascal                 9 June 1999                          1
 ppdep(1)       Free Pascal unit dependency tracking      ppdep(1)
 
 
-       <B>-o</B><I>file </I>This  option  allows you to specify a file to which
+       <b>-o</b><I>file </I>This  option  allows you to specify a file to which
               the dependencies should be written. By default  the
               dependencies  are  written  to standard output.  If
               you specify this option, the dependencies are writ-
-              ten to <B>file</B>
+              ten to <b>file</b>
 
               instead.
 
-       <B>-v     </B>Writes  some  diagnostic  messages. If you use this
+       <b>-v     </b>Writes  some  diagnostic  messages. If you use this
               option, be sure to use <I>-o </I>as well, since the  diag-
               nostic  messages  will  also be written to standard
               output.
 
 
-<B>SEE ALSO</B>
-              <B>ppc386</B>(1) <B>ppumove</B>(1) <B>make</B>(1)
+<b>SEE ALSO</b>
+              <b>ppc386</b>(1) <b>ppumove</b>(1) <b>make</b>(1)
 
 
 
@@ -145,4 +145,4 @@ FreePascal                 9 June 1999                          2
 
 
 </PRE>
-</HTML>
+</html>

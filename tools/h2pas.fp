@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,10 +7,10 @@
 #MAINDIR ..
 #HEADER h2pas
 -->
-<H1>H2PAS - Free Pascal C header to pascal unit translator.</H1>
+<h1>H2PAS - Free Pascal C header to pascal unit translator.</h1>
 What follows below is the man page of h2pas. 
-If you have installed the man pages then you can view them with the <B>man</B> command.
-<HR>
+If you have installed the man pages then you can view them with the <b>man</b> command.
+<hr>
 
 <PRE>
 
@@ -19,23 +19,23 @@ If you have installed the man pages then you can view them with the <B>man</B> c
 h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        h2pas - The C header to pascal unit conversion program.
 
 
-<B>SYNOPSIS</B>
-       <B>h2pas </B><I>[options] filename</I>
+<b>SYNOPSIS</b>
+       <b>h2pas </b><I>[options] filename</I>
 
 
-<B>DESCRIPTION</B>
-       <B>h2pas  </B>attempts  to  convert  a  C header file to a pascal
+<b>DESCRIPTION</b>
+       <b>h2pas  </b>attempts  to  convert  a  C header file to a pascal
        unit.  it can handle most C constructs that one finds in a
        C  header  file,  and  attempts to translate them to their
-       pascal counterparts. see the <B>CONSTRUCTS </B>section for a full
+       pascal counterparts. see the <b>CONSTRUCTS </b>section for a full
        description of what the translator can handle.
 
 
-<B>USAGE</B>
+<b>USAGE</b>
        H2pas  is  a  command-line tool that translates a C header
        file to a spascal unit. It reads the  C  header  file  and
        translates  the C declarations to equivalent pascal decla-
@@ -48,29 +48,29 @@ h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
        many options.
 
 
-<B>OPTIONS</B>
-       The output of <B>h2pas </B>can be controlled with  the  following
+<b>OPTIONS</b>
+       The output of <b>h2pas </b>can be controlled with  the  following
        options:
 
 
 
-       <B>-d     </B>use <I>external; </I>for all procedure and function decla-
+       <b>-d     </b>use <I>external; </I>for all procedure and function decla-
               rations.
 
-       <B>-D     </B>use <B>external </B><I>libname <B></I>name </B><I>'func_name' </I>for  function
+       <b>-D     </b>use <b>external </b><I>libname <b></I>name </b><I>'func_name' </I>for  function
               and procedure declarations.
 
-       <B>-e     </B>Emit  a  series of constants instead of an enumera-
+       <b>-e     </b>Emit  a  series of constants instead of an enumera-
               tion type for the C <I>enum </I>construct.
 
-       <B>-i     </B>create an include file instead of a unit (omits the
+       <b>-i     </b>create an include file instead of a unit (omits the
               unit header).
 
-       <B>-l </B><I>libname</I>
+       <b>-l </b><I>libname</I>
               specify the library name for external function dec-
               larations.
 
-       <B>-o </B><I>outfile</I>
+       <b>-o </b><I>outfile</I>
               Specify the output file name. Default is the  input
               file name with the extension replaced by <I>.pp </I>"."
 
@@ -85,34 +85,34 @@ FreePascal                 12 Dec 1999                          1
 h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
 
 
-       <B>-p     </B>use  the  letter <B>P </B>in front of pointer type parame-
+       <b>-p     </b>use  the  letter <b>P </b>in front of pointer type parame-
               ters instead of "^".
 
-       <B>-s     </B>Strip comments from the input file. By default com-
+       <b>-s     </b>Strip comments from the input file. By default com-
               ments  are  converted  to comments, but they may be
               displaced, since a comment is handled by the  scan-
               ner.
 
-       <B>-t     </B>prepend  typedef type names with the letter <B>T </B>(used
+       <b>-t     </b>prepend  typedef type names with the letter <b>T </b>(used
               to  follow  Borland's  convention  that  all  types
               should be defined with T).
 
-       <B>-v     </B>replace  pointer  parameters  by  call by reference
+       <b>-v     </b>replace  pointer  parameters  by  call by reference
               parameters.  Use with care because some  calls  can
               expect a NIL pointer.
 
-       <B>-w     </B>Header  file  is  a win32 header file (adds support
+       <b>-w     </b>Header  file  is  a win32 header file (adds support
               for some special macros).
 
-       <B>-x     </B>handle SYS_TRAP of the PalmOS header files.
+       <b>-x     </b>handle SYS_TRAP of the PalmOS header files.
 
 
-<B>CONSTRUCTS</B>
+<b>CONSTRUCTS</b>
        The following C declarations  and  statements  are  recog-
        nized:
 
 
-       <B>defines</B>
+       <b>defines</b>
               defines  are  changed into pascal constants if they
               are simple defines.  macros are changed -  wherever
               possible  to  functions;  however the arguments are
@@ -126,15 +126,15 @@ h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
               ment (this is buggy, however).
 
 
-       <B>preprocessor statements</B>
+       <b>preprocessor statements</b>
               the  conditional  preprocessing commands are recog-
               nized and translated into  equivalent  pascal  com-
-              piler directives. The special <B>#ifdef __cplusplus </B>is
+              piler directives. The special <b>#ifdef __cplusplus </b>is
               also recognized and removed.
 
 
 
-       <B>typedef</B>
+       <b>typedef</b>
               A typedef statement is changed into a  pascal  type
               statement.  The  following  basic  types are recog-
               nized:
@@ -183,27 +183,27 @@ h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
        These types are also changed if they appear in  the  argu-
        ments of a function or procedure.
 
-       <B>functions and procedures</B>
+       <b>functions and procedures</b>
               functions  and  procedures  are translated as well;
               pointer types may be changed to call  by  reference
-              arguments  (using the <B>var </B>argument) by using the <B>-p</B>
+              arguments  (using the <b>var </b>argument) by using the <b>-p</b>
               command line argument. functions that have a  vari-
               able  number of arguments are changed to a function
-              with an <B>array of const </B>argument.
+              with an <b>array of const </b>argument.
 
-       <B>specifiers</B>
+       <b>specifiers</b>
               the <I>extern </I>specifier is recognized; however  it  is
               ignored.  the  <I>packed  </I>specifier is also recognised
               and changed with  the  <I>PACKRECORDS  </I>directive.  The
               <I>const </I>specifier is also recognized, but is ignored.
 
 
-       <B>modifiers</B>
-              If the <B>-w </B>option is specified, then  the  following
+       <b>modifiers</b>
+              If the <b>-w </b>option is specified, then  the  following
               modifiers  are  recognized: <I>STDCALL </I>, <I>CDECL </I>, <I>CALL-</I>
               <I>BACK </I>, <I>PASCAL </I>, <I>WINAPI </I>, <I>APIENTRY  </I>,  <I>WINGDIAPI  </I>as
               defined  in the win32 headers.  If additionally the
-              <B>-x </B>option is specified then the <I>SYS_TRAP  </I>specifier
+              <b>-x </b>option is specified then the <I>SYS_TRAP  </I>specifier
               is also recognized.
 
 
@@ -217,26 +217,26 @@ FreePascal                 12 Dec 1999                          3
 h2pas(1)     Free Pascal C header conversion utility     h2pas(1)
 
 
-       <B>enums  </B>enum constructs are changed into enumeration types;
+       <b>enums  </b>enum constructs are changed into enumeration types;
               bear in mind that in C enumeration types  can  have
               values  assigned  to  them; Free Pascal also allows
               this to a certain degree. If you know  that  values
-              are  assigned  to  enums,  it is best to use the <B>-e</B>
+              are  assigned  to  enums,  it is best to use the <b>-e</b>
               option to change the enus to a  series  of  integer
               constants.
 
 
-       <B>unions </B>unions are changed to variant records.
+       <b>unions </b>unions are changed to variant records.
 
 
-       <B>structs</B>
-              are changed to pascal records, with <B>C </B>packing.
+       <b>structs</b>
+              are changed to pascal records, with <b>C </b>packing.
 
 
 
 
-<B>SEE ALSO</B>
-              <B>ppc386</B>(1) <B>ppumove</B>(1)
+<b>SEE ALSO</b>
+              <b>ppc386</b>(1) <b>ppumove</b>(1)
 
 
 
@@ -278,4 +278,4 @@ FreePascal                 12 Dec 1999                          4
 
 
 </PRE>
-</HTML>
+</html>

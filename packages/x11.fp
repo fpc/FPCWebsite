@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - X11 packages
 #ENTRY prog
@@ -8,22 +8,22 @@
 #HEADER X11
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/">View interface</a>)
  -->
-<H1>X11</H1>
+<h1>X11</h1>
 The X11 package contains some units which contain the translations of the X
 header files. The following files exist:
-<UL>
-<LI><B>X</B> basic X routines.
-<LI><B>xcms</B> Some color management.
-<LI><B>xlib</B> Xlib toolkit.
-<LI><B>xrender</B> X Render extension.
-<LI><B>xresource</B> X resource management.
-<LI><B>xshm</B> X shared memory extension.
-<LI><B>xutil</B> X util lib.
-</UL>
+<ul>
+<li><b>X</b> basic X routines.
+<li><b>xcms</b> Some color management.
+<li><b>xlib</b> Xlib toolkit.
+<li><b>xrender</b> X Render extension.
+<li><b>xresource</b> X resource management.
+<li><b>xshm</b> X shared memory extension.
+<li><b>xutil</b> X util lib.
+</ul>
 All these units link to the various X libraries.
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

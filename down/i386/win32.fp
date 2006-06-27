@@ -46,6 +46,6 @@ HTML ones):
 
 <hr>
 <p>
-<a href="win32.html">Back to mirror list</A><BR/>
+<a href="win32.html">Back to mirror list</a><BR/>
 <a href="../../download.html">Back to general download page</a>
 <p>

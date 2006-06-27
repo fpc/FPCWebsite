@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -7,23 +7,23 @@
 #MAINDIR ..
 #HEADER The UNCGI unit
 -->
-<H1>The UNCGI unit (version 2.0.11)</H1>
+<h1>The UNCGI unit (version 2.0.11)</h1>
 The uncgi unit is designed to ease the programming of a CGI script in
 Free Pascal. It allows you to:
 
-<UL>
-<LI> Retrieve, by name, values of all parameters passed to it.
-<LI> Produce a HTML header.
-<LI> It supports POST and GET methods.
-</UL>
-<P>
+<ul>
+<li> Retrieve, by name, values of all parameters passed to it.
+<li> Produce a HTML header.
+<li> It supports POST and GET methods.
+</ul>
+<p>
 This unit is part of the Free Pascal packages. You can get the source of the unit
-<A HREF="ftp://ftp.freepascal.org/pub/source/packages.zip">here</A>.
-<P>
-(<A HREF="http://www.freepascal.org/docs-html/packages/uncgi">view interface</A>)
+<a href="ftp://ftp.freepascal.org/pub/source/packages.zip">here</a>.
+<p>
+(<a href="http://www.freepascal.org/docs-html/packages/uncgi">view interface</a>)
 
 
-<HR></HR>
-<A HREF="packages.html">Back to packages page</A>. 
-<HR></HR>
-</HTML>
+<hr></hr>
+<a href="packages.html">Back to packages page</a>. 
+<hr></hr>
+</html>

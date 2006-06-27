@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Packages
 #ENTRY prog
@@ -7,12 +7,12 @@
 #MAINDIR ..
 #HEADER Under Construction
 -->
-<H1>Free Pascal interface to GDK/GTK</H1>
-<HR>
+<h1>Free Pascal interface to GDK/GTK</h1>
+<hr>
 
-<H2>Introduction</H2>
-The <A HREF="http://www.gtk.org/">GTK</A> toolkit and its companion <A
-HREF="http://www.gdk.org/">GDK</A> are quickly becoming (next to the Qt toolkit) a very popular
+<h2>Introduction</h2>
+The <a href="http://www.gtk.org/">GTK</a> toolkit and its companion <A
+HREF="http://www.gdk.org/">GDK</a> are quickly becoming (next to the Qt toolkit) a very popular
 X-windows programming toolkit. This makes it suitable as a base for the Free
 Component Library (FCL, the Free Pascal equivalent of the Delphi VCL). As a first
 step in the development of FCL, the gtk and gdk header files have been
@@ -22,47 +22,47 @@ welcome to contact me), but success reports indicate that the units are translat
 correctly, and programs can be made. It even works on Win32. For this
 reason, both the Lazarus and KCL projects use GTK as a GUI toolkit.
 
-<H2>Downloading</H2>
+<h2>Downloading</h2>
 
 The gtk units are part of the Free Pascal packages, and are shipped with
 the official distrubution. You can download the sources separately 
-<A HREF="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</A>. 
-<P>
+<a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>. 
+<p>
 The GTK libraries must be downloaded from the original 
-<A HREF="http://www.gtk.org/">GTK</A> site.
+<a href="http://www.gtk.org/">GTK</a> site.
 
-<H2>Using the units:</H2>
+<h2>Using the units:</h2>
 There is an article on programming GTK by Florian Klaempfl and Michael
 Van Canneyt, written for the German Toolbox magazine. 
 The original English version (in PDF format) can be viewed 
-<A HREF="gtk/gtk-1.pdf">here</A>. The example programs source code can also
-be <A HREF="gtk/gtkex-1.zip">downloaded</A>.
-<P>
+<a href="gtk/gtk-1.pdf">here</a>. The example programs source code can also
+be <a href="gtk/gtkex-1.zip">downloaded</a>.
+<p>
 The following is a (very) short explanation of how to use the GTK units.
 Most of what can be found here is already described in the articles on GTK.
 <OL>
-<LI> In C, you only need to input gtk.h. Here you need to put gtk, and
+<li> In C, you only need to input gtk.h. Here you need to put gtk, and
 separately glib or gdk if you need them, in your uses clause.
 
-<LI> <B>Names :</B><BR>
-<UL>
-<LI> Pascal reserved words in types, record element names etc. have been
+<li> <b>Names :</b><br>
+<ul>
+<li> Pascal reserved words in types, record element names etc. have been
      prepended with the word 'the'. so 'label' has become 'thelabel'
-<LI> functions have been kept with the same names.
-<LI> for types : gdk names have been kept. Pointers to a type are defined
+<li> functions have been kept with the same names.
+<li> for types : gdk names have been kept. Pointers to a type are defined
      as the type name, prepended with P. So 'GtkWidget *' becomes
      'PGtkWidget'.
      In gtkobject, names also have been kept.
      In all other files, types have been prepended with T, that is, the C
-     type 'GtkWidget' has become 'TGtkWidget'<P>
+     type 'GtkWidget' has become 'TGtkWidget'<p>
      
      This is annoying, but C is case sensitive, and Pascal is not, so
-     there you have it...<P>
+     there you have it...<p>
      
      When translating, I've tried to stick to this scheme as closely as I
      could. One day, however, all will be done in a uniform manner...
-</UL>
-<LI> Macros. Many C macros have not been translated. The typecasting macros 
+</ul>
+<li> Macros. Many C macros have not been translated. The typecasting macros 
    have been dropped, since they're useless under pascal.
    Macros to access record members have been translated, BUT they are 
    to be considered as READ-ONLY. So they can be used to retrieve a value,
@@ -78,7 +78,7 @@ separately glib or gdk if you need them, in your uses clause.
    </PRE>
    will not work, since this is a function, and NOT a macro as in C.
   
-<LI> Packed records. GCC allows you to specify members of a record in
+<li> Packed records. GCC allows you to specify members of a record in
    bit format. Since this is impossible in pascal, functions and procedures
    to get/set these elements have been made.
    e.g.
@@ -92,40 +92,40 @@ separately glib or gdk if you need them, in your uses clause.
    '_set' appended.
    
 </OL>
-<P>
+<p>
 There is also an article on programming GTK by Florian Klaempfl and Michael
 Van Canneyt, written for the German Toolbox magazine. 
 The original English version (in PDF format) can be viewed 
-<A HREF="gtk/gtk-1.pdf">here</A>. The example programs source code can also
-be <A HREF="gtk/gtkex-1.zip">downloaded</A>.
-<P>
+<a href="gtk/gtk-1.pdf">here</a>. The example programs source code can also
+be <a href="gtk/gtkex-1.zip">downloaded</a>.
+<p>
 More information about programming GTK is available in the following
 documents:
-<UL>
-<LI> There are also some articles on programming GTK by Florian Klaempfl and
+<ul>
+<li> There are also some articles on programming GTK by Florian Klaempfl and
 Michael Van Canneyt, written for the German Toolbox magazine.
 The original English version (in PDF format) of these articles can be viewed
 here:
 <OL>
-<LI> <A HREF="gtk/gtk-1.pdf">Article 1</A> and the sources of the examples
-can be found <A HREF="gtk/gtkex-1.zip">here</A>.
-<LI> <A HREF="gtk/gtk-2.pdf">Article 2</A> and the sources of the examples 
-can be found <A HREF="gtk/gtkex-2.zip">here</A>.
-<LI> <A HREF="gtk/gtk-3.pdf">Article 3</A> and the sources of the examples 
-can be found <A HREF="gtk/gtkex-3.zip">here</A>.
-<LI> <A HREF="gtk/gtk-4.pdf">Article 4</A> and the sources of the examples 
-can be found <A HREF="gtk/gtkex-4.zip">here</A>.
-<LI> <A HREF="gtk/gtk-5.pdf">Article 5</A> and the sources of the examples 
-can be found <A HREF="gtk/gtkex-5.zip">here</A>.
+<li> <a href="gtk/gtk-1.pdf">Article 1</a> and the sources of the examples
+can be found <a href="gtk/gtkex-1.zip">here</a>.
+<li> <a href="gtk/gtk-2.pdf">Article 2</a> and the sources of the examples 
+can be found <a href="gtk/gtkex-2.zip">here</a>.
+<li> <a href="gtk/gtk-3.pdf">Article 3</a> and the sources of the examples 
+can be found <a href="gtk/gtkex-3.zip">here</a>.
+<li> <a href="gtk/gtk-4.pdf">Article 4</a> and the sources of the examples 
+can be found <a href="gtk/gtkex-4.zip">here</a>.
+<li> <a href="gtk/gtk-5.pdf">Article 5</a> and the sources of the examples 
+can be found <a href="gtk/gtkex-5.zip">here</a>.
 </OL>
-<LI> <EM>Mark Howe</EM> kindly donated a translation to pascal of the GTK tutorials.
-The result can be viewed <A HREF="gtk/tutorial/pgtk-contents.html">here</A>.
-The examples can be downloaded <A HREF="gtk/pgtk-examples.tar.gz">here</A>.
+<li> <EM>Mark Howe</EM> kindly donated a translation to pascal of the GTK tutorials.
+The result can be viewed <a href="gtk/tutorial/pgtk-contents.html">here</a>.
+The examples can be downloaded <a href="gtk/pgtk-examples.tar.gz">here</a>.
 If you want you can download the whole tutorial <A
-HREF="gtk/pgtk-html.tar.gz">Here</A>.
-</UL>
+HREF="gtk/pgtk-html.tar.gz">Here</a>.
+</ul>
 
-<HR></HR>
-<A HREF="packages.html">Back to packages page</A>. 
-<HR></HR>
-</HTML>
+<hr></hr>
+<a href="packages.html">Back to packages page</a>. 
+<hr></hr>
+</html>

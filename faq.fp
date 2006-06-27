@@ -1,273 +1,273 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Knowledge base
 #ENTRY faq
 #HEADER FAQ / Knowledge base
 -->
 
-<P>This document gives last minute information regarding the compiler. Furthermore,
+<p>This document gives last minute information regarding the compiler. Furthermore,
 it answers frequently asked questions and gives solutions to common problems
 found with Free Pascal. The information presented herein always supersedes those
-found in the Free Pascal documentation. </P>
+found in the Free Pascal documentation. </p>
 
-<P> For more comprehensive information on the pascal language, and the runtime library
-calls, consult the Free Pascal manuals. Topics covered in this document : </P>
+<p> For more comprehensive information on the pascal language, and the runtime library
+calls, consult the Free Pascal manuals. Topics covered in this document : </p>
 
 <OL>
-    <LI> General information </LI>
+    <li> General information </li>
    <OL>
-    <LI><A href="#WhatIsFP">What is Free Pascal (FPC)?</A></LI>
-    <LI><A href="#versions">Which versions exist, and which one should I use?</A></LI>
-    <LI><A href="#FPandGNUPascal">Free Pascal and GNU Pascal - a comparison</A></LI>
-    <LI><A href="#general-license">License and copyright information</A></LI>
-    <LI><A href="#WhereToGetFP">Getting the compiler</A></LI>
-    <LI><A href="#general-install">Free Pascal installation hints</A></LI>
-    <LI><A href="#ftpproblems"> Why do i have to supply a user name and password to get Free Pascal ?</A></LI>
-    <LI><A href="#general-connectftp"> Access denied error when connecting to the Free Pascal FTP site</A></LI>
-    <LI><A href="#ideinst">Where can I find a text mode IDE?</A></LI>
-    <LI><A href="#snapshot">I want a new version NOW</A></LI>
-    <LI><A href="#installsnap"> Installing a snapshot</A></LI>
-    <LI><A href="#KnownBugs">Known bugs / Reporting bugs</A></LI>
-    <LI><A href="#HOMEWORK">I have to write a program for homework. Can you help?</A></LI>
-    <LI><A href="#windowsapp">How do I make a real Windows application with windows and menu bars?</A></LI>
-    <LI><A href="#game">How do I make a game with Free Pascal? Can I make a game like Doom 3?</A></LI>
-    <LI><A href="#ErrorPos">Getting more information when an application crashes</A></LI>
-    <LI><A href="#general-heap">Increasing the heap size</A></LI>
-    <LI><A href="#general-doesntfindfiles">Compiler seems to skip files in directories -Fu points to</A></LI>
-    <LI><A href="#binariesbig">Why are the generated binaries so big?</A></LI>
-    <LI><A href="#cfgfiles">Configuration file problems (fpc.cfg or ppc386.cfg)</A></LI>
-    <LI><A href="#runerror">Runtime errors</A></LI>
-    <LI><A href="#stdunits">Standard units</A></LI>
-    <LI><A href="#internaldocs">How does the compiler work internally?</A></LI>
-    <LI><A href="#debugsmart">Debugging smartlinked code does not fully work</A></LI>
-    <LI><A href="#debugshared">Debugging shared library (dynamic linked library) code does not fully work</A></LI>
-    <LI><A href="#cantfindunit">PPU files binary compatibility between versions</A></LI>
-    <LI><A href="#cantfindunit">Can't compile a program using a binary only version of a unit</A></LI>
-    <LI><A href="#dotnet">What about .NET?</A></LI>
+    <li><a href="#WhatIsFP">What is Free Pascal (FPC)?</a></li>
+    <li><a href="#versions">Which versions exist, and which one should I use?</a></li>
+    <li><a href="#FPandGNUPascal">Free Pascal and GNU Pascal - a comparison</a></li>
+    <li><a href="#general-license">License and copyright information</a></li>
+    <li><a href="#WhereToGetFP">Getting the compiler</a></li>
+    <li><a href="#general-install">Free Pascal installation hints</a></li>
+    <li><a href="#ftpproblems"> Why do i have to supply a user name and password to get Free Pascal ?</a></li>
+    <li><a href="#general-connectftp"> Access denied error when connecting to the Free Pascal FTP site</a></li>
+    <li><a href="#ideinst">Where can I find a text mode IDE?</a></li>
+    <li><a href="#snapshot">I want a new version NOW</a></li>
+    <li><a href="#installsnap"> Installing a snapshot</a></li>
+    <li><a href="#KnownBugs">Known bugs / Reporting bugs</a></li>
+    <li><a href="#HOMEWORK">I have to write a program for homework. Can you help?</a></li>
+    <li><a href="#windowsapp">How do I make a real Windows application with windows and menu bars?</a></li>
+    <li><a href="#game">How do I make a game with Free Pascal? Can I make a game like Doom 3?</a></li>
+    <li><a href="#ErrorPos">Getting more information when an application crashes</a></li>
+    <li><a href="#general-heap">Increasing the heap size</a></li>
+    <li><a href="#general-doesntfindfiles">Compiler seems to skip files in directories -Fu points to</a></li>
+    <li><a href="#binariesbig">Why are the generated binaries so big?</a></li>
+    <li><a href="#cfgfiles">Configuration file problems (fpc.cfg or ppc386.cfg)</a></li>
+    <li><a href="#runerror">Runtime errors</a></li>
+    <li><a href="#stdunits">Standard units</a></li>
+    <li><a href="#internaldocs">How does the compiler work internally?</a></li>
+    <li><a href="#debugsmart">Debugging smartlinked code does not fully work</a></li>
+    <li><a href="#debugshared">Debugging shared library (dynamic linked library) code does not fully work</a></li>
+    <li><a href="#cantfindunit">PPU files binary compatibility between versions</a></li>
+    <li><a href="#cantfindunit">Can't compile a program using a binary only version of a unit</a></li>
+    <li><a href="#dotnet">What about .NET?</a></li>
    </OL>
-   <LI> Pascal language related information </LI>
+   <li> Pascal language related information </li>
    <OL>
-    <LI><A href="#PortingCPU">Considerations in porting code to other processors</A></LI>
-    <LI><A href="#PortingOS">Considerations in porting code to other operating systems</A></LI>
-    <LI><A href="#OOP">Compiling Delphi code using Free Pascal</A></LI>
-    <LI><A href="#HowcanIbuildaunit">Building a unit</A></LI>
-    <LI><A href="#CompileSystemUnit">Compiling the system unit</A></LI>
-    <LI><A href="#Howdoesfunctionoverloadingwork">How does function overloading work?</A></LI>
-    <LI><A href="#HowToCallCFuncuntions">Calling C functions</A></LI>
-    <LI><A href="#IntegratedAssemblerSyntax">Integrated Assembler syntax</A></LI>
-    <LI><A href="#systemnotfound">Unit system, syslinux, sysos2 or syswin32 not found errors</A></LI>
-    <LI><A href="#extensionselect">There is a new extension that will be really useful. Will you include it?</A></LI> 
+    <li><a href="#PortingCPU">Considerations in porting code to other processors</a></li>
+    <li><a href="#PortingOS">Considerations in porting code to other operating systems</a></li>
+    <li><a href="#OOP">Compiling Delphi code using Free Pascal</a></li>
+    <li><a href="#HowcanIbuildaunit">Building a unit</a></li>
+    <li><a href="#CompileSystemUnit">Compiling the system unit</a></li>
+    <li><a href="#Howdoesfunctionoverloadingwork">How does function overloading work?</a></li>
+    <li><a href="#HowToCallCFuncuntions">Calling C functions</a></li>
+    <li><a href="#IntegratedAssemblerSyntax">Integrated Assembler syntax</a></li>
+    <li><a href="#systemnotfound">Unit system, syslinux, sysos2 or syswin32 not found errors</a></li>
+    <li><a href="#extensionselect">There is a new extension that will be really useful. Will you include it?</a></li> 
     </OL>
-   <LI> Runtime library related information </LI>
+   <li> Runtime library related information </li>
    <OL>
-    <LI><A href="#HowToUseGraph">Using the graph unit with Free Pascal</A></LI>
-    <LI><A href="#WrongColors">Why do I get wrong colors when using the graph unit?</A></LI>
-    <LI><A href="#fileshare"> File sharing and file locks </A></LI>
-    <LI><A href="#filebig"> Accessing huge files using standard I/O routines </A></LI>
-    <LI><A href="#filemode">File denied errors when opening files with reset </A></LI>
-    <LI><A href="#TurboVision">Turbo Vision libraries</A></LI>
+    <li><a href="#HowToUseGraph">Using the graph unit with Free Pascal</a></li>
+    <li><a href="#WrongColors">Why do I get wrong colors when using the graph unit?</a></li>
+    <li><a href="#fileshare"> File sharing and file locks </a></li>
+    <li><a href="#filebig"> Accessing huge files using standard I/O routines </a></li>
+    <li><a href="#filemode">File denied errors when opening files with reset </a></li>
+    <li><a href="#TurboVision">Turbo Vision libraries</a></li>
    </OL>
-   <LI> DOS related information </LI>
+   <li> DOS related information </li>
    <OL>
-    <LI><A href="#dos-release">Releasing software generated by the DOS compiler</A></LI>
-    <LI><A href="#dos-debugging">Debugging</A></LI>
-    <LI><A href="#dos-dll">Dynamic libraries</A></LI>
-    <LI><A href="#dos-profile">Profiling</A></LI>
-    <LI><A href="#FPwithoutfpu">Running Free Pascal without a math coprocessor</A></LI>
-    <LI><A href="#fp386">Applications created with Free Pascal crash on 80386 systems</A></LI>
-    <LI><A href="#nomousegraph">The mouse cursor is not visible in graphics screens</A></LI>
-    <LI><A href="#accessioports">Accessing I/O ports</A></LI>
-    <LI><A href="#HowToAccessDosMemory">Accessing DOS memory / Doing graphics programming</A></LI>
-    <LI><A href="#dos-stack">Changing the default stack size</A></LI>
-    <LI><A href="#dos-os2">Using OS/2 generated applications under DOS</A></LI>
+    <li><a href="#dos-release">Releasing software generated by the DOS compiler</a></li>
+    <li><a href="#dos-debugging">Debugging</a></li>
+    <li><a href="#dos-dll">Dynamic libraries</a></li>
+    <li><a href="#dos-profile">Profiling</a></li>
+    <li><a href="#FPwithoutfpu">Running Free Pascal without a math coprocessor</a></li>
+    <li><a href="#fp386">Applications created with Free Pascal crash on 80386 systems</a></li>
+    <li><a href="#nomousegraph">The mouse cursor is not visible in graphics screens</a></li>
+    <li><a href="#accessioports">Accessing I/O ports</a></li>
+    <li><a href="#HowToAccessDosMemory">Accessing DOS memory / Doing graphics programming</a></li>
+    <li><a href="#dos-stack">Changing the default stack size</a></li>
+    <li><a href="#dos-os2">Using OS/2 generated applications under DOS</a></li>
    </OL>
-   <LI> Windows related information </LI>
+   <li> Windows related information </li>
    <OL>
-    <LI><A href="#win-release">Releasing software generated by the windows compiler</A></LI>
-    <LI><A href="#win-debugging">Debugging</A></LI>
-    <LI><A href="#win-dll">Dynamic libraries</A></LI>
-    <LI><A href="#win-profile">Profiling</A></LI>
-    <LI><A href="#win-graph">Graph and problems with keyboard, mouse and "dummy dos windows"</A></LI>
-    <LI><A href="#win-cygwin">Cygwin binary directory in your path sometimes causes builds to fail</A></LI>
-    <LI><A href="#win-makefile">Makefile problems on Win2000 (and NT)</A></LI>
-    <LI><A href="#win95-fpc">Using the DOS compiler under Windows 95</A></LI>
-    <LI><A href="#win-os2">Using OS/2 generated applications under Windows</A></LI>
-    <LI><A href="#win-dos">Using DOS generated applications under windows</A></LI>
-    <LI><A href="#win-ide-mouse">The mouse cursor does not respond in the Windows IDE</A></LI>
-    <LI><A HREF="#instal106win32">INSTALL.EXE of version 1.0.6 returns errors under some version of Windows</A>
+    <li><a href="#win-release">Releasing software generated by the windows compiler</a></li>
+    <li><a href="#win-debugging">Debugging</a></li>
+    <li><a href="#win-dll">Dynamic libraries</a></li>
+    <li><a href="#win-profile">Profiling</a></li>
+    <li><a href="#win-graph">Graph and problems with keyboard, mouse and "dummy dos windows"</a></li>
+    <li><a href="#win-cygwin">Cygwin binary directory in your path sometimes causes builds to fail</a></li>
+    <li><a href="#win-makefile">Makefile problems on Win2000 (and NT)</a></li>
+    <li><a href="#win95-fpc">Using the DOS compiler under Windows 95</a></li>
+    <li><a href="#win-os2">Using OS/2 generated applications under Windows</a></li>
+    <li><a href="#win-dos">Using DOS generated applications under windows</a></li>
+    <li><a href="#win-ide-mouse">The mouse cursor does not respond in the Windows IDE</a></li>
+    <li><a href="#instal106win32">INSTALL.EXE of version 1.0.6 returns errors under some version of Windows</a>
  </OL>
-   <LI> UNIX related information </LI>
+   <li> UNIX related information </li>
    <OL>
-    <LI><A href="#unix-release">Releasing software generated by the unix compilers</A></LI>
-    <LI><A href="#unix-debugging">Debugging</A></LI>
-    <LI><A href="#unix-dll">Dynamic libraries</A></LI>
-    <LI><A href="#unix-profile">Profiling</A></LI>
-    <LI><A href="#vgamissing">Why can't the linker find "vga"?</A></LI>
-    <LI><A href="#unix-asldmissing">Compiler indicates missing as and ld</A></LI>
+    <li><a href="#unix-release">Releasing software generated by the unix compilers</a></li>
+    <li><a href="#unix-debugging">Debugging</a></li>
+    <li><a href="#unix-dll">Dynamic libraries</a></li>
+    <li><a href="#unix-profile">Profiling</a></li>
+    <li><a href="#vgamissing">Why can't the linker find "vga"?</a></li>
+    <li><a href="#unix-asldmissing">Compiler indicates missing as and ld</a></li>
    </OL>
-   <LI> OS/2 related information </LI>
+   <li> OS/2 related information </li>
    <OL>
-    <LI><A href="#os2-release">Releasing software generated by the OS/2 compiler</A></LI>
-    <LI><A href="#os2-debugging">Debugging</A></LI>
-    <LI><A href="#os2-dll">Dynamic libraries</A></LI>
-    <LI><A href="#os2-profile">Profiling</A></LI>
-    <LI><A href="#os2-dos">Using DOS generated applications under OS/2</A></LI>
-    <LI><A HREF="#instal106os2">INSTALL.EXE of version 1.0.6 or below returns an unknown error (-1) under OS/2</A>
-    <BR>or<BR>
-    <A HREF="#instal106os2">INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</A></LI>
-    <LI><A href="#os2-fp">OS/2 compiler not working after upgrading to 1.9.6 or newer</A></LI>
+    <li><a href="#os2-release">Releasing software generated by the OS/2 compiler</a></li>
+    <li><a href="#os2-debugging">Debugging</a></li>
+    <li><a href="#os2-dll">Dynamic libraries</a></li>
+    <li><a href="#os2-profile">Profiling</a></li>
+    <li><a href="#os2-dos">Using DOS generated applications under OS/2</a></li>
+    <li><a href="#instal106os2">INSTALL.EXE of version 1.0.6 or below returns an unknown error (-1) under OS/2</a>
+    <br>or<br>
+    <a href="#instal106os2">INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</a></li>
+    <li><a href="#os2-fp">OS/2 compiler not working after upgrading to 1.9.6 or newer</a></li>
    </OL>
-   <LI> BeOS related information </LI>
+   <li> BeOS related information </li>
    <OL>
-    <LI><A href="#beos-release">Releasing software generated by the BeOS compiler</A></LI>
-    <LI><A href="#beos-debugging">Debugging</A></LI>
-    <LI><A href="#beos-dll">Dynamic libraries</A></LI>
-    <LI><A href="#beos-profile">Profiling</A></LI>
-    <LI><A href="#beos-linking">BeOS linking problems</A></LI>
+    <li><a href="#beos-release">Releasing software generated by the BeOS compiler</a></li>
+    <li><a href="#beos-debugging">Debugging</a></li>
+    <li><a href="#beos-dll">Dynamic libraries</a></li>
+    <li><a href="#beos-profile">Profiling</a></li>
+    <li><a href="#beos-linking">BeOS linking problems</a></li>
    </OL>
-   <LI> Amiga related information </LI>
+   <li> Amiga related information </li>
    <OL>
-    <LI><A href="#amiga-release">Releasing software generated by the Amiga compiler</A></LI>
-    <LI><A href="#amiga-debugging">Debugging</A></LI>
-    <LI><A href="#amiga-dll">Dynamic libraries</A></LI>
-    <LI><A href="#amiga-profile">Profiling</A></LI>
+    <li><a href="#amiga-release">Releasing software generated by the Amiga compiler</a></li>
+    <li><a href="#amiga-debugging">Debugging</a></li>
+    <li><a href="#amiga-dll">Dynamic libraries</a></li>
+    <li><a href="#amiga-profile">Profiling</a></li>
    </OL>
-   <LI> PalmOS related information </LI>
+   <li> PalmOS related information </li>
    <OL>
-    <LI><A href="#palmos-release">Releasing software generated by the PalmOS compiler</A></LI>
-    <LI><A href="#palmos-debugging">Debugging</A></LI>
-    <LI><A href="#palmos-dll">Dynamic libraries</A></LI>
+    <li><a href="#palmos-release">Releasing software generated by the PalmOS compiler</a></li>
+    <li><a href="#palmos-debugging">Debugging</a></li>
+    <li><a href="#palmos-dll">Dynamic libraries</a></li>
    </OL>
    
 </OL>
 
  <OL>
-   <H2><LI> General information </LI></H2>
+   <h2><li> General information </li></h2>
    <OL>
-        <LI><A name=WhatIsFP></A>
-            <H3>What is Free Pascal (FPC)?</H3>
+        <li><a name=WhatIsFP></a>
+            <h3>What is Free Pascal (FPC)?</h3>
 
-            <P>Originally named FPK-Pascal, the Free Pascal compiler is a 32
+            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 32
             bit Turbo Pascal and Delphi compatible Pascal compiler for DOS,
             Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic and
             several other platforms (the number of supported targets grows
             all the time, although not all of them are on the same level as
-            the main ones).</P>
+            the main ones).</p>
 	
-	    <P>The Free Pascal compiler is available for several
+	    <p>The Free Pascal compiler is available for several
 	    architectures, x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron)
 	    and Powerpc. An older version (the 1.0 series) also supports
-	    m68k.</P>
+	    m68k.</p>
   	  	
-            <P>The compiler is written in Pascal and is able to compile its
-            own sources. The source files are under GPL and included.</P>
+            <p>The compiler is written in Pascal and is able to compile its
+            own sources. The source files are under GPL and included.</p>
 
-            <P> Free Pascal is modest regarding its minimal system
+            <p> Free Pascal is modest regarding its minimal system
             requirements (386-25 Mhz for the Intel version and ideally a
             68020 processor for the Motorola version. FPU emulation required).
 	    At least 2 megabytes of RAM are required. To remake the compiler
-            more than 32-64MB is recommended, less for 1.0.x versions. </P>
+            more than 32-64MB is recommended, less for 1.0.x versions. </p>
 
-            <P>Short history:
-            <UL>
-              <LI>06/1993: project start</LI>
-              <LI>10/1993: first little programs work</LI>
-              <LI>03/1995: the compiler compiles the own sources</LI>
-              <LI>03/1996: released to the internet</LI>
-              <LI>07/2000: 1.0 version</LI>
-              <LI>12/2000: 1.0.4 version</LI>
-              <LI>04/2002: 1.0.6 version</LI>
-              <LI>07/2003: 1.0.10 version</LI>
-	      <LI>05/2005: 2.0 </li>	
-            </UL>
-            </P>
+            <p>Short history:
+            <ul>
+              <li>06/1993: project start</li>
+              <li>10/1993: first little programs work</li>
+              <li>03/1995: the compiler compiles the own sources</li>
+              <li>03/1996: released to the internet</li>
+              <li>07/2000: 1.0 version</li>
+              <li>12/2000: 1.0.4 version</li>
+              <li>04/2002: 1.0.6 version</li>
+              <li>07/2003: 1.0.10 version</li>
+	      <li>05/2005: 2.0 </li>	
+            </ul>
+            </p>
 
-        <LI><A name=versions></A>
-            <H3>Which versions exist, and which one should I use?</H3>
+        <li><a name=versions></a>
+            <h3>Which versions exist, and which one should I use?</h3>
 
-            <P>FPC's version numbering changed a few times over the years. Versions
+            <p>FPC's version numbering changed a few times over the years. Versions
             before 0.99.5 are considered archaic. After the release of 0.99.5 a
             system in version numbering was introduced, and that system was changed
-            slightly changed after the 1.0 release. </P>
+            slightly changed after the 1.0 release. </p>
 
-            <B>Versioning for versions 0.99.5 - 1.0</B>
+            <b>Versioning for versions 0.99.5 - 1.0</b>
 
-            <P>Compilers with an <B>even</B> last number are <B>release</B>
-            versions (e.g. 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<BR>Compilers and
-            packages with an <B>odd</B> last number are <B>development</B> versions
-            (e.g. 0.99.9, 0.99.11, 0.99.13, 0.99.15) </P>
+            <p>Compilers with an <b>even</b> last number are <b>release</b>
+            versions (e.g. 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers and
+            packages with an <b>odd</b> last number are <b>development</b> versions
+            (e.g. 0.99.9, 0.99.11, 0.99.13, 0.99.15) </p>
 
-            <P>0.99.5 is an exception to this rule, since <B>0.99.5 IS a release</B>
-            (a release prior to the introduction of this odd/even system).</P>
+            <p>0.99.5 is an exception to this rule, since <b>0.99.5 IS a release</b>
+            (a release prior to the introduction of this odd/even system).</p>
 
-            <P>Letters behind the version number (0.99.12b, 0.99.5d) indicate
+            <p>Letters behind the version number (0.99.12b, 0.99.5d) indicate
             release versions with some bugs and problems in the original release
-            (respectively 0.99.12 and 0.99.5) fixed.</P>
+            (respectively 0.99.12 and 0.99.5) fixed.</p>
 
-            <P><B>Versioning after 1.0</B></P>
+            <p><b>Versioning after 1.0</b></p>
 
-            <P>Together with the release of 1.0 the version numbering has been
+            <p>Together with the release of 1.0 the version numbering has been
             slightly changed, and a system in versioning resembling the Linux
             kernel's has been introduced. The main difference is that the difference
             between a release version is now in the second number (1.0.x vs 1.1.x)
             instead of the third number (0.99.14 vs 0.99.15), and the third number
             now becomes the patch level, replacing the postfixed letter in the old
-            system. </P>
-            <P>
-            <UL>
-              <LI>Releases that only fix bugs in version 1.0 will be numbered 1.0.x </LI>
-              <LI>New development (the so called snapshots) have version number
+            system. </p>
+            <p>
+            <ul>
+              <li>Releases that only fix bugs in version 1.0 will be numbered 1.0.x </li>
+              <li>New development (the so called snapshots) have version number
               1.1.x. The meaning of the third version number x in the new
               development branch is not defined yet, it could be used for test
-              releases or to signal major changes. </LI>
-              <LI>Eventually the 1.1.x versions, when stabilized will be released as
+              releases or to signal major changes. </li>
+              <li>Eventually the 1.1.x versions, when stabilized will be released as
               version 1.2, or 2.0.x. Fixes on the 1.2 release will be numbered 1.2.x,
-	      or 2.0.x, if it is decided to bump the major version number</LI>
-              <LI>The new development after the 1.2 release will be numbered 1.3.x or 2.1.x
-              and so on </LI>
-              <LI>When really big changes are implemented, the version will be
+	      or 2.0.x, if it is decided to bump the major version number</li>
+              <li>The new development after the 1.2 release will be numbered 1.3.x or 2.1.x
+              and so on </li>
+              <li>When really big changes are implemented, the version will be
               updated in the major number. This could be case with e.g. a
-              codegenerator rewrite with support for other processors </LI>
-            </UL>
-            <P></P>
+              codegenerator rewrite with support for other processors </li>
+            </ul>
+            <p></p>
 
-            <P>Normally you would want to use a release. Releases are considered
+            <p>Normally you would want to use a release. Releases are considered
             stable, and easier to support (the bugs, quirks and unintended
             "features" are well known after a period of time, and workarounds
-            exist).</P>
+            exist).</p>
 
-            <P>Development snapshots (which are generated daily) reflect the current
+            <p>Development snapshots (which are generated daily) reflect the current
             status of the compiler. Development versions probably have new features
             and larger bugs fixed since the last release, but might have some
-            temporary stability drawbacks (which are usually fixed by the next day).</P>
+            temporary stability drawbacks (which are usually fixed by the next day).</p>
 
-            <P>Development snapshots are often quite useful for certain categories of
+            <p>Development snapshots are often quite useful for certain categories of
             users. Ask in the maillists if it is worth the trouble in your case if
-            you're not sure.</P>
+            you're not sure.</p>
 
-            <P>We advise all users to upgrade to the newest version for their
-            target (Preferably the new stable 2.0.x series).</P>
+            <p>We advise all users to upgrade to the newest version for their
+            target (Preferably the new stable 2.0.x series).</p>
 	    <p> A graphical timeline of the FPC project plus its near future would
 		be:</p>
 	    <img src="pic/timeline.png"></a>
 
-        <LI><A name=FPandGNUPascal></A>
-            <H3>Free Pascal and GNU Pascal - a comparison</H3>
+        <li><a name=FPandGNUPascal></a>
+            <h3>Free Pascal and GNU Pascal - a comparison</h3>
 
             <DL>
-            <DT><B>Aim:</B>
+            <DT><b>Aim:</b>
             <DD>Free Pascal tries to implement a Borland compatible pascal
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
-            <DT><B>Version:</B>
+            <DT><b>Version:</b>
             <DD>Currently, Free Pascal is at version 2.0 (may 2005). GNU Pascal is at
             version 2.1 (from 2002, which can be built with several different GCC's as backend; 
  	    their Mac OS X version is an exception though, as it follows the GCC version number).
-	    <DT><B>Tracking:</B>
+	    <DT><b>Tracking:</b>
 	    <DD>Between releases, development versions of FPC are available through daily snapshots
 	        and the source via CVS. GPC issues a set of patches to the last version a few times 
 		a year, and there are regular snapshot for OS X and Windows, made by users.
-            <DT><B>Operating systems:</B>
+            <DT><b>Operating systems:</b>
             <DD>Free Pascal runs on a large amount of platforms of OSes,
             e.g. DOS, Win32 (no Unix porting layer needed), Linux, FreeBSD,
             NetBSD, OS/2, BeOS, Classic Mac OS, Mac OS X, and AmigaOS, on,  at
@@ -275,38 +275,38 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
             x86_64 (AMD64), Sparc, PowerPC, ARM and Motorola (Motorola only in version 1.0.x).
 
             GNU Pascal runs basically on any system that can run GNU C, and for which the buildprocess was verified.
-	    <DT><B>Bootstrapping:</B>
+	    <DT><b>Bootstrapping:</b>
 	    <DD>FPC requires a suitable set of binutils (AS,AR,LD), gmake and a commandline compiler. New architectures/OSes are crosscompiled.
 	        GPC bootstraps via a suitable version of GCC, and requires a full set of binutils, flex, bison, gmake, a POSIX shell and libtool 
-            <DT><B>Sources:</B>
+            <DT><b>Sources:</b>
             <DD>Free Pascal is entirely written in Pascal (about 6 MB of source
             code), while GNU Pascal is written in C (it's an adaptation of the GNU
             C compiler: 2.8 MB code + 8 MB of GNU C code)
-            <DT><B>Language:</B>
+            <DT><b>Language:</b>
             <DD>Free Pascal supports the Borland Pascal dialect, 
             implements the Delphi Object Pascal language and has some Mac Pascal extensions.
 	    GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
-            <DT><B>Extensions:</B>
+            <DT><b>Extensions:</b>
             <DD>Free Pascal implements method, function and operator overloading. (later Delphi versions add these, so strictly not an extension anymore)
             GNU Pascal implements operator overloading.
-            <DT><B>License:</B>
+            <DT><b>License:</b>
             <DD>Both compilers come under the GNU GPL.
-            <DT><B>Author:</B>
+            <DT><b>Author:</b>
             <DD>Free Pascal was started by Florian Klaempfl, Germany
             (florian&#x040;freepascal.org), GNU Pascal was started by Jukka Virtanen,
-            Finland (jtv&#x040;hut.fi). </DD></DL><BR>
+            Finland (jtv&#x040;hut.fi). </DD></DL><br>
 
-        <LI><A name=general-license></A>
-            <H3>License and copyright information</H3>
+        <li><a name=general-license></a>
+            <h3>License and copyright information</h3>
 
-            <P> Applications created by the compiler and using the runtime
+            <p> Applications created by the compiler and using the runtime
             library come under a modified library gnu public license (LGPL),
             which permit no restriction on the type of license the application
             has. It is therefore possible to create closed source
             or proprietary software using Free Pascal.
-            </P>
+            </p>
 
-        <P>This extra exception to the LGPL is added:<br><I> As a special
+        <p>This extra exception to the LGPL is added:<br><I> As a special
         exception, the copyright holders of this library give you
 		permission to link this library with independent modules to
 		produce an executable, regardless of the license terms of
@@ -318,300 +318,300 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 		based on this library. If you modify this library, you may
 		extend this exception to your version of the library, but
 		you not obligated to do so. If you do not wish to do so,
-		delete this exception statement from your version.</I></P>
+		delete this exception statement from your version.</I></p>
 
         Please note that you still have to comply to the LGPL, which, for example,
         requires you to provide the source code of the runtime library. If you want
         to write proprietary closed source software, please do this to comply:
-        <UL>
-           <LI>Most people can satisfy the source code requirement by mentioning
+        <ul>
+           <li>Most people can satisfy the source code requirement by mentioning
            the rtl source code can be downloaded at the Free Pascal
            web site: if you did not modify the rtl this is considered adequate to
            satisfy the LGPL requirement of providing source code.
-           <LI>If you made modifications to the runtime library, you cannot keep them
+           <li>If you made modifications to the runtime library, you cannot keep them
            for yourself, you must make them available if requested.
-           <LI>Distribute the LGPL license with your product.
-        </UL>
+           <li>Distribute the LGPL license with your product.
+        </ul>
 
-            <P> The compiler source code, on the other hand, comes under
+            <p> The compiler source code, on the other hand, comes under
             the GNU Public license, which means that any usage of the compiler
             source can only be used in software projects which have the same
-            license. </P>
-        </LI>
-        <P></P>
+            license. </p>
+        </li>
+        <p></p>
 
 
-        <LI><A name=WhereToGetFP></A>
-            <H3>Getting the compiler</H3>
+        <li><a name=WhereToGetFP></a>
+            <h3>Getting the compiler</h3>
 
 
-            <P>The latest official stable Free Pascal release is available for download
-            from all <A href="download.html">official mirrors
-            </A></P>
+            <p>The latest official stable Free Pascal release is available for download
+            from all <a href="download.html">official mirrors
+            </a></p>
 
-        <LI><A name=general-install></A>
-             <H3>Free Pascal installation hints</H3>
+        <li><a name=general-install></a>
+             <h3>Free Pascal installation hints</h3>
 
-             <UL>
-               <LI> Do not install the compiler in a directory which contains spaces
-                    in its name, since some of the compiler tools do not like these </LI>
-             </UL>
+             <ul>
+               <li> Do not install the compiler in a directory which contains spaces
+                    in its name, since some of the compiler tools do not like these </li>
+             </ul>
 
-             <P></P>
+             <p></p>
 
-        </LI>
-
-
-        <LI><A name=ftpproblems></A>
-             <H3> Why do i have to supply a user name and password to get Free Pascal ? </H3>
+        </li>
 
 
-            <P> You are trying to login in to an ftp site. You must use the login name:
+        <li><a name=ftpproblems></a>
+             <h3> Why do i have to supply a user name and password to get Free Pascal ? </h3>
+
+
+            <p> You are trying to login in to an ftp site. You must use the login name:
             anonymous and as your password, you should put your e-mail address.
-            </P>
-        </LI>
+            </p>
+        </li>
 
-        <LI><A name=general-connectftp></A>
-            <H3>Access denied error when connecting to the Free Pascal FTP site</H3>
+        <li><a name=general-connectftp></a>
+            <h3>Access denied error when connecting to the Free Pascal FTP site</h3>
 
-            <P>The Free Pascal main ftp site can only accept a maximum number of
+            <p>The Free Pascal main ftp site can only accept a maximum number of
             simultaneous connections. If this error occurs, it is because
             this limit has been reached. The solution is either to wait and
-            retry later, or better still use one of the Free Pascal mirror sites.</P>
-        </LI>
+            retry later, or better still use one of the Free Pascal mirror sites.</p>
+        </li>
 
 
-        <LI><A name=ideinst></A>
-            <H3>Where can I find a text mode IDE?</H3>
+        <li><a name=ideinst></a>
+            <h3>Where can I find a text mode IDE?</h3>
 
-            <P>The development of the IDE (integrated development environment) is
+            <p>The development of the IDE (integrated development environment) is
             not yet finished. However a working test version of the IDE is included
             with version 1.0.x and higher of the compiler. There might be problems
             running the DOS IDE under Windows NT and Windows 2000 (especially
             the debugger), in that case it is suggested to use the native Windows
-            version. </P>
+            version. </p>
 	    <p> The textmode IDE on *nix targets has several terminal problems. Try
 	         to use a real xterm as possible, and choose a font which has a Dos
 		 character set
-	    </P>
+	    </p>
 
-        </LI>
+        </li>
 
-        <LI><A name=snapshot></A>
-            <H3>I want a new version NOW</H3>
+        <li><a name=snapshot></a>
+            <h3>I want a new version NOW</h3>
 
-            <P>In the time between the release of new official versions, you can
+            <p>In the time between the release of new official versions, you can
             have a look at and test developer versions (so-called "snapshots"). Be
             warned though: this is work under progress, so in addition to old bugs
-            fixed and new features added, this may also contain new bugs. </P>
+            fixed and new features added, this may also contain new bugs. </p>
 
-            <P>Snapshots are generated automatically each night from the current
+            <p>Snapshots are generated automatically each night from the current
             source at that moment. Sometimes this may fail due to bigger changes not
             yet fully implemented. If your version doesn't work, try again one or
             two days later. You're advised not to download the GO32v1 version for
-            Dos, since it's not supported any more. </P>
+            Dos, since it's not supported any more. </p>
 
-            <P>The latest snapshot can always be downloaded from the <A
-            href="develop.html#snapshot">development</A>
-            web page. </P>
-        </LI>
+            <p>The latest snapshot can always be downloaded from the <A
+            href="develop.html#snapshot">development</a>
+            web page. </p>
+        </li>
 
 
 
-        <LI><A name=installsnap></A>
-            <H3>Installing a snapshot</H3>
+        <li><a name=installsnap></a>
+            <h3>Installing a snapshot</h3>
 
-            <P>To install a snapshot, extract the zip archive into the existing
+            <p>To install a snapshot, extract the zip archive into the existing
             program directory of the last official version of Free Pascal (after
             making a backup of the original of course). You can also extract it into
             an empty directory and then move the files to the program directory,
-            overwriting existing files. </P>
+            overwriting existing files. </p>
 
-            <P> Make sure that you extract the ZIP archive such that the included
+            <p> Make sure that you extract the ZIP archive such that the included
             directory structure remains intact. For example if you use PKUNZIP,
             use "pkunzip -d" instead of just "pkunzip". Note that snapshots also
             contain a new RTL which most likely can't be used with the previous
-            release version, so backup your old RTL as well. </P>
-        </LI>
+            release version, so backup your old RTL as well. </p>
+        </li>
 
 
-        <LI><A name=KnownBugs></A>
-            <H3>Known bugs / Reporting bugs</H3>
-            <P>Go to the <A href="bugs.html">bugs page</A>. </P>
+        <li><a name=KnownBugs></a>
+            <h3>Known bugs / Reporting bugs</h3>
+            <p>Go to the <a href="bugs.html">bugs page</a>. </p>
 
-            <P>If you wish to know the bugs for a specific Free Pascal version, go to the bugs
+            <p>If you wish to know the bugs for a specific Free Pascal version, go to the bugs
             page, display the bug database. At the end of the page you should
             see an option to view only specific bugs. Choose "With Version"
             with the version you want to get information about and
             "With Status" choose "Unfixed". This should display all bugs
             which are present in the specific version of the compiler
             you requested.
-            </P>
-        </LI>
+            </p>
+        </li>
 
 
-        <LI><A name=HOMEWORK></A>
-            <H3>I have to write a program for homework. Can you help?</H3>
+        <li><a name=HOMEWORK></a>
+            <h3>I have to write a program for homework. Can you help?</h3>
 
-            <P>No. Please, don't send us mail about homework, we are no teachers.
+            <p>No. Please, don't send us mail about homework, we are no teachers.
             The Free Pascal development team tries to give good support for the Free
             Pascal compiler and are trying to always reply to emails. If we get
-            emails like this, this becomes harder and harder. </P>
-        </LI>
-        <LI><A name="windowsapp"></A>
-            <H3>How do I make a real Windows application with windows and menu bars?</H3>
-            The easiest way is to <A href='http://www.lazarus.freepascal.org'>download Lazarus</A>.
+            emails like this, this becomes harder and harder. </p>
+        </li>
+        <li><a name="windowsapp"></a>
+            <h3>How do I make a real Windows application with windows and menu bars?</h3>
+            The easiest way is to <a href='http://www.lazarus.freepascal.org'>download Lazarus</a>.
             It won't be just a Windows application, it will also work under Linux, FreeBSD and
             MacOS X.
-        </LI>
-        <LI><A name="game"></A>
-            <H3>How do I make a game with Free Pascal? Can I make a game like Doom 3?</H3>
+        </li>
+        <li><a name="game"></a>
+            <h3>How do I make a game with Free Pascal? Can I make a game like Doom 3?</h3>
             Yes, you can make games with Free Pascal and if you are really good you can make
             a game like Doom 3. Making games is difficult, you need to be an experienced
-            programmer to make them. The web site <A href='http://www.pascalgamedevelopment.com'>
-            www.pascalgamedevelopment.com</A> is a community of people who program games in Free
+            programmer to make them. The web site <a href='http://www.pascalgamedevelopment.com'>
+            www.pascalgamedevelopment.com</a> is a community of people who program games in Free
             Pascal and Delphi.
-            <P>
-            If you want a start, please start to study <A href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</A>
-            or <A href='http://ptcpas.sourceforge.net'>PTCPas</A>. Also you can try to study an existing game, for example
-            <A href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</A> is a very simple game and it should not be
+            <p>
+            If you want a start, please start to study <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a>
+            or <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Also you can try to study an existing game, for example
+            <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is a very simple game and it should not be
             very hard to understand its code.
-        </LI>
-        <LI><A name=ErrorPos></A>
-            <H3>Getting more information when an application crashes</H3>
+        </li>
+        <li><a name=ErrorPos></a>
+            <h3>Getting more information when an application crashes</h3>
 
             <OL>
-                <LI>The easiest possibility is to recompile your program with -gl
+                <li>The easiest possibility is to recompile your program with -gl
                 debugging option. This way unit LineInfo is automatically linked in,
                 and the printout after a program crash then contains source line
                 numbers in addition to addresses of the crash. To see runtime library (RTL)
                 functions in the backtrace with their real name, you have to recompile
-                the RTL with -gl too.</LI>
-                <LI>For more comprehensive checking, compile the
-                program with debugging information (use the -g command line option) </LI>
-                <LI>Load the program in the debugger <PRE>gdb(pas)(w) --directory=&lt;src dirs&gt; myprog.exe</PRE>Notes:
-                <UL>
-                    <LI>Under UNIX systems (Linux, the BSD's), don't add the ".exe" after myprog
-                    <LI>"<TT>src dirs</TT>" is a list of directories containing the
+                the RTL with -gl too.</li>
+                <li>For more comprehensive checking, compile the
+                program with debugging information (use the -g command line option) </li>
+                <li>Load the program in the debugger <PRE>gdb(pas)(w) --directory=&lt;src dirs&gt; myprog.exe</PRE>Notes:
+                <ul>
+                    <li>Under UNIX systems (Linux, the BSD's), don't add the ".exe" after myprog
+                    <li>"<TT>src dirs</TT>" is a list of directories containing the
                     source code files of myprog and the units it uses seperated by
-                    semi-colons (";"). The current directory is automatically included.</LI>
-                </UL>
-                <LI>Once inside the debugger, you can (optionally) set the command
+                    semi-colons (";"). The current directory is automatically included.</li>
+                </ul>
+                <li>Once inside the debugger, you can (optionally) set the command
                 line options that will be passed to your program using the command
                 "<TT>set args &lt;option1 option2 ...&gt;</TT>"
-                <LI>To start the program, type "<TT>run</TT>" and press enter
-                <LI>After the program has crashed, the address of the instruction
+                <li>To start the program, type "<TT>run</TT>" and press enter
+                <li>After the program has crashed, the address of the instruction
                 where the crash occurred will be shown. The debugger will try to
                 display the source code line corresponding with this address. Note
                 that this can be inside a procedure of the RTL, so the source may not
                 always be available and most likely the RTL wasn't compiled with
                 debugging information.
-                <LI>If you then type "<TT>bt</TT>" (BackTrace), the addreses in the
+                <li>If you then type "<TT>bt</TT>" (BackTrace), the addreses in the
                 call stack will be shown (the addresses of the procedures which were
                 called before the program got to the current address). You can see
                 which source code lines these present using the command
-                <PRE>info line *&lt;address&gt;</PRE>For example:<PRE>info line *0x05bd8</PRE></LI>
+                <PRE>info line *&lt;address&gt;</PRE>For example:<PRE>info line *0x05bd8</PRE></li>
             </OL>
 
 
-        <LI><A name=general-heap></A>
-        <H3>Increasing the heap size</H3>
+        <li><a name=general-heap></a>
+        <h3>Increasing the heap size</h3>
 
-            <P>By default Free Pascal allocates a small part of RAM for your
+            <p>By default Free Pascal allocates a small part of RAM for your
             application as heap memory. If it just allocated all it could get,
             people running Windows would have problems as Windows would increase
             the swap file size to give the program more memory on and on, until
-            the swap file drive would be full. </P>
+            the swap file drive would be full. </p>
 
-            <P>You can specify the size of the heap with -Chxxxx. </P>
+            <p>You can specify the size of the heap with -Chxxxx. </p>
 
-            <P>However, the heap size doesn't really matter, since the Heap
+            <p>However, the heap size doesn't really matter, since the Heap
             is able to grow: if you've used all the available heap space, the
             program will try to get more memory from the Operating system (OS),
             so the heap is limited to the maximum amount of free memory provided by
-            the OS. </P>
+            the OS. </p>
 
-            <P>It is only handy if you know you will need at least a certain amount
+            <p>It is only handy if you know you will need at least a certain amount
             of memory. You can then specify this value using the -Ch parameter, so
             your program will allocate it at once on startup. This is slightly
-            faster than growing the heap a number of times. </P>
-         </LI>
+            faster than growing the heap a number of times. </p>
+         </li>
 
 
-        <LI><A name=general-doesntfindfiles></A>
-            <H3>Compiler seems to skip files in directories that -Fu points to</H3>
+        <li><a name=general-doesntfindfiles></a>
+            <h3>Compiler seems to skip files in directories that -Fu points to</h3>
 
-            <P>This sometimes happens with installation/compilation scripts if the
+            <p>This sometimes happens with installation/compilation scripts if the
             copying command doesn't preserve dates. The object files get older than
             the PPU file, and the compiler tries to recompile them. A simple <TT>touch</TT>
-            will solve it. </P>
-	    <P>
+            will solve it. </p>
+	    <p>
 	      Also note that FPC, contrary to Turbo Pascal keeps track of includefiles. Modified
-		includefiles or duplicate names might trigger an attempt at recompiling</P>
-        </LI>
+		includefiles or duplicate names might trigger an attempt at recompiling</p>
+        </li>
 
-        <LI><A name=binariesbig></A>
-            <H3>Why are the generated binaries so big?</H3>
+        <li><a name=binariesbig></a>
+            <h3>Why are the generated binaries so big?</h3>
 
-            <P>There are several reasons and remedies for this: </P>
+            <p>There are several reasons and remedies for this: </p>
 
-            <P>
+            <p>
             <OL>
-                <LI>
-                    <P>You can create smartlinked applications. To turn on
+                <li>
+                    <p>You can create smartlinked applications. To turn on
                     the generation of smartlinkable units, use the -Cx command
                     line option when compiling your units. To turn on
                     the linking of previously generated smarlinkable units, use the -XX
                     (-XS in 0.99.12 and earlier) command line option when compiling a
-                    program. </P>
-                <LI>Normally, all symbol information is included in the resulting
+                    program. </p>
+                <li>Normally, all symbol information is included in the resulting
                     program (for easier debugging). You can remove this by using the -Xs
                     command line option when compiling your program (it won't do anything
                     when compiling units)
-                <LI>You can use UPX to pack the .EXEs (just like e.g. pklite) for Dos
+                <li>You can use UPX to pack the .EXEs (just like e.g. pklite) for Dos
                     (GO32v2) and Windows targets. Look <A
-                        href="http://upx.sourceforge.net/">here</A> for
+                        href="http://upx.sourceforge.net/">here</a> for
                     more info.
-                <LI>You can use LXLITE for packing EMX binaries, but you won't be able
+                <li>You can use LXLITE for packing EMX binaries, but you won't be able
                     to run them under DOS (with extender) any more then. This issues is
                     not relevant for native OS/2 binaries compiled for target OS2 with
                     version 1.9.x and above, because these don't run under DOS anyway.
                     In addition, it might not be possible to use compressed binaries
                     on lower OS/2 versions (like 2.x) depending on chosen type of
                     compression. LXLITE can be found e.g. on
-                    <A href="http://hobbes.nmsu.edu/">Hobbes</A>, search for LXLITE.
-                <LI>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
-                    and for your own code, this will also decrease the code size. </LI>
-	        <LI>Keep in mind that under NT,2000,XP, compressed binaries startup	
+                    <a href="http://hobbes.nmsu.edu/">Hobbes</a>, search for LXLITE.
+                <li>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
+                    and for your own code, this will also decrease the code size. </li>
+	        <li>Keep in mind that under NT,2000,XP, compressed binaries startup	
 		     relatively slow. Test under various conditions (OS, CPU speed, memory)
-		     if the behaviour is acceptable before compressing</LI>			   
+		     if the behaviour is acceptable before compressing</li>			   
            </OL>
-            <P></P>
-        </LI>
+            <p></p>
+        </li>
 
 
-        <LI><A name=cfgfiles></A>
-            <H3>Configuration file problems (fpc.cfg or ppc386.cfg)</H3>
+        <li><a name=cfgfiles></a>
+            <h3>Configuration file problems (fpc.cfg or ppc386.cfg)</h3>
 
-            <P> Starting from version 1.0.6 of Free Pascal, the configuration
+            <p> Starting from version 1.0.6 of Free Pascal, the configuration
             file is now called <TT>fpc.cfg</TT> instead of <TT>ppc386.cfg</TT>.
             For backward compatibility , <TT>ppc386.cfg</TT> is still searched first
-            and, if found, is used instead of <TT>fpc.cfg</TT></P>
+            and, if found, is used instead of <TT>fpc.cfg</TT></p>
 
-            <P> Versions prior to Free Pascal 1.0.6 do not recognize <TT>fpc.cfg</TT>,
+            <p> Versions prior to Free Pascal 1.0.6 do not recognize <TT>fpc.cfg</TT>,
             so if you wish to use an earlier version of the compiler using the
             same configuration file used with FPC version 1.0.6 (or later),
-            the configuration file should be renamed to <TT>ppc386.cfg</TT></P>.
+            the configuration file should be renamed to <TT>ppc386.cfg</TT></p>.
 
-        </LI>
+        </li>
 
 
-        <LI><A name=runerror></A>
-            <H3>Runtime errors</H3>
+        <li><a name=runerror></a>
+            <h3>Runtime errors</h3>
 
-            <P> When there is abnormal termination of an application generated
+            <p> When there is abnormal termination of an application generated
             by Free Pascal, it is very probable that a runtime error will be
-            generated. These errors have the form : </P>
+            generated. These errors have the form : </p>
 
             <PRE>
             Runtime error 201 at 0x00010F86
@@ -619,108 +619,108 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
               0x0000206D
             </PRE>
 
-            <P> The 201 in this case indicates the runtime error
+            <p> The 201 in this case indicates the runtime error
             number. The definition of the different runtime error numbers is
             described in the Free Pascal user's manual, Appendix D. The
             hexadecimal numbers represent the call stack when the error occured.
-            </P>
+            </p>
 
-        </LI>
+        </li>
 
-        <LI><A name=stdunits></A>
-            <H3>Standard units</H3>
+        <li><a name=stdunits></a>
+            <h3>Standard units</h3>
 
-            <P> To see the list of base units supplied with Free Pascal, and
+            <p> To see the list of base units supplied with Free Pascal, and
             on which platform they are supported, consult the Free Pascal user's manual.
             There is also a short description of what each unit does in the same section
             of the manual.
-            </P>
+            </p>
 
-        </LI>
+        </li>
 
-        <LI><A name=internaldocs></A>
-           <H3>How does the compiler work internally?</H3>
+        <li><a name=internaldocs></a>
+           <h3>How does the compiler work internally?</h3>
 <!--
-           <P>A draft document describing the internals of the Free Pascal compiler is
-           available <A HREF="ftp://ftp.freepascal.org/pub/fpc/docs/fpc-int10.zip">here</A>.
-           </P>
+           <p>A draft document describing the internals of the Free Pascal compiler is
+           available <a href="ftp://ftp.freepascal.org/pub/fpc/docs/fpc-int10.zip">here</a>.
+           </p>
 -->
-        </LI>
+        </li>
 
-        <LI><A name=debugsmart></A>
-           <H3>Debugging smartlinked code does not fully work</H3>
+        <li><a name=debugsmart></a>
+           <h3>Debugging smartlinked code does not fully work</h3>
 
-           <P>Debugging smart linked code might not work correctly. This is
+           <p>Debugging smart linked code might not work correctly. This is
            due to the fact that no type information is emitted for
            smartlinked code. If this would not be done, the files
            would become enormous.
-           </P>
+           </p>
 
-           <P> While debugging, it is not recommended to use the
-               smartlinking option.</P>
+           <p> While debugging, it is not recommended to use the
+               smartlinking option.</p>
 
-        </LI>
+        </li>
 
-        <LI><A name=debugshared></A>
-           <H3>Debugging shared library (dynamic linked library) code does not fully work</H3>
+        <li><a name=debugshared></a>
+           <h3>Debugging shared library (dynamic linked library) code does not fully work</h3>
 
-           <P>Debugging shared libraries (or dynamic linked libraries) produced
+           <p>Debugging shared libraries (or dynamic linked libraries) produced
               by the Free Pascal compiler is not officially supported.
-           </P>
+           </p>
 
-        </LI>
+        </li>
 
 
-        <LI><A name=cantfindunit></A>
-            <h3>PPU files binary compatibility between versions</H3>
-            <H3>Can't compile a program using a binary only version of a unit</H3>
+        <li><a name=cantfindunit></a>
+            <h3>PPU files binary compatibility between versions</h3>
+            <h3>Can't compile a program using a binary only version of a unit</h3>
 
-            <P>
+            <p>
             Sometimes, even though there is a binary version of a module (unit file and object file)
             available, the compiler still gives compilation errors. This can be caused either by an
             incompatibility in the PPU file format (which should change only between
             major versions of the compiler), or by a change in one of the units of the RTL
             which has changed in between releases.
-            </P>
+            </p>
 
-            <P>
+            <p>
             To get more information, compile the code using the -va (show all information)
             compiler switch, and the unit loading phase will be displayed. You might
             discover that the unit being loaded requires to be recompiled because one
             of the unit it uses has changed.
-            </P>
+            </p>
 
-            <P>So if you plan on distributing a module without the source code, the binaries
+            <p>So if you plan on distributing a module without the source code, the binaries
                should be compiled and made available for all versions of the compiler you
                wish to support, otherwise compilation errors are bound to occur.
-            </P>
+            </p>
 
-            <P>In other words, the unit (PPU) file format does not change significantly
+            <p>In other words, the unit (PPU) file format does not change significantly
                in between minor releases of the compiler (for exemple : from 1.0.4 and 1.0.6)
                which means they are binary compatible, but because the interface of the units
                of the RTL certainly changes between versions, recompilation will be required
                for each version anyways.
-            </P>
+            </p>
 
-        </LI>
-        <LI><A name=filemode></A>
-           <H3>File denied errors when opening files with reset </H3>
+        </li>
+        <li><a name=filemode></a>
+           <h3>File denied errors when opening files with reset </h3>
 
-           <P> Trying to open files using <CODE>reset</CODE> on non-text files
-               might cause a Runtime Error 5 (Access denied). </P>
+           <p> Trying to open files using <CODE>reset</CODE> on non-text files
+               might cause a Runtime Error 5 (Access denied). </p>
 
-           <P> All files opened using the above system unit routine use the current
+           <p> All files opened using the above system unit routine use the current
                <CODE>filemode</CODE> value to determine how the file is opened. By
                default, <CODE>filemode</CODE> is set to 2 (Read/Write access).
-            </P>
+            </p>
 
-            <P>So, a call to <CODE>reset</CODE> on non-text files does <EM>not</EM>
+            <p>So, a call to <CODE>reset</CODE> on non-text files does <EM>not</EM>
                indicate that the file will be opened read-only. So, trying to open a file
                using <CODE>reset</CODE> with the defaults will fail on read-only files.
                <CODE>filemode</CODE> should be set to 0 (Real-only access) before
                calling <CODE>reset</CODE> to solve this problem. A sample solution
                is shown below.
-            </P>
+            </p>
 
             <PRE>
               const
@@ -744,11 +744,11 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
               end.
             </PRE>
 
-            <P> For more information, consult the Free Pascal reference manual</P>
-         </LI>
+            <p> For more information, consult the Free Pascal reference manual</p>
+         </li>
 
-        <LI><A name=dotnet></A>
-           <H3>What about .NET? </H3>
+        <li><a name=dotnet></a>
+           <h3>What about .NET? </h3>
 
 	   Occasionally, users ask about a FPC that supports .NET, or our
 	   plans in that direction. <p>
@@ -764,21 +764,21 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	   in combination with FPC:
 	   	
         <OL> 
-        <LI>FPC's language uses pointers, and so can only be
+        <li>FPC's language uses pointers, and so can only be
 	   unmanaged. Unmanaged code is not portable under .NET, so that
 	   already kills all possible benefits. This also means that
-	   existing FPC and Delphi code won't run on .NET.</lI>
+	   existing FPC and Delphi code won't run on .NET.</li>
 
-	<LI>FPC's libraries don't base on .NET classes and datamodels (and
+	<li>FPC's libraries don't base on .NET classes and datamodels (and
  	   can't be changed to do so without effectively rewriting them),
  	   moreover the libraries could only be unmanaged too, or they
-	   would be incompatible</LI>
+	   would be incompatible</li>
 
- 	<LI>There is nothing <emph>practical</emph> known yet about how
+ 	<li>There is nothing <emph>practical</emph> known yet about how
 	    portable an average .NET code will be. Little experiments with
 	    hello world level code mean nothing, that kind of code works
 	    with plain C too. </li>
- 	<LI>Operating System dependant code wouldn't work anymore, since
+ 	<li>Operating System dependant code wouldn't work anymore, since
 	     the win32 interface is unmanaged.</li> 
 	</OL> <p>
         
@@ -808,126 +808,126 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	scratch on the base libraries of the target (Java/.NET). Such an
 	attempt would have little synergy with the FPC project as it is
 	today.<p>
-       </LI>
+       </li>
    </OL>
 
 
-   <H2><LI>Pascal language related information</LI></H2>
+   <h2><li>Pascal language related information</li></h2>
    <OL>
 
-        <LI><A name=PortingCPU></A>
-            <H3>Considerations in porting to other processors</H3>
+        <li><a name=PortingCPU></a>
+            <h3>Considerations in porting to other processors</h3>
 
-            <P>Because the compiler now supports processors other than the Intel, it
+            <p>Because the compiler now supports processors other than the Intel, it
             is important to take a few precautions so that your code will execute
-            correctly on all processors. </P>
-            <UL>
-              <LI>Limit your use of asm statements unless it is time critical code</LI>
-              <LI>Try not to rely on the endian of the specific machines when doing
+            correctly on all processors. </p>
+            <ul>
+              <li>Limit your use of asm statements unless it is time critical code</li>
+              <li>Try not to rely on the endian of the specific machines when doing
               arithmetic operations. Furthermore, reading and writing of binary data
               to/from files will probably require byte swaps across different endian
               machines (swap is your friend in this case). This is even more
               important if you write binary data to files. Freepascal defines 
               <CODE>ENDIAN&#x5F;LITTLE</CODE> or <CODE>ENDIAN&#x5F;BIG</CODE> to indicate the
-              target endian. </LI>
-              <LI>Try limiting your local variables in subroutines to 32K, as this
+              target endian. </li>
+              <li>Try limiting your local variables in subroutines to 32K, as this
               is the limit of some processors, use dynamic allocation instead.
-              <LI>Try limiting the size of parameters passed to subroutines to 32K,
+              <li>Try limiting the size of parameters passed to subroutines to 32K,
               as this is the limit of some processors, use const or var parameters
-              instead. </LI>
-              <LI>The <TT>integer</TT> and <TT>cardinal</TT> types might have different
+              instead. </li>
+              <li>The <TT>integer</TT> and <TT>cardinal</TT> types might have different
 	      sizes and ranges on each processor, as well as depending on the compiler
 	      mode.
-              </LI>
-              <LI>The <TT>CPU32</TT> or <TT>CPU64</TT> (defined by FPC starting 
+              </li>
+              <li>The <TT>CPU32</TT> or <TT>CPU64</TT> (defined by FPC starting 
               from version 1.9.3) are defined indicating if the target is a 32-bit or 
               64-bit cpu; This can help you separate 32-bit and 64-bit specific code. 
-              </LI>
-              <LI>Use the <TT>ptrint</TT> type (defined by FPC starting 
+              </li>
+              <li>Use the <TT>ptrint</TT> type (defined by FPC starting 
               from version 1.9.3) when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
               the processor and operating system. 
-              </LI>
-            </UL>
-        </LI>
-        <P></P>
+              </li>
+            </ul>
+        </li>
+        <p></p>
 
-        <LI><A name=PortingOS></A>
-            <H3>Considerations in porting code to other operating systems</H3>
+        <li><a name=PortingOS></a>
+            <h3>Considerations in porting code to other operating systems</h3>
 
-            <P>Because the compiler supports several different operating systems,
+            <p>Because the compiler supports several different operating systems,
             is important to take a few precautions so that your code will execute
-            correctly on all systems. </P>
-            <UL>
-              <LI>File sharing is implemented differently on different operating
+            correctly on all systems. </p>
+            <ul>
+              <li>File sharing is implemented differently on different operating
               systems, so opening already opened files may fail on some operating
               systems (such as Windows). The only correct way to make sure to
               have the same file sharing behavior is to use the I/O routines
-              furnished in <TT>sysutils</TT>. </LI>
-              <LI>Clean up at the end of your program, i.e. close all files on exit, and
+              furnished in <TT>sysutils</TT>. </li>
+              <li>Clean up at the end of your program, i.e. close all files on exit, and
               release all allocated heap memory, as some operating systems don't like it
-              when some things are left allocated or opened.</LI>
-              <LI> Some operating systems limit the local stack space which can be allocated,
+              when some things are left allocated or opened.</li>
+              <li> Some operating systems limit the local stack space which can be allocated,
               therefore it is important to limit subroutine nesting, and the amount of
               local variables. Limiting total stack space usage at a given moment to
-              at most 256 KBytes while make porting easier.</LI>
-              <LI> Do not hard code paths to files, try to use relative paths
-              instead </LI>
-              <LI> Use the following constants (defined in the system unit)
+              at most 256 KBytes while make porting easier.</li>
+              <li> Do not hard code paths to files, try to use relative paths
+              instead </li>
+              <li> Use the following constants (defined in the system unit)
               to get information on files, line endings, and to build paths:
-                  <UL>
-                    <LI> <TT>LineEnding</TT> : Indicates the characters which end a text line</LI>
-                    <LI> <TT>LFNSupport</TT> : Indicates if long filenames are supported (more then 8.3 characters)</LI>
-                    <LI> <TT>DirectorySeparator</TT> : The character or characters which separate path components </LI>
-                    <LI> <TT>DriveSeparator</TT> : The character which separate the drive specification from the rest
-                           of the path</LI>
-                    <LI> <TT>PathSeparator</TT> : The character which separates directories in the search path environment</LI>
-                    <LI> <TT>FileNameCaseSensitive</TT> : Boolean indicating if the filenames for this system are case-sensitive or not</LI>
-                  </UL>
+                  <ul>
+                    <li> <TT>LineEnding</TT> : Indicates the characters which end a text line</li>
+                    <li> <TT>LFNSupport</TT> : Indicates if long filenames are supported (more then 8.3 characters)</li>
+                    <li> <TT>DirectorySeparator</TT> : The character or characters which separate path components </li>
+                    <li> <TT>DriveSeparator</TT> : The character which separate the drive specification from the rest
+                           of the path</li>
+                    <li> <TT>PathSeparator</TT> : The character which separates directories in the search path environment</li>
+                    <li> <TT>FileNameCaseSensitive</TT> : Boolean indicating if the filenames for this system are case-sensitive or not</li>
+                  </ul>
                It is also possible to use the <TT>PathDelim</TT>, <TT>PathSep</TT> and <TT>DriveDelim</TT> constants
                defined in <TT>sysutils</TT>.
-              </LI>
-            </UL>
-        </LI>
-        <P></P>
+              </li>
+            </ul>
+        </li>
+        <p></p>
 
-        <LI><A name=OOP></A>
-            <H3>Compiling Delphi code using Free Pascal</H3>
+        <li><a name=OOP></a>
+            <h3>Compiling Delphi code using Free Pascal</h3>
 
-            <P>The compiler supports the Delphi classes. Make sure you use the -S2 or
+            <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
             -Sd switches (see the manuals for the meaning of these switches). For a
-            list of Delphi incompabilities also check the manual. </P>
-        </LI>
+            list of Delphi incompabilities also check the manual. </p>
+        </li>
 
-        <LI><A name=HowcanIbuildaunit></A>
-            <H3>Building a unit</H3>
+        <li><a name=HowcanIbuildaunit></a>
+            <h3>Building a unit</h3>
 
-            <P>It works like in Turbo Pascal. The first keyword in the file must be
+            <p>It works like in Turbo Pascal. The first keyword in the file must be
             UNIT (not case sensitive). The compiler will generate two files:
             <TT>XXX.PPU</TT> and <TT>XXX.O</TT>. The PPU file contains the interface
             information for the compiler and the O-file the machine code (an object
             file, whose precise structure depends on the assembler you used). To use
             this unit in another unit or program, you must include its name in the
-            USES clause of your program. </P>
-        </LI>
+            USES clause of your program. </p>
+        </li>
 
-        <LI><A name=CompileSystemUnit></A>
-            <H3>Compiling the system unit</H3>
+        <li><a name=CompileSystemUnit></a>
+            <h3>Compiling the system unit</h3>
 
-            <P>To recompile the system unit, it is recommended to have GNU make
+            <p>To recompile the system unit, it is recommended to have GNU make
             installed. typing 'make' in the rtl source directory will then recompile
             all RTL units including the system unit. You may choose to descend into
-            the directory of your OS (e.g. rtl/go32v2) and do a 'make' there. </P>
-            <P>It is possible to do all this manually, but you need more detailed
-            knowledge of the RTL tree structure for that. </P>
-        </LI>
+            the directory of your OS (e.g. rtl/go32v2) and do a 'make' there. </p>
+            <p>It is possible to do all this manually, but you need more detailed
+            knowledge of the RTL tree structure for that. </p>
+        </li>
 
 
-        <LI><A name=Howdoesfunctionoverloadingwork></A>
-            <H3>How does function overloading work?</H3>
+        <li><a name=Howdoesfunctionoverloadingwork></a>
+            <h3>How does function overloading work?</h3>
 
-            <P>function overloading is implemented, like in C++:
-            </P><PRE>
+            <p>function overloading is implemented, like in C++:
+            </p><PRE>
                     procedure a(i : integer);
                     begin
                     end;
@@ -942,108 +942,108 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
                     end.
                 </PRE>
 
-            <P>You must be careful. If one of your overloaded functions is in the
+            <p>You must be careful. If one of your overloaded functions is in the
             interface part of your unit, then all overloaded functions must be in
             the interface part. If you leave one out, the compiler will complain
             with a 'This overloaded function can't be local' message. Overloaded
             functions must differ in their parameters, it's not enough if their
-            return types are different. </P>
-        </LI>
+            return types are different. </p>
+        </li>
 
-        <LI><A name=HowToCallCFuncuntions></A>
-            <H3>Calling C functions</H3>
+        <li><a name=HowToCallCFuncuntions></a>
+            <h3>Calling C functions</h3>
 
-            <P>
+            <p>
             It is possible to call functions coded in C, which were compiled
             with the GNU C compiler (<TT>GCC</TT>). Versions which have been
             tested are version 2.7.2 through 2.95.2 of GCC. For calling the
             C function strcmp declare the following:
-            </P>
+            </p>
             <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
 
-        </LI>
+        </li>
 
 
-        <LI><A name=IntegratedAssemblerSyntax></A>
-            <H3>Integrated Assembler syntax</H3>
+        <li><a name=IntegratedAssemblerSyntax></a>
+            <h3>Integrated Assembler syntax</h3>
 
-            <P>The default assembler syntax (AT&amp;T style) is different from the
-            one in Borland Pascal (Intel style). </P>
+            <p>The default assembler syntax (AT&amp;T style) is different from the
+            one in Borland Pascal (Intel style). </p>
 
-            <P>However, as of version 0.99.0, the compiler supports Intel style
+            <p>However, as of version 0.99.0, the compiler supports Intel style
             assembly syntax. See the documentation for more info on how to use
-            different assembler styles. </P>
+            different assembler styles. </p>
 
-            <P>A description of the AT&amp;T syntax can be found in the GNU
-            Assembler documentation. </P>
-        </LI>
+            <p>A description of the AT&amp;T syntax can be found in the GNU
+            Assembler documentation. </p>
+        </li>
 
 
 
-        <LI><A name=systemnotfound></A>
-            <H3>Unit system, syslinux, sysos2 or syswin32 not found errors</H3>
+        <li><a name=systemnotfound></a>
+            <h3>Unit system, syslinux, sysos2 or syswin32 not found errors</h3>
 
-            <P>System (syslinux - not the bootloader, sysos2 or syswin32, depending
+            <p>System (syslinux - not the bootloader, sysos2 or syswin32, depending
             on platform) is Pascal's base unit which is implicitely used in all programs.
             This unit defines several standard procedures and structures, and must be found to
-            be able to compile any pascal program by FPC. </P>
+            be able to compile any pascal program by FPC. </p>
 
-            <P>The location of the system.ppu and syslinux.o files are determined by
+            <p>The location of the system.ppu and syslinux.o files are determined by
             the -Fu switch which can be specified commandline, but is usually in the
-            ppc386.cfg or fpc.cfg configuration file. </P>
+            ppc386.cfg or fpc.cfg configuration file. </p>
 
-            <P>If the compiler can't find this unit there are three possible causes:</P>
+            <p>If the compiler can't find this unit there are three possible causes:</p>
             <OL>
-                <LI>The ppc386.cfg or fpc.cfg isn't in the same path as the compiler
+                <li>The ppc386.cfg or fpc.cfg isn't in the same path as the compiler
                 executable (go32v2, win32 and OS/2) or can't be found as
                 "/etc/fpc.cfg" or ".fpc.cfg" in your homedirectory (Linux).
-                <LI>The fpc.cfg or ppc386.cfg doesn't contain the -Fu line, or a wrong one.
-                See the <A href="http://www.stack.nl/~marcov/buildfaq.pdf">build faq (PDF)</A>, especially the chapters
+                <li>The fpc.cfg or ppc386.cfg doesn't contain the -Fu line, or a wrong one.
+                See the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">build faq (PDF)</a>, especially the chapters
                 about the fpc.cfg and the directory structure.
-                <LI>The files ARE found but the wrong version or platform. Correct
+                <li>The files ARE found but the wrong version or platform. Correct
                 ppc386.cfg or fpc.cfg to point to the right versions or reinstall the right
                 versions (this can happen if you try to use a <A
-                href="#snapshot">snapshot</A>
+                href="#snapshot">snapshot</a>
                 compiler while the -Fu statement in the used fpc.cfg still points to
-                the RTL that came with the official release compiler). </LI>
+                the RTL that came with the official release compiler). </li>
             </OL>
 
-            <P>A handy trick can be executing "ppc386 programname -vt", this shows
+            <p>A handy trick can be executing "ppc386 programname -vt", this shows
             where the compiler is currently looking for the system unit's files. You
             might want to pipe this through more (Dos, OS/2, Windows) or less
-            (Linux), since it can generate more than one screen information: </P>
+            (Linux), since it can generate more than one screen information: </p>
 
-            <P>
+            <p>
             <PRE>
-                    Dos, OS/2, Windows: ppc386 programname -vt |more<BR>
-                    unix, linux: ppc386 programname -vt |less<BR>
+                    Dos, OS/2, Windows: ppc386 programname -vt |more<br>
+                    unix, linux: ppc386 programname -vt |less<br>
             </PRE>
-            <P></P>
-        </LI>
-        <LI><A name=extensionselect></A>
-            <H3>There is a new extension that will be really useful. Will you include it?</H3>
-        <P>
+            <p></p>
+        </li>
+        <li><a name=extensionselect></a>
+            <h3>There is a new extension that will be really useful. Will you include it?</h3>
+        <p>
             Occasionally somebody asks for a new extension on the maillist,
 	    and the discussions that follow have a recurring pattern. An
 	    extension is quite a big deal for the FPC team, and there are
 	    some criteria that are used to select if an extension is
 	    &quot;worth&quot; the trouble. The most important pre-selection criteria are:
  	    <OL>
-		<LI>Compability must not be compromised in any way. Existing
+		<li>Compability must not be compromised in any way. Existing
 			codebases on at least the Pascal level must keep 
 			running. This is often more difficult than most people
-		        think.</lI>
-		<LI>The extension must have real value.  Anything that is only
+		        think.</li>
+		<li>The extension must have real value.  Anything that is only
 			a shorter notation does not apply, unless it is 
 			out of compatibility with an existing Pascal/Delphi
 			codebase. Practically it means it must make something
 			possible that can't be done otherwise or be a compability
-			item </lI>
-		<LI>The change must fit in with the scope of the project, 
+			item </li>
+		<li>The change must fit in with the scope of the project, 
 			implementing a Pascal compiler which can have a RAD
 			and generic DB system. This excludes features like
 			inline SQL, and large garbage collected objectframeworks.
-		</LI>
+		</li>
 	    </OL>	
 
             Exceptions to the second rule are sometimes made for platform
@@ -1053,7 +1053,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	    before. Best is to make a thoroughly written proposal that the
 	    devels can review with
 	    <ul><li> Explanation of the feature</li>
-		<lI> Why it is needed, what does it make possible?</li>
+		<li> Why it is needed, what does it make possible?</li>
 		<li> How you would implement it?</li>
 		<li> Lots of examples of typical use, and tests for possible problem
 			cases</li>
@@ -1064,8 +1064,8 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	    Be critical, try to punch holes in your
 	    own reasoning and find possible problematic cases, and document
 	    them.	
-        </P> 
-        <P>
+        </p> 
+        <p>
   	    Besides these pre-selection rules and documentation, the other
 	    important question is who is going to do the work. Keep in mind
 	    that the FPC devels are volunteers with to-do lists that are
@@ -1076,46 +1076,46 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
 	    chances are slim.  Remarks as &quot;this will attract a lot of
 	    users because&quot; are considered with a lot of scepsis, since
 	    that applies to any new development.
-	</P>           
+	</p>           
    </OL>
 
-   <LI><H2> Runtime library related information </H2></LI>
+   <li><h2> Runtime library related information </h2></li>
    <OL>
 
 
-        <LI><A name=HowToUseGraph></A>
-            <H3>Using the graph unit with Free Pascal</H3>
+        <li><a name=HowToUseGraph></a>
+            <h3>Using the graph unit with Free Pascal</h3>
 
-            <P>Since version 1.0, we  have a completely platform independent way
+            <p>Since version 1.0, we  have a completely platform independent way
             of selecting resolutions and bitdepths. You are strongly encouraged to
             use it, because other ways will probably fail on one or other platform.
-            See the documentation of the graph unit for more information. </P>
-        </LI>
+            See the documentation of the graph unit for more information. </p>
+        </li>
 
-        <LI><A name=WrongColors></A>
-            <H3>Why do I get wrong colors when using the graph unit?</H3>
+        <li><a name=WrongColors></a>
+            <h3>Why do I get wrong colors when using the graph unit?</h3>
 
-            <P>If you use <TT>detect</TT> as graphdriver, you will end up with the
+            <p>If you use <TT>detect</TT> as graphdriver, you will end up with the
             highest supported bitdepth. Since the graph unit currently only supports
             up to 16 bits per pixel modes and since this bitdepth is supported by
             all graphics cards made in at least the last 5 years, you will most
-            likely get a 16 bit mode. </P>
+            likely get a 16 bit mode. </p>
 
-            <P>The main problem is that in 16 (and 15, 24, 32, ...) bit modes, the
+            <p>The main problem is that in 16 (and 15, 24, 32, ...) bit modes, the
             colors aren't set anymore using an index in a palette (the palettized
             way is called "indexed color"). In these modes, the color number itself
             determines what color you get on screen and you can't change this color.
             The color is encoded as follows (for most graphics cards on PC's at
-            least): </P>
+            least): </p>
 
-            <UL>
-                <LI>15 bit color: lower 5 bits are blue intensity, next come 5 bits of
-                green and then 5 bits of red. The highest bit of the word is ignored.</LI>
-                <LI>16 bit color: lower 5 bits are blue intensite, next come *6* bits
-                of green and then 5 bits of red. </LI>
-            </UL>
+            <ul>
+                <li>15 bit color: lower 5 bits are blue intensity, next come 5 bits of
+                green and then 5 bits of red. The highest bit of the word is ignored.</li>
+                <li>16 bit color: lower 5 bits are blue intensite, next come *6* bits
+                of green and then 5 bits of red. </li>
+            </ul>
 
-            <P>This means that either you have to rewrite your program so it can
+            <p>This means that either you have to rewrite your program so it can
             work with this so-called "direct color" scheme, or that you have to use
             <TT>D8BIT</TT> as graphdriver and <TT>DetectMode</TT> as graphmode. This
             will ensure that you end up with a 256 (indexed) color mode. If there
@@ -1124,352 +1124,352 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
             retry with graphdriver <TT>D4BIT</TT>. Make sure you use the constant
             names (D8BIT, D4BIT, ...) and not their actual numeric values, because
             those values can change with the next release! That is the very reason why
-            such symbolic constants exist. </P>
-        </LI>
+            such symbolic constants exist. </p>
+        </li>
 
-        <LI><A name=fileshare></A>
-             <H3> File sharing and file locks </H3>
+        <li><a name=fileshare></a>
+             <h3> File sharing and file locks </h3>
 
-             <P> The standard runtime library file I/O routines open
+             <p> The standard runtime library file I/O routines open
              files in the default sharing mode of the operating system
              (<TT>system, objects</TT> units). Because of this, you
              might get problems if the file is opened more than once either
-             by another process or the same process. </P>
+             by another process or the same process. </p>
 
-             <P> Generally the behaviors for the different operating
-                 systems are as follows : </P>
-             <UL>
-                <LI> UNIX systems : There is no verification at all. </LI>
-                <LI> Windows : An access denied error will be reported. </LI>
-                <LI> Amiga : An access denied error will be reported. </LI>
-                <LI> DOS / OS/2 : If the file is opened more than once by
+             <p> Generally the behaviors for the different operating
+                 systems are as follows : </p>
+             <ul>
+                <li> UNIX systems : There is no verification at all. </li>
+                <li> Windows : An access denied error will be reported. </li>
+                <li> Amiga : An access denied error will be reported. </li>
+                <li> DOS / OS/2 : If the file is opened more than once by
                      the same process, no errors will occur, otherwise an
-                     access denied error will be reported. </LI>
-             </UL>
+                     access denied error will be reported. </li>
+             </ul>
 
-             <P>There are two ways to solve this problem:</P>
-             <UL>
-               <LI> Use specific operating system calls (such as file locking
-                    on UNIX and Amiga systems) to get the correct behavior. </LI>
-               <LI> Use the <TT>sysutils</TT> unit or the Free Component Library
+             <p>There are two ways to solve this problem:</p>
+             <ul>
+               <li> Use specific operating system calls (such as file locking
+                    on UNIX and Amiga systems) to get the correct behavior. </li>
+               <li> Use the <TT>sysutils</TT> unit or the Free Component Library
                     <TT>TFileStream</TT> File I/O routines, which try
-                    to simulate, as much as possible, file sharing mechanisms. </LI>
-             </UL>
-            <P></P>
+                    to simulate, as much as possible, file sharing mechanisms. </li>
+             </ul>
+            <p></p>
 
 
-        </LI>
-        <LI><A name=filebig></A>
-             <H3> Accessing huge files using standard I/O routines </H3>
+        </li>
+        <li><a name=filebig></a>
+             <h3> Accessing huge files using standard I/O routines </h3>
 
-             <P>The runtime library currently limits access to files which have
-             file sizes which fit into a 32-bit signed integer (<TT>longint</TT>).</P>
+             <p>The runtime library currently limits access to files which have
+             file sizes which fit into a 32-bit signed integer (<TT>longint</TT>).</p>
 
-             <P> Therefore accessing files which have file sizes greater than
+             <p> Therefore accessing files which have file sizes greater than
                  2 Gigabytes will produce unpredictable behavior. Application
                  accessing such files will have to use direct operating systems
                  calls (if the OS supports such files) to workaround the problem.
-             </P>
-        </LI>
+             </p>
+        </li>
 
-        <LI><A name=TurboVision></A>
-            <H3>Turbo vision libraries</H3>
+        <li><a name=TurboVision></a>
+            <h3>Turbo vision libraries</h3>
 
-            <P>A Turbo Vision port, called Free Vision, has progressed nicely
+            <p>A Turbo Vision port, called Free Vision, has progressed nicely
             lately. It's already very usable, we are even writing an IDE in it.
             When it will be in a more stable state it will be included in the
-            standard runtime library. </P>
-        </LI>
+            standard runtime library. </p>
+        </li>
 
    </OL>
 
-   <H2><LI>DOS related information</LI></H2>
+   <h2><li>DOS related information</li></h2>
    <OL>
 
-        <LI><A name=dos-release></A>
-            <H3>Releasing software generated by the DOS compiler</H3>
+        <li><a name=dos-release></a>
+            <h3>Releasing software generated by the DOS compiler</h3>
 
-            <UL>
-                <LI> If your program uses floating point code (which is
-                very probable), make sure to read "<A href="faq.html#fp386">Applications created
-                with Free Pascal crash on 80386 systems</A>" regarding special issues
+            <ul>
+                <li> If your program uses floating point code (which is
+                very probable), make sure to read "<a href="faq.html#fp386">Applications created
+                with Free Pascal crash on 80386 systems</a>" regarding special issues
                 which might occur. Math coprocessor emulation software is then
-                required (<TT>wmemu387.dxe</TT> should be redistributed with your software) </LI>
-                <LI> The target system must have a DPMI server. To avoid problems,
+                required (<TT>wmemu387.dxe</TT> should be redistributed with your software) </li>
+                <li> The target system must have a DPMI server. To avoid problems,
                      the file <TT>cwsdpmi.exe</TT> should always be redistributed with your
-                     application</LI>
-                <LI> The target system must have DOS 3.3 or later </LI>
-                <LI> The default heap size is 2 Megabytes. Automatic growing of the heap is supported </LI>
-                <LI> The default stack size is 256 Kbytes. See also "<A href="faq.html#dos-stack">Changing
-                      the default stack size</A>" </LI>
-                <LI> The stack checking option is available on this platform. </LI>
-            </UL>
+                     application</li>
+                <li> The target system must have DOS 3.3 or later </li>
+                <li> The default heap size is 2 Megabytes. Automatic growing of the heap is supported </li>
+                <li> The default stack size is 256 Kbytes. See also "<a href="faq.html#dos-stack">Changing
+                      the default stack size</a>" </li>
+                <li> The stack checking option is available on this platform. </li>
+            </ul>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
-        <LI><A name=dos-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=dos-debugging></a>
+            <h3>Debugging</h3>
 
-            <P>The GNU debugger v4.16 and later have been tested, and generally work as
+            <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
             represented as they should. It is suggested to use gdbpas or the text mode
-            IDE instead of GDB, which are both available for the DOS target.</P>
-        </LI>
-        <P></P>
+            IDE instead of GDB, which are both available for the DOS target.</p>
+        </li>
+        <p></p>
 
-        <LI><A name=dos-dll></A>
-            <H3>Dynamic Libraries</H3>
+        <li><a name=dos-dll></a>
+            <h3>Dynamic Libraries</h3>
 
-            <P>Creation or use of shared libraries (also called dynamic link libraries) is not
+            <p>Creation or use of shared libraries (also called dynamic link libraries) is not
                supported under this platform.
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=dos-profile></A>
-            <h3>Profiling</H3>
+        <li><a name=dos-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling with <TT>gprof</TT> is supported for this platform. </P>
-        </LI>
+            <p>Profiling with <TT>gprof</TT> is supported for this platform. </p>
+        </li>
         
 
 
-        <LI><A name=FPwithoutfpu></A>
-            <H3>Running Free Pascal without a math coprocessor?</H3>
+        <li><a name=FPwithoutfpu></a>
+            <h3>Running Free Pascal without a math coprocessor?</h3>
 
-            <P>On the Intel version the emulator is automatically loaded by the
-            compiler if you add the following commands to your autoexec.bat: </P>
+            <p>On the Intel version the emulator is automatically loaded by the
+            compiler if you add the following commands to your autoexec.bat: </p>
 
-            <P><PRE>
+            <p><PRE>
                     SET 387=N
                     SET EMU387=C:\PP\BIN\GO32V2\WEMU387.DXE
             </PRE>(don't forget to replace the <TT>C:\PP</TT> with the directory
             where you installed FPC)
-        <P></P>
-        </LI>
+        <p></p>
+        </li>
 
-        <LI><A name=fp386></A>
-            <H3>Applications created with Free Pascal crash on 80386 systems</H3>
+        <li><a name=fp386></a>
+            <h3>Applications created with Free Pascal crash on 80386 systems</h3>
 
-            <UL>
-                <LI>
-                 <P>Trying to run an application which does floating point operations
+            <ul>
+                <li>
+                 <p>Trying to run an application which does floating point operations
                  on a 386 system without a math co-processor will crash unless
                  the <TT>emu387</TT> unit is used, as this unit loads the math co-processor
-                 emulator (called <TT>wmemu387.dxe</TT>). You can add the unit as follows:</P>
+                 emulator (called <TT>wmemu387.dxe</TT>). You can add the unit as follows:</p>
 
-                <P><PRE>
+                <p><PRE>
                         program myprog;
                         uses emu387, ...
-                </PRE></P>
-                </LI>
+                </PRE></p>
+                </li>
 
 
-                <P>When the application is released, the software package should also
-                include the wmemu387.dxe redistributable file to avoid problems. </P>.
+                <p>When the application is released, the software package should also
+                include the wmemu387.dxe redistributable file to avoid problems. </p>.
 
 
-                <LI>
-                <P>Some 80386 systems have a hardware bug which corrupt the accumulator
+                <li>
+                <p>Some 80386 systems have a hardware bug which corrupt the accumulator
                 register <TT>EAX</TT> if it is used in a <TT>MOV</TT> instruction just
                 after a <TT>POPAL</TT> instruction. Prior to version 1.0.5, the compiler
                 and runtime library could generate such code sequences. This is now
-                fixed and should no longer cause problems</P>
-                </LI>
+                fixed and should no longer cause problems</p>
+                </li>
 
-            </UL>
-        <P></P>
-        </LI>
+            </ul>
+        <p></p>
+        </li>
 
 
-        <LI><A name=nomousegraph></A>
-            <H3>The mouse cursor is not visible in graphics screens</H3>
+        <li><a name=nomousegraph></a>
+            <h3>The mouse cursor is not visible in graphics screens</h3>
 
-            <P>A lot of DOS mouse drivers don't support mouse cursors in VESA modes
+            <p>A lot of DOS mouse drivers don't support mouse cursors in VESA modes
             properly. Logitech is said to have a decent mouse driver, which can be
             found <A
-            href="ftp://ftp.logitech.com/pub/techsupport/mouse/m643&nbsp;w31.exe">here</A></P>
-         </LI>
+            href="ftp://ftp.logitech.com/pub/techsupport/mouse/m643&nbsp;w31.exe">here</a></p>
+         </li>
 
-        <LI><A name=accessioports></A>
-            <H3>Accessing I/O ports</H3>
+        <li><a name=accessioports></a>
+            <h3>Accessing I/O ports</h3>
 
-            <P>With versions before 0.99.10: if you're under DOS you can use the
-            <TT>outport*</TT> and <TT>inport*</TT> procedures of the go32 unit. </P>
+            <p>With versions before 0.99.10: if you're under DOS you can use the
+            <TT>outport*</TT> and <TT>inport*</TT> procedures of the go32 unit. </p>
 
-            <P>Since version 0.99.8, the Port array is supported like in TP, as long
-            as you use the ports unit in your program (not available under Win32).</P>
+            <p>Since version 0.99.8, the Port array is supported like in TP, as long
+            as you use the ports unit in your program (not available under Win32).</p>
 
-            <P>I/O port access is possible under Linux, but that requires root
+            <p>I/O port access is possible under Linux, but that requires root
             privileges. Check the manuals for the IOPerm, ReadPort and WritePort
-            procedures. (Unit Linux) </P>
-        </LI>
+            procedures. (Unit Linux) </p>
+        </li>
 
-        <LI><A name=HowToAccessDosMemory></A>
-            <H3>Accessing DOS memory / Doing graphics programming</H3>
+        <li><a name=HowToAccessDosMemory></a>
+            <h3>Accessing DOS memory / Doing graphics programming</h3>
 
-            <P>You can do like in Turbo Pascal, via absolute or mem[]. For larger memory
-            blocks use the dosmemput/dosmemget routines in the <TT>Go32</TT> unit. </P>
-        </LI>
+            <p>You can do like in Turbo Pascal, via absolute or mem[]. For larger memory
+            blocks use the dosmemput/dosmemget routines in the <TT>Go32</TT> unit. </p>
+        </li>
 
-        <LI><A name=dos-stack></A>
-            <H3>Changing the default stack size</H3>
+        <li><a name=dos-stack></a>
+            <h3>Changing the default stack size</h3>
 
-            <P>Under the DOS (GO32V2) target, the default stack size to 256 bKbytes. This can
+            <p>Under the DOS (GO32V2) target, the default stack size to 256 bKbytes. This can
             be modified with a special DJGPP utility called <TT>stubedit</TT>. It is to note
             that the stack may also be changed with some compiler switches, this stack size,
             if greater then the default stack size will be used instead, otherwise the default
-            stack size is used.</P>
+            stack size is used.</p>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
 
-        <LI><A name=dos-os2></A>
-            <H3>Using OS/2 generated applications under DOS</H3>
+        <li><a name=dos-os2></a>
+            <h3>Using OS/2 generated applications under DOS</h3>
 
-            <P>OS/2 applications (including the compiler) created with version 1.0.x
+            <p>OS/2 applications (including the compiler) created with version 1.0.x
             and before should work correctly under vanilla DOS, since they are based
             on EMX (versions prior to 1.0.5 had big problems with EMX under DOS, this
             is now fixed). It is important to note that the compiled applications
             require the EMX runtime files (<TT>emx.exe</TT>) to execute properly. It may be
-            necessary to distribute these files with the generated application.</P>
-            <P>Binaries created for target OS2 with version 1.9.x and above cannot
+            necessary to distribute these files with the generated application.</p>
+            <p>Binaries created for target OS2 with version 1.9.x and above cannot
             run under DOS any more, because they directly use OS/2 API functions not
             available when running under extender - you need to compile for a newly added
-            EMX target which provides this capability of running on both platforms.</P>
-        </LI>
+            EMX target which provides this capability of running on both platforms.</p>
+        </li>
 
 
    </OL>
-   <H2><LI>Windows related information </LI></H2>
+   <h2><li>Windows related information </li></h2>
    <OL>
 
-        <LI><A name=win-release></A>
-            <H3>Releasing software generated by the windows compiler</H3>
+        <li><a name=win-release></a>
+            <h3>Releasing software generated by the windows compiler</h3>
 
-            <P> There is no special requirements for releasing software
+            <p> There is no special requirements for releasing software
             for the windows platform, it will work directly out of the box. The following
-            are default for the Windows platform: </P>
+            are default for the Windows platform: </p>
 
-            <UL>
-                <LI> The default heap size is 256 Kbytes. Automatic growing
+            <ul>
+                <li> The default heap size is 256 Kbytes. Automatic growing
                 of the heap is supported. It is to note that Windows 95,
                 Windows 98 and Windows Me limit the heap to 256 Mbytes
                 (this is a limitation of those Operating systems, not of Free Pascal,
                  consult MSDN article Q198959 for more information).
-                </LI>
-                <LI> Stack size is unlimited </LI>
-                <LI> The stack checking option is not available on this platform. </LI>
-            </UL>
-        </LI>
-        <P></P>
+                </li>
+                <li> Stack size is unlimited </li>
+                <li> The stack checking option is not available on this platform. </li>
+            </ul>
+        </li>
+        <p></p>
 
-        <LI><A name=win-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=win-debugging></a>
+            <h3>Debugging</h3>
 
-            <P>The GNU debugger v4.16 and later have been tested, and generally work as
+            <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
             represented as they should. It is suggested to use gdbpas or the text mode
-            IDE instead of GDB, which are both available for windows targets.</P>
+            IDE instead of GDB, which are both available for windows targets.</p>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
 
-        <LI><A name=win-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=win-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>Creation and use of shared libraries (also called dynamic link libraries) is
+            <p>Creation and use of shared libraries (also called dynamic link libraries) is
             fully supported by the compiler. Refer to the Programmer's Reference Manual for
             more information on shared library creation and use.
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=win-profile></A>
-            <H3>Profiling</H3>
+        <li><a name=win-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling is supported using <TT>gprof</TT>, starting with version 1.0.7. 
+            <p>Profiling is supported using <TT>gprof</TT>, starting with version 1.0.7. 
                It requires mingw to be installed, and that <TT>fpc.cfg</TT> point to the 
-               correct library paths. </P>
-        </LI>
+               correct library paths. </p>
+        </li>
         
 
 
-        <LI><A name=win-graph></A>
-            <H3> Graph and problems with keyboard, mouse and "dummy dos windows" </H3>
+        <li><a name=win-graph></a>
+            <h3> Graph and problems with keyboard, mouse and "dummy dos windows" </h3>
 
-            <P>Problem:
-            <UL>
-                <LI>If you use the Graph unit under Win32, you can't use the API mouse
+            <p>Problem:
+            <ul>
+                <li>If you use the Graph unit under Win32, you can't use the API mouse
                 unit for mouse support or use the win32 Crt unit to get keyboard data.
                 The reason for this is that the window popped up is a GUI window, and
-                not a console one.</LI>
-            </UL>
+                not a console one.</li>
+            </ul>
             Solution:
-            <UL>
-            <LI>Use units WinMouse and WinCrt instead.</LI>
-            </UL>
-            <P></P>
-            <P>Problem:
-            <UL>
-                <LI>When you follow the above advice, and you run your purely Graph
+            <ul>
+            <li>Use units WinMouse and WinCrt instead.</li>
+            </ul>
+            <p></p>
+            <p>Problem:
+            <ul>
+                <li>When you follow the above advice, and you run your purely Graph
                 based win32 program from the RUN menu in windows, a dummy dos window
-                is opened.</LI>
-            </UL>
+                is opened.</li>
+            </ul>
             Solution:
-            <UL>
-                <LI>Set the application type to GUI: <PRE>{$apptype GUI}</PRE>
+            <ul>
+                <li>Set the application type to GUI: <PRE>{$apptype GUI}</PRE>
                 and put this line before your programs InitGraph statement:
                 <PRE>ShowWindow(GetActiveWindow,0);
-                </PRE>This will hide the dos window window. </LI>
-            </UL>
-            <P></P>
+                </PRE>This will hide the dos window window. </li>
+            </ul>
+            <p></p>
 
-            <P>Some of the demos (like fpctris) use these techniques </P>
+            <p>Some of the demos (like fpctris) use these techniques </p>
 
-        <LI><A name=win-cygwin></A>
-            <H3>Cygwin binary directory in your path sometimes causes strange problems</H3>
+        <li><a name=win-cygwin></a>
+            <h3>Cygwin binary directory in your path sometimes causes strange problems</h3>
 
-            <P>The mingw make tool seems to look for a "sh.exe", which it
+            <p>The mingw make tool seems to look for a "sh.exe", which it
 		finds when the cygwin binary directory is in the path. The
 		way directories are searched changes, and the build process dies.
-            </P>
+            </p>
 
-	    <P>Solution: don't put cygwin in your global path for now, only
+	    <p>Solution: don't put cygwin in your global path for now, only
                add it when needed. Efforts are made to work around this.
-	    </P>
+	    </p>
 
-            <P>Possible untested workaround: add mingw sh.exe to a directory before 
+            <p>Possible untested workaround: add mingw sh.exe to a directory before 
                the cygwin binary directory in the path
-            </P>
+            </p>
 
-        <LI><A name=win-makefile></A>
-            <H3>Makefile problems on Win2000 (and NT)</H3>
+        <li><a name=win-makefile></a>
+            <h3>Makefile problems on Win2000 (and NT)</h3>
 
-            <P>After the 1.0.4 release, some problems with the mingw win32 build
+            <p>After the 1.0.4 release, some problems with the mingw win32 build
             tools (make.exe and friends) were discovered. A patched version of these tools
             has been released. Automatically building large parts of the sources under
-            Windows 2000 and Windows NT is now a lot easier. </P>
-            <P>
+            Windows 2000 and Windows NT is now a lot easier. </p>
+            <p>
 
             <OL>
-                <LI>Download makew32.zip from the <A
+                <li>Download makew32.zip from the <A
                 href="ftp://ftp.freepascal.org/pub/fpc/dist/Win32/separate/makew32.zip">ftp
-                site</A> or a mirror.<BR>
-                <LI>Unzip it to your pp directory. (the archive already contains the
+                site</a> or a mirror.<br>
+                <li>Unzip it to your pp directory. (the archive already contains the
                 bin/win32/ directories)
-                <LI>Properties of "My Computer", (system properties), tab "advanced",
+                <li>Properties of "My Computer", (system properties), tab "advanced",
                 "Environment Variables".
-                <LI>In the bottom box, select the "Path" entry, and then "Edit"
-                <LI>In the top field of this dialog, change "Path" to "PATH", and
+                <li>In the bottom box, select the "Path" entry, and then "Edit"
+                <li>In the top field of this dialog, change "Path" to "PATH", and
                 click OK.
-                <LI>Close and Reopen dosboxes to apply changes. </LI>
+                <li>Close and Reopen dosboxes to apply changes. </li>
             </OL>
-            <P></P>
-            <P>Alternatively, if changing the case of the "Path" variable leads to
+            <p></p>
+            <p>Alternatively, if changing the case of the "Path" variable leads to
             problems, you could run the following batchfile in each dosbox prior to
             working with FPC:
             <PRE>
@@ -1478,157 +1478,157 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
                 set PATH=%A%
                 set a=
             </PRE>
-            <P></P>
-            <P>A lot, if not all, makefile trouble is now probably gone. If you still
+            <p></p>
+            <p>A lot, if not all, makefile trouble is now probably gone. If you still
             have problems try getting the makent.zip utilities from the <A
             href="ftp://ftp.freepascal.org/pub/fpc/contrib/utils/win32/makent.zip">ftp
-            site</A> or a mirror. It should be installed just like makew32.zip.</P>
+            site</a> or a mirror. It should be installed just like makew32.zip.</p>
 
-	    	<P><B>Note:</B> The win32 version of make is case sensitive with respect to
-			filenames (paths?) and environment variables</P>
+	    	<p><b>Note:</b> The win32 version of make is case sensitive with respect to
+			filenames (paths?) and environment variables</p>
 
-        </LI>
+        </li>
 
-        <LI><A name=win95-fpc></A>
-            <H3>Using the DOS compiler under Windows 95</H3>
+        <li><a name=win95-fpc></a>
+            <h3>Using the DOS compiler under Windows 95</h3>
 
-            <P>There is a problem with the DOS (GO32V2) compiler and Windows 95 on
+            <p>There is a problem with the DOS (GO32V2) compiler and Windows 95 on
             computers with less than 16 Megabytes of RAM. First set in the
             properties of the DOS box the DPMI memory size to max value. Now try
             to start a demo program in the DOS box, e.g. HELLO (starting may take
             some time). If this works you will be able to get the compiler to work
             by recompiling it with a smaller heap size, perhaps 2 or 4 MB
-            (option -Chxxxx). </P>
-        </LI>
+            (option -Chxxxx). </p>
+        </li>
 
-        <LI><A name=win-os2></A>
-            <H3>Using OS/2 generated applications under Windows</H3>
+        <li><a name=win-os2></a>
+            <h3>Using OS/2 generated applications under Windows</h3>
 
-            <P>Normally OS/2 applications (including the compiler) created with version 1.0.x
+            <p>Normally OS/2 applications (including the compiler) created with version 1.0.x
             and before should work under Windows, since they are based on EMX - see
-            <A href="#dos-os2">note about running OS/2 applications under DOS</A> for
+            <a href="#dos-os2">note about running OS/2 applications under DOS</a> for
             more detailed information. You need the RSX extender (rsx.exe) to do this.
             There have been problems reported while trying to run EMX applications under
             NT / 2000 / XP systems though. This seems to be a problem with EMX (RSX) itself.
             It is not recommended to use Free Pascal OS/2 compiled programs under NT / 2000
-            and XP, as it might produce unexpected results.</P>
-        </LI>
+            and XP, as it might produce unexpected results.</p>
+        </li>
 
-        <LI><A name=win-dos></A>
-            <H3>Using DOS generated applications under windows</H3>
+        <li><a name=win-dos></a>
+            <h3>Using DOS generated applications under windows</h3>
 
-            <P>Several problems have been found running DOS software
+            <p>Several problems have been found running DOS software
             under certain versions of Windows (NT / 2000 / XP). These
             seem to be problems with the DOS emulation layers (emulated
             DPMI services). These problems may not occur with all software
             generated by FPC. Either applications should be tested on these systems
-            before being released, or Windows versions should be generated instead.</P>
-        </LI>
+            before being released, or Windows versions should be generated instead.</p>
+        </li>
 
 
-    <LI><A name=win-ide-mouse></A>
-        <H3>The mouse cursor does not respond in the Windows IDE</H3>
+    <li><a name=win-ide-mouse></a>
+        <h3>The mouse cursor does not respond in the Windows IDE</h3>
 
-		   <P>In windowed mode, the mouse cursor might not respond to
+		   <p>In windowed mode, the mouse cursor might not respond to
 		   mouse moves and clicks. Just change the properties of the console,
 		   and remove the quick edit mode option. This should solve the mouse
 		   response problems.
-		   </P>
-       </LI>
+		   </p>
+       </li>
 
-    <LI><A name=instal106win32></A>
-        <H3>INSTALL.EXE of version 1.0.6 returns errors under some version
-           of Windows</H3>
+    <li><a name=instal106win32></a>
+        <h3>INSTALL.EXE of version 1.0.6 returns errors under some version
+           of Windows</h3>
 
-        <P>The original 1.0.6 installer gave errors under Win95/98/Me in some circumstances.
+        <p>The original 1.0.6 installer gave errors under Win95/98/Me in some circumstances.
         A new installer (INSTALL.EXE) is included as of this date (10th July 2002)
         with version 1.0.6. If you downloaded Free Pascal for Windows before this date, you
         should upgrade to the latest version of Free Pascal.
-        </P>
+        </p>
 
-    </LI>
+    </li>
 
 
    </OL>
-   <H2><LI>UNIX related information </LI></H2>
+   <h2><li>UNIX related information </li></h2>
 
-        <P>This section also applies to most unix variants, such as
-        linux, freebsd and netbsd. </P>
+        <p>This section also applies to most unix variants, such as
+        linux, freebsd and netbsd. </p>
 
    <OL>
-        <LI><A name=unix-release></A>
-            <H3>Releasing software generated by the unix compilers</H3>
+        <li><a name=unix-release></a>
+            <h3>Releasing software generated by the unix compilers</h3>
 
-            <UL>
-                <LI> The default heap size is 256 Kbytes for the intel version,
+            <ul>
+                <li> The default heap size is 256 Kbytes for the intel version,
                      and 128 Kb for the m68k versions. Automatic growing of the
-                     heap is supported. </LI>
-                <LI> There is no stack space usage limit. </LI>
-                <LI> Under Solaris and QNX, stack checking is simulated. </LI>
-                <LI> Minimal operating system versions :
-                  <UL>
-                    <LI> Linux : Kernel v1.1.x or later. </LI>
-                    <LI> FreeBSD : version 4.x or later.   </LI>
-                    <LI> NetBSD : version 1.5 or later. </LI>
-                    <LI> Solaris : version 5.7 of SunOS or later
-                         (should work with earlier versions, but untested). </LI>
-                    <LI> Qnx : version 6.1.0 or later
-			(should work with earlier versions, but untested). </LI>                    
-                  </UL>
-                </LI>
-            </UL>
+                     heap is supported. </li>
+                <li> There is no stack space usage limit. </li>
+                <li> Under Solaris and QNX, stack checking is simulated. </li>
+                <li> Minimal operating system versions :
+                  <ul>
+                    <li> Linux : Kernel v1.1.x or later. </li>
+                    <li> FreeBSD : version 4.x or later.   </li>
+                    <li> NetBSD : version 1.5 or later. </li>
+                    <li> Solaris : version 5.7 of SunOS or later
+                         (should work with earlier versions, but untested). </li>
+                    <li> Qnx : version 6.1.0 or later
+			(should work with earlier versions, but untested). </li>                    
+                  </ul>
+                </li>
+            </ul>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
-        <LI><A name=unix-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=unix-debugging></a>
+            <h3>Debugging</h3>
 
-            <P>The GNU debugger v4.16 and later have been tested, and generally work as
+            <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
             represented as they should. For FreeBSD a recent GDB (v5) CVS snapshot is
-                recommended for Pascal support and ease of building</P>
-        </LI>
-        <P></P>
+                recommended for Pascal support and ease of building</p>
+        </li>
+        <p></p>
 
 
-        <LI><A name=unix-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=unix-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>These operating systems do support shared libraries (also called
+            <p>These operating systems do support shared libraries (also called
                dynamic link libraries), Free Pascal currently does not emit position
                independant code (PIC), as required for the creation of shared libraries.
-            </P>
-            <P>
+            </p>
+            <p>
 			   Therefore, even though the linux compiler target permits creating shared
 			   libraries, the usage of that shared library may result in undefined
 			   behavior, especially if accessing global variables in the library. Creation
 			   of shared libraries is not recommended with the current version of the
 			   compiler.
-            </P>
+            </p>
 
-            <P>
+            <p>
                Importing code from shared libraries does work as expected though, since
                it does not require usage of position independant code.
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=unix-profile></A>
-            <H3>Profiling</H3>
+        <li><a name=unix-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling is supported using <TT>gprof</TT> under linux,
+            <p>Profiling is supported using <TT>gprof</TT> under linux,
                FreeBSD and NetBSD, the latter two only since 1.0.8. On other
                other unix-like operating systems, profiling is currently not
                supported.
-            </P>
-        </LI>
+            </p>
+        </li>
         
 
-        <LI><A name=vgamissing></A>
-            <H3>Why can't the linker find "vga"?</H3>
+        <li><a name=vgamissing></a>
+            <h3>Why can't the linker find "vga"?</h3>
 
-            <P>This error typically looks like this:<PRE>
+            <p>This error typically looks like this:<PRE>
                  Free Pascal Compiler version 1.0.x [xxxx/yy/zz] for i386
                  Copyright (c) 1993-2000 by Florian Klaempfl
                  Target OS: Linux for i386
@@ -1639,292 +1639,292 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </P>
                  test.pp(6,4) Warning: Error while linking Closing script ppas.sh 5 Lines
                  compiled, 0.2 sec
             </PRE>
-            <P></P>
+            <p></p>
 
-            <P>This error is not an error in the installation of FPC or FPC itself,
+            <p>This error is not an error in the installation of FPC or FPC itself,
             but a missing Svgalib library in your unix install. Please install the
-            required library using your favourite package manager tool </P>
-        </LI>
+            required library using your favourite package manager tool </p>
+        </li>
 
 
-        <LI><A name=unix-asldmissing></A>
-            <H3>Compiler indicates missing as and ld</H3>
+        <li><a name=unix-asldmissing></a>
+            <h3>Compiler indicates missing as and ld</h3>
 
-            <P> Normally unix systems have the assembler (<TT>as</TT>) and linker
+            <p> Normally unix systems have the assembler (<TT>as</TT>) and linker
             (<TT>ld</TT>) pre-installed and already in the search path. That is
-            the reason why these tools are not supplied with the compiler. </P>
+            the reason why these tools are not supplied with the compiler. </p>
 
-            <P>If the compiler cannot find these tools, either they are not in
+            <p>If the compiler cannot find these tools, either they are not in
             your search path, or they are not installed. You should either add the
             path where the tools are located to your search path, and / or you
-            should install these tools. </P>
+            should install these tools. </p>
 
-            <P> It is to note that the Solaris version of FPC contains these tools. </P>
-        </LI>
+            <p> It is to note that the Solaris version of FPC contains these tools. </p>
+        </li>
 
 
    </OL>
-   <H2><LI>OS/2 related information </LI></H2>
+   <h2><li>OS/2 related information </li></h2>
    <OL>
 
-       <LI><A name=os2-release></A>
-            <H3>Releasing software generated by the OS/2 compiler</H3>
+       <li><a name=os2-release></a>
+            <h3>Releasing software generated by the OS/2 compiler</h3>
 
-             <P> The OS/2 compiler version 1.0.x and before is based on EMX, therefore
+             <p> The OS/2 compiler version 1.0.x and before is based on EMX, therefore
              it should work both on OS/2 and on vanilla DOS systems. In version 1.9.x and
              above this functionality is preserved in newly added target EMX, whereas binaries
              for target OS2 can only run under real OS/2. The following notes apply to OS2
-             target in 1.0.x and EMX in 1.9.x and above:</P>
+             target in 1.0.x and EMX in 1.9.x and above:</p>
 
-             <UL>
-                <LI> All applications generated for the OS/2 (EMX) target require
+             <ul>
+                <li> All applications generated for the OS/2 (EMX) target require
                      the EMX 0.9d (or later) runtime files to run. These files
                      should be redistributed with your software. All the files
-                     which should be redistributed are included in <TT>emxrt.zip</TT></LI>
-                <LI> Under OS/2, <TT>LIBPATH</TT> should be modified to add the EMX
+                     which should be redistributed are included in <TT>emxrt.zip</TT></li>
+                <li> Under OS/2, <TT>LIBPATH</TT> should be modified to add the EMX
                      DLL paths. Otherwise, programs will not run and will abort
-                     with an error 'Cannot find EMX.dll'.</LI>
-                <LI> The default heap size is 256 Kbytes.
-                     Automatic growing of the heap is supported.</LI>
-                <LI> Stack can grow up to 256 Kbytes by default. This can be changed by
+                     with an error 'Cannot find EMX.dll'.</li>
+                <li> The default heap size is 256 Kbytes.
+                     Automatic growing of the heap is supported.</li>
+                <li> Stack can grow up to 256 Kbytes by default. This can be changed by
                      the user or developper using the <TT>emxstack</TT> or <TT>emxbind</TT>
-                     utilities. </LI>
-            </UL>
-        </LI>
-        <P></P>
+                     utilities. </li>
+            </ul>
+        </li>
+        <p></p>
 
 
-        <LI><A name=os2-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=os2-debugging></a>
+            <h3>Debugging</h3>
 
-            <P>The GNU debugger v4.16 (EMX port) has been tested (including
+            <p>The GNU debugger v4.16 (EMX port) has been tested (including
             its PM add-on, pmgdb.exe) and generally works as it should.
             Because the GNU debugger is C oriented, some pascal types
-            might not be represented correctly.</P>
-        </LI>
-        <P></P>
+            might not be represented correctly.</p>
+        </li>
+        <p></p>
 
-        <LI><A name=os2-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=os2-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>
+            <p>
             Even though this operating system permits the creation and usage of
             shared libraries (also called dynamic link libraries), the compiler
             currently only permits importing routines from dynamic libraries (creation of
             dynamic libraries is unsupported).
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=os2-profile></A>
-            <H3>Profiling</H3>
+        <li><a name=os2-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling is currently not supported for this platform. </P>
-        </LI>
+            <p>Profiling is currently not supported for this platform. </p>
+        </li>
 
 
-        <LI><A name=os2-dos></A>
-            <H3>Using DOS generated applications under OS/2</H3>
+        <li><a name=os2-dos></a>
+            <h3>Using DOS generated applications under OS/2</h3>
 
-            <P>It has been reported that some DOS (GO32V2) applications
+            <p>It has been reported that some DOS (GO32V2) applications
             (including the DOS compiler itself) generated by the compiler fail on
             some OS/2 installations. This is due to problems in the OS/2 DPMI server.
-            </P>
+            </p>
 
-            <P>You should use native OS/2 applications under OS/2 (including the native OS/2
+            <p>You should use native OS/2 applications under OS/2 (including the native OS/2
             compiler) or try installing a new OS/2 fixpack to see if it solves the
-            problem. </P>
-        </LI>
+            problem. </p>
+        </li>
 
-        <LI><A NAME="instal106os2"></A><H3>INSTALL.EXE of version 1.0.6 or below fails with an unknown error (-1) under OS/2</H3>
-            <P>
+        <li><a name="instal106os2"></a><h3>INSTALL.EXE of version 1.0.6 or below fails with an unknown error (-1) under OS/2</h3>
+            <p>
             or
-            </P>
-            <H3>INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</H3>
+            </p>
+            <h3>INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</h3>
 
-            <P>
+            <p>
             You are most probably using an older version of OS/2 (like OS/2 Warp 3.0)
             and don't have TZ variable in your environment. The easiest solution is to add
             "SET TZ=..." (e.g. "SET TZ=CET-1CEST,3,-1,0,7200,10,-1,0,10800,3600" for most
             of western and central Europe) line to your CONFIG.SYS, and restart OS/2.
             The proper setting for you can be found e.g. using the TZCALC tool from
-            <A HREF="http://hobbes.nmsu.edu/pub/os2/apps/internet/time/time868f.zip">TIME868</A>
+            <a href="http://hobbes.nmsu.edu/pub/os2/apps/internet/time/time868f.zip">TIME868</a>
             package.
-            </P>
-        </LI>
-        <LI><A name="os2-fp"></A><H3>OS/2 compiler not working after upgrading to 1.9.6 or newer</H3>
-            <P>An updated version of GNU assembler (as.exe) is packaged with release 1.9.6 (newer version
+            </p>
+        </li>
+        <li><a name="os2-fp"></a><h3>OS/2 compiler not working after upgrading to 1.9.6 or newer</h3>
+            <p>An updated version of GNU assembler (as.exe) is packaged with release 1.9.6 (newer version
             was necessary to get support for features of modern CPUs). This version of the GNU tool
             was created with Innotek port of GNU C and relies on its libc. This results in higher
             limitations regarding supported configurations, because this libc needs recent version
             of OS/2 Unicode support libraries (LIBUNI.DLL and UCONV.DLL) not available in base OS/2 Warp 3.0
             and OS/2 Warp 4.0. The updated versions were distributed by IBM in corrective packages (fixpaks)
-            - see e.g. <a href="http://www.warpupdates.mynetcologne.de/english/basesystem.html">WarpUpdates site</A>
+            - see e.g. <a href="http://www.warpupdates.mynetcologne.de/english/basesystem.html">WarpUpdates site</a>
             for information about OS/2 fixpaks and links for downloading them.
             This issue isn't valid for WarpServer for e-Business, MCP and eComStation - these already have
             the correct version.
-            </P>
-        </LI>
+            </p>
+        </li>
    </OL>
 
-   <H2><LI> BeOS related information </LI></H2>
+   <h2><li> BeOS related information </li></h2>
 	<b>The BeOS port is current no longer maintained</b>
    <OL>
 
 
-          <LI><A name=beos-release></A>
-               <H3>Releasing software generated by the BeOS compiler</H3>
+          <li><a name=beos-release></a>
+               <h3>Releasing software generated by the BeOS compiler</h3>
 
-                <P> Software generated for the BeOS target will only work
-                on the intel based version of BeOS. </P>
+                <p> Software generated for the BeOS target will only work
+                on the intel based version of BeOS. </p>
 
-                <UL>
-                    <LI> The target system must have at least BeOS v4.0 or later
-                       (BeOS 5.1d 'Dano' is <em>not</em> supported) </LI>
-                    <LI> The default heap size is 256 Kbytes.
-                         Automatic growing of the heap is supported</LI>
-                    <LI> Stack size is set to 256 Kbytes. This cannot be changed </LI>
-               </UL>
-           </LI>
-           <P></P>
+                <ul>
+                    <li> The target system must have at least BeOS v4.0 or later
+                       (BeOS 5.1d 'Dano' is <em>not</em> supported) </li>
+                    <li> The default heap size is 256 Kbytes.
+                         Automatic growing of the heap is supported</li>
+                    <li> Stack size is set to 256 Kbytes. This cannot be changed </li>
+               </ul>
+           </li>
+           <p></p>
 
 
-        <LI><A name=beos-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=beos-debugging></a>
+            <h3>Debugging</h3>
 
-            <P>
+            <p>
             This operating system uses DWARF debugging information, and Free Pascal
             does not support emitting DWARF debugging information. It is currently
             impossible to debug applications under BeOS
-            </P>
+            </p>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
-        <LI><A name=beos-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=beos-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>
+            <p>
             Even though this operating system permits the creation and usage of
             shared libraries (also called dynamic link libraries), the compiler
             currently only permits importing routines from dynamic libraries (creation of
             dynamic libraries is unsupported).
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=beos-profile></A>
-            <H3>Profiling</H3>
+        <li><a name=beos-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling is currently not supported for this platform. </P>
-        </LI>
+            <p>Profiling is currently not supported for this platform. </p>
+        </li>
         
         
-          <LI><A name=beos-linking></A>
-               <H3>BeOS Linking problems</H3>
+          <li><a name=beos-linking></a>
+               <h3>BeOS Linking problems</h3>
 
-                <P>It has been reported that certain versions of the linker
+                <p>It has been reported that certain versions of the linker
                 that shipped with some versions of BeOS are broken. If you get 
                 an error when linking fpc applications, try updating your version 
                 of ld from the following
-                <A href="http://open-beos.sourceforge.net/dev.php">site.</A>
-                </P>
+                <a href="http://open-beos.sourceforge.net/dev.php">site.</a>
+                </p>
 
-           </LI>
-           <P></P>
+           </li>
+           <p></p>
         
         
 
 
    </OL>
 
-   <H2><LI> Amiga related information </LI></H2>
+   <h2><li> Amiga related information </li></h2>
    <OL>
-         <LI><A name=amiga-release></A>
-               <H3>Releasing software generated by the Amiga compiler</H3>
+         <li><a name=amiga-release></a>
+               <h3>Releasing software generated by the Amiga compiler</h3>
 
-                <UL>
-                    <LI> The target system must have AmigaOS v2.04 or higher </LI>
-                    <LI> The default heap size is 128 Kbytes.
-                         Automatic growing of the heap is supported. </LI>
-                    <LI> Stack size is not set by the compiler, but by the <TT>stack</TT>
+                <ul>
+                    <li> The target system must have AmigaOS v2.04 or higher </li>
+                    <li> The default heap size is 128 Kbytes.
+                         Automatic growing of the heap is supported. </li>
+                    <li> Stack size is not set by the compiler, but by the <TT>stack</TT>
                          command on the CLI. Because of this, and because default
                          stack sizes for this target are small, it is recommended
-                         to always compile software with stack checking enabled.</LI>
-                    <LI> By default, the compiler generates code for the 68020+
+                         to always compile software with stack checking enabled.</li>
+                    <li> By default, the compiler generates code for the 68020+
                          processor. The code generated will not work on 68000
                          and 68010 systems unless the <TT>-O0</TT> compiler switch
                          is used, and there is no runtime checking. It is up
                          to you to implement CPU verification at program startup. The
                          standard runtime libraries have been compiled for the
-                         68000 target, and should not cause any problems. </LI>
-                    <LI> All floating point operations are simulated,
+                         68000 target, and should not cause any problems. </li>
+                    <li> All floating point operations are simulated,
                          and use the <TT>single</TT> floating point type.
                          You will need to recompile all standard runtime
                          libraries and your application, with the software floating point
-                         option off, if you wish to use hardware floating point.</LI>
-               </UL>
-         </LI>
-         <P></P>
+                         option off, if you wish to use hardware floating point.</li>
+               </ul>
+         </li>
+         <p></p>
 
-        <LI><A name=amiga-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=amiga-debugging></a>
+            <h3>Debugging</h3>
 
-            <P> Source level debugging is not supported for the Amiga target. Assembler
+            <p> Source level debugging is not supported for the Amiga target. Assembler
             target debugging is possible though, using the excellent <TT>Barfly</TT>
-            debugger.</P>
+            debugger.</p>
 
-        </LI>
-        <P></P>
+        </li>
+        <p></p>
 
-        <LI><A name=amiga-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=amiga-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>
+            <p>
             Even though this operating system permits the creation and usage of
             shared libraries (also called dynamic link libraries), the compiler
             does not support either the importing or creation of shared libraries.
             Importing must be done manually in assembler.
-            </P>
+            </p>
 
-        </LI>
+        </li>
         
-        <LI><A name=amiga-profile></A>
-            <H3>Profiling</H3>
+        <li><a name=amiga-profile></a>
+            <h3>Profiling</h3>
             
-            <P>Profiling is currently not supported for this platform. </P>
-        </LI>
+            <p>Profiling is currently not supported for this platform. </p>
+        </li>
         
 
    </OL>
 
-   <H2><LI> PalmOS related information </LI></H2>
+   <h2><li> PalmOS related information </li></h2>
    <OL>
 
-          <LI><A name=palmos-release></A>
-            <H3>Releasing software generated by the PalmOS compiler</H3>
+          <li><a name=palmos-release></a>
+            <h3>Releasing software generated by the PalmOS compiler</h3>
 
-            <UL>
-            </UL>
+            <ul>
+            </ul>
 
-          </LI>
-          <P></P>
+          </li>
+          <p></p>
 
-        <LI><A name=palmos-debugging></A>
-            <H3>Debugging</H3>
+        <li><a name=palmos-debugging></a>
+            <h3>Debugging</h3>
 
-        <LI><A name=palmos-dll></A>
-            <H3> Dynamic libraries </H3>
+        <li><a name=palmos-dll></a>
+            <h3> Dynamic libraries </h3>
 
-            <P>
-            </P>
+            <p>
+            </p>
 
-        </LI>
-        </LI>
-        <P></P>
+        </li>
+        </li>
+        <p></p>
    </OL>
 
 
 
 </OL>
-</HTML>
+</html>

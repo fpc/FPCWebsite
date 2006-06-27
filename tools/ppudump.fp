@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,10 +7,10 @@
 #MAINDIR ..
 #HEADER ppudump
 -->
-<H1>PPUDUMP - Free pascal unit dump program</H1>
-What follows below is the contents of the manual page of <B>ppudump</B>. 
-If you have installed the man pages then you can view them with the <B>man</B> command.
-<HR>
+<h1>PPUDUMP - Free pascal unit dump program</h1>
+What follows below is the contents of the manual page of <b>ppudump</b>. 
+If you have installed the man pages then you can view them with the <b>man</b> command.
+<hr>
 
 <PRE>
 
@@ -19,35 +19,35 @@ If you have installed the man pages then you can view them with the <B>man</B> c
 ppudump(1)        Free Pascal Unit dump utility        ppudump(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        ppudump - The FPC Pascal unit dump program.
 
 
-<B>SYNOPSIS</B>
+<b>SYNOPSIS</b>
        <I>ppudump </I>[-h] [-v[h|i|m|d|s|b|a]] ppu-file1 ppufile2 ...
 
 
-<B>Description</B>
-       <B>ppudump  </B>writes the contents of a Free Pascal unit file to
+<b>Description</b>
+       <b>ppudump  </b>writes the contents of a Free Pascal unit file to
        standard output.  It gives a listing of all definitions in
        the unit file. The format of the listing can be controlled
        by the options.
 
 
-<B>Usage</B>
+<b>Usage</b>
        You can invoke ppudump with as arguments the names of  the
        units that you want to dump. You need not specify a exten-
        sion, by default <I>.ppu </I>is assumed. The output goes to stan-
        dard output.
 
 
-<B>Options</B>
-       <B>ppudump </B>has only two options:
+<b>Options</b>
+       <b>ppudump </b>has only two options:
 
 
-       <B>-h     </B>shows a short help screen.
+       <b>-h     </b>shows a short help screen.
 
-       <B>-v</B><I>xxx  </I>Controls  the level of verbosity.  <I>xxx </I>is  any com-
+       <b>-v</b><I>xxx  </I>Controls  the level of verbosity.  <I>xxx </I>is  any com-
               bination of the following letters:
 
               <I>a      </I>Shows all  information  stored  in  the  PPU
@@ -70,8 +70,8 @@ ppudump(1)        Free Pascal Unit dump utility        ppudump(1)
               <I>s      </I>Shows the symbols stored in the PPU file.
 
 
-<B>SEE ALSO</B>
-              <B>ppc386</B>(1) <B>ppumove</B>(1)
+<b>SEE ALSO</b>
+              <b>ppc386</b>(1) <b>ppumove</b>(1)
 
 
 
@@ -79,4 +79,4 @@ ppudump(1)        Free Pascal Unit dump utility        ppudump(1)
 FreePascal                 5 June 1999                          1
 
 
-</PRE></HTML>
+</PRE></html>

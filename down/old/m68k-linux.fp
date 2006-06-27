@@ -13,51 +13,51 @@
 *****************************************************************************
 -->
 
-<HR>
-<H1><A NAME="Linux">Linux for Motorola 68k</A></H1>
-<HR>
+<hr>
+<h1><a name="Linux">Linux for Motorola 68k</a></h1>
+<hr>
 
-This version is <B>1.0.10</B> (not supported any more). It is available in two
+This version is <b>1.0.10</b> (not supported any more). It is available in two
 different formats:
-<UL>
-  <LI> <A HREF="#linuxbig">Everything in 1 big package</A>
-  <LI> <A HREF="#linuxsep">Separate packages</A>
-</UL>
+<ul>
+  <li> <a href="#linuxbig">Everything in 1 big package</a>
+  <li> <a href="#linuxsep">Separate packages</a>
+</ul>
 
 
-<H3><A NAME="linuxbig">Download in 1 big file:</A></H3>
-<UL>
-<LI> <A
-HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/fpc-1.0.10.m68k.tar">fpc-1.0.10.m68k.tar</A> (17 MB)
-contains a standard tar archive, with an install script<BR>
+<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<ul>
+<li> <A
+HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/fpc-1.0.10.m68k.tar">fpc-1.0.10.m68k.tar</a> (17 MB)
+contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<TT>sh install.sh</TT>".
-</UL>
+</ul>
 
-<H3><A NAME="linuxsep">Download as separate files</A></H3>
+<h3><a name="linuxsep">Download as separate files</a></h3>
 If you have trouble downloading the complete tar file,
-you can also download the contents of the tar file separately:<BR>
+you can also download the contents of the tar file separately:<br>
 <OL>
-<LI><B>Mandatory files:</B>
-<UL>
-<LI> The install script: <A HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/install.sh">install.sh</A> (4 kB)
-<LI> The compiler binary and ALL units (RTL, FCL, gtk, etc.): <A HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/binary.tar">binary.tar</A> (5.6 MB)
-</UL>
-<LI><B>Optional files:</B>
-<UL>
-<LI> The documentation: <A HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/docs.tar.gz">docs.tar.gz</A> (3.46 MB)
-<LI> The demos: <A HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/demo.tar.gz">demo.tar.gz</A> (117 kB)
-<LI> The sources: <A HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/sources.tar">sources.tar</A> (7.7 MB)
-</UL>
+<li><b>Mandatory files:</b>
+<ul>
+<li> The install script: <a href="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/install.sh">install.sh</a> (4 kB)
+<li> The compiler binary and ALL units (RTL, FCL, gtk, etc.): <a href="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/binary.tar">binary.tar</a> (5.6 MB)
+</ul>
+<li><b>Optional files:</b>
+<ul>
+<li> The documentation: <a href="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/docs.tar.gz">docs.tar.gz</a> (3.46 MB)
+<li> The demos: <a href="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/demo.tar.gz">demo.tar.gz</a> (117 kB)
+<li> The sources: <a href="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/separate/sources.tar">sources.tar</a> (7.7 MB)
+</ul>
 You should download these files in 1 directory. If you don't change
 the names of the files, the install script will detect what files you
 downloaded, and offer to install them.
 </OL>
-<P>
+<p>
 
-<HR>
-<P>
-<a href="m68k-linux.html">Back to mirror list</A><BR/>
-<A HREF="down-$MIRRORSUFFIX.html">Back to all old releases</A><BR/>
-<A HREF="../../download.html">Back to general download page</A>
-<P>
+<hr>
+<p>
+<a href="m68k-linux.html">Back to mirror list</a><BR/>
+<a href="down-$MIRRORSUFFIX.html">Back to all old releases</a><BR/>
+<a href="../../download.html">Back to general download page</a>
+<p>

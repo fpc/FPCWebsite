@@ -42,6 +42,6 @@ Readme:
 
 <hr>
 <p>
-<a href="netware.html">Back to mirror list</A><BR/>
+<a href="netware.html">Back to mirror list</a><BR/>
 <a href="../../download.html">Back to general download page</a>
 <p>

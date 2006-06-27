@@ -1,155 +1,155 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - &Uuml;ber uns
 #ENTRY aboutus
 #HEADER Free Pascal Development Team
 -->
 
-<UL>
-<H4>Carl Eric Cod&egrave;re</H4>
+<ul>
+<h4>Carl Eric Cod&egrave;re</h4>
 <IMG SRC="../pic/cc.jpg" ALT="Bild von Carl" HEIGHT=175 WIDTH=176>
-<P>
-Jahrgang: 1975<BR>
-Besch&auml;ftigung: IEEE-1394 Treiber-Entwicklungs-Ingenieur.<BR>
-Hobbies: Computer, Elektronik, Schwimmen und magic:tg.<BR>
-<P>
+<p>
+Jahrgang: 1975<br>
+Besch&auml;ftigung: IEEE-1394 Treiber-Entwicklungs-Ingenieur.<br>
+Hobbies: Computer, Elektronik, Schwimmen und magic:tg.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Compiler Entwicklung</LI>
-  <LI>Runtime Library Entwicklung</LI>
-  <LI>680x0/RISC portierung</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:codc01@bigfoot.com">codc01@bigfoot.com</A></ADDRESS>
+<ul>
+  <li>Compiler Entwicklung</li>
+  <li>Runtime Library Entwicklung</li>
+  <li>680x0/RISC portierung</li>
+</ul>
+<address>EMail: <a href="mailto:codc01@bigfoot.com">codc01@bigfoot.com</a></address>
 
 
-<HR>
-<H4>Dani&euml;l Mantione</H4>
+<hr>
+<h4>Dani&euml;l Mantione</h4>
 <IMG SRC="../pic/dm.jpg" ALT="Bild von Daniel" HEIGHT=199 WIDTH=167>
-<P>
-Jahrgang: 1977<BR>
-Besch&auml;ftigung: Studiert Aplied Computer Science M.Sc. an der 'Technische Universiteit Delft' in Delft, Niederlande.<BR>
-Hobbies: Computer, elektronische Orgel und Elektronik.<BR>
-<P>
+<p>
+Jahrgang: 1977<br>
+Besch&auml;ftigung: Studiert Aplied Computer Science M.Sc. an der 'Technische Universiteit Delft' in Delft, Niederlande.<br>
+Hobbies: Computer, elektronische Orgel und Elektronik.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>OS/2 Runtime Library Koordinierung</LI>
-  <LI>OS/2 Runtime Library Entwicklung</LI>
-  <LI>OS/2 support of the Compiler</LI>
-  <LI>Compiler Entwicklung</LI>
-  <LI>i386 Compiler Entwicklung</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:d.s.p.mantione@twi.tudelft.nl">d.s.p.mantione@twi.tudelft.nl</A></ADDRESS>
+<ul>
+  <li>OS/2 Runtime Library Koordinierung</li>
+  <li>OS/2 Runtime Library Entwicklung</li>
+  <li>OS/2 support of the Compiler</li>
+  <li>Compiler Entwicklung</li>
+  <li>i386 Compiler Entwicklung</li>
+</ul>
+<address>EMail: <a href="mailto:d.s.p.mantione@twi.tudelft.nl">d.s.p.mantione@twi.tudelft.nl</a></address>
 
 
-<HR>
-<H4>Florian Kl&auml;mpfl</H4>
+<hr>
+<h4>Florian Kl&auml;mpfl</h4>
 <IMG SRC="../pic/fk.jpg" ALT="Bild von Florian" HEIGHT=229 WIDTH=168>
-<P>
-Jahrgang: 1975<BR>
+<p>
+Jahrgang: 1975<br>
 Besch&auml;ftigung: Studiert Elektro Ingenieur an der Universit&auml;t
-Erlangen-N&uuml;rnberg, Deutschland.<BR>
-Hobbies: Computer, Computer und Free Climbing.<BR>
-<P>
+Erlangen-N&uuml;rnberg, Deutschland.<br>
+Hobbies: Computer, Computer und Free Climbing.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Compiler Entwicklung</LI>
-  <LI>i386 Compiler Entwicklung</LI>
-  <LI>Project Koordinierung</LI>
-  <LI>Compiler Koordinierung</LI>
-  <LI>i386 Compiler Koordinierung</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:ba2395@fen.baynet.de">ba2395@fen.baynet.de</A></ADDRESS>
+<ul>
+  <li>Compiler Entwicklung</li>
+  <li>i386 Compiler Entwicklung</li>
+  <li>Project Koordinierung</li>
+  <li>Compiler Koordinierung</li>
+  <li>i386 Compiler Koordinierung</li>
+</ul>
+<address>EMail: <a href="mailto:ba2395@fen.baynet.de">ba2395@fen.baynet.de</a></address>
 
 
-<HR>
-<H4>Jonas Maebe</H4>
+<hr>
+<h4>Jonas Maebe</h4>
 <IMG SRC="../pic/jm.jpg" ALT="Bild von Jonas" HEIGHT=216 WIDTH=150>
-<P>
-Jahrgang: 1979<BR>
-Besch&auml;ftigung: Studiert Informatik an der 'Rijksuniversiteit of Ghent', Belgien.<BR>
-Hobbies: Freundin, Computer (Programmieren, Quake, Strategiespiele), Musik h&ouml;ren (Levellers!).<BR>
-<P>
+<p>
+Jahrgang: 1979<br>
+Besch&auml;ftigung: Studiert Informatik an der 'Rijksuniversiteit of Ghent', Belgien.<br>
+Hobbies: Freundin, Computer (Programmieren, Quake, Strategiespiele), Musik h&ouml;ren (Levellers!).<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Optimierungen am i386 Assembler Code</LI>
-  <LI>PowerPC Port des neuen Code Generators</LI>
-  <LI>Processor unabh&auml;ngiger Optimizer f&uuml;r den neuen Code Generator</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:Jonas.Maebe@rug.ac.be">Jonas.Maebe@rug.ac.be</A></ADDRESS>
+<ul>
+  <li>Optimierungen am i386 Assembler Code</li>
+  <li>PowerPC Port des neuen Code Generators</li>
+  <li>Processor unabh&auml;ngiger Optimizer f&uuml;r den neuen Code Generator</li>
+</ul>
+<address>EMail: <a href="mailto:Jonas.Maebe@rug.ac.be">Jonas.Maebe@rug.ac.be</a></address>
 
 
-<HR>
-<H4>Michael Van Canneyt</H4>
+<hr>
+<h4>Michael Van Canneyt</h4>
 (no picture)
-<P>
-Jahrgang: 1970<BR>
+<p>
+Jahrgang: 1970<br>
 Besch&auml;ftigung: Vorbereitung auf PhD. in theoretischer Physik an der
 'Katholieke Universiteit Leuven', Belgien.
-Am Abend: Programmieren in Delphi.<BR>
-Hobbies: Computer, Motorrad Reisen, meine Ehefrau und Kind...<BR>
-<P>
+Am Abend: Programmieren in Delphi.<br>
+Hobbies: Computer, Motorrad Reisen, meine Ehefrau und Kind...<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Linux Port des Compiler.</LI>
-  <LI>Linux Port der Run-Time Library</LI>
-  <LI>Dokumentation des Compilers und der Run-Time Library</LI>
-  <LI>CVS Server Betreuung</LI>
-  <LI>Allgemeine Run-Time-Library Wartung/Koordinierung</LI>
-  <LI>X-Forms Free Pascal Interface</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:michael@tfdec1.fys.kuleuven.ac.be">michael@tfdec1.fys.kuleuven.ac.be</A></ADDRESS>
+<ul>
+  <li>Linux Port des Compiler.</li>
+  <li>Linux Port der Run-Time Library</li>
+  <li>Dokumentation des Compilers und der Run-Time Library</li>
+  <li>CVS Server Betreuung</li>
+  <li>Allgemeine Run-Time-Library Wartung/Koordinierung</li>
+  <li>X-Forms Free Pascal Interface</li>
+</ul>
+<address>EMail: <a href="mailto:michael@tfdec1.fys.kuleuven.ac.be">michael@tfdec1.fys.kuleuven.ac.be</a></address>
 
 
-<HR>
-<H4>Peter Vreman</H4>
+<hr>
+<h4>Peter Vreman</h4>
 (no picture)
-<P>
-Jahrgang: 1976<BR>
-Besch&auml;ftigung: Studiert BusinessInformationSystems an der 'University of Amsterdam', Niederlande.<BR>
-Hobbies: Computer, Wasserpolo und Mountainbiking im Sommer.<BR>
-<P>
+<p>
+Jahrgang: 1976<br>
+Besch&auml;ftigung: Studiert BusinessInformationSystems an der 'University of Amsterdam', Niederlande.<br>
+Hobbies: Computer, Wasserpolo und Mountainbiking im Sommer.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Compiler Entwicklung</LI>
-  <LI>Runtime Library Entwicklung</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:peter@freepascal.org">peter@freepascal.org</A></ADDRESS>
+<ul>
+  <li>Compiler Entwicklung</li>
+  <li>Runtime Library Entwicklung</li>
+</ul>
+<address>EMail: <a href="mailto:peter@freepascal.org">peter@freepascal.org</a></address>
 
 
-<HR>
-<H4>Pierre Muller</H4>
+<hr>
+<h4>Pierre Muller</h4>
 (no picture)
-<P>
-Jahrgang: 1965<BR>
+<p>
+Jahrgang: 1965<br>
 Besch&auml;ftigung: Physiker am Institut Charles Sadron in Strasburg, Frankreich;
 untersucht Polymere an der Luft-Wasser Grenzschicht (an was f&uuml;r lustigen Dingen
-die Leute alles arbeiten k&ouml;nnen !!).<BR>
-Hobbies: Computer.<BR>
-<P>
+die Leute alles arbeiten k&ouml;nnen !!).<br>
+Hobbies: Computer.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Compiler Entwicklung</LI>
-  <LI>i386 Compiler Entwicklung</LI>
-  <LI>Runtime Library Koordinierung</LI>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:muller@cerbere.u-strasbg.fr">muller@janus.u-strasbg.fr</A></ADDRESS>
+<ul>
+  <li>Compiler Entwicklung</li>
+  <li>i386 Compiler Entwicklung</li>
+  <li>Runtime Library Koordinierung</li>
+</ul>
+<address>EMail: <a href="mailto:muller@cerbere.u-strasbg.fr">muller@janus.u-strasbg.fr</a></address>
 
-<HR>
-<H4>Marco van de Voort</H4>
+<hr>
+<h4>Marco van de Voort</h4>
 <IMG SRC="../pic/marco1.jpg" ALT="Bild von Jonas" HEIGHT=163 WIDTH=162>
-<P>
-Jahrgang: 1973<BR>
-Besch&auml;ftigung: Studiert Chemie-Ingenieur an der 'Eindhoven University of Technology', Niederlande.<BR>
-Hobbies: Computer, Filme, Lesen.<BR>
-<P>
+<p>
+Jahrgang: 1973<br>
+Besch&auml;ftigung: Studiert Chemie-Ingenieur an der 'Eindhoven University of Technology', Niederlande.<br>
+Hobbies: Computer, Filme, Lesen.<br>
+<p>
 Hat folgende Beitr&auml;ge zum Projekt geleistet:
-<UL>
-  <LI>Demos</LI>
-  <LI>Runtime Library Koordinierung</LI>
-  <LI>Entwickelt BSD Port</li>
-</UL>
-<ADDRESS>EMail: <A HREF="mailto:marcov@stack.nl">marcov@stack.nl</A></ADDRESS>
-</UL>
+<ul>
+  <li>Demos</li>
+  <li>Runtime Library Koordinierung</li>
+  <li>Entwickelt BSD Port</li>
+</ul>
+<address>EMail: <a href="mailto:marcov@stack.nl">marcov@stack.nl</a></address>
+</ul>
 
-<HR>
-</HTML>
+<hr>
+</html>

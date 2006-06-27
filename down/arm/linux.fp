@@ -22,7 +22,7 @@ This is a cross compiler package from i386-linux to arm-linux. Before you can us
 
 The FPC package for arm-linux is available in one easy to choose format:
 <ul>
-  <li> <a HREF="#linuxbig">Everything in 1 big package</a>
+  <li> <a href="#linuxbig">Everything in 1 big package</a>
 </ul>
 
 <h3><a name="linuxbig">Download in 1 big file:</a></h3>

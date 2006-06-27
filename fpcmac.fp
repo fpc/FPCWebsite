@@ -1,17 +1,17 @@
-<HTML>
+<html>
 <!--
 #TITLE FreePascal on the Macintosh
 #ENTRY develop
 #SUBENTRY fpcmac
 -->
 
-<H1>FreePascal on the Macintosh</H1>
+<h1>FreePascal on the Macintosh</h1>
 
-<P>Welcome to the FreePascal on the Macintosh page. Here is information
+<p>Welcome to the FreePascal on the Macintosh page. Here is information
 especially for you who want to write a program for the Macintosh.
-</P>
+</p>
 
-<H2>News:</H2>
+<h2>News:</h2>
 <b>2005-12-18:</b>
 <br>
 <br>
@@ -24,30 +24,30 @@ problems the 2.1.1 snapshot installer had. Get the release <a href="http://www.f
 <br>
 <br>
 The 2.1.1 snapshot that was here is no longer available.
-<BR>
-<BR>
+<br>
+<br>
 If you really need to be up to date with FPC,
 please consider using Subversion, and build the compiler by your self.
-<BR>
-<BR>
+<br>
+<br>
 Some changes:
-<UL>
-<LI>
+<ul>
+<li>
 No more "_main" symbol in the system unit (so can link with C main programs)
-</LI>
-<LI>
+</li>
+<li>
 Shared library creation support under Mac OS X
-</LI>
-<LI>
+</li>
+<li>
 Several bugfixes related to overflow checking on PPC
-</LI>
-</UL>
+</li>
+</ul>
 <b>2005-06-29:</b>
 <br>
 <br>
 There is now a
-<A href="http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal">
-wiki page</A> covering porting issues, from traditional mac
+<a href="http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal">
+wiki page</a> covering porting issues, from traditional mac
 pascals to FPC.
 <br>
 <br>
@@ -55,34 +55,34 @@ pascals to FPC.
 <br>
 <br>
 A FPC 2.1.1 snapshot is available
-<A href=
+<a href=
 "http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-2.1.1.powerpc-macosx.dmg"
 >
-here</A>
+here</a>
 (10.8 MB, does not include the PDF documentation). It includes:
-<UL>
-<LI>
+<ul>
+<li>
 Support for Macintosh Object Pascal in Macpas mode (includes  
 support for mixing in Delphi-style OOP programming in Macpas mode,  
 except that you have to use "object" instead of "class" everywhere --  
 all occurrences of "class" are simply internally replaced by the  
 _OBJECT compiler token)
-</LI>
-<LI>
+</li>
+<li>
 Fixed bug which caused stack corruption in procedures receiving  
 floating point parameters and parameters on the stack (only if the  
 caller side was compiled by FPC)
-</LI>
-<LI>
+</li>
+<li>
 Fixed bug in overflow checking of integer operations (some  
 calculations were buggy if overflow checking is turned on, which is  
 the case in the default development building style of Xcode if you  
 use the integration kit)
-</LI>
-<LI>
+</li>
+<li>
 Fixed bug in division of unsigned numbers > $7fffffff by a power of 2
-</LI>
-</UL>
+</li>
+</ul>
 Should you desire to do so, you can switch back to 2.0 by simply  
 installing the 2.0 package again.
 <br>
@@ -95,258 +95,258 @@ as well as for other targets.
 <br>
 <br>
 This means Free Pascal for the mac is not considered beta anymore.
-Get it on one of the <A href="download.html">
-mirror download sites</A>.
+Get it on one of the <a href="download.html">
+mirror download sites</a>.
 <br>
 <br>
 
-<HR>
+<hr>
 
-<H2>Targets on the Macintosh:</H2>
+<h2>Targets on the Macintosh:</h2>
 
-<P><TABLE BORDER=1 CELLPADDING=2>
-   <TR>
+<p><TABLE BORDER=1 CELLPADDING=2>
+   <tr>
       <TH WIDTH="22%">
          <P ALIGN=LEFT>Target / Processor
-      </TH><TH WIDTH="9%">
+      </th><TH WIDTH="9%">
          <P ALIGN=LEFT>Status
-      </TH><TH WIDTH="43%">
+      </th><TH WIDTH="43%">
          <P ALIGN=LEFT>Remark
-      </TH><TH >
+      </th><TH >
          <P ALIGN=LEFT>Contact
-      </TH></TR>
-   <TR>
+      </th></tr>
+   <tr>
       <TD WIDTH="22%">
-         <P><A HREF="#TargetDarwin"><B>Darwin</B> on PowerPC</A>
-      </TD><TD WIDTH="9%">
-         <P>final
-      </TD><TD WIDTH="43%">
-         <P>For Mac OS X
-      </TD><TD >
-         <P><A HREF="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</A>
+         <p><a href="#TargetDarwin"><b>Darwin</b> on PowerPC</a>
+      </td><TD WIDTH="9%">
+         <p>final
+      </td><TD WIDTH="43%">
+         <p>For Mac OS X
+      </td><TD >
+         <p><a href="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a>
       
-      </TD></TR>
-   <TR>
+      </td></tr>
+   <tr>
       <TD WIDTH="22%">
-         <P><A HREF="#TargetMacOS"><B>MacOS</B> on PowerPC</A>
-      </TD><TD WIDTH="9%">
-         <P>final
-      </TD><TD WIDTH="43%">
-         <P>Target MacOS means classic Mac OS, up to System 9.x.
+         <p><a href="#TargetMacOS"><b>MacOS</b> on PowerPC</a>
+      </td><TD WIDTH="9%">
+         <p>final
+      </td><TD WIDTH="43%">
+         <p>Target MacOS means classic Mac OS, up to System 9.x.
          Although it of course also work in the classic
          environment in Mac OS X
-      </TD><TD >
-         <P><A HREF="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</A>      
-      </TD></TR>
-   <TR>
+      </td><TD >
+         <p><a href="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</a>      
+      </td></tr>
+   <tr>
       <TD WIDTH="22%">
-         <P>MacOS on M68K
-      </TD><TD WIDTH="9%">
-         <P>not planned
-      </TD><TD WIDTH="43%">
-         <P>If someone is interrested to contribute, there is a
+         <p>MacOS on M68K
+      </td><TD WIDTH="9%">
+         <p>not planned
+      </td><TD WIDTH="43%">
+         <p>If someone is interrested to contribute, there is a
          possiblity to implement this target. There is support for
          MC68000 in the FPC source code, although not updated for a while.
-      </TD><TD >
-         <P>
-      </TD></TR>
-</TABLE></P>
+      </td><TD >
+         <p>
+      </td></tr>
+</table></p>
 
-<H2>Mac Pascal dialect</H2>
+<h2>Mac Pascal dialect</h2>
 
 The dialect of Pascal supported by popular Pascals on Macintosh is supported in part.
-<A HREF="#MacDialect">Read more here. </A>
+<a href="#MacDialect">Read more here. </a>
 
-<HR>
+<hr>
 
-<H1><A NAME="TargetDarwin"></A>Target Darwin (Mac OS X)</H1>
+<h1><a name="TargetDarwin"></a>Target Darwin (Mac OS X)</h1>
 
 <!--
-<P>Unfortunatelly the official beta release (Free Pascal 1.9.4) has a severe bug
+<p>Unfortunatelly the official beta release (Free Pascal 1.9.4) has a severe bug
 which has showed up for some users.
 An updated version of the compiler (Free Pascal 1.9.5 2004-09-10) can instead be  
-<A href="http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-macosx-1.9.5.dmg">
-downloaded here.</A></P>
+<a href="http://www.elis.ugent.be/~jmaebe/nobackup/fpc/fpc-macosx-1.9.5.dmg">
+downloaded here.</a></p>
 -->
 
-<P>Free Pascal 2.0 for Mac OS X is the current release. It should at least work 
+<p>Free Pascal 2.0 for Mac OS X is the current release. It should at least work 
 on Mac OS X 10.1 and higher. It requires that you have installed
-<A href="http://developer.apple.com/tools/macosxtools.html">
-XCode from Apple</A>, to have assembler, linker and make tools available to fpc.
+<a href="http://developer.apple.com/tools/macosxtools.html">
+XCode from Apple</a>, to have assembler, linker and make tools available to fpc.
 For older versions of Mac OS X you should install Apple Development Tools instead.
 Both can be downloaded for free from Apple, but requires that you
 register yourself as a member of Apple Developer Connection.
-Both are also included in the Mac OS X bundle.</P>
+Both are also included in the Mac OS X bundle.</p>
 
-<P>To download, go to the <A href="download.html">Download page</A>,
+<p>To download, go to the <a href="download.html">Download page</a>,
 and choose a mirror site near you (to limit net traffic).
 The documentation is included, but can also be downloaded separatelly. 
-If you want the source code, it has to be downloaded separatelly.</P>
+If you want the source code, it has to be downloaded separatelly.</p>
 
 There most recent FPC 2.1.1 snapshot is available
-<A href=
+<a href=
 "ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/powerpc-macosx/fpc-2.1.1.powerpc-macosx.dmg"
 >
-here</A> (10.4 MB)
+here</a> (10.4 MB)
 with, among others, support for mac style object pascal. See above under NEWS. 
 
-<P>Note that the compiler is a unix style program and is run from the
-Terminal on MacOS X.</P>
+<p>Note that the compiler is a unix style program and is run from the
+Terminal on MacOS X.</p>
 
-<P>Please report any bugs encountered.</P>
+<p>Please report any bugs encountered.</p>
 
-<H2>Using FPC from XCode</H2>
+<h2>Using FPC from XCode</h2>
 
 It is possible to use Free Pascal from within XCode (Mac OS X 10.3 is required).
 Look at the step-by-step instruction of how to download and install the
-<A href = "xcode.html">XCode Integration Kit.</A>
+<A href = "xcode.html">XCode Integration Kit.</a>
 Thanks to Rolf Jansen for this contribution.
-<P>
+<p>
 
-<H1><A NAME="TargetMacOS"></A>Target MacOS (Classic Mac OS)</H1>
+<h1><a name="TargetMacOS"></a>Target MacOS (Classic Mac OS)</h1>
 
-<P>Free Pascal 2.0 for Mac OS is the current release. It will work on 
+<p>Free Pascal 2.0 for Mac OS is the current release. It will work on 
 latest classic Mac OS (that is 9.2.2) and below, probably down to 7.1.2 (the first
 Mac OS for PowerPC), and also in the classic compatibility environment on Mac OS X.
-However it has only been tested on Mac OS 9 and Mac OS X classic environment.</P>
+However it has only been tested on Mac OS 9 and Mac OS X classic environment.</p>
 
-<P>It requires that you have installed Macinstosh Programmers Workshop (MPW)
-which can be <A href="http://developer.apple.com/tools/mpw-tools/">
-downloaded for free from Apple</A>.</P>
+<p>It requires that you have installed Macinstosh Programmers Workshop (MPW)
+which can be <a href="http://developer.apple.com/tools/mpw-tools/">
+downloaded for free from Apple</a>.</p>
 
-<P>To download, go to the <A href="download.html">Download page</A>,
+<p>To download, go to the <a href="download.html">Download page</a>,
 and choose a mirror site near you (to limit net traffic).
 The documentation, as well as the source code (if you need it), 
-has to be downloaded separatelly.</P>
+has to be downloaded separatelly.</p>
 
-<P>Note that the compiler is an MPW tool.</P>
+<p>Note that the compiler is an MPW tool.</p>
 
-<P>Please report any bugs encountered.</P>
+<p>Please report any bugs encountered.</p>
 
-<H2>Current status of classic Mac OS</H2>
+<h2>Current status of classic Mac OS</h2>
 
-<P><TABLE BORDER=1>
-   <TR>
+<p><TABLE BORDER=1>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Native FPC compiler (as an MPW tool)</B>
-      </TD><TD WIDTH=146>
-         <P>Almost complete
-      </TD><TD>
-      </TD></TR>
-   <TR>
+         <p><b>Native FPC compiler (as an MPW tool)</b>
+      </td><TD WIDTH=146>
+         <p>Almost complete
+      </td><td>
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Unit System.pp</B>
-      </TD><TD WIDTH=146>
-         <P>Complete
-      </TD><TD>
-         <P>The system unit is implicitly used by every program. Contains basic file and
+         <p><b>Unit System.pp</b>
+      </td><TD WIDTH=146>
+         <p>Complete
+      </td><td>
+         <p>The system unit is implicitly used by every program. Contains basic file and
          memory handling among others.
-      </TD></TR>
-   <TR>
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Unit Dos.pp</B>
-      </TD><TD WIDTH=146>
-         <P>Complete
-      </TD><TD>
-         <P>Contrary to what its name suggests, the DOS unit is cross
+         <p><b>Unit Dos.pp</b>
+      </td><TD WIDTH=146>
+         <p>Complete
+      </td><td>
+         <p>Contrary to what its name suggests, the DOS unit is cross
          plattfrom and contains utility routines for file and date
          handling, beyond that in System.pp. It is reminiscent from
          Turbo Pascal.
-      </TD></TR>
-   <TR>
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Unit Sysutils.pp</B>
-      </TD><TD WIDTH=146>
-         <P>Planned
-      </TD><TD>
-         <P>A moderner alternative to unit DOS, compatible with
+         <p><b>Unit Sysutils.pp</b>
+      </td><TD WIDTH=146>
+         <p>Planned
+      </td><td>
+         <p>A moderner alternative to unit DOS, compatible with
          Delphi.
-      </TD></TR>
-   <TR>
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Unit MacOS</B>
-      </TD><TD WIDTH=146>
-         <P>Complete
-      </TD><TD>
-         <P>API to the Macintosh Toolbox
-      </TD></TR>
-   <TR>
+         <p><b>Unit MacOS</b>
+      </td><TD WIDTH=146>
+         <p>Complete
+      </td><td>
+         <p>API to the Macintosh Toolbox
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Units strings objpas heaptrc getopts etc</B>
-      </TD><TD WIDTH=146>
-         <P>Implemented.
-      </TD><TD>
-         <P>They are target independent.
-      </TD></TR>
-   <TR>
+         <p><b>Units strings objpas heaptrc getopts etc</b>
+      </td><TD WIDTH=146>
+         <p>Implemented.
+      </td><td>
+         <p>They are target independent.
+      </td></tr>
+   <tr>
       <TD WIDTH=116>
-         <P><B>Other units</B>
-      </TD><TD WIDTH=146>
-         <P>Non-existent. Some will be implemented.
-      </TD><TD>
-         <P>Implementation will depend on how important the unit is
+         <p><b>Other units</b>
+      </td><TD WIDTH=146>
+         <p>Non-existent. Some will be implemented.
+      </td><td>
+         <p>Implementation will depend on how important the unit is
          and if difficulties arise.
-      </TD></TR>
-</TABLE></P>
+      </td></tr>
+</table></p>
 
-<H2>Debugging</H2>
+<h2>Debugging</h2>
 
-<P>
+<p>
 There is some limited possibilities to debug programs in classic MacOS. See
-<A href="http://www.freepascal.org/wiki/index.php/MPW_debugging">MPW debugging</A>
+<a href="http://www.freepascal.org/wiki/index.php/MPW_debugging">MPW debugging</a>
 in the wiki.
-</P>
-<P>
+</p>
+<p>
 As an alternative, you might do the main debugging in a MacOSX/Darwin
 version of your program.
-</P>
+</p>
 
-<H1><A NAME="MacDialect"></A>The Mac Dialect</H1>
+<h1><a name="MacDialect"></a>The Mac Dialect</h1>
 
-<P>There are three major Pascal dialects: Turbo Pascal (extended to
+<p>There are three major Pascal dialects: Turbo Pascal (extended to
 Delphi, supported by FreePascal, and partially by Gnu Pascal),
 Extended Pascal (an ISO standard, supported by Gnu Pascal, DEC
 Pascal, Prospero Pascal), and the dialect originating from Apple
 (commonly used in the Mac community, supported by MPW Pascal,
 Metrowerks Pascal and Think Pascal). We call this dialect Mac Pascal
 and there is a special language mode for it: MacPas. 
-</P>
+</p>
 
-<P>Mode MacPas is a compatibility mode. It is probably not
+<p>Mode MacPas is a compatibility mode. It is probably not
 possible to mimic the Mac Pascal dialect in detail. So the goal is to
 implement often used constructs, if this doesn't require too much
-effort, as well as easy-to-implement constructs.</P>
+effort, as well as easy-to-implement constructs.</p>
 
-<P>To use MacPas, add <I>-Mmacpas</I> to the command line or insert the
-compiler directive <I>{$MODE MACPAS}</I> in the source code.</P>
+<p>To use MacPas, add <I>-Mmacpas</I> to the command line or insert the
+compiler directive <I>{$MODE MACPAS}</I> in the source code.</p>
 
-<P>Note that the mac pascal dialect and mac targets are not
+<p>Note that the mac pascal dialect and mac targets are not
 interrelated. It is thus possible to write a mac program with the
 turbo dialect and to write a Windows program with the mac dialect.
-</P>
+</p>
 
-<P>
+<p>
 The following are supported:
 
 Mac compiler directives like $SETC, $IFC, $ELSEC, $ENDC, $J, $Z.
 Most of the constructs found in interface files, especially
 Apples Universal Interfaces. Cycle, Leave, Otherwise. More is planned.
 
-<P>
-More updated info on the <A HREF="http://www.freepascal.org/wiki/wiki.phtml?title=Mode_MacPas">Wiki page</A>.
+<p>
+More updated info on the <a href="http://www.freepascal.org/wiki/wiki.phtml?title=Mode_MacPas">Wiki page</a>.
 
-<HR>
-<P>By Olle Raab</P>
+<hr>
+<p>By Olle Raab</p>
 
-<P>
+<p>
 For questions and suggestions, we suggest subscribing on our 
-<A HREF="http://www.freepascal.org/maillist.html"> mailing lists </A>, 
+<a href="http://www.freepascal.org/maillist.html"> mailing lists </a>, 
 in particular FPC-pascal for questions about using Free Pascal.
-</P>
+</p>
 
-<P>Or write to
-<A HREF="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</A>
-</P>
+<p>Or write to
+<a href="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</a>
+</p>
 
-<P>Latest modified 2005-07-28</P>
-</HTML>
+<p>Latest modified 2005-07-28</p>
+</html>

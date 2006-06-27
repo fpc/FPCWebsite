@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - IDE f&uuml;r Dos
 #ENTRY moreinfo
@@ -6,43 +6,43 @@
 #HEADER IDE for DOS
 -->
 
-<UL>
-<H2>Integrierte Entwicklungsumgebung f&uuml;r DOS</H2>
-<H2>einschliesslich Editor, Compiler und Debugger</H2>
-<P>
+<ul>
+<h2>Integrierte Entwicklungsumgebung f&uuml;r DOS</h2>
+<h2>einschliesslich Editor, Compiler und Debugger</h2>
+<p>
 <i>(J&uuml;ngste Neuigkeiten: Eine DOS-IDE f&uuml;r Free Pascal befindet sich nun in der Entwicklung,
 siehe <a href="#update2">unten</a>)</i>
-<P>
-Anmerkung:<BR>
-Dieser Link zeigte einmal auf <A HREF="http://www.uidaho.edu/~bradw/pascal/fpk/">
-http://www.uidaho.edu/~bradw/pascal/fpk/</A> wo verschiedene Informationen
+<p>
+Anmerkung:<br>
+Dieser Link zeigte einmal auf <a href="http://www.uidaho.edu/~bradw/pascal/fpk/">
+http://www.uidaho.edu/~bradw/pascal/fpk/</a> wo verschiedene Informationen
 zu geplanten IDE zu finden waren, aber dieser Link funktioniert nicht mehr.
 Es ist unbekannt warum dieser Link nicht mehr funktioniert, und dies kann
 von uns nicht ge&auml;ndert werden, deshalb wurde er um diesen Informationstext
 erweitert.
-<P>
+<p>
 Die Geschichte der IDE geht wie folgt:
-</P>
-<P>
+</p>
+<p>
 Die Arbeit begann mit Free Vision, ein Ersatz f&uuml;r Turbo Vision. Die IDE
 soll darauf aufbauen. Wir haben sp&auml;ter die Erlaubnis von Borland erhalten
 f&uuml;r diesen Zweck deren Turbo Vision Quellen zu verwenden.
-<P>
+<p>
 Danach wurde die Arbeit an Free Vision gestoppt zugunsten eines mehr hardware
 unabh&auml;ngigen orientierten APIs. Free Vision soll sp&auml;ter auf diesem aufbauen,
 was bedeuten w&uuml;rde, dass es auf allen Platformen lauff&auml;hig ist auf denen der
 Compiler verf&uuml;gbar ist.
-<P>
+<p>
 Da es m&ouml;glicherweise etwas Zeit dauern wird bis dieses API verf&uuml;gbar ist
 wurde eine andere M&ouml;glichkeit erwogen: die Benutzung von RHide, eine bereits
 existierende freie IDE f&uuml;r andere Compiler.
-<P>
+<p>
 
 <b><a name="update">Update vom November 1998:</name></b><br>
 
 Die Entwicklung von Free Vision hat so grossen Fortschritt in den letzten
 Wochen gemacht, dass die Arbeit an der IDE jetzt beginnen kann!
-<P>
+<p>
 
 <b><a name="update2">Update vom Februar 1999:</name></b><br>
 
@@ -75,6 +75,6 @@ Senden Sie Fehler-Berichte bitte an die fpc-devel Mailing Liste.
 <p>
 
 Klaus
-</UL>
+</ul>
 
-</HTML>
+</html>

@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Libgd package
 #ENTRY prog
@@ -8,16 +8,16 @@
 #HEADER libgd
 -->
 <!--
-(<A HREF="http://www.freepascal.org/docs-html/packages/libgd">View interface</A>)
+(<a href="http://www.freepascal.org/docs-html/packages/libgd">View interface</a>)
  -->
-<H1>libgd</H1>
+<h1>libgd</h1>
 The <b>gd</b> unit is the interface unit for the gd library.
 The gd library is a library to produce graphics files (jpeg,png and wbmp),
-available from <A HREF="http://www.boutell.com/gd/">this site</A>.<P>
+available from <a href="http://www.boutell.com/gd/">this site</a>.<p>
 
 It was converted from the header files for version 1.8.4., but other
 versions may work as well.
-<P>
+<p>
 It has some additional calls which make it more pascal like:
 <PRE>
 function fopen(a,b:string):pFile;
@@ -34,22 +34,22 @@ function  gdImageStringFT(im:PgdImage; brect:Plongint; fg:longint; fontlist:stri
 </PRE>
 These functions will work with both ansistrings and shortstrings; The unit
 can be compiled in both the {$H+} as the {$H-} state.
-<P>
+<p>
 The <TT>HASTTF</TT> define should be defined for libraries which have TTF2 lib 
 support compiled in. By default, this is not included in the unit, so
 if you need TrueType Font support, you will need to recomlpile the unit.
-<P>
+<p>
 
-The <B>gdtest</b> example is adapted from the example of the gd unit by Mike Bradbery.
+The <b>gdtest</b> example is adapted from the example of the gd unit by Mike Bradbery.
 It shows how to use the pascal-like functions in the gd unit instead of the
 raw C like functions which use pchars.
-<P>
+<p>
 the <b>gdtestcgi</b> example shows how to output an image to standard output,
 this can be used for CGI scripts.
-<P>
+<p>
 
-(<A HREF="http://www.freepascal.org/docs-html/packages/gd">View interface</A>)
-<HR></HR>
-Back to <A HREF="packages.html">packages</A>
-<HR></HR>
-</HTML>
+(<a href="http://www.freepascal.org/docs-html/packages/gd">View interface</a>)
+<hr></hr>
+Back to <a href="packages.html">packages</a>
+<hr></hr>
+</html>

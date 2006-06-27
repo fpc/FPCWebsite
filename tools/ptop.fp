@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,11 +7,11 @@
 #MAINDIR ..
 #HEADER ptop
 -->
-<H1>PTOP - Free Pascal source formatter</H1>
-What follows below is the man page of <B>ptop</B> and the description of the
+<h1>PTOP - Free Pascal source formatter</h1>
+What follows below is the man page of <b>ptop</b> and the description of the
 configuration file. If you have installed the man pages then you can view
-them with the <B>man</B> command.
-<HR>
+them with the <b>man</b> command.
+<hr>
 <PRE>
 
 
@@ -19,53 +19,53 @@ them with the <B>man</B> command.
 ptop(1)               ptop source beautifier              ptop(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        ptop - The FPC Pascal configurable source beautifier.
 
        Origin probably Pascal-TO-Pascal.
 
 
-<B>SYNOPSIS</B>
-       <B>ptop</B><I>[-v]  [-i  indent]  [-b  bufsize ][-c optsfile] infile</I>
+<b>SYNOPSIS</b>
+       <b>ptop</b><I>[-v]  [-i  indent]  [-b  bufsize ][-c optsfile] infile</I>
        <I>outfile</I>
 
 
-<B>Description</B>
-       <B>ptop </B>is a more or less configurable <I>source beautifier  </I>for
+<b>Description</b>
+       <b>ptop </b>is a more or less configurable <I>source beautifier  </I>for
        pascal  sources,  and  specially the ones supported by FPC
        (which are more or less Turbo Pascal or Delphi 2.0 compat-
        ible).
 
        ptop  belongs  to  the  <I>FPC utils </I>package, which currently
-       also contains <B>ppdep </B>, <B>h2pas </B>, <B>ppudump </B>and <B>ppumove</B>
+       also contains <b>ppdep </b>, <b>h2pas </b>, <b>ppudump </b>and <b>ppumove</b>
 
 
-<B>Usage</B>
-       <B>ptop </B>basically reformats "infile" and outputs  the  result
+<b>Usage</b>
+       <b>ptop </b>basically reformats "infile" and outputs  the  result
        to  "outfile".  ituses a configuration file explained fur-
        ther below, and can generate a  default  configurationfile
        for you to edit. (not needed if you use the defaults)
 
 
-<B>Options</B>
-       <B>-h     </B>Writes a short description of these switches.
+<b>Options</b>
+       <b>-h     </b>Writes a short description of these switches.
 
-       <B>-c     </B>read  options from configuration file. A configura-
+       <b>-c     </b>read  options from configuration file. A configura-
               tion file is not needed, ptop will revert to inter-
               nal defaults then. See also -g
 
-       <B>-i </B><I>ident</I>
+       <b>-i </b><I>ident</I>
               Sets  the  number  of  indent spaces used for BEGIN
               END; and other blocks.
 
-       <B>-b </B><I>bufsize</I>
+       <b>-b </b><I>bufsize</I>
               Sets the buffersize to bufsize. Default 255,  0  is
               considered non-valid and ignored.
 
-       <B>-v     </B>be  verbose.  Currently  only outputs the number of
+       <b>-v     </b>be  verbose.  Currently  only outputs the number of
               lines read/written and some error messages.
 
-       <B>-g </B><I>ptop.cfg</I>
+       <b>-g </b><I>ptop.cfg</I>
               Writes a default configuration file to be edited to
               the file <I>ptop.cfg</I>
 
@@ -89,7 +89,7 @@ ptop(1)               ptop source beautifier              ptop(1)
 
 
 
-<B>Acknowledgements</B>
+<b>Acknowledgements</b>
        The writer of the program, Michael van Canneyt,  who  also
        helped out explaining the format of ptop.cfg.
 
@@ -111,15 +111,15 @@ ptop(1)               ptop source beautifier              ptop(1)
 
 
 
-<B>SEE ALSO</B>
+<b>SEE ALSO</b>
        ptop config file
-              <B>ptop.cfg</B>(5)
+              <b>ptop.cfg</b>(5)
 
        Compiler
-              <B>ppc386</B>(1)
+              <b>ppc386</b>(1)
 
        Other FPC utils
-              <B>ppdep</B>(1) <B>ppudump</B>(1) <B>ppumove</B>(1) <B>h2pas</B>(1)
+              <b>ppdep</b>(1) <b>ppudump</b>(1) <b>ppumove</b>(1) <b>h2pas</b>(1)
 
 
 
@@ -145,15 +145,15 @@ ptop(1)               ptop source beautifier              ptop(1)
 FreePascal                 30 may 1999                          2
 
 
-</PRE></BODY>
-<BODY><PRE>
+</PRE></body>
+<body><PRE>
 
 
 
 ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
 
 
-<B>NAME</B>
+<b>NAME</b>
        ptop.cfg  - The ptop source-beautifier configuration file.
 
        ptop is the source beautifier of the FreePascal project.
@@ -161,17 +161,17 @@ ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
        Origin probably Pascal-TO-Pascal.cfg
 
 
-<B>DESCRIPTION</B>
+<b>DESCRIPTION</b>
        This is the main configuration file of the <I>ptop FPC source</I>
        <I>beautifier</I>
 
-       The  configuration  file  for  <B>ptop</B>(1)  isn't  necessarily
+       The  configuration  file  for  <b>ptop</b>(1)  isn't  necessarily
        called ptop.cfg, and is also not auto-loaded, so the  name
        doesn't matter much. This man-page describes the structure
-       of such a configuration file for <B>ptop</B>(1)
+       of such a configuration file for <b>ptop</b>(1)
 
 
-<B>Structure</B>
+<b>Structure</b>
        The structure of a ptop configuration  file  is  a  simple
        buildingblock  repeated  several  (20-30)  times, for each
        pascal keyword known to the ptop program. (see the default
@@ -267,7 +267,7 @@ ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
        the extra options of the square-bracket line is found.
 
 
-<B>Example</B>
+<b>Example</b>
        The line
 
        else=crbefore,dindonkey,inbytab,upper
@@ -309,7 +309,7 @@ ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
 
 
 
-<B>Acknowledgements</B>
+<b>Acknowledgements</b>
        The writer of the program, Michael van Canneyt,  who  also
        helped out explaining the format of ptop.cfg.
 
@@ -319,15 +319,15 @@ ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
        Also thanks to the rest of the FPC development team.
 
 
-<B>SEE ALSO</B>
+<b>SEE ALSO</b>
        ptop binary
-              <B>ptop</B>(1)
+              <b>ptop</b>(1)
 
        Compiler
-              <B>ppc386</B>(1)
+              <b>ppc386</b>(1)
 
        Other FPC utils
-              <B>ppdep</B>(1) <B>ppudump</B>(1) <B>ppumove</B>(1) <B>h2pas</B>(1)
+              <b>ppdep</b>(1) <b>ppudump</b>(1) <b>ppumove</b>(1) <b>h2pas</b>(1)
 
 
 
@@ -345,4 +345,4 @@ ptop.cfg(5)     ptop source beautifier config file    ptop.cfg(5)
 FreePascal                 31 may 1999                          3
 
 
-</PRE></HTML>
+</PRE></html>

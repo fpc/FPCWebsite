@@ -1,4 +1,4 @@
-<HTML>
+<html>
 <!--
 #TITLE Free Pascal - Tools
 #ENTRY prog
@@ -7,11 +7,11 @@
 #MAINDIR ..
 #HEADER FPCMake
 -->
-<H1>FPCMAKE - Free Pascal Makefile generator</H1>
+<h1>FPCMAKE - Free Pascal Makefile generator</h1>
 What follows below is the man page of fpcmake and the description of the
 configuration file. If you have installed the man pages then you can view
-them with the <B>man</B> command.
-<HR>
+them with the <b>man</b> command.
+<hr>
 <PRE>
 
 
@@ -19,23 +19,23 @@ them with the <B>man</B> command.
 fpcmake(1)       Free Pascal Makefile constructor      fpcmake(1)
 
 
-<B>NAME</B>
+<b>NAME</b>
        fpcmake - The Free Pascal makefile constuctor program.
 
 
-<B>SYNOPSIS</B>
-       <B>fpcmake [filename [filename [filename]]]</B>
+<b>SYNOPSIS</b>
+       <b>fpcmake [filename [filename [filename]]]</b>
 
 
-<B>DESCRIPTION</B>
-       <B>fpcmake </B>reads a <I>Makefile.fpc </I>and converts it to a <I>Makefile</I>
+<b>DESCRIPTION</b>
+       <b>fpcmake </b>reads a <I>Makefile.fpc </I>and converts it to a <I>Makefile</I>
        suitable for reading by GNU <I>make </I>to compile your projects.
        It  is  similar  in functionality to GNU <I>autoconf </I>or <I>Imake</I>
        for making X projects.
 
 
-<B>USAGE</B>
-       <B>fpcmake </B>accepts filenames of makefile description files as
+<b>USAGE</b>
+       <b>fpcmake </b>accepts filenames of makefile description files as
        it's  command-line  arguments.  For each of these files it
        will create a <I>Makefile </I>in the  same  directory  where  the
        file is located, overwriting any other existing file.
@@ -43,12 +43,12 @@ fpcmake(1)       Free Pascal Makefile constructor      fpcmake(1)
        If no options are given, it just attempts to read the file
        <I>Makefile.fpc </I>in the current directory and  tries  to  con-
        struct  a Makefile from it.  any previously existing <I>Make-</I>
-       <I>file </I>will be erased. See <B>fpcmake</B>(5) for a  description  of
+       <I>file </I>will be erased. See <b>fpcmake</b>(5) for a  description  of
        the format of the <I>Makefile.fpc </I>file.
 
 
-<B>SEE ALSO</B>
-              <B>fpcmake</B>(5) <B>ppc386</B>(1) <B>make</B>(1)
+<b>SEE ALSO</b>
+              <b>fpcmake</b>(5) <b>ppc386</b>(1) <b>make</b>(1)
 
 
 
@@ -80,7 +80,7 @@ FreePascal                 12 Dec 1999                          1
 
 
 </PRE>
-<HR>
+<hr>
 <PRE>
 
 
@@ -88,22 +88,22 @@ FreePascal                 12 Dec 1999                          1
 fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
 
 
-<B>NAME</B>
+<b>NAME</b>
        Makefile.fpc - Configuration file for fpcmake.
 
 
-<B>SYNOPSIS</B>
+<b>SYNOPSIS</b>
        <I>Makefile.fpc  </I>is a configuration file for the fpcmake com-
        mand. Starting from this file a  <I>Makefile  </I>is  created  to
        compile Free Pascal units and programs.
 
 
-<B>DESCRIPTION</B>
-       <B>Makefile.fpc  </B>is a plain ASCII file that contains a number
+<b>DESCRIPTION</b>
+       <b>Makefile.fpc  </b>is a plain ASCII file that contains a number
        of sections as in a Windows <I>ini </I>file. The  following  sec-
        tions are recognized (in alphabetical order):
 
-       <B>clean  </B>Specifies rules for cleaning the directory of units
+       <b>clean  </b>Specifies rules for cleaning the directory of units
               and programs.  The  following  entries  are  recog-
               nized:
 
@@ -114,17 +114,17 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
               <I>files  </I>names of files that should be removed. Spec-
                      ify full filenames.
 
-       <B>defaults</B>
+       <b>defaults</b>
               The defaults section  contains  some  default  set-
               tings. The following keywords are recognized:
 
 
 
-       <B>dirs</B>
+       <b>dirs</b>
 
-       <B>info</B>
+       <b>info</b>
 
-       <B>install</B>
+       <b>install</b>
               Contains  instructions  for  installation  of  your
               units and programs. The following keywods are  rec-
               ognized:
@@ -158,7 +158,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
        Units   will   be   installed    in    the    subdirectory
        <I>units/$(OS_TARGET) </I>of the <I>dirbase </I>entry.
 
-       <B>libs   </B>This  section specifies what units should be merged
+       <b>libs   </b>This  section specifies what units should be merged
               into a library, and  what  external  libraries  are
               needed. It can contain the following keywords:
 
@@ -180,7 +180,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      a boolean value that tells the makefile that
                      other library directories will be needed.
 
-       <B>packages</B>
+       <b>packages</b>
               Which  packages must be used. This section can con-
               tain the following keywords:
 
@@ -200,7 +200,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
               <I>rtl    </I>This is a boolean value (0 or 1) that  indi-
                      cates  whether the RTL should be recompiled.
 
-       <B>postsettings</B>
+       <b>postsettings</b>
               Anything that is in this section will  be  inserted
               as-is in the makefile <I>after </I>the makefile rules that
               are generated by fpcmake, but  <I>before  </I>the  general
@@ -220,18 +220,18 @@ FreePascal                 12 Dec 1999                          2
 fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
 
 
-       <B>presettings</B>
+       <b>presettings</b>
               Anything that is in this section will  be  inserted
               as-is  in  the  makefile <I>before </I>the makefile target
               rules that are generated  by  fpcmake.  This  means
               that you cannot use any variables that are normally
               defined by
 
-       <B>rules  </B>In this section you can insert dependency rules and
+       <b>rules  </b>In this section you can insert dependency rules and
               any  other  targets you wish to have. Do not insert
               'default rules' here.
 
-       <B>sections</B>
+       <b>sections</b>
               Here you can specify which 'rule  sections'  should
               be  included in the Makefile.  The sections consist
               of a  series  of  boolean  keywords;  each  keyword
@@ -245,33 +245,33 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
               <I>none   </I>If this is set to true, then no sections are
                      written.
 
-              <I>units  </I>If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+              <I>units  </I>If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for compiling units.
 
-              <I>exes   </I>If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+              <I>exes   </I>If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for compiling executables.
 
               <I>loaders</I>
-                     If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+                     If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for assembling assembler files.
 
               <I>examples</I>
-                     If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+                     If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for compiling examples.
 
               <I>package</I>
-                     If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+                     If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for making packages.
 
               <I>compile</I>
-                     If set to <I>false </I>, <B>fpcmake </B>omits the  generic
+                     If set to <I>false </I>, <b>fpcmake </b>omits the  generic
                      rules for compiling pascal files.
 
-              <I>depend </I>If  set  to <I>false </I>, <B>fpcmake </B>omits the depen-
+              <I>depend </I>If  set  to <I>false </I>, <b>fpcmake </b>omits the depen-
                      dency rules.
 
               <I>install</I>
-                     If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+                     If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for installing everything.
 
 
@@ -287,38 +287,38 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
 
 
               <I>sourceinstall</I>
-                     If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+                     If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for installing the sources.
 
               <I>zipinstall</I>
-                     If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+                     If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for installing archives.
 
-              <I>clean  </I>If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+              <I>clean  </I>If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for cleaning the directories.
 
-              <I>libs   </I>If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+              <I>libs   </I>If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for making libraries.
 
               <I>command</I>
-                     If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+                     If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for composing the command-line based on  the
                      various variables.
 
-              <I>exts   </I>If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+              <I>exts   </I>If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for making libraries.
 
-              <I>dirs   </I>If set to <I>false </I>, <B>fpcmake  </B>omits  the  rules
+              <I>dirs   </I>If set to <I>false </I>, <b>fpcmake  </b>omits  the  rules
                      for running make in subdirectories..
 
-              <I>tools  </I>If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+              <I>tools  </I>If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for running some tools as the erchiver,  UPX
                      and zip.
 
-              <I>info   </I>If  set  to  <I>false </I>, <B>fpcmake </B>omits the rules
+              <I>info   </I>If  set  to  <I>false </I>, <b>fpcmake </b>omits the rules
                      for generating information.
 
-       <B>targets</B>
+       <b>targets</b>
               In this section you can define the various targets.
               The following keywords can be used there:
 
@@ -355,7 +355,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      extension, the extension will be appended.
 
               <I>rst    </I>a list of <I>rst </I>files that needs  to  be  con-
-                     verted to <I>.po </I>files for use with GNU <B>gettext</B>
+                     verted to <I>.po </I>files for use with GNU <b>gettext</b>
                      and internationalization routines.
 
               <I>units  </I>A space separated list of  unit  names  that
@@ -363,7 +363,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      extension, just the name of the unit  as  it
                      would appear un a <I>uses </I>clause is sufficient.
 
-       <B>tools  </B>In this section you can  specify  which  tools  are
+       <b>tools  </b>In this section you can  specify  which  tools  are
               needed. Definitions to use each of the listed tools
               will be inserted in the makefile, depending on  the
               setting in this section.
@@ -374,38 +374,38 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
               The following keywords are recognised:
 
               <I>toolppdep</I>
-                     Use <B>ppdep  </B>the  dependency  tool.   <I>True  </I>by
+                     Use <b>ppdep  </b>the  dependency  tool.   <I>True  </I>by
                      default.
 
               <I>toolppumove</I>
-                     Use  <B>ppumove  </B>the  Free  Pascal  unit mover.
+                     Use  <b>ppumove  </b>the  Free  Pascal  unit mover.
                      <I>True </I>by default.
 
               <I>toolppufiles</I>
-                     Use the <B>ppufile </B>tool to determine  dependen-
+                     Use the <b>ppufile </b>tool to determine  dependen-
                      cies of unit files.  <I>True </I>by default.
 
               <I>toolsed</I>
-                     Use  <B>sed  </B>the  stream line editor.  <I>False </I>by
+                     Use  <b>sed  </b>the  stream line editor.  <I>False </I>by
                      default.
 
               <I>tooldata2inc</I>
-                     use the  <B>data2inc  </B>tool  to  create  include
+                     use the  <b>data2inc  </b>tool  to  create  include
                      files from data files.  <I>False </I>by default.
 
               <I>tooldiff</I>
-                     Use the GNU <B>diff </B>tool.  <I>False </I>by default.
+                     Use the GNU <b>diff </b>tool.  <I>False </I>by default.
 
               <I>toolcmp</I>
-                     Use  the  <B>cmp  </B>file  comparer  tool <I>False </I>by
+                     Use  the  <b>cmp  </b>file  comparer  tool <I>False </I>by
                      default.
 
               <I>toolupx</I>
-                     Use  the  <B>upx  </B>executable  packer  <I>True   </I>by
+                     Use  the  <b>upx  </b>executable  packer  <I>True   </I>by
                      default.
 
               <I>tooldate</I>
-                     use  the <B>date </B>date displaying tool.  <I>True </I>by
+                     use  the <b>date </b>date displaying tool.  <I>True </I>by
 
 
 
@@ -421,10 +421,10 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      default.
 
               <I>toolzip</I>
-                     Use the <B>zip </B>file archiver. This is  used  by
+                     Use the <b>zip </b>file archiver. This is  used  by
                      the zip targets.  <I>True </I>by default.
 
-       <B>zip    </B>This section can be used to make zip files from the
+       <b>zip    </b>This section can be used to make zip files from the
               compiled units and programs. By  default  all  com-
               piled  units  are  zipped. The zip behaviour can be
               influencd with  the  presettings  and  postsettings
@@ -441,8 +441,8 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      be  executed  before  the  zip  is  made. By
                      default this is the <I>install </I>target.
 
-<B>SEE ALSO</B>
-              <B>fpcmake</B>(1) <B>ppc386</B>(1) <B>make</B>(1)
+<b>SEE ALSO</b>
+              <b>fpcmake</b>(1) <b>ppc386</b>(1) <b>make</b>(1)
 
 
 
@@ -479,4 +479,4 @@ FreePascal                 12 Dec 1999                          6
 
 
 </PRE>
-</HTML>
+</html>
