@@ -1,0 +1,215 @@
+/* CSS assembled by Marko Mihelcic at mcville and James Koster from sixshootermedia*/
+
+body {
+	margin:0;
+	color:#555555;
+	background-color:#FFFFFF;
+	text-align:left;
+}
+
+h1, h2, h3, h4, h5, h6, .submenu a {
+	font-family:"Trebuchet MS", Arial, Verdana, sans-serif;
+}
+
+a {
+	color:#4D87CE;
+	text-decoration:none;
+}
+a:hover {
+	color:#2a65ad;
+}
+
+ul li {
+	list-style-image:url(../pic/backgrounds/li.gif);
+	line-height:20px;
+	text-align:left;
+}
+
+#menu {
+	width:100%;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:transparent;
+	margin:0;
+	color:#ff0000;
+	text-align:center;
+	font-family:Verdana, Arial, sans-serif;
+	font-size:90%;
+	font-variant:small-caps;
+	background-image:url(../pic/backgrounds/back.png);
+	background-repeat:repeat-x;
+}
+#menu a {
+	color:#ffffff;
+	text-decoration:none;
+	padding:20px 10px;
+}
+#menu a:hover {
+	border-bottom:1px solid #ffffff;
+	border-left:1px solid #243482;
+	border-right:1px solid #243482;
+	padding-left:9px;
+	padding-right:9px;
+	color:#000000;
+	background-color:#808080;
+	background-image:url(../pic/backgrounds/hover.jpg);
+}
+
+#logoheader {
+	width:80%;
+	margin:0 auto 0 auto;
+	text-align:right;
+}
+
+#welcome {
+	margin:0 0 0 30px;
+}
+#welcome a {
+	margin:0 5px;
+}
+
+#header img {
+	float:right;
+	margin:0 10% 0 0;
+}
+
+#header h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:375%;
+	font-weight:normal;
+	margin:0;
+	padding:0 0 0 20px;
+	color:#253183;
+	background-color:#ffffff;
+	text-align:left;
+}
+#header h2 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:110%;
+	text-transform:uppercase;
+	text-align:right;
+	font-weight:normal;
+	margin:0 20px;
+	padding:0;
+	color:#000000;
+	background-color:#ffffff;
+	border-bottom:1px solid #eeeeee;
+}
+
+#content {
+	margin:0 40px;
+	padding:0;
+	text-align:left;
+}
+
+#sidebar {
+	width:10em;
+	float:right;
+	font-size:95%;
+	color:#253183;
+	background-color:#ffffff;
+	text-align:left;
+	margin:0;
+	padding-top:0;
+}
+#sidebar h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:140%;
+	text-transform:uppercase;
+	font-weight:normal;
+	border-bottom:1px solid #eeeeee;
+	color:#253183;
+	background-color:#ffffff;
+	text-align:right;
+	margin-top: 10px;
+}
+.submenu a {
+	display:block;
+	width:100%;
+	background-image:url(../pic/backgrounds/submenua.png);
+	background-position:right;
+	background-repeat:no-repeat;
+	padding:3px 0px 3px 5px;
+}
+.submenu a:hover {
+	background-color:#eeeeee;
+	background-image:url(../pic/backgrounds/submenua_hover.jpg);
+	background-repeat:repeat-y;
+}
+.submenu span {
+	display: block;
+	width:100%;
+	text-align:center;
+	padding:5px;
+}
+#mainbar {
+	margin-right:10.5em;
+	padding-right:10px;
+	background-image:url(../pic/backgrounds/mainbar.jpg);
+	background-position:top right;
+	background-repeat:no-repeat;
+}
+
+#mainbar h1 {
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:25px;
+	text-transform:uppercase;
+	font-weight:normal;
+	border-bottom:1px solid #eeeeee;
+	color:#253183;
+	margin-top: 10px;
+}
+
+#mainbar .articleimg {
+	float:right;
+	padding:5px;
+	border:1px solid #eeeeee;
+	margin-left:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+#mainbar .articleimg2 {
+	padding:5px;
+	border:1px solid #eeeeee;
+	margin-left:20px;
+	margin-top:20px;
+	margin-bottom:25px;
+}
+
+#sidebar div.logos {
+	padding: 10px 0px;
+	text-align:center;
+	width:100%;
+}
+
+#sidebar div.logos img {
+	border: 0px;
+}
+
+ul li p {
+	margin: 0;
+}
+
+blockquote {
+	margin: 0 3%;
+}
+
+#footer {
+	clear:both;
+	width:95%;
+	font-size:75%;
+	text-align:center;
+	background-color:#253183;
+	border-top:1px solid #81C0FF;
+	border-bottom:0;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin: 0 auto 0 auto;
+	color:#FFFFFF;
+}
+#footer a {
+	color:#81C0FF;
+}
+#footer a:hover {
+	color:#AFD7FF;
+}
