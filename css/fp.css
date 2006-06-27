@@ -145,10 +145,20 @@ ul li {
 	text-align:center;
 	padding:5px;
 }
+#sidebar div.logos {
+	padding: 10px 0px;
+	text-align:center;
+	width:100%;
+}
+
+#sidebar div.logos img {
+	border: 0px;
+}
+
 
 #mainbar {
-	margin-right:10.5em;
-	padding-right:10px;
+	margin-right:10.2em;
+	padding-right:0.7em;
 	background-image:url(../pic/backgrounds/mainbar.jpg);
 	background-position:top right;
 	background-repeat:no-repeat;
@@ -185,16 +195,6 @@ ul li {
 }
 .navlinks a {
 	margin: 3px;
-}
-
-#sidebar div.logos {
-	padding: 10px 0px;
-	text-align:center;
-	width:100%;
-}
-
-#sidebar div.logos img {
-	border: 0px;
 }
 
 ul li p {
