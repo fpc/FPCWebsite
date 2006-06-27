@@ -201,21 +201,13 @@ procedure Convert(fn,nfn:string);
 var
   f,g,t       : text;
   s           : string;
-  lastk,
-  i,j,k       : longint;
+  i           : longint;
 { Header Stuff }
-  skipmaindir,
-  ismain,
   modify,
   adds,
   counter     : boolean;
   picdir,
   maindir,
-  mainentry,
-  subentry,
-  subsubentry,
-  lastsubentry,
-  lastentry,
   header,
   title       : string[80];
 
@@ -226,11 +218,6 @@ var
     S2	   : String;
   begin
     s:=CBSpace(s);
-    if Copy(s,1,6)='<HTML>' then
-     Delete(s,1,6)
-    else
-     if Copy(s,1,7)='</HTML>' then
-      Delete(s,1,7);
     Quoted:=false;
     SetLength(S2,0);
     If Length(s)>0 then
@@ -265,7 +252,7 @@ var
     while (i>0) do
      begin
        Delete(s,i,4);
-       Insert('<IMG SRC="'+picdir+'new.gif" ALT="New!" BORDER=0 WIDTH=31 HEIGHT=12>',s,i);
+       Insert('<img src="'+picdir+'new.gif" alt="New!" width="31" height="12"/>',s,i);
        i:=pos('NEW!',s);
      end;
     if s<>'' then
@@ -320,13 +307,7 @@ begin
   Title:='';
   Maindir:='';
   PicDir:='';
-  MainEntry:='';
-  SubEntry:='';
-  SubSubEntry:='';
-  LastEntry:='';
-  LastSubEntry:='';
   header:='';
-  IsMain:=false;
   Modify:=false;
   Adds:=false;
   Counter:=False;
@@ -357,7 +338,7 @@ begin
    exit;
 {Read Header}
   readln(f,s);
-  if Copy(s,1,6)='<HTML>' then
+  if Copy(s,1,6)='<html>' then
    readln(f,s);
   if Copy(s,1,4)<>'<!--' then
    begin
@@ -374,15 +355,6 @@ begin
      else
       if Copy(s,1,7)='#HEADER' then
        header:=Copy(s,9,80)
-     else
-      if Copy(s,1,6)='#ENTRY' then
-       mainentry:=Copy(s,8,30)
-     else
-      if Copy(s,1,9)='#SUBENTRY' then
-       subentry:=Copy(s,11,30)
-     else
-      if Copy(s,1,12)='#SUBSUBENTRY' then
-       subsubentry:=Copy(s,14,30)
      else
       if Copy(s,1,8)='#MAINDIR' then
        begin
@@ -418,11 +390,6 @@ begin
 {Fix items}
   if PicDir='' then
    PicDir:=MainDir+'pic/';
-  if SubEntry='' then
-   begin
-     SubEntry:=MainEntry;
-     IsMain:=true;
-   end;
   if Title='' then
    Title:='Free Pascal - Home Page';
 {Read the template}
@@ -445,8 +412,6 @@ begin
      Close(f);
      Close(t);
    end;
-  write(g,'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">'#10);
-  write(g,'<HTML>'#10);
 {Parse the template and fill in the stuff}
   while not eof(t) do
    begin
@@ -457,89 +422,6 @@ begin
      Replace('$HEADER',header);
      Replace('"pic/','"'+picdir);
    {Fix Index}
-     if (s[1]='_') then
-      begin
-        skipmaindir:=false;
-        i:=pos('<A HREF="',s);
-        if i>0 then
-         begin
-           k:=i+9;
-           j:=i;
-           while (j<length(s)) and (s[j]<>'.') do
-            inc(j);
-           lastk:=k;
-           while (k<j) do
-            begin
-              if s[k]='/' then
-               lastk:=k+1;
-              inc(k);
-            end;
-           if i=2 then
-            begin
-              LastEntry:=Copy(s,lastk,j-lastk);
-              LastSubEntry:='';
-            end;
-           if i=5 then
-            LastSubEntry:=Copy(s,lastk,j-lastk);
-           if (MainEntry<>LastEntry) then
-            begin
-              { Check if the entry can be removed }
-              if i>3 then
-               s:='';
-            end
-           else
-            if (SubEntry<>LastSubEntry) then
-             begin
-               { Main entry? }
-               if ismain and (lastsubentry='') then
-                begin
-                 j:=i;
-                 while (j<length(s)) and (s[j]<>'>') do
-                  inc(j);
-                 Delete(s,i,j-i+1);
-                 Insert('<B class="curnavi">',s,i);
-                 j:=pos('</A>',s);
-                 if j>0 then
-                  begin
-                    Delete(s,j,4);
-                    Insert('</B>',s,j);
-                  end;
-                 skipmaindir:=true;
-                end;
-               { Check if the entry can be removed }
-               if i>6 then
-                s:='';
-             end
-           else
-            begin
-              if (((Copy(s,lastk,j-lastk)=subentry) and (SubSubEntry='')) or
-                  (Copy(s,lastk,j-lastk)=subsubentry)) and
-                 (pos('#',s)=0) then
-               begin
-                 j:=i;
-                 while (j<length(s)) and (s[j]<>'>') do
-                  inc(j);
-                 Delete(s,i,j-i+1);
-                 Insert('<B class="curnavi">',s,i);
-                 j:=pos('</A>',s);
-                 if j>0 then
-                  begin
-                    Delete(s,j,4);
-                    Insert('</B>',s,j);
-                  end;
-                 skipmaindir:=true;
-               end;
-            end;
-           { insert maindir }
-           if (not skipmaindir) and
-              (S<>'') and
-              (not (Copy(S,i+9,7)='http://')) and
-              (maindir<>'') then
-            insert(maindir,s,i+9);
-         end;
-        WriteHtml(s);
-      end
-     else
       if s='<!-- TEXT -->' then
        begin
          while not eof(f) do
@@ -568,10 +450,20 @@ begin
           InsertFile(ModifyFile);
        end
      else
-      WriteHtml(s);
+       begin
+        i:=pos('<a href="',s);
+        if i>0 then
+        begin
+          { insert maindir }
+          if (not (Copy(S,i+9,7)='http://')) and
+	     ((length(s) < i+9) or (s[i+9] <> '/')) and
+             (maindir<>'') then
+            insert(maindir,s,i+9);
+        end;
+        WriteHtml(s);
+      end;
    end;
 {Close}
-  write(g,'</HTML>'#10);
   close(g);
   close(f);
   if fn=nfn then
@@ -608,7 +500,7 @@ var
   end;
 
 begin
-  TemplateFile:='template.fp';
+  TemplateFile:='template.fpht';
   for i:=1 to paramcount do
    begin
      para:=paramstr(i);

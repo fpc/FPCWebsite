@@ -21,7 +21,7 @@ FIXDOC=$(TOPDIR)fixdoc$(EXE)
 # 
 # Other files
 #
-TEMPLATEFILE=$(TOPDIR)template.fp
+TEMPLATEFILE=$(TOPDIR)template.fpht
 FPTEMPLATEMIRRORFILE=$(TOPDIR)templatemirror.fp
 HTMLTEMPLATEMIRRORFILE=$(TOPDIR)templatemirror.html
 MIRRORLIST=$(TOPDIR)mirrors.lst

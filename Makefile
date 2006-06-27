@@ -194,10 +194,10 @@ ifdef MODIFY
 FP2HTMLOPT=-m$(MODIFY)
 endif
 
-%.html: %.fp template.fp  $(DOFP2HTML)
+%.html: %.fp template.fpht  $(DOFP2HTML)
 	$(FP2HTML) $(FP2HTMLOPT) $<
 
-%.chk: %.fp template.fp templatemirror.fp mirrors.lst $(DOFP2HTML) $(DOMAKEMIRROR)
+%.chk: %.fp template.fpht templatemirror.fp mirrors.lst $(DOFP2HTML) $(DOMAKEMIRROR)
 	$(FP2HTML) $(FP2HTMLOPT) $<
 	$(MAKEMIRROR) -multi mirrors.lst $(patsubst %.fp,%.html,$<) $(patsubst %.fp,%.html,$<)
 	$(FP2HTML) $(FP2HTMLOPT) templatemirror.fp
@@ -210,7 +210,7 @@ endif
 # detailed rules
 #
 
-develop.html: develop.fp template.fp $(DOMAKEIDX) $(DOFP2HTML)
+develop.html: develop.fp template.fpht $(DOMAKEIDX) $(DOFP2HTML)
 	$(MAKEIDX) develop.fp
 	$(FP2HTML) $(FP2HTMLOPT) develop.fp
 
