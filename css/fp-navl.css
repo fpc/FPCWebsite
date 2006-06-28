@@ -1,0 +1,16 @@
+#sidebar {
+	float:left;
+}
+#sidebar a {
+	padding:3px 5px 3px 0px;
+}
+#sidebar h1 {
+	text-align:left;
+}
+
+#mainbar {
+	background-position:top left;
+	margin:0 0 0 10.2em;
+	padding:0 0 0 0.7em;
+}
+

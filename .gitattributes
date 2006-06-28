@@ -44,6 +44,7 @@ contrib/types.pp svneol=native#text/plain
 contrib/update.fig svneol=native#text/plain
 contrib/update.gif -text svneol=unset#image/gif
 /credits.fp svneol=native#text/plain
+css/fp-navl.css svneol=native#text/plain
 css/fp.css svneol=native#text/plain
 /develop.fp svneol=native#text/plain
 /docs.fp svneol=native#text/plain
