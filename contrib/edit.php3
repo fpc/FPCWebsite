@@ -30,7 +30,7 @@ if ( $confirm == "yes") {
   /* 
    * Verify password first
    */
-  if (($pwd=='Fixme') || VerifyPassword($db,$pwd,$ID)) {
+  if (VerifyPassword($db,$pwd,$ID)) {
     /* Change the entry */
     $query = "UPDATE contribs SET ";
     $query .= "name=" . EscapeSQL ($name);
