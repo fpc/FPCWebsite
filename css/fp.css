@@ -80,7 +80,7 @@ ul li {
 	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
 	font-size:375%;
 	font-weight:normal;
-	margin:0;
+	margin-left: 3em;
 	padding:0 0 0 20px;
 	color:#253183;
 	background-color:#ffffff;
@@ -101,7 +101,7 @@ ul li {
 }
 
 #content {
-	margin:40 5px;
+	margin:40 10px;
 	padding:0;
 	text-align:left;
 }
@@ -126,7 +126,7 @@ ul li {
 	color:#253183;
 	background-color:#ffffff;
 	text-align:right;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 .submenu a {
 	display:block;
