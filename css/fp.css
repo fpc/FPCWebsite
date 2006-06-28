@@ -68,7 +68,6 @@ ul li {
 #header .spacer {
 	height:1.4em;
 	float:left;
-	border: 1px solid white;
 }
 
 #header img {
@@ -80,7 +79,7 @@ ul li {
 	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
 	font-size:375%;
 	font-weight:normal;
-	margin-left: 3em;
+	margin:0;
 	padding:0 0 0 20px;
 	color:#253183;
 	background-color:#ffffff;
@@ -101,20 +100,19 @@ ul li {
 }
 
 #content {
-	margin:40 10px;
+	margin:0 40px;
 	padding:0;
 	text-align:left;
 }
 
 #sidebar {
 	width:10em;
-	float:left;
+	float:right;
 	font-size:95%;
 	color:#253183;
 	background-color:#ffffff;
 	text-align:left;
-	margin-left:10px;
-        margin-right: 40px;
+	margin:0;
 	padding-top:0;
 }
 #sidebar h1 {
@@ -126,7 +124,7 @@ ul li {
 	color:#253183;
 	background-color:#ffffff;
 	text-align:right;
-	margin-top: 5px;
+	margin-top: 10px;
 }
 .submenu a {
 	display:block;
@@ -159,7 +157,7 @@ ul li {
 
 
 #mainbar {
-	margin-left:10.2em;
+	margin-right:10.2em;
 	padding-right:0.7em;
 	background-image:url(../pic/backgrounds/mainbar.jpg);
 	background-position:top right;
@@ -193,7 +191,7 @@ ul li {
 }
 
 .navlinks {
-	margin: 3px 0 0 10px;
+	margin: 3px; 0 0 10px;
 }
 .navlinks a {
 	margin: 3px;
