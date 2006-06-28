@@ -107,12 +107,13 @@ ul li {
 
 #sidebar {
 	width:10em;
-	float:right;
+	float:left;
 	font-size:95%;
 	color:#253183;
 	background-color:#ffffff;
 	text-align:left;
 	margin:0;
+        margin-right: 20px;
 	padding-top:0;
 }
 #sidebar h1 {
