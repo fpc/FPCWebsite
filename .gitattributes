@@ -294,7 +294,7 @@ scripts/updatetestsuite svneol=native#text/plain
 sf/index.html svneol=native#text/plain
 /split.fp svneol=native#text/plain
 /styles.css -text
-/template.fp svneol=native#text/plain
+/template.fpht svneol=native#text/plain
 /templatemirror.fp svneol=native#text/plain
 tmpl/Makefile svneol=native#text/plain
 tmpl/foot.tmpl svneol=native#text/plain
