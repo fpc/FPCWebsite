@@ -68,6 +68,7 @@ ul li {
 #header .spacer {
 	height:1.4em;
 	float:left;
+	border:1px solid #ffffff;
 }
 
 #header img {
@@ -191,7 +192,7 @@ ul li {
 }
 
 .navlinks {
-	margin: 3px; 0 0 10px;
+	margin: 3px 0 0 10px;
 }
 .navlinks a {
 	margin: 3px;
