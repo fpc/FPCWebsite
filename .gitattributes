@@ -227,6 +227,16 @@ packages/x11.fp svneol=native#text/plain
 packages/zlib.fp svneol=native#text/plain
 pic/NotYetHere.gif -text svneol=unset#image/gif
 pic/aboutus.gif -text svneol=unset#image/gif
+pic/backgrounds/a_hover.jpg -text svneol=unset#image/jpeg
+pic/backgrounds/back.png -text svneol=unset#image/png
+pic/backgrounds/desc.jpg -text svneol=unset#image/jpeg
+pic/backgrounds/hover.jpg -text svneol=unset#image/jpeg
+pic/backgrounds/li.gif -text
+pic/backgrounds/mainbar.jpg -text svneol=unset#image/jpeg
+pic/backgrounds/menu.jpg -text svneol=unset#image/jpeg
+pic/backgrounds/submenua.gif -text
+pic/backgrounds/submenua.png -text svneol=unset#image/png
+pic/backgrounds/submenua_hover.jpg -text svneol=unset#image/jpeg
 pic/buglist.gif -text svneol=unset#image/gif
 pic/bugrep.gif -text svneol=unset#image/gif
 pic/bugs.gif -text svneol=unset#image/gif
@@ -266,6 +276,7 @@ pic/shadowr.png -text svneol=unset#image/png
 pic/shadowrb.png -text svneol=unset#image/png
 pic/shadowrt.png -text svneol=unset#image/png
 pic/timeline.png -text svneol=unset#image/png
+pic/txlogo.gif -text
 pic/units.gif -text svneol=unset#image/gif
 pic/unitscon.gif -text svneol=unset#image/gif
 pic/unitsrtl.gif -text svneol=unset#image/gif
