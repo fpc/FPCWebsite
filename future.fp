@@ -88,7 +88,6 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
 <li>OS/2 API units (including SOM) (<b>4</b>)</li>
 <li>Adopt more packages for OS/2 (<b>3</b>)</li>
 <li>Write SOM Compiler emiter (OS/2) for Free Pascal (<b>8</b>)</li>
-<li>Rework OS/2 RTL for native OS/2 target (<b>3</b>)</li>
 </ul></li>
 <li>Maintenance of Graph unit (on one platform or more), create a SDL Graph unit? (<b>5-7</b>)</li>
 <li>Adding an architecture <b>(9-11 :-) )</b>
