@@ -1191,7 +1191,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
 
             <ul>
                 <li> If your program uses floating point code (which is
-                very probable), make sure to read "<a href="faq.html#fp386">Applications created
+                very probable), make sure to read "<a href="#fp386">Applications created
                 with Free Pascal crash on 80386 systems</a>" regarding special issues
                 which might occur. Math coprocessor emulation software is then
                 required (<TT>wmemu387.dxe</TT> should be redistributed with your software) </li>
@@ -1200,7 +1200,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
                      application</li>
                 <li> The target system must have DOS 3.3 or later </li>
                 <li> The default heap size is 2 Megabytes. Automatic growing of the heap is supported </li>
-                <li> The default stack size is 256 Kbytes. See also "<a href="faq.html#dos-stack">Changing
+                <li> The default stack size is 256 Kbytes. See also "<a href="#dos-stack">Changing
                       the default stack size</a>" </li>
                 <li> The stack checking option is available on this platform. </li>
             </ul>
