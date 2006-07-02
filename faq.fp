@@ -185,12 +185,19 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
         <li><a name=versions></a>
             <h3>Which versions exist, and which one should I use?</h3>
 
+            <p>The latest official version is 2.0.2, released as a bug fix release for
+            2.0.x series. New development is performed in 2.1.x series, which eventually
+            gets released as either 2.2.0, or 3.0.0 (depending on amount of accumulated
+            changes at the time of release).</p>
+
+            <h4>Historic versions</h4>
+
             <p>FPC's version numbering changed a few times over the years. Versions
             before 0.99.5 are considered archaic. After the release of 0.99.5 a
             system in version numbering was introduced, and that system was changed
             slightly changed after the 1.0 release. </p>
 
-            <b>Versioning for versions 0.99.5 - 1.0</b>
+            <p><b>Versioning for versions 0.99.5 - 1.0</b><p>
 
             <p>Compilers with an <b>even</b> last number are <b>release</b>
             versions (e.g. 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers and
@@ -206,28 +213,23 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
 
             <p><b>Versioning after 1.0</b></p>
 
-            <p>Together with the release of 1.0 the version numbering has been
+            <p>Together with the release of 1.0 the version numbering was
             slightly changed, and a system in versioning resembling the Linux
             kernel's has been introduced. The main difference is that the difference
             between a release version is now in the second number (1.0.x vs 1.1.x)
             instead of the third number (0.99.14 vs 0.99.15), and the third number
             now becomes the patch level, replacing the postfixed letter in the old
             system. </p>
+
             <p>
             <ul>
-              <li>Releases that only fix bugs in version 1.0 will be numbered 1.0.x </li>
-              <li>New development (the so called snapshots) have version number
-              1.1.x. The meaning of the third version number x in the new
-              development branch is not defined yet, it could be used for test
-              releases or to signal major changes. </li>
-              <li>Eventually the 1.1.x versions, when stabilized will be released as
-              version 1.2, or 2.0.x. Fixes on the 1.2 release will be numbered 1.2.x,
-	      or 2.0.x, if it is decided to bump the major version number</li>
-              <li>The new development after the 1.2 release will be numbered 1.3.x or 2.1.x
-              and so on </li>
-              <li>When really big changes are implemented, the version will be
-              updated in the major number. This could be case with e.g. a
-              codegenerator rewrite with support for other processors </li>
+             <li>Releases that only fixed bugs in version 1.0 were numbered 1.0.x.</li>
+             <li>New development (the so called snapshots) started with version number
+              1.1.x.</li>
+             <li>Eventually the 1.1.x versions, when stabilized turned to 2.x. Fixes on
+              2.0 release are numbered 2.0.x.</li>
+             <li>The new development after the 2.0 release is numbered 2.1.x
+              and so on.</li>
             </ul>
             <p></p>
 
@@ -247,6 +249,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
 
             <p>We advise all users to upgrade to the newest version for their
             target (Preferably the new stable 2.0.x series).</p>
+
 	    <p> A graphical timeline of the FPC project plus its near future would
 		be:</p>
 	    <img src="pic/timeline.png"></a>
