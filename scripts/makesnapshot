@@ -83,8 +83,8 @@ if [ "${errormailaddr}" != "" ]; then
         # Create email
         echo "To: ${errormailaddr}" > $MAILFILE
         echo "From: fpc@freepascal.org" >> $MAILFILE
-        echo "Subject: Daily compile routine on deadlock" >> $MAILFILE
-        echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
+        echo "Subject: Daily compile routine on `hostname`" >> $MAILFILE
+        echo "Reply-to: bugs@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
         /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
         /usr/sbin/sendmail -f fpc@freepascal.org ${errormailaddr} < $MAILFILE >/dev/null 2>&1
