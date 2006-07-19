@@ -11,20 +11,22 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>July 19 2006
+ <ul><li>We are approaching new release (2.0.4) in our
+bug-fixing branch. Release candidate 2 cycle is running at the moment, final
+release is expected during August.
+ </li></ul>
+</li>
 <li>June 1 2006
  <ul><li>Francesco Lombardi has a released snapshot of his
-  <a href='http://itaprogaming.free.fr'>Gameboy Advance Free Pascal port</a>,
-  download it <a href='ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip'>here</a>.
+  <a href="http://itaprogaming.free.fr">Gameboy Advance Free Pascal port</a>,
+  download it <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip">here</a>.
  </li></ul>
-</li></ul>
-
-<ul>
-<li>April  2006 summary
+</li>
+<li>April 2006 summary
  <ul><li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site.
  </li></ul>
-</li></ul>
-
-<ul>
+</li>
 <li>March 2006 summary
 <p>Lots of new progress in March, but too busy coding to update the website, so this entry will be a summary of progress on the main (2.1.1) branch:</p>
 <ul>
@@ -38,9 +40,6 @@
  <li>Jonas reported that he has ported to Darwin/i386 with remarkable little effort. Snapshots
   are expected in the coming weeks.</li>
 </ul></li>
-</ul>
-
-<ul>
 <li>February 15, 2006
 <ul><li>An FPC port for Solaris/Sparc has been created. Get a snapshot 
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.

@@ -18,11 +18,9 @@
 
 
 <h2>Latest News</h2>
-<EM>1 June 2006</EM>
-Francesco Lombardi has released a snapshot of his <a href='http://itaprogaming.free.fr'>Gameboy Advance Free Pascal port</a>,
-download it <a href='ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip'>here</a>.
-<p>
-<em>April 2006</em> The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site
+<p><em>19 July 2006</em> We are approaching new release (2.0.4) in our
+bug-fixing branch. Release candidate 2 cycle is running at the moment, final
+release is expected during August.</p>
 
 <h2>Current Version</h2>
 <p>
