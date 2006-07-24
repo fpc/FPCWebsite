@@ -28,7 +28,8 @@ and Turbo Pascal 7.0. This list is not complete.
       </li>
   <li>Ofs() returns a longint instead of a word</li>
   <li>The <TT>OVERLAY</TT> unit isn't available </li>
-  <li>Turbo Vision is not (yet) available (copyright problems)</li>
+  <li>Turbo Vision support is provided by Free Vision; a clone because the original
+	Turbo Vision is still not freely available (copyright not released by Borland)</li>
 </ul>
 
 <h3>Preprocessor/Syntax</h3>
