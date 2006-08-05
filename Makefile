@@ -131,7 +131,7 @@ DOWNLOADOLDCHK=$(addsuffix .chk,$(DOWNLOADOLD))
 all: $(HTML) download
 # $(DOWNLOADCHK) $(DOWNLOADOLDCHK)
 
-download:
+download: templatemirror.html $(DOMAKEMIRROR) $(DOFP2HTML)
 	$(MAKE) -C down all
 # headfoot
 
@@ -243,89 +243,3 @@ tmpl/bhead.tmpl: esplit.html
 
 tmpl/bfoot.tmpl: esplit.html
 	sed 1,/SPLITHERE/d <esplit.html >tmpl/bfoot.tmpl
-
-#
-# $Log: Makefile,v $
-# Revision 1.51  2005/05/16 13:41:54  peter
-#   * new mirroring selection for download pages
-#
-# Revision 1.50  2005/05/16 11:32:20  peter
-#   * main menu updates and some headers fixed
-#
-# Revision 1.49  2005/05/15 23:06:18  peter
-#   * first bunch of 2.0.0 updates
-#
-# Revision 1.48  2005/05/08 13:09:23  peter
-# remove inform
-#
-# Revision 1.47  2005/03/18 16:11:39  florian
-#   + down2-linux-arm
-#
-# Revision 1.46  2005/01/02 09:42:46  fpc
-# + Added missing down2 targets
-#
-# Revision 1.45  2004/09/19 10:07:17  florian
-#   + down2-go32-i386 added to makefile
-#
-# Revision 1.44  2004/06/08 08:15:45  florian
-#   * changing mirrors.snapshot forces develop.html rebuild
-#
-# Revision 1.43  2004/05/31 13:27:47  peter
-#   * 1.9.4
-#
-# Revision 1.42  2004/04/15 17:49:22  jonas
-#   - removed strike page again
-#
-# Revision 1.40  2004/01/11 17:42:22  florian
-#   * updated for 1.9.2
-#
-# Revision 1.39  2003/11/05 21:45:10  florian
-# no message
-#
-# Revision 1.38  2003/10/23 19:58:29  marco
-#  * and makefile
-#
-# Revision 1.37  2003/09/01 21:56:42  jonas
-#   * restored Makefile
-#
-# Revision 1.33  2003/07/10 22:07:03  michael
-# + Version 1.0.10
-#
-# Revision 1.32  2002/09/30 17:39:04  carl
-#   + credits page added
-#
-# Revision 1.31  2002/09/18 18:00:53  michael
-# + Added all packages
-#
-# Revision 1.30  2002/09/16 19:59:38  michael
-# + Added more extra packages
-#
-# Revision 1.29  2002/09/16 05:49:57  michael
-# + Added bfd cdrom cmem
-#
-# Revision 1.28  2002/09/11 20:31:29  michael
-#   + Split in base and extra. All base packages added.
-#
-# Revision 1.27  2002/07/03 19:36:28  daniel
-# + Added advantage page
-#
-# Revision 1.26  2002/04/30 20:23:29  michael
-# + Added down-win32
-#
-# Revision 1.25  2002/04/30 09:29:31  peter
-#   * make release version bold
-#   * add down-*.fp to Makefile
-#
-# Revision 1.24  2001/12/17 12:56:45  jonas
-#   * removed makeidx processing of faq.fp
-#
-# Revision 1.23  2001/09/21 02:28:55  carl
-# - removed old files
-# * works on Win32 now (partially only though)
-#
-# Revision 1.22  2001/05/26 22:32:45  florian
-#   * typo fixed
-#
-# Revision 1.21  2001/05/26 22:32:16  florian
-#   + css and png files are added to the zip/tarball as well
-#
