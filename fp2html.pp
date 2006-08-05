@@ -1,10 +1,30 @@
+{ Copyright (C) Freepascal developers team
+
+  This source is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License as published by the Free
+  Software Foundation; either version 2 of the License, or (at your option)
+  any later version.
+
+  This code is distributed in the hope that it will be useful, but WITHOUT ANY
+  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  details.
+
+  A copy of the GNU General Public License is available on the World Wide Web
+  at <http://www.gnu.org/copyleft/gpl.html>. You can also obtain it by writing
+  to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
+  MA 02111-1307, USA.
+}
+
 program fp2html;
-uses Dos;
+
+uses
+  SysUtils;
 
 const
 {Files}
-  InputExt='fp';
-  OutputExt='html';
+  InputExt='.fp';
+  OutputExt='.html';
 
 var
 {General}
@@ -20,64 +40,13 @@ const
 {****************************************************************************
                                  Routines
 ****************************************************************************}
-
-{$ifndef FPC}
-  procedure readln(var t:text;var s:string);
-  var
-    c : char;
-    i : longint;
-  begin
-    c:=#0;
-    i:=0;
-    while (not eof(t)) and (c<>#10) do
-     begin
-       read(t,c);
-       if c<>#10 then
-        begin
-          inc(i);
-          s[i]:=c;
-        end;
-     end;
-    if (i>0) and (s[i]=#13) then
-     dec(i);
-    s[0]:=chr(i);
-  end;
-{$endif}
-
-const
-  PathCh=DirectorySeparator;
-
-Function SplitPath(Const HStr:String):String;
-var
-  i : byte;
-begin
-  i:=Length(Hstr);
-  while (i>0) and (Hstr[i]<>PathCh) do
-   dec(i);
-  SplitPath:=Copy(Hstr,1,i);
-end;
-
-
-{$IFDEF never_defined}
-Function SplitFileName(Const HStr:String):String;
-var
-  i : byte;
-begin
-  i:=Length(Hstr);
-  while (i>0) and (Hstr[i]<>PathCh) do
-   dec(i);
-  SplitFileName:=Copy(Hstr,i+1,255);
-end;
-{$ENDIF}
-
-
 Function SplitName(Const HStr:String):String;
 var
   i,j : byte;
 begin
   i:=Length(Hstr);
   j:=i;
-  while (i>0) and (Hstr[i]<>PathCh) do
+  while (i>0) and (Hstr[i]<>DirectorySeparator) do
    dec(i);
   while (j>0) and (Hstr[j]<>'.') do
    dec(j);
@@ -85,81 +54,6 @@ begin
    j:=255;
   SplitName:=Copy(Hstr,i+1,j-(i+1));
 end;
-
-
-
-Function SplitExtension(Const HStr:String):String;
-var
-  j : byte;
-begin
-  j:=length(Hstr);
-  while (j>0) and (Hstr[j]<>'.') and (Hstr[J]<>DirectorySeparator) do
-   dec(j);
-  if (j=0) or (Hstr[J]<>'.') then
-   j:=254;
-  SplitExtension:=Copy(Hstr,j+1,255);
-end;
-
-
-
-Function AddExtension(Const HStr,ext:String):String;
-begin
-  if (Ext<>'') and (SplitExtension(HStr)='') then
-   AddExtension:=Hstr+'.'+Ext
-  else
-   AddExtension:=Hstr;
-end;
-
-
-
-Function ForceExtension(Const HStr,ext:String):String;
-var
-  j : byte;
-begin
-  j:=length(Hstr);
-  while (j>0) and (Hstr[j]<>'.') do
-   dec(j);
-  if j=0 then
-   j:=Length(Hstr)+1;
-  ForceExtension:=Copy(Hstr,1,j-1)+'.'+Ext;
-end;
-
-
-Function CBSpace(const Hstr:string):string;
-var
-  i : byte;
-begin
-  i:=1;
-  while (i<length(Hstr)) and (Hstr[i] in [' ',#9]) do
-   inc(i);
-  CBSpace:=Copy(Hstr,i,255);
-end;
-
-
-function UCase(Const Hstr:string):string;
-var
-  i : byte;
-begin
-  for i:=1to Length(Hstr) do
-   UCase[i]:=Upcase(Hstr[i]);
-  UCase[0]:=chr(Length(Hstr));
-end;
-
-
-function LCase(Const Hstr:string):string;
-var
-  i : byte;
-begin
-  for i:=1to Length(Hstr) do
-   begin
-     if Hstr[i] in ['A'..'Z'] then
-      LCase[i]:=chr(ord(Hstr[i])+32)
-     else
-      LCase[i]:=Hstr[i];
-   end;
-  LCase[0]:=chr(Length(Hstr));
-end;
-
 
 Function ESpace(HStr:String;len:byte):String;
 begin
@@ -174,15 +68,15 @@ end;
 {****************************************************************************
                                  Main Stuff
 ****************************************************************************}
-
 var
   Done  : array[0..1023] of string[32];
   Total : word;
+
 Function FileDone(fn:string):boolean;
 var
   i : word;
 begin
-  fn:=UCase(fn);
+  fn:=UpCase(fn);
   i:=0;
   while (i<Total) and (Done[i]<>fn) do
    inc(i);
@@ -196,8 +90,12 @@ begin
    end;
 end;
 
-
-procedure Convert(fn,nfn:string);
+procedure Convert(fn:string);
+type
+  TVarList = record
+               name: string;
+               value: string;
+             end;
 var
   f,g,t       : text;
   s           : string;
@@ -210,6 +108,8 @@ var
   maindir,
   header,
   title       : string[80];
+  varlist     : array of TVarList;
+  nfn         : string;
 
   procedure WriteHtml(s:string);
   var
@@ -217,7 +117,7 @@ var
     Quoted : boolean;
     S2	   : String;
   begin
-    s:=CBSpace(s);
+    s:=Trim(s);
     Quoted:=false;
     SetLength(S2,0);
     If Length(s)>0 then
@@ -300,9 +200,37 @@ var
     until false;
   end;
 
+  procedure AddVariable(str: string);
+  var
+    index: integer;
+  begin
+    //create an entry
+    if Length(varlist) = 0 then
+      SetLength(varlist,1)
+    else
+      SetLength(varlist, Succ(Length(varlist)));
+      
+    //get variable name
+    index := 1;
+    while str[index] <> ' ' do
+      inc(index);
+    varlist[high(varlist)].name := '$' + copy(str, 2, index - 2);
+    
+    //get variable value
+    varlist[high(varlist)].value := copy(str, index + 1, Length(str) - index);
+  end;
+
+  procedure ReplaceVarList;
+  var
+    i: integer;
+  begin
+    for i := 0 to High(varlist) do
+      Replace(varlist[i].name, varlist[i].value);
+  end;
+  
 begin
-  fn:=LCase(fn);
-  nfn:=LCase(nfn);
+  fn:=LowerCase(fn);
+
 { Reset }
   Title:='';
   Maindir:='';
@@ -312,10 +240,10 @@ begin
   Adds:=false;
   Counter:=False;
 {Create New FileName}
-  if SplitExtension(nfn)='*' then
-   nfn:=AddExtension(SplitPath(nfn)+SplitName(nfn),SplitExtension(fn));
-  if SplitName(nfn)='*' then
-   nfn:=AddExtension(SplitPath(nfn)+SplitName(fn),SplitExtension(nfn));
+  if OutFile = '' then
+    nfn := ChangeFileExt(fn, OutputExt)
+  else
+    nfn := ChangeFileExt(fn, ExtractFileExt(OutFile));
 {Done?}
   if FileDone(nfn) then
    exit;
@@ -323,7 +251,7 @@ begin
   if Verbose then
    Write('Converting '+ESpace(fn,15));
   if fn=nfn then
-   assign(g,ForceExtension(fn,'$T$'))
+   assign(g,ChangeFileExt(fn,'$T$'))
   else
    begin
      if Verbose then
@@ -349,7 +277,7 @@ begin
   readln(f,s);
   while not eof(f) and (s<>'-->') do
    begin
-     s:=CBSpace(s);
+     s:=Trim(s);
      if Copy(s,1,6)='#TITLE' then
       title:=Copy(s,8,80)
      else
@@ -378,7 +306,11 @@ begin
        Counter:=true
      else
       if Copy(s,1,7)='#MODIFY' then
-       Modify:=true;
+       Modify:=true
+     //check for free assignable variable
+     else
+       if s[1] = '#' then
+         AddVariable(s);
      readln(f,s);
    end;
   if eof(f) then
@@ -387,6 +319,10 @@ begin
      WriteLn('Wrong File!');
      exit;
    end;
+
+  //add system variables
+  AddVariable('#NOW ' + DateTimeToStr(Now));
+
 {Fix items}
   if PicDir='' then
    PicDir:=MainDir+'pic/';
@@ -416,11 +352,12 @@ begin
   while not eof(t) do
    begin
      readln(t,s);
-     s:=CBSpace(s);
+     s:=Trim(s);
    {Replace}
      Replace('$TITLE',title);
      Replace('$HEADER',header);
      Replace('"pic/','"'+picdir);
+     ReplaceVarList;
    {Fix Index}
       if s='<!-- TEXT -->' then
        begin
@@ -476,8 +413,6 @@ begin
    Writeln('OK');
 end;
 
-
-
 {****************************************************************************
                                 General Stuff
 ****************************************************************************}
@@ -509,7 +444,7 @@ begin
         ch:=upcase(para[2]);
         delete(para,1,2);
         case ch of
-         'O' : OutFile:=AddExtension(Para,OutputExt);
+         'O' : OutFile:=ChangeFileExt(Para,OutputExt);
          'M' : ModifyFile:=Para;
          'V' : verbose:=true;
          'T' : TemplateFile:=Para;
@@ -524,29 +459,30 @@ begin
    end;
   if (ParaFile=0) then
    HelpScreen;
-  if OutFile='' then
-   OutFile:=ForceExtension('*',OutPutExt);
 end;
 
-
 var
-  Dir : SearchRec;
   i   : word;
 begin
+  //prevent the following files to be overwritten
   FileDone('template.'+outputext);
   FileDone('adds.'+outputext);
   FileDone('counter.'+outputext);
+  
+  //get all the commandline parameters
   GetPara;
+  
   if ModifyFile<>'' then
-   FileDone(ForceExtension(ModifyFile,outputext));
+   FileDone(ChangeFileExt(ModifyFile,outputext));
+
   for i:=ParaFile to ParamCount do
    begin
-     InFile:=LCase(AddExtension(ParamStr(i),InputExt));
-     FindFirst(InFile,$20,Dir);
-     while (DosError=0) do
-      begin
-        Convert(SplitPath(InFile)+Dir.Name,SplitPath(InFile)+OutFile);
-        FindNext(Dir);
-      end;
+     writeln(i);
+     InFile:=LowerCase(ChangeFileExt(ParamStr(i),InputExt));
+
+     if FileExists(InFile) then
+       Convert(InFile)
+     else
+       writeln('Error: File ', InFile,' does not exist!');
    end;
 end.
