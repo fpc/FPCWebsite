@@ -4,11 +4,11 @@
 #
 # Top-level html directory with tools.
 #
-ifdef inlinux
+#ifdef inlinux
 TOPDIR=../../
-else
-TOPDIR=..\\..\\
-endif
+#else
+#TOPDIR=..\\..\\
+#endif
 
 #
 # Tools
