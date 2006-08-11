@@ -18,7 +18,8 @@
 
 
 <h2>Latest News</h2>
-<p><em>19 July 2006</em> We are approaching new release (2.0.4) in our
+<p><em>August 10, 2006</em> The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).</p> 
+<p><em>July 19, 2006</em> We are approaching new release (2.0.4) in our
 bug-fixing branch. Release candidate 2 cycle is running at the moment, final
 release is expected during August.</p>
 
