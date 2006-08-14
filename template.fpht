@@ -16,10 +16,10 @@
   <a href="index.html">Home</a>
   <a href="news.html">News</a>
   <a href="download.html">Download</a>
-  <a href="wiki/">Wiki</a>
+  <a href="http://www.freepascal.org/wiki/">Wiki</a>
   <a href="http://community.freepascal.org:10000">Community</a>
   <a href="docs.html">Documentation</a>
-  <a href="mantis/set_project.php?project_id=6">Bug tracker</a>
+  <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6">Bug tracker</a>
  </div>
  <img src="pic/logo.gif" alt="FPC Logo" width="133" height="63" />
  <div class="spacer"></div>
@@ -34,10 +34,10 @@
    <a href="index.html">Home</a>
    <a href="news.html">News</a>
    <a href="download.html">Download</a> 
-   <a href="wiki/">Wiki</a>
+   <a href="http://www.freepascal.org/wiki/">Wiki</a>
    <a href="http://community.freepascal.org:10000">Community</a> 
    <a href="docs.html">Documentation</a> 
-   <a href="mantis/set_project.php?project_id=6">Bug tracker</a> 
+   <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6">Bug tracker</a> 
   </div>
 			
   <h1>Coding</h1>
