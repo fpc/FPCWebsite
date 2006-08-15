@@ -18,75 +18,53 @@
 
 program fp2html;
 
+{$mode objfpc}
+
 uses
-  SysUtils;
+  SysUtils, getopts;
 
 const
-{Files}
-  InputExt='.fp';
-  OutputExt='.html';
+  InputExt = '.fp';
 
 var
-{General}
-  TemplateFile,
-  ModifyFile,
-  InFile,
-  OutFile   : string[80];
-  ParaFile  : word;
-{Specific}
-const
-  Verbose   : boolean=false;
+  TemplateFile: string;
+  ModifyFile: string;
+  InFile : array of string;
+  OutputExt   : string;
+  Verbose   : boolean;
+  OutputDir: string;
+  Recursive: boolean;
 
 {****************************************************************************
                                  Routines
 ****************************************************************************}
-Function SplitName(Const HStr:String):String;
-var
-  i,j : byte;
+procedure Show(const s:string);
 begin
-  i:=Length(Hstr);
-  j:=i;
-  while (i>0) and (Hstr[i]<>DirectorySeparator) do
-   dec(i);
-  while (j>0) and (Hstr[j]<>'.') do
-   dec(j);
-  if j<=i then
-   j:=255;
-  SplitName:=Copy(Hstr,i+1,j-(i+1));
-end;
-
-Function ESpace(HStr:String;len:byte):String;
-begin
-  while length(Hstr)<Len do
-   begin
-     inc(byte(Hstr[0]));
-     Hstr[Length(Hstr)]:=' ';
-   end;
-  ESpace:=Hstr;
+  if Verbose then
+    Write(s);
 end;
 
 {****************************************************************************
                                  Main Stuff
 ****************************************************************************}
 var
-  Done  : array[0..1023] of string[32];
-  Total : word;
+  Done:  array[0..1023] of string;
+  Total: word;
 
 Function FileDone(fn:string):boolean;
 var
-  i : word;
+  i: word;
 begin
-  fn:=UpCase(fn);
   i:=0;
   while (i<Total) and (Done[i]<>fn) do
    inc(i);
   if Done[i]=fn then
-   FileDone:=true
+   Result:=true
   else
    begin
      Done[Total]:=fn;
      inc(Total);
-     FileDone:=false;
+     Result:=false;
    end;
 end;
 
@@ -97,19 +75,21 @@ type
                value: string;
              end;
 var
-  f,g,t       : text;
-  s           : string;
-  i           : longint;
-{ Header Stuff }
-  modify,
-  adds,
-  counter     : boolean;
-  picdir,
-  maindir,
-  header,
-  title       : string[80];
-  varlist     : array of TVarList;
-  nfn         : string;
+  f: text;
+  g: text;
+  t: text;
+  s: string;
+  i: longint;
+  //header stuff
+  modify:  boolean;
+  adds:    boolean;
+  counter: boolean;
+  picdir:  string;
+  maindir: string;
+  header:  string;
+  title:   string;
+  varlist: array of TVarList;
+  nfn:     string;
 
   procedure WriteHtml(s:string);
   var
@@ -229,8 +209,6 @@ var
   end;
   
 begin
-  fn:=LowerCase(fn);
-
 { Reset }
   Title:='';
   Maindir:='';
@@ -240,22 +218,19 @@ begin
   Adds:=false;
   Counter:=False;
 {Create New FileName}
-  if OutFile = '' then
-    nfn := ChangeFileExt(fn, OutputExt)
-  else
-    nfn := ChangeFileExt(fn, ExtractFileExt(OutFile));
+  nfn := ChangeFileExt(fn, OutputExt);
+  if OutputDir <> '' then
+    nfn := OutputDir + ExtractFileName(nfn);
 {Done?}
   if FileDone(nfn) then
    exit;
 {Open Files}
-  if Verbose then
-   Write('Converting '+ESpace(fn,15));
+  Show('Converting '+fn);
   if fn=nfn then
    assign(g,ChangeFileExt(fn,'$T$'))
   else
    begin
-     if Verbose then
-      Write('-> '+ESpace(nfn,15));
+      Show(' -> '+nfn + #10);
      assign(g,nfn);
    end;
   assign(f,fn);
@@ -270,7 +245,7 @@ begin
    readln(f,s);
   if Copy(s,1,4)<>'<!--' then
    begin
-     WriteLn('Wrong File!');
+     WriteLn('Wrong input file ', fn, '!');
      Close(f);
      exit;
    end;
@@ -289,7 +264,7 @@ begin
          maindir:=Copy(s,10,30);
          if (maindir<>'') and (maindir[length(maindir)]<>'/') then
           maindir:=maindir+'/';
-         Writeln('Set main dir to ',Maindir);   
+         Show('Set main dir to ' + Maindir);
        end
      else
       if Copy(s,1,7)='#PICDIR' then
@@ -307,16 +282,17 @@ begin
      else
       if Copy(s,1,7)='#MODIFY' then
        Modify:=true
-     //check for free assignable variable
      else
+       //check for free assignable variable
        if s[1] = '#' then
          AddVariable(s);
+
      readln(f,s);
    end;
   if eof(f) then
    begin
      Close(f);
-     WriteLn('Wrong File!');
+     WriteLn('Wrong input file ', fn, '!');
      exit;
    end;
 
@@ -335,8 +311,9 @@ begin
   {$I+}
   if ioresult<>0 then
    begin
-     WriteLn('template file "',TemplateFile,'" not found!');
+     WriteLn('Error: template file "',TemplateFile,'" not found!');
      Close(f);
+     Halt(0);
    end;
 {Open output}
   {$I-}
@@ -364,6 +341,13 @@ begin
          while not eof(f) do
           begin
             readln(f,s);
+
+            //replace
+            Replace('$TITLE',title);
+            Replace('$HEADER',header);
+            Replace('"pic/','"'+picdir);
+            ReplaceVarList;
+
             WriteHtml(s);
           end;
          s:='';
@@ -403,14 +387,13 @@ begin
 {Close}
   close(g);
   close(f);
+  close(t);
+  
   if fn=nfn then
    begin
      erase(f);
      rename(g,fn);
    end;
-{ Write OK }
-  if Verbose then
-   Writeln('OK');
 end;
 
 {****************************************************************************
@@ -419,70 +402,121 @@ end;
 
 procedure getpara;
 var
-  ch   : char;
-  para : string[128];
-  i    : word;
+  ch: char;
+  i:  integer;
 
   procedure helpscreen;
   begin
-    writeln('Usage : '+SplitName(ParamStr(0))+' [Options] <InFile(s)>'#10);
-    writeln('<Options> can be : -O<OutFile>  Specify OutFile Mask');
-    writeln('                   -M<file>     Use <file> for modifying');
-    writeln('                   -T<file>     Use <file> as template file');
-    writeln('                   -V           be more verbose');
-    writeln('             -? or -H           This HelpScreen');
+    writeln(ParamStr(0), ' [Options] <InFile(s)>');
+    writeln;
+    writeln('Options:');
+    writeln(' -O<extension> Specify OutputExt Mask');
+    writeln(' -M<file>      Use <file> for modifying');
+    writeln(' -T<file>      Use <file> as template file');
+    writeln(' -D<path>      Output directory');
+    writeln(' -r            Recursively process directories');
+    writeln(' -v            Be more verbose');
+    writeln(' -h            This help screen');
     halt(1);
   end;
 
-begin
-  TemplateFile:='template.fpht';
-  for i:=1 to paramcount do
-   begin
-     para:=paramstr(i);
-     if (para[1]='-') then
-      begin
-        ch:=upcase(para[2]);
-        delete(para,1,2);
-        case ch of
-         'O' : OutFile:=ChangeFileExt(Para,OutputExt);
-         'M' : ModifyFile:=Para;
-         'V' : verbose:=true;
-         'T' : TemplateFile:=Para;
-     '?','H' : helpscreen;
-        end;
-     end
+  procedure AddInFile(str: string);
+  begin
+    //create an entry
+    if Length(InFile) = 0 then
+      SetLength(InFile,1)
     else
-     begin
-       if ParaFile=0 then
-        ParaFile:=i;
-     end;
-   end;
-  if (ParaFile=0) then
-   HelpScreen;
+      SetLength(InFile, Succ(Length(InFile)));
+
+    InFile[High(InFile)] := str;
+  end;
+
+  procedure AddRecursiveFiles(SearchDir: string);
+  var
+    Info : TSearchRec;
+  begin
+    if FindFirst (SearchDir+'*',faAnyFile and faDirectory,Info)=0 then
+    begin
+      repeat
+        with Info do
+        begin
+          if ((Attr and faDirectory) = faDirectory) and (Name <> '.') and (Name <> '..')then
+            AddRecursiveFiles(IncludeTrailingPathDelimiter(Name));
+
+          if ExtractFileExt(Name) = InputExt then
+            AddInFile(SearchDir + Name);
+
+        end;
+      until FindNext(info)<>0;
+    end;
+    FindClose(Info);
+  end;
+  
+begin
+  //reset
+  TemplateFile:='template.fpht';
+  OutputExt := '.html';
+  Verbose := False;
+  OutputDir := '';
+  Recursive := False;
+  
+  //parse options
+  repeat
+    ch:=Getopt('O:M:T:D:rvh?');
+    Case ch of
+      'O' : if OptArg[1] <> '.' then
+              OutputExt := '.' + OptArg
+            else
+              OutputExt := OptArg;
+      'M' : ModifyFile:=OptArg;
+      'T' : TemplateFile:=OptArg;
+      'D' : OutputDir := IncludeTrailingPathDelimiter(OptArg);
+      'r' : Recursive := True;
+      'v' : Verbose:=true;
+      'h' : helpscreen;
+      '?' : helpscreen;
+
+      EndOfOptions : break;
+    end;
+  until false;
+
+  //add input files
+  for i:= OptInd to Paramcount do
+    AddInFile(ChangeFileExt(ParamStr(i),InputExt));
+    
+  //add recursively files
+  if Recursive then
+    AddRecursiveFiles('');
+    
+  //checks
+  if (OutputDir <> '') and not DirectoryExists(OutputDir) then
+  begin
+    writeln('Error: Output directory does not exist!');
+    halt(0);
+  end;
 end;
 
 var
-  i   : word;
+  i: word;
 begin
-  //prevent the following files to be overwritten
-  FileDone('template.'+outputext);
-  FileDone('adds.'+outputext);
-  FileDone('counter.'+outputext);
-  
   //get all the commandline parameters
   GetPara;
+
+  //prevent the following files to be overwritten
+  FileDone('template'+OutputExt);
+  FileDone('adds'+OutputExt);
+  FileDone('counter'+OutputExt);
   
   if ModifyFile<>'' then
-   FileDone(ChangeFileExt(ModifyFile,outputext));
+    FileDone(ChangeFileExt(ModifyFile,OutputExt));
 
-  for i:=ParaFile to ParamCount do
-   begin
-     writeln(i);
-     InFile:=LowerCase(ChangeFileExt(ParamStr(i),InputExt));
-
-     if FileExists(InFile) then
-       Convert(InFile)
-     else
-       writeln('Error: File ', InFile,' does not exist!');
-   end;
+  //process all infiles
+  for i:=0 to High(InFile) do
+    if FileExists(InFile[i]) then
+      Convert(InFile[i])
+    else
+      writeln('Error: File ', InFile[i],' does not exist!');
+      
+  { Write OK }
+  Show('OK'+ #10);
 end.
