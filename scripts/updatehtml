@@ -1,17 +1,18 @@
-#!/bin/csh
+#!/bin/sh
 #
 # Configuration.
 #
 
-setenv PATH '.:/bin:/usr/bin:/usr/local/bin'
-setenv CHECKOUTDIR /tmp/fpc
-setenv CVSROOT :pserver:peter@cvs.freepascal.org:/FPC/CVS
-setenv HTMLREFDIR /home/fpc/html-ref
-setenv FILELIST /tmp/arch.filelist
-setenv MAILFILE /tmp/arch.mail
-setenv MAILRECIPIENTSFILE /home/fpc/webmaintainers
+PATH='.:/bin:/usr/bin:/usr/local/bin'
+export PATH
+CHECKOUTDIR=/tmp/fpc
+SVNURL=http://svn.freepascal.org/svn/html
+# HTMLREFDIR=/home/fpc/html-ref
+FILELIST=/tmp/arch.filelist
+MAILFILE=/tmp/arch.mail
+MAILRECIPIENTSFILE=/home/fpc/webmaintainers
 
-setenv CVSOPT '-z9 -Q'
+#setenv CVSOPT '-z9 -Q'
 #setenv CVSOPT -z3
 
 # Create dir and go to the dir
@@ -19,64 +20,69 @@ setenv CVSOPT '-z9 -Q'
 cd $CHECKOUTDIR
 
 # remove files.
-[ -d html ] && [ -f html/Makefile ] && make distclean >& /dev/null
+# [ -d html ] && [ -f html/Makefile ] && make distclean >& /dev/null
+[ -d html ] && [ -f html/Makefile ] && make distclean
 [ -d html ] && [ -f update.html ] && cp update.html html
 
 # update files
 cd $CHECKOUTDIR
-cvs $CVSOPT checkout -P html
+svn checkout $SVNURL html
 cd html
-make clean >&/dev/null
-if ( $? != 0 ) then
+# make clean >&/dev/null
+make clean
+if [ $? != 0 ]; then
   echo html update failed.
   exit 1
-endif
+fi
 #echo Zipping html sourcecode.
-rm -f /home/extra/ftp/pub/fpc/snapshot/html.zip
-zip -q -o -r /home/extra/ftp/pub/fpc/snapshot/html.zip * -x 'bugs/*'
+rm -f ~/fpc/ftp/snapshot/html.zip
+zip -q -9 -o -r ~/ftp/snapshot/html.zip * -x '*bugs/*'
 
 #echo Starting make
 
-make makeidx all >& /dev/null
-if ( $? != 0 ) then
+# make makeidx all >& /dev/null
+make makeidx all
+if [ $? != 0 ]; then
   echo could not make html pages
   exit
 else
   #echo made pages.
-endif
-make tar >& /dev/null
-if ( $? != 0 ) then
+  echo made pages.
+fi
+# make tar >& /dev/null
+make tar
+if [ $? != 0 ]; then
   echo Could not make tar archive
   exit
-endif
+fi
 #echo Made tar.
 # Move to ftp site
-cp htmls.tar.gz /home/extra/ftp/pub/fpc/dist 
-if ( $? != 0 ) then
+cp htmls.tar.gz ~/ftp/dist 
+if [ $? != 0 ]; then
   echo Could not move to ftp site
   exit
-endif
+fi
 #echo moved to ftp site.
 
 
 #
 # Create our own pages with the modify.fp
 #
-cd $CHECKOUTDIR/html
-make clean >&/dev/null
-make tar MODIFY=$HOME/modify.fp >& /dev/null
-cd ~/public_html
-rm -rf *
-ln -sf ~/logs logs
-ln -sf ~/lists lists
-tar xfz $CHECKOUTDIR/html/htmls.tar.gz
-mv download.html /tmp/dl.html
-sed -e s+ftp.freepascal.org+deadlock.et.tudelft.nl+g -e s+mypath+pub/fpc/dist+g </tmp/dl.html >download.html
-rm /tmp/dl.html
-cp ~/upload.html ~/upload.php .
-cp ~/deadlock.gif pic/deadlock.gif
-cp ~/tudelft.gif pic/tudelft.gif
-ln -sf fpc.html index.html
+# cd $CHECKOUTDIR/html
+# make clean >&/dev/null
+# make tar MODIFY=$HOME/modify.fp >& /dev/null
+# cd ~/public_html
+# rm -rf *
+# ln -sf ~/logs logs
+# ln -sf ~/lists lists
+# tar xfz $CHECKOUTDIR/html/htmls.tar.gz
+# mv download.html /tmp/dl.html
+# sed -e s+ftp.freepascal.org+ftp.hu.freepascal.org+g -e s+mypath+pub/fpc/dist+g </tmp/dl.html >download.html
+# rm /tmp/dl.html
+# cp ~/upload.html ~/upload.php .
+# cp ~/deadlock.gif pic/deadlock.gif
+# cp ~/tudelft.gif pic/tudelft.gif
+# ln -sf fpc.html index.html
 
 # # Update mailinglists
 # !don't! - they're updated using updatelists called from crontab separately!
@@ -86,78 +92,79 @@ ln -sf fpc.html index.html
 # cd ..
 
 # Update online documentation
-rm -rf docs
-mkdir docs
-cd docs
-unzip -q /home/extra/ftp/pub/fpc/docs/docs-pdf.zip
-cd ..
-unzip -q /home/extra/ftp/pub/fpc/docs/doc-html.zip
-mv doc docs-html
-cp docs-html/fpctoc.html docs-html/fpchelp.html
-cp docs-html/fpctoc.html docs-html/index.html
-setenv DIFFERENT NO
-
-rm -f $FILELIST 
-cd $CHECKOUTDIR/html
-foreach f ( *.html )
-  diff $f ${HTMLREFDIR}/$f >&/dev/null
-  if ( $? != 0 ) then
-     setenv DIFFERENT YES
-     echo '            ' $f >> $FILELIST
-  endif
-end
+# rm -rf docs
+# mkdir docs
+# cd docs
+# unzip -q /home/extra/ftp/pub/fpc/docs/docs-pdf.zip
+# cd ..
+# unzip -q /home/extra/ftp/pub/fpc/docs/doc-html.zip
+# mv doc docs-html
+# cp docs-html/fpctoc.html docs-html/fpchelp.html
+# cp docs-html/fpctoc.html docs-html/index.html
+# setenv DIFFERENT NO
+# 
+# rm -f $FILELIST 
+# cd $CHECKOUTDIR/html
+# foreach f ( *.html )
+#   diff $f ${HTMLREFDIR}/$f >&/dev/null
+#   if ( $? != 0 ) then
+#      setenv DIFFERENT YES
+#      echo '            ' $f >> $FILELIST
+#   endif
+# end
 #echo did diff.
-
-if ( $DIFFERENT != NO ) then
-cat > $MAILFILE <<MAILHEADER
-Reply-To: fpc@deadlock.et.tudelft.nl
-Subject: Free Pascal Web site has changed.
-
-Hello,
-
-This is an automated message. The WWW pages of Free Pascal have been
-modified. This is a list of changed files:
-
-MAILHEADER
-cat $FILELIST >>$MAILFILE
-cat >>$MAILFILE <<MAILFOOTER
-
-You can get a new copy at
-  ftp://ftp.freepascal.org/pub/fpc/dist/htmls.tar.gz
-or you can check out the new pages at
-  http://www.freepascal.org/
-
-
-Michael.
-MAILFOOTER
+# 
+# if ( $DIFFERENT != NO ) then
+# cat > $MAILFILE <<MAILHEADER
+# Reply-To: fpc@deadlock.et.tudelft.nl
+# Subject: Free Pascal Web site has changed.
+# 
+# Hello,
+# 
+# This is an automated message. The WWW pages of Free Pascal have been
+# modified. This is a list of changed files:
+# 
+# MAILHEADER
+# cat $FILELIST >>$MAILFILE
+# cat >>$MAILFILE <<MAILFOOTER
+# 
+# You can get a new copy at
+#   ftp://ftp.freepascal.org/pub/fpc/dist/htmls.tar.gz
+# or you can check out the new pages at
+#   http://www.freepascal.org/
+# 
+# 
+# Michael.
+# MAILFOOTER
 # Go !
-/usr/sbin/sendmail `cat $MAILRECIPIENTSFILE` < $MAILFILE
-if ( $? != 0 ) then
-  echo Error when sending mail.
-else
-  #echo Sent mail
-endif
-endif
-
-rm -f $MAILFILE $FILELIST
-if ( $? != 0 ) then
-  echo Error when removing files.
-else
-  #echo removed files
-endif
+# /usr/sbin/sendmail `cat $MAILRECIPIENTSFILE` < $MAILFILE
+# if ( $? != 0 ) then
+#   echo Error when sending mail.
+# else
+#   #echo Sent mail
+# endif
+# endif
+# 
+# rm -f $MAILFILE $FILELIST
+# if ( $? != 0 ) then
+#   echo Error when removing files.
+# else
+#   #echo removed files
+#endif
 
 # Copy current to reference directory
-if ( ! -e $HTMLREFDIR ) then
-  mkdir $HTMLREFDIR 
-endif
-cp *.html $HTMLREFDIR 
-if ( $? != 0 ) then
-  echo Error when copying files.
-else
-  #echo copied to reference dir
-endif
-
+# if ( ! -e $HTMLREFDIR ) then
+#   mkdir $HTMLREFDIR 
+# endif
+# cp *.html $HTMLREFDIR 
+# if ( $? != 0 ) then
+#   echo Error when copying files.
+# else
+#   #echo copied to reference dir
+# endif
+# 
 # and remove files.
 cd $CHECKOUTDIR/html
-make distclean >&/dev/null
+# make distclean >&/dev/null
+make distclean
 
