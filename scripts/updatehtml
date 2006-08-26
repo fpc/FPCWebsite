@@ -7,10 +7,11 @@ PATH='.:/bin:/usr/bin:/usr/local/bin'
 export PATH
 CHECKOUTDIR=/tmp/fpc
 SVNURL=http://svn.freepascal.org/svn/html
-# HTMLREFDIR=/home/fpc/html-ref
+WWWDIR=/srv/fpc/www/htdocs/fpc/html
+HTMLREFDIR=~/html-ref
 FILELIST=/tmp/arch.filelist
 MAILFILE=/tmp/arch.mail
-MAILRECIPIENTSFILE=/home/fpc/webmaintainers
+MAILRECIPIENTSFILE=~/webmaintainers
 
 #setenv CVSOPT '-z9 -Q'
 #setenv CVSOPT -z3
@@ -26,7 +27,8 @@ cd $CHECKOUTDIR
 
 # update files
 cd $CHECKOUTDIR
-svn checkout $SVNURL html
+# svn checkout $SVNURL html
+svn export $SVNURL html
 cd html
 # make clean >&/dev/null
 make clean
@@ -68,14 +70,26 @@ fi
 #
 # Create our own pages with the modify.fp
 #
-# cd $CHECKOUTDIR/html
-# make clean >&/dev/null
+cd $CHECKOUTDIR/html
+make clean
 # make tar MODIFY=$HOME/modify.fp >& /dev/null
-# cd ~/public_html
+make tar MODIFY=$HOME/modify.fp
+cd $WWWDIR
+rm *
+rm -r contrib
+rm -r css
+rm -r down
+rm -r fcl
+rm -r gallery
+rm -r html_d
+rm -r packages
+rm -r pic
+rm -r rtl
+rm -r tools
 # rm -rf *
 # ln -sf ~/logs logs
 # ln -sf ~/lists lists
-# tar xfz $CHECKOUTDIR/html/htmls.tar.gz
+tar xfz $CHECKOUTDIR/html/htmls.tar.gz
 # mv download.html /tmp/dl.html
 # sed -e s+ftp.freepascal.org+ftp.hu.freepascal.org+g -e s+mypath+pub/fpc/dist+g </tmp/dl.html >download.html
 # rm /tmp/dl.html
@@ -101,68 +115,70 @@ fi
 # mv doc docs-html
 # cp docs-html/fpctoc.html docs-html/fpchelp.html
 # cp docs-html/fpctoc.html docs-html/index.html
-# setenv DIFFERENT NO
-# 
-# rm -f $FILELIST 
-# cd $CHECKOUTDIR/html
-# foreach f ( *.html )
-#   diff $f ${HTMLREFDIR}/$f >&/dev/null
-#   if ( $? != 0 ) then
-#      setenv DIFFERENT YES
-#      echo '            ' $f >> $FILELIST
-#   endif
-# end
-#echo did diff.
-# 
-# if ( $DIFFERENT != NO ) then
-# cat > $MAILFILE <<MAILHEADER
-# Reply-To: fpc@deadlock.et.tudelft.nl
-# Subject: Free Pascal Web site has changed.
-# 
-# Hello,
-# 
-# This is an automated message. The WWW pages of Free Pascal have been
-# modified. This is a list of changed files:
-# 
-# MAILHEADER
-# cat $FILELIST >>$MAILFILE
-# cat >>$MAILFILE <<MAILFOOTER
-# 
-# You can get a new copy at
-#   ftp://ftp.freepascal.org/pub/fpc/dist/htmls.tar.gz
-# or you can check out the new pages at
-#   http://www.freepascal.org/
-# 
-# 
-# Michael.
-# MAILFOOTER
-# Go !
-# /usr/sbin/sendmail `cat $MAILRECIPIENTSFILE` < $MAILFILE
-# if ( $? != 0 ) then
-#   echo Error when sending mail.
-# else
-#   #echo Sent mail
-# endif
-# endif
-# 
-# rm -f $MAILFILE $FILELIST
-# if ( $? != 0 ) then
-#   echo Error when removing files.
-# else
-#   #echo removed files
-#endif
 
-# Copy current to reference directory
-# if ( ! -e $HTMLREFDIR ) then
-#   mkdir $HTMLREFDIR 
-# endif
-# cp *.html $HTMLREFDIR 
-# if ( $? != 0 ) then
-#   echo Error when copying files.
-# else
-#   #echo copied to reference dir
-# endif
-# 
+DIFFERENT=NO
+
+rm -f $FILELIST 
+cd $CHECKOUTDIR/html
+for f in *.html
+ do
+  diff $f ${HTMLREFDIR}/$f > /dev/null
+  if [ $? != 0 ]; then
+     DIFFERENT=YES
+     echo '            ' $f >> $FILELIST
+  fi
+ done
+echo did diff.
+ 
+if [ $DIFFERENT != NO ]; then
+cat > $MAILFILE <<MAILHEADER
+Reply-To: fpc@ftpmaster.freepascal.org
+Subject: Free Pascal Web site has changed.
+
+Hello,
+
+This is an automated message. The WWW pages of Free Pascal have been
+modified. This is a list of changed files:
+
+MAILHEADER
+cat $FILELIST >>$MAILFILE
+cat >>$MAILFILE <<MAILFOOTER
+
+You can get a new copy at
+  ftp://ftp.freepascal.org/pub/fpc/dist/htmls.tar.gz
+or you can check out the new pages at
+  http://www.freepascal.org/
+
+
+Michael.
+MAILFOOTER
+# Go !
+/usr/sbin/sendmail `cat $MAILRECIPIENTSFILE` < $MAILFILE
+if [ $? != 0 ]; then
+  echo Error when sending mail.
+else
+  echo Mail sent
+fi
+fi
+
+rm -f $MAILFILE $FILELIST
+if [ $? != 0 ]; then
+  echo Error when removing files.
+else
+  echo Files removed
+fi
+
+Copy current to reference directory
+if [ ! -e $HTMLREFDIR ]; then
+  mkdir $HTMLREFDIR 
+fi
+cp *.html $HTMLREFDIR 
+if [ $? != 0 ]; then
+  echo Error when copying files.
+else
+  echo Files copied to reference dir
+fi
+
 # and remove files.
 cd $CHECKOUTDIR/html
 # make distclean >&/dev/null
