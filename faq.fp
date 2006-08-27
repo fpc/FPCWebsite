@@ -185,7 +185,7 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
         <li><a name=versions></a>
             <h3>Which versions exist, and which one should I use?</h3>
 
-            <p>The latest official version is 2.0.2, released as a bug fix release for
+            <p>The latest official version is 2.0.4, released as a bug fix release for
             2.0.x series. New development is performed in 2.1.x series, which eventually
             gets released as either 2.2.0, or 3.0.0 (depending on amount of accumulated
             changes at the time of release).</p>
