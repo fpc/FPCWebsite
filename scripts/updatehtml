@@ -20,13 +20,15 @@ MAILRECIPIENTSFILE=~/webmaintainers
 [ ! -d $CHECKOUTDIR ] && mkdir $CHECKOUTDIR && chmod 700 $CHECKOUTDIR
 cd $CHECKOUTDIR
 
+rm -rf html > /dev/null 2>&1
+
 # remove files.
 # [ -d html ] && [ -f html/Makefile ] && make distclean >& /dev/null
-[ -d html ] && [ -f html/Makefile ] && make distclean
-[ -d html ] && [ -f update.html ] && cp update.html html
-
+# [ -d html ] && [ -f html/Makefile ] && make distclean
+# [ -d html ] && [ -f update.html ] && cp update.html html
+#
 # update files
-cd $CHECKOUTDIR
+#cd $CHECKOUTDIR
 # svn checkout $SVNURL html
 svn export $SVNURL html
 cd html
@@ -70,26 +72,28 @@ fi
 #
 # Create our own pages with the modify.fp
 #
-cd $CHECKOUTDIR/html
-make clean
+#cd $CHECKOUTDIR/html
+#make clean
 # make tar MODIFY=$HOME/modify.fp >& /dev/null
-make tar MODIFY=$HOME/modify.fp
+#make tar MODIFY=$HOME/modify.fp
 cd $WWWDIR
 rm *
-rm -r contrib
-rm -r css
-rm -r down
-rm -r fcl
-rm -r gallery
-rm -r html_d
-rm -r packages
-rm -r pic
-rm -r rtl
-rm -r tools
+rm -rf contrib/*
+rm -rf css/*
+rm -rf down/*
+rm -rf fcl/*
+rm -rf gallery/*
+rm -rf oldbugs/*
+rm -rf packages/*
+rm -rf pic/*
+rm -rf rtl/*
+rm -rf sf/*
+rm -rf tools/*
 # rm -rf *
-# ln -sf ~/logs logs
+ln -sf ~/logs logs
 # ln -sf ~/lists lists
 tar xfz $CHECKOUTDIR/html/htmls.tar.gz
+ln -s fpc.html index.html
 # mv download.html /tmp/dl.html
 # sed -e s+ftp.freepascal.org+ftp.hu.freepascal.org+g -e s+mypath+pub/fpc/dist+g </tmp/dl.html >download.html
 # rm /tmp/dl.html
