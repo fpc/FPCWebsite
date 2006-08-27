@@ -12,17 +12,18 @@ The complete sources can be downloaded in the following formats:
 <p>
 <DL>
   <DT>Zip file:</DT>
-  <DD><a href="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.tar.gz">fpc-2.0.2.source.tar.gz</a></DD>
+  <DD><a href="$MIRRORURL/dist/source-2.0.4/fpcbuild-2.0.4.zip">fpcbuild-2.0.4.zip</a> (31 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="$MIRRORURL/dist/source-2.0.2/fpc-2.0.2.source.zip">fpc-2.0.2.source.zip</a></DD>
+  <DD><a href="$MIRRORURL/dist/source-2.0.4/fpcbuild-2.0.4.tar.gz">fpcbuild-2.0.4.tar.gz</a> (27 MB)</DD>
 </DL>
-The archive files contain the sources of
+The archive files contain the full sources of:
 <ul>
-<li>The compiler.
-<li>The Run-Time Library (RTL).
-<li>The Packages.
-<li>Free Vision.
-<li>The Free Component Library (FCL).
+<li>compiler
+<li>run-time library (RTL)
+<li>packages
+<li>Free Vision
+<li>Free Component Library (FCL)
+<li>documentation
 </ul>
 <p>
 <hr>

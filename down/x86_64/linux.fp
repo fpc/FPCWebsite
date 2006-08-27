@@ -12,17 +12,19 @@
 *****************************************************************************
 -->
 
-The latest beta version is <b>2.0.2</b>. It is available in different formats:
+The latest version is <b>2.0.4</b>. It is available in different formats:
 <ul>
   <li> <a href="#linuxbig">Everything in 1 big package</a>
+<!--
   <li> <a href="#linuxrpm">RedHat Packages (.rpm)</a>
   <li> <a href="#linuxdeb">Debian Packages (.deb)</a>
+-->
 </ul>
 
 <h3><a name="linuxbig">Download in 1 big file:</a></h3>
 <ul>
 <li> <a
-href="$MIRRORURL/dist/x86_64-linux-2.0.2/fpc-2.0.2.x86_64-linux.tar">fpc-2.0.2.x86_64-linux.tar</a> (20.6 MB)
+href="$MIRRORURL/dist/x86_64-linux-2.0.4/fpc-2.0.4.x86_64-linux.tar">fpc-2.0.4.x86_64-linux.tar</a> (23 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
