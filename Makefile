@@ -10,9 +10,9 @@
 #   set read only
 # - subdirs may cause make errors due to missing default rule
 
-#ifndef PP
-# PP=fpc
-#endif
+ifndef PP
+ PP=fpc
+endif
 
 ifdef UNITDIR
 override OPT:=$(OPT) -Fu$(UNITDIR)
