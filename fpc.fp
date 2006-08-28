@@ -18,14 +18,18 @@
 
 
 <h2>Latest News</h2>
+<p><em>August 28, 2006</em> Long awaited release 2.0.4 is finally out (go
+<a href="download.html">here</a> to select the nearest mirror), bringing
+you lots of fixes and some enhancements (remember this is primarily a bug-fix
+release for 2.0.x series, whereas new development is happening in 2.1.x branch)
+over the previous released version 2.0.2 (or even 2.0.0, because builds for
+more platforms than in version 2.0.2 are available this time).</p>
+
 <p><em>August 10, 2006</em> The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).</p> 
-<p><em>July 19, 2006</em> We are approaching new release (2.0.4) in our
-bug-fixing branch. Release candidate 2 cycle is running at the moment, final
-release is expected during August.</p>
 
 <h2>Current Version</h2>
 <p>
-  Version <em>2.0.2</EM> is the latest stable version the Free Pascal.
+  Version <em>2.0.4</em> is the latest stable version the Free Pascal.
   Hit the <a href="download.html">download</a> link and select a mirror close
   to you to download your copy.
   The development releases have version numbers <EM>2.1.x</EM>.

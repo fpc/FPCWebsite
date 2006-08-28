@@ -11,6 +11,15 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>August 28, 2006
+ <ul><li>Long awaited release 2.0.4 is finally out (go
+<a href="download.html">here</a> to select the nearest mirror), bringing
+you lots of fixes and some enhancements (remember this is primarily a bug-fix
+release for 2.0.x series, whereas new development is happening in 2.1.x branch)
+over the previous released version 2.0.2 (or even 2.0.0, because builds for
+more platforms than in version 2.0.2 are available this time).
+ </li></ul>
+</li>
 <li>August 10, 2006
  <ul><li>The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).</li></ul>
 </li>
