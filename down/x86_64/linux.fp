@@ -21,7 +21,7 @@ The latest version is <b>2.0.4</b>. It is available in different formats:
 -->
 </ul>
 
-<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
 href="$MIRRORURL/dist/x86_64-linux-2.0.4/fpc-2.0.4.x86_64-linux.tar">fpc-2.0.4.x86_64-linux.tar</a> (23 MB)
@@ -31,7 +31,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
 
 <!--
-<h3><a name="linuxrpm">RPM (Redhat Package Manager) Packages:</a></h3>
+<h3><a name="linuxrpm"></a>RPM (Redhat Package Manager) Packages:</h3>
 <ul>
 <li> <b>Binary Packages</b> </li>
 <li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.x86_64.rpm">fpc-2.0.2-0.x86_64.rpm</a> (9.8 MB)
@@ -43,7 +43,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
      contains the sources.<br>
 </ul>
 
-<h3><a name="linuxdeb">Debian Packages:</a></h3>
+<h3><a name="linuxdeb"></a>Debian Packages:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.2/deb/">This directory</a> contains
      the unofficial debian .deb packages.<br>

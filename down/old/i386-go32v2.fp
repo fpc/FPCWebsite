@@ -14,12 +14,12 @@
 -->
 
 <hr>
-<h1><a name="DOS">GO32v2</a></h1>
+<h1><a name="DOS"></a>GO32v2</h1>
 <hr>
 
 This is version <b>1.0.10</b> (not supported any more).
 
-<h3> <a name="dosbig">Download as one file</a></h3>
+<h3> <a name="dosbig"></a>Download as one file</h3>
 <ul>
 <li>You can download the whole package as 1 big zipped file:
 <a href="$MIRRORURL/olddist/1.0.10/dos-1.0.10/dos1010full.zip">dos1010full.zip</a> (24.0 MB)
@@ -29,7 +29,7 @@ This is version <b>1.0.10</b> (not supported any more).
 <a href="$MIRRORURL/olddist/1.0.10/dos-1.0.10/dosw321010full.zip">dosw321010full.zip</a> (40.0 MB)
 </ul>
 
-<h3> <a name="dossep">Download as separate files</a></h3>
+<h3> <a name="dossep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
 <OL>
 <li> <b>Mandatory files:</b>

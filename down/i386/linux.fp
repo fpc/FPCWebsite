@@ -23,7 +23,7 @@ It is available in different formats:
 </ul>
 
 
-<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
 href="$MIRRORURL/dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB)
@@ -32,7 +32,7 @@ After untarring the archive into a temporary location, you can run the install s
 by issuing the command "<tt>sh install.sh</tt>".
 </ul>
 
-<h3><a name="linuxrpm">RPM (Redhat Package Manager) Packages:</a></h3>
+<h3><a name="linuxrpm"></a>RPM (Redhat Package Manager) Packages:</h3>
 <ul>
 <li> <b>Binary Packages</b> </li>
 <li> <a href="$MIRRORURL/dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB)
@@ -44,7 +44,7 @@ by issuing the command "<tt>sh install.sh</tt>".
      contains the sources.<br>
 </ul>
 
-<h3><a name="linuxdeb">Debian Packages:</a></h3>
+<h3><a name="linuxdeb"></a>Debian Packages:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/i386-linux-2.0.4/deb/">This directory</a> contains
      the unofficial debian .deb packages.<br>

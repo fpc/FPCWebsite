@@ -43,7 +43,7 @@ You can download one archive containing individual source packages: <a href="$MI
 <li><a href="$MIRRORURL/dist/docs-2.0.4/doc-txt.zip">plain text</a> (950 kB)</li>
 </ul>
 
-<h3> <a name="dossep">Download as separate files</a></h3>
+<h3> <a name="dossep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
 <OL>
 <li> <b>Mandatory files:</b>

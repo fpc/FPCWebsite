@@ -25,7 +25,7 @@ The FPC package for arm-linux is available in one easy to choose format:
   <li> <a href="#linuxbig">Everything in 1 big package</a>
 </ul>
 
-<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
 contains a standard tar archive, with an install script<br>

@@ -14,12 +14,12 @@
 
 The latest release version is <b>2.0.4</b>.
 
-<h3><a name="macosxdmg">Download in 1 big file:</a></h3>
+<h3><a name="macosxdmg"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/powerpc-macosx-2.0.4/fpc-2.0.4.powerpc-macosx.dmg">fpc-2.0.4.powerpc-macosx.dmg</a> (27 MB)
 contains an installation package<br>
 </ul>
-<h3><a name="XCodeIntegration">XCode Integration Toolkit:</a></h3>
+<h3><a name="XCodeIntegration"></a>XCode Integration Toolkit:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/powerpc-macosx-2.0.4/fpc-xcode-2.0.4.dmg">XCode Integration Toolkit</a> (150 kB)
 

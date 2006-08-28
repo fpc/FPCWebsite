@@ -14,7 +14,7 @@
 -->
 
 <hr>
-<h1><a name="BeOS">BeOS</a></h1>
+<h1><a name="BeOS"></a>BeOS</h1>
 <hr>
 This is version <b>1.0.10a</b> (not supported any more). This version
 differs with 1.0.10 in that a Delphi mode bug has been fixed, and a few patches

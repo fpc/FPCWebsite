@@ -19,7 +19,7 @@ The FPC package for is available in one easy to choose format:
   <li> <a href="#linuxbig">Everything in 1 big package</a>
 </ul>
 
-<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
 href="$MIRRORURL/dist/sparc-linux-2.0.0/fpc-2.0.0.sparc-linux.tar">fpc-2.0.0.sparc-linux.tar</a> (26.2 MB)

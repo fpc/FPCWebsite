@@ -14,7 +14,7 @@
 -->
 
 <hr>
-<h1><a name="OS2">OS/2 &amp; DOS (EMX)</a></h1>
+<h1><a name="OS2EMX"></a>OS/2 &amp; DOS (EMX)</h1>
 <hr>
 
 This is version <b>1.0.10</b> (not supported any more). Please, note
@@ -32,7 +32,7 @@ contains all archives and installation program<br>
 <a href="$MIRRORURL/olddist/1.0.10/os2-1.0.10/os21010.zip">os21010.zip</a> (17.2 MB)
 </ul>
 
-<h3> <a name="os2sep">Download as separate files</a></h3>
+<h3> <a name="os2emxsep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
 <OL>
 <li> <b>Mandatory files:</b>

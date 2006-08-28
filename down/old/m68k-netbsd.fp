@@ -14,14 +14,14 @@
 -->
 
 <hr>
-<h1><a name="NetBSD">NetBSD (Motorola 68k)</a></h1>
+<h1><a name="NetBSD"></a>NetBSD (Motorola 68k)</h1>
 <hr>
 
 This version is <b>1.0.10</b> (not supported any more).
 <p>
 See the README inside for more information about the status of this port.
 
-<h3> <a name="Netbsdbig">Download as one big (tarball) file</a></h3>
+<h3> <a name="Netbsdbig"></a>Download as one big (tarball) file</h3>
 <ul>
 <li><a href="$MIRRORURL/olddist/1.0.10/netbsd-1.0.10/m68k/fpc-1.0.10.m68k.tar">M68k NetBSD 1.0.10 tarball</a> (4.2 MB)
 </ul>

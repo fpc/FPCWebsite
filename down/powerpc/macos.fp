@@ -19,7 +19,7 @@ This package consist of compiler and run time library, including the macos unit 
 <p>
 Please download documentation and source code separatelly.
 
-<h3><a name="macossit">Download in 1 file:</a></h3>
+<h3><a name="macossit"></a>Download in 1 file:</h3>
 <ul>
 <li> <a href="$MIRRORURL/dist/powerpc-macos-2.0.2/fpc-2.0.2.powerpc-macos.sit">fpc-2.0.2.powerpc-macos.sit</a> (1.8 MB)
 contains an installation package<br>

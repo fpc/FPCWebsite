@@ -14,14 +14,14 @@
 -->
 
 <hr>
-<h1><a name="NetBSD">NetBSD (Intel x86)</a></h1>
+<h1><a name="NetBSD"></a>NetBSD (Intel x86)</h1>
 <hr>
 
 This version is <b>1.0.10</b> (not supported any more).
 <p>
 See the README inside for more information about the status of this port.
 
-<h3> <a name="Netbsdbig">Download as one big (tarball) file</a></h3>
+<h3> <a name="Netbsdbig"></a>Download as one big (tarball) file</h3>
 <ul>
 <li><a href="$MIRRORURL/olddist/1.0.10/netbsd-1.0.10/fpc-1.0.10.ELF.tar">Intel NetBSD 1.0.10 tarball</a> (17.4 MB)
 <li><a href="$MIRRORURL/olddist/1.0.10/netbsd-1.0.10/ide-1.0.10-static-1.6.tar.gz">Intel NetBSD 1.0.10 IDE (statically linked) </a> (1.5 MB)

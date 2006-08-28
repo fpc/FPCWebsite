@@ -14,7 +14,7 @@
 -->
 
 <hr>
-<h1><a name="Linux">Linux for Motorola 68k</a></h1>
+<h1><a name="Linux"></a>Linux for Motorola 68k</h1>
 <hr>
 
 This version is <b>1.0.10</b> (not supported any more). It is available in two
@@ -25,7 +25,7 @@ different formats:
 </ul>
 
 
-<h3><a name="linuxbig">Download in 1 big file:</a></h3>
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <A
 HREF="$MIRRORURL/olddist/1.0.10/linux-1.0.10/m68k/fpc-1.0.10.m68k.tar">fpc-1.0.10.m68k.tar</a> (17 MB)
@@ -34,7 +34,7 @@ After untarring the archive, you can run the install script in the created
 directory by issuing the command "<TT>sh install.sh</TT>".
 </ul>
 
-<h3><a name="linuxsep">Download as separate files</a></h3>
+<h3><a name="linuxsep"></a>Download as separate files</h3>
 If you have trouble downloading the complete tar file,
 you can also download the contents of the tar file separately:<br>
 <OL>

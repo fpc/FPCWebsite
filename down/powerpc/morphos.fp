@@ -14,7 +14,7 @@
 
 The latest release version is <b>2.0.4</b>.
 
-<h3><a name="morphoslha">Download in 1 file:</a></h3>
+<h3><a name="morphoslha"></a>Download in 1 file:</h3>
 <ul>
 <li> Full installation package: <a href="$MIRRORURL/dist/powerpc-morphos-2.0.4/fpc-2.0.4.powerpc-morphos.lha">fpc-2.0.4.powerpc-morphos.lha</a> (14 MB),<br>
 or you can download smaller package without documentation:
