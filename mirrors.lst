@@ -1,13 +1,9 @@
-ftp.freepascal.org      ftp://ftp.freepascal.org/pub/fpc/
 Australia               http://fpc.planetmirror.com/pub/fpc/
 Austria 	            ftp://gd.tuwien.ac.at/languages/pascal/fpc/
 Germany 	            ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/
 Hungary 	            ftp://ftp.hu.freepascal.org/pub/fpc/
 Israel                  http://mirror.mirimar.net/freepascal/
-Italy                   http://cdn.mirror.garr.it/mirrors/freepascal/
-Japan                   ftp://ftpsv1.u-aizu.ac.jp/pub/lang/pascal/freepascal/
-Netherlands_1 	        ftp://ftp.nl.freepascal.org/pub/fpc/
-Netherlands_2	        ftp://freepascal.stack.nl/pub/fpc/
+Netherlands	        ftp://freepascal.stack.nl/pub/fpc/
 Norway		            ftp://ftp.no.freepascal.org/pub/fpc/
 Russia                  ftp://ftp.chg.ru/pub/lang/pascal/fpc/
-USA		                ftp://ftp.us.freepascal.org/pub/fpc/
+ftp.freepascal.org      ftp://ftp.freepascal.org/pub/fpc/
