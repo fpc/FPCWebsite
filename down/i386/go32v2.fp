@@ -19,7 +19,7 @@ isn't supposed to work in Windows NT/2000/XP.
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="$MIRRORURL/dist/i386-go32v2-2.0.4/dos204full.zip">dos204full.zip</a> (42 MB),<br>
+<a href="$MIRRORURL/dist/i386-go32v2-2.0.4/dos204-full.zip">dos204full.zip</a> (42 MB),<br>
 or you can download a file that contains the same, only without sources and documentation:
 <a href="$MIRRORURL/dist/i386-go32v2-2.0.4/dos204.zip">dos204.zip</a> (13 MB).
 <!-- <li>Alternatively, you can download individual packages from <a href="$MIRRORURL/dist/i386-go32v2-2.0.4/separate">here</a>. -->

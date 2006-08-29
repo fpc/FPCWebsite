@@ -18,7 +18,7 @@ The latest release version is <b>2.0.4</b>
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="$MIRRORURL/dist/i386-os2-2.0.4/os2204full.zip">os2204full.zip</a> (42 MB),<br>
+<a href="$MIRRORURL/dist/i386-os2-2.0.4/os2204-full.zip">os2204full.zip</a> (42 MB),<br>
 or you can download a file that contains the same, only without sources and documentation:
 <a href="$MIRRORURL/dist/i386-os2-2.0.4/os2204.zip">os2204.zip</a> (13 MB).
 </ul>
