@@ -15,7 +15,7 @@
   <li>read the <a href="news.html">news</a>.</li>
   <li>join one of the <a href="maillist.html">mailing lists</a>.</li>
   <li>have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>. 
-  The log of this channel is available <a href="http://www.hu.freepascal.org/cgi-bin/cgifpcbot?channel=fpc">
+  The log of this channel is available <a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">
   here</a>.</li>
   <li>search the <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>.</li>
   <li>or contact us via email:</li>
