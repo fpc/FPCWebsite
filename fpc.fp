@@ -23,7 +23,9 @@
 you lots of fixes and some enhancements (remember this is primarily a bug-fix
 release for 2.0.x series, whereas new development is happening in 2.1.x branch)
 over the previous released version 2.0.2 (or even 2.0.0, because builds for
-more platforms than in version 2.0.2 are available this time).</p>
+more platforms than in version 2.0.2 are available this time). List of changes
+can be found
+<a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_0_4/install/doc/whatsnew.txt">here</a>.</p>
 
 <p><em>August 10, 2006</em> The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).</p> 
 
