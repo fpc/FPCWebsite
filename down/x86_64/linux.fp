@@ -17,8 +17,8 @@ The latest version is <b>2.0.4</b>. It is available in different formats:
   <li> <a href="#linuxbig">Everything in 1 big package</a>
 <!--
   <li> <a href="#linuxrpm">RedHat Packages (.rpm)</a>
-  <li> <a href="#linuxdeb">Debian Packages (.deb)</a>
 -->
+  <li> <a href="#linuxdeb">Debian Packages (.deb)</a>
 </ul>
 
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
@@ -42,14 +42,14 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 <li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.src.rpm">fpc-2.0.2-0.src.rpm</a> (12.6 MB)
      contains the sources.<br>
 </ul>
+-->
 
 <h3><a name="linuxdeb"></a>Debian Packages:</h3>
 <ul>
-<li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.2/deb/">This directory</a> contains
-     the unofficial debian .deb packages.<br>
+<li> <a href="$MIRRORURL/dist/x86_64-linux-2.0.4/deb/">This directory</a> contains
+     the unofficial debian .deb packages (provided by Stefan Kisdaroczi).<br>
 </ul>
 
--->
 
 <hr>
 <p>
