@@ -93,9 +93,9 @@ var
 
   procedure WriteHtml(s:string);
   var
-    i 	   : Longint;
+    i      : Longint;
     Quoted : boolean;
-    S2	   : String;
+    S2     : String;
   begin
     s:=Trim(s);
     Quoted:=false;
@@ -105,7 +105,7 @@ var
       for i:= 1 TO Length(s) do
        begin
         If S[I]='"' THEN
-     	 Quoted:=NOT Quoted;
+         Quoted:=NOT Quoted;
         IF (S[I]='_') AND Not Quoted THEN
          S2:=S2+'&nbsp;'
         else
@@ -189,13 +189,13 @@ var
       SetLength(varlist,1)
     else
       SetLength(varlist, Succ(Length(varlist)));
-      
+
     //get variable name
     index := 1;
     while str[index] <> ' ' do
       inc(index);
     varlist[high(varlist)].name := '$' + copy(str, 2, index - 2);
-    
+
     //get variable value
     varlist[high(varlist)].value := copy(str, index + 1, Length(str) - index);
   end;
@@ -207,7 +207,7 @@ var
     for i := 0 to High(varlist) do
       Replace(varlist[i].name, varlist[i].value);
   end;
-  
+
 begin
 { Reset }
   Title:='';
@@ -377,7 +377,7 @@ begin
         begin
           { insert maindir }
           if (not (Copy(S,i+9,7)='http://')) and
-	     ((length(s) < i+9) or (s[i+9] <> '/')) and
+             ((length(s) < i+9) or (s[i+9] <> '/')) and
              (maindir<>'') then
             insert(maindir,s,i+9);
         end;
@@ -388,7 +388,7 @@ begin
   close(g);
   close(f);
   close(t);
-  
+
   if fn=nfn then
    begin
      erase(f);
@@ -451,7 +451,7 @@ var
     end;
     FindClose(Info);
   end;
-  
+
 begin
   //reset
   TemplateFile:='template.fpht';
@@ -459,7 +459,7 @@ begin
   Verbose := False;
   OutputDir := '';
   Recursive := False;
-  
+
   //parse options
   repeat
     ch:=Getopt('O:M:T:D:rvh?');
@@ -483,11 +483,11 @@ begin
   //add input files
   for i:= OptInd to Paramcount do
     AddInFile(ChangeFileExt(ParamStr(i),InputExt));
-    
+
   //add recursively files
   if Recursive then
     AddRecursiveFiles('');
-    
+
   //checks
   if (OutputDir <> '') and not DirectoryExists(OutputDir) then
   begin
@@ -506,7 +506,7 @@ begin
   FileDone('template'+OutputExt);
   FileDone('adds'+OutputExt);
   FileDone('counter'+OutputExt);
-  
+
   if ModifyFile<>'' then
     FileDone(ChangeFileExt(ModifyFile,OutputExt));
 
@@ -516,7 +516,7 @@ begin
       Convert(InFile[i])
     else
       writeln('Error: File ', InFile[i],' does not exist!');
-      
+
   { Write OK }
   Show('OK'+ #10);
 end.

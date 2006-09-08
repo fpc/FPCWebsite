@@ -20,14 +20,18 @@ Layout of the header of the .fp files:
 
 <HTML>
 <!--
-#TITLE  <set the title>
-#ENTRY  <the entry in the main menu, this is also used to 'expand' the
-        subentries, all the other subentries from the other main menu entries
-        are closed>
-#SUBENTRY <highlight this entry, default is #ENTRY>
-#MODIFY <include a 'modified at date' at the bottom>
-#ADDS   <put some adds at the bottom of the page, yuck!>
-#COUNTER <put the pagecounter at the bottom of the page>
+#TITLE      <set the title>
+#ENTRY      <the entry in the main menu, this is also used to 'expand' the
+             subentries, all the other subentries from the other main menu 
+             entries are closed>
+#SUBENTRY   <highlight this entry, default is #ENTRY>
+#MODIFY     <include a 'modified at date' at the bottom>
+#ADDS       <put some adds at the bottom of the page, yuck!>
+#COUNTER    <put the pagecounter at the bottom of the page>
+#NOW        <current date and time>
+#VARIABLE   <any variable that starts with # and is not predefined in the 
+             fp2html is considered to be a userdefined variable, use as much 
+             as desired>
 -->
 
 The .fp files can start with <HTML> and end with </HTML>, this is easy.
@@ -43,6 +47,18 @@ fp2html <file>
 
 wildcards are ofcourse allowed and work under dos and linux.
 
+
+Commandline options:
+--------------------
+fp2html takes several commandline options
+
+-O<extension>      Specify extension of the ouput file(s)
+-M<file>           Use <file> for modifying
+-T<file>           Use <file> as template file
+-D<path>           Output directory
+-r                 Recursively process directories in search of .fp files
+-v                 Show more verbosity
+-h                 help screen
 
 
 MakeIdx tool:
