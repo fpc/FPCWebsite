@@ -28,7 +28,7 @@ Contributed the following work to the project (now a sleeping member):
 <IMG SRC="pic/dm.jpg" ALT="picture of Daniel" HEIGHT=199 WIDTH=167>
 <p>
 Year of birth: 1977<br>
-Job: High Performance Computing specialist at ClusterVision B.V.
+Job: High Performance Computing specialist at ClusterVision B.V.<BR>
 Hobbies: Computers, electronic organ and electronics.<br>
 <p>
 Contributes the following work to the project:
