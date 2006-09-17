@@ -28,7 +28,7 @@ Contributed the following work to the project (now a sleeping member):
 <IMG SRC="pic/dm.jpg" ALT="picture of Daniel" HEIGHT=199 WIDTH=167>
 <p>
 Year of birth: 1977<br>
-Job: Studying Aplied Computer Science M.Sc. at "Technische Universiteit Delft" in Delft, the Netherlands.<br>
+Job: High Performance Computing specialist at ClusterVision B.V.
 Hobbies: Computers, electronic organ and electronics.<br>
 <p>
 Contributes the following work to the project:
@@ -39,7 +39,7 @@ Contributes the following work to the project:
   <li>compiler development</li>
   <li>i386 compiler development</li>
 </ul>
-<address>EMail: <a href="mailto:d.s.p.mantione&#x040;twi.tudelft.nl">d.s.p.mantione&#x040;twi.tudelft.nl</a></address>
+<address>EMail: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
 
 
 <hr>
