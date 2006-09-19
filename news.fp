@@ -11,6 +11,12 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>September 20, 2006
+<ul><li>In addition to the originally published builds
+for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made
+available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
+<a href="download.html">download page</a> to select your nearest mirror.</li></ul>
+</li>
 <li>August 28, 2006
  <ul><li>Long awaited release 2.0.4 is finally out (go
 <a href="download.html">here</a> to select the nearest mirror), bringing

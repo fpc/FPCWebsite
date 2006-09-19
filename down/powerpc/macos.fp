@@ -12,7 +12,7 @@
 *****************************************************************************
 -->
 
-The latest release version is <b>2.0.2</b>.
+The latest release version is <b>2.0.4</b>.
 
 <p>
 This package consist of compiler and run time library, including the macos unit (API to Mac OS).
@@ -21,7 +21,7 @@ Please download documentation and source code separatelly.
 
 <h3><a name="macossit"></a>Download in 1 file:</h3>
 <ul>
-<li> <a href="$MIRRORURL/dist/powerpc-macos-2.0.2/fpc-2.0.2.powerpc-macos.sit">fpc-2.0.2.powerpc-macos.sit</a> (1.8 MB)
+<li> <a href="$MIRRORURL/dist/powerpc-macos-2.0.4/fpc-2.0.4.powerpc-macos.sit">fpc-2.0.4.powerpc-macos.sit</a> (1.8 MB)
 contains an installation package<br>
 </ul>
 
