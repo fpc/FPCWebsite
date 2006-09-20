@@ -39,7 +39,7 @@ releases, contact us via the mailing lists.
   <li>powerpc
     <ul>
       <li><a href="down/powerpc/linux.html">Linux</a>
-      <li><a href="down/powerpc/macos.html">Mac OS</a> (2.0.0 only)
+      <li><a href="down/powerpc/macos.html">MacOS</a>
       <li><a href="down/powerpc/macosx.html">Mac OS X</a>
       <li><a href="down/powerpc/morphos.html">MorphOS</a>
     </ul>  
