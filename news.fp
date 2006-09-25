@@ -11,6 +11,10 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>September 25, 2006
+<ul><li>Francesco Lombardi is writing <a href='http://itaprogaming.free.fr/tutorial.html'> an
+extensive guide how to develop games on the Game Boy Advance</a> using Free Pascal.</li></ul>
+</li>
 <li>September 20, 2006
 <ul><li>In addition to the originally published builds
 for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made

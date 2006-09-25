@@ -18,11 +18,12 @@
 
 
 <h2>Latest News</h2>
+<p><em>September 25, 2006</em> Francesco Lombardi is writing <a href='http://itaprogaming.free.fr/tutorial.html'> an
+extensive guide how to develop games on the Game Boy Advance</a> using Free Pascal.</p>
 <p><em>September 20, 2006</em> In addition to the originally published builds
 for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made
 available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
 <a href="download.html">download page</a> to select your nearest mirror.</p>
-
 <p><em>August 28, 2006</em> Long awaited release 2.0.4 is finally out (go
 <a href="download.html">here</a> to select the nearest mirror), bringing
 you lots of fixes and some enhancements (remember this is primarily a bug-fix
@@ -31,8 +32,6 @@ over the previous released version 2.0.2 (or even 2.0.0, because builds for
 more platforms than in version 2.0.2 are available this time). List of changes
 can be found
 <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_0_4/install/doc/whatsnew.txt">here</a>.</p>
-
-<p><em>August 10, 2006</em> The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).</p> 
 
 <h2>Current Version</h2>
 <p>
