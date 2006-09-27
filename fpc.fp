@@ -18,6 +18,9 @@
 
 
 <h2>Latest News</h2>
+<p><em>September 27, 2006</em>Lazarus and FPC will be on the Systems 2006 in Munich in October in hall A3 booth 542.
+We will try to be there on all 5 days. You can find more information about the Systems 2006 
+<a href="http://www.systems-world.de/id/7672/">here</a>.
 <p><em>September 25, 2006</em> Francesco Lombardi is writing <a href='http://itaprogaming.free.fr/tutorial.html'> an
 extensive guide how to develop games on the Game Boy Advance</a> using Free Pascal.</p>
 <p><em>September 20, 2006</em> In addition to the originally published builds
