@@ -60,7 +60,6 @@
 					
   <h1>Tools</h1>
    <div class="submenu">
-    <a href="prog.html">Programmer's tools</a>				  
     <a href="tools/tools.html">Tools</a>
     <a href="tools/delp.html">Delp</a>
     <a href="tools/fpcmake.html">FPCMake</a>
