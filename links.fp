@@ -30,7 +30,7 @@
   (maintained by <a href="mailto:florian&#x040;freepascal.org">Florian Kl&auml;mpfl</a>)
 <li>
   <a href="http://mirror.mirimar.net/freepascal/">Israel (FTP only)</a>
-  (maintained by <a href="mailto:kanerido&#x040;actcom.net.il">Ido Kanner</a>)
+  (maintained by <a href="mailto:idokan&#x040;gmail.com">Ido Kanner</a>)
 <li>
   <a href="http://freepascal.stack.nl/">The Netherlands 2</a>
   (maintained by <a href="http://www.stack.nl">MCGV Stack</a>)
