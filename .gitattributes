@@ -287,6 +287,7 @@ pic/unitsrtl.gif -text svneol=unset#image/gif
 rtl/rtl.fp svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
+scripts/mailtestresults.sh -text
 scripts/makereleasezips svneol=native#text/plain
 scripts/makesnapshot svneol=native#text/plain
 scripts/makesnapshot20 svneol=native#text/plain
