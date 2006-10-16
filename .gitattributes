@@ -291,6 +291,7 @@ scripts/makereleasezips svneol=native#text/plain
 scripts/makesnapshot svneol=native#text/plain
 scripts/makesnapshot20 svneol=native#text/plain
 scripts/makesnapshot21 svneol=native#text/plain
+scripts/readcfg.sh -text
 scripts/updatearchive svneol=native#text/plain
 scripts/updatehtml svneol=native#text/plain
 scripts/updatelists svneol=native#text/plain
