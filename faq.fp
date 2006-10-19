@@ -617,9 +617,9 @@ calls, consult the Free Pascal manuals. Topics covered in this document : </p>
             generated. These errors have the form : </p>
 
             <PRE>
-            Runtime error 201 at 0x00010F86
-              0x00010F86  main,  line 7 of testr.pas
-              0x0000206D
+            Runtime error 201 at $00010F86
+              $00010F86  main,  line 7 of testr.pas
+              $0000206D
             </PRE>
 
             <p> The 201 in this case indicates the runtime error
