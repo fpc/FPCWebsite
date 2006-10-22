@@ -104,6 +104,9 @@ your chances to contact them ;-).
 <ul>
   <li><a href='http://www.pascalgamedevelopment.com'>Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
+  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a>
+  <li><a href='http://www.friends-of-fpc.org'>Friends-of-fpc: Lots of good articles</a>
+  <li><a href='http://www.freepascal.ru'>FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</a>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
   Win32 platforms, as well as general information on FPC. </li>
