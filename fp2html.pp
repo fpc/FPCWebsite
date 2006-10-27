@@ -218,7 +218,6 @@ var
       dec(extbeg);
     if s[extbeg]<>'.' then
       extbeg:=0;
-    writeln(extbeg);
     if extbeg<>0 then
       begin
         langbeg:=extbeg-1;
@@ -229,7 +228,6 @@ var
       end
     else
       langbeg:=0;
-    writeln(langbeg);
     if extbeg=0 then
       create_new_filename:=s+outputext
     else if langbeg=0 then
