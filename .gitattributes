@@ -2,6 +2,7 @@
 /Makefile svneol=native#text/plain
 /aboutus.fp svneol=native#text/plain
 /advantage.fp svneol=native#text/plain
+/advantage.fr.fp svneol=native#text/html
 /bugs.html svneol=native#text/plain
 contrib/Makefile svneol=native#text/plain
 contrib/README -text
@@ -97,6 +98,7 @@ fcl/fcl.fp svneol=native#text/plain
 /fixdoc.pp svneol=native#text/plain
 /fp2html.pp svneol=native#text/plain
 /fpc.fp svneol=native#text/plain
+/fpc.fr.fp svneol=native#text/html
 /fpc_noswpat.html svneol=native#text/plain
 /fpcmac.fp svneol=native#text/plain
 /future.fp svneol=native#text/plain

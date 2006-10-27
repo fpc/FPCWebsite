@@ -208,6 +208,36 @@ var
       Replace(varlist[i].name, varlist[i].value);
   end;
 
+  function create_new_filename(const s:string):string;
+
+  var extbeg,langbeg:byte;
+
+  begin
+    extbeg:=length(s);
+    while (extbeg>0) and not (s[extbeg] in ['/', '.', '\', ':']) do
+      dec(extbeg);
+    if s[extbeg]<>'.' then
+      extbeg:=0;
+    writeln(extbeg);
+    if extbeg<>0 then
+      begin
+        langbeg:=extbeg-1;
+        while (langbeg>0) and not (s[langbeg] in ['/', '.', '\', ':']) do
+          dec(langbeg);
+        if s[langbeg]<>'.' then
+          langbeg:=0;
+      end
+    else
+      langbeg:=0;
+    writeln(langbeg);
+    if extbeg=0 then
+      create_new_filename:=s+outputext
+    else if langbeg=0 then
+      create_new_filename:=copy(s,1,extbeg-1)+outputext
+    else
+      create_new_filename:=copy(s,1,langbeg-1)+outputext+copy(s,langbeg,extbeg-langbeg);
+  end;
+
 begin
 { Reset }
   Title:='';
@@ -218,7 +248,8 @@ begin
   Adds:=false;
   Counter:=False;
 {Create New FileName}
-  nfn := ChangeFileExt(fn, OutputExt);
+  nfn:=create_new_filename(fn);
+{  nfn := ChangeFileExt(fn, OutputExt);}
   if OutputDir <> '' then
     nfn := OutputDir + ExtractFileName(nfn);
 {Done?}
