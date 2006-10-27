@@ -16,8 +16,11 @@
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/chart.pdf">Reference chart with all compiler options and switches</a>.
 </ul>
 <p>
-A user-contributed (from Tiziano) class chart in PDF format is also 
-available <a href="http://www.freepascal.org/docs/ClassChart3.pdf">here</a>.
+The following user contributed documents are available:
+<ul>
+  <li>A <a href="http://www.freepascal.org/docs/ClassChart3.pdf">class chart in PDF format</a>. Thanks to Tiziano!
+  <li>A guide how to <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">make code written in C or C++ accessible in Pascal</a>. Thanks to Gilles Marcou!
+</ul>
 
 <h3>The following HTML documents are online available:</h3>
 <EM>Remark:</EM>you must have javascript and style sheets enabled in order
