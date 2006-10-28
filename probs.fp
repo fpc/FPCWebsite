@@ -31,6 +31,8 @@ is &gt; 80 characters.</h3>
 	 <li>Display interfaces (dispinterface) and the dispip index modifier</li>
 	 <li>Packages and sharemem, and related DLL functionality</li>
 	 <li>delegation with the <b>implements</b> keyword</li>
+	 <li>The register calling convention pushes the arguments in the wrong order on the stack
+		(the params left after the registers are filled)</li>
         </ul>
 
 <li><h3>The tool which is used to create the plain text documentation
