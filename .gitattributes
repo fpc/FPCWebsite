@@ -3,6 +3,7 @@
 /aboutus.fp svneol=native#text/plain
 /advantage.en.fp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html
+/advantage.var svneol=native#text/plain
 /bugs.html svneol=native#text/plain
 contrib/Makefile svneol=native#text/plain
 contrib/README -text
@@ -99,6 +100,7 @@ fcl/fcl.fp svneol=native#text/plain
 /fp2html.pp svneol=native#text/plain
 /fpc.en.fp svneol=native#text/plain
 /fpc.fr.fp svneol=native#text/html
+/fpc.var svneol=native#text/plain
 /fpc_noswpat.html svneol=native#text/plain
 /fpcmac.fp svneol=native#text/plain
 /future.fp svneol=native#text/plain
