@@ -42,7 +42,7 @@
 			
   <h1>Coding</h1>
    <div class="submenu">
-    <a href="advantage.html">Advantages</a>				  
+    <a href="advantage.var">Advantages</a>				  
     <a href="develop.html">Development</a>				  
     <a href="future.html">Future Plans</a>
     <a href="fpcmac.html">FPC on the Mac</a>
