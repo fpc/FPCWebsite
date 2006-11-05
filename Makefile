@@ -148,7 +148,7 @@ distclean: clean
 
 # archives (unix only)
 tar: all
-	tar -czf htmls.tar.gz `find -name '*.html' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` $(OTHERFILES)
+	tar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` $(OTHERFILES)
 
 zip: all
 	zip htmls.zip `find -name '*.html' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` $(OTHERFILES)
