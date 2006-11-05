@@ -128,7 +128,7 @@ DOWNLOADOLDCHK=$(addsuffix .chk,$(DOWNLOADOLD))
 
 .PHONY: tolily all clean distclean tar zip download
 
-all: $(HTML) download
+all: $(HTML) download index.html.var
 # $(DOWNLOADCHK) $(DOWNLOADOLDCHK)
 
 download: templatemirror.html $(DOMAKEMIRROR) $(DOFP2HTML)
@@ -213,6 +213,8 @@ endif
 develop.html: develop.fp template.fpht $(DOMAKEIDX) $(DOFP2HTML)
 	$(MAKEIDX) develop.fp
 	$(FP2HTML) $(FP2HTMLOPT) develop.fp
+index.html.var: fpc.var
+	ln -sf fpc.var index.html.var
 
 #
 # substitution pass for header/footer templates
