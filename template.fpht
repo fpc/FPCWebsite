@@ -13,7 +13,7 @@
 <body>
 <div id="header">
  <div id="menu">
-  <a href="/">Home</a>
+  <a href="./">Home</a>
   <a href="news.html">News</a>
   <a href="download.html">Download</a>
   <a href="http://www.freepascal.org/wiki/">Wiki</a>
