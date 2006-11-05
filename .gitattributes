@@ -1,6 +1,7 @@
 * text=auto !eol
 /Makefile svneol=native#text/plain
 /aboutus.fp svneol=native#text/plain
+/adp2html.pp svneol=native#text/plain
 /advantage.en.fp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html
 /advantage.var svneol=native#text/plain
