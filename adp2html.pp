@@ -7,15 +7,22 @@ type  Pproperty=^Tproperty;
         left,right:Pproperty;
         name,value:widestring;
       end;
+      Pmessage=^Tmessage;
+      Tmessage=record
+        left,right:Pmessage;
+        locale,key,value:widestring;
+      end;
 
 const whitespace=[' ',#13,#10,#8];
 
 var master_template:ansistring;
     slave_html:widestring;
-    inputfile,outputfile:widestring;
-    locale:string;
+    inputfile,outputfile,catalogfile:widestring;
+    locale,fallback_locale:string;
+    mode:(process_catalog,process_page);
 
     properties:Pproperty=nil;
+    messages:Pmessage=nil;
 
 procedure property_set(const name,value:widestring;var tree:Pproperty);
 
@@ -55,11 +62,64 @@ begin
     property_get:=property_get(name,tree^.right);
 end;
 
-
 function property_get(const name:widestring):widestring;
 
 begin
   property_get:=property_get(name,properties);
+end;
+
+procedure message_set(const locale,key,value:widestring;var tree:Pmessage);
+
+begin
+  if tree=nil then
+    begin
+      new(tree);
+      tree^.left:=nil;
+      tree^.right:=nil;
+      tree^.locale:=locale;
+      tree^.key:=key;
+      tree^.value:=value;
+    end
+  else if tree^.key>key then
+    message_set(locale,key,value,tree^.left)
+  else if tree^.key<key then
+    message_set(locale,key,value,tree^.right)
+  else if tree^.locale>locale then
+    message_set(locale,key,value,tree^.left)
+  else if tree^.locale<locale then
+    message_set(locale,key,value,tree^.right)
+  else
+    tree^.value:=value
+end;
+
+procedure message_set(const locale,key,value:widestring);
+
+begin
+  message_set(locale,key,value,messages);
+end;
+
+function message_get(const locale,key:widestring;tree:Pmessage):widestring;
+
+begin
+  if tree=nil then
+    message_get:=''
+  else if tree^.key>key then
+    message_get:=message_get(locale,key,tree^.left)
+  else if tree^.key<key then
+    message_get:=message_get(locale,key,tree^.right)
+  else if tree^.locale>locale then
+    message_get:=message_get(locale,key,tree^.left)
+  else if tree^.locale<locale then
+    message_get:=message_get(locale,key,tree^.right)
+  else
+    message_get:=tree^.value
+end;
+
+
+function message_get(const locale,key:widestring):widestring;
+
+begin
+  message_get:=message_get(locale,key,messages);
 end;
 
 function replace_properties(s:widestring):widestring;
@@ -167,8 +227,37 @@ function adp_parse(adp:widestring):widestring;
 
   function do_trn_tag(const tag,params,content,closetag:widestring):widestring;
 
+  var p,key,value:widestring;
+      message_key,message_locale:widestring;
+
   begin
+    message_key:='';
     do_trn_tag:=content;
+    message_locale:='';
+    p:=params;
+    while p<>'' do
+      begin
+        parse_param(p,key,value);
+        if key='key' then
+          message_key:=value
+        else if key='locale' then
+          message_locale:=value;
+      end;
+    if mode=process_catalog then
+      begin
+        if (message_locale<>'') and (message_key<>'') then
+          message_set(message_locale,message_key,content);
+      end
+    else
+      begin
+        value:='';
+        if (locale<>'') and (message_key<>'') then
+          value:=message_get(locale,message_key);
+        if (fallback_locale<>'') and (message_key<>'') then
+          value:=message_get(fallback_locale,message_key);
+        if value<>'' then
+          do_trn_tag:=value;
+      end;
   end;
 
   function do_master_tag(const tag,params,content,closetag:widestring):widestring;
@@ -344,7 +433,8 @@ end;
 
 procedure parse_cmdline;
 
-type  Tstate=(s_default,s_read_property,s_outputfile,s_read_locale);
+type  Tstate=(s_default,s_read_property,s_outputfile,
+              s_read_locale,s_read_fallback_locale,s_read_catalogfile);
 
 var ignore_options:boolean;
     i:longint;
@@ -378,6 +468,18 @@ begin
           locale:=s;
           state:=s_default;
         end;
+      s_read_fallback_locale:
+        begin
+          s:=paramstr(i);
+          fallback_locale:=s;
+          state:=s_default;
+        end;
+      s_read_catalogfile:
+        begin
+          s:=paramstr(i);
+          catalogfile:=s;
+          state:=s_default;
+        end;
       else
         {Default.}
         s:=paramstr(i);
@@ -385,12 +487,16 @@ begin
           inputfile:=s
         else if s='--' then
           ignore_options:=true
+        else if s='-c' then
+          state:=s_read_catalogfile
         else if s='-o' then
           state:=s_outputfile
         else if s='-p' then
           state:=s_read_property
         else if s='-l' then
           state:=s_read_locale
+        else if s='-lb' then
+          state:=s_read_fallback_locale
         else
           inputfile:=s;
     end;
@@ -402,14 +508,26 @@ var htmlfile:text;
 begin
   inputfile:='';
   outputfile:='';
-  locale:='en_US';
+  catalogfile:='';
+  locale:='';
+  fallback_locale:='';
   parse_cmdline;
   if inputfile='' then
      begin
-       writeln('Usage: adp2html [-o outputfile] [-p key=value] <filename>');
+       writeln('Usage: adp2html [-c catalogfile] [-l locale] [-lb fallback_locale] \');
+       writeln('                [-p key=value] [-o outputfile] <filename>');
        halt(1);
      end;
 
+  {Process catalog first.}
+  if catalogfile<>'' then
+    begin
+      mode:=process_catalog;
+      generate_page(catalogfile);
+    end;
+
+  {Process page.}
+  mode:=process_page;
   page:=generate_page(inputfile);
   if outputfile='' then
     write(page)
