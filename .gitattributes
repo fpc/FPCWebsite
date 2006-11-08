@@ -99,6 +99,7 @@ fcl/classchart.gif -text svneol=unset#image/gif
 fcl/fcl.fp svneol=native#text/plain
 /fixdoc.pp svneol=native#text/plain
 /fp2html.pp svneol=native#text/plain
+/fpc.adp svneol=native#text/plain
 /fpc.en.fp svneol=native#text/plain
 /fpc.fr.fp svneol=native#text/html
 /fpc.var svneol=native#text/plain
@@ -310,6 +311,7 @@ scripts/updatesourcezips21 svneol=native#text/plain
 scripts/updatesourcezipslazarus svneol=native#text/plain
 scripts/updatetestsuite svneol=native#text/plain
 sf/index.html svneol=native#text/plain
+/site-master.adp svneol=native#text/plain
 /split.fp svneol=native#text/plain
 /styles.css -text
 /template.fpht svneol=native#text/plain
