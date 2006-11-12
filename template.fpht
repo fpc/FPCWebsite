@@ -45,12 +45,13 @@
     <a href="advantage.var">Advantages</a>				  
     <a href="develop.html">Development</a>				  
     <a href="future.html">Future Plans</a>
+    <a href="probs.html">Known Problems</a>
     <a href="fpcmac.html">FPC on the Mac</a>
     <a href="faq.html">FAQ</a>				  
     <a href="units.html">Units</a>				  
     <a href="contrib/db.php3">Contributed Units</a>
     <a href="contrib/add.php3">Contribute</a>
-    <a href="moreinfo.html">More information</a>				  
+    <a href="moreinfo.html">More information</a>
     <a href="maillist.html">Mailing Lists</a>
     <a href="port.html">Porting from TP7</a>
     <a href="aboutus.html">Authors</a>

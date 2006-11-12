@@ -1,15 +1,10 @@
-<html>
 <!--
 #TITLE Free Pascal - Known problems
 #ENTRY bugs
 #SUBENTRY 
 #HEADER Known Problems
 -->
-<html>
-<ul>
-<h1>Known Problems</h1>
-<OL>
-
+<ol>
 <li><h3>Problems when the compiler is installed in a directory which
 requires a long file name</h3>
 The GNU Linker (which is used by FPC)
@@ -55,7 +50,6 @@ length of 80 chars.</h3></li>
   <li>Generating shared libraries is not yet supported
   <li>The currency type has some problems with values close to the upper and lower limits (because the double type is used for some conversions, whose precision is too small in those cases).
 </ul>
-
-</OL>
+</ol>
 </html>
 
