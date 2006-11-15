@@ -26,6 +26,8 @@ var master_template:ansistring;
 
     default_master:string='default-master.adp';
 
+    recognize_properties:boolean;
+
 procedure property_set(const name,value:widestring;var tree:Pproperty);
 
 begin
@@ -505,7 +507,7 @@ var last_expr_result:boolean;
       do_tag:=do_master_tag(tag,params,content,closetag)
     else if utag='SLAVE' then
       do_tag:=do_slave_tag(tag,params,content,closetag)
-    else if utag='PROPERTY' then
+    else if recognize_properties and (utag='PROPERTY') then
       do_tag:=do_property_tag(tag,params,content,closetag)
     else
       do_tag:='<'+tag+params+'>'+content+closetag;
@@ -618,7 +620,10 @@ begin
     adpwide:=adpansi;
     close(adpfile);
     adpwide:=replace_properties(adpwide);
+    recognize_properties:=false;
     slave_html:=adp_parse(adpwide);
+    recognize_properties:=true;
+    slave_html:=adp_parse(slave_html);
     fn:=master_template;
   until master_template='';
   generate_page:=slave_html;
