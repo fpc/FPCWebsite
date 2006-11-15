@@ -1,0 +1,126 @@
+#!/usr/bin/tclsh
+
+#
+# Makefile generator, quick & hopefully not too dirty style. 
+#
+
+global catalog
+
+# Read configuration
+source gen_makefile.conf
+
+set master-template "site-master.adp"
+
+#Try to detect the location of the catalog file
+if {[file exists catalog.adp]} then {
+    set catalog catalog.adp
+} elseif {[file exists ../catalog.adp]} then {
+    set catalog ../catalog.adp
+} elseif {[file exists ../../catalog.adp]} then {
+    set catalog ../../catalog.adp
+}
+
+#Put some variables in Makefile
+puts "
+URL_EXTENSION=.var
+
+#
+# OS depended stuff
+#
+
+ifeq (\$(OS),linux)
+EXE=
+else
+EXE=.exe
+endif
+OBJ=.o
+
+
+# require GNU Fileutils
+RM=rm -f
+MV=mv -f
+
+#adp2html tools
+ADP2HTML=adp2html\$(EXE)
+
+ifndef PP
+ PP=fpc
+endif
+"
+
+puts ".PHONY: all all_pages clean zip tar"
+puts "all: \$(ADP2HTML) all_pages"
+
+set all ""
+
+#Generate normal pages
+foreach page $pages {
+    set rootname [file rootname $page]
+    # Generate html files
+    foreach language $languages {
+        set html_file "$rootname.html.$language"
+        puts "$html_file: $page ${master-template}"
+        puts "\t./adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -o $html_file $page"
+        lappend all $html_file
+    }
+    puts ""
+    # Generate var file
+    set var_file "${rootname}.var"
+    lappend all $var_file
+    puts "$var_file: gen_makefile"
+    puts "\techo > $var_file"
+    foreach language $languages {
+        set html_file "$rootname.html.$language"
+        puts "\techo 'URI: $html_file' >> $var_file"
+        puts "\techo 'Content-language: $language' >> $var_file"
+        puts "\techo 'Content-type: text/html' >> $var_file"
+        puts "\techo >> $var_file"
+    }
+}
+
+#Generate mirror pages.
+foreach mirror $mirrors {
+    set mirror_name [lindex $mirror 0]
+    set mirror_url [lindex $mirror 1]
+    foreach page $mirror_pages {
+        set rootname [file rootname $page]
+        # Generate html files
+        foreach language $languages {
+            set html_file "${rootname}-[string tolower $mirror_name].html.$language"
+            puts "$html_file: $page ${master-template}"
+            puts "\t./adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -o $html_file $page"
+            lappend all $html_file
+        }
+        puts ""
+        # Generate var file
+        set var_file "${rootname}-[string tolower $mirror_name].var"
+        lappend all $var_file
+        puts "$var_file: gen_makefile"
+        puts "\techo > $var_file"
+        foreach language $languages {
+            set html_file "$rootname-[string tolower $mirror_name].html.$language"
+            puts "\techo 'URI: $html_file' >> $var_file"
+            puts "\techo 'Content-language: $language' >> $var_file"
+            puts "\techo 'Content-type: text/html' >> $var_file"
+            puts "\techo >> $var_file"
+        }
+    }
+}
+puts ""
+puts "all_pages: [join $all]"
+puts ""
+
+#Put some standard rules in Makefile
+
+puts "
+#adp2html tool
+\$(ADP2HTML): adp2html.pp
+\t\$(PP) \$(OPT) -Xs adp2html.pp
+
+# archives (unix only)
+tar: all
+\ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+
+zip: all
+\tzip htmls.zip `find -name '*.html' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+"

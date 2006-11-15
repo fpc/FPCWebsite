@@ -55,6 +55,7 @@ css/fp.css svneol=native#text/plain
 down/Makefile svneol=native#text/plain
 down/Makefile.dir svneol=native#text/plain
 down/arm/Makefile svneol=native#text/plain
+down/arm/gen_makefile.conf -text svneol=unset#application/x-tcl
 down/arm/linux.fp svneol=native#text/plain
 down/docs/Makefile svneol=native#text/plain
 down/docs/docs.fp svneol=native#text/plain
@@ -134,6 +135,8 @@ gallery/cape.png -text svneol=unset#image/png
 gallery/cape.thumb.png -text svneol=unset#image/png
 gallery/modworm.jpg -text svneol=unset#image/jpeg
 gallery/modworm.thumb.png -text svneol=unset#image/png
+/gen_makefile -text svneol=unset#application/x-tcl
+/gen_makefile.conf -text svneol=unset#application/x-tcl
 /hartnegg_fpk -text
 html_d/aboutus.fp svneol=native#text/plain
 html_d/api/api.fp svneol=native#text/plain
