@@ -214,6 +214,8 @@ end;
 
 function adp_parse(adp:widestring):widestring;
 
+var last_expr_result:boolean;
+
   procedure skip_whitespace(var pos:longint);
 
   begin
@@ -224,7 +226,192 @@ function adp_parse(adp:widestring):widestring;
   function parse_tag_recursively(const tag:widestring):boolean;
 
   begin
-    parse_tag_recursively:=(tag='TRN') or (tag='PROPERTY');
+    parse_tag_recursively:=(tag='TRN') or (tag='PROPERTY') or (tag='IF') or (tag='ELSE');
+  end;
+
+  function do_if_tag(const tag,params,content,closetag:widestring):widestring;
+
+  var pos:longint;
+
+    procedure skip_whitespace;
+
+    begin
+      while (pos<=length(params)) and (params[pos] in whitespace) do
+        inc(pos);
+    end;
+
+    function read_word:widestring;
+
+    var oldpos:longint;
+
+    begin
+      oldpos:=pos;
+      while (pos<=length(params)) and (params[pos]<>' ') do
+        inc(pos);
+      read_word:=copy(params,oldpos,pos-oldpos);
+    end;
+
+    function parse_l3_expr:boolean;
+
+    var left,right,op:widestring;
+        save_pos:longint;
+
+    begin
+      parse_l3_expr:=false;
+      skip_whitespace;
+      if pos>length(params) then
+        exit;
+      save_pos:=pos;
+      left:=read_word;
+      op:=upcase(left);
+      if (op='NIL') or (op='NOT') or
+         (op='EQ') or (op='NE') or
+         (op='LT') or (op='LTE') or
+         (op='GT') or (op='GTE') then
+        begin
+          left:='';
+        end
+      else
+        begin
+          if pos>length(params) then
+            exit;
+          save_pos:=pos;
+          skip_whitespace;
+          op:=upcase(read_word);
+        end;
+      if op='NIL' then
+        begin
+          parse_l3_expr:=left='';
+        end
+      else if op='NOT' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          if upcase(right)='NIL' then
+            parse_l3_expr:=left<>'';
+        end
+      else if op='EQ' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left=right;
+        end
+      else if op='NE' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left<>right;
+        end
+      else if op='LT' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left<right;
+        end
+      else if op='LTE' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left<=right;
+        end
+      else if op='GTE' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left>=right;
+        end
+      else if op='GT' then
+        begin
+          if pos>length(params) then
+            exit;
+          skip_whitespace;
+          right:=read_word;
+          parse_l3_expr:=left>right;
+        end
+      else
+        pos:=save_pos;
+    end;
+
+    function parse_l2_expr:boolean;
+
+    var left,right:boolean;
+        op:widestring;
+
+    begin
+      parse_l2_expr:=false;
+      skip_whitespace;
+      if pos>length(params) then
+        exit;
+      left:=parse_l3_expr;
+      if pos>length(params) then
+        begin
+          parse_l2_expr:=left;
+          exit;
+        end;
+      op:=read_word;
+      if upcase(op)='AND' then
+        begin
+          if pos>length(params) then
+            exit;
+          right:=parse_l2_expr;
+          parse_l2_expr:=left and right;
+        end;
+    end;
+
+    function parse_l1_expr:boolean;
+
+    var left,right:boolean;
+        op:widestring;
+
+    begin
+      parse_l1_expr:=false;
+      skip_whitespace;
+      if pos>length(params) then
+        exit;
+      left:=parse_l2_expr;
+      if pos>length(params) then
+        begin
+          parse_l1_expr:=left;
+          exit;
+        end;
+      op:=read_word;
+      if upcase(op)='OR' then
+        begin
+          if pos>length(params) then
+            exit;
+          right:=parse_l1_expr;
+          parse_l1_expr:=left and right;
+        end;
+    end;
+
+  begin
+    pos:=1;
+    last_expr_result:=parse_l1_expr;
+    if last_expr_result then
+      do_if_tag:=content
+    else
+      do_if_tag:='';
+  end;
+
+  function do_else_tag(const tag,params,content,closetag:widestring):widestring;
+
+  begin
+    if not last_expr_result then
+      do_else_tag:=content
+    else
+      do_else_tag:='';
   end;
 
   function do_trn_tag(const tag,params,content,closetag:widestring):widestring;
@@ -310,6 +497,10 @@ function adp_parse(adp:widestring):widestring;
     utag:=upcase(tag);
     if utag='TRN' then
       do_tag:=do_trn_tag(tag,params,content,closetag)
+    else if utag='IF' then
+      do_tag:=do_if_tag(tag,params,content,closetag)
+    else if utag='ELSE' then
+      do_tag:=do_else_tag(tag,params,content,closetag)
     else if utag='MASTER' then
       do_tag:=do_master_tag(tag,params,content,closetag)
     else if utag='SLAVE' then
