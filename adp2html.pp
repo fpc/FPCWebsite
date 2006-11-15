@@ -24,6 +24,8 @@ var master_template:ansistring;
     properties:Pproperty=nil;
     messages:Pmessage=nil;
 
+    default_master:string='default-master.adp';
+
 procedure property_set(const name,value:widestring;var tree:Pproperty);
 
 begin
@@ -265,7 +267,7 @@ function adp_parse(adp:widestring):widestring;
   var p,key,value:widestring;
 
   begin
-    master_template:='site-master.adp';
+    master_template:=default_master;
     p:=params;
     while p<>'' do
       begin
@@ -434,7 +436,8 @@ end;
 procedure parse_cmdline;
 
 type  Tstate=(s_default,s_read_property,s_outputfile,
-              s_read_locale,s_read_fallback_locale,s_read_catalogfile);
+              s_read_locale,s_read_fallback_locale,s_read_catalogfile,
+              s_read_defaultmaster);
 
 var ignore_options:boolean;
     i:longint;
@@ -480,6 +483,12 @@ begin
           catalogfile:=s;
           state:=s_default;
         end;
+      s_read_defaultmaster:
+        begin
+          s:=paramstr(i);
+          default_master:=s;
+          state:=s_default;
+        end;
       else
         {Default.}
         s:=paramstr(i);
@@ -497,6 +506,8 @@ begin
           state:=s_read_locale
         else if s='-lb' then
           state:=s_read_fallback_locale
+        else if s='-m' then
+          state:=s_read_defaultmaster
         else
           inputfile:=s;
     end;
@@ -515,7 +526,7 @@ begin
   if inputfile='' then
      begin
        writeln('Usage: adp2html [-c catalogfile] [-l locale] [-lb fallback_locale] \');
-       writeln('                [-p key=value] [-o outputfile] <filename>');
+       writeln('                [-m default_master] [-p key=value] [-o outputfile] <filename>');
        halt(1);
      end;
 
