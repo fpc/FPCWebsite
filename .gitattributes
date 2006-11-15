@@ -92,6 +92,7 @@ down/sparc/linux.fp svneol=native#text/plain
 down/x86_64/Makefile svneol=native#text/plain
 down/x86_64/linux.fp svneol=native#text/plain
 /download.fp svneol=native#text/plain
+/download_catalog.sh svneol=native#text/plain
 /ecfin48.gif -text svneol=unset#image/gif
 /education.fp svneol=native#text/plain
 /esplit.fp svneol=native#text/plain
