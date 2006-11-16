@@ -1,0 +1,48 @@
+The new website build tool uses an enhanced html-syntax known as adp.
+
+This document describes the syntax.
+
+1. Tags
+=======
+
+<MASTER src='master-template'>
+
+The master tag inserts the current document in another document, which is
+called a master template. If no master template is given, default-master.adp
+is used.
+
+<SLAVE>
+
+The slave tag is used in a master template to specify where in the document
+the slave has to be inserted.
+
+<PROPERTY name='key'>value</PROPERTY>
+
+The property tag can be used to pass data to a master template. Basically it
+is a variable that is set to a value.
+
+<IF condition>content</IF>
+
+The if tag can be used in master templates to generate content based on
+properties set in the slaves.
+
+<ELSE>content</ELSE>
+
+An else tag can follow an if tag and generates content if the condition was
+false.
+
+<TRN key='website.keyname' locale='locale'>content</TRN>
+
+This tag marks content for translation. If a translation with the specified key
+exists, the content in the translation catalog is expanded instead of the content
+between the start and end tag.
+
+
+2. Property expansion
+=====================
+
+If the preprocessor encounters a text containing @property_name@, it looks up
+a property with the specified name and expands its value in the html text.
+
+Properties cannot be expanded in the same document where they are defined, but
+can be expanded in a master.

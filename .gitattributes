@@ -318,6 +318,7 @@ scripts/updatetestsuite svneol=native#text/plain
 sf/index.html svneol=native#text/plain
 /split.fp svneol=native#text/plain
 /styles.css -text
+/tags.txt svneol=native#text/plain
 /template.fpht svneol=native#text/plain
 /templatemirror.fp svneol=native#text/plain
 tmpl/Makefile svneol=native#text/plain
