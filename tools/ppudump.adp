@@ -3,7 +3,7 @@
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ppudump</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">ppudump</property>
 <h1>PPUDUMP - Free pascal unit dump program</h1>
 What follows below is the contents of the manual page of <b>ppudump</b>. 
@@ -77,4 +77,4 @@ ppudump(1)        Free Pascal Unit dump utility        ppudump(1)
 FreePascal                 5 June 1999                          1
 
 
-</PRE></html>
+</PRE>

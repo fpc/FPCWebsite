@@ -3,7 +3,7 @@
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">h2pas</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">h2pas</property>
 <h1>H2PAS - Free Pascal C header to pascal unit translator.</h1>
 What follows below is the man page of h2pas. 
@@ -276,4 +276,3 @@ FreePascal                 12 Dec 1999                          4
 
 
 </PRE>
-</html>

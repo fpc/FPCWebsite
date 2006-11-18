@@ -3,7 +3,7 @@
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">fpcmake</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">FPCMake</property>
 <h1>FPCMAKE - Free Pascal Makefile generator</h1>
 What follows below is the man page of fpcmake and the description of the
@@ -477,4 +477,3 @@ FreePascal                 12 Dec 1999                          6
 
 
 </PRE>
-</html>

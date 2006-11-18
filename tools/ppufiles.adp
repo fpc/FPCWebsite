@@ -3,7 +3,7 @@
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ppufiles</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">ppufiles</property>
 
 <h1>PPUFILES - Free Pascal object file lister.</h1>
@@ -78,4 +78,3 @@ FreePascal                 9 June 1999                          1
 
 
 </PRE>
-</html>

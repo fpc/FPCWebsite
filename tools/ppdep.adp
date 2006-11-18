@@ -3,7 +3,7 @@
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ppdep</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">ppdep</property>
 <h1>PPDEP - Free Pascal unit dependency lister</h1>
 What follows below is the contents of the manual page of <b>ppdep</b>. 

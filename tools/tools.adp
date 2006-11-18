@@ -2,7 +2,7 @@
 <property name="title">Free Pascal - Programming Tools</property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
-<property name="maindir">..</property>
+<property name="maindir">../</property>
 <property name="header">Tools that come with FPC</property>
 
 <h1><a href="tools.html">Tools that come with Free Pascal</a></h2>
@@ -41,4 +41,3 @@ by the compiler to some other format. (GNU gettext at the moment)
 HREF="mailto:ag@muwiinfa.geschichte.uni-mainz.de">Albert Graef</a>. It can be used
 to create pascal units from a Lex vocabulary and Yacc grammar.
 </OL>
-</html>
