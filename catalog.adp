@@ -1,3 +1,6 @@
+<TRN locale="he_IL" key="website.Requirements_text">
+<b>מעבדי x86:</b><blockquote>עבור שימוש במעבדים מבוססי 80x86, נדרש לפחות מעבד 386, בעוד ש486 מומלץ.</blockquote><b>מעבדי PowerPC</b><blockquote>ניתן להשתמש בכל מעבדי PowerPC. יש צורך בלפחות 16 מגה של זיכרון גישה אקראי. גרסת מערכת ההפעלה Mac OS קלאסי צריכה לעבוד בגרסה 7.5.3 או גרסה חדשה יותר. עבור Mac OS X הגרסה הנדרשת היא Mac OS X 10.1 או גרסה חדשה יותר, עם כלי פיתוח מותקנים. עבור שאר מערכות ההפעלה, Free Pascal רץ על כל מערכות ההפעלה שקיימות למעבד.</blockquote><b>מעבדי ARM</b><blockquote>כרגע ישנה תמיכה רק ב cross-compiling.</blockquote><b>מעבדי Sparc</b><blockquote>יש דרישה ל16 מגה של זיכרון גישה אקראי. המהדר רץ על Sparc Linux</blockquote>
+</TRN>
 <TRN locale="en_US" key="website.overview">
 Overview
 </TRN>
@@ -110,6 +113,36 @@ Current Version__
   for both the compiler and runtime library are available; the complete compiler
   is written in Pascal.
 
+</TRN>
+<TRN locale="he_IL" key="website.Current_Version">
+__גרסה נוכחית
+</TRN>
+<TRN locale="he_IL" key="website.Current_Version_text">
+גרסה <em>2.0.4</em> היא הגרסה האחרונה והיציבה של Free Pascal. לחץ על <a href="download.html">הורדה</a> ותבחר במראה הקרובה אליך לקבלת עותק של המהדר. גרסת הפיתוח משוחררת עם הגרסה <em>2.1.x</em>. ראה את דף ה<a href="develop.html">פיתוח</a>, על מנת להשיג את קוד המקור העדכני, ותסייע בפיתוח.
+</TRN>
+<TRN locale="he_IL" key="website.Features">
+תכונות
+</TRN>
+<TRN locale="he_IL" key="website.latest_news">
+חדשות אחרונות
+</TRN>
+<TRN locale="he_IL" key="website.License">
+רישיון
+</TRN>
+<TRN locale="he_IL" key="website.License_text">
+החבילות וספרית זמן הריצה משוחרררות תחתLibrary GNU Public License אשר עבר שינוי על מנת לאפשר לאנשים ליצור ספריות סטטיות כאשר יוצרים תוכנות. קוד המקור של המהדר משוחרר תחת GNU General Public License. קוד המקור גם של המהדר וגם של ספריות זמן הריצה נמצאים בהישג יד. המהדר עצמו כתוב בשפת Pascal.
+</TRN>
+<TRN locale="he_IL" key="website.Features_text">
+תחביר השפה מכיל תאימות טובה עם TP 7.0, ובנוסף גם עם מרבית הגרסאות של Delphi (classes, rtti, exceptions, ansistrings, widestrings, interfaces). ישנה גם תאימות עם Mac Pascal, לסייע למשתמשי Apple. בנוסף, Free Pascal תומכת בfunction overloading, operator overloading, תכונות גלובליות ותכונות נוספות
+</TRN>
+<TRN locale="he_IL" key="website.overview">
+סקירה
+</TRN>
+<TRN locale="he_IL" key="website.overview_text">
+Free Pascal (הידוע גם כ FPK Pascal) הינו מהדר פסקל מקצועי התומך ב32 ו64 סיביות. הוא תומך בכמה מעבדים:Intel x86, Amd64/x86_64, PowerPC, Sparc. הגרסה הישנה ולא מתוחזקת 1.0 אף תומכת ב Motorola 680x0. המהדר תומך במערכות ההפעלה הבאות: Linux, FreeBSD, <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS קלאסי</a>, DOS, Win32, OS/2, Netware (libc ו קלאסי) ו MorphOS
+</TRN>
+<TRN locale="he_IL" key="website.Requirements">
+דרישות
 </TRN>
 <TRN locale="fr_FR" key="website.overview">
 Vue d'ensemble
