@@ -25,7 +25,7 @@ The FPC package for arm-linux is available in one easy to choose format:
 
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
-<li> <a href="@mirrorurl@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
+<li> <a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
