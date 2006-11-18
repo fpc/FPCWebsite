@@ -534,6 +534,45 @@ mirrors.var: gen_makefile.conf
 	echo 'Content-language: pl' >> mirrors.var
 	echo 'Content-type: text/html' >> mirrors.var
 	echo >> mirrors.var
+moreinfo.html.de: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o moreinfo.html.de moreinfo.adp
+moreinfo.html.en: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o moreinfo.html.en moreinfo.adp
+moreinfo.html.fr: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o moreinfo.html.fr moreinfo.adp
+moreinfo.html.id: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o moreinfo.html.id moreinfo.adp
+moreinfo.html.nl: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o moreinfo.html.nl moreinfo.adp
+moreinfo.html.pl: moreinfo.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o moreinfo.html.pl moreinfo.adp
+
+moreinfo.var: gen_makefile.conf
+	echo > moreinfo.var
+	echo 'URI: moreinfo.html.de' >> moreinfo.var
+	echo 'Content-language: de' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
+	echo 'URI: moreinfo.html.en' >> moreinfo.var
+	echo 'Content-language: en' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
+	echo 'URI: moreinfo.html.fr' >> moreinfo.var
+	echo 'Content-language: fr' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
+	echo 'URI: moreinfo.html.id' >> moreinfo.var
+	echo 'Content-language: id' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
+	echo 'URI: moreinfo.html.nl' >> moreinfo.var
+	echo 'Content-language: nl' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
+	echo 'URI: moreinfo.html.pl' >> moreinfo.var
+	echo 'Content-language: pl' >> moreinfo.var
+	echo 'Content-type: text/html' >> moreinfo.var
+	echo >> moreinfo.var
 news.html.de: news.adp default-master.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o news.html.de news.adp
 news.html.en: news.adp default-master.adp
@@ -703,7 +742,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var download.html.de download.html.en download.html.fr download.html.id download.html.nl download.html.pl download.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var future.html.de future.html.en future.html.fr future.html.id future.html.nl future.html.pl future.var links.html.de links.html.en links.html.fr links.html.id links.html.nl links.html.pl links.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var mirrors.html.de mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.nl mirrors.html.pl mirrors.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var units.html.de units.html.en units.html.fr units.html.id units.html.nl units.html.pl units.var unitsrtl.html.de unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.nl unitsrtl.html.pl unitsrtl.var mirrors.dat
+all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var download.html.de download.html.en download.html.fr download.html.id download.html.nl download.html.pl download.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var future.html.de future.html.en future.html.fr future.html.id future.html.nl future.html.pl future.var links.html.de links.html.en links.html.fr links.html.id links.html.nl links.html.pl links.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var mirrors.html.de mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.nl mirrors.html.pl mirrors.var moreinfo.html.de moreinfo.html.en moreinfo.html.fr moreinfo.html.id moreinfo.html.nl moreinfo.html.pl moreinfo.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var units.html.de units.html.en units.html.fr units.html.id units.html.nl units.html.pl units.var unitsrtl.html.de unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.nl unitsrtl.html.pl unitsrtl.var mirrors.dat
 
 
 #adp2html tool

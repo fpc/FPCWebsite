@@ -61,7 +61,7 @@
   
 </ul>
 If you want to set up a mirror site,
-please look <a href="mirrors.html">here</a>
+please look <a href="mirrors@x@">here</a>
 for instructions on how to do it.
 
 <a name="fpcirc"></a>
