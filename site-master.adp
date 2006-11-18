@@ -41,20 +41,20 @@
 			
   <h1>Coding</h1>
    <div class="submenu">
-    <a href="advantage@x@"><trn locale="en_US" key="website.Advantages">Advantages</trn></a>
-    <a href="develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
-    <a href="future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
-    <a href="fpcmac@x@"><trn locale="en_US" key="website.FPC_on_Mac">FPC on the Mac</trn></a>
-    <a href="faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
-    <a href="units@x@"><trn locale="en_US" key="website.Units">Units</trn></a>
-    <a href="contrib/db.php3"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
-    <a href="contrib/add.php3"><trn locale="en_US" key="website.Contribute">Contribute</trn></a>
-    <a href="moreinfo@x@"><trn locale="en_US" key="website.More_information">More information</trn></a>
-    <a href="maillist@x@"><trn locale="en_US" key="website.Mailinglists">Mailing Lists</trn></a>
-    <a href="port@x@"><trn locale="en_US" key="website.Porting_from_TP7">Porting from TP7</trn></a>
-    <a href="aboutus@x@"><trn locale="en_US" key="website.Authors">Authors</trn></a>
-    <a href="credits@x@"><trn locale="en_US" key="website.Credits">Credits</trn></a>
-    <a href="links@x@"><trn locale="en_US" key="website.Links_mirrors">Links/mirrors</trn></a>
+    <a href="@maindir@advantage@x@"><trn locale="en_US" key="website.Advantages">Advantages</trn></a>
+    <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
+    <a href="@maindir@future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
+    <a href="@maindir@fpcmac@x@"><trn locale="en_US" key="website.FPC_on_Mac">FPC on the Mac</trn></a>
+    <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
+    <a href="@maindir@units@x@"><trn locale="en_US" key="website.Units">Units</trn></a>
+    <a href="@maindir@contrib/db.php3"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
+    <a href="@maindir@contrib/add.php3"><trn locale="en_US" key="website.Contribute">Contribute</trn></a>
+    <a href="@maindir@moreinfo@x@"><trn locale="en_US" key="website.More_information">More information</trn></a>
+    <a href="@maindir@maillist@x@"><trn locale="en_US" key="website.Mailinglists">Mailing Lists</trn></a>
+    <a href="@maindir@port@x@"><trn locale="en_US" key="website.Porting_from_TP7">Porting from TP7</trn></a>
+    <a href="@maindir@aboutus@x@"><trn locale="en_US" key="website.Authors">Authors</trn></a>
+    <a href="@maindir@credits@x@"><trn locale="en_US" key="website.Credits">Credits</trn></a>
+    <a href="@maindir@links@x@"><trn locale="en_US" key="website.Links_mirrors">Links/mirrors</trn></a>
    </div>
 					
   <h1>Tools</h1>
