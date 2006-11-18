@@ -13,8 +13,8 @@
 <div id="header">
  <div id="menu">
   <a href="@maindir@"><trn locale="en_US" key="website.Home">Home</trn></a>
-  <a href="news@x@"><trn locale="en_US" key="website.News">News<trn></a>
-  <a href="download@x@"><trn locale="en_US" key="website.Download">Download<trn></a>
+  <a href="@maindir@news@x@"><trn locale="en_US" key="website.News">News<trn></a>
+  <a href="@maindir@download@x@"><trn locale="en_US" key="website.Download">Download<trn></a>
   <a href="http://www.freepascal.org/wiki/"><trn locale="en_US" key="website.Wiki">Wiki<trn></a>
   <a href="http://community.freepascal.org:10000"><trn locale="en_US" key="website.Community">Community<trn></a>
   <a href="docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a>
@@ -59,18 +59,18 @@
 					
   <h1>Tools</h1>
    <div class="submenu">
-    <a href="tools/tools@x@"><trn locale="en_US" key="website.Tools">Tools</trn></a>
-    <a href="tools/delp@x@">Delp</a>
-    <a href="tools/fpcmake@x@">FPCMake</a>
-    <a href="tools/h2pas@x@">H2Pas</a>
-    <a href="tools/ppdep@x@">PPDep</a>
-    <a href="tools/ppudump@x@">PPUDump</a>
-    <a href="tools/ppumove@x@">PPUMove</a>
-    <a href="tools/ptop@x@">PtoP</a>
-    <a href="tools/rstconv@x@">RSTConv</a>
-    <a href="tools/tply@x@">TPLY</a>
-    <a href="fcl/fcl@x@">FCL</a>
-    <a href="packages/packages@x@"><trn locale="en_US" key="website.Packages">Packages</trn></a>
+    <a href="@maindir@tools/tools@x@"><trn locale="en_US" key="website.Tools">Tools</trn></a>
+    <a href="@maindir@tools/delp@x@">Delp</a>
+    <a href="@maindir@tools/fpcmake@x@">FPCMake</a>
+    <a href="@maindir@tools/h2pas@x@">H2Pas</a>
+    <a href="@maindir@tools/ppdep@x@">PPDep</a>
+    <a href="@maindir@tools/ppudump@x@">PPUDump</a>
+    <a href="@maindir@tools/ppumove@x@">PPUMove</a>
+    <a href="@maindir@tools/ptop@x@">PtoP</a>
+    <a href="@maindir@tools/rstconv@x@">RSTConv</a>
+    <a href="@maindir@tools/tply@x@">TPLY</a>
+    <a href="@maindir@fcl/fcl@x@">FCL</a>
+    <a href="@maindir@packages/packages@x@"><trn locale="en_US" key="website.Packages">Packages</trn></a>
    </div>
 
   <h1><trn locale="en_US" key="freepascal.search">Search</trn></h1>
