@@ -183,6 +183,45 @@ develop.var: gen_makefile.conf
 	echo 'Content-language: pl' >> develop.var
 	echo 'Content-type: text/html' >> develop.var
 	echo >> develop.var
+download.html.de: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o download.html.de download.adp
+download.html.en: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o download.html.en download.adp
+download.html.fr: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o download.html.fr download.adp
+download.html.id: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o download.html.id download.adp
+download.html.nl: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o download.html.nl download.adp
+download.html.pl: download.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o download.html.pl download.adp
+
+download.var: gen_makefile.conf
+	echo > download.var
+	echo 'URI: download.html.de' >> download.var
+	echo 'Content-language: de' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
+	echo 'URI: download.html.en' >> download.var
+	echo 'Content-language: en' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
+	echo 'URI: download.html.fr' >> download.var
+	echo 'Content-language: fr' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
+	echo 'URI: download.html.id' >> download.var
+	echo 'Content-language: id' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
+	echo 'URI: download.html.nl' >> download.var
+	echo 'Content-language: nl' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
+	echo 'URI: download.html.pl' >> download.var
+	echo 'Content-language: pl' >> download.var
+	echo 'Content-type: text/html' >> download.var
+	echo >> download.var
 docs.html.de: docs.adp default-master.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o docs.html.de docs.adp
 docs.html.en: docs.adp default-master.adp
@@ -664,7 +703,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var future.html.de future.html.en future.html.fr future.html.id future.html.nl future.html.pl future.var links.html.de links.html.en links.html.fr links.html.id links.html.nl links.html.pl links.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var mirrors.html.de mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.nl mirrors.html.pl mirrors.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var units.html.de units.html.en units.html.fr units.html.id units.html.nl units.html.pl units.var unitsrtl.html.de unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.nl unitsrtl.html.pl unitsrtl.var mirrors.dat
+all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var download.html.de download.html.en download.html.fr download.html.id download.html.nl download.html.pl download.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var future.html.de future.html.en future.html.fr future.html.id future.html.nl future.html.pl future.var links.html.de links.html.en links.html.fr links.html.id links.html.nl links.html.pl links.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var mirrors.html.de mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.nl mirrors.html.pl mirrors.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var units.html.de units.html.en units.html.fr units.html.id units.html.nl units.html.pl units.var unitsrtl.html.de unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.nl unitsrtl.html.pl unitsrtl.var mirrors.dat
 
 
 #adp2html tool
