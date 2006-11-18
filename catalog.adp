@@ -25,6 +25,11 @@ Vereisten
 <TRN locale="nl_NL" key="website.License">
 Licentie
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20061125">
+<em>November 25-26, 2006</em>
+Free Pascal en Lazarus zullen aanwezig zijn op de HCC-dagen in Utrecht in de kraam van de HCC-Pascal-gebruikersgroep.
+  
+</TRN>
 <TRN locale="en_US" key="website.overview">
 Overview
 </TRN>
