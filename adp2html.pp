@@ -465,7 +465,7 @@ var last_expr_result:boolean;
       begin
         parse_param(p,key,value);
         if key='src' then
-          master_template:=value;
+          master_template:=replace_properties(value);
       end;
     do_master_tag:='';
   end;

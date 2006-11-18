@@ -10,7 +10,7 @@
     It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
     Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
     The following operating systems are supported: Linux, FreeBSD,
-    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
+    <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, OS/2,
     Netware (libc and classic) and MorphOS.
   </trn>
 </p>
@@ -37,13 +37,13 @@
     In addition to the originally published builds
     for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made
     available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
-    <a href="download.html">download page</a> to select your nearest mirror.
+    <a href="download@x@">download page</a> to select your nearest mirror.
   </trn>
 </p>
 <p>
   <trn locale="en_US" key="website.news_headline_20060828">
     <em>August 28, 2006</em>Long awaited release 2.0.4 is finally out (go
-    <a href="download.html">here</a> to select the nearest mirror), bringing
+    <a href="download@x@">here</a> to select the nearest mirror), bringing
     you lots of fixes and some enhancements (remember this is primarily a bug-fix
     release for 2.0.x series, whereas new development is happening in 2.1.x branch)
     over the previous released version 2.0.2 (or even 2.0.0, because builds for
@@ -57,10 +57,10 @@
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
     Version <em>2.0.4</em> is the latest stable version the Free Pascal.
-    Hit the <a href="download.html">download</a> link and select a mirror close
+    Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
     The development releases have version numbers <EM>2.1.x</EM>.
-    See the <a href="develop.html">development</a> page how to obtain the latest sources and support development.
+    See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
   </trn>
 </p>
 <h2><trn locale="en_US" key="website.Features">Features</trn></h2>

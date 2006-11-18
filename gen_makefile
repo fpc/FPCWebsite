@@ -4,20 +4,58 @@
 # Makefile generator, quick & hopefully not too dirty style. 
 #
 
-global catalog
+global catalog master-template site-template adp2html
 
 # Read configuration
 source gen_makefile.conf
 
-set master-template "site-master.adp"
-
 #Try to detect the location of the catalog file
-if {[file exists catalog.adp]} then {
-    set catalog catalog.adp
-} elseif {[file exists ../catalog.adp]} then {
-    set catalog ../catalog.adp
-} elseif {[file exists ../../catalog.adp]} then {
-    set catalog ../../catalog.adp
+if {[file exists "catalog.adp"]} then {
+    set catalog "catalog.adp"
+} elseif {[file exists "../catalog.adp"]} then {
+    set catalog "../catalog.adp"
+} elseif {[file exists "../../catalog.adp"]} then {
+    set catalog "../../catalog.adp"
+}
+
+#Try to detect the location of the master template
+if {[file exists "default-master.adp"]} then {
+    set master-template "default-master.adp"
+} elseif {[file exists "../default-master.adp"]} then {
+    set master-template "../default-master.adp"
+} elseif {[file exists "../../default-master.adp"]} then {
+    set master-template "../../default-master.adp"
+}
+
+#Try to detect the location of the site template
+if {[file exists "site-master.adp"]} then {
+    set site-template "site-master.adp"
+} elseif {[file exists "../site-master.adp"]} then {
+    set site-template "../site-master.adp"
+} elseif {[file exists "../../site-master.adp"]} then {
+    set site-template "../../site-master.adp"
+}
+
+#Try to detect the location of templatemirror.adp
+if {[file exists "templatemirror.adp"]} then {
+    set templatemirror "templatemirror.adp"
+} elseif {[file exists "../templatemirror.adp"]} then {
+    set templatemirror "../templatemirror.adp"
+} elseif {[file exists "../../templatemirror.adp"]} then {
+    set templatemirror "../../templatemirror.adp"
+}
+
+if $subdir then {
+    #Try to detect the location of the adp2html tool
+    if {[file exists adp2html]} then {
+        set adp2html ./adp2html
+    } elseif {[file exists ../adp2html]} then {
+        set adp2html ../adp2html
+    } elseif {[file exists ../../adp2html]} then {
+        set adp2html ../../adp2html
+    }
+} else {
+    set adp2html ./adp2html
 }
 
 #Put some variables in Makefile
@@ -41,15 +79,21 @@ RM=rm -f
 MV=mv -f
 
 #adp2html tools
-ADP2HTML=adp2html\$(EXE)
+ADP2HTML=$adp2html\$(EXE)
 
 ifndef PP
  PP=fpc
 endif
 "
-
-puts ".PHONY: all all_pages clean zip tar"
-puts "all: \$(ADP2HTML) all_pages"
+if $subdir {
+    puts ".PHONY: all all_pages clean"
+    puts "default: all"
+    puts "all: all_pages"
+} else {
+    puts ".PHONY: all all_pages clean zip tar"
+    puts "default: all"
+    puts "all: \$(ADP2HTML) all_pages down_all"
+}
 
 set all ""
 
@@ -60,14 +104,14 @@ foreach page $pages {
     foreach language $languages {
         set html_file "$rootname.html.$language"
         puts "$html_file: $page ${master-template}"
-        puts "\t./adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -o $html_file $page"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
         lappend all $html_file
     }
     puts ""
     # Generate var file
     set var_file "${rootname}.var"
     lappend all $var_file
-    puts "$var_file: gen_makefile"
+    puts "$var_file: gen_makefile.conf"
     puts "\techo > $var_file"
     foreach language $languages {
         set html_file "$rootname.html.$language"
@@ -88,14 +132,14 @@ foreach mirror $mirrors {
         foreach language $languages {
             set html_file "${rootname}-[string tolower $mirror_name].html.$language"
             puts "$html_file: $page ${master-template}"
-            puts "\t./adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -o $html_file $page"
+            puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
             lappend all $html_file
         }
         puts ""
         # Generate var file
         set var_file "${rootname}-[string tolower $mirror_name].var"
         lappend all $var_file
-        puts "$var_file: gen_makefile"
+        puts "$var_file: gen_makefile.conf"
         puts "\techo > $var_file"
         foreach language $languages {
             set html_file "$rootname-[string tolower $mirror_name].html.$language"
@@ -106,21 +150,65 @@ foreach mirror $mirrors {
         }
     }
 }
+foreach page $mirror_pages {
+    set rootname [file rootname $page]
+    puts ""
+    # Generate html mirror selector files
+    foreach language $languages {
+        set html_file "${rootname}.html.$language"
+        puts "$html_file: ${templatemirror} mirrors.dat ${master-template}"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $templatemirror"
+        lappend all $html_file
+    }
+}
+
+puts ""
+
+#Generate mirrors.dat
+puts "mirrors.dat:"
+puts "\techo -e 'name\\tnamel\\turl' > mirrors.dat"
+foreach mirror $mirrors {
+    set mirror_name [lindex $mirror 0]
+    set mirror_namel [string tolower $mirror_name]
+    set mirror_url [lindex $mirror 1]
+    puts "\techo -e '$mirror_name\\t$mirror_namel\\t$mirror_url' >> mirrors.dat"
+}
+lappend all "mirrors.dat"
+
 puts ""
 puts "all_pages: [join $all]"
 puts ""
 
 #Put some standard rules in Makefile
 
-puts "
+if $subdir {
+    puts "
+# clean
+clean:
+\trm -f *.html.* *.var mirrors.dat
+"
+} else {
+    puts "
 #adp2html tool
 \$(ADP2HTML): adp2html.pp
 \t\$(PP) \$(OPT) -Xs adp2html.pp
+
+# down subdir
+down_all:
+\tmake -C down all
+
+# clean
+clean: clean_down
+\trm -f *.html.* *.var mirrors.dat adp2html
+
+clean_down:
+\tmake -C down clean
 
 # archives (unix only)
 tar: all
 \ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 
 zip: all
-\tzip htmls.zip `find -name '*.html' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 "
+}

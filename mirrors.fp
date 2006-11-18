@@ -1,9 +1,7 @@
-<html>
-<!--
-#TITLE Free Pascal - Links
-#ENTRY links
-#HEADER Links
--->
+<master>
+<property name="title">Free Pascal - Links</property>
+<property name="entry">links</property>
+<property name="header">Links</property>
 
 <h1>Mirroring:</h1>
 If you want to mirror our site, please contact 
