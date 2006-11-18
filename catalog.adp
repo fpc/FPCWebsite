@@ -1,6 +1,30 @@
 <TRN locale="he_IL" key="website.Requirements_text">
 <b>מעבדי x86:</b><blockquote>עבור שימוש במעבדים מבוססי 80x86, נדרש לפחות מעבד 386, בעוד ש486 מומלץ.</blockquote><b>מעבדי PowerPC</b><blockquote>ניתן להשתמש בכל מעבדי PowerPC. יש צורך בלפחות 16 מגה של זיכרון גישה אקראי. גרסת מערכת ההפעלה Mac OS קלאסי צריכה לעבוד בגרסה 7.5.3 או גרסה חדשה יותר. עבור Mac OS X הגרסה הנדרשת היא Mac OS X 10.1 או גרסה חדשה יותר, עם כלי פיתוח מותקנים. עבור שאר מערכות ההפעלה, Free Pascal רץ על כל מערכות ההפעלה שקיימות למעבד.</blockquote><b>מעבדי ARM</b><blockquote>כרגע ישנה תמיכה רק ב cross-compiling.</blockquote><b>מעבדי Sparc</b><blockquote>יש דרישה ל16 מגה של זיכרון גישה אקראי. המהדר רץ על Sparc Linux</blockquote>
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20061125">
+
+    <em>November 25-26, 2006</em>
+    Lazarus and FPC will be on the HCC in Utrecht, Netherlands in the HCC Pascal booth.
+  
+</TRN>
+<TRN locale="nl_NL" key="website.overview">
+In het kort
+</TRN>
+<TRN locale="nl_NL" key="website.latest_news">
+Laatste nieuws
+</TRN>
+<TRN locale="nl_NL" key="website.Current_Version">
+Huidige versie
+</TRN>
+<TRN locale="nl_NL" key="website.Features">
+Functionaliteit
+</TRN>
+<TRN locale="nl_NL" key="website.Requirements">
+Vereisten
+</TRN>
+<TRN locale="nl_NL" key="website.License">
+Licentie
+</TRN>
 <TRN locale="en_US" key="website.overview">
 Overview
 </TRN>
