@@ -92,7 +92,7 @@ if $subdir {
 } else {
     puts ".PHONY: all all_pages clean zip tar"
     puts "default: all"
-    puts "all: \$(ADP2HTML) all_pages down_all"
+    puts "all: \$(ADP2HTML) all_pages down_all tools_all"
 }
 
 set all ""
@@ -197,12 +197,18 @@ clean:
 down_all:
 \tmake -C down all
 
+tools_all:
+\tmake -C tools all
+
 # clean
-clean: clean_down
+clean: clean_down clean_tools
 \trm -f *.html.* *.var mirrors.dat adp2html
 
 clean_down:
 \tmake -C down clean
+
+clean_tools:
+\tmake -C tools clean
 
 # archives (unix only)
 tar: all
