@@ -1,10 +1,7 @@
-<html>
-<!--
-#TITLE Free Pascal - Links
-#ENTRY links
-#HEADER Links
--->
-
+<master>
+<property name="title">Free Pascal - Links</property>
+<property name="entry">links</property>
+<property name="header">Links</property>
 <a name="mirrors"></a>
 <h2>Mirrors:</h2>
   These web pages are known to be mirrored at the following sites: <p>
@@ -158,5 +155,3 @@ your chances to contact them ;-).
     documentation on most of the Unix tools plus
     further information on AT&T assembler coding.</li>
 </ul>
-
-</html>
