@@ -391,6 +391,32 @@ linux.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl ../../templatemirror.adp
 linux.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux.html.pl ../../templatemirror.adp
+linux.var: gen_makefile.conf
+	echo > linux.var
+	echo 'URI: linux.html.de' >> linux.var
+	echo 'Content-language: de' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.en' >> linux.var
+	echo 'Content-language: en' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.fr' >> linux.var
+	echo 'Content-language: fr' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.id' >> linux.var
+	echo 'Content-language: id' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.nl' >> linux.var
+	echo 'Content-language: nl' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.pl' >> linux.var
+	echo 'Content-language: pl' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -404,7 +430,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: linux-australia.html.de linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.nl linux-australia.html.pl linux-australia.var linux-austria.html.de linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.nl linux-austria.html.pl linux-austria.var linux-germany.html.de linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.nl linux-germany.html.pl linux-germany.var linux-hungary.html.de linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.nl linux-hungary.html.pl linux-hungary.var linux-israel.html.de linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.nl linux-israel.html.pl linux-israel.var linux-netherlands.html.de linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.nl linux-netherlands.html.pl linux-netherlands.var linux-norway.html.de linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.nl linux-norway.html.pl linux-norway.var linux-russia.html.de linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.nl linux-russia.html.pl linux-russia.var linux-ftp.freepascal.org.html.de linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.pl linux-ftp.freepascal.org.var linux.html.de linux.html.en linux.html.fr linux.html.id linux.html.nl linux.html.pl mirrors.dat
+all_pages: linux-australia.html.de linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.nl linux-australia.html.pl linux-australia.var linux-austria.html.de linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.nl linux-austria.html.pl linux-austria.var linux-germany.html.de linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.nl linux-germany.html.pl linux-germany.var linux-hungary.html.de linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.nl linux-hungary.html.pl linux-hungary.var linux-israel.html.de linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.nl linux-israel.html.pl linux-israel.var linux-netherlands.html.de linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.nl linux-netherlands.html.pl linux-netherlands.var linux-norway.html.de linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.nl linux-norway.html.pl linux-norway.var linux-russia.html.de linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.nl linux-russia.html.pl linux-russia.var linux-ftp.freepascal.org.html.de linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.pl linux-ftp.freepascal.org.var linux.html.de linux.html.en linux.html.fr linux.html.id linux.html.nl linux.html.pl linux.var mirrors.dat
 
 
 # clean

@@ -391,6 +391,32 @@ docs.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o docs.html.nl ../../templatemirror.adp
 docs.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o docs.html.pl ../../templatemirror.adp
+docs.var: gen_makefile.conf
+	echo > docs.var
+	echo 'URI: docs.html.de' >> docs.var
+	echo 'Content-language: de' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.en' >> docs.var
+	echo 'Content-language: en' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.fr' >> docs.var
+	echo 'Content-language: fr' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.id' >> docs.var
+	echo 'Content-language: id' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.nl' >> docs.var
+	echo 'Content-language: nl' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.pl' >> docs.var
+	echo 'Content-language: pl' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -404,7 +430,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: docs-australia.html.de docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.nl docs-australia.html.pl docs-australia.var docs-austria.html.de docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.nl docs-austria.html.pl docs-austria.var docs-germany.html.de docs-germany.html.en docs-germany.html.fr docs-germany.html.id docs-germany.html.nl docs-germany.html.pl docs-germany.var docs-hungary.html.de docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.nl docs-hungary.html.pl docs-hungary.var docs-israel.html.de docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.nl docs-israel.html.pl docs-israel.var docs-netherlands.html.de docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.nl docs-netherlands.html.pl docs-netherlands.var docs-norway.html.de docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.nl docs-norway.html.pl docs-norway.var docs-russia.html.de docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.nl docs-russia.html.pl docs-russia.var docs-ftp.freepascal.org.html.de docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.pl docs-ftp.freepascal.org.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl mirrors.dat
+all_pages: docs-australia.html.de docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.nl docs-australia.html.pl docs-australia.var docs-austria.html.de docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.nl docs-austria.html.pl docs-austria.var docs-germany.html.de docs-germany.html.en docs-germany.html.fr docs-germany.html.id docs-germany.html.nl docs-germany.html.pl docs-germany.var docs-hungary.html.de docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.nl docs-hungary.html.pl docs-hungary.var docs-israel.html.de docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.nl docs-israel.html.pl docs-israel.var docs-netherlands.html.de docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.nl docs-netherlands.html.pl docs-netherlands.var docs-norway.html.de docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.nl docs-norway.html.pl docs-norway.var docs-russia.html.de docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.nl docs-russia.html.pl docs-russia.var docs-ftp.freepascal.org.html.de docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.pl docs-ftp.freepascal.org.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var mirrors.dat
 
 
 # clean

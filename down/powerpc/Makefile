@@ -1444,6 +1444,32 @@ linux.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl ../../templatemirror.adp
 linux.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux.html.pl ../../templatemirror.adp
+linux.var: gen_makefile.conf
+	echo > linux.var
+	echo 'URI: linux.html.de' >> linux.var
+	echo 'Content-language: de' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.en' >> linux.var
+	echo 'Content-language: en' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.fr' >> linux.var
+	echo 'Content-language: fr' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.id' >> linux.var
+	echo 'Content-language: id' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.nl' >> linux.var
+	echo 'Content-language: nl' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
+	echo 'URI: linux.html.pl' >> linux.var
+	echo 'Content-language: pl' >> linux.var
+	echo 'Content-type: text/html' >> linux.var
+	echo >> linux.var
 
 macos.html.de: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o macos.html.de ../../templatemirror.adp
@@ -1457,6 +1483,32 @@ macos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o macos.html.nl ../../templatemirror.adp
 macos.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o macos.html.pl ../../templatemirror.adp
+macos.var: gen_makefile.conf
+	echo > macos.var
+	echo 'URI: macos.html.de' >> macos.var
+	echo 'Content-language: de' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
+	echo 'URI: macos.html.en' >> macos.var
+	echo 'Content-language: en' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
+	echo 'URI: macos.html.fr' >> macos.var
+	echo 'Content-language: fr' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
+	echo 'URI: macos.html.id' >> macos.var
+	echo 'Content-language: id' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
+	echo 'URI: macos.html.nl' >> macos.var
+	echo 'Content-language: nl' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
+	echo 'URI: macos.html.pl' >> macos.var
+	echo 'Content-language: pl' >> macos.var
+	echo 'Content-type: text/html' >> macos.var
+	echo >> macos.var
 
 macosx.html.de: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o macosx.html.de ../../templatemirror.adp
@@ -1470,6 +1522,32 @@ macosx.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o macosx.html.nl ../../templatemirror.adp
 macosx.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o macosx.html.pl ../../templatemirror.adp
+macosx.var: gen_makefile.conf
+	echo > macosx.var
+	echo 'URI: macosx.html.de' >> macosx.var
+	echo 'Content-language: de' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.en' >> macosx.var
+	echo 'Content-language: en' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.fr' >> macosx.var
+	echo 'Content-language: fr' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.id' >> macosx.var
+	echo 'Content-language: id' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.nl' >> macosx.var
+	echo 'Content-language: nl' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.pl' >> macosx.var
+	echo 'Content-language: pl' >> macosx.var
+	echo 'Content-type: text/html' >> macosx.var
+	echo >> macosx.var
 
 morphos.html.de: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o morphos.html.de ../../templatemirror.adp
@@ -1483,6 +1561,32 @@ morphos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o morphos.html.nl ../../templatemirror.adp
 morphos.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o morphos.html.pl ../../templatemirror.adp
+morphos.var: gen_makefile.conf
+	echo > morphos.var
+	echo 'URI: morphos.html.de' >> morphos.var
+	echo 'Content-language: de' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
+	echo 'URI: morphos.html.en' >> morphos.var
+	echo 'Content-language: en' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
+	echo 'URI: morphos.html.fr' >> morphos.var
+	echo 'Content-language: fr' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
+	echo 'URI: morphos.html.id' >> morphos.var
+	echo 'Content-language: id' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
+	echo 'URI: morphos.html.nl' >> morphos.var
+	echo 'Content-language: nl' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
+	echo 'URI: morphos.html.pl' >> morphos.var
+	echo 'Content-language: pl' >> morphos.var
+	echo 'Content-type: text/html' >> morphos.var
+	echo >> morphos.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -1496,7 +1600,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: linux-australia.html.de linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.nl linux-australia.html.pl linux-australia.var macos-australia.html.de macos-australia.html.en macos-australia.html.fr macos-australia.html.id macos-australia.html.nl macos-australia.html.pl macos-australia.var macosx-australia.html.de macosx-australia.html.en macosx-australia.html.fr macosx-australia.html.id macosx-australia.html.nl macosx-australia.html.pl macosx-australia.var morphos-australia.html.de morphos-australia.html.en morphos-australia.html.fr morphos-australia.html.id morphos-australia.html.nl morphos-australia.html.pl morphos-australia.var linux-austria.html.de linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.nl linux-austria.html.pl linux-austria.var macos-austria.html.de macos-austria.html.en macos-austria.html.fr macos-austria.html.id macos-austria.html.nl macos-austria.html.pl macos-austria.var macosx-austria.html.de macosx-austria.html.en macosx-austria.html.fr macosx-austria.html.id macosx-austria.html.nl macosx-austria.html.pl macosx-austria.var morphos-austria.html.de morphos-austria.html.en morphos-austria.html.fr morphos-austria.html.id morphos-austria.html.nl morphos-austria.html.pl morphos-austria.var linux-germany.html.de linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.nl linux-germany.html.pl linux-germany.var macos-germany.html.de macos-germany.html.en macos-germany.html.fr macos-germany.html.id macos-germany.html.nl macos-germany.html.pl macos-germany.var macosx-germany.html.de macosx-germany.html.en macosx-germany.html.fr macosx-germany.html.id macosx-germany.html.nl macosx-germany.html.pl macosx-germany.var morphos-germany.html.de morphos-germany.html.en morphos-germany.html.fr morphos-germany.html.id morphos-germany.html.nl morphos-germany.html.pl morphos-germany.var linux-hungary.html.de linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.nl linux-hungary.html.pl linux-hungary.var macos-hungary.html.de macos-hungary.html.en macos-hungary.html.fr macos-hungary.html.id macos-hungary.html.nl macos-hungary.html.pl macos-hungary.var macosx-hungary.html.de macosx-hungary.html.en macosx-hungary.html.fr macosx-hungary.html.id macosx-hungary.html.nl macosx-hungary.html.pl macosx-hungary.var morphos-hungary.html.de morphos-hungary.html.en morphos-hungary.html.fr morphos-hungary.html.id morphos-hungary.html.nl morphos-hungary.html.pl morphos-hungary.var linux-israel.html.de linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.nl linux-israel.html.pl linux-israel.var macos-israel.html.de macos-israel.html.en macos-israel.html.fr macos-israel.html.id macos-israel.html.nl macos-israel.html.pl macos-israel.var macosx-israel.html.de macosx-israel.html.en macosx-israel.html.fr macosx-israel.html.id macosx-israel.html.nl macosx-israel.html.pl macosx-israel.var morphos-israel.html.de morphos-israel.html.en morphos-israel.html.fr morphos-israel.html.id morphos-israel.html.nl morphos-israel.html.pl morphos-israel.var linux-netherlands.html.de linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.nl linux-netherlands.html.pl linux-netherlands.var macos-netherlands.html.de macos-netherlands.html.en macos-netherlands.html.fr macos-netherlands.html.id macos-netherlands.html.nl macos-netherlands.html.pl macos-netherlands.var macosx-netherlands.html.de macosx-netherlands.html.en macosx-netherlands.html.fr macosx-netherlands.html.id macosx-netherlands.html.nl macosx-netherlands.html.pl macosx-netherlands.var morphos-netherlands.html.de morphos-netherlands.html.en morphos-netherlands.html.fr morphos-netherlands.html.id morphos-netherlands.html.nl morphos-netherlands.html.pl morphos-netherlands.var linux-norway.html.de linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.nl linux-norway.html.pl linux-norway.var macos-norway.html.de macos-norway.html.en macos-norway.html.fr macos-norway.html.id macos-norway.html.nl macos-norway.html.pl macos-norway.var macosx-norway.html.de macosx-norway.html.en macosx-norway.html.fr macosx-norway.html.id macosx-norway.html.nl macosx-norway.html.pl macosx-norway.var morphos-norway.html.de morphos-norway.html.en morphos-norway.html.fr morphos-norway.html.id morphos-norway.html.nl morphos-norway.html.pl morphos-norway.var linux-russia.html.de linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.nl linux-russia.html.pl linux-russia.var macos-russia.html.de macos-russia.html.en macos-russia.html.fr macos-russia.html.id macos-russia.html.nl macos-russia.html.pl macos-russia.var macosx-russia.html.de macosx-russia.html.en macosx-russia.html.fr macosx-russia.html.id macosx-russia.html.nl macosx-russia.html.pl macosx-russia.var morphos-russia.html.de morphos-russia.html.en morphos-russia.html.fr morphos-russia.html.id morphos-russia.html.nl morphos-russia.html.pl morphos-russia.var linux-ftp.freepascal.org.html.de linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.pl linux-ftp.freepascal.org.var macos-ftp.freepascal.org.html.de macos-ftp.freepascal.org.html.en macos-ftp.freepascal.org.html.fr macos-ftp.freepascal.org.html.id macos-ftp.freepascal.org.html.nl macos-ftp.freepascal.org.html.pl macos-ftp.freepascal.org.var macosx-ftp.freepascal.org.html.de macosx-ftp.freepascal.org.html.en macosx-ftp.freepascal.org.html.fr macosx-ftp.freepascal.org.html.id macosx-ftp.freepascal.org.html.nl macosx-ftp.freepascal.org.html.pl macosx-ftp.freepascal.org.var morphos-ftp.freepascal.org.html.de morphos-ftp.freepascal.org.html.en morphos-ftp.freepascal.org.html.fr morphos-ftp.freepascal.org.html.id morphos-ftp.freepascal.org.html.nl morphos-ftp.freepascal.org.html.pl morphos-ftp.freepascal.org.var linux.html.de linux.html.en linux.html.fr linux.html.id linux.html.nl linux.html.pl macos.html.de macos.html.en macos.html.fr macos.html.id macos.html.nl macos.html.pl macosx.html.de macosx.html.en macosx.html.fr macosx.html.id macosx.html.nl macosx.html.pl morphos.html.de morphos.html.en morphos.html.fr morphos.html.id morphos.html.nl morphos.html.pl mirrors.dat
+all_pages: linux-australia.html.de linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.nl linux-australia.html.pl linux-australia.var macos-australia.html.de macos-australia.html.en macos-australia.html.fr macos-australia.html.id macos-australia.html.nl macos-australia.html.pl macos-australia.var macosx-australia.html.de macosx-australia.html.en macosx-australia.html.fr macosx-australia.html.id macosx-australia.html.nl macosx-australia.html.pl macosx-australia.var morphos-australia.html.de morphos-australia.html.en morphos-australia.html.fr morphos-australia.html.id morphos-australia.html.nl morphos-australia.html.pl morphos-australia.var linux-austria.html.de linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.nl linux-austria.html.pl linux-austria.var macos-austria.html.de macos-austria.html.en macos-austria.html.fr macos-austria.html.id macos-austria.html.nl macos-austria.html.pl macos-austria.var macosx-austria.html.de macosx-austria.html.en macosx-austria.html.fr macosx-austria.html.id macosx-austria.html.nl macosx-austria.html.pl macosx-austria.var morphos-austria.html.de morphos-austria.html.en morphos-austria.html.fr morphos-austria.html.id morphos-austria.html.nl morphos-austria.html.pl morphos-austria.var linux-germany.html.de linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.nl linux-germany.html.pl linux-germany.var macos-germany.html.de macos-germany.html.en macos-germany.html.fr macos-germany.html.id macos-germany.html.nl macos-germany.html.pl macos-germany.var macosx-germany.html.de macosx-germany.html.en macosx-germany.html.fr macosx-germany.html.id macosx-germany.html.nl macosx-germany.html.pl macosx-germany.var morphos-germany.html.de morphos-germany.html.en morphos-germany.html.fr morphos-germany.html.id morphos-germany.html.nl morphos-germany.html.pl morphos-germany.var linux-hungary.html.de linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.nl linux-hungary.html.pl linux-hungary.var macos-hungary.html.de macos-hungary.html.en macos-hungary.html.fr macos-hungary.html.id macos-hungary.html.nl macos-hungary.html.pl macos-hungary.var macosx-hungary.html.de macosx-hungary.html.en macosx-hungary.html.fr macosx-hungary.html.id macosx-hungary.html.nl macosx-hungary.html.pl macosx-hungary.var morphos-hungary.html.de morphos-hungary.html.en morphos-hungary.html.fr morphos-hungary.html.id morphos-hungary.html.nl morphos-hungary.html.pl morphos-hungary.var linux-israel.html.de linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.nl linux-israel.html.pl linux-israel.var macos-israel.html.de macos-israel.html.en macos-israel.html.fr macos-israel.html.id macos-israel.html.nl macos-israel.html.pl macos-israel.var macosx-israel.html.de macosx-israel.html.en macosx-israel.html.fr macosx-israel.html.id macosx-israel.html.nl macosx-israel.html.pl macosx-israel.var morphos-israel.html.de morphos-israel.html.en morphos-israel.html.fr morphos-israel.html.id morphos-israel.html.nl morphos-israel.html.pl morphos-israel.var linux-netherlands.html.de linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.nl linux-netherlands.html.pl linux-netherlands.var macos-netherlands.html.de macos-netherlands.html.en macos-netherlands.html.fr macos-netherlands.html.id macos-netherlands.html.nl macos-netherlands.html.pl macos-netherlands.var macosx-netherlands.html.de macosx-netherlands.html.en macosx-netherlands.html.fr macosx-netherlands.html.id macosx-netherlands.html.nl macosx-netherlands.html.pl macosx-netherlands.var morphos-netherlands.html.de morphos-netherlands.html.en morphos-netherlands.html.fr morphos-netherlands.html.id morphos-netherlands.html.nl morphos-netherlands.html.pl morphos-netherlands.var linux-norway.html.de linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.nl linux-norway.html.pl linux-norway.var macos-norway.html.de macos-norway.html.en macos-norway.html.fr macos-norway.html.id macos-norway.html.nl macos-norway.html.pl macos-norway.var macosx-norway.html.de macosx-norway.html.en macosx-norway.html.fr macosx-norway.html.id macosx-norway.html.nl macosx-norway.html.pl macosx-norway.var morphos-norway.html.de morphos-norway.html.en morphos-norway.html.fr morphos-norway.html.id morphos-norway.html.nl morphos-norway.html.pl morphos-norway.var linux-russia.html.de linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.nl linux-russia.html.pl linux-russia.var macos-russia.html.de macos-russia.html.en macos-russia.html.fr macos-russia.html.id macos-russia.html.nl macos-russia.html.pl macos-russia.var macosx-russia.html.de macosx-russia.html.en macosx-russia.html.fr macosx-russia.html.id macosx-russia.html.nl macosx-russia.html.pl macosx-russia.var morphos-russia.html.de morphos-russia.html.en morphos-russia.html.fr morphos-russia.html.id morphos-russia.html.nl morphos-russia.html.pl morphos-russia.var linux-ftp.freepascal.org.html.de linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.pl linux-ftp.freepascal.org.var macos-ftp.freepascal.org.html.de macos-ftp.freepascal.org.html.en macos-ftp.freepascal.org.html.fr macos-ftp.freepascal.org.html.id macos-ftp.freepascal.org.html.nl macos-ftp.freepascal.org.html.pl macos-ftp.freepascal.org.var macosx-ftp.freepascal.org.html.de macosx-ftp.freepascal.org.html.en macosx-ftp.freepascal.org.html.fr macosx-ftp.freepascal.org.html.id macosx-ftp.freepascal.org.html.nl macosx-ftp.freepascal.org.html.pl macosx-ftp.freepascal.org.var morphos-ftp.freepascal.org.html.de morphos-ftp.freepascal.org.html.en morphos-ftp.freepascal.org.html.fr morphos-ftp.freepascal.org.html.id morphos-ftp.freepascal.org.html.nl morphos-ftp.freepascal.org.html.pl morphos-ftp.freepascal.org.var linux.html.de linux.html.en linux.html.fr linux.html.id linux.html.nl linux.html.pl linux.var macos.html.de macos.html.en macos.html.fr macos.html.id macos.html.nl macos.html.pl macos.var macosx.html.de macosx.html.en macosx.html.fr macosx.html.id macosx.html.nl macosx.html.pl macosx.var morphos.html.de morphos.html.en morphos.html.fr morphos.html.id morphos.html.nl morphos.html.pl morphos.var mirrors.dat
 
 
 # clean

@@ -391,6 +391,32 @@ sources.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o sources.html.nl ../../templatemirror.adp
 sources.html.pl: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o sources.html.pl ../../templatemirror.adp
+sources.var: gen_makefile.conf
+	echo > sources.var
+	echo 'URI: sources.html.de' >> sources.var
+	echo 'Content-language: de' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
+	echo 'URI: sources.html.en' >> sources.var
+	echo 'Content-language: en' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
+	echo 'URI: sources.html.fr' >> sources.var
+	echo 'Content-language: fr' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
+	echo 'URI: sources.html.id' >> sources.var
+	echo 'Content-language: id' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
+	echo 'URI: sources.html.nl' >> sources.var
+	echo 'Content-language: nl' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
+	echo 'URI: sources.html.pl' >> sources.var
+	echo 'Content-language: pl' >> sources.var
+	echo 'Content-type: text/html' >> sources.var
+	echo >> sources.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -404,7 +430,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: sources-australia.html.de sources-australia.html.en sources-australia.html.fr sources-australia.html.id sources-australia.html.nl sources-australia.html.pl sources-australia.var sources-austria.html.de sources-austria.html.en sources-austria.html.fr sources-austria.html.id sources-austria.html.nl sources-austria.html.pl sources-austria.var sources-germany.html.de sources-germany.html.en sources-germany.html.fr sources-germany.html.id sources-germany.html.nl sources-germany.html.pl sources-germany.var sources-hungary.html.de sources-hungary.html.en sources-hungary.html.fr sources-hungary.html.id sources-hungary.html.nl sources-hungary.html.pl sources-hungary.var sources-israel.html.de sources-israel.html.en sources-israel.html.fr sources-israel.html.id sources-israel.html.nl sources-israel.html.pl sources-israel.var sources-netherlands.html.de sources-netherlands.html.en sources-netherlands.html.fr sources-netherlands.html.id sources-netherlands.html.nl sources-netherlands.html.pl sources-netherlands.var sources-norway.html.de sources-norway.html.en sources-norway.html.fr sources-norway.html.id sources-norway.html.nl sources-norway.html.pl sources-norway.var sources-russia.html.de sources-russia.html.en sources-russia.html.fr sources-russia.html.id sources-russia.html.nl sources-russia.html.pl sources-russia.var sources-ftp.freepascal.org.html.de sources-ftp.freepascal.org.html.en sources-ftp.freepascal.org.html.fr sources-ftp.freepascal.org.html.id sources-ftp.freepascal.org.html.nl sources-ftp.freepascal.org.html.pl sources-ftp.freepascal.org.var sources.html.de sources.html.en sources.html.fr sources.html.id sources.html.nl sources.html.pl mirrors.dat
+all_pages: sources-australia.html.de sources-australia.html.en sources-australia.html.fr sources-australia.html.id sources-australia.html.nl sources-australia.html.pl sources-australia.var sources-austria.html.de sources-austria.html.en sources-austria.html.fr sources-austria.html.id sources-austria.html.nl sources-austria.html.pl sources-austria.var sources-germany.html.de sources-germany.html.en sources-germany.html.fr sources-germany.html.id sources-germany.html.nl sources-germany.html.pl sources-germany.var sources-hungary.html.de sources-hungary.html.en sources-hungary.html.fr sources-hungary.html.id sources-hungary.html.nl sources-hungary.html.pl sources-hungary.var sources-israel.html.de sources-israel.html.en sources-israel.html.fr sources-israel.html.id sources-israel.html.nl sources-israel.html.pl sources-israel.var sources-netherlands.html.de sources-netherlands.html.en sources-netherlands.html.fr sources-netherlands.html.id sources-netherlands.html.nl sources-netherlands.html.pl sources-netherlands.var sources-norway.html.de sources-norway.html.en sources-norway.html.fr sources-norway.html.id sources-norway.html.nl sources-norway.html.pl sources-norway.var sources-russia.html.de sources-russia.html.en sources-russia.html.fr sources-russia.html.id sources-russia.html.nl sources-russia.html.pl sources-russia.var sources-ftp.freepascal.org.html.de sources-ftp.freepascal.org.html.en sources-ftp.freepascal.org.html.fr sources-ftp.freepascal.org.html.id sources-ftp.freepascal.org.html.nl sources-ftp.freepascal.org.html.pl sources-ftp.freepascal.org.var sources.html.de sources.html.en sources.html.fr sources.html.id sources.html.nl sources.html.pl sources.var mirrors.dat
 
 
 # clean

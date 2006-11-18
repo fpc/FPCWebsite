@@ -150,6 +150,7 @@ foreach mirror $mirrors {
         }
     }
 }
+#Generate mirror selector
 foreach page $mirror_pages {
     set rootname [file rootname $page]
     puts ""
@@ -159,6 +160,18 @@ foreach page $mirror_pages {
         puts "$html_file: ${templatemirror} mirrors.dat ${master-template}"
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $templatemirror"
         lappend all $html_file
+    }
+    # Generate var file
+    set var_file "${rootname}.var"
+    lappend all $var_file
+    puts "$var_file: gen_makefile.conf"
+    puts "\techo > $var_file"
+    foreach language $languages {
+        set html_file "$rootname.html.$language"
+        puts "\techo 'URI: $html_file' >> $var_file"
+        puts "\techo 'Content-language: $language' >> $var_file"
+        puts "\techo 'Content-type: text/html' >> $var_file"
+        puts "\techo >> $var_file"
     }
 }
 
