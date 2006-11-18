@@ -1,5 +1,4 @@
 <master>
-
 <property name="title">Free Pascal - Runtime Library Units</property>
 <property name="entry">units</property>
 <property name="subentry">unitsrtl</property>
