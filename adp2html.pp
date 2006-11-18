@@ -18,6 +18,7 @@ const whitespace=[' ',#13,#10,#8];
 var master_template:ansistring;
     slave_html:widestring;
     inputfile,outputfile,catalogfile:widestring;
+    datasource_prefix:ansistring;
     locale,fallback_locale:string;
     mode:(process_catalog,process_page);
 
@@ -228,7 +229,8 @@ var last_expr_result:boolean;
   function parse_tag_recursively(const tag:widestring):boolean;
 
   begin
-    parse_tag_recursively:=(tag='TRN') or (tag='PROPERTY') or (tag='IF') or (tag='ELSE');
+    parse_tag_recursively:=(tag='TRN') or (tag='PROPERTY') or (tag='IF') or
+                           (tag='ELSE') or (tag='MULTIPLE');
   end;
 
   function do_if_tag(const tag,params,content,closetag:widestring):widestring;
@@ -275,6 +277,7 @@ var last_expr_result:boolean;
         end
       else
         begin
+          left:=replace_properties(left);
           if pos>length(params) then
             exit;
           save_pos:=pos;
@@ -299,7 +302,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left=right;
         end
       else if op='NE' then
@@ -307,7 +310,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left<>right;
         end
       else if op='LT' then
@@ -315,7 +318,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left<right;
         end
       else if op='LTE' then
@@ -323,7 +326,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left<=right;
         end
       else if op='GTE' then
@@ -331,7 +334,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left>=right;
         end
       else if op='GT' then
@@ -339,7 +342,7 @@ var last_expr_result:boolean;
           if pos>length(params) then
             exit;
           skip_whitespace;
-          right:=read_word;
+          right:=replace_properties(read_word);
           parse_l3_expr:=left>right;
         end
       else
@@ -473,6 +476,70 @@ var last_expr_result:boolean;
     do_slave_tag:=slave_html;
   end;
 
+  function do_multiple_tag(const tag,params,content,closetag:widestring):widestring;
+
+  var p,key,value:widestring;
+      datasource:ansistring;
+      datafile:text;
+      s,t:ansistring;
+
+      colnames:array[1..32] of ansistring;
+      ncols,i,n:longint;
+
+  begin
+    do_multiple_tag:='';
+    p:=params;
+    while p<>'' do
+      begin
+        parse_param(p,key,value);
+        if key='name' then
+          datasource:=value;
+      end;
+
+    {Open the datasource.}
+    assign(datafile,datasource_prefix+datasource+'.dat');
+    reset(datafile);
+
+    {Read the column header.}
+    readln(datafile,s);
+    ncols:=0;
+    repeat
+      i:=pos(#9,s);
+      inc(ncols);
+      if i=0 then
+        colnames[ncols]:=s
+      else
+        begin
+          colnames[ncols]:=copy(s,1,i-1);
+          delete(s,1,i);
+        end;
+    until i=0;
+
+    {Read the data.}
+    while not eof(datafile) do
+      begin
+        readln(datafile,s);
+        t:=s;
+        ncols:=0;
+        n:=1;
+        repeat
+          i:=pos(#9,t);
+          inc(ncols);
+          if i=0 then
+            property_set(datasource+'.'+colnames[n],t)
+          else
+            begin
+              property_set(datasource+'.'+colnames[n],copy(t,1,i-1));
+              delete(t,1,i);
+            end;
+          inc(n);
+        until i=0;
+        do_multiple_tag:=do_multiple_tag+replace_properties(content);
+      end;
+
+    close(datafile);
+  end;
+
   function do_property_tag(const tag,params,content,closetag:widestring):widestring;
 
   var p,name,key,value:widestring;
@@ -507,6 +574,8 @@ var last_expr_result:boolean;
       do_tag:=do_master_tag(tag,params,content,closetag)
     else if utag='SLAVE' then
       do_tag:=do_slave_tag(tag,params,content,closetag)
+    else if utag='MULTIPLE' then
+      do_tag:=do_multiple_tag(tag,params,content,closetag)
     else if recognize_properties and (utag='PROPERTY') then
       do_tag:=do_property_tag(tag,params,content,closetag)
     else
@@ -594,6 +663,7 @@ var last_expr_result:boolean;
             parse_at:=parse_at+parse_tag(pos);
         end;
     until pos>length(adp);
+    parse_at:=replace_properties(parse_at);
   end;
 
 var pos:longint;
@@ -619,9 +689,11 @@ begin
     blockread(adpfile,adpansi[1],filesize(adpfile));
     adpwide:=adpansi;
     close(adpfile);
-    adpwide:=replace_properties(adpwide);
+{    adpwide:=replace_properties(adpwide);}
+    {Do two passes. The first pass if/else tags are expanded...}
     recognize_properties:=false;
     slave_html:=adp_parse(adpwide);
+    {... so the second pass can apply properties.}
     recognize_properties:=true;
     slave_html:=adp_parse(slave_html);
     fn:=master_template;
@@ -633,7 +705,7 @@ procedure parse_cmdline;
 
 type  Tstate=(s_default,s_read_property,s_outputfile,
               s_read_locale,s_read_fallback_locale,s_read_catalogfile,
-              s_read_defaultmaster);
+              s_read_defaultmaster,s_read_dataprefix);
 
 var ignore_options:boolean;
     i:longint;
@@ -685,6 +757,12 @@ begin
           default_master:=s;
           state:=s_default;
         end;
+      s_read_dataprefix:
+        begin
+          s:=paramstr(i);
+          datasource_prefix:=s;
+          state:=s_default;
+        end;
       else
         {Default.}
         s:=paramstr(i);
@@ -694,6 +772,8 @@ begin
           ignore_options:=true
         else if s='-c' then
           state:=s_read_catalogfile
+        else if s='-d' then
+          state:=s_read_dataprefix
         else if s='-o' then
           state:=s_outputfile
         else if s='-p' then
@@ -718,10 +798,11 @@ begin
   catalogfile:='';
   locale:='';
   fallback_locale:='';
+  datasource_prefix:='';
   parse_cmdline;
   if inputfile='' then
      begin
-       writeln('Usage: adp2html [-c catalogfile] [-l locale] [-lb fallback_locale] \');
+       writeln('Usage: adp2html [-c catalogfile] [-d datasource_prefix] [-l locale] [-lb fallback_locale] \');
        writeln('                [-m default_master] [-p key=value] [-o outputfile] <filename>');
        halt(1);
      end;
