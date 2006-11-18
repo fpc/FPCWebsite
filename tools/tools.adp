@@ -1,11 +1,9 @@
-<html>
-<!--
-#TITLE Free Pascal - Programming Tools
-#ENTRY prog
-#SUBENTRY tools
-#MAINDIR ..
-#HEADER Tools that come with FPC
--->
+<master>
+<property name="title">Free Pascal - Programming Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="maindir">..</property>
+<property name="header">Tools that come with FPC</property>
 
 <h1><a href="tools.html">Tools that come with Free Pascal</a></h2>
 Free Pascal comes with several command-line tools that you can use to ease

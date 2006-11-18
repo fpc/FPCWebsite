@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY ppumove
-#MAINDIR ..
-#HEADER ppumove
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">ppumove</property>
+<property name="maindir">..</property>
+<property name="header">ppumove</property>
 <h1>PPUMOVE - Free Pascal unit mover.</h1>
 What follows below is the contents of the manual page of <b>ppumove</b>. 
 If you have installed the man pages then you can view them with the <b>man</b> command.

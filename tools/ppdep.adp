@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY ppdep
-#MAINDIR ..
-#HEADER ppdep
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">ppdep</property>
+<property name="maindir">..</property>
+<property name="header">ppdep</property>
 <h1>PPDEP - Free Pascal unit dependency lister</h1>
 What follows below is the contents of the manual page of <b>ppdep</b>. 
 If you have installed the man pages then you can view them with the <b>man</b> command.

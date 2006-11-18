@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY ppudump
-#MAINDIR ..
-#HEADER ppudump
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">ppudump</property>
+<property name="maindir">..</property>
+<property name="header">ppudump</property>
 <h1>PPUDUMP - Free pascal unit dump program</h1>
 What follows below is the contents of the manual page of <b>ppudump</b>. 
 If you have installed the man pages then you can view them with the <b>man</b> command.

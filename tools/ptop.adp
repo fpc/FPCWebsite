@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY ptop
-#MAINDIR ..
-#HEADER ptop
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">ptop</property>
+<property name="maindir">..</property>
+<property name="header">ptop</property>
 <h1>PTOP - Free Pascal source formatter</h1>
 What follows below is the man page of <b>ptop</b> and the description of the
 configuration file. If you have installed the man pages then you can view

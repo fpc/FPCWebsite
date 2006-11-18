@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY h2pas
-#MAINDIR ..
-#HEADER h2pas
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">h2pas</property>
+<property name="maindir">..</property>
+<property name="header">h2pas</property>
 <h1>H2PAS - Free Pascal C header to pascal unit translator.</h1>
 What follows below is the man page of h2pas. 
 If you have installed the man pages then you can view them with the <b>man</b> command.

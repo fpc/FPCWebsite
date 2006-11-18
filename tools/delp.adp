@@ -1,12 +1,10 @@
-<html>
-<!--
-#TITLE Free Pascal - Tools
-#ENTRY prog
-#SUBENTRY tools
-#SUBSUBENTRY delp
-#MAINDIR ..
-#HEADER delp
--->
+<master>
+<property name="title">Free Pascal - Tools</property>
+<property name="entry">prog</property>
+<property name="subentry">tools</property>
+<property name="subsubentry">delp</property>
+<property name="maindir">..</property>
+<property name="header">delp</property>
 <h1>DELP - Free Pascal file deletion tool.</h1>
 What follows is the Free Pascal File deletion tool manual page. If you have
 the manual pages installed, you can view them using the <b>man</b> command.
