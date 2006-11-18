@@ -1,6 +1,5 @@
 <master>
 <property name="title">Free Pascal - Links</property>
-<property name="entry">links</property>
 <property name="header">Links</property>
 <a name="mirrors"></a>
 <h2>Mirrors:</h2>
