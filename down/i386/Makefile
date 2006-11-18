@@ -25,18 +25,19 @@ ifndef PP
 endif
 
 .PHONY: all all_pages clean
+default: all
 all: all_pages
-freebsd-australia.html.de: freebsd.adp ../../default-master.adp
+freebsd-australia.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-australia.html.de freebsd.adp
-freebsd-australia.html.en: freebsd.adp ../../default-master.adp
+freebsd-australia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-australia.html.en freebsd.adp
-freebsd-australia.html.fr: freebsd.adp ../../default-master.adp
+freebsd-australia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-australia.html.fr freebsd.adp
-freebsd-australia.html.id: freebsd.adp ../../default-master.adp
+freebsd-australia.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-australia.html.id freebsd.adp
-freebsd-australia.html.nl: freebsd.adp ../../default-master.adp
+freebsd-australia.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-australia.html.nl freebsd.adp
-freebsd-australia.html.pl: freebsd.adp ../../default-master.adp
+freebsd-australia.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-australia.html.pl freebsd.adp
 
 freebsd-australia.var: gen_makefile.conf
@@ -65,17 +66,17 @@ freebsd-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-australia.var
 	echo 'Content-type: text/html' >> freebsd-australia.var
 	echo >> freebsd-australia.var
-go32v2-australia.html.de: go32v2.adp ../../default-master.adp
+go32v2-australia.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-australia.html.de go32v2.adp
-go32v2-australia.html.en: go32v2.adp ../../default-master.adp
+go32v2-australia.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-australia.html.en go32v2.adp
-go32v2-australia.html.fr: go32v2.adp ../../default-master.adp
+go32v2-australia.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-australia.html.fr go32v2.adp
-go32v2-australia.html.id: go32v2.adp ../../default-master.adp
+go32v2-australia.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-australia.html.id go32v2.adp
-go32v2-australia.html.nl: go32v2.adp ../../default-master.adp
+go32v2-australia.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-australia.html.nl go32v2.adp
-go32v2-australia.html.pl: go32v2.adp ../../default-master.adp
+go32v2-australia.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-australia.html.pl go32v2.adp
 
 go32v2-australia.var: gen_makefile.conf
@@ -104,17 +105,17 @@ go32v2-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-australia.var
 	echo 'Content-type: text/html' >> go32v2-australia.var
 	echo >> go32v2-australia.var
-linux-australia.html.de: linux.adp ../../default-master.adp
+linux-australia.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-australia.html.de linux.adp
-linux-australia.html.en: linux.adp ../../default-master.adp
+linux-australia.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-australia.html.en linux.adp
-linux-australia.html.fr: linux.adp ../../default-master.adp
+linux-australia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-australia.html.fr linux.adp
-linux-australia.html.id: linux.adp ../../default-master.adp
+linux-australia.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-australia.html.id linux.adp
-linux-australia.html.nl: linux.adp ../../default-master.adp
+linux-australia.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-australia.html.nl linux.adp
-linux-australia.html.pl: linux.adp ../../default-master.adp
+linux-australia.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-australia.html.pl linux.adp
 
 linux-australia.var: gen_makefile.conf
@@ -143,17 +144,17 @@ linux-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-australia.var
 	echo 'Content-type: text/html' >> linux-australia.var
 	echo >> linux-australia.var
-netware-australia.html.de: netware.adp ../../default-master.adp
+netware-australia.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-australia.html.de netware.adp
-netware-australia.html.en: netware.adp ../../default-master.adp
+netware-australia.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-australia.html.en netware.adp
-netware-australia.html.fr: netware.adp ../../default-master.adp
+netware-australia.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-australia.html.fr netware.adp
-netware-australia.html.id: netware.adp ../../default-master.adp
+netware-australia.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-australia.html.id netware.adp
-netware-australia.html.nl: netware.adp ../../default-master.adp
+netware-australia.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-australia.html.nl netware.adp
-netware-australia.html.pl: netware.adp ../../default-master.adp
+netware-australia.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-australia.html.pl netware.adp
 
 netware-australia.var: gen_makefile.conf
@@ -182,17 +183,17 @@ netware-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-australia.var
 	echo 'Content-type: text/html' >> netware-australia.var
 	echo >> netware-australia.var
-os2-australia.html.de: os2.adp ../../default-master.adp
+os2-australia.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-australia.html.de os2.adp
-os2-australia.html.en: os2.adp ../../default-master.adp
+os2-australia.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-australia.html.en os2.adp
-os2-australia.html.fr: os2.adp ../../default-master.adp
+os2-australia.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-australia.html.fr os2.adp
-os2-australia.html.id: os2.adp ../../default-master.adp
+os2-australia.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-australia.html.id os2.adp
-os2-australia.html.nl: os2.adp ../../default-master.adp
+os2-australia.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-australia.html.nl os2.adp
-os2-australia.html.pl: os2.adp ../../default-master.adp
+os2-australia.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-australia.html.pl os2.adp
 
 os2-australia.var: gen_makefile.conf
@@ -221,17 +222,17 @@ os2-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-australia.var
 	echo 'Content-type: text/html' >> os2-australia.var
 	echo >> os2-australia.var
-win32-australia.html.de: win32.adp ../../default-master.adp
+win32-australia.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-australia.html.de win32.adp
-win32-australia.html.en: win32.adp ../../default-master.adp
+win32-australia.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-australia.html.en win32.adp
-win32-australia.html.fr: win32.adp ../../default-master.adp
+win32-australia.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-australia.html.fr win32.adp
-win32-australia.html.id: win32.adp ../../default-master.adp
+win32-australia.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-australia.html.id win32.adp
-win32-australia.html.nl: win32.adp ../../default-master.adp
+win32-australia.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-australia.html.nl win32.adp
-win32-australia.html.pl: win32.adp ../../default-master.adp
+win32-australia.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-australia.html.pl win32.adp
 
 win32-australia.var: gen_makefile.conf
@@ -260,17 +261,17 @@ win32-australia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-australia.var
 	echo 'Content-type: text/html' >> win32-australia.var
 	echo >> win32-australia.var
-freebsd-austria.html.de: freebsd.adp ../../default-master.adp
+freebsd-austria.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-austria.html.de freebsd.adp
-freebsd-austria.html.en: freebsd.adp ../../default-master.adp
+freebsd-austria.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-austria.html.en freebsd.adp
-freebsd-austria.html.fr: freebsd.adp ../../default-master.adp
+freebsd-austria.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-austria.html.fr freebsd.adp
-freebsd-austria.html.id: freebsd.adp ../../default-master.adp
+freebsd-austria.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-austria.html.id freebsd.adp
-freebsd-austria.html.nl: freebsd.adp ../../default-master.adp
+freebsd-austria.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-austria.html.nl freebsd.adp
-freebsd-austria.html.pl: freebsd.adp ../../default-master.adp
+freebsd-austria.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-austria.html.pl freebsd.adp
 
 freebsd-austria.var: gen_makefile.conf
@@ -299,17 +300,17 @@ freebsd-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-austria.var
 	echo 'Content-type: text/html' >> freebsd-austria.var
 	echo >> freebsd-austria.var
-go32v2-austria.html.de: go32v2.adp ../../default-master.adp
+go32v2-austria.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-austria.html.de go32v2.adp
-go32v2-austria.html.en: go32v2.adp ../../default-master.adp
+go32v2-austria.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-austria.html.en go32v2.adp
-go32v2-austria.html.fr: go32v2.adp ../../default-master.adp
+go32v2-austria.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-austria.html.fr go32v2.adp
-go32v2-austria.html.id: go32v2.adp ../../default-master.adp
+go32v2-austria.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-austria.html.id go32v2.adp
-go32v2-austria.html.nl: go32v2.adp ../../default-master.adp
+go32v2-austria.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-austria.html.nl go32v2.adp
-go32v2-austria.html.pl: go32v2.adp ../../default-master.adp
+go32v2-austria.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-austria.html.pl go32v2.adp
 
 go32v2-austria.var: gen_makefile.conf
@@ -338,17 +339,17 @@ go32v2-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-austria.var
 	echo 'Content-type: text/html' >> go32v2-austria.var
 	echo >> go32v2-austria.var
-linux-austria.html.de: linux.adp ../../default-master.adp
+linux-austria.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-austria.html.de linux.adp
-linux-austria.html.en: linux.adp ../../default-master.adp
+linux-austria.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-austria.html.en linux.adp
-linux-austria.html.fr: linux.adp ../../default-master.adp
+linux-austria.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-austria.html.fr linux.adp
-linux-austria.html.id: linux.adp ../../default-master.adp
+linux-austria.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-austria.html.id linux.adp
-linux-austria.html.nl: linux.adp ../../default-master.adp
+linux-austria.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-austria.html.nl linux.adp
-linux-austria.html.pl: linux.adp ../../default-master.adp
+linux-austria.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-austria.html.pl linux.adp
 
 linux-austria.var: gen_makefile.conf
@@ -377,17 +378,17 @@ linux-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-austria.var
 	echo 'Content-type: text/html' >> linux-austria.var
 	echo >> linux-austria.var
-netware-austria.html.de: netware.adp ../../default-master.adp
+netware-austria.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-austria.html.de netware.adp
-netware-austria.html.en: netware.adp ../../default-master.adp
+netware-austria.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-austria.html.en netware.adp
-netware-austria.html.fr: netware.adp ../../default-master.adp
+netware-austria.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-austria.html.fr netware.adp
-netware-austria.html.id: netware.adp ../../default-master.adp
+netware-austria.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-austria.html.id netware.adp
-netware-austria.html.nl: netware.adp ../../default-master.adp
+netware-austria.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-austria.html.nl netware.adp
-netware-austria.html.pl: netware.adp ../../default-master.adp
+netware-austria.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-austria.html.pl netware.adp
 
 netware-austria.var: gen_makefile.conf
@@ -416,17 +417,17 @@ netware-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-austria.var
 	echo 'Content-type: text/html' >> netware-austria.var
 	echo >> netware-austria.var
-os2-austria.html.de: os2.adp ../../default-master.adp
+os2-austria.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-austria.html.de os2.adp
-os2-austria.html.en: os2.adp ../../default-master.adp
+os2-austria.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-austria.html.en os2.adp
-os2-austria.html.fr: os2.adp ../../default-master.adp
+os2-austria.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-austria.html.fr os2.adp
-os2-austria.html.id: os2.adp ../../default-master.adp
+os2-austria.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-austria.html.id os2.adp
-os2-austria.html.nl: os2.adp ../../default-master.adp
+os2-austria.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-austria.html.nl os2.adp
-os2-austria.html.pl: os2.adp ../../default-master.adp
+os2-austria.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-austria.html.pl os2.adp
 
 os2-austria.var: gen_makefile.conf
@@ -455,17 +456,17 @@ os2-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-austria.var
 	echo 'Content-type: text/html' >> os2-austria.var
 	echo >> os2-austria.var
-win32-austria.html.de: win32.adp ../../default-master.adp
+win32-austria.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-austria.html.de win32.adp
-win32-austria.html.en: win32.adp ../../default-master.adp
+win32-austria.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-austria.html.en win32.adp
-win32-austria.html.fr: win32.adp ../../default-master.adp
+win32-austria.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-austria.html.fr win32.adp
-win32-austria.html.id: win32.adp ../../default-master.adp
+win32-austria.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-austria.html.id win32.adp
-win32-austria.html.nl: win32.adp ../../default-master.adp
+win32-austria.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-austria.html.nl win32.adp
-win32-austria.html.pl: win32.adp ../../default-master.adp
+win32-austria.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-austria.html.pl win32.adp
 
 win32-austria.var: gen_makefile.conf
@@ -494,17 +495,17 @@ win32-austria.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-austria.var
 	echo 'Content-type: text/html' >> win32-austria.var
 	echo >> win32-austria.var
-freebsd-germany.html.de: freebsd.adp ../../default-master.adp
+freebsd-germany.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-germany.html.de freebsd.adp
-freebsd-germany.html.en: freebsd.adp ../../default-master.adp
+freebsd-germany.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-germany.html.en freebsd.adp
-freebsd-germany.html.fr: freebsd.adp ../../default-master.adp
+freebsd-germany.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-germany.html.fr freebsd.adp
-freebsd-germany.html.id: freebsd.adp ../../default-master.adp
+freebsd-germany.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-germany.html.id freebsd.adp
-freebsd-germany.html.nl: freebsd.adp ../../default-master.adp
+freebsd-germany.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-germany.html.nl freebsd.adp
-freebsd-germany.html.pl: freebsd.adp ../../default-master.adp
+freebsd-germany.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-germany.html.pl freebsd.adp
 
 freebsd-germany.var: gen_makefile.conf
@@ -533,17 +534,17 @@ freebsd-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-germany.var
 	echo 'Content-type: text/html' >> freebsd-germany.var
 	echo >> freebsd-germany.var
-go32v2-germany.html.de: go32v2.adp ../../default-master.adp
+go32v2-germany.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-germany.html.de go32v2.adp
-go32v2-germany.html.en: go32v2.adp ../../default-master.adp
+go32v2-germany.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-germany.html.en go32v2.adp
-go32v2-germany.html.fr: go32v2.adp ../../default-master.adp
+go32v2-germany.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-germany.html.fr go32v2.adp
-go32v2-germany.html.id: go32v2.adp ../../default-master.adp
+go32v2-germany.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-germany.html.id go32v2.adp
-go32v2-germany.html.nl: go32v2.adp ../../default-master.adp
+go32v2-germany.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-germany.html.nl go32v2.adp
-go32v2-germany.html.pl: go32v2.adp ../../default-master.adp
+go32v2-germany.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-germany.html.pl go32v2.adp
 
 go32v2-germany.var: gen_makefile.conf
@@ -572,17 +573,17 @@ go32v2-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-germany.var
 	echo 'Content-type: text/html' >> go32v2-germany.var
 	echo >> go32v2-germany.var
-linux-germany.html.de: linux.adp ../../default-master.adp
+linux-germany.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-germany.html.de linux.adp
-linux-germany.html.en: linux.adp ../../default-master.adp
+linux-germany.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-germany.html.en linux.adp
-linux-germany.html.fr: linux.adp ../../default-master.adp
+linux-germany.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-germany.html.fr linux.adp
-linux-germany.html.id: linux.adp ../../default-master.adp
+linux-germany.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-germany.html.id linux.adp
-linux-germany.html.nl: linux.adp ../../default-master.adp
+linux-germany.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-germany.html.nl linux.adp
-linux-germany.html.pl: linux.adp ../../default-master.adp
+linux-germany.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-germany.html.pl linux.adp
 
 linux-germany.var: gen_makefile.conf
@@ -611,17 +612,17 @@ linux-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-germany.var
 	echo 'Content-type: text/html' >> linux-germany.var
 	echo >> linux-germany.var
-netware-germany.html.de: netware.adp ../../default-master.adp
+netware-germany.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-germany.html.de netware.adp
-netware-germany.html.en: netware.adp ../../default-master.adp
+netware-germany.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-germany.html.en netware.adp
-netware-germany.html.fr: netware.adp ../../default-master.adp
+netware-germany.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-germany.html.fr netware.adp
-netware-germany.html.id: netware.adp ../../default-master.adp
+netware-germany.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-germany.html.id netware.adp
-netware-germany.html.nl: netware.adp ../../default-master.adp
+netware-germany.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-germany.html.nl netware.adp
-netware-germany.html.pl: netware.adp ../../default-master.adp
+netware-germany.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-germany.html.pl netware.adp
 
 netware-germany.var: gen_makefile.conf
@@ -650,17 +651,17 @@ netware-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-germany.var
 	echo 'Content-type: text/html' >> netware-germany.var
 	echo >> netware-germany.var
-os2-germany.html.de: os2.adp ../../default-master.adp
+os2-germany.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-germany.html.de os2.adp
-os2-germany.html.en: os2.adp ../../default-master.adp
+os2-germany.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-germany.html.en os2.adp
-os2-germany.html.fr: os2.adp ../../default-master.adp
+os2-germany.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-germany.html.fr os2.adp
-os2-germany.html.id: os2.adp ../../default-master.adp
+os2-germany.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-germany.html.id os2.adp
-os2-germany.html.nl: os2.adp ../../default-master.adp
+os2-germany.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-germany.html.nl os2.adp
-os2-germany.html.pl: os2.adp ../../default-master.adp
+os2-germany.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-germany.html.pl os2.adp
 
 os2-germany.var: gen_makefile.conf
@@ -689,17 +690,17 @@ os2-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-germany.var
 	echo 'Content-type: text/html' >> os2-germany.var
 	echo >> os2-germany.var
-win32-germany.html.de: win32.adp ../../default-master.adp
+win32-germany.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-germany.html.de win32.adp
-win32-germany.html.en: win32.adp ../../default-master.adp
+win32-germany.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-germany.html.en win32.adp
-win32-germany.html.fr: win32.adp ../../default-master.adp
+win32-germany.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-germany.html.fr win32.adp
-win32-germany.html.id: win32.adp ../../default-master.adp
+win32-germany.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-germany.html.id win32.adp
-win32-germany.html.nl: win32.adp ../../default-master.adp
+win32-germany.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-germany.html.nl win32.adp
-win32-germany.html.pl: win32.adp ../../default-master.adp
+win32-germany.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-germany.html.pl win32.adp
 
 win32-germany.var: gen_makefile.conf
@@ -728,17 +729,17 @@ win32-germany.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-germany.var
 	echo 'Content-type: text/html' >> win32-germany.var
 	echo >> win32-germany.var
-freebsd-hungary.html.de: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-hungary.html.de freebsd.adp
-freebsd-hungary.html.en: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-hungary.html.en freebsd.adp
-freebsd-hungary.html.fr: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-hungary.html.fr freebsd.adp
-freebsd-hungary.html.id: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-hungary.html.id freebsd.adp
-freebsd-hungary.html.nl: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-hungary.html.nl freebsd.adp
-freebsd-hungary.html.pl: freebsd.adp ../../default-master.adp
+freebsd-hungary.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-hungary.html.pl freebsd.adp
 
 freebsd-hungary.var: gen_makefile.conf
@@ -767,17 +768,17 @@ freebsd-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-hungary.var
 	echo 'Content-type: text/html' >> freebsd-hungary.var
 	echo >> freebsd-hungary.var
-go32v2-hungary.html.de: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-hungary.html.de go32v2.adp
-go32v2-hungary.html.en: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-hungary.html.en go32v2.adp
-go32v2-hungary.html.fr: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-hungary.html.fr go32v2.adp
-go32v2-hungary.html.id: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-hungary.html.id go32v2.adp
-go32v2-hungary.html.nl: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-hungary.html.nl go32v2.adp
-go32v2-hungary.html.pl: go32v2.adp ../../default-master.adp
+go32v2-hungary.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-hungary.html.pl go32v2.adp
 
 go32v2-hungary.var: gen_makefile.conf
@@ -806,17 +807,17 @@ go32v2-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-hungary.var
 	echo 'Content-type: text/html' >> go32v2-hungary.var
 	echo >> go32v2-hungary.var
-linux-hungary.html.de: linux.adp ../../default-master.adp
+linux-hungary.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-hungary.html.de linux.adp
-linux-hungary.html.en: linux.adp ../../default-master.adp
+linux-hungary.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-hungary.html.en linux.adp
-linux-hungary.html.fr: linux.adp ../../default-master.adp
+linux-hungary.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-hungary.html.fr linux.adp
-linux-hungary.html.id: linux.adp ../../default-master.adp
+linux-hungary.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-hungary.html.id linux.adp
-linux-hungary.html.nl: linux.adp ../../default-master.adp
+linux-hungary.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-hungary.html.nl linux.adp
-linux-hungary.html.pl: linux.adp ../../default-master.adp
+linux-hungary.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-hungary.html.pl linux.adp
 
 linux-hungary.var: gen_makefile.conf
@@ -845,17 +846,17 @@ linux-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-hungary.var
 	echo 'Content-type: text/html' >> linux-hungary.var
 	echo >> linux-hungary.var
-netware-hungary.html.de: netware.adp ../../default-master.adp
+netware-hungary.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-hungary.html.de netware.adp
-netware-hungary.html.en: netware.adp ../../default-master.adp
+netware-hungary.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-hungary.html.en netware.adp
-netware-hungary.html.fr: netware.adp ../../default-master.adp
+netware-hungary.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-hungary.html.fr netware.adp
-netware-hungary.html.id: netware.adp ../../default-master.adp
+netware-hungary.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-hungary.html.id netware.adp
-netware-hungary.html.nl: netware.adp ../../default-master.adp
+netware-hungary.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-hungary.html.nl netware.adp
-netware-hungary.html.pl: netware.adp ../../default-master.adp
+netware-hungary.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-hungary.html.pl netware.adp
 
 netware-hungary.var: gen_makefile.conf
@@ -884,17 +885,17 @@ netware-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-hungary.var
 	echo 'Content-type: text/html' >> netware-hungary.var
 	echo >> netware-hungary.var
-os2-hungary.html.de: os2.adp ../../default-master.adp
+os2-hungary.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-hungary.html.de os2.adp
-os2-hungary.html.en: os2.adp ../../default-master.adp
+os2-hungary.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-hungary.html.en os2.adp
-os2-hungary.html.fr: os2.adp ../../default-master.adp
+os2-hungary.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-hungary.html.fr os2.adp
-os2-hungary.html.id: os2.adp ../../default-master.adp
+os2-hungary.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-hungary.html.id os2.adp
-os2-hungary.html.nl: os2.adp ../../default-master.adp
+os2-hungary.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-hungary.html.nl os2.adp
-os2-hungary.html.pl: os2.adp ../../default-master.adp
+os2-hungary.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-hungary.html.pl os2.adp
 
 os2-hungary.var: gen_makefile.conf
@@ -923,17 +924,17 @@ os2-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-hungary.var
 	echo 'Content-type: text/html' >> os2-hungary.var
 	echo >> os2-hungary.var
-win32-hungary.html.de: win32.adp ../../default-master.adp
+win32-hungary.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-hungary.html.de win32.adp
-win32-hungary.html.en: win32.adp ../../default-master.adp
+win32-hungary.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-hungary.html.en win32.adp
-win32-hungary.html.fr: win32.adp ../../default-master.adp
+win32-hungary.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-hungary.html.fr win32.adp
-win32-hungary.html.id: win32.adp ../../default-master.adp
+win32-hungary.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-hungary.html.id win32.adp
-win32-hungary.html.nl: win32.adp ../../default-master.adp
+win32-hungary.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-hungary.html.nl win32.adp
-win32-hungary.html.pl: win32.adp ../../default-master.adp
+win32-hungary.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-hungary.html.pl win32.adp
 
 win32-hungary.var: gen_makefile.conf
@@ -962,17 +963,17 @@ win32-hungary.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-hungary.var
 	echo 'Content-type: text/html' >> win32-hungary.var
 	echo >> win32-hungary.var
-freebsd-israel.html.de: freebsd.adp ../../default-master.adp
+freebsd-israel.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-israel.html.de freebsd.adp
-freebsd-israel.html.en: freebsd.adp ../../default-master.adp
+freebsd-israel.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-israel.html.en freebsd.adp
-freebsd-israel.html.fr: freebsd.adp ../../default-master.adp
+freebsd-israel.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-israel.html.fr freebsd.adp
-freebsd-israel.html.id: freebsd.adp ../../default-master.adp
+freebsd-israel.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-israel.html.id freebsd.adp
-freebsd-israel.html.nl: freebsd.adp ../../default-master.adp
+freebsd-israel.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-israel.html.nl freebsd.adp
-freebsd-israel.html.pl: freebsd.adp ../../default-master.adp
+freebsd-israel.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-israel.html.pl freebsd.adp
 
 freebsd-israel.var: gen_makefile.conf
@@ -1001,17 +1002,17 @@ freebsd-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-israel.var
 	echo 'Content-type: text/html' >> freebsd-israel.var
 	echo >> freebsd-israel.var
-go32v2-israel.html.de: go32v2.adp ../../default-master.adp
+go32v2-israel.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-israel.html.de go32v2.adp
-go32v2-israel.html.en: go32v2.adp ../../default-master.adp
+go32v2-israel.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-israel.html.en go32v2.adp
-go32v2-israel.html.fr: go32v2.adp ../../default-master.adp
+go32v2-israel.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-israel.html.fr go32v2.adp
-go32v2-israel.html.id: go32v2.adp ../../default-master.adp
+go32v2-israel.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-israel.html.id go32v2.adp
-go32v2-israel.html.nl: go32v2.adp ../../default-master.adp
+go32v2-israel.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-israel.html.nl go32v2.adp
-go32v2-israel.html.pl: go32v2.adp ../../default-master.adp
+go32v2-israel.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-israel.html.pl go32v2.adp
 
 go32v2-israel.var: gen_makefile.conf
@@ -1040,17 +1041,17 @@ go32v2-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-israel.var
 	echo 'Content-type: text/html' >> go32v2-israel.var
 	echo >> go32v2-israel.var
-linux-israel.html.de: linux.adp ../../default-master.adp
+linux-israel.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-israel.html.de linux.adp
-linux-israel.html.en: linux.adp ../../default-master.adp
+linux-israel.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-israel.html.en linux.adp
-linux-israel.html.fr: linux.adp ../../default-master.adp
+linux-israel.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-israel.html.fr linux.adp
-linux-israel.html.id: linux.adp ../../default-master.adp
+linux-israel.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-israel.html.id linux.adp
-linux-israel.html.nl: linux.adp ../../default-master.adp
+linux-israel.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-israel.html.nl linux.adp
-linux-israel.html.pl: linux.adp ../../default-master.adp
+linux-israel.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-israel.html.pl linux.adp
 
 linux-israel.var: gen_makefile.conf
@@ -1079,17 +1080,17 @@ linux-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-israel.var
 	echo 'Content-type: text/html' >> linux-israel.var
 	echo >> linux-israel.var
-netware-israel.html.de: netware.adp ../../default-master.adp
+netware-israel.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-israel.html.de netware.adp
-netware-israel.html.en: netware.adp ../../default-master.adp
+netware-israel.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-israel.html.en netware.adp
-netware-israel.html.fr: netware.adp ../../default-master.adp
+netware-israel.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-israel.html.fr netware.adp
-netware-israel.html.id: netware.adp ../../default-master.adp
+netware-israel.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-israel.html.id netware.adp
-netware-israel.html.nl: netware.adp ../../default-master.adp
+netware-israel.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-israel.html.nl netware.adp
-netware-israel.html.pl: netware.adp ../../default-master.adp
+netware-israel.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-israel.html.pl netware.adp
 
 netware-israel.var: gen_makefile.conf
@@ -1118,17 +1119,17 @@ netware-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-israel.var
 	echo 'Content-type: text/html' >> netware-israel.var
 	echo >> netware-israel.var
-os2-israel.html.de: os2.adp ../../default-master.adp
+os2-israel.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-israel.html.de os2.adp
-os2-israel.html.en: os2.adp ../../default-master.adp
+os2-israel.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-israel.html.en os2.adp
-os2-israel.html.fr: os2.adp ../../default-master.adp
+os2-israel.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-israel.html.fr os2.adp
-os2-israel.html.id: os2.adp ../../default-master.adp
+os2-israel.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-israel.html.id os2.adp
-os2-israel.html.nl: os2.adp ../../default-master.adp
+os2-israel.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-israel.html.nl os2.adp
-os2-israel.html.pl: os2.adp ../../default-master.adp
+os2-israel.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-israel.html.pl os2.adp
 
 os2-israel.var: gen_makefile.conf
@@ -1157,17 +1158,17 @@ os2-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-israel.var
 	echo 'Content-type: text/html' >> os2-israel.var
 	echo >> os2-israel.var
-win32-israel.html.de: win32.adp ../../default-master.adp
+win32-israel.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-israel.html.de win32.adp
-win32-israel.html.en: win32.adp ../../default-master.adp
+win32-israel.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-israel.html.en win32.adp
-win32-israel.html.fr: win32.adp ../../default-master.adp
+win32-israel.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-israel.html.fr win32.adp
-win32-israel.html.id: win32.adp ../../default-master.adp
+win32-israel.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-israel.html.id win32.adp
-win32-israel.html.nl: win32.adp ../../default-master.adp
+win32-israel.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-israel.html.nl win32.adp
-win32-israel.html.pl: win32.adp ../../default-master.adp
+win32-israel.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-israel.html.pl win32.adp
 
 win32-israel.var: gen_makefile.conf
@@ -1196,17 +1197,17 @@ win32-israel.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-israel.var
 	echo 'Content-type: text/html' >> win32-israel.var
 	echo >> win32-israel.var
-freebsd-netherlands.html.de: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-netherlands.html.de freebsd.adp
-freebsd-netherlands.html.en: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-netherlands.html.en freebsd.adp
-freebsd-netherlands.html.fr: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-netherlands.html.fr freebsd.adp
-freebsd-netherlands.html.id: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-netherlands.html.id freebsd.adp
-freebsd-netherlands.html.nl: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-netherlands.html.nl freebsd.adp
-freebsd-netherlands.html.pl: freebsd.adp ../../default-master.adp
+freebsd-netherlands.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-netherlands.html.pl freebsd.adp
 
 freebsd-netherlands.var: gen_makefile.conf
@@ -1235,17 +1236,17 @@ freebsd-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-netherlands.var
 	echo 'Content-type: text/html' >> freebsd-netherlands.var
 	echo >> freebsd-netherlands.var
-go32v2-netherlands.html.de: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-netherlands.html.de go32v2.adp
-go32v2-netherlands.html.en: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-netherlands.html.en go32v2.adp
-go32v2-netherlands.html.fr: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-netherlands.html.fr go32v2.adp
-go32v2-netherlands.html.id: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-netherlands.html.id go32v2.adp
-go32v2-netherlands.html.nl: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-netherlands.html.nl go32v2.adp
-go32v2-netherlands.html.pl: go32v2.adp ../../default-master.adp
+go32v2-netherlands.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-netherlands.html.pl go32v2.adp
 
 go32v2-netherlands.var: gen_makefile.conf
@@ -1274,17 +1275,17 @@ go32v2-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-netherlands.var
 	echo 'Content-type: text/html' >> go32v2-netherlands.var
 	echo >> go32v2-netherlands.var
-linux-netherlands.html.de: linux.adp ../../default-master.adp
+linux-netherlands.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-netherlands.html.de linux.adp
-linux-netherlands.html.en: linux.adp ../../default-master.adp
+linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-netherlands.html.en linux.adp
-linux-netherlands.html.fr: linux.adp ../../default-master.adp
+linux-netherlands.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-netherlands.html.fr linux.adp
-linux-netherlands.html.id: linux.adp ../../default-master.adp
+linux-netherlands.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-netherlands.html.id linux.adp
-linux-netherlands.html.nl: linux.adp ../../default-master.adp
+linux-netherlands.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-netherlands.html.nl linux.adp
-linux-netherlands.html.pl: linux.adp ../../default-master.adp
+linux-netherlands.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-netherlands.html.pl linux.adp
 
 linux-netherlands.var: gen_makefile.conf
@@ -1313,17 +1314,17 @@ linux-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-netherlands.var
 	echo 'Content-type: text/html' >> linux-netherlands.var
 	echo >> linux-netherlands.var
-netware-netherlands.html.de: netware.adp ../../default-master.adp
+netware-netherlands.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-netherlands.html.de netware.adp
-netware-netherlands.html.en: netware.adp ../../default-master.adp
+netware-netherlands.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-netherlands.html.en netware.adp
-netware-netherlands.html.fr: netware.adp ../../default-master.adp
+netware-netherlands.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-netherlands.html.fr netware.adp
-netware-netherlands.html.id: netware.adp ../../default-master.adp
+netware-netherlands.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-netherlands.html.id netware.adp
-netware-netherlands.html.nl: netware.adp ../../default-master.adp
+netware-netherlands.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-netherlands.html.nl netware.adp
-netware-netherlands.html.pl: netware.adp ../../default-master.adp
+netware-netherlands.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-netherlands.html.pl netware.adp
 
 netware-netherlands.var: gen_makefile.conf
@@ -1352,17 +1353,17 @@ netware-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-netherlands.var
 	echo 'Content-type: text/html' >> netware-netherlands.var
 	echo >> netware-netherlands.var
-os2-netherlands.html.de: os2.adp ../../default-master.adp
+os2-netherlands.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-netherlands.html.de os2.adp
-os2-netherlands.html.en: os2.adp ../../default-master.adp
+os2-netherlands.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-netherlands.html.en os2.adp
-os2-netherlands.html.fr: os2.adp ../../default-master.adp
+os2-netherlands.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-netherlands.html.fr os2.adp
-os2-netherlands.html.id: os2.adp ../../default-master.adp
+os2-netherlands.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-netherlands.html.id os2.adp
-os2-netherlands.html.nl: os2.adp ../../default-master.adp
+os2-netherlands.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-netherlands.html.nl os2.adp
-os2-netherlands.html.pl: os2.adp ../../default-master.adp
+os2-netherlands.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-netherlands.html.pl os2.adp
 
 os2-netherlands.var: gen_makefile.conf
@@ -1391,17 +1392,17 @@ os2-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-netherlands.var
 	echo 'Content-type: text/html' >> os2-netherlands.var
 	echo >> os2-netherlands.var
-win32-netherlands.html.de: win32.adp ../../default-master.adp
+win32-netherlands.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-netherlands.html.de win32.adp
-win32-netherlands.html.en: win32.adp ../../default-master.adp
+win32-netherlands.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-netherlands.html.en win32.adp
-win32-netherlands.html.fr: win32.adp ../../default-master.adp
+win32-netherlands.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-netherlands.html.fr win32.adp
-win32-netherlands.html.id: win32.adp ../../default-master.adp
+win32-netherlands.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-netherlands.html.id win32.adp
-win32-netherlands.html.nl: win32.adp ../../default-master.adp
+win32-netherlands.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-netherlands.html.nl win32.adp
-win32-netherlands.html.pl: win32.adp ../../default-master.adp
+win32-netherlands.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-netherlands.html.pl win32.adp
 
 win32-netherlands.var: gen_makefile.conf
@@ -1430,17 +1431,17 @@ win32-netherlands.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-netherlands.var
 	echo 'Content-type: text/html' >> win32-netherlands.var
 	echo >> win32-netherlands.var
-freebsd-norway.html.de: freebsd.adp ../../default-master.adp
+freebsd-norway.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-norway.html.de freebsd.adp
-freebsd-norway.html.en: freebsd.adp ../../default-master.adp
+freebsd-norway.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-norway.html.en freebsd.adp
-freebsd-norway.html.fr: freebsd.adp ../../default-master.adp
+freebsd-norway.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-norway.html.fr freebsd.adp
-freebsd-norway.html.id: freebsd.adp ../../default-master.adp
+freebsd-norway.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-norway.html.id freebsd.adp
-freebsd-norway.html.nl: freebsd.adp ../../default-master.adp
+freebsd-norway.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-norway.html.nl freebsd.adp
-freebsd-norway.html.pl: freebsd.adp ../../default-master.adp
+freebsd-norway.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-norway.html.pl freebsd.adp
 
 freebsd-norway.var: gen_makefile.conf
@@ -1469,17 +1470,17 @@ freebsd-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-norway.var
 	echo 'Content-type: text/html' >> freebsd-norway.var
 	echo >> freebsd-norway.var
-go32v2-norway.html.de: go32v2.adp ../../default-master.adp
+go32v2-norway.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-norway.html.de go32v2.adp
-go32v2-norway.html.en: go32v2.adp ../../default-master.adp
+go32v2-norway.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-norway.html.en go32v2.adp
-go32v2-norway.html.fr: go32v2.adp ../../default-master.adp
+go32v2-norway.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-norway.html.fr go32v2.adp
-go32v2-norway.html.id: go32v2.adp ../../default-master.adp
+go32v2-norway.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-norway.html.id go32v2.adp
-go32v2-norway.html.nl: go32v2.adp ../../default-master.adp
+go32v2-norway.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-norway.html.nl go32v2.adp
-go32v2-norway.html.pl: go32v2.adp ../../default-master.adp
+go32v2-norway.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-norway.html.pl go32v2.adp
 
 go32v2-norway.var: gen_makefile.conf
@@ -1508,17 +1509,17 @@ go32v2-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-norway.var
 	echo 'Content-type: text/html' >> go32v2-norway.var
 	echo >> go32v2-norway.var
-linux-norway.html.de: linux.adp ../../default-master.adp
+linux-norway.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-norway.html.de linux.adp
-linux-norway.html.en: linux.adp ../../default-master.adp
+linux-norway.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-norway.html.en linux.adp
-linux-norway.html.fr: linux.adp ../../default-master.adp
+linux-norway.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-norway.html.fr linux.adp
-linux-norway.html.id: linux.adp ../../default-master.adp
+linux-norway.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-norway.html.id linux.adp
-linux-norway.html.nl: linux.adp ../../default-master.adp
+linux-norway.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-norway.html.nl linux.adp
-linux-norway.html.pl: linux.adp ../../default-master.adp
+linux-norway.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-norway.html.pl linux.adp
 
 linux-norway.var: gen_makefile.conf
@@ -1547,17 +1548,17 @@ linux-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-norway.var
 	echo 'Content-type: text/html' >> linux-norway.var
 	echo >> linux-norway.var
-netware-norway.html.de: netware.adp ../../default-master.adp
+netware-norway.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-norway.html.de netware.adp
-netware-norway.html.en: netware.adp ../../default-master.adp
+netware-norway.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-norway.html.en netware.adp
-netware-norway.html.fr: netware.adp ../../default-master.adp
+netware-norway.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-norway.html.fr netware.adp
-netware-norway.html.id: netware.adp ../../default-master.adp
+netware-norway.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-norway.html.id netware.adp
-netware-norway.html.nl: netware.adp ../../default-master.adp
+netware-norway.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-norway.html.nl netware.adp
-netware-norway.html.pl: netware.adp ../../default-master.adp
+netware-norway.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-norway.html.pl netware.adp
 
 netware-norway.var: gen_makefile.conf
@@ -1586,17 +1587,17 @@ netware-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-norway.var
 	echo 'Content-type: text/html' >> netware-norway.var
 	echo >> netware-norway.var
-os2-norway.html.de: os2.adp ../../default-master.adp
+os2-norway.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-norway.html.de os2.adp
-os2-norway.html.en: os2.adp ../../default-master.adp
+os2-norway.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-norway.html.en os2.adp
-os2-norway.html.fr: os2.adp ../../default-master.adp
+os2-norway.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-norway.html.fr os2.adp
-os2-norway.html.id: os2.adp ../../default-master.adp
+os2-norway.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-norway.html.id os2.adp
-os2-norway.html.nl: os2.adp ../../default-master.adp
+os2-norway.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-norway.html.nl os2.adp
-os2-norway.html.pl: os2.adp ../../default-master.adp
+os2-norway.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-norway.html.pl os2.adp
 
 os2-norway.var: gen_makefile.conf
@@ -1625,17 +1626,17 @@ os2-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-norway.var
 	echo 'Content-type: text/html' >> os2-norway.var
 	echo >> os2-norway.var
-win32-norway.html.de: win32.adp ../../default-master.adp
+win32-norway.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-norway.html.de win32.adp
-win32-norway.html.en: win32.adp ../../default-master.adp
+win32-norway.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-norway.html.en win32.adp
-win32-norway.html.fr: win32.adp ../../default-master.adp
+win32-norway.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-norway.html.fr win32.adp
-win32-norway.html.id: win32.adp ../../default-master.adp
+win32-norway.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-norway.html.id win32.adp
-win32-norway.html.nl: win32.adp ../../default-master.adp
+win32-norway.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-norway.html.nl win32.adp
-win32-norway.html.pl: win32.adp ../../default-master.adp
+win32-norway.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-norway.html.pl win32.adp
 
 win32-norway.var: gen_makefile.conf
@@ -1664,17 +1665,17 @@ win32-norway.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-norway.var
 	echo 'Content-type: text/html' >> win32-norway.var
 	echo >> win32-norway.var
-freebsd-russia.html.de: freebsd.adp ../../default-master.adp
+freebsd-russia.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-russia.html.de freebsd.adp
-freebsd-russia.html.en: freebsd.adp ../../default-master.adp
+freebsd-russia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-russia.html.en freebsd.adp
-freebsd-russia.html.fr: freebsd.adp ../../default-master.adp
+freebsd-russia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-russia.html.fr freebsd.adp
-freebsd-russia.html.id: freebsd.adp ../../default-master.adp
+freebsd-russia.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-russia.html.id freebsd.adp
-freebsd-russia.html.nl: freebsd.adp ../../default-master.adp
+freebsd-russia.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-russia.html.nl freebsd.adp
-freebsd-russia.html.pl: freebsd.adp ../../default-master.adp
+freebsd-russia.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-russia.html.pl freebsd.adp
 
 freebsd-russia.var: gen_makefile.conf
@@ -1703,17 +1704,17 @@ freebsd-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-russia.var
 	echo 'Content-type: text/html' >> freebsd-russia.var
 	echo >> freebsd-russia.var
-go32v2-russia.html.de: go32v2.adp ../../default-master.adp
+go32v2-russia.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-russia.html.de go32v2.adp
-go32v2-russia.html.en: go32v2.adp ../../default-master.adp
+go32v2-russia.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-russia.html.en go32v2.adp
-go32v2-russia.html.fr: go32v2.adp ../../default-master.adp
+go32v2-russia.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-russia.html.fr go32v2.adp
-go32v2-russia.html.id: go32v2.adp ../../default-master.adp
+go32v2-russia.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-russia.html.id go32v2.adp
-go32v2-russia.html.nl: go32v2.adp ../../default-master.adp
+go32v2-russia.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-russia.html.nl go32v2.adp
-go32v2-russia.html.pl: go32v2.adp ../../default-master.adp
+go32v2-russia.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-russia.html.pl go32v2.adp
 
 go32v2-russia.var: gen_makefile.conf
@@ -1742,17 +1743,17 @@ go32v2-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-russia.var
 	echo 'Content-type: text/html' >> go32v2-russia.var
 	echo >> go32v2-russia.var
-linux-russia.html.de: linux.adp ../../default-master.adp
+linux-russia.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-russia.html.de linux.adp
-linux-russia.html.en: linux.adp ../../default-master.adp
+linux-russia.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-russia.html.en linux.adp
-linux-russia.html.fr: linux.adp ../../default-master.adp
+linux-russia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-russia.html.fr linux.adp
-linux-russia.html.id: linux.adp ../../default-master.adp
+linux-russia.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-russia.html.id linux.adp
-linux-russia.html.nl: linux.adp ../../default-master.adp
+linux-russia.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-russia.html.nl linux.adp
-linux-russia.html.pl: linux.adp ../../default-master.adp
+linux-russia.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-russia.html.pl linux.adp
 
 linux-russia.var: gen_makefile.conf
@@ -1781,17 +1782,17 @@ linux-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-russia.var
 	echo 'Content-type: text/html' >> linux-russia.var
 	echo >> linux-russia.var
-netware-russia.html.de: netware.adp ../../default-master.adp
+netware-russia.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-russia.html.de netware.adp
-netware-russia.html.en: netware.adp ../../default-master.adp
+netware-russia.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-russia.html.en netware.adp
-netware-russia.html.fr: netware.adp ../../default-master.adp
+netware-russia.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-russia.html.fr netware.adp
-netware-russia.html.id: netware.adp ../../default-master.adp
+netware-russia.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-russia.html.id netware.adp
-netware-russia.html.nl: netware.adp ../../default-master.adp
+netware-russia.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-russia.html.nl netware.adp
-netware-russia.html.pl: netware.adp ../../default-master.adp
+netware-russia.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-russia.html.pl netware.adp
 
 netware-russia.var: gen_makefile.conf
@@ -1820,17 +1821,17 @@ netware-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-russia.var
 	echo 'Content-type: text/html' >> netware-russia.var
 	echo >> netware-russia.var
-os2-russia.html.de: os2.adp ../../default-master.adp
+os2-russia.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-russia.html.de os2.adp
-os2-russia.html.en: os2.adp ../../default-master.adp
+os2-russia.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-russia.html.en os2.adp
-os2-russia.html.fr: os2.adp ../../default-master.adp
+os2-russia.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-russia.html.fr os2.adp
-os2-russia.html.id: os2.adp ../../default-master.adp
+os2-russia.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-russia.html.id os2.adp
-os2-russia.html.nl: os2.adp ../../default-master.adp
+os2-russia.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-russia.html.nl os2.adp
-os2-russia.html.pl: os2.adp ../../default-master.adp
+os2-russia.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-russia.html.pl os2.adp
 
 os2-russia.var: gen_makefile.conf
@@ -1859,17 +1860,17 @@ os2-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-russia.var
 	echo 'Content-type: text/html' >> os2-russia.var
 	echo >> os2-russia.var
-win32-russia.html.de: win32.adp ../../default-master.adp
+win32-russia.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-russia.html.de win32.adp
-win32-russia.html.en: win32.adp ../../default-master.adp
+win32-russia.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-russia.html.en win32.adp
-win32-russia.html.fr: win32.adp ../../default-master.adp
+win32-russia.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-russia.html.fr win32.adp
-win32-russia.html.id: win32.adp ../../default-master.adp
+win32-russia.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-russia.html.id win32.adp
-win32-russia.html.nl: win32.adp ../../default-master.adp
+win32-russia.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-russia.html.nl win32.adp
-win32-russia.html.pl: win32.adp ../../default-master.adp
+win32-russia.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-russia.html.pl win32.adp
 
 win32-russia.var: gen_makefile.conf
@@ -1898,17 +1899,17 @@ win32-russia.var: gen_makefile.conf
 	echo 'Content-language: pl' >> win32-russia.var
 	echo 'Content-type: text/html' >> win32-russia.var
 	echo >> win32-russia.var
-freebsd-ftp.freepascal.org.html.de: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.de: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.de freebsd.adp
-freebsd-ftp.freepascal.org.html.en: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.en freebsd.adp
-freebsd-ftp.freepascal.org.html.fr: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.fr freebsd.adp
-freebsd-ftp.freepascal.org.html.id: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.id freebsd.adp
-freebsd-ftp.freepascal.org.html.nl: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.nl freebsd.adp
-freebsd-ftp.freepascal.org.html.pl: freebsd.adp ../../default-master.adp
+freebsd-ftp.freepascal.org.html.pl: freebsd.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.pl freebsd.adp
 
 freebsd-ftp.freepascal.org.var: gen_makefile.conf
@@ -1937,17 +1938,17 @@ freebsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: pl' >> freebsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html' >> freebsd-ftp.freepascal.org.var
 	echo >> freebsd-ftp.freepascal.org.var
-go32v2-ftp.freepascal.org.html.de: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.de: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.de go32v2.adp
-go32v2-ftp.freepascal.org.html.en: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.en go32v2.adp
-go32v2-ftp.freepascal.org.html.fr: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.fr go32v2.adp
-go32v2-ftp.freepascal.org.html.id: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.id: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.id go32v2.adp
-go32v2-ftp.freepascal.org.html.nl: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.nl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.nl go32v2.adp
-go32v2-ftp.freepascal.org.html.pl: go32v2.adp ../../default-master.adp
+go32v2-ftp.freepascal.org.html.pl: go32v2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.pl go32v2.adp
 
 go32v2-ftp.freepascal.org.var: gen_makefile.conf
@@ -1976,17 +1977,17 @@ go32v2-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: pl' >> go32v2-ftp.freepascal.org.var
 	echo 'Content-type: text/html' >> go32v2-ftp.freepascal.org.var
 	echo >> go32v2-ftp.freepascal.org.var
-linux-ftp.freepascal.org.html.de: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.de: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-ftp.freepascal.org.html.de linux.adp
-linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-ftp.freepascal.org.html.en linux.adp
-linux-ftp.freepascal.org.html.fr: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-ftp.freepascal.org.html.fr linux.adp
-linux-ftp.freepascal.org.html.id: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.id: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-ftp.freepascal.org.html.id linux.adp
-linux-ftp.freepascal.org.html.nl: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.nl linux.adp
-linux-ftp.freepascal.org.html.pl: linux.adp ../../default-master.adp
+linux-ftp.freepascal.org.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.pl linux.adp
 
 linux-ftp.freepascal.org.var: gen_makefile.conf
@@ -2015,17 +2016,17 @@ linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: pl' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
-netware-ftp.freepascal.org.html.de: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.de: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o netware-ftp.freepascal.org.html.de netware.adp
-netware-ftp.freepascal.org.html.en: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.en: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-ftp.freepascal.org.html.en netware.adp
-netware-ftp.freepascal.org.html.fr: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.fr: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o netware-ftp.freepascal.org.html.fr netware.adp
-netware-ftp.freepascal.org.html.id: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.id: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o netware-ftp.freepascal.org.html.id netware.adp
-netware-ftp.freepascal.org.html.nl: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.nl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o netware-ftp.freepascal.org.html.nl netware.adp
-netware-ftp.freepascal.org.html.pl: netware.adp ../../default-master.adp
+netware-ftp.freepascal.org.html.pl: netware.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o netware-ftp.freepascal.org.html.pl netware.adp
 
 netware-ftp.freepascal.org.var: gen_makefile.conf
@@ -2054,17 +2055,17 @@ netware-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: pl' >> netware-ftp.freepascal.org.var
 	echo 'Content-type: text/html' >> netware-ftp.freepascal.org.var
 	echo >> netware-ftp.freepascal.org.var
-os2-ftp.freepascal.org.html.de: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.de: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o os2-ftp.freepascal.org.html.de os2.adp
-os2-ftp.freepascal.org.html.en: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.en: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-ftp.freepascal.org.html.en os2.adp
-os2-ftp.freepascal.org.html.fr: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.fr: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o os2-ftp.freepascal.org.html.fr os2.adp
-os2-ftp.freepascal.org.html.id: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.id: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o os2-ftp.freepascal.org.html.id os2.adp
-os2-ftp.freepascal.org.html.nl: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.nl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o os2-ftp.freepascal.org.html.nl os2.adp
-os2-ftp.freepascal.org.html.pl: os2.adp ../../default-master.adp
+os2-ftp.freepascal.org.html.pl: os2.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o os2-ftp.freepascal.org.html.pl os2.adp
 
 os2-ftp.freepascal.org.var: gen_makefile.conf
@@ -2093,17 +2094,17 @@ os2-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: pl' >> os2-ftp.freepascal.org.var
 	echo 'Content-type: text/html' >> os2-ftp.freepascal.org.var
 	echo >> os2-ftp.freepascal.org.var
-win32-ftp.freepascal.org.html.de: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.de: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o win32-ftp.freepascal.org.html.de win32.adp
-win32-ftp.freepascal.org.html.en: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.en: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-ftp.freepascal.org.html.en win32.adp
-win32-ftp.freepascal.org.html.fr: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.fr: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o win32-ftp.freepascal.org.html.fr win32.adp
-win32-ftp.freepascal.org.html.id: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.id: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o win32-ftp.freepascal.org.html.id win32.adp
-win32-ftp.freepascal.org.html.nl: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.nl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o win32-ftp.freepascal.org.html.nl win32.adp
-win32-ftp.freepascal.org.html.pl: win32.adp ../../default-master.adp
+win32-ftp.freepascal.org.html.pl: win32.adp ../../default-master.adp ../../site-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o win32-ftp.freepascal.org.html.pl win32.adp
 
 win32-ftp.freepascal.org.var: gen_makefile.conf

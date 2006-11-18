@@ -103,7 +103,7 @@ foreach page $pages {
     # Generate html files
     foreach language $languages {
         set html_file "$rootname.html.$language"
-        puts "$html_file: $page ${master-template}"
+        puts "$html_file: $page ${master-template} ${site-template}"
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
         lappend all $html_file
     }
@@ -131,7 +131,7 @@ foreach mirror $mirrors {
         # Generate html files
         foreach language $languages {
             set html_file "${rootname}-[string tolower $mirror_name].html.$language"
-            puts "$html_file: $page ${master-template}"
+            puts "$html_file: $page ${master-template} ${site-template}"
             puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
             lappend all $html_file
         }
