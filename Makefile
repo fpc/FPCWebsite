@@ -183,6 +183,45 @@ develop.var: gen_makefile.conf
 	echo 'Content-language: pl' >> develop.var
 	echo 'Content-type: text/html' >> develop.var
 	echo >> develop.var
+docs.html.de: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o docs.html.de docs.adp
+docs.html.en: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o docs.html.en docs.adp
+docs.html.fr: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o docs.html.fr docs.adp
+docs.html.id: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o docs.html.id docs.adp
+docs.html.nl: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o docs.html.nl docs.adp
+docs.html.pl: docs.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o docs.html.pl docs.adp
+
+docs.var: gen_makefile.conf
+	echo > docs.var
+	echo 'URI: docs.html.de' >> docs.var
+	echo 'Content-language: de' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.en' >> docs.var
+	echo 'Content-language: en' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.fr' >> docs.var
+	echo 'Content-language: fr' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.id' >> docs.var
+	echo 'Content-language: id' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.nl' >> docs.var
+	echo 'Content-language: nl' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
+	echo 'URI: docs.html.pl' >> docs.var
+	echo 'Content-language: pl' >> docs.var
+	echo 'Content-type: text/html' >> docs.var
+	echo >> docs.var
 faq.html.de: faq.adp default-master.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o faq.html.de faq.adp
 faq.html.en: faq.adp default-master.adp
@@ -300,6 +339,84 @@ fpcmac.var: gen_makefile.conf
 	echo 'Content-language: pl' >> fpcmac.var
 	echo 'Content-type: text/html' >> fpcmac.var
 	echo >> fpcmac.var
+future.html.de: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o future.html.de future.adp
+future.html.en: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o future.html.en future.adp
+future.html.fr: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o future.html.fr future.adp
+future.html.id: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o future.html.id future.adp
+future.html.nl: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o future.html.nl future.adp
+future.html.pl: future.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o future.html.pl future.adp
+
+future.var: gen_makefile.conf
+	echo > future.var
+	echo 'URI: future.html.de' >> future.var
+	echo 'Content-language: de' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+	echo 'URI: future.html.en' >> future.var
+	echo 'Content-language: en' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+	echo 'URI: future.html.fr' >> future.var
+	echo 'Content-language: fr' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+	echo 'URI: future.html.id' >> future.var
+	echo 'Content-language: id' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+	echo 'URI: future.html.nl' >> future.var
+	echo 'Content-language: nl' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+	echo 'URI: future.html.pl' >> future.var
+	echo 'Content-language: pl' >> future.var
+	echo 'Content-type: text/html' >> future.var
+	echo >> future.var
+links.html.de: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o links.html.de links.adp
+links.html.en: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o links.html.en links.adp
+links.html.fr: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o links.html.fr links.adp
+links.html.id: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o links.html.id links.adp
+links.html.nl: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o links.html.nl links.adp
+links.html.pl: links.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o links.html.pl links.adp
+
+links.var: gen_makefile.conf
+	echo > links.var
+	echo 'URI: links.html.de' >> links.var
+	echo 'Content-language: de' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
+	echo 'URI: links.html.en' >> links.var
+	echo 'Content-language: en' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
+	echo 'URI: links.html.fr' >> links.var
+	echo 'Content-language: fr' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
+	echo 'URI: links.html.id' >> links.var
+	echo 'Content-language: id' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
+	echo 'URI: links.html.nl' >> links.var
+	echo 'Content-language: nl' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
+	echo 'URI: links.html.pl' >> links.var
+	echo 'Content-language: pl' >> links.var
+	echo 'Content-type: text/html' >> links.var
+	echo >> links.var
 maillist.html.de: maillist.adp default-master.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o maillist.html.de maillist.adp
 maillist.html.en: maillist.adp default-master.adp
@@ -339,6 +456,45 @@ maillist.var: gen_makefile.conf
 	echo 'Content-language: pl' >> maillist.var
 	echo 'Content-type: text/html' >> maillist.var
 	echo >> maillist.var
+mirrors.html.de: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o mirrors.html.de mirrors.adp
+mirrors.html.en: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o mirrors.html.en mirrors.adp
+mirrors.html.fr: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o mirrors.html.fr mirrors.adp
+mirrors.html.id: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o mirrors.html.id mirrors.adp
+mirrors.html.nl: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o mirrors.html.nl mirrors.adp
+mirrors.html.pl: mirrors.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o mirrors.html.pl mirrors.adp
+
+mirrors.var: gen_makefile.conf
+	echo > mirrors.var
+	echo 'URI: mirrors.html.de' >> mirrors.var
+	echo 'Content-language: de' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
+	echo 'URI: mirrors.html.en' >> mirrors.var
+	echo 'Content-language: en' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
+	echo 'URI: mirrors.html.fr' >> mirrors.var
+	echo 'Content-language: fr' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
+	echo 'URI: mirrors.html.id' >> mirrors.var
+	echo 'Content-language: id' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
+	echo 'URI: mirrors.html.nl' >> mirrors.var
+	echo 'Content-language: nl' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
+	echo 'URI: mirrors.html.pl' >> mirrors.var
+	echo 'Content-language: pl' >> mirrors.var
+	echo 'Content-type: text/html' >> mirrors.var
+	echo >> mirrors.var
 news.html.de: news.adp default-master.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o news.html.de news.adp
 news.html.en: news.adp default-master.adp
@@ -417,6 +573,84 @@ port.var: gen_makefile.conf
 	echo 'Content-language: pl' >> port.var
 	echo 'Content-type: text/html' >> port.var
 	echo >> port.var
+units.html.de: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o units.html.de units.adp
+units.html.en: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o units.html.en units.adp
+units.html.fr: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o units.html.fr units.adp
+units.html.id: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o units.html.id units.adp
+units.html.nl: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o units.html.nl units.adp
+units.html.pl: units.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o units.html.pl units.adp
+
+units.var: gen_makefile.conf
+	echo > units.var
+	echo 'URI: units.html.de' >> units.var
+	echo 'Content-language: de' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+	echo 'URI: units.html.en' >> units.var
+	echo 'Content-language: en' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+	echo 'URI: units.html.fr' >> units.var
+	echo 'Content-language: fr' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+	echo 'URI: units.html.id' >> units.var
+	echo 'Content-language: id' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+	echo 'URI: units.html.nl' >> units.var
+	echo 'Content-language: nl' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+	echo 'URI: units.html.pl' >> units.var
+	echo 'Content-language: pl' >> units.var
+	echo 'Content-type: text/html' >> units.var
+	echo >> units.var
+unitsrtl.html.de: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l de_DE -m default-master.adp -o unitsrtl.html.de unitsrtl.adp
+unitsrtl.html.en: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o unitsrtl.html.en unitsrtl.adp
+unitsrtl.html.fr: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o unitsrtl.html.fr unitsrtl.adp
+unitsrtl.html.id: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o unitsrtl.html.id unitsrtl.adp
+unitsrtl.html.nl: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o unitsrtl.html.nl unitsrtl.adp
+unitsrtl.html.pl: unitsrtl.adp default-master.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o unitsrtl.html.pl unitsrtl.adp
+
+unitsrtl.var: gen_makefile.conf
+	echo > unitsrtl.var
+	echo 'URI: unitsrtl.html.de' >> unitsrtl.var
+	echo 'Content-language: de' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
+	echo 'URI: unitsrtl.html.en' >> unitsrtl.var
+	echo 'Content-language: en' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
+	echo 'URI: unitsrtl.html.fr' >> unitsrtl.var
+	echo 'Content-language: fr' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
+	echo 'URI: unitsrtl.html.id' >> unitsrtl.var
+	echo 'Content-language: id' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
+	echo 'URI: unitsrtl.html.nl' >> unitsrtl.var
+	echo 'Content-language: nl' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
+	echo 'URI: unitsrtl.html.pl' >> unitsrtl.var
+	echo 'Content-language: pl' >> unitsrtl.var
+	echo 'Content-type: text/html' >> unitsrtl.var
+	echo >> unitsrtl.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -430,7 +664,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var mirrors.dat
+all_pages: aboutus.html.de aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.nl aboutus.html.pl aboutus.var advantage.html.de advantage.html.en advantage.html.fr advantage.html.id advantage.html.nl advantage.html.pl advantage.var credits.html.de credits.html.en credits.html.fr credits.html.id credits.html.nl credits.html.pl credits.var develop.html.de develop.html.en develop.html.fr develop.html.id develop.html.nl develop.html.pl develop.var docs.html.de docs.html.en docs.html.fr docs.html.id docs.html.nl docs.html.pl docs.var faq.html.de faq.html.en faq.html.fr faq.html.id faq.html.nl faq.html.pl faq.var fpc.html.de fpc.html.en fpc.html.fr fpc.html.id fpc.html.nl fpc.html.pl fpc.var fpcmac.html.de fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.nl fpcmac.html.pl fpcmac.var future.html.de future.html.en future.html.fr future.html.id future.html.nl future.html.pl future.var links.html.de links.html.en links.html.fr links.html.id links.html.nl links.html.pl links.var maillist.html.de maillist.html.en maillist.html.fr maillist.html.id maillist.html.nl maillist.html.pl maillist.var mirrors.html.de mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.nl mirrors.html.pl mirrors.var news.html.de news.html.en news.html.fr news.html.id news.html.nl news.html.pl news.var port.html.de port.html.en port.html.fr port.html.id port.html.nl port.html.pl port.var units.html.de units.html.en units.html.fr units.html.id units.html.nl units.html.pl units.var unitsrtl.html.de unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.nl unitsrtl.html.pl unitsrtl.var mirrors.dat
 
 
 #adp2html tool
