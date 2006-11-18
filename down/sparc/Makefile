@@ -28,17 +28,17 @@ endif
 default: all
 all: all_pages
 linux-australia.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-australia.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-australia.html.de linux.adp
 linux-australia.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-australia.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-australia.html.en linux.adp
 linux-australia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-australia.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-australia.html.fr linux.adp
 linux-australia.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-australia.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-australia.html.id linux.adp
 linux-australia.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-australia.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-australia.html.nl linux.adp
 linux-australia.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-australia.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://fpc.planetmirror.com/pub/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-australia.html.pl linux.adp
 
 linux-australia.var: gen_makefile.conf
 	echo > linux-australia.var
@@ -67,17 +67,17 @@ linux-australia.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-australia.var
 	echo >> linux-australia.var
 linux-austria.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-austria.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-austria.html.de linux.adp
 linux-austria.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-austria.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-austria.html.en linux.adp
 linux-austria.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-austria.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-austria.html.fr linux.adp
 linux-austria.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-austria.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-austria.html.id linux.adp
 linux-austria.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-austria.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-austria.html.nl linux.adp
 linux-austria.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-austria.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-austria.html.pl linux.adp
 
 linux-austria.var: gen_makefile.conf
 	echo > linux-austria.var
@@ -106,17 +106,17 @@ linux-austria.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-austria.var
 	echo >> linux-austria.var
 linux-germany.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-germany.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-germany.html.de linux.adp
 linux-germany.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-germany.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-germany.html.en linux.adp
 linux-germany.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-germany.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-germany.html.fr linux.adp
 linux-germany.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-germany.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-germany.html.id linux.adp
 linux-germany.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-germany.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-germany.html.nl linux.adp
 linux-germany.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-germany.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-germany.html.pl linux.adp
 
 linux-germany.var: gen_makefile.conf
 	echo > linux-germany.var
@@ -145,17 +145,17 @@ linux-germany.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-germany.var
 	echo >> linux-germany.var
 linux-hungary.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-hungary.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-hungary.html.de linux.adp
 linux-hungary.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-hungary.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-hungary.html.en linux.adp
 linux-hungary.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-hungary.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-hungary.html.fr linux.adp
 linux-hungary.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-hungary.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-hungary.html.id linux.adp
 linux-hungary.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-hungary.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-hungary.html.nl linux.adp
 linux-hungary.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-hungary.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.hu.freepascal.org/pub/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-hungary.html.pl linux.adp
 
 linux-hungary.var: gen_makefile.conf
 	echo > linux-hungary.var
@@ -184,17 +184,17 @@ linux-hungary.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-hungary.var
 	echo >> linux-hungary.var
 linux-israel.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-israel.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-israel.html.de linux.adp
 linux-israel.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-israel.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-israel.html.en linux.adp
 linux-israel.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-israel.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-israel.html.fr linux.adp
 linux-israel.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-israel.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-israel.html.id linux.adp
 linux-israel.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-israel.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-israel.html.nl linux.adp
 linux-israel.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-israel.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=http://mirror.mirimar.net/freepascal/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-israel.html.pl linux.adp
 
 linux-israel.var: gen_makefile.conf
 	echo > linux-israel.var
@@ -223,17 +223,17 @@ linux-israel.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-israel.var
 	echo >> linux-israel.var
 linux-netherlands.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-netherlands.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-netherlands.html.de linux.adp
 linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-netherlands.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-netherlands.html.en linux.adp
 linux-netherlands.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-netherlands.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-netherlands.html.fr linux.adp
 linux-netherlands.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-netherlands.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-netherlands.html.id linux.adp
 linux-netherlands.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-netherlands.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-netherlands.html.nl linux.adp
 linux-netherlands.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-netherlands.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://freepascal.stack.nl/pub/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-netherlands.html.pl linux.adp
 
 linux-netherlands.var: gen_makefile.conf
 	echo > linux-netherlands.var
@@ -262,17 +262,17 @@ linux-netherlands.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-netherlands.var
 	echo >> linux-netherlands.var
 linux-norway.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-norway.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-norway.html.de linux.adp
 linux-norway.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-norway.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-norway.html.en linux.adp
 linux-norway.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-norway.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-norway.html.fr linux.adp
 linux-norway.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-norway.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-norway.html.id linux.adp
 linux-norway.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-norway.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-norway.html.nl linux.adp
 linux-norway.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-norway.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.no.freepascal.org/pub/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-norway.html.pl linux.adp
 
 linux-norway.var: gen_makefile.conf
 	echo > linux-norway.var
@@ -301,17 +301,17 @@ linux-norway.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-norway.var
 	echo >> linux-norway.var
 linux-russia.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-russia.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-russia.html.de linux.adp
 linux-russia.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-russia.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-russia.html.en linux.adp
 linux-russia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-russia.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-russia.html.fr linux.adp
 linux-russia.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-russia.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-russia.html.id linux.adp
 linux-russia.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-russia.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-russia.html.nl linux.adp
 linux-russia.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-russia.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-russia.html.pl linux.adp
 
 linux-russia.var: gen_makefile.conf
 	echo > linux-russia.var
@@ -340,17 +340,17 @@ linux-russia.var: gen_makefile.conf
 	echo 'Content-type: text/html' >> linux-russia.var
 	echo >> linux-russia.var
 linux-ftp.freepascal.org.html.de: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-ftp.freepascal.org.html.de linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l de_DE -m ../../default-master.adp -o linux-ftp.freepascal.org.html.de linux.adp
 linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-ftp.freepascal.org.html.en linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-ftp.freepascal.org.html.en linux.adp
 linux-ftp.freepascal.org.html.fr: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-ftp.freepascal.org.html.fr linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l fr_FR -m ../../default-master.adp -o linux-ftp.freepascal.org.html.fr linux.adp
 linux-ftp.freepascal.org.html.id: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-ftp.freepascal.org.html.id linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l id_ID -m ../../default-master.adp -o linux-ftp.freepascal.org.html.id linux.adp
 linux-ftp.freepascal.org.html.nl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.nl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l nl_NL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.nl linux.adp
 linux-ftp.freepascal.org.html.pl: linux.adp ../../default-master.adp ../../site-master.adp
-	../../adp2html -p x=$(URL_EXTENSION) -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.pl linux.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirrorurl=ftp://ftp.freepascal.org/pub/fpc/ -c ../../catalog.adp -l pl_PL -m ../../default-master.adp -o linux-ftp.freepascal.org.html.pl linux.adp
 
 linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo > linux-ftp.freepascal.org.var

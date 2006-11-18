@@ -23,7 +23,7 @@ The latest version is <b>2.0.4</b>. It is available in different formats:
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@/dist/x86_64-linux-2.0.4/fpc-2.0.4.x86_64-linux.tar">fpc-2.0.4.x86_64-linux.tar</a> (23 MB)
+href="@mirror_url@dist/x86_64-linux-2.0.4/fpc-2.0.4.x86_64-linux.tar">fpc-2.0.4.x86_64-linux.tar</a> (23 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -33,19 +33,19 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 <h3><a name="linuxrpm"></a>RPM (Redhat Package Manager) Packages:</h3>
 <ul>
 <li> <b>Binary Packages</b> </li>
-<li> <a href="@mirror_url@/dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.x86_64.rpm">fpc-2.0.2-0.x86_64.rpm</a> (9.8 MB)
+<li> <a href="@mirror_url@dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.x86_64.rpm">fpc-2.0.2-0.x86_64.rpm</a> (9.8 MB)
      contains the compiler, utils, RTL and all units. <br>
-<li> <a href="@mirror_url@/dist/x86_64-linux-2.0.2/rpm/fpc-docs-2.0.2-0.x86_64.rpm">fpc-docs-2.0.2-0.x86_64.rpm</a> (5.0 MB)
+<li> <a href="@mirror_url@dist/x86_64-linux-2.0.2/rpm/fpc-docs-2.0.2-0.x86_64.rpm">fpc-docs-2.0.2-0.x86_64.rpm</a> (5.0 MB)
      contains the documentation.<br>
 <li> <b>Source Packages</b> </li>
-<li> <a href="@mirror_url@/dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.src.rpm">fpc-2.0.2-0.src.rpm</a> (12.6 MB)
+<li> <a href="@mirror_url@dist/x86_64-linux-2.0.2/rpm/fpc-2.0.2-0.src.rpm">fpc-2.0.2-0.src.rpm</a> (12.6 MB)
      contains the sources.<br>
 </ul>
 -->
 
 <h3><a name="linuxdeb"></a>Debian Packages:</h3>
 <ul>
-<li> <a href="@mirror_url@/dist/x86_64-linux-2.0.4/deb/">This directory</a> contains
+<li> <a href="@mirror_url@dist/x86_64-linux-2.0.4/deb/">This directory</a> contains
      the unofficial debian .deb packages (provided by Stefan Kisdaroczi).<br>
 </ul>
 

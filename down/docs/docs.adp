@@ -12,17 +12,17 @@
 <ul>
   <li>.zip
     <ul>
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-pdf.zip">PDF</a> (6.3 MB) (Default and preferred format)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-html.zip">HTML</a> (7.4 MB)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-ps.zip">PostScript</a> (3.9 MB)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-dvi.zip">DVI</a> (1.9 MB)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-txt.zip">Plain text</a> (800 kB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-pdf.zip">PDF</a> (6.3 MB) (Default and preferred format)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-html.zip">HTML</a> (7.4 MB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-ps.zip">PostScript</a> (3.9 MB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-dvi.zip">DVI</a> (1.9 MB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-txt.zip">Plain text</a> (800 kB)
     </ul>
   <li>.tar.gz (for Unix platforms)
     <ul>
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-pdf.tar.gz">PDF</a> (6.3 MB) (Default and Preferred format)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-html.tar.gz">HTML</a> (1.6 MB)
-      <li> <a href="@mirror_url@/dist/docs-2.0.4/doc-ps.tar.gz">PostScript</a> (3.9 MB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-pdf.tar.gz">PDF</a> (6.3 MB) (Default and Preferred format)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-html.tar.gz">HTML</a> (1.6 MB)
+      <li> <a href="@mirror_url@dist/docs-2.0.4/doc-ps.tar.gz">PostScript</a> (3.9 MB)
     </ul>
 </ul>
 <hr>
