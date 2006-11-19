@@ -347,4 +347,5 @@ tools/tply.adp svneol=native#text/plain
 /txlogo.gif -text
 /units.adp svneol=native#text/plain
 /unitsrtl.adp svneol=native#text/plain
+/update_svn.tcl -text svneol=unset#application/x-tcl
 /xcode.html svneol=native#text/plain
