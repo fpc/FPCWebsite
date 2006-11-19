@@ -60,26 +60,27 @@
 </p>
 
 <h2><trn locale="en_US" key="website.Requirements">Requirements</trn></h2>
-<trn locale="en_US" key="website.Requirements_text">
-  <b>x86 architecture:</b>
-  <blockquote>For the 80x86 version at least a 386 processor is required, but a 486
-  is recommended.</blockquote>
-  <b>PowerPC architecture:</b>
-  <blockquote>Any PowerPC processor will do. 16 MB of RAM is required. The Mac OS
+<b><trn locale="en_US" key="website.req_x86a">x86 architecture:</trn></b>
+<blockquote><trn locale="en_US" key="website.req_x86b">
+  For the 80x86 version at least a 386 processor is required, but a 486
+  is recommended.
+</trn></blockquote>
+<b><trn locale="en_US" key="website.reqppca">PowerPC architecture:</trn></b>
+<blockquote><trn locale="en_US" key="website.reqppcb">
+  Any PowerPC processor will do. 16 MB of RAM is required. The Mac OS
   classic version is expected to work System 7.5.3 and later. The Mac OS X version
   requires Mac OS X 10.1 or later, with the developer tools installed.
   On other operating systems Free Pascal runs on any system that can run the operating
   system.
-  </blockquote>
-  <b>ARM architecture</b>
-  <blockquote>
+</trn></blockquote>
+<b><trn locale="en_US" key="website.req_arma">ARM architecture</trn></b>
+<blockquote><trn locale="en_US" key="website.req_armb">
   Only cross-compiling to ARM is supported at this time.
-  </blockquote>
-  <b>Sparc architecture</b>
-  <blockquote>
+</trn></blockquote>
+<b><trn locale="en_US" key="website.req_sparca">Sparc architecture</trn></b>
+<blockquote><trn locale="en_US" key="website.req_sparcb">
   16 MB of RAM is required. Runs on any Sparc Linux installation.
-  </blockquote>
-</trn>
+</trn></blockquote>
 
 <h2><trn locale="en_US" key="website.License">License</trn></h2>
 <p>
