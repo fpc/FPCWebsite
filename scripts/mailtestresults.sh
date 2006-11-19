@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=${PATH}:~/scripts
+PATH=${PATH}:/FPC/html/scripts
 WORKDIR=~/testsuite_wrk
 PROCTESTSUITEDIFF=/FPC/html/scripts/proctestsuitediff
 

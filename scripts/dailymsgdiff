@@ -1,0 +1,19 @@
+#!/bin/sh
+cd /home/fpc/snapshot/fpc-2.1/compiler/msg
+TODAY=`date +%Y-%m-%d`
+YESTERDAY=`date +%Y-%m-%d --date YESTERDAY`
+svn diff -r\{$YESTERDAY\}:\{$TODAY\} errore.msg >/tmp/dailymsgdiff
+LINES=`cat /tmp/dailymsgdiff | wc -l`
+MAILUSER=translator
+export MAILUSER
+if [ "$LINES" != 0 ]; then
+   (
+     echo To: translations@freepascal.org
+     echo From: translator@freepascal.org
+     echo Subject: Free Pascal Compiler message file changed on $TODAY
+     echo
+     echo
+     echo Message diff between $YESTERDAY and $TODAY :
+     cat /tmp/dailymsgdiff
+   ) | /var/qmail/bin/qmail-inject -ftranslator@freepascal.org translations@freepascal.org
+fi
