@@ -30,6 +30,48 @@ Licentie
 Free Pascal en Lazarus zullen aanwezig zijn op de HCC-dagen in Utrecht. Je kunt ons vinden in de kraam van de HCC-Pascal-gebruikersgroep.
   
 </TRN>
+<TRN locale="en_US" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="en_US" key="website.Community">
+Community
+</TRN>
+<TRN locale="en_US" key="website.Documentation">
+Documentation
+</TRN>
+<TRN locale="en_US" key="website.Bugtracker">
+Bug tracker
+</TRN>
+<TRN locale="en_US" key="website.News">
+News
+</TRN>
+<TRN locale="en_US" key="website.Download">
+Download
+</TRN>
+<TRN locale="en_US" key="website.Home">
+Home
+</TRN>
+<TRN locale="nl_NL" key="website.Home">
+Hoofdpagina
+</TRN>
+<TRN locale="nl_NL" key="website.News">
+Nieuws
+</TRN>
+<TRN locale="nl_NL" key="website.Download">
+Download
+</TRN>
+<TRN locale="nl_NL" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="nl_NL" key="website.Community">
+Gemeenschap
+</TRN>
+<TRN locale="nl_NL" key="website.Documentation">
+Documentatie
+</TRN>
+<TRN locale="nl_NL" key="website.Bugtracker">
+Bugs
+</TRN>
 <TRN locale="en_US" key="website.overview">
 Overview
 </TRN>
