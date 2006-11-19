@@ -1,6 +1,3 @@
-<TRN locale="he_IL" key="website.Requirements_text">
-<b>מעבדי x86:</b><blockquote>עבור שימוש במעבדים מבוססי 80x86, נדרש לפחות מעבד 386, בעוד ש486 מומלץ.</blockquote><b>מעבדי PowerPC</b><blockquote>ניתן להשתמש בכל מעבדי PowerPC. יש צורך בלפחות 16 מגה של זיכרון גישה אקראי. גרסת מערכת ההפעלה Mac OS קלאסי צריכה לעבוד בגרסה 7.5.3 או גרסה חדשה יותר. עבור Mac OS X הגרסה הנדרשת היא Mac OS X 10.1 או גרסה חדשה יותר, עם כלי פיתוח מותקנים. עבור שאר מערכות ההפעלה, Free Pascal רץ על כל מערכות ההפעלה שקיימות למעבד.</blockquote><b>מעבדי ARM</b><blockquote>כרגע ישנה תמיכה רק ב cross-compiling.</blockquote><b>מעבדי Sparc</b><blockquote>יש דרישה ל16 מגה של זיכרון גישה אקראי. המהדר רץ על Sparc Linux</blockquote>
-</TRN>
 <TRN locale="en_US" key="website.news_headline_20061125">
 
     <em>November 25-26, 2006</em>
@@ -24,11 +21,6 @@ Vereisten
 </TRN>
 <TRN locale="nl_NL" key="website.License">
 Licentie
-</TRN>
-<TRN locale="nl_NL" key="website.news_headline_20061125">
-<em>November 25-26, 2006</em>
-Free Pascal en Lazarus zullen aanwezig zijn op de HCC-dagen in Utrecht. Je kunt ons vinden in de kraam van de HCC-Pascal-gebruikersgroep.
-  
 </TRN>
 <TRN locale="en_US" key="website.Wiki">
 Wiki
@@ -71,6 +63,140 @@ Documentatie
 </TRN>
 <TRN locale="nl_NL" key="website.Bugtracker">
 Bugs
+</TRN>
+<TRN locale="en_US" key="website.Advantages">
+Advantages
+</TRN>
+<TRN locale="en_US" key="website.Development">
+Development
+</TRN>
+<TRN locale="en_US" key="website.Future_Plans">
+Future Plans
+</TRN>
+<TRN locale="en_US" key="website.FPC_on_the_Mac">
+FPC on the Mac
+</TRN>
+<TRN locale="en_US" key="website.Porting_from_TP7">
+Porting from TP7
+</TRN>
+<TRN locale="en_US" key="website.FAQ">
+FAQ
+</TRN>
+<TRN locale="en_US" key="website.Units">
+Units
+</TRN>
+<TRN locale="en_US" key="website.Contributed_Units">
+Contributed Units
+</TRN>
+<TRN locale="en_US" key="website.Contribute">
+Contribute
+</TRN>
+<TRN locale="en_US" key="website.More_information">
+More information
+</TRN>
+<TRN locale="en_US" key="website.Mailinglists">
+Mailing Lists
+</TRN>
+<TRN locale="en_US" key="website.Authors">
+Authors
+</TRN>
+<TRN locale="en_US" key="website.Credits">
+Credits
+</TRN>
+<TRN locale="en_US" key="website.Links_mirrors">
+Links/Mirrors
+</TRN>
+<TRN locale="en_US" key="website.req_x86a">
+x86 architecture:
+</TRN>
+<TRN locale="en_US" key="website.req_x86b">
+
+  For the 80x86 version at least a 386 processor is required, but a 486
+  is recommended.
+
+</TRN>
+<TRN locale="en_US" key="website.reqppca">
+PowerPC architecture:
+</TRN>
+<TRN locale="en_US" key="website.reqppcb">
+
+  Any PowerPC processor will do. 16 MB of RAM is required. The Mac OS
+  classic version is expected to work System 7.5.3 and later. The Mac OS X version
+  requires Mac OS X 10.1 or later, with the developer tools installed.
+  On other operating systems Free Pascal runs on any system that can run the operating
+  system.
+
+</TRN>
+<TRN locale="en_US" key="website.req_arma">
+ARM architecture
+</TRN>
+<TRN locale="en_US" key="website.req_armb">
+
+  Only cross-compiling to ARM is supported at this time.
+
+</TRN>
+<TRN locale="en_US" key="website.req_sparca">
+Sparc architecture
+</TRN>
+<TRN locale="en_US" key="website.req_sparcb">
+
+  16 MB of RAM is required. Runs on any Sparc Linux installation.
+
+</TRN>
+<TRN locale="he_IL" key="website.req_x86a">
+מעבדי x86:
+</TRN>
+<TRN locale="he_IL" key="website.req_x86b">
+עבור שימוש במעבדים מבוססי 80x86, נדרש לפחות מעבד 386, בעוד ש486 מומלץ.
+</TRN>
+<TRN locale="he_IL" key="website.req_arma">
+מעבדי ARM
+</TRN>
+<TRN locale="he_IL" key="website.req_armb">
+כרגע ישנה תמיכה רק ב cross-compiling.
+</TRN>
+<TRN locale="he_IL" key="website.reqppca">
+מעבדי PowerPC
+</TRN>
+<TRN locale="he_IL" key="website.reqppcb">
+ניתן להשתמש בכל מעבדי PowerPC. יש צורך בלפחות 16 מגה של זיכרון גישה אקראי. גרסת מערכת ההפעלה Mac OS קלאסי צריכה לעבוד בגרסה 7.5.3 או גרסה חדשה יותר. עבור Mac OS X הגרסה הנדרשת היא Mac OS X 10.1 או גרסה חדשה יותר, עם כלי פיתוח מותקנים. עבור שאר מערכות ההפעלה, Free Pascal רץ על כל מערכות ההפעלה שקיימות למעבד.
+</TRN>
+<TRN locale="he_IL" key="website.req_sparca">
+מעבדי Sparc
+</TRN>
+<TRN locale="he_IL" key="website.req_sparcb">
+יש דרישה ל16 מגה של זיכרון גישה אקראי. המהדר רץ על Sparc Linux
+</TRN>
+<TRN locale="he_IL" key="website.Current_Version">
+גרסה נוכחית
+</TRN>
+<TRN locale="nl_NL" key="website.overview_text">
+Free Pascal (ook bekend als FPK-Pascal) is een professionele 32- en 64-bit Pascalcompiler. Het is beschikbaar voor verscheidene processoren: Intel x86, AMD64/x86_64, PowerPC, Sparc. De niet langer ondersteunde 1.0-versie ondersteunt ook de Motorola 680x0. De volgende besturingssystemen worden ondersteund: Linux, FreeBSD, <A href='fpcmac@x@'>Mac OS X/Darwin</A>, <A href='fpcmac@x@'>Mac OS classic</A>, DOS, Win32, OS/2, Netware (libc en klassiek) en MorphOS.
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20060925">
+<em>25 september 2006</em>
+Francesco Lombardi is bezig een <a href='http://itaprogaming.free.fr/tutorial.html'>een uitgebreide handleiding te schrijven </a> hoe je spellen voor de Game Boy Advance in Free Pascal kan maken.
+
+</TRN>
+<TRN locale="nl_NL" key="website.License_text">
+De pakketten en runtime-bibliotheek worden geleverd onder een gewijzigde  "Library GNU Public License" om het mogelijk te maken statisch te linken bij het schrijven van applicaties. De
+compilerbroncode zelf wordt geleverd onder de "GNU General Public License". De broncode van zowel de compiler als runtime-bibliotheek is beschikbaar; de gehele compiler is in Pascal geschreven.
+</TRN>
+<TRN locale="nl_NL" key="website.req_x86b">
+Voor de 80x86-versie in minimaal een 80386-processor vereist, maar een 80486 wordt aangeraden.
+
+</TRN>
+<TRN locale="nl_NL" key="website.reqppcb">
+Elke PowerPC-processor voldoet. 16 MB geheugen is vereist. De "Mac OS classic"-versie zou moeten werken op System 7.5.3 en nieuwer. De "Mac OS X"-versie vereist Mac OS X 10.1 of nieuwe met de ontwikkelaarsgereedschappen geïnstalleerd.
+
+Op andere besturingssystemen loopt Free Pascal op elk systeem dat het besturingssysteem kan draaien.
+
+</TRN>
+<TRN locale="nl_NL" key="website.req_armb">
+Op dit moment wordt alleen kruiscompilatie naar de ARM ondersteund.
+</TRN>
+<TRN locale="nl_NL" key="website.req_sparca">
+Sparc-architectuur
 </TRN>
 <TRN locale="en_US" key="website.overview">
 Overview
@@ -148,33 +274,11 @@ Features
 <TRN locale="en_US" key="website.Requirements">
 Requirements
 </TRN>
-<TRN locale="en_US" key="website.Requirements_text">
-
-  <b>x86 architecture:</b>
-  <blockquote>For the 80x86 version at least a 386 processor is required, but a 486
-  is recommended.</blockquote>
-  <b>PowerPC architecture:</b>
-  <blockquote>Any PowerPC processor will do. 16 MB of RAM is required. The Mac OS
-  classic version is expected to work System 7.5.3 and later. The Mac OS X version
-  requires Mac OS X 10.1 or later, with the developer tools installed.
-  On other operating systems Free Pascal runs on any system that can run the operating
-  system.
-  </blockquote>
-  <b>ARM architecture</b>
-  <blockquote>
-  Only cross-compiling to ARM is supported at this time.
-  </blockquote>
-  <b>Sparc architecture</b>
-  <blockquote>
-  16 MB of RAM is required. Runs on any Sparc Linux installation.
-  </blockquote>
-
-</TRN>
 <TRN locale="en_US" key="website.License">
 License
 </TRN>
 <TRN locale="en_US" key="website.Current_Version">
-Current Version__
+Current Version
 </TRN>
 <TRN locale="en_US" key="website.License_text">
 
@@ -185,8 +289,75 @@ Current Version__
   is written in Pascal.
 
 </TRN>
-<TRN locale="he_IL" key="website.Current_Version">
-__גרסה נוכחית
+<TRN locale="nl_NL" key="website.Current_Version_text">
+Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw expemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling te steunen.  
+</TRN>
+<TRN locale="nl_NL" key="website.Features_text">
+De taalsyntaxis heeft een uitstekende compatibiliteit met TP 7.0 evenals met de meeste versies van Delphi (klassen, rtti, uitzonderingen, ansistrings, widestrings, interfaces). Een Mac-Pascal compatibiliteitsmode is ook aanwezig om Applegebruikers van dienst te zien. Verder ondersteunt Free Pascal procedure-overroeping, operator-overroeping, globale eigenschappen en meer van dergelijke functionaliteit.  
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20060927">
+<em>27 september 2006</em>
+Free Pascal en Lazarus zullen aanwezig zijn op Systems 2006 in München in oktober. Je kunt ons vinden in hal A3, kraam 542. We zullen proberen alle 5 dagen aanwezig te zijn. Je kunt     <a href="http://www.systems-world.de/id/7672/">hier</a> meer informatie vinden over Systems 2006.
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20061125">
+<em>25-26 november 2006</em>
+Free Pascal en Lazarus zullen aanwezig zijn op de HCC-dagen in Utrecht. Je kunt ons vinden in de kraam van de HCC-Pascal-gebruikersgroep.
+  
+</TRN>
+<TRN locale="nl_NL" key="website.req_x86a">
+x86-architectuur:
+</TRN>
+<TRN locale="nl_NL" key="website.reqppca">
+PowerPC-architectuur:
+</TRN>
+<TRN locale="nl_NL" key="website.req_arma">
+ARM-architectuur
+</TRN>
+<TRN locale="nl_NL" key="website.Advantages">
+Voordelen
+</TRN>
+<TRN locale="nl_NL" key="website.Development">
+Ontwikkeling
+</TRN>
+<TRN locale="nl_NL" key="website.Credits">
+Eervermeldingen
+</TRN>
+<TRN locale="nl_NL" key="website.Links_mirrors">
+Links/Mirrors
+</TRN>
+<TRN locale="nl_NL" key="website.req_sparcb">
+16 MB geheugen is vereist. Draait op elke Sparc-Linux-installatie.
+
+</TRN>
+<TRN locale="nl_NL" key="website.Future_Plans">
+Toekomstplannen
+</TRN>
+<TRN locale="nl_NL" key="website.FPC_on_the_Mac">
+FPC op de Mac
+</TRN>
+<TRN locale="nl_NL" key="website.FAQ">
+Veelgestelde vragen
+</TRN>
+<TRN locale="nl_NL" key="website.Units">
+Units
+</TRN>
+<TRN locale="nl_NL" key="website.Contributed_Units">
+Unitcontributies
+</TRN>
+<TRN locale="nl_NL" key="website.Contribute">
+Draag bij
+</TRN>
+<TRN locale="nl_NL" key="website.More_information">
+Meer informatie
+</TRN>
+<TRN locale="nl_NL" key="website.Porting_from_TP7">
+Porteren vanaf TP7
+</TRN>
+<TRN locale="nl_NL" key="website.Authors">
+Auteurs
+</TRN>
+<TRN locale="nl_NL" key="website.Mailinglists">
+E-maillijsten
 </TRN>
 <TRN locale="he_IL" key="website.Current_Version_text">
 גרסה <em>2.0.4</em> היא הגרסה האחרונה והיציבה של Free Pascal. לחץ על <a href="download.html">הורדה</a> ותבחר במראה הקרובה אליך לקבלת עותק של המהדר. גרסת הפיתוח משוחררת עם הגרסה <em>2.1.x</em>. ראה את דף ה<a href="develop.html">פיתוח</a>, על מנת להשיג את קוד המקור העדכני, ותסייע בפיתוח.
