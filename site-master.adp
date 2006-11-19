@@ -13,10 +13,10 @@
 <div id="header">
  <div id="menu">
   <a href="@maindir@"><trn locale="en_US" key="website.Home">Home</trn></a>
-  <a href="@maindir@news@x@"><trn locale="en_US" key="website.News">News<trn></a>
-  <a href="@maindir@download@x@"><trn locale="en_US" key="website.Download">Download<trn></a>
-  <a href="http://www.freepascal.org/wiki/"><trn locale="en_US" key="website.Wiki">Wiki<trn></a>
-  <a href="http://community.freepascal.org:10000"><trn locale="en_US" key="website.Community">Community<trn></a>
+  <a href="@maindir@news@x@"><trn locale="en_US" key="website.News">News</trn></a>
+  <a href="@maindir@download@x@"><trn locale="en_US" key="website.Download">Download</trn></a>
+  <a href="http://www.freepascal.org/wiki/"><trn locale="en_US" key="website.Wiki">Wiki</trn></a>
+  <a href="http://community.freepascal.org:10000"><trn locale="en_US" key="website.Community">Community</trn></a>
   <a href="docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a>
   <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a>
  </div>
