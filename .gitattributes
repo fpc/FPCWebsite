@@ -1,7 +1,7 @@
 * text=auto !eol
 /Makefile svneol=native#text/plain
 /aboutus.adp svneol=native#text/plain
-/adp2html.pp svneol=native#text/plain
+/adp2html.pp svneol=native#text/x-pascal
 /advantage.adp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html
 /advantage.var svneol=native#text/plain
@@ -50,6 +50,7 @@ contrib/update.gif -text svneol=unset#image/gif
 /credits.adp svneol=native#text/plain
 css/fp-navl.css svneol=native#text/plain
 css/fp.css svneol=native#text/plain
+/cwstringm.pp svneol=native#text/x-pascal
 /default-master.adp svneol=native#text/html
 /develop.adp svneol=native#text/plain
 /docs.adp svneol=native#text/plain
@@ -107,8 +108,8 @@ down/x86_64/linux.adp svneol=native#text/plain
 /favicon.ico -text svneol=unset#image/ico
 fcl/classchart.gif -text svneol=unset#image/gif
 fcl/fcl.fp svneol=native#text/plain
-/fixdoc.pp svneol=native#text/plain
-/fp2html.pp svneol=native#text/plain
+/fixdoc.pp svneol=native#text/x-pascal
+/fp2html.pp svneol=native#text/x-pascal
 /fpc.adp svneol=native#text/plain
 /fpc.fr.fp svneol=native#text/html
 /fpc_noswpat.html svneol=native#text/plain
@@ -171,8 +172,8 @@ html_d/unitsrtl.fp svneol=native#text/plain
 /logoshowad -text
 /maillist.adp svneol=native#text/plain
 /makecyc.fp svneol=native#text/plain
-/makeidx.pp svneol=native#text/plain
-/makemirror.pp svneol=native#text/plain
+/makeidx.pp svneol=native#text/x-pascal
+/makemirror.pp svneol=native#text/x-pascal
 /mirrorfix.sample -text
 /mirrors.adp svneol=native#text/plain
 /mirrors.lst -text

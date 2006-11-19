@@ -3,7 +3,7 @@
 <!-- Web Page Design by James Koster - http://www.jameskoster.co.uk  and Marko Mihelèiæ - http://www.mcville.net-->
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=@output_encoding@">
 <title>@title@</title>
 <link href="@maindir@css/fp.css" rel="stylesheet" type="text/css">
 <link href="@maindir@css/fp-navl.css" rel="alternate stylesheet" type="text/css" title="Nav-Left">

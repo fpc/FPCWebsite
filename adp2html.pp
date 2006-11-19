@@ -1,6 +1,6 @@
 program adp2html;
 
-uses cwstring;
+uses cwstringm;
 
 type  Pproperty=^Tproperty;
       Tproperty=record
@@ -28,6 +28,10 @@ var master_template:ansistring;
     default_master:string='default-master.adp';
 
     recognize_properties:boolean;
+
+    input_encoding:ansistring='ISO-8859-1';
+    output_encoding:ansistring='ISO-8859-1';
+    catalog_encoding:ansistring='UTF-8';
 
 procedure property_set(const name,value:widestring;var tree:Pproperty);
 
@@ -705,7 +709,8 @@ procedure parse_cmdline;
 
 type  Tstate=(s_default,s_read_property,s_outputfile,
               s_read_locale,s_read_fallback_locale,s_read_catalogfile,
-              s_read_defaultmaster,s_read_dataprefix);
+              s_read_defaultmaster,s_read_dataprefix,
+              s_read_inputencoding,s_read_catalogencoding,s_read_outputencoding);
 
 var ignore_options:boolean;
     i:longint;
@@ -733,6 +738,12 @@ begin
           outputfile:=s;
           state:=s_default;
         end;
+      s_read_outputencoding:
+        begin
+          s:=paramstr(i);
+          output_encoding:=s;
+          state:=s_default;
+        end;
       s_read_locale:
         begin
           s:=paramstr(i);
@@ -749,6 +760,18 @@ begin
         begin
           s:=paramstr(i);
           catalogfile:=s;
+          state:=s_default;
+        end;
+      s_read_catalogencoding:
+        begin
+          s:=paramstr(i);
+          catalog_encoding:=s;
+          state:=s_default;
+        end;
+      s_read_inputencoding:
+        begin
+          s:=paramstr(i);
+          input_encoding:=s;
           state:=s_default;
         end;
       s_read_defaultmaster:
@@ -772,10 +795,16 @@ begin
           ignore_options:=true
         else if s='-c' then
           state:=s_read_catalogfile
+        else if s='-ce' then
+          state:=s_read_catalogencoding
         else if s='-d' then
           state:=s_read_dataprefix
+        else if s='-ie' then
+          state:=s_read_inputencoding
         else if s='-o' then
           state:=s_outputfile
+        else if s='-oe' then
+          state:=s_read_outputencoding
         else if s='-p' then
           state:=s_read_property
         else if s='-l' then
@@ -789,8 +818,17 @@ begin
     end;
 end;
 
+{$ifdef FPC_LITTLE_ENDIAN}
+const unicode_encoding = 'UCS-2LE';
+{$else  FPC_LITTLE_ENDIAN}
+const unicode_encoding = 'UCS-2BE';
+{$endif  FPC_LITTLE_ENDIAN}
+
 var htmlfile:text;
     page:widestring;
+    iconv_wide2ansi_output:iconv_t;
+    iconv_ansi2wide_input:iconv_t;
+    iconv_ansi2wide_catalog:iconv_t;
 
 begin
   inputfile:='';
@@ -802,12 +840,22 @@ begin
   parse_cmdline;
   if inputfile='' then
      begin
-       writeln('Usage: adp2html [-c catalogfile] [-d datasource_prefix] [-l locale] [-lb fallback_locale] \');
-       writeln('                [-m default_master] [-p key=value] [-o outputfile] <filename>');
+       writeln('Usage: adp2html [-c catalogfile] [-ce catalog_encoding] \');
+       writeln('                [-d datasource_prefix] [-ie input_encoding ] \');
+       writeln('                [-l locale] [-lb fallback_locale] \');
+       writeln('                [-m default_master] [-p key=value] \');
+       writeln('                [-o outputfile] [-oe output_encoding] <filename>');
        halt(1);
      end;
 
+  iconv_wide2ansi_output:=iconv_open(Pchar(output_encoding),unicode_encoding);
+  iconv_ansi2wide_input:=iconv_open(unicode_encoding,Pchar(input_encoding));
+  iconv_ansi2wide_catalog:=iconv_open(unicode_encoding,Pchar(catalog_encoding));
+
+  property_set('output_encoding',output_encoding);
+
   {Process catalog first.}
+  iconv_ansi2wide:=iconv_ansi2wide_catalog;
   if catalogfile<>'' then
     begin
       mode:=process_catalog;
@@ -815,8 +863,11 @@ begin
     end;
 
   {Process page.}
+  iconv_ansi2wide:=iconv_ansi2wide_input;
   mode:=process_page;
   page:=generate_page(inputfile);
+
+  iconv_wide2ansi:=iconv_wide2ansi_output;
   if outputfile='' then
     write(page)
   else

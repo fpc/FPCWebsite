@@ -104,7 +104,7 @@ foreach page $pages {
     foreach language $languages {
         set html_file "$rootname.html.$language"
         puts "$html_file: $page ${master-template} ${site-template}"
-        puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
         lappend all $html_file
     }
     puts ""
@@ -117,7 +117,7 @@ foreach page $pages {
         set html_file "$rootname.html.$language"
         puts "\techo 'URI: $html_file' >> $var_file"
         puts "\techo 'Content-language: $language' >> $var_file"
-        puts "\techo 'Content-type: text/html' >> $var_file"
+        puts "\techo 'Content-type: text/html; charset=$language_encoding($language)' >> $var_file"
         puts "\techo >> $var_file"
     }
 }
@@ -132,7 +132,7 @@ foreach mirror $mirrors {
         foreach language $languages {
             set html_file "${rootname}-[string tolower $mirror_name].html.$language"
             puts "$html_file: $page ${master-template} ${site-template}"
-            puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $page"
+            puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
             lappend all $html_file
         }
         puts ""
@@ -145,7 +145,7 @@ foreach mirror $mirrors {
             set html_file "$rootname-[string tolower $mirror_name].html.$language"
             puts "\techo 'URI: $html_file' >> $var_file"
             puts "\techo 'Content-language: $language' >> $var_file"
-            puts "\techo 'Content-type: text/html' >> $var_file"
+            puts "\techo 'Content-type: text/html; charset=$language_encoding($language)' >> $var_file"
             puts "\techo >> $var_file"
         }
     }
@@ -158,7 +158,7 @@ foreach page $mirror_pages {
     foreach language $languages {
         set html_file "${rootname}.html.$language"
         puts "$html_file: ${templatemirror} mirrors.dat ${master-template}"
-        puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file $templatemirror"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $templatemirror"
         lappend all $html_file
     }
     # Generate var file
@@ -170,7 +170,7 @@ foreach page $mirror_pages {
         set html_file "$rootname.html.$language"
         puts "\techo 'URI: $html_file' >> $var_file"
         puts "\techo 'Content-language: $language' >> $var_file"
-        puts "\techo 'Content-type: text/html' >> $var_file"
+        puts "\techo 'Content-type: text/html; charset=$language_encoding($language)' >> $var_file"
         puts "\techo >> $var_file"
     }
 }
