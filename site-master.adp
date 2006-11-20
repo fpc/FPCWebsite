@@ -57,7 +57,7 @@
     <a href="@maindir@links@x@"><trn locale="en_US" key="website.Links_mirrors">Links/mirrors</trn></a>
    </div>
 					
-  <h1><trn locale="en_US" key="website.General">Tools</trn></h1>
+  <h1><trn locale="en_US" key="website.Tools">Tools</trn></h1>
    <div class="submenu">
     <a href="@maindir@tools/tools@x@"><trn locale="en_US" key="website.Tools">Tools</trn></a>
     <a href="@maindir@tools/delp@x@">Delp</a>
