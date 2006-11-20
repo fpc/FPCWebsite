@@ -28,7 +28,7 @@
 
 <div id="content">
  <div id="sidebar">
-  <h1>General</h1>
+  <h1><trn locale="en_US" key="website.General">General</trn></h1>
   <div class="submenu">
    <a href="@maindir@"><trn locale="en_US" key="website.Home">Home</trn></a>
    <a href="@maindir@news@x@"><trn locale="en_US" key="website.News">News</trn></a>
@@ -39,7 +39,7 @@
    <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a> 
   </div>
 			
-  <h1>Coding</h1>
+  <h1><trn locale="en_US" key="website.Coding">Coding</trn></h1>
    <div class="submenu">
     <a href="@maindir@advantage@x@"><trn locale="en_US" key="website.Advantages">Advantages</trn></a>
     <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
@@ -57,7 +57,7 @@
     <a href="@maindir@links@x@"><trn locale="en_US" key="website.Links_mirrors">Links/mirrors</trn></a>
    </div>
 					
-  <h1>Tools</h1>
+  <h1><trn locale="en_US" key="website.General">Tools</trn></h1>
    <div class="submenu">
     <a href="@maindir@tools/tools@x@"><trn locale="en_US" key="website.Tools">Tools</trn></a>
     <a href="@maindir@tools/delp@x@">Delp</a>

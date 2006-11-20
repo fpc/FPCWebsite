@@ -377,6 +377,9 @@ E-maillijsten
 <TRN locale="he_IL" key="website.Features_text">
 תחביר השפה מכיל תאימות טובה עם TP 7.0, ובנוסף גם עם מרבית הגרסאות של Delphi (classes, rtti, exceptions, ansistrings, widestrings, interfaces). ישנה גם תאימות עם Mac Pascal, לסייע למשתמשי Apple. בנוסף, Free Pascal תומכת בfunction overloading, operator overloading, תכונות גלובליות ותכונות נוספות
 </TRN>
+<TRN locale="CS_CZ" key="website.search">
+Hledání
+</TRN>
 <TRN locale="he_IL" key="website.overview">
 סקירה
 </TRN>
@@ -385,6 +388,126 @@ Free Pascal (הידוע גם כ FPK Pascal) הינו מהדר פסקל מקצו�
 </TRN>
 <TRN locale="he_IL" key="website.Requirements">
 דרישות
+</TRN>
+<TRN locale="en_US" key="website.search">
+Search
+</TRN>
+<TRN locale="fr_FR" key="website.search">
+Chercher
+</TRN>
+<TRN locale="he_IL" key="website.search">
+חפש
+</TRN>
+<TRN locale="id_ID" key="website.search">
+Cari
+</TRN>
+<TRN locale="nl_NL" key="website.search">
+Zoeken
+</TRN>
+<TRN locale="nl_ZA" key="website.search">
+Soek
+</TRN>
+<TRN locale="pl_PL" key="website.search">
+Szukaj
+</TRN>
+<TRN locale="CS_CZ" key="website.searchwhat">
+Prohledat dokumentaci, fóra a e-mailové konference
+</TRN>
+<TRN locale="en_US" key="website.searchwhat">
+Search documentation, forums & mailing lists.
+</TRN>
+<TRN locale="fr_FR" key="website.searchwhat">
+Chercher dans la documentation, les forums et les listes de mails.
+</TRN>
+<TRN locale="he_IL" key="website.searchwhat">
+חפש מסמכים, פורומים ורשימות תפוצה
+</TRN>
+<TRN locale="id_ID" key="website.searchwhat">
+Mencari dokumentasi, forum &amp; daftar surat.
+</TRN>
+<TRN locale="nl_NL" key="website.searchwhat">
+Doorzoek documentatie, forums en e-maillijsten
+</TRN>
+<TRN locale="nl_ZA" key="website.searchwhat">
+Deursoek dokumentasie, forums en e-poslyste
+</TRN>
+<TRN locale="pl_PL" key="website.searchwhat">
+Przeszukaj dokumentację, fora i listy dyskusyjne.
+</TRN>
+<TRN locale="CS_CZ" key="website.Feeling_Lucky">
+Zkusím štěstí
+</TRN>
+<TRN locale="fr_FR" key="website.Feeling_Lucky">
+J'ai de la chance
+</TRN>
+<TRN locale="he_IL" key="website.Feeling_Lucky">
+מרגיש בר מזל
+</TRN>
+<TRN locale="nl_ZA" key="website.Feeling_Lucky">
+Doen 'n gok
+</TRN>
+<TRN locale="fr_FR" key="website.overview_text">
+Free Pascal (aussi connu comme FPK Pascal) est un compilateur Pascal 32/64 bits professionel en OpenSource, libre et gratuit. Il est disponible pour différents processeurs : Intel x86, Amd64/x86_64, PowerPC, Sparc. L' ancienne version 1.0 (désormais non maintenue) est également compatible Motorola 680x0. FreePascal est utilisable sur : Linux, FreeBSD, <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Windows (Win32), OS/2,Netware (libc et classique) et MorphOS.
+
+</TRN>
+<TRN locale="fr_FR" key="website.news_headline_20060927">
+<em>27 Septembre 2006</em>Lazarus et FPC seront présents au salon "Systems 2006" à Munich en Octobre, hall A3 booth 542.
+Nous tacherons d'etre présents les 5 jours. Vous pouvez trouver plus d'informations sur Systems 2006 
+<a href="http://www.systems-world.de/id/7672/">ici</a>.
+</TRN>
+<TRN locale="fr_FR" key="website.news_headline_20060925">
+<em>25 Septembre 2006</em> Francesco Lombardi écrit <a href='http://itaprogaming.free.fr/tutorial.html'> un guide exhaustif sur comment développer des jeux en FreePascal sur Game Boy Advance.</a>
+</TRN>
+<TRN locale="fr_FR" key="website.news_headline_20060920">
+<em>20 Septembre 2006</em> Merci à Olle Raab et Stefan Kisdaroczi, qui ont ajouté les paquets .deb de FreePascal 2.0.4 pour powerpc-macos et x86_64-linux
+Vous les trouverez sur la <a href="download.html"> section téléchargements</a>
+</TRN>
+<TRN locale="fr_FR" key="website.news_headline_20060828">
+<em>28 Aout 2006</em>Vous l'attendiez...elle est enfin la ! La version 2.0.4 est disponible <a href="download.html"> en téléchargement</a>.
+Elle apporte pas mal de corrections de bugs et quelques améliorations (le gros des améliorations et nouveautées est concentré sur la branche 2.1.x)
+Vous trouverez les modifications <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_0_4/install/doc/whatsnew.txt">ici (en anglais)</a>
+</TRN>
+<TRN locale="fr_FR" key="website.Current_Version_text">
+ La <em>2.0.4</em> est la dernière version stable disponible.
+  Cliquez sur <a href="download.html">ce lien </a> et choisissez un mirroir proche de chez vous pour la télécharger.
+  Les versions en developpement sont dans la branche <EM>2.1.x</EM>.
+  Vous pouvez consulter <a href="develop.html">la page de développement </a> pour trouver comment obtenir les dernières sources et nous aider dans l'avancement.
+</TRN>
+<TRN locale="fr_FR" key="website.req_sparcb">
+16 Mo  de RAM minimum, et Linux pour Sparc (toute version).
+</TRN>
+<TRN locale="fr_FR" key="website.License_text">
+  Les paquets et la librairie d'execution (packages and runtime library) sont sous licence Library GNU Public
+  License pour permettre l'usage des librairies statiques lors de la création d'applications. Le code source du compilateur proprement dit est sous licence GNU General Public License.
+  Les sources du compilateur et de ses librairies sont disponibles, le compîlateur en lui meme est entièrement écrit en Pascal.
+</TRN>
+<TRN locale="fr_FR" key="website.Features_text">
+ La syntaxe du language a une excellente compatibilité avec TP 7.0 et la plupart des versions de Delphi (classes, rtti, exceptions, ansistrings, widestrings, interfaces).
+  Un mode de compatibilité "Mac Pascal" est également disponible pour aider les utilisateurs Apple. 
+  Free Pascal supporte également la surcharge de fonctions et d'opérateurs, les propriétés globales et autres fonctionnalités.
+</TRN>
+<TRN locale="fr_FR" key="website.req_x86a">
+Plateforme x86 :
+</TRN>
+<TRN locale="fr_FR" key="website.reqppca">
+Plateforme PowerPC :
+</TRN>
+<TRN locale="fr_FR" key="website.reqppcb">
+Tous les processeurs Power PC sont suffisants, il faut seulement un minimum de 16Mo de RAM. La version Mac Os Classique doit marcher avec System 7.5.3 et ultérieurs. La version Mac OS X nécessite Mac OS X 10.1 (ou plus récent), et l'installation des Outils Développeur.
+Sur les autres systèmes, si le système tourne, FreePascal aussi.
+</TRN>
+<TRN locale="fr_FR" key="website.req_x86b">
+our la version 80x86 , il vous faut un processeur 386, mais un 486 est recommandé.
+Pour les moins de 20 ans, un 386 est un processeur des années 80. Ca marche très bien avec un processeur dernier cri ;o)
+</TRN>
+<TRN locale="fr_FR" key="website.req_arma">
+Plateforme ARM
+</TRN>
+<TRN locale="fr_FR" key="website.req_armb">
+Pour le moment, seule la cross compilation est disponible.
+</TRN>
+<TRN locale="fr_FR" key="website.req_sparca">
+Plateforme Sparc
 </TRN>
 <TRN locale="fr_FR" key="website.overview">
 Vue d'ensemble
@@ -396,5 +519,23 @@ Licence
 Matériel nécessaire
 </TRN>
 <TRN locale="fr_FR" key="website.Current_Version">
-Version__ courante
+Version courante
+</TRN>
+<TRN locale="en_US" key="website.Feeling_Lucky">
+Feeling Lucky
+</TRN>
+<TRN locale="de_DE" key="website.Feeling_Lucky">
+Auf gut Glück
+</TRN>
+<TRN locale="es_ES" key="website.Feeling_Lucky">
+Me siento afortunado
+</TRN>
+<TRN locale="nl_NL" key="website.Feeling_Lucky">
+Doe een gok
+</TRN>
+<TRN locale="id_ID" key="website.Feeling_Lucky">
+Merasa Beruntung
+</TRN>
+<TRN locale="pl_PL" key="website.Feeling_Lucky">
+Szczęśliwy Traf
 </TRN>

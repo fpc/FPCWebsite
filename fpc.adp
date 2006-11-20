@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Advanced open source Pascal compiler for Pascal and Object Pascal - Home Page</property>
 <property name="entry">fpc</property>
-<property name="header">Introduction</property>
+<property name="header"><trn locale="en_US" key="website.Introduction">Introduction</trn></property>
 
 <h2><trn locale="en_US" key="website.overview">Overview</trn></h2>
 <p>
