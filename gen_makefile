@@ -208,20 +208,20 @@ clean:
 
 # down subdir
 down_all:
-\tmake -C down all
+\t\$(MAKE) -C down all
 
 tools_all:
-\tmake -C tools all
+\t\$(MAKE) -C tools all
 
 # clean
 clean: clean_down clean_tools
 \trm -f *.html.* *.var mirrors.dat adp2html
 
 clean_down:
-\tmake -C down clean
+\t\$(MAKE) -C down clean
 
 clean_tools:
-\tmake -C tools clean
+\t\$(MAKE) -C tools clean
 
 # archives (unix only)
 tar: all

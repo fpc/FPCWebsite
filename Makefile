@@ -751,20 +751,20 @@ $(ADP2HTML): adp2html.pp
 
 # down subdir
 down_all:
-	make -C down all
+	$(MAKE) -C down all
 
 tools_all:
-	make -C tools all
+	$(MAKE) -C tools all
 
 # clean
 clean: clean_down clean_tools
 	rm -f *.html.* *.var mirrors.dat adp2html
 
 clean_down:
-	make -C down clean
+	$(MAKE) -C down clean
 
 clean_tools:
-	make -C tools clean
+	$(MAKE) -C tools clean
 
 # archives (unix only)
 tar: all
