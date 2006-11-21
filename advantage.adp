@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Advantages of programming in Pascal and Free Pascal</property>
 <property name="entry">advantage</property>
-<property name="header">FAQ / Knowledge base</property>
+<property name="header"><trn key="website.Advantages_title" locale="en_US">Advantages of Free Pascal</trn></property>
 
 <h2><trn key="website.Advantages_of" locale="en_US">Advantages of programming in Pascal and Free Pascal</trn></h2>
 <trn key="website.Advantages_of" locale="en_US">
@@ -85,4 +85,3 @@
       use favorite compiler for it and call it from Free Pascal. 
     </trn>
 </ul>
-</html>
