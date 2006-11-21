@@ -870,6 +870,16 @@ Advantages of programming in Pascal and Free Pascal
 <TRN locale="bg_BG" key="website.Porting_from_TP7">
 Мигриране от TP7
 </TRN>
+<TRN locale="nl_NL" key="website.adv_No_Makefiles">
+<STRONG>Geen Makefiles</STRONG> In tegenstelling tot de meeste talen heeft Pascal geen Makefiles nodig. Dit kan handenvol tijd besparen, de compiler zoekt gewoon zelf uit welke bestanden opnieuw gecompileerd moeten worden.
+</TRN>
+<TRN locale="nl_NL" key="website.adv_IDE">
+<STRONG>Geïntegreerde ontwikkelomgeving</STRONG> Free Pascal wordt geleverd met een IDE die op verscheidene platformen werken, waarin je programma's kunt schrijven, compileren en debuggen. Je zult veel tijd besparen met deze IDE, het is de beste programmeervriend die je zult hebben.
+</TRN>
+<TRN locale="nl_NL" key="website.adv_namespace">
+<STRONG>Iedere unit heeft zijn eigen symbolen</STRONG> In Pascal hoef je je nooit zorgen te maken over het vervuilen van de naamruimtes, zoals bijvoorbeeld in C waar een symbool over het gehele programma uniek dient te zijn. Nee, in Pascal heeft iedere unit gewoon zijn eigen naamruimte en dat is gewoon lekker ontspannen werken.
+    
+</TRN>
 <TRN locale="fr_FR" key="website.latest_news">
 Actualités :
 </TRN>
@@ -916,6 +926,10 @@ Advantages
     Turbo Pascal et Object Pascal. La FCL et Free Vision vous fourniront deux puissantes librairies
     d'objets dont vous pourrez avoir besoin.
     FreePascal supporte les Bases de données (PostgreSQL, MySQL, Interbase et ODBC).
+</TRN>
+<TRN locale="nl_NL" key="website.adv_very_clean_lang">
+<STRONG>Zeer schone taal</STRONG> Pascal is een zeer mooie taal, je programma's worden veel beter leesbaar en onderhoudbaar dan in bijvoorbeeld C, en laten we het dan nog niet hebben over C++. Er is totaal geen noodzaak om compromissen te sluiten met de kracht van de taal, Pascal is zo krachtig als 'm kunt hebben.
+    
 </TRN>
 <TRN locale="en_US" key="website.adv_Smartlink">
 
@@ -980,6 +994,41 @@ Les avantages de la programmation en Pascal et Free Pascal
 <TRN locale="fr_FR" key="website.adv_Smartlink">
 <li><STRONG>Smartlinking</STRONG> Le linkeur intelligent de Free Pascal supprime toutes les portions de code et les variables non utilisées.
     Ce qui donne des petits executables, tout en bénéficiant des liens statiques : on evite ainsi l'enfer des DLL.
+</TRN>
+<TRN locale="nl_NL" key="website.adv_assembler_integration">
+<STRONG>Uitstekende integratie met assembler</STRONG> Denk je dat Pascal voor watjes is die nog moeten leren programmeren? FOUT! Het is een uitstekende oplossing voor high-tech-programmering en voor de oppernerds onder jullie zijn er ingebouwde assemblers. Je kunt eenvoudig Pascal met assemblercode mengen en dat ook nog in notatie die je wenst: Als je liever de Intelnotatie gebruikt dan maakt Free Pascal daar als het nodig is gewoon ATT van. Wil je je programma omzetten in een bronbestand voor NASM? Geen probleem, en als je programma ATT-assemblercode bevat maakt Free Pascal daar gewoon weer Intel-assembler van.
+
+</TRN>
+<TRN locale="nl_NL" key="website.adv_OOP">
+<STRONG>Objectgeoriënteerd programmeren</STRONG> En als je je met serieuze programma's bezig houdt, dan ben je natuurlijk zeer geïnteresseerd in de objectgeoriënteerde mogelijkheden. Je kunt zowel de Turbo Pascal een Object Pascal OOP-manieren gebruiken. Bijzondere functionaliteit in OOP zijn eigenschakken en virtuele constructoren. De FCL en Free Vision voorzien je met krachtige objectgeoriënteerde bibliotheken. Voor databasebehoeften worden PostgreSQL, MySQL, Interbase, Oracle en ODBC ondersteund.
+    
+</TRN>
+<TRN locale="nl_NL" key="website.adv_Smartlink">
+<STRONG>Smartlinken</STRONG> Free Pascals smartlinker verwijdert iedere      variable of codefragment dat je niet gebruikt. Dat betekent dat programma's klein met een grote K kunnen worden, terwijl ze nog steeds statisch gelinkt zijn. Je vermijdt dus DLL-hel, en je hoeft geen grote raamwerken met je programma's mee te leveren.
+</TRN>
+<TRN locale="nl_NL" key="website.adv_distribution_indep">
+<STRONG>Distributieonafhankelijkheid (Linux)</STRONG> Het gevolg hiervan is, dat software gecompileerd door de Linuxversie van Free Pascal op elke Linuxdistributie draait, hetwelk het veel eenvoudiger voor je maakt om meerdere Linuxdistributies te ondersteunen.
+
+</TRN>
+<TRN locale="nl_NL" key="website.adv_compatible">
+<STRONG>Compatibel</STRONG> Heb je bestaamde code? Free Pascal is er veel meer compatibel mee dan enig andere Pascalcompiler. We zijn vrijwel volledig compatible met Turbo Pascal en behoorlijk compatibel met Delphibroncode. Als je in een andere taal moet of wilt programmeren, zoals C of assembler, gebruik dan gewoon je favoriete compiler; Free Pascal heeft uitstekende voorzieningen om die code te kunnen aanroepen.
+    
+</TRN>
+<TRN locale="nl_NL" key="website.adv_Fast">
+<STRONG>Pascalcompilers zijn snel met een grote S en Free Pascal is geen uitzondering</STRONG> Koffiepauzes van een half uur zijn niet langer nodig, programmeurs die wortels schieten  tijdens het compileren, het is allemaal niet meer nodig. Druk gewoon op de compileertoets en het programma is gereed. En dat geldt ook voor hele grote projecten.
+</TRN>
+<TRN locale="nl_NL" key="website.adv_multiplatform">
+<STRONG>Beschikbaar voor veel platformen op meerdere  architecturen</STRONG>
+Free Pascal is beschikbaar voor meer platformen dan enig andere Pascalcompiler en maakt het mogelijk eenvoudig te kruiscompileren. Verander gewoon het doelplatform in de IDE en compileer! En er wordt gewerkt aan nog meer platformen en processoren.
+</TRN>
+<TRN locale="bg_BG" key="website.Bugtracker">
+Следене на грешки
+</TRN>
+<TRN locale="bg_BG" key="website.Coding">
+Програмиране
+</TRN>
+<TRN locale="bg_BG" key="website.FPC_on_the_Mac">
+СПК за Мак
 </TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky

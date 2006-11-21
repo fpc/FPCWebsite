@@ -44,6 +44,8 @@
     <a href="@maindir@advantage@x@"><trn locale="en_US" key="website.Advantages">Advantages</trn></a>
     <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
     <a href="@maindir@future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
+    <a href="@maindir@probs@x@"><trn locale="en_US" key="website.Known_Problems">Known Problems</trn></a>
+
     <a href="@maindir@fpcmac@x@"><trn locale="en_US" key="website.FPC_on_Mac">FPC on the Mac</trn></a>
     <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
     <a href="@maindir@units@x@"><trn locale="en_US" key="website.Units">Units</trn></a>
