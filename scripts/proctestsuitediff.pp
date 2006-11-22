@@ -72,7 +72,7 @@ begin
   readln(header[2]);
   yesterday := FormatDateTime('YYYY-mm-dd', Now-1);
   today := FormatDateTime('YYYY-mm-dd', Now);
-  lenfailstr := 0;
+  lenfailstr := 5;  { Length('FAILS') = column header }
   repeat
     readln(currline);
     currdate := getdate(currline);
