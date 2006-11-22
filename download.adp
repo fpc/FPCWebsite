@@ -3,7 +3,7 @@
 <property name="entry">download</property>
 <property name="header"><trn key="website.Download" locale="en_US">Download</trn></property>
 
-<a name="release"></a><h2><trn key="website.Official_releases locale="en_US">Official releases</trn></h2>
+<a name="release"></a><h2><trn key="website.Official_releases" locale="en_US">Official releases</trn></h2>
 <p>
   <trn key="website.ready_made_packages" locale="en_US">
     These are ready made packages, together with an install program, to
@@ -71,7 +71,7 @@
   <trn key="website.download_documentation" locale="en_US">
     The documentation can be downloaded in several formats from one of our
     <a href="down/docs/docs@x@">download sites</a>.
-  </TRN>
+  </trn>
 
 <!--
 <a name="other"></a><h3>Other downloads</h3>
