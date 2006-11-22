@@ -27,18 +27,22 @@ endif
 .PHONY: all all_pages clean
 default: all
 all: all_pages
-delp.html.de: delp.adp ../default-master.adp ../site-master.adp
+delp.html.de: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o delp.html.de -oe iso-8859-1 delp.adp
-delp.html.en: delp.adp ../default-master.adp ../site-master.adp
+delp.html.en: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o delp.html.en -oe iso-8859-1 delp.adp
-delp.html.fr: delp.adp ../default-master.adp ../site-master.adp
+delp.html.fr: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o delp.html.fr -oe iso-8859-1 delp.adp
-delp.html.id: delp.adp ../default-master.adp ../site-master.adp
+delp.html.id: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o delp.html.id -oe iso-8859-1 delp.adp
-delp.html.nl: delp.adp ../default-master.adp ../site-master.adp
+delp.html.it: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o delp.html.it -oe iso-8859-1 delp.adp
+delp.html.nl: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o delp.html.nl -oe iso-8859-1 delp.adp
-delp.html.pl: delp.adp ../default-master.adp ../site-master.adp
+delp.html.pl: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o delp.html.pl -oe iso-8859-2 delp.adp
+delp.html.ru: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o delp.html.ru -oe iso-8859-5 delp.adp
 
 delp.var: gen_makefile.conf
 	echo > delp.var
@@ -58,6 +62,10 @@ delp.var: gen_makefile.conf
 	echo 'Content-language: id' >> delp.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> delp.var
 	echo >> delp.var
+	echo 'URI: delp.html.it' >> delp.var
+	echo 'Content-language: it' >> delp.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> delp.var
+	echo >> delp.var
 	echo 'URI: delp.html.nl' >> delp.var
 	echo 'Content-language: nl' >> delp.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> delp.var
@@ -66,18 +74,26 @@ delp.var: gen_makefile.conf
 	echo 'Content-language: pl' >> delp.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> delp.var
 	echo >> delp.var
-fpcmake.html.de: fpcmake.adp ../default-master.adp ../site-master.adp
+	echo 'URI: delp.html.ru' >> delp.var
+	echo 'Content-language: ru' >> delp.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> delp.var
+	echo >> delp.var
+fpcmake.html.de: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o fpcmake.html.de -oe iso-8859-1 fpcmake.adp
-fpcmake.html.en: fpcmake.adp ../default-master.adp ../site-master.adp
+fpcmake.html.en: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o fpcmake.html.en -oe iso-8859-1 fpcmake.adp
-fpcmake.html.fr: fpcmake.adp ../default-master.adp ../site-master.adp
+fpcmake.html.fr: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o fpcmake.html.fr -oe iso-8859-1 fpcmake.adp
-fpcmake.html.id: fpcmake.adp ../default-master.adp ../site-master.adp
+fpcmake.html.id: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o fpcmake.html.id -oe iso-8859-1 fpcmake.adp
-fpcmake.html.nl: fpcmake.adp ../default-master.adp ../site-master.adp
+fpcmake.html.it: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o fpcmake.html.it -oe iso-8859-1 fpcmake.adp
+fpcmake.html.nl: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o fpcmake.html.nl -oe iso-8859-1 fpcmake.adp
-fpcmake.html.pl: fpcmake.adp ../default-master.adp ../site-master.adp
+fpcmake.html.pl: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o fpcmake.html.pl -oe iso-8859-2 fpcmake.adp
+fpcmake.html.ru: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o fpcmake.html.ru -oe iso-8859-5 fpcmake.adp
 
 fpcmake.var: gen_makefile.conf
 	echo > fpcmake.var
@@ -97,6 +113,10 @@ fpcmake.var: gen_makefile.conf
 	echo 'Content-language: id' >> fpcmake.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> fpcmake.var
 	echo >> fpcmake.var
+	echo 'URI: fpcmake.html.it' >> fpcmake.var
+	echo 'Content-language: it' >> fpcmake.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> fpcmake.var
+	echo >> fpcmake.var
 	echo 'URI: fpcmake.html.nl' >> fpcmake.var
 	echo 'Content-language: nl' >> fpcmake.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> fpcmake.var
@@ -105,18 +125,26 @@ fpcmake.var: gen_makefile.conf
 	echo 'Content-language: pl' >> fpcmake.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> fpcmake.var
 	echo >> fpcmake.var
-h2pas.html.de: h2pas.adp ../default-master.adp ../site-master.adp
+	echo 'URI: fpcmake.html.ru' >> fpcmake.var
+	echo 'Content-language: ru' >> fpcmake.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> fpcmake.var
+	echo >> fpcmake.var
+h2pas.html.de: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o h2pas.html.de -oe iso-8859-1 h2pas.adp
-h2pas.html.en: h2pas.adp ../default-master.adp ../site-master.adp
+h2pas.html.en: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o h2pas.html.en -oe iso-8859-1 h2pas.adp
-h2pas.html.fr: h2pas.adp ../default-master.adp ../site-master.adp
+h2pas.html.fr: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o h2pas.html.fr -oe iso-8859-1 h2pas.adp
-h2pas.html.id: h2pas.adp ../default-master.adp ../site-master.adp
+h2pas.html.id: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o h2pas.html.id -oe iso-8859-1 h2pas.adp
-h2pas.html.nl: h2pas.adp ../default-master.adp ../site-master.adp
+h2pas.html.it: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o h2pas.html.it -oe iso-8859-1 h2pas.adp
+h2pas.html.nl: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o h2pas.html.nl -oe iso-8859-1 h2pas.adp
-h2pas.html.pl: h2pas.adp ../default-master.adp ../site-master.adp
+h2pas.html.pl: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o h2pas.html.pl -oe iso-8859-2 h2pas.adp
+h2pas.html.ru: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o h2pas.html.ru -oe iso-8859-5 h2pas.adp
 
 h2pas.var: gen_makefile.conf
 	echo > h2pas.var
@@ -136,6 +164,10 @@ h2pas.var: gen_makefile.conf
 	echo 'Content-language: id' >> h2pas.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> h2pas.var
 	echo >> h2pas.var
+	echo 'URI: h2pas.html.it' >> h2pas.var
+	echo 'Content-language: it' >> h2pas.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> h2pas.var
+	echo >> h2pas.var
 	echo 'URI: h2pas.html.nl' >> h2pas.var
 	echo 'Content-language: nl' >> h2pas.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> h2pas.var
@@ -144,18 +176,26 @@ h2pas.var: gen_makefile.conf
 	echo 'Content-language: pl' >> h2pas.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> h2pas.var
 	echo >> h2pas.var
-ppdep.html.de: ppdep.adp ../default-master.adp ../site-master.adp
+	echo 'URI: h2pas.html.ru' >> h2pas.var
+	echo 'Content-language: ru' >> h2pas.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> h2pas.var
+	echo >> h2pas.var
+ppdep.html.de: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o ppdep.html.de -oe iso-8859-1 ppdep.adp
-ppdep.html.en: ppdep.adp ../default-master.adp ../site-master.adp
+ppdep.html.en: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppdep.html.en -oe iso-8859-1 ppdep.adp
-ppdep.html.fr: ppdep.adp ../default-master.adp ../site-master.adp
+ppdep.html.fr: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o ppdep.html.fr -oe iso-8859-1 ppdep.adp
-ppdep.html.id: ppdep.adp ../default-master.adp ../site-master.adp
+ppdep.html.id: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o ppdep.html.id -oe iso-8859-1 ppdep.adp
-ppdep.html.nl: ppdep.adp ../default-master.adp ../site-master.adp
+ppdep.html.it: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o ppdep.html.it -oe iso-8859-1 ppdep.adp
+ppdep.html.nl: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o ppdep.html.nl -oe iso-8859-1 ppdep.adp
-ppdep.html.pl: ppdep.adp ../default-master.adp ../site-master.adp
+ppdep.html.pl: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o ppdep.html.pl -oe iso-8859-2 ppdep.adp
+ppdep.html.ru: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o ppdep.html.ru -oe iso-8859-5 ppdep.adp
 
 ppdep.var: gen_makefile.conf
 	echo > ppdep.var
@@ -175,6 +215,10 @@ ppdep.var: gen_makefile.conf
 	echo 'Content-language: id' >> ppdep.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppdep.var
 	echo >> ppdep.var
+	echo 'URI: ppdep.html.it' >> ppdep.var
+	echo 'Content-language: it' >> ppdep.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> ppdep.var
+	echo >> ppdep.var
 	echo 'URI: ppdep.html.nl' >> ppdep.var
 	echo 'Content-language: nl' >> ppdep.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppdep.var
@@ -183,18 +227,26 @@ ppdep.var: gen_makefile.conf
 	echo 'Content-language: pl' >> ppdep.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> ppdep.var
 	echo >> ppdep.var
-ppudump.html.de: ppudump.adp ../default-master.adp ../site-master.adp
+	echo 'URI: ppdep.html.ru' >> ppdep.var
+	echo 'Content-language: ru' >> ppdep.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppdep.var
+	echo >> ppdep.var
+ppudump.html.de: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o ppudump.html.de -oe iso-8859-1 ppudump.adp
-ppudump.html.en: ppudump.adp ../default-master.adp ../site-master.adp
+ppudump.html.en: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppudump.html.en -oe iso-8859-1 ppudump.adp
-ppudump.html.fr: ppudump.adp ../default-master.adp ../site-master.adp
+ppudump.html.fr: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o ppudump.html.fr -oe iso-8859-1 ppudump.adp
-ppudump.html.id: ppudump.adp ../default-master.adp ../site-master.adp
+ppudump.html.id: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o ppudump.html.id -oe iso-8859-1 ppudump.adp
-ppudump.html.nl: ppudump.adp ../default-master.adp ../site-master.adp
+ppudump.html.it: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o ppudump.html.it -oe iso-8859-1 ppudump.adp
+ppudump.html.nl: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o ppudump.html.nl -oe iso-8859-1 ppudump.adp
-ppudump.html.pl: ppudump.adp ../default-master.adp ../site-master.adp
+ppudump.html.pl: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o ppudump.html.pl -oe iso-8859-2 ppudump.adp
+ppudump.html.ru: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o ppudump.html.ru -oe iso-8859-5 ppudump.adp
 
 ppudump.var: gen_makefile.conf
 	echo > ppudump.var
@@ -214,6 +266,10 @@ ppudump.var: gen_makefile.conf
 	echo 'Content-language: id' >> ppudump.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppudump.var
 	echo >> ppudump.var
+	echo 'URI: ppudump.html.it' >> ppudump.var
+	echo 'Content-language: it' >> ppudump.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> ppudump.var
+	echo >> ppudump.var
 	echo 'URI: ppudump.html.nl' >> ppudump.var
 	echo 'Content-language: nl' >> ppudump.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppudump.var
@@ -222,18 +278,26 @@ ppudump.var: gen_makefile.conf
 	echo 'Content-language: pl' >> ppudump.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> ppudump.var
 	echo >> ppudump.var
-ppufiles.html.de: ppufiles.adp ../default-master.adp ../site-master.adp
+	echo 'URI: ppudump.html.ru' >> ppudump.var
+	echo 'Content-language: ru' >> ppudump.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppudump.var
+	echo >> ppudump.var
+ppufiles.html.de: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o ppufiles.html.de -oe iso-8859-1 ppufiles.adp
-ppufiles.html.en: ppufiles.adp ../default-master.adp ../site-master.adp
+ppufiles.html.en: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppufiles.html.en -oe iso-8859-1 ppufiles.adp
-ppufiles.html.fr: ppufiles.adp ../default-master.adp ../site-master.adp
+ppufiles.html.fr: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o ppufiles.html.fr -oe iso-8859-1 ppufiles.adp
-ppufiles.html.id: ppufiles.adp ../default-master.adp ../site-master.adp
+ppufiles.html.id: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o ppufiles.html.id -oe iso-8859-1 ppufiles.adp
-ppufiles.html.nl: ppufiles.adp ../default-master.adp ../site-master.adp
+ppufiles.html.it: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o ppufiles.html.it -oe iso-8859-1 ppufiles.adp
+ppufiles.html.nl: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o ppufiles.html.nl -oe iso-8859-1 ppufiles.adp
-ppufiles.html.pl: ppufiles.adp ../default-master.adp ../site-master.adp
+ppufiles.html.pl: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o ppufiles.html.pl -oe iso-8859-2 ppufiles.adp
+ppufiles.html.ru: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o ppufiles.html.ru -oe iso-8859-5 ppufiles.adp
 
 ppufiles.var: gen_makefile.conf
 	echo > ppufiles.var
@@ -253,6 +317,10 @@ ppufiles.var: gen_makefile.conf
 	echo 'Content-language: id' >> ppufiles.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppufiles.var
 	echo >> ppufiles.var
+	echo 'URI: ppufiles.html.it' >> ppufiles.var
+	echo 'Content-language: it' >> ppufiles.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> ppufiles.var
+	echo >> ppufiles.var
 	echo 'URI: ppufiles.html.nl' >> ppufiles.var
 	echo 'Content-language: nl' >> ppufiles.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppufiles.var
@@ -261,18 +329,26 @@ ppufiles.var: gen_makefile.conf
 	echo 'Content-language: pl' >> ppufiles.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> ppufiles.var
 	echo >> ppufiles.var
-ppumove.html.de: ppumove.adp ../default-master.adp ../site-master.adp
+	echo 'URI: ppufiles.html.ru' >> ppufiles.var
+	echo 'Content-language: ru' >> ppufiles.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppufiles.var
+	echo >> ppufiles.var
+ppumove.html.de: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o ppumove.html.de -oe iso-8859-1 ppumove.adp
-ppumove.html.en: ppumove.adp ../default-master.adp ../site-master.adp
+ppumove.html.en: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppumove.html.en -oe iso-8859-1 ppumove.adp
-ppumove.html.fr: ppumove.adp ../default-master.adp ../site-master.adp
+ppumove.html.fr: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o ppumove.html.fr -oe iso-8859-1 ppumove.adp
-ppumove.html.id: ppumove.adp ../default-master.adp ../site-master.adp
+ppumove.html.id: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o ppumove.html.id -oe iso-8859-1 ppumove.adp
-ppumove.html.nl: ppumove.adp ../default-master.adp ../site-master.adp
+ppumove.html.it: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o ppumove.html.it -oe iso-8859-1 ppumove.adp
+ppumove.html.nl: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o ppumove.html.nl -oe iso-8859-1 ppumove.adp
-ppumove.html.pl: ppumove.adp ../default-master.adp ../site-master.adp
+ppumove.html.pl: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o ppumove.html.pl -oe iso-8859-2 ppumove.adp
+ppumove.html.ru: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o ppumove.html.ru -oe iso-8859-5 ppumove.adp
 
 ppumove.var: gen_makefile.conf
 	echo > ppumove.var
@@ -292,6 +368,10 @@ ppumove.var: gen_makefile.conf
 	echo 'Content-language: id' >> ppumove.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppumove.var
 	echo >> ppumove.var
+	echo 'URI: ppumove.html.it' >> ppumove.var
+	echo 'Content-language: it' >> ppumove.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> ppumove.var
+	echo >> ppumove.var
 	echo 'URI: ppumove.html.nl' >> ppumove.var
 	echo 'Content-language: nl' >> ppumove.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppumove.var
@@ -300,18 +380,26 @@ ppumove.var: gen_makefile.conf
 	echo 'Content-language: pl' >> ppumove.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> ppumove.var
 	echo >> ppumove.var
-ptop.html.de: ptop.adp ../default-master.adp ../site-master.adp
+	echo 'URI: ppumove.html.ru' >> ppumove.var
+	echo 'Content-language: ru' >> ppumove.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppumove.var
+	echo >> ppumove.var
+ptop.html.de: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o ptop.html.de -oe iso-8859-1 ptop.adp
-ptop.html.en: ptop.adp ../default-master.adp ../site-master.adp
+ptop.html.en: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ptop.html.en -oe iso-8859-1 ptop.adp
-ptop.html.fr: ptop.adp ../default-master.adp ../site-master.adp
+ptop.html.fr: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o ptop.html.fr -oe iso-8859-1 ptop.adp
-ptop.html.id: ptop.adp ../default-master.adp ../site-master.adp
+ptop.html.id: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o ptop.html.id -oe iso-8859-1 ptop.adp
-ptop.html.nl: ptop.adp ../default-master.adp ../site-master.adp
+ptop.html.it: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o ptop.html.it -oe iso-8859-1 ptop.adp
+ptop.html.nl: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o ptop.html.nl -oe iso-8859-1 ptop.adp
-ptop.html.pl: ptop.adp ../default-master.adp ../site-master.adp
+ptop.html.pl: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o ptop.html.pl -oe iso-8859-2 ptop.adp
+ptop.html.ru: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o ptop.html.ru -oe iso-8859-5 ptop.adp
 
 ptop.var: gen_makefile.conf
 	echo > ptop.var
@@ -331,6 +419,10 @@ ptop.var: gen_makefile.conf
 	echo 'Content-language: id' >> ptop.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ptop.var
 	echo >> ptop.var
+	echo 'URI: ptop.html.it' >> ptop.var
+	echo 'Content-language: it' >> ptop.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> ptop.var
+	echo >> ptop.var
 	echo 'URI: ptop.html.nl' >> ptop.var
 	echo 'Content-language: nl' >> ptop.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ptop.var
@@ -339,18 +431,26 @@ ptop.var: gen_makefile.conf
 	echo 'Content-language: pl' >> ptop.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> ptop.var
 	echo >> ptop.var
-rstconv.html.de: rstconv.adp ../default-master.adp ../site-master.adp
+	echo 'URI: ptop.html.ru' >> ptop.var
+	echo 'Content-language: ru' >> ptop.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ptop.var
+	echo >> ptop.var
+rstconv.html.de: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o rstconv.html.de -oe iso-8859-1 rstconv.adp
-rstconv.html.en: rstconv.adp ../default-master.adp ../site-master.adp
+rstconv.html.en: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o rstconv.html.en -oe iso-8859-1 rstconv.adp
-rstconv.html.fr: rstconv.adp ../default-master.adp ../site-master.adp
+rstconv.html.fr: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o rstconv.html.fr -oe iso-8859-1 rstconv.adp
-rstconv.html.id: rstconv.adp ../default-master.adp ../site-master.adp
+rstconv.html.id: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o rstconv.html.id -oe iso-8859-1 rstconv.adp
-rstconv.html.nl: rstconv.adp ../default-master.adp ../site-master.adp
+rstconv.html.it: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o rstconv.html.it -oe iso-8859-1 rstconv.adp
+rstconv.html.nl: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o rstconv.html.nl -oe iso-8859-1 rstconv.adp
-rstconv.html.pl: rstconv.adp ../default-master.adp ../site-master.adp
+rstconv.html.pl: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o rstconv.html.pl -oe iso-8859-2 rstconv.adp
+rstconv.html.ru: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o rstconv.html.ru -oe iso-8859-5 rstconv.adp
 
 rstconv.var: gen_makefile.conf
 	echo > rstconv.var
@@ -370,6 +470,10 @@ rstconv.var: gen_makefile.conf
 	echo 'Content-language: id' >> rstconv.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> rstconv.var
 	echo >> rstconv.var
+	echo 'URI: rstconv.html.it' >> rstconv.var
+	echo 'Content-language: it' >> rstconv.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> rstconv.var
+	echo >> rstconv.var
 	echo 'URI: rstconv.html.nl' >> rstconv.var
 	echo 'Content-language: nl' >> rstconv.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> rstconv.var
@@ -378,18 +482,26 @@ rstconv.var: gen_makefile.conf
 	echo 'Content-language: pl' >> rstconv.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> rstconv.var
 	echo >> rstconv.var
-tools.html.de: tools.adp ../default-master.adp ../site-master.adp
+	echo 'URI: rstconv.html.ru' >> rstconv.var
+	echo 'Content-language: ru' >> rstconv.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> rstconv.var
+	echo >> rstconv.var
+tools.html.de: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o tools.html.de -oe iso-8859-1 tools.adp
-tools.html.en: tools.adp ../default-master.adp ../site-master.adp
+tools.html.en: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o tools.html.en -oe iso-8859-1 tools.adp
-tools.html.fr: tools.adp ../default-master.adp ../site-master.adp
+tools.html.fr: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o tools.html.fr -oe iso-8859-1 tools.adp
-tools.html.id: tools.adp ../default-master.adp ../site-master.adp
+tools.html.id: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o tools.html.id -oe iso-8859-1 tools.adp
-tools.html.nl: tools.adp ../default-master.adp ../site-master.adp
+tools.html.it: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o tools.html.it -oe iso-8859-1 tools.adp
+tools.html.nl: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o tools.html.nl -oe iso-8859-1 tools.adp
-tools.html.pl: tools.adp ../default-master.adp ../site-master.adp
+tools.html.pl: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o tools.html.pl -oe iso-8859-2 tools.adp
+tools.html.ru: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o tools.html.ru -oe iso-8859-5 tools.adp
 
 tools.var: gen_makefile.conf
 	echo > tools.var
@@ -409,6 +521,10 @@ tools.var: gen_makefile.conf
 	echo 'Content-language: id' >> tools.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tools.var
 	echo >> tools.var
+	echo 'URI: tools.html.it' >> tools.var
+	echo 'Content-language: it' >> tools.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> tools.var
+	echo >> tools.var
 	echo 'URI: tools.html.nl' >> tools.var
 	echo 'Content-language: nl' >> tools.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tools.var
@@ -417,18 +533,26 @@ tools.var: gen_makefile.conf
 	echo 'Content-language: pl' >> tools.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> tools.var
 	echo >> tools.var
-tply.html.de: tply.adp ../default-master.adp ../site-master.adp
+	echo 'URI: tools.html.ru' >> tools.var
+	echo 'Content-language: ru' >> tools.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> tools.var
+	echo >> tools.var
+tply.html.de: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l de_DE -m ../default-master.adp -o tply.html.de -oe iso-8859-1 tply.adp
-tply.html.en: tply.adp ../default-master.adp ../site-master.adp
+tply.html.en: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o tply.html.en -oe iso-8859-1 tply.adp
-tply.html.fr: tply.adp ../default-master.adp ../site-master.adp
+tply.html.fr: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l fr_FR -m ../default-master.adp -o tply.html.fr -oe iso-8859-1 tply.adp
-tply.html.id: tply.adp ../default-master.adp ../site-master.adp
+tply.html.id: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l id_ID -m ../default-master.adp -o tply.html.id -oe iso-8859-1 tply.adp
-tply.html.nl: tply.adp ../default-master.adp ../site-master.adp
+tply.html.it: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l it_IT -m ../default-master.adp -o tply.html.it -oe iso-8859-1 tply.adp
+tply.html.nl: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l nl_NL -m ../default-master.adp -o tply.html.nl -oe iso-8859-1 tply.adp
-tply.html.pl: tply.adp ../default-master.adp ../site-master.adp
+tply.html.pl: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l pl_PL -m ../default-master.adp -o tply.html.pl -oe iso-8859-2 tply.adp
+tply.html.ru: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l ru_RU -m ../default-master.adp -o tply.html.ru -oe iso-8859-5 tply.adp
 
 tply.var: gen_makefile.conf
 	echo > tply.var
@@ -448,6 +572,10 @@ tply.var: gen_makefile.conf
 	echo 'Content-language: id' >> tply.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tply.var
 	echo >> tply.var
+	echo 'URI: tply.html.it' >> tply.var
+	echo 'Content-language: it' >> tply.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> tply.var
+	echo >> tply.var
 	echo 'URI: tply.html.nl' >> tply.var
 	echo 'Content-language: nl' >> tply.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tply.var
@@ -455,6 +583,10 @@ tply.var: gen_makefile.conf
 	echo 'URI: tply.html.pl' >> tply.var
 	echo 'Content-language: pl' >> tply.var
 	echo 'Content-type: text/html; charset=iso-8859-2' >> tply.var
+	echo >> tply.var
+	echo 'URI: tply.html.ru' >> tply.var
+	echo 'Content-language: ru' >> tply.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> tply.var
 	echo >> tply.var
 
 mirrors.dat:
@@ -469,7 +601,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: delp.html.de delp.html.en delp.html.fr delp.html.id delp.html.nl delp.html.pl delp.var fpcmake.html.de fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.nl fpcmake.html.pl fpcmake.var h2pas.html.de h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.nl h2pas.html.pl h2pas.var ppdep.html.de ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.nl ppdep.html.pl ppdep.var ppudump.html.de ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.nl ppudump.html.pl ppudump.var ppufiles.html.de ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.nl ppufiles.html.pl ppufiles.var ppumove.html.de ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.nl ppumove.html.pl ppumove.var ptop.html.de ptop.html.en ptop.html.fr ptop.html.id ptop.html.nl ptop.html.pl ptop.var rstconv.html.de rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.nl rstconv.html.pl rstconv.var tools.html.de tools.html.en tools.html.fr tools.html.id tools.html.nl tools.html.pl tools.var tply.html.de tply.html.en tply.html.fr tply.html.id tply.html.nl tply.html.pl tply.var mirrors.dat
+all_pages: delp.html.de delp.html.en delp.html.fr delp.html.id delp.html.it delp.html.nl delp.html.pl delp.html.ru delp.var fpcmake.html.de fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.it fpcmake.html.nl fpcmake.html.pl fpcmake.html.ru fpcmake.var h2pas.html.de h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.it h2pas.html.nl h2pas.html.pl h2pas.html.ru h2pas.var ppdep.html.de ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.it ppdep.html.nl ppdep.html.pl ppdep.html.ru ppdep.var ppudump.html.de ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.it ppudump.html.nl ppudump.html.pl ppudump.html.ru ppudump.var ppufiles.html.de ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.it ppufiles.html.nl ppufiles.html.pl ppufiles.html.ru ppufiles.var ppumove.html.de ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.it ppumove.html.nl ppumove.html.pl ppumove.html.ru ppumove.var ptop.html.de ptop.html.en ptop.html.fr ptop.html.id ptop.html.it ptop.html.nl ptop.html.pl ptop.html.ru ptop.var rstconv.html.de rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.it rstconv.html.nl rstconv.html.pl rstconv.html.ru rstconv.var tools.html.de tools.html.en tools.html.fr tools.html.id tools.html.it tools.html.nl tools.html.pl tools.html.ru tools.var tply.html.de tply.html.en tply.html.fr tply.html.id tply.html.it tply.html.nl tply.html.pl tply.html.ru tply.var mirrors.dat
 
 
 # clean

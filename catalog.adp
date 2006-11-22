@@ -1030,6 +1030,183 @@ Free Pascal is beschikbaar voor meer platformen dan enig andere Pascalcompiler e
 <TRN locale="bg_BG" key="website.FPC_on_the_Mac">
 СПК за Мак
 </TRN>
+<TRN locale="it_IT" key="website.Advantages">
+Vantaggi
+</TRN>
+<TRN locale="it_IT" key="website.Advantages_title">
+Vantaggi del Free Pascal
+</TRN>
+<TRN locale="it_IT" key="website.Authors">
+Autori
+</TRN>
+<TRN locale="it_IT" key="website.Community">
+Comunità
+</TRN>
+<TRN locale="it_IT" key="website.Future_Plans">
+Progetti futuri
+</TRN>
+<TRN locale="it_IT" key="website.Current_Version">
+Versione corrente
+</TRN>
+<TRN locale="it_IT" key="website.Documentation">
+Documentazione
+</TRN>
+<TRN locale="it_IT" key="website.News">
+Notizie
+</TRN>
+<TRN locale="it_IT" key="website.License">
+Licenza
+</TRN>
+<TRN locale="it_IT" key="website.FAQ">
+FAQ
+</TRN>
+<TRN locale="it_IT" key="website.Features">
+Peculiarità
+</TRN>
+<TRN locale="it_IT" key="website.overview">
+Panoramica
+</TRN>
+<TRN locale="it_IT" key="website.Home">
+Pagina principale
+</TRN>
+<TRN locale="it_IT" key="website.latest_news">
+Ultime notizie
+</TRN>
+<TRN locale="it_IT" key="website.More_information">
+Ulteriori informazioni
+</TRN>
+<TRN locale="it_IT" key="website.Tools">
+Strumenti
+</TRN>
+<TRN locale="it_IT" key="website.search">
+Ricerca
+</TRN>
+<TRN locale="it_IT" key="website.req_sparca">
+Architettura Sparc 
+</TRN>
+<TRN locale="it_IT" key="website.reqppca">
+Architettura PowerPC:
+</TRN>
+<TRN locale="it_IT" key="website.req_x86a">
+Architettura x86:
+</TRN>
+<TRN locale="it_IT" key="website.Requirements">
+Requisiti
+</TRN>
+<TRN locale="it_IT" key="website.req_arma">
+Architettura ARM
+</TRN>
+<TRN locale="it_IT" key="website.Advantages_of">
+Vantaggi della programmazione in Pascal e in Free Pascal
+</TRN>
+<TRN locale="it_IT" key="website.General">
+Generale
+</TRN>
+<TRN locale="it_IT" key="website.req_sparcb">
+sono necessari 16 MB di RAM. Gira su qualsiasi installazione Linux  Sparc.
+
+</TRN>
+<TRN locale="it_IT" key="website.req_armb">
+Su ARM, attualmente, è consentita solo cross-compilazione.
+
+</TRN>
+<TRN locale="it_IT" key="website.Development">
+Sviluppo
+</TRN>
+<TRN locale="it_IT" key="website.FPC_on_the_Mac">
+FPC sul Mac
+</TRN>
+<TRN locale="it_IT" key="website.Contribute">
+Contributi
+</TRN>
+<TRN locale="it_IT" key="website.Links_mirrors">
+Links/Mirrors
+</TRN>
+<TRN locale="it_IT" key="website.Porting_from_TP7">
+Porting dal TP7
+</TRN>
+<TRN locale="it_IT" key="website.req_x86b">
+Per la versione 80x86 è richiesto almeno un processore 386, anche se è raccomandato almeno un 486.
+
+</TRN>
+<TRN locale="it_IT" key="website.searchwhat">
+Cerca nella documentazione, nei forum e nelle mailing list.
+</TRN>
+<TRN locale="it_IT" key="website.Contributed_Units">
+Contributi Unit
+</TRN>
+<TRN locale="it_IT" key="website.Feeling_Lucky">
+Mi sento fortunato
+</TRN>
+<TRN locale="it_IT" key="website.Download">
+Download
+</TRN>
+<TRN locale="it_IT" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="it_IT" key="website.Units">
+Unit
+</TRN>
+<TRN locale="it_IT" key="website.Mailinglists">
+Mailing list
+</TRN>
+<TRN locale="it_IT" key="website.Bugtracker">
+Gestione difetti
+</TRN>
+<TRN locale="nl_NL" key="website.Introduction">
+Introductie
+</TRN>
+<TRN locale="nl_NL" key="website.Advantages_title">
+Voordelen van Free Pascal
+</TRN>
+<TRN locale="en_US" key="website.Introduction">
+Introduction
+</TRN>
+<TRN locale="ru_RU" key="website.Advantages_of">
+Преимущества программирования на паскале и Free Pascal
+</TRN>
+<TRN locale="ru_RU" key="website.Advantages_title">
+Преимущества Free Pascal
+</TRN>
+<TRN locale="ru_RU" key="website.adv_assembler_integration">
+<STRONG>Прекрасная интеграция с ассемблером</STRONG> Думаете ли Вы, что паскаль предназначен для лохов, которым ещё учиться и учиться программировать? НЕВЕРНО! Он отлично подходит для высокотехнологичного программирования, а для самых продвинутых мы интегрировали ассемблер (в разных вариантах). Вы легко можете перемежать текст на ассемблере и паскале. Предпочитаете стиль ассемблера от Intel? Нет проблем, а если нужно, Free Pascal конвертирует его в стиль AT&T. Вы хотите превратить свою программу в исходный код для Nasm? Нет проблем, и весь текст на ассемблере в стиле AT&T из Ваших исходных файлов будет автоматически конвертирован.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_compatible">
+<STRONG>Совместимый</STRONG> У Вас уже есть текст программы? Free Pascal более совместим с ним, чем какой-либо другой компилятор паскаля. Мы почти полностью совместимы с Turbo Pascal и весьма совместимы с исходными текстами для Delphi. Если Вы программируете на другом языке, например, на Си или ассемблере, просто используйте для него свой любимый компилятор, а результат запускайте из Free Pascal.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_distribution_indep">
+<STRONG>Независимость от дистрибутива (для Linux)</STRONG> В результате неё, программное обеспечение, скомпилированное версией Free Pascal под Linux, запускается на любом дистрибутиве Linux, делая гораздо более простой написание программ, которые поддерживают много разных дистрибутивов Linux.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_Fast">
+<STRONG>Компиляторы паскаля работают очень быстро, и Free Pascal не исключение</STRONG> Да, у Вас не успеет вырасти корневая система, пока Вы ожидаете конца компиляции Ваших программ. Просто нажмите кнопку, и дело сделано, даже для больших программ.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_IDE">
+<STRONG>Интегрированная среда разработки</STRONG> К Free Pascal прилагается ИСР, которая работает на нескольких платформах, в которой Вы можете писать, компилировать и отлаживать Ваши программы. Вы сэкономите огромное количество времени, используя ИСР, лучшего друга программиста
+</TRN>
+<TRN locale="ru_RU" key="website.adv_multiplatform">
+<STRONG>Доступно на многих платформах и нескольких архитектурах</STRONG> Free Pascal доступен для большего количества платформ, чем большинство других компиляторов паскаля, и позволяет легко компилировать программы для одной платформы на другой (перекрёстное компилирование), просто измените цель в ИСР и компилируйте! И продолжается работа над поддержкой ещё большего количества платформ и процессоров.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_namespace">
+<STRONG>В каждом модуле своё пространство имён</STRONG> В паскале Вам не придётся волноваться о загрязнении пространства имён так, как в Си, где каждый идентификатор должен быть уникальным для всей программы. Нет, в паскале у каждого модуля своё пространство имён, и ситуация гораздо менее напряжённая.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_No_Makefiles">
+<STONG>Нет Makefile-ов</STRONG> В отличие от большинства языков программирования, паскаль не нуждается в Makefile-ах. Вы сэкономите огромное количество времени: компилятор сам разберётся, какие файлы требуется перекомпилировать.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_OOP">
+<STRONG>Объектно ориентированное программирование</STRONG> А если Вы программируете серьёзно, конечно Вы очень заинтересованы в ООП. Пользуйтесь подходами Turbo Pascal и Object Pascal как Вам удобно. Также FCL и Free Vision обеспечат Вас некоторым набором мощных объектных библиотек, которые Вам могут потребоваться. Для работы с базами данных мы поддерживаем PostgreSQL, MySQL, Interbase и ODBC.
+</TRN>
+<TRN locale="ru_RU" key="website.adv_Smartlink">
+<STRONG>"Умная" компоновка</STRONG> Free Pascal обладает "умным" компоновщиком, который не включит в исполняемый файл ни лишние переменные, ни лишний код. Это делает небольшие программы действительно маленькими, причём они будут статичными, избегая ада, связанного с динамическими библиотеками!
+</TRN>
+<TRN locale="ru_RU" key="website.adv_very_clean_lang">
+<STRONG>Очень ясный язык</STRONG> Паскаль является очень приятным языком, Ваши программы будут более читаемыми и легко поддерживаемыми, чем, например, на Си, не говоря уже о Си++. И Вам не придётся для этого жертвовать мощностью программ: паскаль достаточно мощен.
+</TRN>
+<TRN locale="ru_RU" key="website.Introduction">
+Введение
+</TRN>
+<TRN locale="ru_RU" key="website.Units">
+Модули
+</TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky
 </TRN>
