@@ -289,12 +289,6 @@ Current Version
   is written in Pascal.
 
 </TRN>
-<TRN locale="nl_NL" key="website.Current_Version_text">
-Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw expemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling te steunen.  
-</TRN>
-<TRN locale="nl_NL" key="website.Features_text">
-De taalsyntaxis heeft een uitstekende compatibiliteit met TP 7.0 evenals met de meeste versies van Delphi (klassen, rtti, uitzonderingen, ansistrings, widestrings, interfaces). Een Mac-Pascal compatibiliteitsmode is ook aanwezig om Applegebruikers van dienst te zien. Verder ondersteunt Free Pascal procedure-overroeping, operator-overroeping, globale eigenschappen en meer van dergelijke functionaliteit.  
-</TRN>
 <TRN locale="nl_NL" key="website.news_headline_20060927">
 <em>27 september 2006</em>
 Free Pascal en Lazarus zullen aanwezig zijn op Systems 2006 in München in oktober. Je kunt ons vinden in hal A3, kraam 542. We zullen proberen alle 5 dagen aanwezig te zijn. Je kunt     <a href="http://www.systems-world.de/id/7672/">hier</a> meer informatie vinden over Systems 2006.
@@ -1150,11 +1144,62 @@ Unit
 <TRN locale="it_IT" key="website.Mailinglists">
 Mailing list
 </TRN>
-<TRN locale="it_IT" key="website.Bugtracker">
-Gestione difetti
-</TRN>
 <TRN locale="nl_NL" key="website.Introduction">
 Introductie
+</TRN>
+<TRN locale="it_IT" key="website.Credits">
+Riconoscimenti
+</TRN>
+<TRN locale="en_US" key="website.ready_made_packages">
+
+    These are ready made packages, together with an install program, to
+    get you up and running in no time. All packages contain a README file,
+    which you should read for installation instructions and latest news.
+  
+</TRN>
+<TRN locale="en_US" key="website.latest_release">
+The latest release is <b>2.0.4</b>
+</TRN>
+<TRN locale="en_US" key="website.available_limited_platforms">
+
+  Because of a lack of release builders and testers, 2.0.4 is only available for a limited
+  number of platforms and not in all package formats. If you want to change this and build and test future
+  releases, contact us via the mailing lists.
+
+</TRN>
+<TRN locale="en_US" key="website.Binaries">
+Binaries
+</TRN>
+<TRN locale="en_US" key="website.can_download_for_platform">
+
+    You can download the 2.0.x release for the following cpu and operating systems:
+  
+</TRN>
+<TRN locale="en_US" key="website.down_i386_freebsd_note">
+FreeBSD 4.x and probably 5.x too
+</TRN>
+<TRN locale="en_US" key="website.down_i386_netware_note">
+2.0.0 only
+</TRN>
+<TRN locale="en_US" key="website.down_sparc_linux_note">
+2.0.0 only
+</TRN>
+<TRN locale="en_US" key="website.Source">
+Source
+</TRN>
+<TRN locale="en_US" key="website.download_source">
+
+    The source can be downloaded separately in a <b>zip</b> file or a <b>tar.gz</b> from one of the <a href="down/source/sources@x@">download sites</a>.
+  
+</TRN>
+<TRN locale="en_US" key="website.download_documentation">
+
+    The documentation can be downloaded in several formats from one of our
+    <a href="down/docs/docs@x@">download sites</a>.
+  
+</TRN>
+<TRN locale="en_US" key="website.snapshots">
+Snapshots
 </TRN>
 <TRN locale="nl_NL" key="website.Advantages_title">
 Voordelen van Free Pascal
@@ -1189,8 +1234,11 @@ Introduction
 <TRN locale="ru_RU" key="website.adv_namespace">
 <STRONG>В каждом модуле своё пространство имён</STRONG> В паскале Вам не придётся волноваться о загрязнении пространства имён так, как в Си, где каждый идентификатор должен быть уникальным для всей программы. Нет, в паскале у каждого модуля своё пространство имён, и ситуация гораздо менее напряжённая.
 </TRN>
-<TRN locale="ru_RU" key="website.adv_No_Makefiles">
-<STONG>Нет Makefile-ов</STRONG> В отличие от большинства языков программирования, паскаль не нуждается в Makefile-ах. Вы сэкономите огромное количество времени: компилятор сам разберётся, какие файлы требуется перекомпилировать.
+<TRN locale="en_US" key="website.Official_releases">
+Official releases
+</TRN>
+<TRN locale="nl_NL" key="website.Old_releases">
+Oude uitgaven
 </TRN>
 <TRN locale="ru_RU" key="website.adv_OOP">
 <STRONG>Объектно ориентированное программирование</STRONG> А если Вы программируете серьёзно, конечно Вы очень заинтересованы в ООП. Пользуйтесь подходами Turbo Pascal и Object Pascal как Вам удобно. Также FCL и Free Vision обеспечат Вас некоторым набором мощных объектных библиотек, которые Вам могут потребоваться. Для работы с базами данных мы поддерживаем PostgreSQL, MySQL, Interbase и ODBC.
@@ -1206,6 +1254,521 @@ Introduction
 </TRN>
 <TRN locale="ru_RU" key="website.Units">
 Модули
+</TRN>
+<TRN locale="nl_NL" key="website.Binaries">
+Voorgecompileerde, klaar om te installeren pakketten:
+</TRN>
+<TRN locale="nl_NL" key="website.available_limited_platforms">
+Omdat er niet altijd voor ieder platform iemand is die een installatiebestand kan bouwen en testen, kan het zijn dat uitgave 2.0.4 niet voor je gewenste platform , of niet in de pakketindeling van jouw distributie beschikbaar is. Als je hier verandering in wilt brengen door een pakketje te bouwen en te testen, neem dan gerust contact met ons op via de e-maillijsten.
+</TRN>
+<TRN locale="en_US" key="website.download_snapshots">
+
+  In addition to the official releases, we also offer so-called "snapshots" of the compiler, RTL,
+  IDE and a couple of other packages on the <a href="develop@x@">development page</a>. These
+  are compiled versions of the current sources with all fixes and improvements since the last
+  official release, so please try them if you have any problems. Of course, they may also contain
+  new bugs.
+
+</TRN>
+<TRN locale="en_US" key="website.Old_releases">
+Old releases
+</TRN>
+<TRN locale="en_US" key="website.download_old_releases">
+
+  Links to some old releases (not supported any more) of FPC for platforms for
+  which no better alternative exists at the moment can be found
+  <a href="down/old/down@x@">here</a>. Don't bother to report any bugs
+  with these old releases - we will not fix them. The main reason why these
+  platforms aren't supported any more is lack of maintainers - if you are
+  interested to bring them up to date, contact us (e.g. using fpc-devel mailing
+  list).
+
+</TRN>
+<TRN locale="nl_NL" key="website.Official_releases">
+Officiële uitgaven
+</TRN>
+<TRN locale="nl_NL" key="website.latest_release">
+De meest recente versie is <b>2.0.4</b>
+</TRN>
+<TRN locale="nl_NL" key="website.ready_made_packages">
+Dit zijn klaar om te installeren pakketten, met een installatieprogramma, die je in een mum van tijd aan de gang helpen. Alle pakketten bevatten een README-bestand, hetwelk je dient te lezen voor installatieinstructies en het laatste nieuws.  
+</TRN>
+<TRN locale="sl_SI" key="website.Development">
+Razvijanje
+</TRN>
+<TRN locale="sl_SI" key="website.Community">
+Skupnost
+</TRN>
+<TRN locale="sl_SI" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="sl_SI" key="website.General">
+Splošno
+</TRN>
+<TRN locale="sl_SI" key="website.Coding">
+Kodiranje
+</TRN>
+<TRN locale="sl_SI" key="website.Porting_from_TP7">
+Prenos iz TP7
+</TRN>
+<TRN locale="sl_SI" key="website.Links_mirrors">
+Povezava/Zrcala
+</TRN>
+<TRN locale="sl_SI" key="website.Tools">
+Orodja
+</TRN>
+<TRN locale="sl_SI" key="website.search">
+Iskanje
+</TRN>
+<TRN locale="sl_SI" key="website.Feeling_Lucky">
+Počutim se srečen
+</TRN>
+<TRN locale="sl_SI" key="website.searchwhat">
+Iskanje dokumentacije, forumi in dopisni seznami.
+</TRN>
+<TRN locale="sl_SI" key="website.Credits">
+Credits
+</TRN>
+<TRN locale="nl_NL" key="website.can_download_for_platform">
+Je kunt de uitgaven 2.0.x downloaden voor de volgende processoren en besturingssystemen:
+</TRN>
+<TRN locale="nl_NL" key="website.Source">
+Broncode
+</TRN>
+<TRN locale="nl_NL" key="website.down_i386_netware_note">
+alleen 2.0.0
+</TRN>
+<TRN locale="nl_NL" key="website.down_sparc_linux_note">
+alleen 2.0.0
+</TRN>
+<TRN locale="nl_NL" key="website.down_i386_freebsd_note">
+FreeBSD 4.x en vermoelijk ook 5.x
+</TRN>
+<TRN locale="nl_NL" key="website.download_source">
+De broncode kan los gedownload worden in een <b>zip-bestand</b> of een <b>tar.gz</b> van één van de <a href="down/source/sources@x@">downloadlocaties</a>.
+  
+</TRN>
+<TRN locale="nl_NL" key="website.snapshots">
+Momentopnamen
+</TRN>
+<TRN locale="nl_NL" key="website.download_old_releases">
+Links naar enkele oude uitgaven (niet meer ondersteund) van Free Pascal voor platformen waarvoor op het moment geen beter alternatief bestaat kunnen <a href="down/old/down@x@">hier gevonden worden</a>. Doe geen moeite om bugs in deze oude versies te melden, ze worden niet opgelost. De belangrijkste reden waarom deze platformen niet meer ondersteund worden is een gebrek aan mensen die tijd willen steken in het doen van het regelmatig nodige onderhoud. Als je interesse hebt in het bij de tijd brengen van deze platformen, neem dan contact met ons op (bijv. via de "fpc-devel"-e-maillijst).
+
+</TRN>
+<TRN locale="nl_NL" key="website.download_documentation">
+De documentatie kan worden gedownload in verschillende bestandsindelingen van één van onze <a href="down/docs/docs@x@">downloadlocaties</a>.
+  
+</TRN>
+<TRN locale="it_IT" key="website.overview_text">
+Il Free Pascal (aka FPK Pascal) è un compilatore Pascal professionale a 32 e a 64 bit.
+    E' disponibile per diversi processori: Intel x86, Amd64/x86_64, PowerPC,Sparc. La vecchia versione 1.0 supporta anche il Motorola 680x0.
+    Sono supportati i seguenti sistemi operativi: Linux, FreeBSD,
+    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
+    Netware (libc e classic) e MorphOS.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.Home">
+Domov
+</TRN>
+<TRN locale="sl_SI" key="website.News">
+Novice
+</TRN>
+<TRN locale="sl_SI" key="website.Download">
+Prenos
+</TRN>
+<TRN locale="sl_SI" key="website.Documentation">
+Dokumentacija
+</TRN>
+<TRN locale="sl_SI" key="website.Advantages">
+Prednosti
+</TRN>
+<TRN locale="sl_SI" key="website.Contribute">
+Prispevaj
+</TRN>
+<TRN locale="sl_SI" key="website.overview">
+Pregled
+</TRN>
+<TRN locale="sl_SI" key="website.latest_news">
+Zadnje novice
+</TRN>
+<TRN locale="sl_SI" key="website.Current_Version">
+Trenutna Verzija
+</TRN>
+<TRN locale="sl_SI" key="website.overview_text">
+    Free Pascal (aka FPK Pascal) je 32 in 64 bitni profesionalni prevajalnik za Pascal.
+    Je na razpolago za različne procesorje: Intel x86, Amd64/x86_64, PowerPC,
+    Sparc. Stara verzija 1.0 podpira tudi procesor Motorola 680x0.
+    Podprti so naslednji operativni sistemi: Linux, FreeBSD,
+    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
+    Netware (libc and classic) and MorphOS.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.More_information">
+Več informacij
+</TRN>
+<TRN locale="sl_SI" key="website.Mailinglists">
+Dopisni seznami
+</TRN>
+<TRN locale="sl_SI" key="website.Future_Plans">
+Bodoči načrti
+</TRN>
+<TRN locale="sl_SI" key="website.FPC_on_the_Mac">
+FPC na Mac
+</TRN>
+<TRN locale="sl_SI" key="website.Units">
+Enote
+</TRN>
+<TRN locale="sl_SI" key="website.Contributed_Units">
+Prispevane Enote
+</TRN>
+<TRN locale="sl_SI" key="website.FAQ">
+FAQ - Pogosta vprašanja
+</TRN>
+<TRN locale="sl_SI" key="website.Authors">
+Moštvo
+</TRN>
+<TRN locale="sl_SI" key="website.Bugtracker">
+Prijava napak
+</TRN>
+<TRN locale="nl_NL" key="website.download_snapshots">
+Naast de officiële uitgaven, bieden we ook zogenaamde "momentopnamen" aan van de compiler, RTL, IDE en enkele andere pakketjes aan op de pagina voor <a href="develop@x@">ontwikkeling</a>. Dit zijn voorgecompileerde versies van de huidige broncode met alle verbeteringen en verholpen bugs sinds de laatste officiële uitgave, dus probeer ze alsjeblieft als je problemen hebt. Natuurlijk kunnen ze ook nieuwe bugs bevatten.
+</TRN>
+<TRN locale="it_IT" key="website.news_headline_20060925">
+    <em>September 25, 2006</em>
+    Francesco Lombardi sta scrivendo <a href='http://itaprogaming.free.fr/tutorial.html'> una guida su come sviluppare giochi per Game Boy Advance</a> con Free Pascal.
+  
+</TRN>
+<TRN locale="it_IT" key="website.Bugtracker">
+Gestione difetti
+</TRN>
+<TRN locale="sl_SI" key="website.req_arma">
+Arhitektura ARM
+</TRN>
+<TRN locale="sl_SI" key="website.req_armb">
+  Trenutno je podprt samo cross-compiling na ARM.
+
+</TRN>
+<TRN locale="sl_SI" key="website.req_sparcb">
+  Potreben je pomnilnik z vsaj 16 MB. Teče na vsaki namestitvi Sparc Linuxa.
+
+</TRN>
+<TRN locale="sl_SI" key="website.License_text">
+  Paketi in knjižnice runtime imajo spremenjeno Library GNU Public
+  Licenco da omogočajo uporabo statičnih knjižnic pri razvoju aplikacij. Koda prevajalnika ima GNU General Public Licenco. Na razpolago je koda prevajalnika in knjižnic runtime; celotni prevajalnik je napisan v Pascalu.
+</TRN>
+<TRN locale="sl_SI" key="website.Features_text">
+    Jezikovna sintaksa ima odlično kompatibilnost z TP 7.0 tako kot z večino verzij Delphija (classes, rtti, exceptions, ansistrings, widestrings, interfaces).
+    Dodali smo Mac Pascal kompatibilni način za pomoč uporabnikom sistemov Apple. Poleg tega Free Pascal podpira function overloading, operator overloading, global properties in druge podobne lastnosti.
+  
+</TRN>
+<TRN locale="it_IT" key="website.Current_Version_text">
+    La <em>2.0.4</em> è la versione più aggiornata di Free Pascal.
+    Seleziona questo collegamento <a href="download.html">download</a> per accedere al mirror più vicino da cui scaricare la tua copia.
+    Le versioni in fase di sviluppo hanno numeri di versione di tipo <EM>2.1.x</EM>.
+    Consultare la pagina <a href="develop.html">development</a> per accedere ai sorgenti  e contribuire allo sviluppo. 
+  
+</TRN>
+<TRN locale="sl_SI" key="website.Features">
+Lastnosti
+</TRN>
+<TRN locale="sl_SI" key="website.Requirements">
+Rekviziti
+</TRN>
+<TRN locale="sl_SI" key="website.License">
+Licenca
+</TRN>
+<TRN locale="sl_SI" key="website.Current_Version_text">
+    Verzija <em>2.0.4</em> je zadnja stabilna verzija Free Pascala.
+    Kliknite na <a href="download.html">Prenos</a> povezavo  in izberite najbližji strežnik za prenos vaše kopije.
+    Verzije v razvoju imajo verzijske številke <EM>2.1.x</EM>.
+    Poglejte stran <a href="develop.html">razvoj</a> za informacije o prenosu najnovejše kode in podporo razvijanju.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.req_x86a">
+arhitekture x86:
+</TRN>
+<TRN locale="sl_SI" key="website.req_x86b">
+  Za verzijo 80x86 je potreben najmanj  386 procesor, vendar priporočamo 486.
+
+</TRN>
+<TRN locale="sl_SI" key="website.reqppca">
+arhitektura PowerPC:
+</TRN>
+<TRN locale="sl_SI" key="website.req_sparca">
+Arhitektura Sparc
+</TRN>
+<TRN locale="sl_SI" key="website.reqppcb">
+  Vsak PowerPC procesor bo v redu. Potrebno je vsaj 16 MB RAM pomnilnika. Verzija Mac OS
+  classic naj bi delovala s sistemi 7.5.3 in naslenjimi. Verzija Mac OS X  potrebuje Mac OS X 10.1 ali kasnejši, z nastavitvijo developer tools.
+  
+
+</TRN>
+<TRN locale="ru_RU" key="website.snapshots">
+Моментальные снимки
+</TRN>
+<TRN locale="ru_RU" key="website.download_snapshots">
+Кроме официальных выпусков мы предлагаем так называемые "моментальные снимки" компилятора, RTL (основных библиотек), IDE (интегрированной среды разработки) и пары других пакетов на <a href="develop@x@">странице разработки</a>. Это откомпилированные версии текущих исходных текстов со всеми исправлениями и усовершенствованиями, внесёнными после позднейшего официального выпуска, так что если у Вас с ним проблемы, Вы можете попытаться использовать эти "снимки". Конечно, в них могут быть новые ошибки.
+</TRN>
+<TRN locale="ru_RU" key="website.Home">
+Главная
+</TRN>
+<TRN locale="ru_RU" key="website.General">
+Основное
+</TRN>
+<TRN locale="ru_RU" key="website.Contributed_Units">
+Сторонние модули
+</TRN>
+<TRN locale="ru_RU" key="website.Credits">
+Заслуги
+</TRN>
+<TRN locale="ru_RU" key="website.available_limited_platforms">
+Из-за недостатка в людях, которые готовят или проверяют выпуски, версия 2.0.4 доступна только для некоторых платформ и не во всех вариантах пакетов. Если Вы хотите изменить это и собирать или проверять выпуски этой и следующих версий, свяжитесь с нами через рассылки по электронной почте.
+</TRN>
+<TRN locale="ru_RU" key="website.latest_release">
+Номер версии последнего выпуска &mdash; <b>2.0.4</b>
+</TRN>
+<TRN locale="ru_RU" key="website.Official_releases">
+Официальные выпуски
+</TRN>
+<TRN locale="ru_RU" key="website.ready_made_packages">
+Это подготовленные пакеты с программой установки, позволяющие Вам установить компилятор и начать работать почти сразу. Во всех пакетах есть файл README (скорее всего на английском языке), который Вы должны прочитать, чтобы получить инструкции по установке и узнать последние новости.
+</TRN>
+<TRN locale="ru_RU" key="website.Source">
+Исходные тексты
+</TRN>
+<TRN locale="ru_RU" key="website.down_i386_freebsd_note">
+для FreeBSD 4.x и возможно 5.x
+</TRN>
+<TRN locale="ru_RU" key="website.down_i386_netware_note">
+только 2.0.0
+</TRN>
+<TRN locale="ru_RU" key="website.down_sparc_linux_note">
+только 2.0.0
+</TRN>
+<TRN locale="ru_RU" key="website.can_download_for_platform">
+Вы можете скачать выпуск версии 2.0.x для следующих процессоров и операционных систем:
+  
+</TRN>
+<TRN locale="ru_RU" key="website.Binaries">
+Собранные пакеты
+</TRN>
+<TRN locale="ru_RU" key="website.download_source">
+Исходные тексты можно скачать в отдельном файле в формате <b>zip</b> или <b>tar.gz</b> с одного из следующих <a href="down/source/sources@x@">сайтов для скачивания</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.download_documentation">
+Документацию можно скачать в нескольких форматах с одного из наших <a href="down/docs/docs@x@">сайтов для скачивания</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.Old_releases">
+Старые выпуски
+</TRN>
+<TRN locale="ru_RU" key="website.download_old_releases">
+Ссылки на некоторые старые (более не поддерживаемые) выпуски FPC для платформ, к которым на данный момент не было выпущено новых версий достаточно хорошего качества, можно найти <a href="down/old/down@x@">здесь</a>. Не присылайте сообщений об ошибках в этих выпусках: мы их уже не будем исправлять. Основная причина нынешнего отсутствия поддержки этих платформ &mdash; это отсутствие людей, готовых этим заниматься. Если Вам интересно довести выпуски для этих платформ до современного уровня, свяжитесь с нами (например, через список рассылки fpc-devel).
+
+</TRN>
+<TRN locale="en_US" key="website.faq_intro">
+
+  <p>This document gives last minute information regarding the compiler. Furthermore,
+  it answers frequently asked questions and gives solutions to common problems
+  found with Free Pascal. The information presented herein always supersedes those
+  found in the Free Pascal documentation. </p>
+
+</TRN>
+<TRN locale="en_US" key="website.for_comprehensive">
+
+  <p> For more comprehensive information on the pascal language, and the runtime library
+  calls, consult the Free Pascal manuals. Topics covered in this document : </p>
+
+</TRN>
+<TRN locale="en_US" key="website.General_information">
+General information
+</TRN>
+<TRN locale="en_US" key="website.Pascal_lang_rel_inf">
+Pascal language related information
+</TRN>
+<TRN locale="en_US" key="website.RTL_rel_inf">
+Runtime library related information
+</TRN>
+<TRN locale="en_US" key="website.DOS_rel_inf">
+DOS related information
+</TRN>
+<TRN locale="en_US" key="website.Windows_rel_inf">
+Windows related information
+</TRN>
+<TRN locale="en_US" key="website.UNIX_rel_inf">
+UNIX related information
+</TRN>
+<TRN locale="en_US" key="website.OS2_rel_inf">
+OS/2 related information
+</TRN>
+<TRN locale="en_US" key="website.BeOS_related_information">
+BeOS related information
+</TRN>
+<TRN locale="en_US" key="website.Amiga_tel_inf">
+Amiga related information
+</TRN>
+<TRN locale="en_US" key="website.PalmOS_rel_inf">
+PalmOS related information
+</TRN>
+<TRN locale="ru_RU" key="website.adv_No_Makefiles">
+<STRONG>Нет Makefile-ов</STRONG> В отличие от большинства языков программирования, паскаль не нуждается в Makefile-ах. Вы сэкономите огромное количество времени: компилятор сам разберётся, какие файлы требуется перекомпилировать.
+</TRN>
+<TRN locale="ru_RU" key="website.Amiga_tel_inf">
+Относящееся к Amiga
+</TRN>
+<TRN locale="ru_RU" key="website.BeOS_related_information">
+Относящееся к BeOS
+</TRN>
+<TRN locale="ru_RU" key="website.DOS_rel_inf">
+Относящееся к DOS
+</TRN>
+<TRN locale="ru_RU" key="website.faq_intro">
+<p>В этом документе представлена позднейшая информация о компиляторе. Более того, он отвечает на часто задаваемые вопросы и предлагает решения популярных проблем с Free Pascal-ем. Информация, представленная здесь, всегда имеет более высокий приоритет, чем написанная в документации к Free Pascal-ю.</p>
+</TRN>
+<TRN locale="ru_RU" key="website.for_comprehensive">
+<p>Чтобы получить более подробную информацию о языке Паскаль и использованию стандартных библиотек, обратитесь к документации по Free Pascal-ю. Темы, раскрытые в документации:</p>
+</TRN>
+<TRN locale="ru_RU" key="website.General_information">
+Общая информация
+</TRN>
+<TRN locale="ru_RU" key="website.OS2_rel_inf">
+Относящееся к OS/2
+</TRN>
+<TRN locale="ru_RU" key="website.PalmOS_rel_inf">
+Относящееся к PalmOS
+</TRN>
+<TRN locale="ru_RU" key="website.Pascal_lang_rel_inf">
+Информация о языке Паскаль
+</TRN>
+<TRN locale="ru_RU" key="website.RTL_rel_inf">
+Информация о стандартных библиотеках
+</TRN>
+<TRN locale="ru_RU" key="website.UNIX_rel_inf">
+Относящееся к UNIX
+</TRN>
+<TRN locale="ru_RU" key="website.Windows_rel_inf">
+Относящееся к Windows
+</TRN>
+<TRN locale="nl_NL" key="website.Features_text">
+De taalsyntaxis heeft een uitstekende compatibiliteit met TP 7.0 evenals met de meeste versies van Delphi (klassen, rtti, uitzonderingen, ansistrings, widestrings, interfaces). Een Mac-Pascal compatibiliteitsmode is ook aanwezig om Applegebruikers van dienst te zijn. Verder ondersteunt Free Pascal procedure-overroeping, operator-overroeping, globale eigenschappen en meer van dergelijke functionaliteit.  
+</TRN>
+<TRN locale="nl_NL" key="website.Current_Version_text">
+Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw expemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling kunt steunen.
+</TRN>
+<TRN locale="en_US" key="website.latest_version_is">
+
+  The latest release version is <b>2.0.4</b>.
+
+</TRN>
+<TRN locale="en_US" key="website.cross_compiler_i386-linux_arm-linux">
+
+  This is a cross compiler package from i386-linux to arm-linux. Before you can use it, you need to install
+  <a href="../i386/linux-@mirrorsuffix@@x@">fpc for i386-linux</a>.
+
+</TRN>
+<TRN locale="en_US" key="website.arm-linux_available_in">
+
+The FPC package for arm-linux is available in one easy to choose format:
+
+</TRN>
+<TRN locale="en_US" key="website.everything_in_1">
+Everything in 1 big package
+</TRN>
+<TRN locale="en_US" key="website.download_in_1_file">
+Download in 1 big file
+</TRN>
+<TRN locale="en_US" key="website.Back_to_mirrorlist">
+Back to mirror list
+</TRN>
+<TRN locale="en_US" key="website.Back_to_general_download_page">
+Back to general download page
+</TRN>
+<TRN locale="nl_NL" key="website.to_be_used_from_IDE">
+voor gebruik in de IDE en andere doeleinden
+</TRN>
+<TRN locale="nl_NL" key="website.plain_text">
+gewone tekst
+</TRN>
+<TRN locale="nl_NL" key="website.Back_to_mirrorlist">
+Terug naar de mirrorlijst
+</TRN>
+<TRN locale="nl_NL" key="website.Back_to_general_download_page">
+Terug naar algemene downloadpagina
+</TRN>
+<TRN locale="en_US" key="website.supported_windows_versions">
+
+  Supported Windows versions are 95, 98, ME, NT, 2000, XP and 2003
+
+</TRN>
+<TRN locale="en_US" key="website.Download_as_installer">
+Download as installer
+</TRN>
+<TRN locale="en_US" key="website.You_can_download_installer">
+You can download the installer
+</TRN>
+<TRN locale="en_US" key="website.Sources">
+Sources
+</TRN>
+<TRN locale="en_US" key="website.Get_the_sources_here">
+Get the sources <a href="@mirror_url@/dist/source-2.0.4">here</a>
+</TRN>
+<TRN locale="en_US" key="website.already_included_installer">
+already included in the installer listed above
+</TRN>
+<TRN locale="en_US" key="website.plain_text">
+plain text
+</TRN>
+<TRN locale="en_US" key="website.to_be_used_from_IDE">
+to be used from IDE among others
+</TRN>
+<TRN locale="nl_NL" key="website.latest_version_is">
+De meest recente versie is <b>2.0.4</b>
+</TRN>
+<TRN locale="nl_NL" key="website.supported_windows_versions">
+De volgende versies van Windows worden ondersteund: 95, 98, ME, NT, 2000, XP en 2003
+
+</TRN>
+<TRN locale="nl_NL" key="website.Download_as_installer">
+Installatieprogramma downloaden:
+</TRN>
+<TRN locale="nl_NL" key="website.You_can_download_installer">
+Download automatisch installatieprogramma:
+</TRN>
+<TRN locale="nl_NL" key="website.Sources">
+Broncode
+</TRN>
+<TRN locale="nl_NL" key="website.Get_the_sources_here">
+Download de broncode <a href="@mirror_url@/dist/source-2.0.4">hier</a>
+</TRN>
+<TRN locale="nl_NL" key="website.already_included_installer">
+is reeds aanwezig in het installatieprogramma hierboven
+</TRN>
+<TRN locale="en_US" key="website.arm-linux_1_file_download_descr">
+<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
+  contains a standard tar archive, with an install script<br>
+  After untarring the archive, you can run the install script in the created
+  directory by issuing the command "<tt>sh install.sh</tt>".
+
+</TRN>
+<TRN locale="nl_NL" key="website.cross_compiler_i386-linux_arm-linux">
+De ARM-Linux-uitgave is een kruiscompiler van i386-linux naar arm-linux. Voordat je deze kunt gebruiken, dien je de <a href="../i386/linux-@mirrorsuffix@@x@"> compiler voor i386-linux</a> te installeren.
+
+</TRN>
+<TRN locale="nl_NL" key="website.arm-linux_available_in">
+Het Free-Pascalpakket voor arm-linux is beschikbaar in één makkelijk hanteerbare download:
+</TRN>
+<TRN locale="nl_NL" key="website.everything_in_1">
+Alles in één groot bestand
+</TRN>
+<TRN locale="nl_NL" key="website.download_in_1_file">
+Download één groot bestand
+</TRN>
+<TRN locale="nl_NL" key="website.arm-linux_1_file_download_descr">
+<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
+bevat een standaard tar-archief met installatiescript.<br>
+Nadat het archief uitgepakt is, kan je het installatiescript in de aangemaakte map starten met het commando "<tt>sh install.sh</tt>".
+
 </TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky
