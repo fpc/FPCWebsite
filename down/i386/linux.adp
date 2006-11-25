@@ -36,7 +36,7 @@ It is available in different formats:
 </trn>
 </ul>
 
-<h3><a name="linuxrpm"></a>RPM (Redhat Package Manager) Packages:</h3>
+<h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
 <ul>
 <li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
@@ -54,7 +54,7 @@ It is available in different formats:
      </trn>
 </ul>
 
-<h3><a name="linuxdeb"></a>Debian Packages:</h3>
+<h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.</trn></em>
 <ul>
 <li><trn key="website.i386-linux_deb_download_descr" locale="en_US"><a href="@mirror_url@dist/i386-linux-2.0.4/deb/">This directory</a> contains
