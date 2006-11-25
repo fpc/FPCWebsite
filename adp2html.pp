@@ -600,12 +600,16 @@ var last_expr_result:boolean;
     inc(pos);
     while (pos<=length(adp)) and (adp[pos] in ['A'..'Z','a'..'z']) do
       begin
-        tag:=tag+adp[pos];
+{        tag:=tag+adp[pos];}
+        setlength(tag,length(tag)+1);
+        tag[length(tag)]:=adp[pos];
         inc(pos);
       end;
     while (pos<=length(adp)) and (adp[pos]<>'>') do
       begin
-        params:=params+adp[pos];
+{        params:=params+adp[pos];}
+        setlength(params,length(params)+1);
+        params[length(params)]:=adp[pos];
         inc(pos);
       end;
     if pos>length(adp) then
@@ -644,7 +648,9 @@ var last_expr_result:boolean;
     repeat
       while (adp[pos]<>'<') and (pos<=length(adp)) do
         begin
-          parse_at:=parse_at+adp[pos];
+{          parse_at:=parse_at+adp[pos];}
+          setlength(parse_at,length(parse_at)+1);
+          parse_at[length(parse_at)]:=adp[pos];
           inc(pos);
         end;
       if adp[pos]='<' then
@@ -660,7 +666,9 @@ var last_expr_result:boolean;
                 end;
               if upcase(tag)=stoptag then
                 exit;
-              parse_at:=parse_at+'<';
+{              parse_at:=parse_at+'<';}
+              setlength(parse_at,length(parse_at)+1);
+              parse_at[length(parse_at)]:='<';
               inc(pos);
             end
           else
