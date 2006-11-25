@@ -22,8 +22,8 @@ It is available in different formats:
 </trn>
 <ul>
   <li> <a href="#linuxbig"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
-  <li> <a href="#linuxrpm">RedHat Packages (.rpm)</a>
-  <li> <a href="#linuxdeb">Debian Packages (.deb)</a>
+  <li> <a href="#linuxrpm"><trn key="website.RPM_packages_1" locale="en_US">RedHat Packages (.rpm)</trn></a>
+  <li> <a href="#linuxdeb"><trn key="website.DEB_packages_1" locale="en_US">Debian Packages (.deb)</trn></a>
 </ul>
 
 
