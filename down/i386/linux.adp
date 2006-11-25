@@ -29,7 +29,7 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.arm-linux_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB)
+<li><trn key="website.i386-linux_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB)
   contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script 
   by issuing the command "<tt>sh install.sh</tt>".
