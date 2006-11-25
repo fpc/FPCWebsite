@@ -39,7 +39,7 @@ It is available in different formats:
 <h3><a name="linuxrpm"></a>RPM (Redhat Package Manager) Packages:</h3>
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
 <ul>
-<li> <b><trn key="website.Source_packages" locale="en_US">Binary Packages</trn></b>
+<li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
 <li> <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        <a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB)
        contains the compiler, utils, RTL and all units. <br>
