@@ -15,6 +15,8 @@
   The latest release version is <b>2.0.4</b>.
 </trn>
 
+<P>
+
 <trn key="website.It_is_available_in" locale="en_US">
 It is available in different formats:
 </trn>
