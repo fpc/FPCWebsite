@@ -38,7 +38,7 @@
 
 <p>
 <h3><trn key="website.Documentation" locale="en_US">Documentation</trn></h3>
-<trn website.key="website.Documentation_av_several_formats" locale="en_US">
+<trn key="website.Documentation_av_several_formats" locale="en_US">
   Documentation is available in several formats (if you want to use the docs inside the text mode IDE, you need the
   HTML ones):
 </trn>
