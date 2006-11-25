@@ -1732,9 +1732,6 @@ De volgende versies van Windows worden ondersteund: 95, 98, ME, NT, 2000, XP en 
 <TRN locale="nl_NL" key="website.Download_as_installer">
 Installatieprogramma downloaden:
 </TRN>
-<TRN locale="nl_NL" key="website.You_can_download_installer">
-Download automatisch installatieprogramma:
-</TRN>
 <TRN locale="nl_NL" key="website.Sources">
 Broncode
 </TRN>
@@ -1769,6 +1766,19 @@ Download één groot bestand
 bevat een standaard tar-archief met installatiescript.<br>
 Nadat het archief uitgepakt is, kan je het installatiescript in de aangemaakte map starten met het commando "<tt>sh install.sh</tt>".
 
+</TRN>
+<TRN locale="en_US" key="website.Documentation_av_several_formats">
+
+  Documentation is available in several formats (if you want to use the docs inside the text mode IDE, you need the
+  HTML ones):
+
+</TRN>
+<TRN locale="nl_NL" key="website.Documentation_av_several_formats">
+Documentatie is beschikbaar in verschillende bestandsindelingen (als je de documentatie in de tekstmode-IDE wilt gebruiken, dan heb je de HTML-indeling nodig):
+
+</TRN>
+<TRN locale="nl_NL" key="website.You_can_download_installer">
+Download automatisch installatieprogramma
 </TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky
