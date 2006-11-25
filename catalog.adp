@@ -182,10 +182,6 @@ Francesco Lombardi is bezig een <a href='http://itaprogaming.free.fr/tutorial.ht
 De pakketten en runtime-bibliotheek worden geleverd onder een gewijzigde  "Library GNU Public License" om het mogelijk te maken statisch te linken bij het schrijven van applicaties. De
 compilerbroncode zelf wordt geleverd onder de "GNU General Public License". De broncode van zowel de compiler als runtime-bibliotheek is beschikbaar; de gehele compiler is in Pascal geschreven.
 </TRN>
-<TRN locale="nl_NL" key="website.req_x86b">
-Voor de 80x86-versie in minimaal een 80386-processor vereist, maar een 80486 wordt aangeraden.
-
-</TRN>
 <TRN locale="nl_NL" key="website.reqppcb">
 Elke PowerPC-processor voldoet. 16 MB geheugen is vereist. De "Mac OS classic"-versie zou moeten werken op System 7.5.3 en nieuwer. De "Mac OS X"-versie vereist Mac OS X 10.1 of nieuwe met de ontwikkelaarsgereedschappen geïnstalleerd.
 
@@ -1072,9 +1068,6 @@ Ulteriori informazioni
 <TRN locale="it_IT" key="website.Tools">
 Strumenti
 </TRN>
-<TRN locale="it_IT" key="website.search">
-Ricerca
-</TRN>
 <TRN locale="it_IT" key="website.req_sparca">
 Architettura Sparc 
 </TRN>
@@ -1394,15 +1387,6 @@ Zadnje novice
 <TRN locale="sl_SI" key="website.Current_Version">
 Trenutna Verzija
 </TRN>
-<TRN locale="sl_SI" key="website.overview_text">
-    Free Pascal (aka FPK Pascal) je 32 in 64 bitni profesionalni prevajalnik za Pascal.
-    Je na razpolago za različne procesorje: Intel x86, Amd64/x86_64, PowerPC,
-    Sparc. Stara verzija 1.0 podpira tudi procesor Motorola 680x0.
-    Podprti so naslednji operativni sistemi: Linux, FreeBSD,
-    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
-    Netware (libc and classic) and MorphOS.
-  
-</TRN>
 <TRN locale="sl_SI" key="website.More_information">
 Več informacij
 </TRN>
@@ -1429,6 +1413,13 @@ Moštvo
 </TRN>
 <TRN locale="sl_SI" key="website.Bugtracker">
 Prijava napak
+</TRN>
+<TRN locale="sl_SI" key="website.overview_text">
+Free Pascal (aka FPK Pascal) je 32 in 64 bitni profesionalni prevajalnik za Pascal.
+Je na razpolago za različne procesorje: Intel x86, Amd64/x86_64, PowerPC,    Sparc. Stara verzija 1.0 podpira tudi procesor Motorola 680x0.
+Podprti so naslednji operativni sistemi: Linux, FreeBSD, <a ref="fpcmac.html">Mac OS X/Darwin</a>, 
+<a ref="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,Netware (libc and classic) and MorphOS.
+  
 </TRN>
 <TRN locale="nl_NL" key="website.download_snapshots">
 Naast de officiële uitgaven, bieden we ook zogenaamde "momentopnamen" aan van de compiler, RTL, IDE en enkele andere pakketjes aan op de pagina voor <a href="develop@x@">ontwikkeling</a>. Dit zijn voorgecompileerde versies van de huidige broncode met alle verbeteringen en verholpen bugs sinds de laatste officiële uitgave, dus probeer ze alsjeblieft als je problemen hebt. Natuurlijk kunnen ze ook nieuwe bugs bevatten.
@@ -1654,7 +1645,7 @@ PalmOS related information
 De taalsyntaxis heeft een uitstekende compatibiliteit met TP 7.0 evenals met de meeste versies van Delphi (klassen, rtti, uitzonderingen, ansistrings, widestrings, interfaces). Een Mac-Pascal compatibiliteitsmode is ook aanwezig om Applegebruikers van dienst te zijn. Verder ondersteunt Free Pascal procedure-overroeping, operator-overroeping, globale eigenschappen en meer van dergelijke functionaliteit.  
 </TRN>
 <TRN locale="nl_NL" key="website.Current_Version_text">
-Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw expemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling kunt steunen.
+Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw exemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling kunt steunen.
 </TRN>
 <TRN locale="en_US" key="website.latest_version_is">
 
@@ -1695,6 +1686,19 @@ Terug naar de mirrorlijst
 </TRN>
 <TRN locale="nl_NL" key="website.Back_to_general_download_page">
 Terug naar algemene downloadpagina
+</TRN>
+<TRN locale="sl_SI" key="website.Official_releases">
+Uradne izdaje
+</TRN>
+<TRN locale="sl_SI" key="website.download_old_releases">
+  Povezave do nekaterih starih izdaj FPC (ki niso vec podprte) za arhitekture za katere ne obstaja trenutno boljša različica, lahko dobite
+  <a href="down/old/down@x@">tukaj</a>. Ni treba javiti katerikoli problem s temi starimi izdajami, saj ga ne bomo popravili. Glavni razlog zaradi katerega te platforme niso več podprte je pomanjakanje osebja za vzdrževanje - če te zanima ažurirati te izdaje, te prosimo da nas kontaktiraš (npr. preko dopisnega seznama fpc-devel).
+
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20061125">
+    <em>November 25-26, 2006</em>
+    Lazarus in FPC bodo prisotni na HCC v Utrechtu, Nizozemska, v prostorih HCC Pascal.
+  
 </TRN>
 <TRN locale="en_US" key="website.supported_windows_versions">
 
@@ -1779,6 +1783,230 @@ Documentatie is beschikbaar in verschillende bestandsindelingen (als je de docum
 </TRN>
 <TRN locale="nl_NL" key="website.You_can_download_installer">
 Download automatisch installatieprogramma
+</TRN>
+<TRN locale="sl_SI" key="website.ready_made_packages">
+    To so že pripravljeni paketi, skupaj z programom za namestitev, tako da lahko takoj začnete z delom. Vsi paketi vsebujejo datoteko README, katero svetujemo da preberete za namestitvena navodila in zadnje novice.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.latest_release">
+Zadnja izdaja je <b>2.0.4</b>
+</TRN>
+<TRN locale="sl_SI" key="website.available_limited_platforms">
+  Ker ni dovolj moštva za pripravo izdaj in testerjev, 2.0.4 je na razpolago samo za omejeno stevilo arhitektur in ne v vseh paketnih formatih. Če želiš izboljšati trenutno stanje in pomagati pri gradnji izdaj in pri testiranju te prosimo da se javiš na dopisnih seznamih.
+
+</TRN>
+<TRN locale="sl_SI" key="website.Binaries">
+Binarne izdaje
+</TRN>
+<TRN locale="nl_NL" key="website.req_x86b">
+Voor de 80x86-versie is minimaal een 80386-processor vereist, maar een 80486 wordt aangeraden.
+
+</TRN>
+<TRN locale="sl_SI" key="website.Source">
+Koda
+</TRN>
+<TRN locale="sl_SI" key="website.can_download_for_platform">
+    Lahko preneseš izdaje 2.0.x za naslednje cpu in operativne sisteme:
+  
+</TRN>
+<TRN locale="sl_SI" key="website.down_i386_freebsd_note">
+FreeBSD 4.x in najbrž tudi 5.x 
+</TRN>
+<TRN locale="sl_SI" key="website.down_i386_netware_note">
+samo 2.0.0
+</TRN>
+<TRN locale="sl_SI" key="website.down_sparc_linux_note">
+samo 2.0.0
+</TRN>
+<TRN locale="sl_SI" key="website.download_source">
+    Kodo lahko ločeno prenesete v <b>zip</b> datoteki ali v <b>tar.gz</b> iz ene naših <a href="down/source/sources@x@">spletnih strani za prenos</a>.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.download_documentation">
+    Dokumentacijo lahko prenesete v razlišnih formatih iz ene od naših
+    <a href="down/docs/docs@x@">spletnih strani za prenos</a>.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.download_snapshots">
+  Poleg uradnih izaj, vam nudimo tudi tako imenovane "snapshots" prevajalnika , RTL,IDE in nekaj drugih paketov na <a href="develop@x@">razvojni spletni strani</a>. To so prevedene različice trenutne kode z vsemi popravki in izboljšavami od zadnje uradne izdaje, zato prosimo da jih poskusite če imate katerikoli problem. Seveda, lahko vsebujejo nove hrošče.
+
+</TRN>
+<TRN locale="sl_SI" key="website.Old_releases">
+Stare izdaje
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20060927">
+    <em>27.September 2006</em>
+    Lazarus in FPC bodo prisotni na sejmu  Systems 2006 v Munchnu v Octobru v hali A3 v prostorih 542.
+    Skušali bomo biti prisotni vseh 5 dni. Lahko dobite dodatne informacije o  Systems 2006 
+    <a href="http://www.systems-world.de/id/7672/">tukaj</a>.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20060925">
+    <em>September 25, 2006</em>
+    Francesco Lombardi piše <a href='http://itaprogaming.free.fr/tutorial.html'> obširni prirošnik o razvoju iger na Game Boy Advance</a> z Free Pascalom.
+  
+</TRN>
+<TRN locale="it_IT" key="website.Old_releases">
+Versioni vecchie
+</TRN>
+<TRN locale="en_US" key="website.It_is_available_in">
+
+It is available in different formats:
+
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_rpm_download_descr">
+
+       <a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB)
+       contains the compiler, utils, RTL and all units. <br>
+     
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_rpm_docs_download_descr">
+
+       <a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 MB)
+       contains the documentation.<br>
+     
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_rpm_src_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 MB)
+       contains the sources.<br>
+     
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_deb_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">This directory</a> contains
+     the unofficial debian .deb packages.<br>
+  
+</TRN>
+<TRN locale="en_US" key="website.RPM_compatibility">
+Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.
+</TRN>
+<TRN locale="it_IT" key="website.Binaries">
+Binari
+</TRN>
+<TRN locale="it_IT" key="website.down_i386_netware_note">
+solo 2.0.0
+</TRN>
+<TRN locale="en_US" key="website.DEB_compatibility">
+Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.
+</TRN>
+<TRN locale="it_IT" key="website.Amiga_tel_inf">
+Informazioni relative all'Amiga
+</TRN>
+<TRN locale="it_IT" key="website.Download_as_installer">
+Scarica come installer
+</TRN>
+<TRN locale="it_IT" key="website.down_sparc_linux_note">
+solo 2.0.0
+</TRN>
+<TRN locale="it_IT" key="website.Back_to_mirrorlist">
+Torna all'elenco dei mirror
+</TRN>
+<TRN locale="it_IT" key="website.Introduction">
+Introduzione
+</TRN>
+<TRN locale="it_IT" key="website.General_information">
+Informazioni generali
+</TRN>
+<TRN locale="it_IT" key="website.DOS_rel_inf">
+Informazioni relative al DOS
+</TRN>
+<TRN locale="it_IT" key="website.download_in_1_file">
+Scarica in un unico grosso file
+</TRN>
+<TRN locale="it_IT" key="website.search">
+Cerca
+</TRN>
+<TRN locale="it_IT" key="website.BeOS_related_information">
+Informazioni relative a BeOS
+</TRN>
+<TRN locale="it_IT" key="website.Back_to_general_download_page">
+Torna alla pagina generale scaricamenti
+</TRN>
+<TRN locale="en_US" key="website.Binary_packages">
+Binary Packages
+</TRN>
+<TRN locale="it_IT" key="website.UNIX_rel_inf">
+Informazioni relative a UNIX
+</TRN>
+<TRN locale="en_US" key="website.Source_packages">
+Source Packages
+</TRN>
+<TRN locale="en_US" key="website.RPM_packages">
+RPM (Redhat Package Manager) Packages
+</TRN>
+<TRN locale="en_US" key="website.DEB_packages">
+Debian Packages
+</TRN>
+<TRN locale="nl_NL" key="website.RPM_packages">
+RPM-pakketten (Redhat Package Manager)
+</TRN>
+<TRN locale="nl_NL" key="website.DEB_packages">
+Debianpaketten
+</TRN>
+<TRN locale="nl_NL" key="website.RPM_compatibility">
+Onze RPM-pakketten zijn compatibel met alle RPM-gebaseerde distributies, onder meer met Red Hat, Fedora, SuSE en Mandriva.
+</TRN>
+<TRN locale="nl_NL" key="website.DEB_compatibility">
+Onze DEB-pakketten zijn compatibel met alle DEB-gebaseerde distributies, onder meer met Debian, Linspire en Ubuntu.
+</TRN>
+<TRN locale="nl_NL" key="website.Binary_packages">
+Voorgecompileerde pakketten:
+</TRN>
+<TRN locale="nl_NL" key="website.i386-linux_rpm_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB) bevat de compiler, hulpprogramma's, runtime-bibliotheek en alle units.<br>     
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_1_file_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB)
+  contains a standard tar archive, with an install script<br>
+  After untarring the archive into a temporary location, you can run the install script 
+  by issuing the command "<tt>sh install.sh</tt>".
+
+</TRN>
+<TRN locale="nl_NL" key="website.i386-linux_1_file_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB) bevat een standaard tar-archief, met een installatiescript<br> Nadat het archief uitgepakt is op een tijdelijke locatie, kan je het installatiescript 
+starten met behulp van het commando "<tt>sh install.sh</tt>".
+
+</TRN>
+<TRN locale="nl_NL" key="website.i386-linux_deb_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">Deze downloadmap</a> bevat de onofficiële .deb-pakketten.<br>
+  
+</TRN>
+<TRN locale="nl_NL" key="website.i386-linux_rpm_docs_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 MB) bevat de documentatie.
+</TRN>
+<TRN locale="en_US" key="website.RPM_packages_1">
+RedHat Packages (.rpm)
+</TRN>
+<TRN locale="en_US" key="website.DEB_packages_1">
+Debian Packages (.deb)
+</TRN>
+<TRN locale="nl_NL" key="website.RPM_packages_1">
+RedHat-pakketten (.rpm)
+</TRN>
+<TRN locale="nl_NL" key="website.DEB_packages_1">
+Debian-pakketten (.deb)
+</TRN>
+<TRN locale="nl_NL" key="website.Source_packages">
+Broncodepakket:
+</TRN>
+<TRN locale="nl_NL" key="website.i386-linux_rpm_src_download_descr">
+<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 MB) bevat de broncode.<br>
+     
+</TRN>
+<TRN locale="nl_NL" key="website.It_is_available_in">
+Deze is beschikbaar in verschillende pakketindelingen:
+
+</TRN>
+<TRN locale="en_US" key="website.i386-freebsd_1_file_download_descr">
+<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 MB)
+  contains a standard tar archive, with an install script<br>
+  After untarring the archive, you can run the install script in the created
+  directory by issuing the command "<TT>sh install.sh</TT>".
+
+</TRN>
+<TRN locale="nl_NL" key="website.i386-freebsd_1_file_download_descr">
+<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 MB)
+bevat een standaard tar-archief met installatiescript. Nadat het archief in een tijdelijke map uitgepakt is kunt je het installatiescript starten met het commando "<TT>sh install.sh</TT>".
+
 </TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky
