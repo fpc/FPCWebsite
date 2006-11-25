@@ -44,7 +44,7 @@
 </trn>
 <ul>
 <li><a href="@mirror_url@dist/docs-2.0.4/doc-pdf.zip">PDF</a> (<trn key="website.already_included_installer" locale="en_US">already included in the installer listed above</trn>)</li>
-<li><a href="@mirror_url@dist/docs-2.0.4/doc-html.zip">HTML</a> (<trn key="website.already_included_installer" locale="en_US">to be used from IDE among others</trn>)</li>
+<li><a href="@mirror_url@dist/docs-2.0.4/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">to be used from IDE among others</trn>)</li>
 <li><a href="@mirror_url@dist/docs-2.0.4/doc-ps.zip">PostScript</a></li>
 <li><a href="@mirror_url@dist/docs-2.0.4/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
 </ul>
