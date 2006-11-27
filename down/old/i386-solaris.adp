@@ -1,12 +1,7 @@
-<!--
-#TITLE Free Pascal - download Solaris (x86) version
-#ENTRY Solaris
-#HEADGIF download
-#HEADALT Download Solaris
-#MODIFY
-#MAINDIR ../../
-#PICDIR ../../pic/
--->
+<property name="title">Free Pascal - download Solaris (x86) version</title>
+<property name="modify"></property>
+<property name="maindir">../../</property>
+<property name="entry">Solaris</property>
 <!--
 *****************************************************************************
                                   Solaris
@@ -24,14 +19,14 @@ sysutils (specific to this port) have also been applied.
 
 <h3> <a name="Solarisbig"></a>Download as one big (tarball) file</h3>
 <ul>
-<li><a href="$MIRRORURL/olddist/1.0.10/sunos-1.0.10a/fpc-1.0.10a-i386.tar">Solaris 1.0.10a tarball</a> (14 MB)
+<li><a href="@mirror_url@/olddist/1.0.10/sunos-1.0.10a/fpc-1.0.10a-i386.tar">Solaris 1.0.10a tarball</a> (14 MB)
 </ul>
 
 <p>
 
 <hr>
 <p>
-<a href="i386-solaris.html">Back to mirror list</a><BR/>
-<a href="down-$MIRRORSUFFIX.html">Back to all old releases</a><BR/>
-<a href="../../download.html">Back to general download page</a>
+<a href="i386-solaris@x@">Back to mirror list</a><BR/>
+<a href="down-@mirrorsuffix@@x@">Back to all old releases</a><BR/>
+<a href="../../download@x@">Back to general download page</a>
 <p>

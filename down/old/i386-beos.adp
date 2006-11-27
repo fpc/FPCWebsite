@@ -1,12 +1,7 @@
-<!--
-#TITLE Free Pascal - download BeOS version
-#ENTRY BeOS
-#HEADGIF download
-#HEADALT Download BeOS
-#MODIFY
-#MAINDIR ../../
-#PICDIR ../../pic/
--->
+<property name="title">Free Pascal - download Beos version</title>
+<property name="modify"></property>
+<property name="maindir">../../</property>
+<property name="entry">emx</property>
 <!--
 *****************************************************************************
                                   BeOS
@@ -24,13 +19,13 @@ for sysutils (specific to this port) have also been applied.
 
 <h3> <a name="freebeosbig">Download as one big (zip) file</a></h3>
 <ul> 
-<li><a href="$MIRRORURL/olddist/1.0.10/beos-1.0.10a/fpc-1.0.10a-ELF.zip">BeOS installation zip</a> (15 MB)
+<li><a href="@mirror_url@/olddist/1.0.10/beos-1.0.10a/fpc-1.0.10a-ELF.zip">BeOS installation zip</a> (15 MB)
 </ul>
 <p>
 
 <hr>
 <p>
-<a href="i386-beos.html">Back to mirror list</a><BR/>
-<a href="down-$MIRRORSUFFIX.html">Back to all old releases</a><BR/>
-<a href="../../download.html">Back to general download page</a>
+<a href="i386-beos@x@">Back to mirror list</a><BR/>
+<a href="down-@mirrorsuffix@@x@">Back to all old releases</a><BR/>
+<a href="../../download@x@">Back to general download page</a>
 <p>

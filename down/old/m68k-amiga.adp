@@ -1,12 +1,7 @@
-<!--
-#TITLE Free Pascal - download Amiga version
-#ENTRY Amiga
-#HEADGIF download
-#HEADALT Download Amiga
-#MODIFY
-#MAINDIR ../../
-#PICDIR ../../pic/
--->
+<property name="title">Free Pascal - download Amiga version</title>
+<property name="modify"></property>
+<property name="maindir">../../</property>
+<property name="entry">Amiga</property>
 <!--
 *****************************************************************************
                                   Amiga

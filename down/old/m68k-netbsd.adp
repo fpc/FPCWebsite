@@ -1,12 +1,7 @@
-<!--
-#TITLE Free Pascal - download NetBSD (m68k) version
-#ENTRY NetBSD
-#HEADGIF download
-#HEADALT Download NetBSD (m68k)
-#MODIFY
-#MAINDIR ../../
-#PICDIR ../../pic/
--->
+<property name="title">Free Pascal - download NetBSD (m68k) version</title>
+<property name="modify"></property>
+<property name="maindir">../../</property>
+<property name="entry">NetBSD</property>
 <!--
 *****************************************************************************
                                   netBSD
@@ -23,13 +18,13 @@ See the README inside for more information about the status of this port.
 
 <h3> <a name="Netbsdbig"></a>Download as one big (tarball) file</h3>
 <ul>
-<li><a href="$MIRRORURL/olddist/1.0.10/netbsd-1.0.10/m68k/fpc-1.0.10.m68k.tar">M68k NetBSD 1.0.10 tarball</a> (4.2 MB)
+<li><a href="@mirror_url@/olddist/1.0.10/netbsd-1.0.10/m68k/fpc-1.0.10.m68k.tar">M68k NetBSD 1.0.10 tarball</a> (4.2 MB)
 </ul>
 <p>
 
 <hr>
 <p>
-<a href="m68k-netbsd.html">Back to mirror list</a><BR/>
-<a href="down-$MIRRORSUFFIX.html">Back to all old releases</a><BR/>
-<a href="../../download.html">Back to general download page</a>
+<a href="m68k-netbsd@x@">Back to mirror list</a><BR/>
+<a href="down-@mirrorsuffix@@x@">Back to all old releases</a><BR/>
+<a href="../../download@x@">Back to general download page</a>
 <p>

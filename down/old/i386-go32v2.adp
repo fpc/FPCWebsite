@@ -1,12 +1,7 @@
-<!--
-#TITLE Free Pascal - download GO32v2 version
-#ENTRY GO32v2
-#HEADGIF download
-#HEADALT Download GO32v2
-#MODIFY
-#MAINDIR ../../
-#PICDIR ../../pic/
--->
+<property name="title">Free Pascal - download GO32v2 version</title>
+<property name="modify"></property>
+<property name="maindir">../../</property>
+<property name="entry">go32v2</property>
 <!--
 *****************************************************************************
                                     Dos
