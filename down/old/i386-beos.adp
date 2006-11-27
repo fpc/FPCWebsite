@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download Beos version</title>
+<master>
+<property name="title">Free Pascal - download Beos version</property>
 <property name="modify"></property>
+<property name="header">Download old Beos (i386)</header>
 <property name="maindir">../../</property>
 <property name="entry">emx</property>
 <!--

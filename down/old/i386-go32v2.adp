@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download GO32v2 version</title>
+<master>
+<property name="title">Free Pascal - download GO32v2 version</property>
 <property name="modify"></property>
+<property name="header">Download old GO32v2 (i386)</header>
 <property name="maindir">../../</property>
 <property name="entry">go32v2</property>
 <!--

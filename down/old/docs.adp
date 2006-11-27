@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download old documentation</title>
+<master>
+<property name="title">Free Pascal - download old documentation</property>
 <property name="modify"></property>
+<property name="header">Download old documentation</header>
 <property name="maindir">../../</property>
 <property name="entry">emx</property>
 <!--

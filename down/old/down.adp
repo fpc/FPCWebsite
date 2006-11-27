@@ -1,4 +1,5 @@
-<property name="title">Free Pascal - Unsupported versions</title>
+<master>
+<property name="title">Free Pascal - Unsupported versions</property>
 <property name="modify"></property>
 <property name="header">Download of unsupported versions</header>
 <property name="maindir">../../</property>

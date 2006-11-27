@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download Solaris (x86) version</title>
+<master>
+<property name="title">Free Pascal - download Solaris (x86) version</property>
 <property name="modify"></property>
+<property name="header">Download old Solaris (i386)</header>
 <property name="maindir">../../</property>
 <property name="entry">Solaris</property>
 <!--

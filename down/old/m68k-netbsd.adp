@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download NetBSD (m68k) version</title>
+<master>
+<property name="title">Free Pascal - download NetBSD (m68k) version</property>
 <property name="modify"></property>
+<property name="header">Download old NetBSD (i386)</header>
 <property name="maindir">../../</property>
 <property name="entry">NetBSD</property>
 <!--

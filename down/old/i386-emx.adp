@@ -1,5 +1,7 @@
-<property name="title">Free Pascal - download EMX version</title>
+<master>
+<property name="title">Free Pascal - download EMX version</property>
 <property name="modify"></property>
+<property name="header">Download old EMX (i386)</header>
 <property name="maindir">../../</property>
 <property name="entry">emx</property>
 <!--
