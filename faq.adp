@@ -26,7 +26,6 @@
     <li><a href="#general-install">Free Pascal installation hints</a></li>
     <li><a href="#ftpproblems"> Why do i have to supply a user name and password to get Free Pascal ?</a></li>
     <li><a href="#general-connectftp"> Access denied error when connecting to the Free Pascal FTP site</a></li>
-    <li><a href="#ideinst">Where can I find a text mode IDE?</a></li>
     <li><a href="#snapshot">I want a new version NOW</a></li>
     <li><a href="#installsnap"> Installing a snapshot</a></li>
     <li><a href="#KnownBugs">Known bugs / Reporting bugs</a></li>
@@ -383,23 +382,6 @@
             simultaneous connections. If this error occurs, it is because
             this limit has been reached. The solution is either to wait and
             retry later, or better still use one of the Free Pascal mirror sites.</p>
-        </li>
-
-
-        <li><a name=ideinst></a>
-            <h3>Where can I find a text mode IDE?</h3>
-
-            <p>The development of the IDE (integrated development environment) is
-            not yet finished. However a working test version of the IDE is included
-            with version 1.0.x and higher of the compiler. There might be problems
-            running the DOS IDE under Windows NT and Windows 2000 (especially
-            the debugger), in that case it is suggested to use the native Windows
-            version. </p>
-	    <p> The textmode IDE on *nix targets has several terminal problems. Try
-	         to use a real xterm as possible, and choose a font which has a Dos
-		 character set
-	    </p>
-
         </li>
 
         <li><a name=snapshot></a>
