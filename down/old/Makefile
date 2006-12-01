@@ -27,6 +27,8 @@ endif
 .PHONY: all all_pages clean
 default: all
 all: all_pages
+docs-australia.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-australia.html.bg -oe iso-8859-5 docs.adp
 docs-australia.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-australia.html.en -oe iso-8859-1 docs.adp
 docs-australia.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -46,6 +48,10 @@ docs-australia.html.ru: docs.adp ../../default-master.adp ../../site-master.adp 
 
 docs-australia.var: gen_makefile.conf
 	echo > docs-australia.var
+	echo 'URI: docs-australia.html.bg' >> docs-australia.var
+	echo 'Content-language: bg' >> docs-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-australia.var
+	echo >> docs-australia.var
 	echo 'URI: docs-australia.html.en' >> docs-australia.var
 	echo 'Content-language: en' >> docs-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-australia.var
@@ -78,6 +84,8 @@ docs-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-australia.var
 	echo >> docs-australia.var
+i386-beos-australia.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-australia.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-australia.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-australia.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-australia.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -97,6 +105,10 @@ i386-beos-australia.html.ru: i386-beos.adp ../../default-master.adp ../../site-m
 
 i386-beos-australia.var: gen_makefile.conf
 	echo > i386-beos-australia.var
+	echo 'URI: i386-beos-australia.html.bg' >> i386-beos-australia.var
+	echo 'Content-language: bg' >> i386-beos-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-australia.var
+	echo >> i386-beos-australia.var
 	echo 'URI: i386-beos-australia.html.en' >> i386-beos-australia.var
 	echo 'Content-language: en' >> i386-beos-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-australia.var
@@ -129,6 +141,8 @@ i386-beos-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-australia.var
 	echo >> i386-beos-australia.var
+i386-emx-australia.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-australia.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-australia.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-australia.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-australia.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -148,6 +162,10 @@ i386-emx-australia.html.ru: i386-emx.adp ../../default-master.adp ../../site-mas
 
 i386-emx-australia.var: gen_makefile.conf
 	echo > i386-emx-australia.var
+	echo 'URI: i386-emx-australia.html.bg' >> i386-emx-australia.var
+	echo 'Content-language: bg' >> i386-emx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-australia.var
+	echo >> i386-emx-australia.var
 	echo 'URI: i386-emx-australia.html.en' >> i386-emx-australia.var
 	echo 'Content-language: en' >> i386-emx-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-australia.var
@@ -180,6 +198,8 @@ i386-emx-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-australia.var
 	echo >> i386-emx-australia.var
+i386-netbsd-australia.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-australia.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-australia.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-australia.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-australia.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -199,6 +219,10 @@ i386-netbsd-australia.html.ru: i386-netbsd.adp ../../default-master.adp ../../si
 
 i386-netbsd-australia.var: gen_makefile.conf
 	echo > i386-netbsd-australia.var
+	echo 'URI: i386-netbsd-australia.html.bg' >> i386-netbsd-australia.var
+	echo 'Content-language: bg' >> i386-netbsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-australia.var
+	echo >> i386-netbsd-australia.var
 	echo 'URI: i386-netbsd-australia.html.en' >> i386-netbsd-australia.var
 	echo 'Content-language: en' >> i386-netbsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-australia.var
@@ -231,6 +255,8 @@ i386-netbsd-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-australia.var
 	echo >> i386-netbsd-australia.var
+i386-solaris-australia.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-australia.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-australia.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-australia.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-australia.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -250,6 +276,10 @@ i386-solaris-australia.html.ru: i386-solaris.adp ../../default-master.adp ../../
 
 i386-solaris-australia.var: gen_makefile.conf
 	echo > i386-solaris-australia.var
+	echo 'URI: i386-solaris-australia.html.bg' >> i386-solaris-australia.var
+	echo 'Content-language: bg' >> i386-solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-australia.var
+	echo >> i386-solaris-australia.var
 	echo 'URI: i386-solaris-australia.html.en' >> i386-solaris-australia.var
 	echo 'Content-language: en' >> i386-solaris-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-australia.var
@@ -282,6 +312,8 @@ i386-solaris-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-australia.var
 	echo >> i386-solaris-australia.var
+m68k-linux-australia.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-australia.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-australia.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-australia.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-australia.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -301,6 +333,10 @@ m68k-linux-australia.html.ru: m68k-linux.adp ../../default-master.adp ../../site
 
 m68k-linux-australia.var: gen_makefile.conf
 	echo > m68k-linux-australia.var
+	echo 'URI: m68k-linux-australia.html.bg' >> m68k-linux-australia.var
+	echo 'Content-language: bg' >> m68k-linux-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-australia.var
+	echo >> m68k-linux-australia.var
 	echo 'URI: m68k-linux-australia.html.en' >> m68k-linux-australia.var
 	echo 'Content-language: en' >> m68k-linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-australia.var
@@ -333,6 +369,8 @@ m68k-linux-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-australia.var
 	echo >> m68k-linux-australia.var
+down-australia.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-australia.html.bg -oe iso-8859-5 down.adp
 down-australia.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-australia.html.en -oe iso-8859-1 down.adp
 down-australia.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -352,6 +390,10 @@ down-australia.html.ru: down.adp ../../default-master.adp ../../site-master.adp 
 
 down-australia.var: gen_makefile.conf
 	echo > down-australia.var
+	echo 'URI: down-australia.html.bg' >> down-australia.var
+	echo 'Content-language: bg' >> down-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-australia.var
+	echo >> down-australia.var
 	echo 'URI: down-australia.html.en' >> down-australia.var
 	echo 'Content-language: en' >> down-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-australia.var
@@ -384,6 +426,8 @@ down-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-australia.var
 	echo >> down-australia.var
+i386-go32v2-australia.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-australia.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-australia.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-australia.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-australia.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -403,6 +447,10 @@ i386-go32v2-australia.html.ru: i386-go32v2.adp ../../default-master.adp ../../si
 
 i386-go32v2-australia.var: gen_makefile.conf
 	echo > i386-go32v2-australia.var
+	echo 'URI: i386-go32v2-australia.html.bg' >> i386-go32v2-australia.var
+	echo 'Content-language: bg' >> i386-go32v2-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-australia.var
+	echo >> i386-go32v2-australia.var
 	echo 'URI: i386-go32v2-australia.html.en' >> i386-go32v2-australia.var
 	echo 'Content-language: en' >> i386-go32v2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-australia.var
@@ -435,6 +483,8 @@ i386-go32v2-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-australia.var
 	echo >> i386-go32v2-australia.var
+i386-qnx-australia.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-australia.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-australia.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-australia.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-australia.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -454,6 +504,10 @@ i386-qnx-australia.html.ru: i386-qnx.adp ../../default-master.adp ../../site-mas
 
 i386-qnx-australia.var: gen_makefile.conf
 	echo > i386-qnx-australia.var
+	echo 'URI: i386-qnx-australia.html.bg' >> i386-qnx-australia.var
+	echo 'Content-language: bg' >> i386-qnx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-australia.var
+	echo >> i386-qnx-australia.var
 	echo 'URI: i386-qnx-australia.html.en' >> i386-qnx-australia.var
 	echo 'Content-language: en' >> i386-qnx-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-australia.var
@@ -486,6 +540,8 @@ i386-qnx-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-australia.var
 	echo >> i386-qnx-australia.var
+m68k-amiga-australia.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-australia.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-australia.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-australia.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-australia.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -505,6 +561,10 @@ m68k-amiga-australia.html.ru: m68k-amiga.adp ../../default-master.adp ../../site
 
 m68k-amiga-australia.var: gen_makefile.conf
 	echo > m68k-amiga-australia.var
+	echo 'URI: m68k-amiga-australia.html.bg' >> m68k-amiga-australia.var
+	echo 'Content-language: bg' >> m68k-amiga-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-australia.var
+	echo >> m68k-amiga-australia.var
 	echo 'URI: m68k-amiga-australia.html.en' >> m68k-amiga-australia.var
 	echo 'Content-language: en' >> m68k-amiga-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-australia.var
@@ -537,6 +597,8 @@ m68k-amiga-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-australia.var
 	echo >> m68k-amiga-australia.var
+m68k-netbsd-australia.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-australia.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-australia.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-australia.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-australia.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -556,6 +618,10 @@ m68k-netbsd-australia.html.ru: m68k-netbsd.adp ../../default-master.adp ../../si
 
 m68k-netbsd-australia.var: gen_makefile.conf
 	echo > m68k-netbsd-australia.var
+	echo 'URI: m68k-netbsd-australia.html.bg' >> m68k-netbsd-australia.var
+	echo 'Content-language: bg' >> m68k-netbsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-australia.var
+	echo >> m68k-netbsd-australia.var
 	echo 'URI: m68k-netbsd-australia.html.en' >> m68k-netbsd-australia.var
 	echo 'Content-language: en' >> m68k-netbsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-australia.var
@@ -588,6 +654,8 @@ m68k-netbsd-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-australia.var
 	echo >> m68k-netbsd-australia.var
+docs-austria.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-austria.html.bg -oe iso-8859-5 docs.adp
 docs-austria.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-austria.html.en -oe iso-8859-1 docs.adp
 docs-austria.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -607,6 +675,10 @@ docs-austria.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ..
 
 docs-austria.var: gen_makefile.conf
 	echo > docs-austria.var
+	echo 'URI: docs-austria.html.bg' >> docs-austria.var
+	echo 'Content-language: bg' >> docs-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-austria.var
+	echo >> docs-austria.var
 	echo 'URI: docs-austria.html.en' >> docs-austria.var
 	echo 'Content-language: en' >> docs-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
@@ -639,6 +711,8 @@ docs-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-austria.var
 	echo >> docs-austria.var
+i386-beos-austria.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-austria.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-austria.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-austria.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-austria.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -658,6 +732,10 @@ i386-beos-austria.html.ru: i386-beos.adp ../../default-master.adp ../../site-mas
 
 i386-beos-austria.var: gen_makefile.conf
 	echo > i386-beos-austria.var
+	echo 'URI: i386-beos-austria.html.bg' >> i386-beos-austria.var
+	echo 'Content-language: bg' >> i386-beos-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-austria.var
+	echo >> i386-beos-austria.var
 	echo 'URI: i386-beos-austria.html.en' >> i386-beos-austria.var
 	echo 'Content-language: en' >> i386-beos-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-austria.var
@@ -690,6 +768,8 @@ i386-beos-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-austria.var
 	echo >> i386-beos-austria.var
+i386-emx-austria.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-austria.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-austria.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-austria.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-austria.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -709,6 +789,10 @@ i386-emx-austria.html.ru: i386-emx.adp ../../default-master.adp ../../site-maste
 
 i386-emx-austria.var: gen_makefile.conf
 	echo > i386-emx-austria.var
+	echo 'URI: i386-emx-austria.html.bg' >> i386-emx-austria.var
+	echo 'Content-language: bg' >> i386-emx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-austria.var
+	echo >> i386-emx-austria.var
 	echo 'URI: i386-emx-austria.html.en' >> i386-emx-austria.var
 	echo 'Content-language: en' >> i386-emx-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-austria.var
@@ -741,6 +825,8 @@ i386-emx-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-austria.var
 	echo >> i386-emx-austria.var
+i386-netbsd-austria.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-austria.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-austria.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-austria.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-austria.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -760,6 +846,10 @@ i386-netbsd-austria.html.ru: i386-netbsd.adp ../../default-master.adp ../../site
 
 i386-netbsd-austria.var: gen_makefile.conf
 	echo > i386-netbsd-austria.var
+	echo 'URI: i386-netbsd-austria.html.bg' >> i386-netbsd-austria.var
+	echo 'Content-language: bg' >> i386-netbsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-austria.var
+	echo >> i386-netbsd-austria.var
 	echo 'URI: i386-netbsd-austria.html.en' >> i386-netbsd-austria.var
 	echo 'Content-language: en' >> i386-netbsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-austria.var
@@ -792,6 +882,8 @@ i386-netbsd-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-austria.var
 	echo >> i386-netbsd-austria.var
+i386-solaris-austria.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-austria.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-austria.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-austria.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-austria.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -811,6 +903,10 @@ i386-solaris-austria.html.ru: i386-solaris.adp ../../default-master.adp ../../si
 
 i386-solaris-austria.var: gen_makefile.conf
 	echo > i386-solaris-austria.var
+	echo 'URI: i386-solaris-austria.html.bg' >> i386-solaris-austria.var
+	echo 'Content-language: bg' >> i386-solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-austria.var
+	echo >> i386-solaris-austria.var
 	echo 'URI: i386-solaris-austria.html.en' >> i386-solaris-austria.var
 	echo 'Content-language: en' >> i386-solaris-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-austria.var
@@ -843,6 +939,8 @@ i386-solaris-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-austria.var
 	echo >> i386-solaris-austria.var
+m68k-linux-austria.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-austria.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-austria.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-austria.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-austria.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -862,6 +960,10 @@ m68k-linux-austria.html.ru: m68k-linux.adp ../../default-master.adp ../../site-m
 
 m68k-linux-austria.var: gen_makefile.conf
 	echo > m68k-linux-austria.var
+	echo 'URI: m68k-linux-austria.html.bg' >> m68k-linux-austria.var
+	echo 'Content-language: bg' >> m68k-linux-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-austria.var
+	echo >> m68k-linux-austria.var
 	echo 'URI: m68k-linux-austria.html.en' >> m68k-linux-austria.var
 	echo 'Content-language: en' >> m68k-linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-austria.var
@@ -894,6 +996,8 @@ m68k-linux-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-austria.var
 	echo >> m68k-linux-austria.var
+down-austria.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-austria.html.bg -oe iso-8859-5 down.adp
 down-austria.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-austria.html.en -oe iso-8859-1 down.adp
 down-austria.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -913,6 +1017,10 @@ down-austria.html.ru: down.adp ../../default-master.adp ../../site-master.adp ..
 
 down-austria.var: gen_makefile.conf
 	echo > down-austria.var
+	echo 'URI: down-austria.html.bg' >> down-austria.var
+	echo 'Content-language: bg' >> down-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-austria.var
+	echo >> down-austria.var
 	echo 'URI: down-austria.html.en' >> down-austria.var
 	echo 'Content-language: en' >> down-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-austria.var
@@ -945,6 +1053,8 @@ down-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-austria.var
 	echo >> down-austria.var
+i386-go32v2-austria.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-austria.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-austria.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-austria.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-austria.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -964,6 +1074,10 @@ i386-go32v2-austria.html.ru: i386-go32v2.adp ../../default-master.adp ../../site
 
 i386-go32v2-austria.var: gen_makefile.conf
 	echo > i386-go32v2-austria.var
+	echo 'URI: i386-go32v2-austria.html.bg' >> i386-go32v2-austria.var
+	echo 'Content-language: bg' >> i386-go32v2-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-austria.var
+	echo >> i386-go32v2-austria.var
 	echo 'URI: i386-go32v2-austria.html.en' >> i386-go32v2-austria.var
 	echo 'Content-language: en' >> i386-go32v2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-austria.var
@@ -996,6 +1110,8 @@ i386-go32v2-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-austria.var
 	echo >> i386-go32v2-austria.var
+i386-qnx-austria.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-austria.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-austria.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-austria.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-austria.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1015,6 +1131,10 @@ i386-qnx-austria.html.ru: i386-qnx.adp ../../default-master.adp ../../site-maste
 
 i386-qnx-austria.var: gen_makefile.conf
 	echo > i386-qnx-austria.var
+	echo 'URI: i386-qnx-austria.html.bg' >> i386-qnx-austria.var
+	echo 'Content-language: bg' >> i386-qnx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-austria.var
+	echo >> i386-qnx-austria.var
 	echo 'URI: i386-qnx-austria.html.en' >> i386-qnx-austria.var
 	echo 'Content-language: en' >> i386-qnx-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-austria.var
@@ -1047,6 +1167,8 @@ i386-qnx-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-austria.var
 	echo >> i386-qnx-austria.var
+m68k-amiga-austria.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-austria.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-austria.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-austria.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-austria.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1066,6 +1188,10 @@ m68k-amiga-austria.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-m
 
 m68k-amiga-austria.var: gen_makefile.conf
 	echo > m68k-amiga-austria.var
+	echo 'URI: m68k-amiga-austria.html.bg' >> m68k-amiga-austria.var
+	echo 'Content-language: bg' >> m68k-amiga-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-austria.var
+	echo >> m68k-amiga-austria.var
 	echo 'URI: m68k-amiga-austria.html.en' >> m68k-amiga-austria.var
 	echo 'Content-language: en' >> m68k-amiga-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-austria.var
@@ -1098,6 +1224,8 @@ m68k-amiga-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-austria.var
 	echo >> m68k-amiga-austria.var
+m68k-netbsd-austria.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-austria.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-austria.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-austria.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-austria.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1117,6 +1245,10 @@ m68k-netbsd-austria.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site
 
 m68k-netbsd-austria.var: gen_makefile.conf
 	echo > m68k-netbsd-austria.var
+	echo 'URI: m68k-netbsd-austria.html.bg' >> m68k-netbsd-austria.var
+	echo 'Content-language: bg' >> m68k-netbsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-austria.var
+	echo >> m68k-netbsd-austria.var
 	echo 'URI: m68k-netbsd-austria.html.en' >> m68k-netbsd-austria.var
 	echo 'Content-language: en' >> m68k-netbsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-austria.var
@@ -1149,6 +1281,8 @@ m68k-netbsd-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-austria.var
 	echo >> m68k-netbsd-austria.var
+docs-germany.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-germany.html.bg -oe iso-8859-5 docs.adp
 docs-germany.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-germany.html.en -oe iso-8859-1 docs.adp
 docs-germany.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1168,6 +1302,10 @@ docs-germany.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ..
 
 docs-germany.var: gen_makefile.conf
 	echo > docs-germany.var
+	echo 'URI: docs-germany.html.bg' >> docs-germany.var
+	echo 'Content-language: bg' >> docs-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-germany.var
+	echo >> docs-germany.var
 	echo 'URI: docs-germany.html.en' >> docs-germany.var
 	echo 'Content-language: en' >> docs-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
@@ -1200,6 +1338,8 @@ docs-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-germany.var
 	echo >> docs-germany.var
+i386-beos-germany.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-germany.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-germany.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-germany.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-germany.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1219,6 +1359,10 @@ i386-beos-germany.html.ru: i386-beos.adp ../../default-master.adp ../../site-mas
 
 i386-beos-germany.var: gen_makefile.conf
 	echo > i386-beos-germany.var
+	echo 'URI: i386-beos-germany.html.bg' >> i386-beos-germany.var
+	echo 'Content-language: bg' >> i386-beos-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-germany.var
+	echo >> i386-beos-germany.var
 	echo 'URI: i386-beos-germany.html.en' >> i386-beos-germany.var
 	echo 'Content-language: en' >> i386-beos-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-germany.var
@@ -1251,6 +1395,8 @@ i386-beos-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-germany.var
 	echo >> i386-beos-germany.var
+i386-emx-germany.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-germany.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-germany.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-germany.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-germany.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1270,6 +1416,10 @@ i386-emx-germany.html.ru: i386-emx.adp ../../default-master.adp ../../site-maste
 
 i386-emx-germany.var: gen_makefile.conf
 	echo > i386-emx-germany.var
+	echo 'URI: i386-emx-germany.html.bg' >> i386-emx-germany.var
+	echo 'Content-language: bg' >> i386-emx-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-germany.var
+	echo >> i386-emx-germany.var
 	echo 'URI: i386-emx-germany.html.en' >> i386-emx-germany.var
 	echo 'Content-language: en' >> i386-emx-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-germany.var
@@ -1302,6 +1452,8 @@ i386-emx-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-germany.var
 	echo >> i386-emx-germany.var
+i386-netbsd-germany.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-germany.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-germany.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-germany.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-germany.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1321,6 +1473,10 @@ i386-netbsd-germany.html.ru: i386-netbsd.adp ../../default-master.adp ../../site
 
 i386-netbsd-germany.var: gen_makefile.conf
 	echo > i386-netbsd-germany.var
+	echo 'URI: i386-netbsd-germany.html.bg' >> i386-netbsd-germany.var
+	echo 'Content-language: bg' >> i386-netbsd-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-germany.var
+	echo >> i386-netbsd-germany.var
 	echo 'URI: i386-netbsd-germany.html.en' >> i386-netbsd-germany.var
 	echo 'Content-language: en' >> i386-netbsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-germany.var
@@ -1353,6 +1509,8 @@ i386-netbsd-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-germany.var
 	echo >> i386-netbsd-germany.var
+i386-solaris-germany.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-germany.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-germany.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-germany.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-germany.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1372,6 +1530,10 @@ i386-solaris-germany.html.ru: i386-solaris.adp ../../default-master.adp ../../si
 
 i386-solaris-germany.var: gen_makefile.conf
 	echo > i386-solaris-germany.var
+	echo 'URI: i386-solaris-germany.html.bg' >> i386-solaris-germany.var
+	echo 'Content-language: bg' >> i386-solaris-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-germany.var
+	echo >> i386-solaris-germany.var
 	echo 'URI: i386-solaris-germany.html.en' >> i386-solaris-germany.var
 	echo 'Content-language: en' >> i386-solaris-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-germany.var
@@ -1404,6 +1566,8 @@ i386-solaris-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-germany.var
 	echo >> i386-solaris-germany.var
+m68k-linux-germany.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-germany.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-germany.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-germany.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-germany.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1423,6 +1587,10 @@ m68k-linux-germany.html.ru: m68k-linux.adp ../../default-master.adp ../../site-m
 
 m68k-linux-germany.var: gen_makefile.conf
 	echo > m68k-linux-germany.var
+	echo 'URI: m68k-linux-germany.html.bg' >> m68k-linux-germany.var
+	echo 'Content-language: bg' >> m68k-linux-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-germany.var
+	echo >> m68k-linux-germany.var
 	echo 'URI: m68k-linux-germany.html.en' >> m68k-linux-germany.var
 	echo 'Content-language: en' >> m68k-linux-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-germany.var
@@ -1455,6 +1623,8 @@ m68k-linux-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-germany.var
 	echo >> m68k-linux-germany.var
+down-germany.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-germany.html.bg -oe iso-8859-5 down.adp
 down-germany.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-germany.html.en -oe iso-8859-1 down.adp
 down-germany.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1474,6 +1644,10 @@ down-germany.html.ru: down.adp ../../default-master.adp ../../site-master.adp ..
 
 down-germany.var: gen_makefile.conf
 	echo > down-germany.var
+	echo 'URI: down-germany.html.bg' >> down-germany.var
+	echo 'Content-language: bg' >> down-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-germany.var
+	echo >> down-germany.var
 	echo 'URI: down-germany.html.en' >> down-germany.var
 	echo 'Content-language: en' >> down-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-germany.var
@@ -1506,6 +1680,8 @@ down-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-germany.var
 	echo >> down-germany.var
+i386-go32v2-germany.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-germany.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-germany.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-germany.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-germany.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1525,6 +1701,10 @@ i386-go32v2-germany.html.ru: i386-go32v2.adp ../../default-master.adp ../../site
 
 i386-go32v2-germany.var: gen_makefile.conf
 	echo > i386-go32v2-germany.var
+	echo 'URI: i386-go32v2-germany.html.bg' >> i386-go32v2-germany.var
+	echo 'Content-language: bg' >> i386-go32v2-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-germany.var
+	echo >> i386-go32v2-germany.var
 	echo 'URI: i386-go32v2-germany.html.en' >> i386-go32v2-germany.var
 	echo 'Content-language: en' >> i386-go32v2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-germany.var
@@ -1557,6 +1737,8 @@ i386-go32v2-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-germany.var
 	echo >> i386-go32v2-germany.var
+i386-qnx-germany.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-germany.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-germany.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-germany.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-germany.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1576,6 +1758,10 @@ i386-qnx-germany.html.ru: i386-qnx.adp ../../default-master.adp ../../site-maste
 
 i386-qnx-germany.var: gen_makefile.conf
 	echo > i386-qnx-germany.var
+	echo 'URI: i386-qnx-germany.html.bg' >> i386-qnx-germany.var
+	echo 'Content-language: bg' >> i386-qnx-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-germany.var
+	echo >> i386-qnx-germany.var
 	echo 'URI: i386-qnx-germany.html.en' >> i386-qnx-germany.var
 	echo 'Content-language: en' >> i386-qnx-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-germany.var
@@ -1608,6 +1794,8 @@ i386-qnx-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-germany.var
 	echo >> i386-qnx-germany.var
+m68k-amiga-germany.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-germany.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-germany.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-germany.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-germany.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1627,6 +1815,10 @@ m68k-amiga-germany.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-m
 
 m68k-amiga-germany.var: gen_makefile.conf
 	echo > m68k-amiga-germany.var
+	echo 'URI: m68k-amiga-germany.html.bg' >> m68k-amiga-germany.var
+	echo 'Content-language: bg' >> m68k-amiga-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-germany.var
+	echo >> m68k-amiga-germany.var
 	echo 'URI: m68k-amiga-germany.html.en' >> m68k-amiga-germany.var
 	echo 'Content-language: en' >> m68k-amiga-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-germany.var
@@ -1659,6 +1851,8 @@ m68k-amiga-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-germany.var
 	echo >> m68k-amiga-germany.var
+m68k-netbsd-germany.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-germany.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-germany.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-germany.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-germany.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1678,6 +1872,10 @@ m68k-netbsd-germany.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site
 
 m68k-netbsd-germany.var: gen_makefile.conf
 	echo > m68k-netbsd-germany.var
+	echo 'URI: m68k-netbsd-germany.html.bg' >> m68k-netbsd-germany.var
+	echo 'Content-language: bg' >> m68k-netbsd-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-germany.var
+	echo >> m68k-netbsd-germany.var
 	echo 'URI: m68k-netbsd-germany.html.en' >> m68k-netbsd-germany.var
 	echo 'Content-language: en' >> m68k-netbsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-germany.var
@@ -1710,6 +1908,8 @@ m68k-netbsd-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-germany.var
 	echo >> m68k-netbsd-germany.var
+docs-hungary.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-hungary.html.bg -oe iso-8859-5 docs.adp
 docs-hungary.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-hungary.html.en -oe iso-8859-1 docs.adp
 docs-hungary.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1729,6 +1929,10 @@ docs-hungary.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ..
 
 docs-hungary.var: gen_makefile.conf
 	echo > docs-hungary.var
+	echo 'URI: docs-hungary.html.bg' >> docs-hungary.var
+	echo 'Content-language: bg' >> docs-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-hungary.var
+	echo >> docs-hungary.var
 	echo 'URI: docs-hungary.html.en' >> docs-hungary.var
 	echo 'Content-language: en' >> docs-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-hungary.var
@@ -1761,6 +1965,8 @@ docs-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-hungary.var
 	echo >> docs-hungary.var
+i386-beos-hungary.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-hungary.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-hungary.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-hungary.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-hungary.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1780,6 +1986,10 @@ i386-beos-hungary.html.ru: i386-beos.adp ../../default-master.adp ../../site-mas
 
 i386-beos-hungary.var: gen_makefile.conf
 	echo > i386-beos-hungary.var
+	echo 'URI: i386-beos-hungary.html.bg' >> i386-beos-hungary.var
+	echo 'Content-language: bg' >> i386-beos-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-hungary.var
+	echo >> i386-beos-hungary.var
 	echo 'URI: i386-beos-hungary.html.en' >> i386-beos-hungary.var
 	echo 'Content-language: en' >> i386-beos-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-hungary.var
@@ -1812,6 +2022,8 @@ i386-beos-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-hungary.var
 	echo >> i386-beos-hungary.var
+i386-emx-hungary.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-hungary.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-hungary.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-hungary.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-hungary.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1831,6 +2043,10 @@ i386-emx-hungary.html.ru: i386-emx.adp ../../default-master.adp ../../site-maste
 
 i386-emx-hungary.var: gen_makefile.conf
 	echo > i386-emx-hungary.var
+	echo 'URI: i386-emx-hungary.html.bg' >> i386-emx-hungary.var
+	echo 'Content-language: bg' >> i386-emx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-hungary.var
+	echo >> i386-emx-hungary.var
 	echo 'URI: i386-emx-hungary.html.en' >> i386-emx-hungary.var
 	echo 'Content-language: en' >> i386-emx-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-hungary.var
@@ -1863,6 +2079,8 @@ i386-emx-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-hungary.var
 	echo >> i386-emx-hungary.var
+i386-netbsd-hungary.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-hungary.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-hungary.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-hungary.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-hungary.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1882,6 +2100,10 @@ i386-netbsd-hungary.html.ru: i386-netbsd.adp ../../default-master.adp ../../site
 
 i386-netbsd-hungary.var: gen_makefile.conf
 	echo > i386-netbsd-hungary.var
+	echo 'URI: i386-netbsd-hungary.html.bg' >> i386-netbsd-hungary.var
+	echo 'Content-language: bg' >> i386-netbsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-hungary.var
+	echo >> i386-netbsd-hungary.var
 	echo 'URI: i386-netbsd-hungary.html.en' >> i386-netbsd-hungary.var
 	echo 'Content-language: en' >> i386-netbsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-hungary.var
@@ -1914,6 +2136,8 @@ i386-netbsd-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-hungary.var
 	echo >> i386-netbsd-hungary.var
+i386-solaris-hungary.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-hungary.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-hungary.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-hungary.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-hungary.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1933,6 +2157,10 @@ i386-solaris-hungary.html.ru: i386-solaris.adp ../../default-master.adp ../../si
 
 i386-solaris-hungary.var: gen_makefile.conf
 	echo > i386-solaris-hungary.var
+	echo 'URI: i386-solaris-hungary.html.bg' >> i386-solaris-hungary.var
+	echo 'Content-language: bg' >> i386-solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-hungary.var
+	echo >> i386-solaris-hungary.var
 	echo 'URI: i386-solaris-hungary.html.en' >> i386-solaris-hungary.var
 	echo 'Content-language: en' >> i386-solaris-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-hungary.var
@@ -1965,6 +2193,8 @@ i386-solaris-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-hungary.var
 	echo >> i386-solaris-hungary.var
+m68k-linux-hungary.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-hungary.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-hungary.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-hungary.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-hungary.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1984,6 +2214,10 @@ m68k-linux-hungary.html.ru: m68k-linux.adp ../../default-master.adp ../../site-m
 
 m68k-linux-hungary.var: gen_makefile.conf
 	echo > m68k-linux-hungary.var
+	echo 'URI: m68k-linux-hungary.html.bg' >> m68k-linux-hungary.var
+	echo 'Content-language: bg' >> m68k-linux-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-hungary.var
+	echo >> m68k-linux-hungary.var
 	echo 'URI: m68k-linux-hungary.html.en' >> m68k-linux-hungary.var
 	echo 'Content-language: en' >> m68k-linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-hungary.var
@@ -2016,6 +2250,8 @@ m68k-linux-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-hungary.var
 	echo >> m68k-linux-hungary.var
+down-hungary.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-hungary.html.bg -oe iso-8859-5 down.adp
 down-hungary.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-hungary.html.en -oe iso-8859-1 down.adp
 down-hungary.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2035,6 +2271,10 @@ down-hungary.html.ru: down.adp ../../default-master.adp ../../site-master.adp ..
 
 down-hungary.var: gen_makefile.conf
 	echo > down-hungary.var
+	echo 'URI: down-hungary.html.bg' >> down-hungary.var
+	echo 'Content-language: bg' >> down-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-hungary.var
+	echo >> down-hungary.var
 	echo 'URI: down-hungary.html.en' >> down-hungary.var
 	echo 'Content-language: en' >> down-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-hungary.var
@@ -2067,6 +2307,8 @@ down-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-hungary.var
 	echo >> down-hungary.var
+i386-go32v2-hungary.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-hungary.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-hungary.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-hungary.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-hungary.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2086,6 +2328,10 @@ i386-go32v2-hungary.html.ru: i386-go32v2.adp ../../default-master.adp ../../site
 
 i386-go32v2-hungary.var: gen_makefile.conf
 	echo > i386-go32v2-hungary.var
+	echo 'URI: i386-go32v2-hungary.html.bg' >> i386-go32v2-hungary.var
+	echo 'Content-language: bg' >> i386-go32v2-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-hungary.var
+	echo >> i386-go32v2-hungary.var
 	echo 'URI: i386-go32v2-hungary.html.en' >> i386-go32v2-hungary.var
 	echo 'Content-language: en' >> i386-go32v2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-hungary.var
@@ -2118,6 +2364,8 @@ i386-go32v2-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-hungary.var
 	echo >> i386-go32v2-hungary.var
+i386-qnx-hungary.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-hungary.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-hungary.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-hungary.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-hungary.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2137,6 +2385,10 @@ i386-qnx-hungary.html.ru: i386-qnx.adp ../../default-master.adp ../../site-maste
 
 i386-qnx-hungary.var: gen_makefile.conf
 	echo > i386-qnx-hungary.var
+	echo 'URI: i386-qnx-hungary.html.bg' >> i386-qnx-hungary.var
+	echo 'Content-language: bg' >> i386-qnx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-hungary.var
+	echo >> i386-qnx-hungary.var
 	echo 'URI: i386-qnx-hungary.html.en' >> i386-qnx-hungary.var
 	echo 'Content-language: en' >> i386-qnx-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-hungary.var
@@ -2169,6 +2421,8 @@ i386-qnx-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-hungary.var
 	echo >> i386-qnx-hungary.var
+m68k-amiga-hungary.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-hungary.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-hungary.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-hungary.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-hungary.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2188,6 +2442,10 @@ m68k-amiga-hungary.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-m
 
 m68k-amiga-hungary.var: gen_makefile.conf
 	echo > m68k-amiga-hungary.var
+	echo 'URI: m68k-amiga-hungary.html.bg' >> m68k-amiga-hungary.var
+	echo 'Content-language: bg' >> m68k-amiga-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-hungary.var
+	echo >> m68k-amiga-hungary.var
 	echo 'URI: m68k-amiga-hungary.html.en' >> m68k-amiga-hungary.var
 	echo 'Content-language: en' >> m68k-amiga-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-hungary.var
@@ -2220,6 +2478,8 @@ m68k-amiga-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-hungary.var
 	echo >> m68k-amiga-hungary.var
+m68k-netbsd-hungary.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-hungary.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-hungary.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-hungary.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-hungary.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2239,6 +2499,10 @@ m68k-netbsd-hungary.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site
 
 m68k-netbsd-hungary.var: gen_makefile.conf
 	echo > m68k-netbsd-hungary.var
+	echo 'URI: m68k-netbsd-hungary.html.bg' >> m68k-netbsd-hungary.var
+	echo 'Content-language: bg' >> m68k-netbsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-hungary.var
+	echo >> m68k-netbsd-hungary.var
 	echo 'URI: m68k-netbsd-hungary.html.en' >> m68k-netbsd-hungary.var
 	echo 'Content-language: en' >> m68k-netbsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-hungary.var
@@ -2271,6 +2535,8 @@ m68k-netbsd-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-hungary.var
 	echo >> m68k-netbsd-hungary.var
+docs-israel.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-israel.html.bg -oe iso-8859-5 docs.adp
 docs-israel.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-israel.html.en -oe iso-8859-1 docs.adp
 docs-israel.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2290,6 +2556,10 @@ docs-israel.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../
 
 docs-israel.var: gen_makefile.conf
 	echo > docs-israel.var
+	echo 'URI: docs-israel.html.bg' >> docs-israel.var
+	echo 'Content-language: bg' >> docs-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-israel.var
+	echo >> docs-israel.var
 	echo 'URI: docs-israel.html.en' >> docs-israel.var
 	echo 'Content-language: en' >> docs-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-israel.var
@@ -2322,6 +2592,8 @@ docs-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-israel.var
 	echo >> docs-israel.var
+i386-beos-israel.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-israel.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-israel.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-israel.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-israel.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2341,6 +2613,10 @@ i386-beos-israel.html.ru: i386-beos.adp ../../default-master.adp ../../site-mast
 
 i386-beos-israel.var: gen_makefile.conf
 	echo > i386-beos-israel.var
+	echo 'URI: i386-beos-israel.html.bg' >> i386-beos-israel.var
+	echo 'Content-language: bg' >> i386-beos-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-israel.var
+	echo >> i386-beos-israel.var
 	echo 'URI: i386-beos-israel.html.en' >> i386-beos-israel.var
 	echo 'Content-language: en' >> i386-beos-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-israel.var
@@ -2373,6 +2649,8 @@ i386-beos-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-israel.var
 	echo >> i386-beos-israel.var
+i386-emx-israel.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-israel.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-israel.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-israel.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-israel.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2392,6 +2670,10 @@ i386-emx-israel.html.ru: i386-emx.adp ../../default-master.adp ../../site-master
 
 i386-emx-israel.var: gen_makefile.conf
 	echo > i386-emx-israel.var
+	echo 'URI: i386-emx-israel.html.bg' >> i386-emx-israel.var
+	echo 'Content-language: bg' >> i386-emx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-israel.var
+	echo >> i386-emx-israel.var
 	echo 'URI: i386-emx-israel.html.en' >> i386-emx-israel.var
 	echo 'Content-language: en' >> i386-emx-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-israel.var
@@ -2424,6 +2706,8 @@ i386-emx-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-israel.var
 	echo >> i386-emx-israel.var
+i386-netbsd-israel.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-israel.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-israel.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-israel.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-israel.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2443,6 +2727,10 @@ i386-netbsd-israel.html.ru: i386-netbsd.adp ../../default-master.adp ../../site-
 
 i386-netbsd-israel.var: gen_makefile.conf
 	echo > i386-netbsd-israel.var
+	echo 'URI: i386-netbsd-israel.html.bg' >> i386-netbsd-israel.var
+	echo 'Content-language: bg' >> i386-netbsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-israel.var
+	echo >> i386-netbsd-israel.var
 	echo 'URI: i386-netbsd-israel.html.en' >> i386-netbsd-israel.var
 	echo 'Content-language: en' >> i386-netbsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-israel.var
@@ -2475,6 +2763,8 @@ i386-netbsd-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-israel.var
 	echo >> i386-netbsd-israel.var
+i386-solaris-israel.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-israel.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-israel.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-israel.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-israel.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2494,6 +2784,10 @@ i386-solaris-israel.html.ru: i386-solaris.adp ../../default-master.adp ../../sit
 
 i386-solaris-israel.var: gen_makefile.conf
 	echo > i386-solaris-israel.var
+	echo 'URI: i386-solaris-israel.html.bg' >> i386-solaris-israel.var
+	echo 'Content-language: bg' >> i386-solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-israel.var
+	echo >> i386-solaris-israel.var
 	echo 'URI: i386-solaris-israel.html.en' >> i386-solaris-israel.var
 	echo 'Content-language: en' >> i386-solaris-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-israel.var
@@ -2526,6 +2820,8 @@ i386-solaris-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-israel.var
 	echo >> i386-solaris-israel.var
+m68k-linux-israel.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-israel.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-israel.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-israel.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-israel.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2545,6 +2841,10 @@ m68k-linux-israel.html.ru: m68k-linux.adp ../../default-master.adp ../../site-ma
 
 m68k-linux-israel.var: gen_makefile.conf
 	echo > m68k-linux-israel.var
+	echo 'URI: m68k-linux-israel.html.bg' >> m68k-linux-israel.var
+	echo 'Content-language: bg' >> m68k-linux-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-israel.var
+	echo >> m68k-linux-israel.var
 	echo 'URI: m68k-linux-israel.html.en' >> m68k-linux-israel.var
 	echo 'Content-language: en' >> m68k-linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-israel.var
@@ -2577,6 +2877,8 @@ m68k-linux-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-israel.var
 	echo >> m68k-linux-israel.var
+down-israel.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-israel.html.bg -oe iso-8859-5 down.adp
 down-israel.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-israel.html.en -oe iso-8859-1 down.adp
 down-israel.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2596,6 +2898,10 @@ down-israel.html.ru: down.adp ../../default-master.adp ../../site-master.adp ../
 
 down-israel.var: gen_makefile.conf
 	echo > down-israel.var
+	echo 'URI: down-israel.html.bg' >> down-israel.var
+	echo 'Content-language: bg' >> down-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-israel.var
+	echo >> down-israel.var
 	echo 'URI: down-israel.html.en' >> down-israel.var
 	echo 'Content-language: en' >> down-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-israel.var
@@ -2628,6 +2934,8 @@ down-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-israel.var
 	echo >> down-israel.var
+i386-go32v2-israel.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-israel.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-israel.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-israel.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-israel.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2647,6 +2955,10 @@ i386-go32v2-israel.html.ru: i386-go32v2.adp ../../default-master.adp ../../site-
 
 i386-go32v2-israel.var: gen_makefile.conf
 	echo > i386-go32v2-israel.var
+	echo 'URI: i386-go32v2-israel.html.bg' >> i386-go32v2-israel.var
+	echo 'Content-language: bg' >> i386-go32v2-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-israel.var
+	echo >> i386-go32v2-israel.var
 	echo 'URI: i386-go32v2-israel.html.en' >> i386-go32v2-israel.var
 	echo 'Content-language: en' >> i386-go32v2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-israel.var
@@ -2679,6 +2991,8 @@ i386-go32v2-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-israel.var
 	echo >> i386-go32v2-israel.var
+i386-qnx-israel.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-israel.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-israel.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-israel.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-israel.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2698,6 +3012,10 @@ i386-qnx-israel.html.ru: i386-qnx.adp ../../default-master.adp ../../site-master
 
 i386-qnx-israel.var: gen_makefile.conf
 	echo > i386-qnx-israel.var
+	echo 'URI: i386-qnx-israel.html.bg' >> i386-qnx-israel.var
+	echo 'Content-language: bg' >> i386-qnx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-israel.var
+	echo >> i386-qnx-israel.var
 	echo 'URI: i386-qnx-israel.html.en' >> i386-qnx-israel.var
 	echo 'Content-language: en' >> i386-qnx-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-israel.var
@@ -2730,6 +3048,8 @@ i386-qnx-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-israel.var
 	echo >> i386-qnx-israel.var
+m68k-amiga-israel.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-israel.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-israel.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-israel.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-israel.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2749,6 +3069,10 @@ m68k-amiga-israel.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-ma
 
 m68k-amiga-israel.var: gen_makefile.conf
 	echo > m68k-amiga-israel.var
+	echo 'URI: m68k-amiga-israel.html.bg' >> m68k-amiga-israel.var
+	echo 'Content-language: bg' >> m68k-amiga-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-israel.var
+	echo >> m68k-amiga-israel.var
 	echo 'URI: m68k-amiga-israel.html.en' >> m68k-amiga-israel.var
 	echo 'Content-language: en' >> m68k-amiga-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-israel.var
@@ -2781,6 +3105,8 @@ m68k-amiga-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-israel.var
 	echo >> m68k-amiga-israel.var
+m68k-netbsd-israel.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-israel.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-israel.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-israel.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-israel.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2800,6 +3126,10 @@ m68k-netbsd-israel.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site-
 
 m68k-netbsd-israel.var: gen_makefile.conf
 	echo > m68k-netbsd-israel.var
+	echo 'URI: m68k-netbsd-israel.html.bg' >> m68k-netbsd-israel.var
+	echo 'Content-language: bg' >> m68k-netbsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-israel.var
+	echo >> m68k-netbsd-israel.var
 	echo 'URI: m68k-netbsd-israel.html.en' >> m68k-netbsd-israel.var
 	echo 'Content-language: en' >> m68k-netbsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-israel.var
@@ -2832,6 +3162,8 @@ m68k-netbsd-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-israel.var
 	echo >> m68k-netbsd-israel.var
+docs-netherlands.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-netherlands.html.bg -oe iso-8859-5 docs.adp
 docs-netherlands.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-netherlands.html.en -oe iso-8859-1 docs.adp
 docs-netherlands.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2851,6 +3183,10 @@ docs-netherlands.html.ru: docs.adp ../../default-master.adp ../../site-master.ad
 
 docs-netherlands.var: gen_makefile.conf
 	echo > docs-netherlands.var
+	echo 'URI: docs-netherlands.html.bg' >> docs-netherlands.var
+	echo 'Content-language: bg' >> docs-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-netherlands.var
+	echo >> docs-netherlands.var
 	echo 'URI: docs-netherlands.html.en' >> docs-netherlands.var
 	echo 'Content-language: en' >> docs-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-netherlands.var
@@ -2883,6 +3219,8 @@ docs-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-netherlands.var
 	echo >> docs-netherlands.var
+i386-beos-netherlands.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-netherlands.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-netherlands.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-netherlands.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-netherlands.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2902,6 +3240,10 @@ i386-beos-netherlands.html.ru: i386-beos.adp ../../default-master.adp ../../site
 
 i386-beos-netherlands.var: gen_makefile.conf
 	echo > i386-beos-netherlands.var
+	echo 'URI: i386-beos-netherlands.html.bg' >> i386-beos-netherlands.var
+	echo 'Content-language: bg' >> i386-beos-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-netherlands.var
+	echo >> i386-beos-netherlands.var
 	echo 'URI: i386-beos-netherlands.html.en' >> i386-beos-netherlands.var
 	echo 'Content-language: en' >> i386-beos-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-netherlands.var
@@ -2934,6 +3276,8 @@ i386-beos-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-netherlands.var
 	echo >> i386-beos-netherlands.var
+i386-emx-netherlands.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-netherlands.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-netherlands.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-netherlands.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-netherlands.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2953,6 +3297,10 @@ i386-emx-netherlands.html.ru: i386-emx.adp ../../default-master.adp ../../site-m
 
 i386-emx-netherlands.var: gen_makefile.conf
 	echo > i386-emx-netherlands.var
+	echo 'URI: i386-emx-netherlands.html.bg' >> i386-emx-netherlands.var
+	echo 'Content-language: bg' >> i386-emx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-netherlands.var
+	echo >> i386-emx-netherlands.var
 	echo 'URI: i386-emx-netherlands.html.en' >> i386-emx-netherlands.var
 	echo 'Content-language: en' >> i386-emx-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-netherlands.var
@@ -2985,6 +3333,8 @@ i386-emx-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-netherlands.var
 	echo >> i386-emx-netherlands.var
+i386-netbsd-netherlands.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-netherlands.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-netherlands.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-netherlands.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-netherlands.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3004,6 +3354,10 @@ i386-netbsd-netherlands.html.ru: i386-netbsd.adp ../../default-master.adp ../../
 
 i386-netbsd-netherlands.var: gen_makefile.conf
 	echo > i386-netbsd-netherlands.var
+	echo 'URI: i386-netbsd-netherlands.html.bg' >> i386-netbsd-netherlands.var
+	echo 'Content-language: bg' >> i386-netbsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-netherlands.var
+	echo >> i386-netbsd-netherlands.var
 	echo 'URI: i386-netbsd-netherlands.html.en' >> i386-netbsd-netherlands.var
 	echo 'Content-language: en' >> i386-netbsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-netherlands.var
@@ -3036,6 +3390,8 @@ i386-netbsd-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-netherlands.var
 	echo >> i386-netbsd-netherlands.var
+i386-solaris-netherlands.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-netherlands.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-netherlands.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-netherlands.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-netherlands.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3055,6 +3411,10 @@ i386-solaris-netherlands.html.ru: i386-solaris.adp ../../default-master.adp ../.
 
 i386-solaris-netherlands.var: gen_makefile.conf
 	echo > i386-solaris-netherlands.var
+	echo 'URI: i386-solaris-netherlands.html.bg' >> i386-solaris-netherlands.var
+	echo 'Content-language: bg' >> i386-solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-netherlands.var
+	echo >> i386-solaris-netherlands.var
 	echo 'URI: i386-solaris-netherlands.html.en' >> i386-solaris-netherlands.var
 	echo 'Content-language: en' >> i386-solaris-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-netherlands.var
@@ -3087,6 +3447,8 @@ i386-solaris-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-netherlands.var
 	echo >> i386-solaris-netherlands.var
+m68k-linux-netherlands.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-netherlands.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-netherlands.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-netherlands.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-netherlands.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3106,6 +3468,10 @@ m68k-linux-netherlands.html.ru: m68k-linux.adp ../../default-master.adp ../../si
 
 m68k-linux-netherlands.var: gen_makefile.conf
 	echo > m68k-linux-netherlands.var
+	echo 'URI: m68k-linux-netherlands.html.bg' >> m68k-linux-netherlands.var
+	echo 'Content-language: bg' >> m68k-linux-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-netherlands.var
+	echo >> m68k-linux-netherlands.var
 	echo 'URI: m68k-linux-netherlands.html.en' >> m68k-linux-netherlands.var
 	echo 'Content-language: en' >> m68k-linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-netherlands.var
@@ -3138,6 +3504,8 @@ m68k-linux-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-netherlands.var
 	echo >> m68k-linux-netherlands.var
+down-netherlands.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-netherlands.html.bg -oe iso-8859-5 down.adp
 down-netherlands.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-netherlands.html.en -oe iso-8859-1 down.adp
 down-netherlands.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3157,6 +3525,10 @@ down-netherlands.html.ru: down.adp ../../default-master.adp ../../site-master.ad
 
 down-netherlands.var: gen_makefile.conf
 	echo > down-netherlands.var
+	echo 'URI: down-netherlands.html.bg' >> down-netherlands.var
+	echo 'Content-language: bg' >> down-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-netherlands.var
+	echo >> down-netherlands.var
 	echo 'URI: down-netherlands.html.en' >> down-netherlands.var
 	echo 'Content-language: en' >> down-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-netherlands.var
@@ -3189,6 +3561,8 @@ down-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-netherlands.var
 	echo >> down-netherlands.var
+i386-go32v2-netherlands.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-netherlands.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-netherlands.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-netherlands.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-netherlands.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3208,6 +3582,10 @@ i386-go32v2-netherlands.html.ru: i386-go32v2.adp ../../default-master.adp ../../
 
 i386-go32v2-netherlands.var: gen_makefile.conf
 	echo > i386-go32v2-netherlands.var
+	echo 'URI: i386-go32v2-netherlands.html.bg' >> i386-go32v2-netherlands.var
+	echo 'Content-language: bg' >> i386-go32v2-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-netherlands.var
+	echo >> i386-go32v2-netherlands.var
 	echo 'URI: i386-go32v2-netherlands.html.en' >> i386-go32v2-netherlands.var
 	echo 'Content-language: en' >> i386-go32v2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-netherlands.var
@@ -3240,6 +3618,8 @@ i386-go32v2-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-netherlands.var
 	echo >> i386-go32v2-netherlands.var
+i386-qnx-netherlands.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-netherlands.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-netherlands.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-netherlands.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-netherlands.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3259,6 +3639,10 @@ i386-qnx-netherlands.html.ru: i386-qnx.adp ../../default-master.adp ../../site-m
 
 i386-qnx-netherlands.var: gen_makefile.conf
 	echo > i386-qnx-netherlands.var
+	echo 'URI: i386-qnx-netherlands.html.bg' >> i386-qnx-netherlands.var
+	echo 'Content-language: bg' >> i386-qnx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-netherlands.var
+	echo >> i386-qnx-netherlands.var
 	echo 'URI: i386-qnx-netherlands.html.en' >> i386-qnx-netherlands.var
 	echo 'Content-language: en' >> i386-qnx-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-netherlands.var
@@ -3291,6 +3675,8 @@ i386-qnx-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-netherlands.var
 	echo >> i386-qnx-netherlands.var
+m68k-amiga-netherlands.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-netherlands.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-netherlands.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-netherlands.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-netherlands.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3310,6 +3696,10 @@ m68k-amiga-netherlands.html.ru: m68k-amiga.adp ../../default-master.adp ../../si
 
 m68k-amiga-netherlands.var: gen_makefile.conf
 	echo > m68k-amiga-netherlands.var
+	echo 'URI: m68k-amiga-netherlands.html.bg' >> m68k-amiga-netherlands.var
+	echo 'Content-language: bg' >> m68k-amiga-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-netherlands.var
+	echo >> m68k-amiga-netherlands.var
 	echo 'URI: m68k-amiga-netherlands.html.en' >> m68k-amiga-netherlands.var
 	echo 'Content-language: en' >> m68k-amiga-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-netherlands.var
@@ -3342,6 +3732,8 @@ m68k-amiga-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-netherlands.var
 	echo >> m68k-amiga-netherlands.var
+m68k-netbsd-netherlands.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-netherlands.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-netherlands.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-netherlands.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-netherlands.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3361,6 +3753,10 @@ m68k-netbsd-netherlands.html.ru: m68k-netbsd.adp ../../default-master.adp ../../
 
 m68k-netbsd-netherlands.var: gen_makefile.conf
 	echo > m68k-netbsd-netherlands.var
+	echo 'URI: m68k-netbsd-netherlands.html.bg' >> m68k-netbsd-netherlands.var
+	echo 'Content-language: bg' >> m68k-netbsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-netherlands.var
+	echo >> m68k-netbsd-netherlands.var
 	echo 'URI: m68k-netbsd-netherlands.html.en' >> m68k-netbsd-netherlands.var
 	echo 'Content-language: en' >> m68k-netbsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-netherlands.var
@@ -3393,6 +3789,8 @@ m68k-netbsd-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-netherlands.var
 	echo >> m68k-netbsd-netherlands.var
+docs-norway.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-norway.html.bg -oe iso-8859-5 docs.adp
 docs-norway.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-norway.html.en -oe iso-8859-1 docs.adp
 docs-norway.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3412,6 +3810,10 @@ docs-norway.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../
 
 docs-norway.var: gen_makefile.conf
 	echo > docs-norway.var
+	echo 'URI: docs-norway.html.bg' >> docs-norway.var
+	echo 'Content-language: bg' >> docs-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-norway.var
+	echo >> docs-norway.var
 	echo 'URI: docs-norway.html.en' >> docs-norway.var
 	echo 'Content-language: en' >> docs-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-norway.var
@@ -3444,6 +3846,8 @@ docs-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-norway.var
 	echo >> docs-norway.var
+i386-beos-norway.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-norway.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-norway.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-norway.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-norway.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3463,6 +3867,10 @@ i386-beos-norway.html.ru: i386-beos.adp ../../default-master.adp ../../site-mast
 
 i386-beos-norway.var: gen_makefile.conf
 	echo > i386-beos-norway.var
+	echo 'URI: i386-beos-norway.html.bg' >> i386-beos-norway.var
+	echo 'Content-language: bg' >> i386-beos-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-norway.var
+	echo >> i386-beos-norway.var
 	echo 'URI: i386-beos-norway.html.en' >> i386-beos-norway.var
 	echo 'Content-language: en' >> i386-beos-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-norway.var
@@ -3495,6 +3903,8 @@ i386-beos-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-norway.var
 	echo >> i386-beos-norway.var
+i386-emx-norway.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-norway.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-norway.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-norway.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-norway.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3514,6 +3924,10 @@ i386-emx-norway.html.ru: i386-emx.adp ../../default-master.adp ../../site-master
 
 i386-emx-norway.var: gen_makefile.conf
 	echo > i386-emx-norway.var
+	echo 'URI: i386-emx-norway.html.bg' >> i386-emx-norway.var
+	echo 'Content-language: bg' >> i386-emx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-norway.var
+	echo >> i386-emx-norway.var
 	echo 'URI: i386-emx-norway.html.en' >> i386-emx-norway.var
 	echo 'Content-language: en' >> i386-emx-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-norway.var
@@ -3546,6 +3960,8 @@ i386-emx-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-norway.var
 	echo >> i386-emx-norway.var
+i386-netbsd-norway.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-norway.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-norway.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-norway.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-norway.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3565,6 +3981,10 @@ i386-netbsd-norway.html.ru: i386-netbsd.adp ../../default-master.adp ../../site-
 
 i386-netbsd-norway.var: gen_makefile.conf
 	echo > i386-netbsd-norway.var
+	echo 'URI: i386-netbsd-norway.html.bg' >> i386-netbsd-norway.var
+	echo 'Content-language: bg' >> i386-netbsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-norway.var
+	echo >> i386-netbsd-norway.var
 	echo 'URI: i386-netbsd-norway.html.en' >> i386-netbsd-norway.var
 	echo 'Content-language: en' >> i386-netbsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-norway.var
@@ -3597,6 +4017,8 @@ i386-netbsd-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-norway.var
 	echo >> i386-netbsd-norway.var
+i386-solaris-norway.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-norway.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-norway.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-norway.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-norway.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3616,6 +4038,10 @@ i386-solaris-norway.html.ru: i386-solaris.adp ../../default-master.adp ../../sit
 
 i386-solaris-norway.var: gen_makefile.conf
 	echo > i386-solaris-norway.var
+	echo 'URI: i386-solaris-norway.html.bg' >> i386-solaris-norway.var
+	echo 'Content-language: bg' >> i386-solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-norway.var
+	echo >> i386-solaris-norway.var
 	echo 'URI: i386-solaris-norway.html.en' >> i386-solaris-norway.var
 	echo 'Content-language: en' >> i386-solaris-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-norway.var
@@ -3648,6 +4074,8 @@ i386-solaris-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-norway.var
 	echo >> i386-solaris-norway.var
+m68k-linux-norway.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-norway.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-norway.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-norway.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-norway.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3667,6 +4095,10 @@ m68k-linux-norway.html.ru: m68k-linux.adp ../../default-master.adp ../../site-ma
 
 m68k-linux-norway.var: gen_makefile.conf
 	echo > m68k-linux-norway.var
+	echo 'URI: m68k-linux-norway.html.bg' >> m68k-linux-norway.var
+	echo 'Content-language: bg' >> m68k-linux-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-norway.var
+	echo >> m68k-linux-norway.var
 	echo 'URI: m68k-linux-norway.html.en' >> m68k-linux-norway.var
 	echo 'Content-language: en' >> m68k-linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-norway.var
@@ -3699,6 +4131,8 @@ m68k-linux-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-norway.var
 	echo >> m68k-linux-norway.var
+down-norway.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-norway.html.bg -oe iso-8859-5 down.adp
 down-norway.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-norway.html.en -oe iso-8859-1 down.adp
 down-norway.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3718,6 +4152,10 @@ down-norway.html.ru: down.adp ../../default-master.adp ../../site-master.adp ../
 
 down-norway.var: gen_makefile.conf
 	echo > down-norway.var
+	echo 'URI: down-norway.html.bg' >> down-norway.var
+	echo 'Content-language: bg' >> down-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-norway.var
+	echo >> down-norway.var
 	echo 'URI: down-norway.html.en' >> down-norway.var
 	echo 'Content-language: en' >> down-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-norway.var
@@ -3750,6 +4188,8 @@ down-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-norway.var
 	echo >> down-norway.var
+i386-go32v2-norway.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-norway.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-norway.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-norway.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-norway.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3769,6 +4209,10 @@ i386-go32v2-norway.html.ru: i386-go32v2.adp ../../default-master.adp ../../site-
 
 i386-go32v2-norway.var: gen_makefile.conf
 	echo > i386-go32v2-norway.var
+	echo 'URI: i386-go32v2-norway.html.bg' >> i386-go32v2-norway.var
+	echo 'Content-language: bg' >> i386-go32v2-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-norway.var
+	echo >> i386-go32v2-norway.var
 	echo 'URI: i386-go32v2-norway.html.en' >> i386-go32v2-norway.var
 	echo 'Content-language: en' >> i386-go32v2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-norway.var
@@ -3801,6 +4245,8 @@ i386-go32v2-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-norway.var
 	echo >> i386-go32v2-norway.var
+i386-qnx-norway.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-norway.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-norway.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-norway.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-norway.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3820,6 +4266,10 @@ i386-qnx-norway.html.ru: i386-qnx.adp ../../default-master.adp ../../site-master
 
 i386-qnx-norway.var: gen_makefile.conf
 	echo > i386-qnx-norway.var
+	echo 'URI: i386-qnx-norway.html.bg' >> i386-qnx-norway.var
+	echo 'Content-language: bg' >> i386-qnx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-norway.var
+	echo >> i386-qnx-norway.var
 	echo 'URI: i386-qnx-norway.html.en' >> i386-qnx-norway.var
 	echo 'Content-language: en' >> i386-qnx-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-norway.var
@@ -3852,6 +4302,8 @@ i386-qnx-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-norway.var
 	echo >> i386-qnx-norway.var
+m68k-amiga-norway.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-norway.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-norway.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-norway.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-norway.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3871,6 +4323,10 @@ m68k-amiga-norway.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-ma
 
 m68k-amiga-norway.var: gen_makefile.conf
 	echo > m68k-amiga-norway.var
+	echo 'URI: m68k-amiga-norway.html.bg' >> m68k-amiga-norway.var
+	echo 'Content-language: bg' >> m68k-amiga-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-norway.var
+	echo >> m68k-amiga-norway.var
 	echo 'URI: m68k-amiga-norway.html.en' >> m68k-amiga-norway.var
 	echo 'Content-language: en' >> m68k-amiga-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-norway.var
@@ -3903,6 +4359,8 @@ m68k-amiga-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-norway.var
 	echo >> m68k-amiga-norway.var
+m68k-netbsd-norway.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-norway.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-norway.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-norway.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-norway.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3922,6 +4380,10 @@ m68k-netbsd-norway.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site-
 
 m68k-netbsd-norway.var: gen_makefile.conf
 	echo > m68k-netbsd-norway.var
+	echo 'URI: m68k-netbsd-norway.html.bg' >> m68k-netbsd-norway.var
+	echo 'Content-language: bg' >> m68k-netbsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-norway.var
+	echo >> m68k-netbsd-norway.var
 	echo 'URI: m68k-netbsd-norway.html.en' >> m68k-netbsd-norway.var
 	echo 'Content-language: en' >> m68k-netbsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-norway.var
@@ -3954,6 +4416,8 @@ m68k-netbsd-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-norway.var
 	echo >> m68k-netbsd-norway.var
+docs-russia.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-russia.html.bg -oe iso-8859-5 docs.adp
 docs-russia.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-russia.html.en -oe iso-8859-1 docs.adp
 docs-russia.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -3973,6 +4437,10 @@ docs-russia.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../
 
 docs-russia.var: gen_makefile.conf
 	echo > docs-russia.var
+	echo 'URI: docs-russia.html.bg' >> docs-russia.var
+	echo 'Content-language: bg' >> docs-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-russia.var
+	echo >> docs-russia.var
 	echo 'URI: docs-russia.html.en' >> docs-russia.var
 	echo 'Content-language: en' >> docs-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-russia.var
@@ -4005,6 +4473,8 @@ docs-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-russia.var
 	echo >> docs-russia.var
+i386-beos-russia.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-russia.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-russia.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-russia.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-russia.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4024,6 +4494,10 @@ i386-beos-russia.html.ru: i386-beos.adp ../../default-master.adp ../../site-mast
 
 i386-beos-russia.var: gen_makefile.conf
 	echo > i386-beos-russia.var
+	echo 'URI: i386-beos-russia.html.bg' >> i386-beos-russia.var
+	echo 'Content-language: bg' >> i386-beos-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-russia.var
+	echo >> i386-beos-russia.var
 	echo 'URI: i386-beos-russia.html.en' >> i386-beos-russia.var
 	echo 'Content-language: en' >> i386-beos-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-russia.var
@@ -4056,6 +4530,8 @@ i386-beos-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-russia.var
 	echo >> i386-beos-russia.var
+i386-emx-russia.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-russia.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-russia.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-russia.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-russia.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4075,6 +4551,10 @@ i386-emx-russia.html.ru: i386-emx.adp ../../default-master.adp ../../site-master
 
 i386-emx-russia.var: gen_makefile.conf
 	echo > i386-emx-russia.var
+	echo 'URI: i386-emx-russia.html.bg' >> i386-emx-russia.var
+	echo 'Content-language: bg' >> i386-emx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-russia.var
+	echo >> i386-emx-russia.var
 	echo 'URI: i386-emx-russia.html.en' >> i386-emx-russia.var
 	echo 'Content-language: en' >> i386-emx-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-russia.var
@@ -4107,6 +4587,8 @@ i386-emx-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-russia.var
 	echo >> i386-emx-russia.var
+i386-netbsd-russia.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-russia.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-russia.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-russia.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-russia.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4126,6 +4608,10 @@ i386-netbsd-russia.html.ru: i386-netbsd.adp ../../default-master.adp ../../site-
 
 i386-netbsd-russia.var: gen_makefile.conf
 	echo > i386-netbsd-russia.var
+	echo 'URI: i386-netbsd-russia.html.bg' >> i386-netbsd-russia.var
+	echo 'Content-language: bg' >> i386-netbsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-russia.var
+	echo >> i386-netbsd-russia.var
 	echo 'URI: i386-netbsd-russia.html.en' >> i386-netbsd-russia.var
 	echo 'Content-language: en' >> i386-netbsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-russia.var
@@ -4158,6 +4644,8 @@ i386-netbsd-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-russia.var
 	echo >> i386-netbsd-russia.var
+i386-solaris-russia.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-russia.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-russia.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-russia.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-russia.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4177,6 +4665,10 @@ i386-solaris-russia.html.ru: i386-solaris.adp ../../default-master.adp ../../sit
 
 i386-solaris-russia.var: gen_makefile.conf
 	echo > i386-solaris-russia.var
+	echo 'URI: i386-solaris-russia.html.bg' >> i386-solaris-russia.var
+	echo 'Content-language: bg' >> i386-solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-russia.var
+	echo >> i386-solaris-russia.var
 	echo 'URI: i386-solaris-russia.html.en' >> i386-solaris-russia.var
 	echo 'Content-language: en' >> i386-solaris-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-russia.var
@@ -4209,6 +4701,8 @@ i386-solaris-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-russia.var
 	echo >> i386-solaris-russia.var
+m68k-linux-russia.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-russia.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-russia.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-russia.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-russia.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4228,6 +4722,10 @@ m68k-linux-russia.html.ru: m68k-linux.adp ../../default-master.adp ../../site-ma
 
 m68k-linux-russia.var: gen_makefile.conf
 	echo > m68k-linux-russia.var
+	echo 'URI: m68k-linux-russia.html.bg' >> m68k-linux-russia.var
+	echo 'Content-language: bg' >> m68k-linux-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-russia.var
+	echo >> m68k-linux-russia.var
 	echo 'URI: m68k-linux-russia.html.en' >> m68k-linux-russia.var
 	echo 'Content-language: en' >> m68k-linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-russia.var
@@ -4260,6 +4758,8 @@ m68k-linux-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-russia.var
 	echo >> m68k-linux-russia.var
+down-russia.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-russia.html.bg -oe iso-8859-5 down.adp
 down-russia.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-russia.html.en -oe iso-8859-1 down.adp
 down-russia.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4279,6 +4779,10 @@ down-russia.html.ru: down.adp ../../default-master.adp ../../site-master.adp ../
 
 down-russia.var: gen_makefile.conf
 	echo > down-russia.var
+	echo 'URI: down-russia.html.bg' >> down-russia.var
+	echo 'Content-language: bg' >> down-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-russia.var
+	echo >> down-russia.var
 	echo 'URI: down-russia.html.en' >> down-russia.var
 	echo 'Content-language: en' >> down-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-russia.var
@@ -4311,6 +4815,8 @@ down-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-russia.var
 	echo >> down-russia.var
+i386-go32v2-russia.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-russia.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-russia.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-russia.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-russia.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4330,6 +4836,10 @@ i386-go32v2-russia.html.ru: i386-go32v2.adp ../../default-master.adp ../../site-
 
 i386-go32v2-russia.var: gen_makefile.conf
 	echo > i386-go32v2-russia.var
+	echo 'URI: i386-go32v2-russia.html.bg' >> i386-go32v2-russia.var
+	echo 'Content-language: bg' >> i386-go32v2-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-russia.var
+	echo >> i386-go32v2-russia.var
 	echo 'URI: i386-go32v2-russia.html.en' >> i386-go32v2-russia.var
 	echo 'Content-language: en' >> i386-go32v2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-russia.var
@@ -4362,6 +4872,8 @@ i386-go32v2-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-russia.var
 	echo >> i386-go32v2-russia.var
+i386-qnx-russia.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-russia.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-russia.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-russia.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-russia.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4381,6 +4893,10 @@ i386-qnx-russia.html.ru: i386-qnx.adp ../../default-master.adp ../../site-master
 
 i386-qnx-russia.var: gen_makefile.conf
 	echo > i386-qnx-russia.var
+	echo 'URI: i386-qnx-russia.html.bg' >> i386-qnx-russia.var
+	echo 'Content-language: bg' >> i386-qnx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-russia.var
+	echo >> i386-qnx-russia.var
 	echo 'URI: i386-qnx-russia.html.en' >> i386-qnx-russia.var
 	echo 'Content-language: en' >> i386-qnx-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-russia.var
@@ -4413,6 +4929,8 @@ i386-qnx-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-russia.var
 	echo >> i386-qnx-russia.var
+m68k-amiga-russia.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-russia.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-russia.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-russia.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-russia.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4432,6 +4950,10 @@ m68k-amiga-russia.html.ru: m68k-amiga.adp ../../default-master.adp ../../site-ma
 
 m68k-amiga-russia.var: gen_makefile.conf
 	echo > m68k-amiga-russia.var
+	echo 'URI: m68k-amiga-russia.html.bg' >> m68k-amiga-russia.var
+	echo 'Content-language: bg' >> m68k-amiga-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-russia.var
+	echo >> m68k-amiga-russia.var
 	echo 'URI: m68k-amiga-russia.html.en' >> m68k-amiga-russia.var
 	echo 'Content-language: en' >> m68k-amiga-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-russia.var
@@ -4464,6 +4986,8 @@ m68k-amiga-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-russia.var
 	echo >> m68k-amiga-russia.var
+m68k-netbsd-russia.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-russia.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-russia.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-russia.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-russia.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4483,6 +5007,10 @@ m68k-netbsd-russia.html.ru: m68k-netbsd.adp ../../default-master.adp ../../site-
 
 m68k-netbsd-russia.var: gen_makefile.conf
 	echo > m68k-netbsd-russia.var
+	echo 'URI: m68k-netbsd-russia.html.bg' >> m68k-netbsd-russia.var
+	echo 'Content-language: bg' >> m68k-netbsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-russia.var
+	echo >> m68k-netbsd-russia.var
 	echo 'URI: m68k-netbsd-russia.html.en' >> m68k-netbsd-russia.var
 	echo 'Content-language: en' >> m68k-netbsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-russia.var
@@ -4515,6 +5043,8 @@ m68k-netbsd-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-netbsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-russia.var
 	echo >> m68k-netbsd-russia.var
+docs-ftp.freepascal.org.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs-ftp.freepascal.org.html.bg -oe iso-8859-5 docs.adp
 docs-ftp.freepascal.org.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs-ftp.freepascal.org.html.en -oe iso-8859-1 docs.adp
 docs-ftp.freepascal.org.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4534,6 +5064,10 @@ docs-ftp.freepascal.org.html.ru: docs.adp ../../default-master.adp ../../site-ma
 
 docs-ftp.freepascal.org.var: gen_makefile.conf
 	echo > docs-ftp.freepascal.org.var
+	echo 'URI: docs-ftp.freepascal.org.html.bg' >> docs-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> docs-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-ftp.freepascal.org.var
+	echo >> docs-ftp.freepascal.org.var
 	echo 'URI: docs-ftp.freepascal.org.html.en' >> docs-ftp.freepascal.org.var
 	echo 'Content-language: en' >> docs-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
@@ -4566,6 +5100,8 @@ docs-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-ftp.freepascal.org.var
 	echo >> docs-ftp.freepascal.org.var
+i386-beos-ftp.freepascal.org.html.bg: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-beos.adp
 i386-beos-ftp.freepascal.org.html.en: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos-ftp.freepascal.org.html.en -oe iso-8859-1 i386-beos.adp
 i386-beos-ftp.freepascal.org.html.fr: i386-beos.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4585,6 +5121,10 @@ i386-beos-ftp.freepascal.org.html.ru: i386-beos.adp ../../default-master.adp ../
 
 i386-beos-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-beos-ftp.freepascal.org.var
+	echo 'URI: i386-beos-ftp.freepascal.org.html.bg' >> i386-beos-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-beos-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-ftp.freepascal.org.var
+	echo >> i386-beos-ftp.freepascal.org.var
 	echo 'URI: i386-beos-ftp.freepascal.org.html.en' >> i386-beos-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-beos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos-ftp.freepascal.org.var
@@ -4617,6 +5157,8 @@ i386-beos-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-beos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos-ftp.freepascal.org.var
 	echo >> i386-beos-ftp.freepascal.org.var
+i386-emx-ftp.freepascal.org.html.bg: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-emx.adp
 i386-emx-ftp.freepascal.org.html.en: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx-ftp.freepascal.org.html.en -oe iso-8859-1 i386-emx.adp
 i386-emx-ftp.freepascal.org.html.fr: i386-emx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4636,6 +5178,10 @@ i386-emx-ftp.freepascal.org.html.ru: i386-emx.adp ../../default-master.adp ../..
 
 i386-emx-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-emx-ftp.freepascal.org.var
+	echo 'URI: i386-emx-ftp.freepascal.org.html.bg' >> i386-emx-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-emx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-ftp.freepascal.org.var
+	echo >> i386-emx-ftp.freepascal.org.var
 	echo 'URI: i386-emx-ftp.freepascal.org.html.en' >> i386-emx-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-emx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx-ftp.freepascal.org.var
@@ -4668,6 +5214,8 @@ i386-emx-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-emx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx-ftp.freepascal.org.var
 	echo >> i386-emx-ftp.freepascal.org.var
+i386-netbsd-ftp.freepascal.org.html.bg: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-netbsd.adp
 i386-netbsd-ftp.freepascal.org.html.en: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd-ftp.freepascal.org.html.en -oe iso-8859-1 i386-netbsd.adp
 i386-netbsd-ftp.freepascal.org.html.fr: i386-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4687,6 +5235,10 @@ i386-netbsd-ftp.freepascal.org.html.ru: i386-netbsd.adp ../../default-master.adp
 
 i386-netbsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-netbsd-ftp.freepascal.org.var
+	echo 'URI: i386-netbsd-ftp.freepascal.org.html.bg' >> i386-netbsd-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-netbsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-ftp.freepascal.org.var
+	echo >> i386-netbsd-ftp.freepascal.org.var
 	echo 'URI: i386-netbsd-ftp.freepascal.org.html.en' >> i386-netbsd-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-netbsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd-ftp.freepascal.org.var
@@ -4719,6 +5271,8 @@ i386-netbsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-netbsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd-ftp.freepascal.org.var
 	echo >> i386-netbsd-ftp.freepascal.org.var
+i386-solaris-ftp.freepascal.org.html.bg: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-solaris.adp
 i386-solaris-ftp.freepascal.org.html.en: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris-ftp.freepascal.org.html.en -oe iso-8859-1 i386-solaris.adp
 i386-solaris-ftp.freepascal.org.html.fr: i386-solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4738,6 +5292,10 @@ i386-solaris-ftp.freepascal.org.html.ru: i386-solaris.adp ../../default-master.a
 
 i386-solaris-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-solaris-ftp.freepascal.org.var
+	echo 'URI: i386-solaris-ftp.freepascal.org.html.bg' >> i386-solaris-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-ftp.freepascal.org.var
+	echo >> i386-solaris-ftp.freepascal.org.var
 	echo 'URI: i386-solaris-ftp.freepascal.org.html.en' >> i386-solaris-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-solaris-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris-ftp.freepascal.org.var
@@ -4770,6 +5328,8 @@ i386-solaris-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-solaris-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris-ftp.freepascal.org.var
 	echo >> i386-solaris-ftp.freepascal.org.var
+m68k-linux-ftp.freepascal.org.html.bg: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux-ftp.freepascal.org.html.bg -oe iso-8859-5 m68k-linux.adp
 m68k-linux-ftp.freepascal.org.html.en: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux-ftp.freepascal.org.html.en -oe iso-8859-1 m68k-linux.adp
 m68k-linux-ftp.freepascal.org.html.fr: m68k-linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4789,6 +5349,10 @@ m68k-linux-ftp.freepascal.org.html.ru: m68k-linux.adp ../../default-master.adp .
 
 m68k-linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo > m68k-linux-ftp.freepascal.org.var
+	echo 'URI: m68k-linux-ftp.freepascal.org.html.bg' >> m68k-linux-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> m68k-linux-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-ftp.freepascal.org.var
+	echo >> m68k-linux-ftp.freepascal.org.var
 	echo 'URI: m68k-linux-ftp.freepascal.org.html.en' >> m68k-linux-ftp.freepascal.org.var
 	echo 'Content-language: en' >> m68k-linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux-ftp.freepascal.org.var
@@ -4821,6 +5385,8 @@ m68k-linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux-ftp.freepascal.org.var
 	echo >> m68k-linux-ftp.freepascal.org.var
+down-ftp.freepascal.org.html.bg: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down-ftp.freepascal.org.html.bg -oe iso-8859-5 down.adp
 down-ftp.freepascal.org.html.en: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down-ftp.freepascal.org.html.en -oe iso-8859-1 down.adp
 down-ftp.freepascal.org.html.fr: down.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4840,6 +5406,10 @@ down-ftp.freepascal.org.html.ru: down.adp ../../default-master.adp ../../site-ma
 
 down-ftp.freepascal.org.var: gen_makefile.conf
 	echo > down-ftp.freepascal.org.var
+	echo 'URI: down-ftp.freepascal.org.html.bg' >> down-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> down-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down-ftp.freepascal.org.var
+	echo >> down-ftp.freepascal.org.var
 	echo 'URI: down-ftp.freepascal.org.html.en' >> down-ftp.freepascal.org.var
 	echo 'Content-language: en' >> down-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down-ftp.freepascal.org.var
@@ -4872,6 +5442,8 @@ down-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> down-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down-ftp.freepascal.org.var
 	echo >> down-ftp.freepascal.org.var
+i386-go32v2-ftp.freepascal.org.html.bg: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-go32v2.adp
 i386-go32v2-ftp.freepascal.org.html.en: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2-ftp.freepascal.org.html.en -oe iso-8859-1 i386-go32v2.adp
 i386-go32v2-ftp.freepascal.org.html.fr: i386-go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4891,6 +5463,10 @@ i386-go32v2-ftp.freepascal.org.html.ru: i386-go32v2.adp ../../default-master.adp
 
 i386-go32v2-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-go32v2-ftp.freepascal.org.var
+	echo 'URI: i386-go32v2-ftp.freepascal.org.html.bg' >> i386-go32v2-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-go32v2-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-ftp.freepascal.org.var
+	echo >> i386-go32v2-ftp.freepascal.org.var
 	echo 'URI: i386-go32v2-ftp.freepascal.org.html.en' >> i386-go32v2-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-go32v2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2-ftp.freepascal.org.var
@@ -4923,6 +5499,8 @@ i386-go32v2-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-go32v2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2-ftp.freepascal.org.var
 	echo >> i386-go32v2-ftp.freepascal.org.var
+i386-qnx-ftp.freepascal.org.html.bg: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx-ftp.freepascal.org.html.bg -oe iso-8859-5 i386-qnx.adp
 i386-qnx-ftp.freepascal.org.html.en: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx-ftp.freepascal.org.html.en -oe iso-8859-1 i386-qnx.adp
 i386-qnx-ftp.freepascal.org.html.fr: i386-qnx.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4942,6 +5520,10 @@ i386-qnx-ftp.freepascal.org.html.ru: i386-qnx.adp ../../default-master.adp ../..
 
 i386-qnx-ftp.freepascal.org.var: gen_makefile.conf
 	echo > i386-qnx-ftp.freepascal.org.var
+	echo 'URI: i386-qnx-ftp.freepascal.org.html.bg' >> i386-qnx-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> i386-qnx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-ftp.freepascal.org.var
+	echo >> i386-qnx-ftp.freepascal.org.var
 	echo 'URI: i386-qnx-ftp.freepascal.org.html.en' >> i386-qnx-ftp.freepascal.org.var
 	echo 'Content-language: en' >> i386-qnx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx-ftp.freepascal.org.var
@@ -4974,6 +5556,8 @@ i386-qnx-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> i386-qnx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx-ftp.freepascal.org.var
 	echo >> i386-qnx-ftp.freepascal.org.var
+m68k-amiga-ftp.freepascal.org.html.bg: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga-ftp.freepascal.org.html.bg -oe iso-8859-5 m68k-amiga.adp
 m68k-amiga-ftp.freepascal.org.html.en: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga-ftp.freepascal.org.html.en -oe iso-8859-1 m68k-amiga.adp
 m68k-amiga-ftp.freepascal.org.html.fr: m68k-amiga.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -4993,6 +5577,10 @@ m68k-amiga-ftp.freepascal.org.html.ru: m68k-amiga.adp ../../default-master.adp .
 
 m68k-amiga-ftp.freepascal.org.var: gen_makefile.conf
 	echo > m68k-amiga-ftp.freepascal.org.var
+	echo 'URI: m68k-amiga-ftp.freepascal.org.html.bg' >> m68k-amiga-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> m68k-amiga-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-ftp.freepascal.org.var
+	echo >> m68k-amiga-ftp.freepascal.org.var
 	echo 'URI: m68k-amiga-ftp.freepascal.org.html.en' >> m68k-amiga-ftp.freepascal.org.var
 	echo 'Content-language: en' >> m68k-amiga-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga-ftp.freepascal.org.var
@@ -5025,6 +5613,8 @@ m68k-amiga-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> m68k-amiga-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga-ftp.freepascal.org.var
 	echo >> m68k-amiga-ftp.freepascal.org.var
+m68k-netbsd-ftp.freepascal.org.html.bg: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd-ftp.freepascal.org.html.bg -oe iso-8859-5 m68k-netbsd.adp
 m68k-netbsd-ftp.freepascal.org.html.en: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd-ftp.freepascal.org.html.en -oe iso-8859-1 m68k-netbsd.adp
 m68k-netbsd-ftp.freepascal.org.html.fr: m68k-netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -5044,6 +5634,10 @@ m68k-netbsd-ftp.freepascal.org.html.ru: m68k-netbsd.adp ../../default-master.adp
 
 m68k-netbsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo > m68k-netbsd-ftp.freepascal.org.var
+	echo 'URI: m68k-netbsd-ftp.freepascal.org.html.bg' >> m68k-netbsd-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> m68k-netbsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-ftp.freepascal.org.var
+	echo >> m68k-netbsd-ftp.freepascal.org.var
 	echo 'URI: m68k-netbsd-ftp.freepascal.org.html.en' >> m68k-netbsd-ftp.freepascal.org.var
 	echo 'Content-language: en' >> m68k-netbsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd-ftp.freepascal.org.var
@@ -5077,6 +5671,8 @@ m68k-netbsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd-ftp.freepascal.org.var
 	echo >> m68k-netbsd-ftp.freepascal.org.var
 
+docs.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o docs.html.bg -oe iso-8859-5 ../../templatemirror.adp
 docs.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.adp -l en_US -m ../../default-master.adp -o docs.html.en -oe iso-8859-1 ../../templatemirror.adp
 docs.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5095,6 +5691,10 @@ docs.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../.
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o docs.html.ru -oe iso-8859-5 ../../templatemirror.adp
 docs.var: gen_makefile.conf
 	echo > docs.var
+	echo 'URI: docs.html.bg' >> docs.var
+	echo 'Content-language: bg' >> docs.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs.var
+	echo >> docs.var
 	echo 'URI: docs.html.en' >> docs.var
 	echo 'Content-language: en' >> docs.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> docs.var
@@ -5128,6 +5728,8 @@ docs.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs.var
 	echo >> docs.var
 
+i386-beos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-beos -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-beos.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-beos.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-beos -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-beos.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-beos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5146,6 +5748,10 @@ i386-beos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-beos -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-beos.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-beos.var: gen_makefile.conf
 	echo > i386-beos.var
+	echo 'URI: i386-beos.html.bg' >> i386-beos.var
+	echo 'Content-language: bg' >> i386-beos.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos.var
+	echo >> i386-beos.var
 	echo 'URI: i386-beos.html.en' >> i386-beos.var
 	echo 'Content-language: en' >> i386-beos.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-beos.var
@@ -5179,6 +5785,8 @@ i386-beos.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-beos.var
 	echo >> i386-beos.var
 
+i386-emx.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-emx -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-emx.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-emx.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-emx -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-emx.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-emx.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5197,6 +5805,10 @@ i386-emx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp 
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-emx -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-emx.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-emx.var: gen_makefile.conf
 	echo > i386-emx.var
+	echo 'URI: i386-emx.html.bg' >> i386-emx.var
+	echo 'Content-language: bg' >> i386-emx.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx.var
+	echo >> i386-emx.var
 	echo 'URI: i386-emx.html.en' >> i386-emx.var
 	echo 'Content-language: en' >> i386-emx.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-emx.var
@@ -5230,6 +5842,8 @@ i386-emx.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-emx.var
 	echo >> i386-emx.var
 
+i386-netbsd.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-netbsd -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-netbsd.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-netbsd.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-netbsd -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-netbsd.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-netbsd.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5248,6 +5862,10 @@ i386-netbsd.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.a
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-netbsd -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-netbsd.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-netbsd.var: gen_makefile.conf
 	echo > i386-netbsd.var
+	echo 'URI: i386-netbsd.html.bg' >> i386-netbsd.var
+	echo 'Content-language: bg' >> i386-netbsd.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd.var
+	echo >> i386-netbsd.var
 	echo 'URI: i386-netbsd.html.en' >> i386-netbsd.var
 	echo 'Content-language: en' >> i386-netbsd.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-netbsd.var
@@ -5281,6 +5899,8 @@ i386-netbsd.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-netbsd.var
 	echo >> i386-netbsd.var
 
+i386-solaris.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-solaris -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-solaris.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-solaris.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-solaris -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-solaris.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-solaris.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5299,6 +5919,10 @@ i386-solaris.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-solaris -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-solaris.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-solaris.var: gen_makefile.conf
 	echo > i386-solaris.var
+	echo 'URI: i386-solaris.html.bg' >> i386-solaris.var
+	echo 'Content-language: bg' >> i386-solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris.var
+	echo >> i386-solaris.var
 	echo 'URI: i386-solaris.html.en' >> i386-solaris.var
 	echo 'Content-language: en' >> i386-solaris.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-solaris.var
@@ -5332,6 +5956,8 @@ i386-solaris.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-solaris.var
 	echo >> i386-solaris.var
 
+m68k-linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-linux -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
 m68k-linux.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-linux -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-linux.html.en -oe iso-8859-1 ../../templatemirror.adp
 m68k-linux.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5350,6 +5976,10 @@ m68k-linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.ad
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-linux -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o m68k-linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
 m68k-linux.var: gen_makefile.conf
 	echo > m68k-linux.var
+	echo 'URI: m68k-linux.html.bg' >> m68k-linux.var
+	echo 'Content-language: bg' >> m68k-linux.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux.var
+	echo >> m68k-linux.var
 	echo 'URI: m68k-linux.html.en' >> m68k-linux.var
 	echo 'Content-language: en' >> m68k-linux.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-linux.var
@@ -5383,6 +6013,8 @@ m68k-linux.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-linux.var
 	echo >> m68k-linux.var
 
+down.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=down -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o down.html.bg -oe iso-8859-5 ../../templatemirror.adp
 down.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=down -c ../../catalog.adp -l en_US -m ../../default-master.adp -o down.html.en -oe iso-8859-1 ../../templatemirror.adp
 down.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5401,6 +6033,10 @@ down.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../.
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=down -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o down.html.ru -oe iso-8859-5 ../../templatemirror.adp
 down.var: gen_makefile.conf
 	echo > down.var
+	echo 'URI: down.html.bg' >> down.var
+	echo 'Content-language: bg' >> down.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> down.var
+	echo >> down.var
 	echo 'URI: down.html.en' >> down.var
 	echo 'Content-language: en' >> down.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> down.var
@@ -5434,6 +6070,8 @@ down.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> down.var
 	echo >> down.var
 
+i386-go32v2.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-go32v2 -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-go32v2.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-go32v2.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-go32v2 -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-go32v2.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-go32v2.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5452,6 +6090,10 @@ i386-go32v2.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.a
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-go32v2 -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-go32v2.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-go32v2.var: gen_makefile.conf
 	echo > i386-go32v2.var
+	echo 'URI: i386-go32v2.html.bg' >> i386-go32v2.var
+	echo 'Content-language: bg' >> i386-go32v2.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2.var
+	echo >> i386-go32v2.var
 	echo 'URI: i386-go32v2.html.en' >> i386-go32v2.var
 	echo 'Content-language: en' >> i386-go32v2.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-go32v2.var
@@ -5485,6 +6127,8 @@ i386-go32v2.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-go32v2.var
 	echo >> i386-go32v2.var
 
+i386-qnx.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-qnx -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o i386-qnx.html.bg -oe iso-8859-5 ../../templatemirror.adp
 i386-qnx.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-qnx -c ../../catalog.adp -l en_US -m ../../default-master.adp -o i386-qnx.html.en -oe iso-8859-1 ../../templatemirror.adp
 i386-qnx.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5503,6 +6147,10 @@ i386-qnx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp 
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=i386-qnx -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o i386-qnx.html.ru -oe iso-8859-5 ../../templatemirror.adp
 i386-qnx.var: gen_makefile.conf
 	echo > i386-qnx.var
+	echo 'URI: i386-qnx.html.bg' >> i386-qnx.var
+	echo 'Content-language: bg' >> i386-qnx.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx.var
+	echo >> i386-qnx.var
 	echo 'URI: i386-qnx.html.en' >> i386-qnx.var
 	echo 'Content-language: en' >> i386-qnx.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> i386-qnx.var
@@ -5536,6 +6184,8 @@ i386-qnx.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> i386-qnx.var
 	echo >> i386-qnx.var
 
+m68k-amiga.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-amiga -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-amiga.html.bg -oe iso-8859-5 ../../templatemirror.adp
 m68k-amiga.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-amiga -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-amiga.html.en -oe iso-8859-1 ../../templatemirror.adp
 m68k-amiga.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5554,6 +6204,10 @@ m68k-amiga.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.ad
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-amiga -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o m68k-amiga.html.ru -oe iso-8859-5 ../../templatemirror.adp
 m68k-amiga.var: gen_makefile.conf
 	echo > m68k-amiga.var
+	echo 'URI: m68k-amiga.html.bg' >> m68k-amiga.var
+	echo 'Content-language: bg' >> m68k-amiga.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga.var
+	echo >> m68k-amiga.var
 	echo 'URI: m68k-amiga.html.en' >> m68k-amiga.var
 	echo 'Content-language: en' >> m68k-amiga.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-amiga.var
@@ -5587,6 +6241,8 @@ m68k-amiga.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-amiga.var
 	echo >> m68k-amiga.var
 
+m68k-netbsd.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-netbsd -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o m68k-netbsd.html.bg -oe iso-8859-5 ../../templatemirror.adp
 m68k-netbsd.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-netbsd -c ../../catalog.adp -l en_US -m ../../default-master.adp -o m68k-netbsd.html.en -oe iso-8859-1 ../../templatemirror.adp
 m68k-netbsd.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -5605,6 +6261,10 @@ m68k-netbsd.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.a
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=m68k-netbsd -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o m68k-netbsd.html.ru -oe iso-8859-5 ../../templatemirror.adp
 m68k-netbsd.var: gen_makefile.conf
 	echo > m68k-netbsd.var
+	echo 'URI: m68k-netbsd.html.bg' >> m68k-netbsd.var
+	echo 'Content-language: bg' >> m68k-netbsd.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> m68k-netbsd.var
+	echo >> m68k-netbsd.var
 	echo 'URI: m68k-netbsd.html.en' >> m68k-netbsd.var
 	echo 'Content-language: en' >> m68k-netbsd.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> m68k-netbsd.var
@@ -5650,7 +6310,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.it docs-australia.html.nl docs-australia.html.po docs-australia.html.sl docs-australia.html.ru docs-australia.var i386-beos-australia.html.en i386-beos-australia.html.fr i386-beos-australia.html.id i386-beos-australia.html.it i386-beos-australia.html.nl i386-beos-australia.html.po i386-beos-australia.html.sl i386-beos-australia.html.ru i386-beos-australia.var i386-emx-australia.html.en i386-emx-australia.html.fr i386-emx-australia.html.id i386-emx-australia.html.it i386-emx-australia.html.nl i386-emx-australia.html.po i386-emx-australia.html.sl i386-emx-australia.html.ru i386-emx-australia.var i386-netbsd-australia.html.en i386-netbsd-australia.html.fr i386-netbsd-australia.html.id i386-netbsd-australia.html.it i386-netbsd-australia.html.nl i386-netbsd-australia.html.po i386-netbsd-australia.html.sl i386-netbsd-australia.html.ru i386-netbsd-australia.var i386-solaris-australia.html.en i386-solaris-australia.html.fr i386-solaris-australia.html.id i386-solaris-australia.html.it i386-solaris-australia.html.nl i386-solaris-australia.html.po i386-solaris-australia.html.sl i386-solaris-australia.html.ru i386-solaris-australia.var m68k-linux-australia.html.en m68k-linux-australia.html.fr m68k-linux-australia.html.id m68k-linux-australia.html.it m68k-linux-australia.html.nl m68k-linux-australia.html.po m68k-linux-australia.html.sl m68k-linux-australia.html.ru m68k-linux-australia.var down-australia.html.en down-australia.html.fr down-australia.html.id down-australia.html.it down-australia.html.nl down-australia.html.po down-australia.html.sl down-australia.html.ru down-australia.var i386-go32v2-australia.html.en i386-go32v2-australia.html.fr i386-go32v2-australia.html.id i386-go32v2-australia.html.it i386-go32v2-australia.html.nl i386-go32v2-australia.html.po i386-go32v2-australia.html.sl i386-go32v2-australia.html.ru i386-go32v2-australia.var i386-qnx-australia.html.en i386-qnx-australia.html.fr i386-qnx-australia.html.id i386-qnx-australia.html.it i386-qnx-australia.html.nl i386-qnx-australia.html.po i386-qnx-australia.html.sl i386-qnx-australia.html.ru i386-qnx-australia.var m68k-amiga-australia.html.en m68k-amiga-australia.html.fr m68k-amiga-australia.html.id m68k-amiga-australia.html.it m68k-amiga-australia.html.nl m68k-amiga-australia.html.po m68k-amiga-australia.html.sl m68k-amiga-australia.html.ru m68k-amiga-australia.var m68k-netbsd-australia.html.en m68k-netbsd-australia.html.fr m68k-netbsd-australia.html.id m68k-netbsd-australia.html.it m68k-netbsd-australia.html.nl m68k-netbsd-australia.html.po m68k-netbsd-australia.html.sl m68k-netbsd-australia.html.ru m68k-netbsd-australia.var docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.it docs-austria.html.nl docs-austria.html.po docs-austria.html.sl docs-austria.html.ru docs-austria.var i386-beos-austria.html.en i386-beos-austria.html.fr i386-beos-austria.html.id i386-beos-austria.html.it i386-beos-austria.html.nl i386-beos-austria.html.po i386-beos-austria.html.sl i386-beos-austria.html.ru i386-beos-austria.var i386-emx-austria.html.en i386-emx-austria.html.fr i386-emx-austria.html.id i386-emx-austria.html.it i386-emx-austria.html.nl i386-emx-austria.html.po i386-emx-austria.html.sl i386-emx-austria.html.ru i386-emx-austria.var i386-netbsd-austria.html.en i386-netbsd-austria.html.fr i386-netbsd-austria.html.id i386-netbsd-austria.html.it i386-netbsd-austria.html.nl i386-netbsd-austria.html.po i386-netbsd-austria.html.sl i386-netbsd-austria.html.ru i386-netbsd-austria.var i386-solaris-austria.html.en i386-solaris-austria.html.fr i386-solaris-austria.html.id i386-solaris-austria.html.it i386-solaris-austria.html.nl i386-solaris-austria.html.po i386-solaris-austria.html.sl i386-solaris-austria.html.ru i386-solaris-austria.var m68k-linux-austria.html.en m68k-linux-austria.html.fr m68k-linux-austria.html.id m68k-linux-austria.html.it m68k-linux-austria.html.nl m68k-linux-austria.html.po m68k-linux-austria.html.sl m68k-linux-austria.html.ru m68k-linux-austria.var down-austria.html.en down-austria.html.fr down-austria.html.id down-austria.html.it down-austria.html.nl down-austria.html.po down-austria.html.sl down-austria.html.ru down-austria.var i386-go32v2-austria.html.en i386-go32v2-austria.html.fr i386-go32v2-austria.html.id i386-go32v2-austria.html.it i386-go32v2-austria.html.nl i386-go32v2-austria.html.po i386-go32v2-austria.html.sl i386-go32v2-austria.html.ru i386-go32v2-austria.var i386-qnx-austria.html.en i386-qnx-austria.html.fr i386-qnx-austria.html.id i386-qnx-austria.html.it i386-qnx-austria.html.nl i386-qnx-austria.html.po i386-qnx-austria.html.sl i386-qnx-austria.html.ru i386-qnx-austria.var m68k-amiga-austria.html.en m68k-amiga-austria.html.fr m68k-amiga-austria.html.id m68k-amiga-austria.html.it m68k-amiga-austria.html.nl m68k-amiga-austria.html.po m68k-amiga-austria.html.sl m68k-amiga-austria.html.ru m68k-amiga-austria.var m68k-netbsd-austria.html.en m68k-netbsd-austria.html.fr m68k-netbsd-austria.html.id m68k-netbsd-austria.html.it m68k-netbsd-austria.html.nl m68k-netbsd-austria.html.po m68k-netbsd-austria.html.sl m68k-netbsd-austria.html.ru m68k-netbsd-austria.var docs-germany.html.en docs-germany.html.fr docs-germany.html.id docs-germany.html.it docs-germany.html.nl docs-germany.html.po docs-germany.html.sl docs-germany.html.ru docs-germany.var i386-beos-germany.html.en i386-beos-germany.html.fr i386-beos-germany.html.id i386-beos-germany.html.it i386-beos-germany.html.nl i386-beos-germany.html.po i386-beos-germany.html.sl i386-beos-germany.html.ru i386-beos-germany.var i386-emx-germany.html.en i386-emx-germany.html.fr i386-emx-germany.html.id i386-emx-germany.html.it i386-emx-germany.html.nl i386-emx-germany.html.po i386-emx-germany.html.sl i386-emx-germany.html.ru i386-emx-germany.var i386-netbsd-germany.html.en i386-netbsd-germany.html.fr i386-netbsd-germany.html.id i386-netbsd-germany.html.it i386-netbsd-germany.html.nl i386-netbsd-germany.html.po i386-netbsd-germany.html.sl i386-netbsd-germany.html.ru i386-netbsd-germany.var i386-solaris-germany.html.en i386-solaris-germany.html.fr i386-solaris-germany.html.id i386-solaris-germany.html.it i386-solaris-germany.html.nl i386-solaris-germany.html.po i386-solaris-germany.html.sl i386-solaris-germany.html.ru i386-solaris-germany.var m68k-linux-germany.html.en m68k-linux-germany.html.fr m68k-linux-germany.html.id m68k-linux-germany.html.it m68k-linux-germany.html.nl m68k-linux-germany.html.po m68k-linux-germany.html.sl m68k-linux-germany.html.ru m68k-linux-germany.var down-germany.html.en down-germany.html.fr down-germany.html.id down-germany.html.it down-germany.html.nl down-germany.html.po down-germany.html.sl down-germany.html.ru down-germany.var i386-go32v2-germany.html.en i386-go32v2-germany.html.fr i386-go32v2-germany.html.id i386-go32v2-germany.html.it i386-go32v2-germany.html.nl i386-go32v2-germany.html.po i386-go32v2-germany.html.sl i386-go32v2-germany.html.ru i386-go32v2-germany.var i386-qnx-germany.html.en i386-qnx-germany.html.fr i386-qnx-germany.html.id i386-qnx-germany.html.it i386-qnx-germany.html.nl i386-qnx-germany.html.po i386-qnx-germany.html.sl i386-qnx-germany.html.ru i386-qnx-germany.var m68k-amiga-germany.html.en m68k-amiga-germany.html.fr m68k-amiga-germany.html.id m68k-amiga-germany.html.it m68k-amiga-germany.html.nl m68k-amiga-germany.html.po m68k-amiga-germany.html.sl m68k-amiga-germany.html.ru m68k-amiga-germany.var m68k-netbsd-germany.html.en m68k-netbsd-germany.html.fr m68k-netbsd-germany.html.id m68k-netbsd-germany.html.it m68k-netbsd-germany.html.nl m68k-netbsd-germany.html.po m68k-netbsd-germany.html.sl m68k-netbsd-germany.html.ru m68k-netbsd-germany.var docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.it docs-hungary.html.nl docs-hungary.html.po docs-hungary.html.sl docs-hungary.html.ru docs-hungary.var i386-beos-hungary.html.en i386-beos-hungary.html.fr i386-beos-hungary.html.id i386-beos-hungary.html.it i386-beos-hungary.html.nl i386-beos-hungary.html.po i386-beos-hungary.html.sl i386-beos-hungary.html.ru i386-beos-hungary.var i386-emx-hungary.html.en i386-emx-hungary.html.fr i386-emx-hungary.html.id i386-emx-hungary.html.it i386-emx-hungary.html.nl i386-emx-hungary.html.po i386-emx-hungary.html.sl i386-emx-hungary.html.ru i386-emx-hungary.var i386-netbsd-hungary.html.en i386-netbsd-hungary.html.fr i386-netbsd-hungary.html.id i386-netbsd-hungary.html.it i386-netbsd-hungary.html.nl i386-netbsd-hungary.html.po i386-netbsd-hungary.html.sl i386-netbsd-hungary.html.ru i386-netbsd-hungary.var i386-solaris-hungary.html.en i386-solaris-hungary.html.fr i386-solaris-hungary.html.id i386-solaris-hungary.html.it i386-solaris-hungary.html.nl i386-solaris-hungary.html.po i386-solaris-hungary.html.sl i386-solaris-hungary.html.ru i386-solaris-hungary.var m68k-linux-hungary.html.en m68k-linux-hungary.html.fr m68k-linux-hungary.html.id m68k-linux-hungary.html.it m68k-linux-hungary.html.nl m68k-linux-hungary.html.po m68k-linux-hungary.html.sl m68k-linux-hungary.html.ru m68k-linux-hungary.var down-hungary.html.en down-hungary.html.fr down-hungary.html.id down-hungary.html.it down-hungary.html.nl down-hungary.html.po down-hungary.html.sl down-hungary.html.ru down-hungary.var i386-go32v2-hungary.html.en i386-go32v2-hungary.html.fr i386-go32v2-hungary.html.id i386-go32v2-hungary.html.it i386-go32v2-hungary.html.nl i386-go32v2-hungary.html.po i386-go32v2-hungary.html.sl i386-go32v2-hungary.html.ru i386-go32v2-hungary.var i386-qnx-hungary.html.en i386-qnx-hungary.html.fr i386-qnx-hungary.html.id i386-qnx-hungary.html.it i386-qnx-hungary.html.nl i386-qnx-hungary.html.po i386-qnx-hungary.html.sl i386-qnx-hungary.html.ru i386-qnx-hungary.var m68k-amiga-hungary.html.en m68k-amiga-hungary.html.fr m68k-amiga-hungary.html.id m68k-amiga-hungary.html.it m68k-amiga-hungary.html.nl m68k-amiga-hungary.html.po m68k-amiga-hungary.html.sl m68k-amiga-hungary.html.ru m68k-amiga-hungary.var m68k-netbsd-hungary.html.en m68k-netbsd-hungary.html.fr m68k-netbsd-hungary.html.id m68k-netbsd-hungary.html.it m68k-netbsd-hungary.html.nl m68k-netbsd-hungary.html.po m68k-netbsd-hungary.html.sl m68k-netbsd-hungary.html.ru m68k-netbsd-hungary.var docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.it docs-israel.html.nl docs-israel.html.po docs-israel.html.sl docs-israel.html.ru docs-israel.var i386-beos-israel.html.en i386-beos-israel.html.fr i386-beos-israel.html.id i386-beos-israel.html.it i386-beos-israel.html.nl i386-beos-israel.html.po i386-beos-israel.html.sl i386-beos-israel.html.ru i386-beos-israel.var i386-emx-israel.html.en i386-emx-israel.html.fr i386-emx-israel.html.id i386-emx-israel.html.it i386-emx-israel.html.nl i386-emx-israel.html.po i386-emx-israel.html.sl i386-emx-israel.html.ru i386-emx-israel.var i386-netbsd-israel.html.en i386-netbsd-israel.html.fr i386-netbsd-israel.html.id i386-netbsd-israel.html.it i386-netbsd-israel.html.nl i386-netbsd-israel.html.po i386-netbsd-israel.html.sl i386-netbsd-israel.html.ru i386-netbsd-israel.var i386-solaris-israel.html.en i386-solaris-israel.html.fr i386-solaris-israel.html.id i386-solaris-israel.html.it i386-solaris-israel.html.nl i386-solaris-israel.html.po i386-solaris-israel.html.sl i386-solaris-israel.html.ru i386-solaris-israel.var m68k-linux-israel.html.en m68k-linux-israel.html.fr m68k-linux-israel.html.id m68k-linux-israel.html.it m68k-linux-israel.html.nl m68k-linux-israel.html.po m68k-linux-israel.html.sl m68k-linux-israel.html.ru m68k-linux-israel.var down-israel.html.en down-israel.html.fr down-israel.html.id down-israel.html.it down-israel.html.nl down-israel.html.po down-israel.html.sl down-israel.html.ru down-israel.var i386-go32v2-israel.html.en i386-go32v2-israel.html.fr i386-go32v2-israel.html.id i386-go32v2-israel.html.it i386-go32v2-israel.html.nl i386-go32v2-israel.html.po i386-go32v2-israel.html.sl i386-go32v2-israel.html.ru i386-go32v2-israel.var i386-qnx-israel.html.en i386-qnx-israel.html.fr i386-qnx-israel.html.id i386-qnx-israel.html.it i386-qnx-israel.html.nl i386-qnx-israel.html.po i386-qnx-israel.html.sl i386-qnx-israel.html.ru i386-qnx-israel.var m68k-amiga-israel.html.en m68k-amiga-israel.html.fr m68k-amiga-israel.html.id m68k-amiga-israel.html.it m68k-amiga-israel.html.nl m68k-amiga-israel.html.po m68k-amiga-israel.html.sl m68k-amiga-israel.html.ru m68k-amiga-israel.var m68k-netbsd-israel.html.en m68k-netbsd-israel.html.fr m68k-netbsd-israel.html.id m68k-netbsd-israel.html.it m68k-netbsd-israel.html.nl m68k-netbsd-israel.html.po m68k-netbsd-israel.html.sl m68k-netbsd-israel.html.ru m68k-netbsd-israel.var docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.it docs-netherlands.html.nl docs-netherlands.html.po docs-netherlands.html.sl docs-netherlands.html.ru docs-netherlands.var i386-beos-netherlands.html.en i386-beos-netherlands.html.fr i386-beos-netherlands.html.id i386-beos-netherlands.html.it i386-beos-netherlands.html.nl i386-beos-netherlands.html.po i386-beos-netherlands.html.sl i386-beos-netherlands.html.ru i386-beos-netherlands.var i386-emx-netherlands.html.en i386-emx-netherlands.html.fr i386-emx-netherlands.html.id i386-emx-netherlands.html.it i386-emx-netherlands.html.nl i386-emx-netherlands.html.po i386-emx-netherlands.html.sl i386-emx-netherlands.html.ru i386-emx-netherlands.var i386-netbsd-netherlands.html.en i386-netbsd-netherlands.html.fr i386-netbsd-netherlands.html.id i386-netbsd-netherlands.html.it i386-netbsd-netherlands.html.nl i386-netbsd-netherlands.html.po i386-netbsd-netherlands.html.sl i386-netbsd-netherlands.html.ru i386-netbsd-netherlands.var i386-solaris-netherlands.html.en i386-solaris-netherlands.html.fr i386-solaris-netherlands.html.id i386-solaris-netherlands.html.it i386-solaris-netherlands.html.nl i386-solaris-netherlands.html.po i386-solaris-netherlands.html.sl i386-solaris-netherlands.html.ru i386-solaris-netherlands.var m68k-linux-netherlands.html.en m68k-linux-netherlands.html.fr m68k-linux-netherlands.html.id m68k-linux-netherlands.html.it m68k-linux-netherlands.html.nl m68k-linux-netherlands.html.po m68k-linux-netherlands.html.sl m68k-linux-netherlands.html.ru m68k-linux-netherlands.var down-netherlands.html.en down-netherlands.html.fr down-netherlands.html.id down-netherlands.html.it down-netherlands.html.nl down-netherlands.html.po down-netherlands.html.sl down-netherlands.html.ru down-netherlands.var i386-go32v2-netherlands.html.en i386-go32v2-netherlands.html.fr i386-go32v2-netherlands.html.id i386-go32v2-netherlands.html.it i386-go32v2-netherlands.html.nl i386-go32v2-netherlands.html.po i386-go32v2-netherlands.html.sl i386-go32v2-netherlands.html.ru i386-go32v2-netherlands.var i386-qnx-netherlands.html.en i386-qnx-netherlands.html.fr i386-qnx-netherlands.html.id i386-qnx-netherlands.html.it i386-qnx-netherlands.html.nl i386-qnx-netherlands.html.po i386-qnx-netherlands.html.sl i386-qnx-netherlands.html.ru i386-qnx-netherlands.var m68k-amiga-netherlands.html.en m68k-amiga-netherlands.html.fr m68k-amiga-netherlands.html.id m68k-amiga-netherlands.html.it m68k-amiga-netherlands.html.nl m68k-amiga-netherlands.html.po m68k-amiga-netherlands.html.sl m68k-amiga-netherlands.html.ru m68k-amiga-netherlands.var m68k-netbsd-netherlands.html.en m68k-netbsd-netherlands.html.fr m68k-netbsd-netherlands.html.id m68k-netbsd-netherlands.html.it m68k-netbsd-netherlands.html.nl m68k-netbsd-netherlands.html.po m68k-netbsd-netherlands.html.sl m68k-netbsd-netherlands.html.ru m68k-netbsd-netherlands.var docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.it docs-norway.html.nl docs-norway.html.po docs-norway.html.sl docs-norway.html.ru docs-norway.var i386-beos-norway.html.en i386-beos-norway.html.fr i386-beos-norway.html.id i386-beos-norway.html.it i386-beos-norway.html.nl i386-beos-norway.html.po i386-beos-norway.html.sl i386-beos-norway.html.ru i386-beos-norway.var i386-emx-norway.html.en i386-emx-norway.html.fr i386-emx-norway.html.id i386-emx-norway.html.it i386-emx-norway.html.nl i386-emx-norway.html.po i386-emx-norway.html.sl i386-emx-norway.html.ru i386-emx-norway.var i386-netbsd-norway.html.en i386-netbsd-norway.html.fr i386-netbsd-norway.html.id i386-netbsd-norway.html.it i386-netbsd-norway.html.nl i386-netbsd-norway.html.po i386-netbsd-norway.html.sl i386-netbsd-norway.html.ru i386-netbsd-norway.var i386-solaris-norway.html.en i386-solaris-norway.html.fr i386-solaris-norway.html.id i386-solaris-norway.html.it i386-solaris-norway.html.nl i386-solaris-norway.html.po i386-solaris-norway.html.sl i386-solaris-norway.html.ru i386-solaris-norway.var m68k-linux-norway.html.en m68k-linux-norway.html.fr m68k-linux-norway.html.id m68k-linux-norway.html.it m68k-linux-norway.html.nl m68k-linux-norway.html.po m68k-linux-norway.html.sl m68k-linux-norway.html.ru m68k-linux-norway.var down-norway.html.en down-norway.html.fr down-norway.html.id down-norway.html.it down-norway.html.nl down-norway.html.po down-norway.html.sl down-norway.html.ru down-norway.var i386-go32v2-norway.html.en i386-go32v2-norway.html.fr i386-go32v2-norway.html.id i386-go32v2-norway.html.it i386-go32v2-norway.html.nl i386-go32v2-norway.html.po i386-go32v2-norway.html.sl i386-go32v2-norway.html.ru i386-go32v2-norway.var i386-qnx-norway.html.en i386-qnx-norway.html.fr i386-qnx-norway.html.id i386-qnx-norway.html.it i386-qnx-norway.html.nl i386-qnx-norway.html.po i386-qnx-norway.html.sl i386-qnx-norway.html.ru i386-qnx-norway.var m68k-amiga-norway.html.en m68k-amiga-norway.html.fr m68k-amiga-norway.html.id m68k-amiga-norway.html.it m68k-amiga-norway.html.nl m68k-amiga-norway.html.po m68k-amiga-norway.html.sl m68k-amiga-norway.html.ru m68k-amiga-norway.var m68k-netbsd-norway.html.en m68k-netbsd-norway.html.fr m68k-netbsd-norway.html.id m68k-netbsd-norway.html.it m68k-netbsd-norway.html.nl m68k-netbsd-norway.html.po m68k-netbsd-norway.html.sl m68k-netbsd-norway.html.ru m68k-netbsd-norway.var docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.it docs-russia.html.nl docs-russia.html.po docs-russia.html.sl docs-russia.html.ru docs-russia.var i386-beos-russia.html.en i386-beos-russia.html.fr i386-beos-russia.html.id i386-beos-russia.html.it i386-beos-russia.html.nl i386-beos-russia.html.po i386-beos-russia.html.sl i386-beos-russia.html.ru i386-beos-russia.var i386-emx-russia.html.en i386-emx-russia.html.fr i386-emx-russia.html.id i386-emx-russia.html.it i386-emx-russia.html.nl i386-emx-russia.html.po i386-emx-russia.html.sl i386-emx-russia.html.ru i386-emx-russia.var i386-netbsd-russia.html.en i386-netbsd-russia.html.fr i386-netbsd-russia.html.id i386-netbsd-russia.html.it i386-netbsd-russia.html.nl i386-netbsd-russia.html.po i386-netbsd-russia.html.sl i386-netbsd-russia.html.ru i386-netbsd-russia.var i386-solaris-russia.html.en i386-solaris-russia.html.fr i386-solaris-russia.html.id i386-solaris-russia.html.it i386-solaris-russia.html.nl i386-solaris-russia.html.po i386-solaris-russia.html.sl i386-solaris-russia.html.ru i386-solaris-russia.var m68k-linux-russia.html.en m68k-linux-russia.html.fr m68k-linux-russia.html.id m68k-linux-russia.html.it m68k-linux-russia.html.nl m68k-linux-russia.html.po m68k-linux-russia.html.sl m68k-linux-russia.html.ru m68k-linux-russia.var down-russia.html.en down-russia.html.fr down-russia.html.id down-russia.html.it down-russia.html.nl down-russia.html.po down-russia.html.sl down-russia.html.ru down-russia.var i386-go32v2-russia.html.en i386-go32v2-russia.html.fr i386-go32v2-russia.html.id i386-go32v2-russia.html.it i386-go32v2-russia.html.nl i386-go32v2-russia.html.po i386-go32v2-russia.html.sl i386-go32v2-russia.html.ru i386-go32v2-russia.var i386-qnx-russia.html.en i386-qnx-russia.html.fr i386-qnx-russia.html.id i386-qnx-russia.html.it i386-qnx-russia.html.nl i386-qnx-russia.html.po i386-qnx-russia.html.sl i386-qnx-russia.html.ru i386-qnx-russia.var m68k-amiga-russia.html.en m68k-amiga-russia.html.fr m68k-amiga-russia.html.id m68k-amiga-russia.html.it m68k-amiga-russia.html.nl m68k-amiga-russia.html.po m68k-amiga-russia.html.sl m68k-amiga-russia.html.ru m68k-amiga-russia.var m68k-netbsd-russia.html.en m68k-netbsd-russia.html.fr m68k-netbsd-russia.html.id m68k-netbsd-russia.html.it m68k-netbsd-russia.html.nl m68k-netbsd-russia.html.po m68k-netbsd-russia.html.sl m68k-netbsd-russia.html.ru m68k-netbsd-russia.var docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.it docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.po docs-ftp.freepascal.org.html.sl docs-ftp.freepascal.org.html.ru docs-ftp.freepascal.org.var i386-beos-ftp.freepascal.org.html.en i386-beos-ftp.freepascal.org.html.fr i386-beos-ftp.freepascal.org.html.id i386-beos-ftp.freepascal.org.html.it i386-beos-ftp.freepascal.org.html.nl i386-beos-ftp.freepascal.org.html.po i386-beos-ftp.freepascal.org.html.sl i386-beos-ftp.freepascal.org.html.ru i386-beos-ftp.freepascal.org.var i386-emx-ftp.freepascal.org.html.en i386-emx-ftp.freepascal.org.html.fr i386-emx-ftp.freepascal.org.html.id i386-emx-ftp.freepascal.org.html.it i386-emx-ftp.freepascal.org.html.nl i386-emx-ftp.freepascal.org.html.po i386-emx-ftp.freepascal.org.html.sl i386-emx-ftp.freepascal.org.html.ru i386-emx-ftp.freepascal.org.var i386-netbsd-ftp.freepascal.org.html.en i386-netbsd-ftp.freepascal.org.html.fr i386-netbsd-ftp.freepascal.org.html.id i386-netbsd-ftp.freepascal.org.html.it i386-netbsd-ftp.freepascal.org.html.nl i386-netbsd-ftp.freepascal.org.html.po i386-netbsd-ftp.freepascal.org.html.sl i386-netbsd-ftp.freepascal.org.html.ru i386-netbsd-ftp.freepascal.org.var i386-solaris-ftp.freepascal.org.html.en i386-solaris-ftp.freepascal.org.html.fr i386-solaris-ftp.freepascal.org.html.id i386-solaris-ftp.freepascal.org.html.it i386-solaris-ftp.freepascal.org.html.nl i386-solaris-ftp.freepascal.org.html.po i386-solaris-ftp.freepascal.org.html.sl i386-solaris-ftp.freepascal.org.html.ru i386-solaris-ftp.freepascal.org.var m68k-linux-ftp.freepascal.org.html.en m68k-linux-ftp.freepascal.org.html.fr m68k-linux-ftp.freepascal.org.html.id m68k-linux-ftp.freepascal.org.html.it m68k-linux-ftp.freepascal.org.html.nl m68k-linux-ftp.freepascal.org.html.po m68k-linux-ftp.freepascal.org.html.sl m68k-linux-ftp.freepascal.org.html.ru m68k-linux-ftp.freepascal.org.var down-ftp.freepascal.org.html.en down-ftp.freepascal.org.html.fr down-ftp.freepascal.org.html.id down-ftp.freepascal.org.html.it down-ftp.freepascal.org.html.nl down-ftp.freepascal.org.html.po down-ftp.freepascal.org.html.sl down-ftp.freepascal.org.html.ru down-ftp.freepascal.org.var i386-go32v2-ftp.freepascal.org.html.en i386-go32v2-ftp.freepascal.org.html.fr i386-go32v2-ftp.freepascal.org.html.id i386-go32v2-ftp.freepascal.org.html.it i386-go32v2-ftp.freepascal.org.html.nl i386-go32v2-ftp.freepascal.org.html.po i386-go32v2-ftp.freepascal.org.html.sl i386-go32v2-ftp.freepascal.org.html.ru i386-go32v2-ftp.freepascal.org.var i386-qnx-ftp.freepascal.org.html.en i386-qnx-ftp.freepascal.org.html.fr i386-qnx-ftp.freepascal.org.html.id i386-qnx-ftp.freepascal.org.html.it i386-qnx-ftp.freepascal.org.html.nl i386-qnx-ftp.freepascal.org.html.po i386-qnx-ftp.freepascal.org.html.sl i386-qnx-ftp.freepascal.org.html.ru i386-qnx-ftp.freepascal.org.var m68k-amiga-ftp.freepascal.org.html.en m68k-amiga-ftp.freepascal.org.html.fr m68k-amiga-ftp.freepascal.org.html.id m68k-amiga-ftp.freepascal.org.html.it m68k-amiga-ftp.freepascal.org.html.nl m68k-amiga-ftp.freepascal.org.html.po m68k-amiga-ftp.freepascal.org.html.sl m68k-amiga-ftp.freepascal.org.html.ru m68k-amiga-ftp.freepascal.org.var m68k-netbsd-ftp.freepascal.org.html.en m68k-netbsd-ftp.freepascal.org.html.fr m68k-netbsd-ftp.freepascal.org.html.id m68k-netbsd-ftp.freepascal.org.html.it m68k-netbsd-ftp.freepascal.org.html.nl m68k-netbsd-ftp.freepascal.org.html.po m68k-netbsd-ftp.freepascal.org.html.sl m68k-netbsd-ftp.freepascal.org.html.ru m68k-netbsd-ftp.freepascal.org.var docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var i386-beos.html.en i386-beos.html.fr i386-beos.html.id i386-beos.html.it i386-beos.html.nl i386-beos.html.po i386-beos.html.sl i386-beos.html.ru i386-beos.var i386-emx.html.en i386-emx.html.fr i386-emx.html.id i386-emx.html.it i386-emx.html.nl i386-emx.html.po i386-emx.html.sl i386-emx.html.ru i386-emx.var i386-netbsd.html.en i386-netbsd.html.fr i386-netbsd.html.id i386-netbsd.html.it i386-netbsd.html.nl i386-netbsd.html.po i386-netbsd.html.sl i386-netbsd.html.ru i386-netbsd.var i386-solaris.html.en i386-solaris.html.fr i386-solaris.html.id i386-solaris.html.it i386-solaris.html.nl i386-solaris.html.po i386-solaris.html.sl i386-solaris.html.ru i386-solaris.var m68k-linux.html.en m68k-linux.html.fr m68k-linux.html.id m68k-linux.html.it m68k-linux.html.nl m68k-linux.html.po m68k-linux.html.sl m68k-linux.html.ru m68k-linux.var down.html.en down.html.fr down.html.id down.html.it down.html.nl down.html.po down.html.sl down.html.ru down.var i386-go32v2.html.en i386-go32v2.html.fr i386-go32v2.html.id i386-go32v2.html.it i386-go32v2.html.nl i386-go32v2.html.po i386-go32v2.html.sl i386-go32v2.html.ru i386-go32v2.var i386-qnx.html.en i386-qnx.html.fr i386-qnx.html.id i386-qnx.html.it i386-qnx.html.nl i386-qnx.html.po i386-qnx.html.sl i386-qnx.html.ru i386-qnx.var m68k-amiga.html.en m68k-amiga.html.fr m68k-amiga.html.id m68k-amiga.html.it m68k-amiga.html.nl m68k-amiga.html.po m68k-amiga.html.sl m68k-amiga.html.ru m68k-amiga.var m68k-netbsd.html.en m68k-netbsd.html.fr m68k-netbsd.html.id m68k-netbsd.html.it m68k-netbsd.html.nl m68k-netbsd.html.po m68k-netbsd.html.sl m68k-netbsd.html.ru m68k-netbsd.var mirrors.dat
+all_pages: docs-australia.html.bg docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.it docs-australia.html.nl docs-australia.html.po docs-australia.html.sl docs-australia.html.ru docs-australia.var i386-beos-australia.html.bg i386-beos-australia.html.en i386-beos-australia.html.fr i386-beos-australia.html.id i386-beos-australia.html.it i386-beos-australia.html.nl i386-beos-australia.html.po i386-beos-australia.html.sl i386-beos-australia.html.ru i386-beos-australia.var i386-emx-australia.html.bg i386-emx-australia.html.en i386-emx-australia.html.fr i386-emx-australia.html.id i386-emx-australia.html.it i386-emx-australia.html.nl i386-emx-australia.html.po i386-emx-australia.html.sl i386-emx-australia.html.ru i386-emx-australia.var i386-netbsd-australia.html.bg i386-netbsd-australia.html.en i386-netbsd-australia.html.fr i386-netbsd-australia.html.id i386-netbsd-australia.html.it i386-netbsd-australia.html.nl i386-netbsd-australia.html.po i386-netbsd-australia.html.sl i386-netbsd-australia.html.ru i386-netbsd-australia.var i386-solaris-australia.html.bg i386-solaris-australia.html.en i386-solaris-australia.html.fr i386-solaris-australia.html.id i386-solaris-australia.html.it i386-solaris-australia.html.nl i386-solaris-australia.html.po i386-solaris-australia.html.sl i386-solaris-australia.html.ru i386-solaris-australia.var m68k-linux-australia.html.bg m68k-linux-australia.html.en m68k-linux-australia.html.fr m68k-linux-australia.html.id m68k-linux-australia.html.it m68k-linux-australia.html.nl m68k-linux-australia.html.po m68k-linux-australia.html.sl m68k-linux-australia.html.ru m68k-linux-australia.var down-australia.html.bg down-australia.html.en down-australia.html.fr down-australia.html.id down-australia.html.it down-australia.html.nl down-australia.html.po down-australia.html.sl down-australia.html.ru down-australia.var i386-go32v2-australia.html.bg i386-go32v2-australia.html.en i386-go32v2-australia.html.fr i386-go32v2-australia.html.id i386-go32v2-australia.html.it i386-go32v2-australia.html.nl i386-go32v2-australia.html.po i386-go32v2-australia.html.sl i386-go32v2-australia.html.ru i386-go32v2-australia.var i386-qnx-australia.html.bg i386-qnx-australia.html.en i386-qnx-australia.html.fr i386-qnx-australia.html.id i386-qnx-australia.html.it i386-qnx-australia.html.nl i386-qnx-australia.html.po i386-qnx-australia.html.sl i386-qnx-australia.html.ru i386-qnx-australia.var m68k-amiga-australia.html.bg m68k-amiga-australia.html.en m68k-amiga-australia.html.fr m68k-amiga-australia.html.id m68k-amiga-australia.html.it m68k-amiga-australia.html.nl m68k-amiga-australia.html.po m68k-amiga-australia.html.sl m68k-amiga-australia.html.ru m68k-amiga-australia.var m68k-netbsd-australia.html.bg m68k-netbsd-australia.html.en m68k-netbsd-australia.html.fr m68k-netbsd-australia.html.id m68k-netbsd-australia.html.it m68k-netbsd-australia.html.nl m68k-netbsd-australia.html.po m68k-netbsd-australia.html.sl m68k-netbsd-australia.html.ru m68k-netbsd-australia.var docs-austria.html.bg docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.it docs-austria.html.nl docs-austria.html.po docs-austria.html.sl docs-austria.html.ru docs-austria.var i386-beos-austria.html.bg i386-beos-austria.html.en i386-beos-austria.html.fr i386-beos-austria.html.id i386-beos-austria.html.it i386-beos-austria.html.nl i386-beos-austria.html.po i386-beos-austria.html.sl i386-beos-austria.html.ru i386-beos-austria.var i386-emx-austria.html.bg i386-emx-austria.html.en i386-emx-austria.html.fr i386-emx-austria.html.id i386-emx-austria.html.it i386-emx-austria.html.nl i386-emx-austria.html.po i386-emx-austria.html.sl i386-emx-austria.html.ru i386-emx-austria.var i386-netbsd-austria.html.bg i386-netbsd-austria.html.en i386-netbsd-austria.html.fr i386-netbsd-austria.html.id i386-netbsd-austria.html.it i386-netbsd-austria.html.nl i386-netbsd-austria.html.po i386-netbsd-austria.html.sl i386-netbsd-austria.html.ru i386-netbsd-austria.var i386-solaris-austria.html.bg i386-solaris-austria.html.en i386-solaris-austria.html.fr i386-solaris-austria.html.id i386-solaris-austria.html.it i386-solaris-austria.html.nl i386-solaris-austria.html.po i386-solaris-austria.html.sl i386-solaris-austria.html.ru i386-solaris-austria.var m68k-linux-austria.html.bg m68k-linux-austria.html.en m68k-linux-austria.html.fr m68k-linux-austria.html.id m68k-linux-austria.html.it m68k-linux-austria.html.nl m68k-linux-austria.html.po m68k-linux-austria.html.sl m68k-linux-austria.html.ru m68k-linux-austria.var down-austria.html.bg down-austria.html.en down-austria.html.fr down-austria.html.id down-austria.html.it down-austria.html.nl down-austria.html.po down-austria.html.sl down-austria.html.ru down-austria.var i386-go32v2-austria.html.bg i386-go32v2-austria.html.en i386-go32v2-austria.html.fr i386-go32v2-austria.html.id i386-go32v2-austria.html.it i386-go32v2-austria.html.nl i386-go32v2-austria.html.po i386-go32v2-austria.html.sl i386-go32v2-austria.html.ru i386-go32v2-austria.var i386-qnx-austria.html.bg i386-qnx-austria.html.en i386-qnx-austria.html.fr i386-qnx-austria.html.id i386-qnx-austria.html.it i386-qnx-austria.html.nl i386-qnx-austria.html.po i386-qnx-austria.html.sl i386-qnx-austria.html.ru i386-qnx-austria.var m68k-amiga-austria.html.bg m68k-amiga-austria.html.en m68k-amiga-austria.html.fr m68k-amiga-austria.html.id m68k-amiga-austria.html.it m68k-amiga-austria.html.nl m68k-amiga-austria.html.po m68k-amiga-austria.html.sl m68k-amiga-austria.html.ru m68k-amiga-austria.var m68k-netbsd-austria.html.bg m68k-netbsd-austria.html.en m68k-netbsd-austria.html.fr m68k-netbsd-austria.html.id m68k-netbsd-austria.html.it m68k-netbsd-austria.html.nl m68k-netbsd-austria.html.po m68k-netbsd-austria.html.sl m68k-netbsd-austria.html.ru m68k-netbsd-austria.var docs-germany.html.bg docs-germany.html.en docs-germany.html.fr docs-germany.html.id docs-germany.html.it docs-germany.html.nl docs-germany.html.po docs-germany.html.sl docs-germany.html.ru docs-germany.var i386-beos-germany.html.bg i386-beos-germany.html.en i386-beos-germany.html.fr i386-beos-germany.html.id i386-beos-germany.html.it i386-beos-germany.html.nl i386-beos-germany.html.po i386-beos-germany.html.sl i386-beos-germany.html.ru i386-beos-germany.var i386-emx-germany.html.bg i386-emx-germany.html.en i386-emx-germany.html.fr i386-emx-germany.html.id i386-emx-germany.html.it i386-emx-germany.html.nl i386-emx-germany.html.po i386-emx-germany.html.sl i386-emx-germany.html.ru i386-emx-germany.var i386-netbsd-germany.html.bg i386-netbsd-germany.html.en i386-netbsd-germany.html.fr i386-netbsd-germany.html.id i386-netbsd-germany.html.it i386-netbsd-germany.html.nl i386-netbsd-germany.html.po i386-netbsd-germany.html.sl i386-netbsd-germany.html.ru i386-netbsd-germany.var i386-solaris-germany.html.bg i386-solaris-germany.html.en i386-solaris-germany.html.fr i386-solaris-germany.html.id i386-solaris-germany.html.it i386-solaris-germany.html.nl i386-solaris-germany.html.po i386-solaris-germany.html.sl i386-solaris-germany.html.ru i386-solaris-germany.var m68k-linux-germany.html.bg m68k-linux-germany.html.en m68k-linux-germany.html.fr m68k-linux-germany.html.id m68k-linux-germany.html.it m68k-linux-germany.html.nl m68k-linux-germany.html.po m68k-linux-germany.html.sl m68k-linux-germany.html.ru m68k-linux-germany.var down-germany.html.bg down-germany.html.en down-germany.html.fr down-germany.html.id down-germany.html.it down-germany.html.nl down-germany.html.po down-germany.html.sl down-germany.html.ru down-germany.var i386-go32v2-germany.html.bg i386-go32v2-germany.html.en i386-go32v2-germany.html.fr i386-go32v2-germany.html.id i386-go32v2-germany.html.it i386-go32v2-germany.html.nl i386-go32v2-germany.html.po i386-go32v2-germany.html.sl i386-go32v2-germany.html.ru i386-go32v2-germany.var i386-qnx-germany.html.bg i386-qnx-germany.html.en i386-qnx-germany.html.fr i386-qnx-germany.html.id i386-qnx-germany.html.it i386-qnx-germany.html.nl i386-qnx-germany.html.po i386-qnx-germany.html.sl i386-qnx-germany.html.ru i386-qnx-germany.var m68k-amiga-germany.html.bg m68k-amiga-germany.html.en m68k-amiga-germany.html.fr m68k-amiga-germany.html.id m68k-amiga-germany.html.it m68k-amiga-germany.html.nl m68k-amiga-germany.html.po m68k-amiga-germany.html.sl m68k-amiga-germany.html.ru m68k-amiga-germany.var m68k-netbsd-germany.html.bg m68k-netbsd-germany.html.en m68k-netbsd-germany.html.fr m68k-netbsd-germany.html.id m68k-netbsd-germany.html.it m68k-netbsd-germany.html.nl m68k-netbsd-germany.html.po m68k-netbsd-germany.html.sl m68k-netbsd-germany.html.ru m68k-netbsd-germany.var docs-hungary.html.bg docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.it docs-hungary.html.nl docs-hungary.html.po docs-hungary.html.sl docs-hungary.html.ru docs-hungary.var i386-beos-hungary.html.bg i386-beos-hungary.html.en i386-beos-hungary.html.fr i386-beos-hungary.html.id i386-beos-hungary.html.it i386-beos-hungary.html.nl i386-beos-hungary.html.po i386-beos-hungary.html.sl i386-beos-hungary.html.ru i386-beos-hungary.var i386-emx-hungary.html.bg i386-emx-hungary.html.en i386-emx-hungary.html.fr i386-emx-hungary.html.id i386-emx-hungary.html.it i386-emx-hungary.html.nl i386-emx-hungary.html.po i386-emx-hungary.html.sl i386-emx-hungary.html.ru i386-emx-hungary.var i386-netbsd-hungary.html.bg i386-netbsd-hungary.html.en i386-netbsd-hungary.html.fr i386-netbsd-hungary.html.id i386-netbsd-hungary.html.it i386-netbsd-hungary.html.nl i386-netbsd-hungary.html.po i386-netbsd-hungary.html.sl i386-netbsd-hungary.html.ru i386-netbsd-hungary.var i386-solaris-hungary.html.bg i386-solaris-hungary.html.en i386-solaris-hungary.html.fr i386-solaris-hungary.html.id i386-solaris-hungary.html.it i386-solaris-hungary.html.nl i386-solaris-hungary.html.po i386-solaris-hungary.html.sl i386-solaris-hungary.html.ru i386-solaris-hungary.var m68k-linux-hungary.html.bg m68k-linux-hungary.html.en m68k-linux-hungary.html.fr m68k-linux-hungary.html.id m68k-linux-hungary.html.it m68k-linux-hungary.html.nl m68k-linux-hungary.html.po m68k-linux-hungary.html.sl m68k-linux-hungary.html.ru m68k-linux-hungary.var down-hungary.html.bg down-hungary.html.en down-hungary.html.fr down-hungary.html.id down-hungary.html.it down-hungary.html.nl down-hungary.html.po down-hungary.html.sl down-hungary.html.ru down-hungary.var i386-go32v2-hungary.html.bg i386-go32v2-hungary.html.en i386-go32v2-hungary.html.fr i386-go32v2-hungary.html.id i386-go32v2-hungary.html.it i386-go32v2-hungary.html.nl i386-go32v2-hungary.html.po i386-go32v2-hungary.html.sl i386-go32v2-hungary.html.ru i386-go32v2-hungary.var i386-qnx-hungary.html.bg i386-qnx-hungary.html.en i386-qnx-hungary.html.fr i386-qnx-hungary.html.id i386-qnx-hungary.html.it i386-qnx-hungary.html.nl i386-qnx-hungary.html.po i386-qnx-hungary.html.sl i386-qnx-hungary.html.ru i386-qnx-hungary.var m68k-amiga-hungary.html.bg m68k-amiga-hungary.html.en m68k-amiga-hungary.html.fr m68k-amiga-hungary.html.id m68k-amiga-hungary.html.it m68k-amiga-hungary.html.nl m68k-amiga-hungary.html.po m68k-amiga-hungary.html.sl m68k-amiga-hungary.html.ru m68k-amiga-hungary.var m68k-netbsd-hungary.html.bg m68k-netbsd-hungary.html.en m68k-netbsd-hungary.html.fr m68k-netbsd-hungary.html.id m68k-netbsd-hungary.html.it m68k-netbsd-hungary.html.nl m68k-netbsd-hungary.html.po m68k-netbsd-hungary.html.sl m68k-netbsd-hungary.html.ru m68k-netbsd-hungary.var docs-israel.html.bg docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.it docs-israel.html.nl docs-israel.html.po docs-israel.html.sl docs-israel.html.ru docs-israel.var i386-beos-israel.html.bg i386-beos-israel.html.en i386-beos-israel.html.fr i386-beos-israel.html.id i386-beos-israel.html.it i386-beos-israel.html.nl i386-beos-israel.html.po i386-beos-israel.html.sl i386-beos-israel.html.ru i386-beos-israel.var i386-emx-israel.html.bg i386-emx-israel.html.en i386-emx-israel.html.fr i386-emx-israel.html.id i386-emx-israel.html.it i386-emx-israel.html.nl i386-emx-israel.html.po i386-emx-israel.html.sl i386-emx-israel.html.ru i386-emx-israel.var i386-netbsd-israel.html.bg i386-netbsd-israel.html.en i386-netbsd-israel.html.fr i386-netbsd-israel.html.id i386-netbsd-israel.html.it i386-netbsd-israel.html.nl i386-netbsd-israel.html.po i386-netbsd-israel.html.sl i386-netbsd-israel.html.ru i386-netbsd-israel.var i386-solaris-israel.html.bg i386-solaris-israel.html.en i386-solaris-israel.html.fr i386-solaris-israel.html.id i386-solaris-israel.html.it i386-solaris-israel.html.nl i386-solaris-israel.html.po i386-solaris-israel.html.sl i386-solaris-israel.html.ru i386-solaris-israel.var m68k-linux-israel.html.bg m68k-linux-israel.html.en m68k-linux-israel.html.fr m68k-linux-israel.html.id m68k-linux-israel.html.it m68k-linux-israel.html.nl m68k-linux-israel.html.po m68k-linux-israel.html.sl m68k-linux-israel.html.ru m68k-linux-israel.var down-israel.html.bg down-israel.html.en down-israel.html.fr down-israel.html.id down-israel.html.it down-israel.html.nl down-israel.html.po down-israel.html.sl down-israel.html.ru down-israel.var i386-go32v2-israel.html.bg i386-go32v2-israel.html.en i386-go32v2-israel.html.fr i386-go32v2-israel.html.id i386-go32v2-israel.html.it i386-go32v2-israel.html.nl i386-go32v2-israel.html.po i386-go32v2-israel.html.sl i386-go32v2-israel.html.ru i386-go32v2-israel.var i386-qnx-israel.html.bg i386-qnx-israel.html.en i386-qnx-israel.html.fr i386-qnx-israel.html.id i386-qnx-israel.html.it i386-qnx-israel.html.nl i386-qnx-israel.html.po i386-qnx-israel.html.sl i386-qnx-israel.html.ru i386-qnx-israel.var m68k-amiga-israel.html.bg m68k-amiga-israel.html.en m68k-amiga-israel.html.fr m68k-amiga-israel.html.id m68k-amiga-israel.html.it m68k-amiga-israel.html.nl m68k-amiga-israel.html.po m68k-amiga-israel.html.sl m68k-amiga-israel.html.ru m68k-amiga-israel.var m68k-netbsd-israel.html.bg m68k-netbsd-israel.html.en m68k-netbsd-israel.html.fr m68k-netbsd-israel.html.id m68k-netbsd-israel.html.it m68k-netbsd-israel.html.nl m68k-netbsd-israel.html.po m68k-netbsd-israel.html.sl m68k-netbsd-israel.html.ru m68k-netbsd-israel.var docs-netherlands.html.bg docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.it docs-netherlands.html.nl docs-netherlands.html.po docs-netherlands.html.sl docs-netherlands.html.ru docs-netherlands.var i386-beos-netherlands.html.bg i386-beos-netherlands.html.en i386-beos-netherlands.html.fr i386-beos-netherlands.html.id i386-beos-netherlands.html.it i386-beos-netherlands.html.nl i386-beos-netherlands.html.po i386-beos-netherlands.html.sl i386-beos-netherlands.html.ru i386-beos-netherlands.var i386-emx-netherlands.html.bg i386-emx-netherlands.html.en i386-emx-netherlands.html.fr i386-emx-netherlands.html.id i386-emx-netherlands.html.it i386-emx-netherlands.html.nl i386-emx-netherlands.html.po i386-emx-netherlands.html.sl i386-emx-netherlands.html.ru i386-emx-netherlands.var i386-netbsd-netherlands.html.bg i386-netbsd-netherlands.html.en i386-netbsd-netherlands.html.fr i386-netbsd-netherlands.html.id i386-netbsd-netherlands.html.it i386-netbsd-netherlands.html.nl i386-netbsd-netherlands.html.po i386-netbsd-netherlands.html.sl i386-netbsd-netherlands.html.ru i386-netbsd-netherlands.var i386-solaris-netherlands.html.bg i386-solaris-netherlands.html.en i386-solaris-netherlands.html.fr i386-solaris-netherlands.html.id i386-solaris-netherlands.html.it i386-solaris-netherlands.html.nl i386-solaris-netherlands.html.po i386-solaris-netherlands.html.sl i386-solaris-netherlands.html.ru i386-solaris-netherlands.var m68k-linux-netherlands.html.bg m68k-linux-netherlands.html.en m68k-linux-netherlands.html.fr m68k-linux-netherlands.html.id m68k-linux-netherlands.html.it m68k-linux-netherlands.html.nl m68k-linux-netherlands.html.po m68k-linux-netherlands.html.sl m68k-linux-netherlands.html.ru m68k-linux-netherlands.var down-netherlands.html.bg down-netherlands.html.en down-netherlands.html.fr down-netherlands.html.id down-netherlands.html.it down-netherlands.html.nl down-netherlands.html.po down-netherlands.html.sl down-netherlands.html.ru down-netherlands.var i386-go32v2-netherlands.html.bg i386-go32v2-netherlands.html.en i386-go32v2-netherlands.html.fr i386-go32v2-netherlands.html.id i386-go32v2-netherlands.html.it i386-go32v2-netherlands.html.nl i386-go32v2-netherlands.html.po i386-go32v2-netherlands.html.sl i386-go32v2-netherlands.html.ru i386-go32v2-netherlands.var i386-qnx-netherlands.html.bg i386-qnx-netherlands.html.en i386-qnx-netherlands.html.fr i386-qnx-netherlands.html.id i386-qnx-netherlands.html.it i386-qnx-netherlands.html.nl i386-qnx-netherlands.html.po i386-qnx-netherlands.html.sl i386-qnx-netherlands.html.ru i386-qnx-netherlands.var m68k-amiga-netherlands.html.bg m68k-amiga-netherlands.html.en m68k-amiga-netherlands.html.fr m68k-amiga-netherlands.html.id m68k-amiga-netherlands.html.it m68k-amiga-netherlands.html.nl m68k-amiga-netherlands.html.po m68k-amiga-netherlands.html.sl m68k-amiga-netherlands.html.ru m68k-amiga-netherlands.var m68k-netbsd-netherlands.html.bg m68k-netbsd-netherlands.html.en m68k-netbsd-netherlands.html.fr m68k-netbsd-netherlands.html.id m68k-netbsd-netherlands.html.it m68k-netbsd-netherlands.html.nl m68k-netbsd-netherlands.html.po m68k-netbsd-netherlands.html.sl m68k-netbsd-netherlands.html.ru m68k-netbsd-netherlands.var docs-norway.html.bg docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.it docs-norway.html.nl docs-norway.html.po docs-norway.html.sl docs-norway.html.ru docs-norway.var i386-beos-norway.html.bg i386-beos-norway.html.en i386-beos-norway.html.fr i386-beos-norway.html.id i386-beos-norway.html.it i386-beos-norway.html.nl i386-beos-norway.html.po i386-beos-norway.html.sl i386-beos-norway.html.ru i386-beos-norway.var i386-emx-norway.html.bg i386-emx-norway.html.en i386-emx-norway.html.fr i386-emx-norway.html.id i386-emx-norway.html.it i386-emx-norway.html.nl i386-emx-norway.html.po i386-emx-norway.html.sl i386-emx-norway.html.ru i386-emx-norway.var i386-netbsd-norway.html.bg i386-netbsd-norway.html.en i386-netbsd-norway.html.fr i386-netbsd-norway.html.id i386-netbsd-norway.html.it i386-netbsd-norway.html.nl i386-netbsd-norway.html.po i386-netbsd-norway.html.sl i386-netbsd-norway.html.ru i386-netbsd-norway.var i386-solaris-norway.html.bg i386-solaris-norway.html.en i386-solaris-norway.html.fr i386-solaris-norway.html.id i386-solaris-norway.html.it i386-solaris-norway.html.nl i386-solaris-norway.html.po i386-solaris-norway.html.sl i386-solaris-norway.html.ru i386-solaris-norway.var m68k-linux-norway.html.bg m68k-linux-norway.html.en m68k-linux-norway.html.fr m68k-linux-norway.html.id m68k-linux-norway.html.it m68k-linux-norway.html.nl m68k-linux-norway.html.po m68k-linux-norway.html.sl m68k-linux-norway.html.ru m68k-linux-norway.var down-norway.html.bg down-norway.html.en down-norway.html.fr down-norway.html.id down-norway.html.it down-norway.html.nl down-norway.html.po down-norway.html.sl down-norway.html.ru down-norway.var i386-go32v2-norway.html.bg i386-go32v2-norway.html.en i386-go32v2-norway.html.fr i386-go32v2-norway.html.id i386-go32v2-norway.html.it i386-go32v2-norway.html.nl i386-go32v2-norway.html.po i386-go32v2-norway.html.sl i386-go32v2-norway.html.ru i386-go32v2-norway.var i386-qnx-norway.html.bg i386-qnx-norway.html.en i386-qnx-norway.html.fr i386-qnx-norway.html.id i386-qnx-norway.html.it i386-qnx-norway.html.nl i386-qnx-norway.html.po i386-qnx-norway.html.sl i386-qnx-norway.html.ru i386-qnx-norway.var m68k-amiga-norway.html.bg m68k-amiga-norway.html.en m68k-amiga-norway.html.fr m68k-amiga-norway.html.id m68k-amiga-norway.html.it m68k-amiga-norway.html.nl m68k-amiga-norway.html.po m68k-amiga-norway.html.sl m68k-amiga-norway.html.ru m68k-amiga-norway.var m68k-netbsd-norway.html.bg m68k-netbsd-norway.html.en m68k-netbsd-norway.html.fr m68k-netbsd-norway.html.id m68k-netbsd-norway.html.it m68k-netbsd-norway.html.nl m68k-netbsd-norway.html.po m68k-netbsd-norway.html.sl m68k-netbsd-norway.html.ru m68k-netbsd-norway.var docs-russia.html.bg docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.it docs-russia.html.nl docs-russia.html.po docs-russia.html.sl docs-russia.html.ru docs-russia.var i386-beos-russia.html.bg i386-beos-russia.html.en i386-beos-russia.html.fr i386-beos-russia.html.id i386-beos-russia.html.it i386-beos-russia.html.nl i386-beos-russia.html.po i386-beos-russia.html.sl i386-beos-russia.html.ru i386-beos-russia.var i386-emx-russia.html.bg i386-emx-russia.html.en i386-emx-russia.html.fr i386-emx-russia.html.id i386-emx-russia.html.it i386-emx-russia.html.nl i386-emx-russia.html.po i386-emx-russia.html.sl i386-emx-russia.html.ru i386-emx-russia.var i386-netbsd-russia.html.bg i386-netbsd-russia.html.en i386-netbsd-russia.html.fr i386-netbsd-russia.html.id i386-netbsd-russia.html.it i386-netbsd-russia.html.nl i386-netbsd-russia.html.po i386-netbsd-russia.html.sl i386-netbsd-russia.html.ru i386-netbsd-russia.var i386-solaris-russia.html.bg i386-solaris-russia.html.en i386-solaris-russia.html.fr i386-solaris-russia.html.id i386-solaris-russia.html.it i386-solaris-russia.html.nl i386-solaris-russia.html.po i386-solaris-russia.html.sl i386-solaris-russia.html.ru i386-solaris-russia.var m68k-linux-russia.html.bg m68k-linux-russia.html.en m68k-linux-russia.html.fr m68k-linux-russia.html.id m68k-linux-russia.html.it m68k-linux-russia.html.nl m68k-linux-russia.html.po m68k-linux-russia.html.sl m68k-linux-russia.html.ru m68k-linux-russia.var down-russia.html.bg down-russia.html.en down-russia.html.fr down-russia.html.id down-russia.html.it down-russia.html.nl down-russia.html.po down-russia.html.sl down-russia.html.ru down-russia.var i386-go32v2-russia.html.bg i386-go32v2-russia.html.en i386-go32v2-russia.html.fr i386-go32v2-russia.html.id i386-go32v2-russia.html.it i386-go32v2-russia.html.nl i386-go32v2-russia.html.po i386-go32v2-russia.html.sl i386-go32v2-russia.html.ru i386-go32v2-russia.var i386-qnx-russia.html.bg i386-qnx-russia.html.en i386-qnx-russia.html.fr i386-qnx-russia.html.id i386-qnx-russia.html.it i386-qnx-russia.html.nl i386-qnx-russia.html.po i386-qnx-russia.html.sl i386-qnx-russia.html.ru i386-qnx-russia.var m68k-amiga-russia.html.bg m68k-amiga-russia.html.en m68k-amiga-russia.html.fr m68k-amiga-russia.html.id m68k-amiga-russia.html.it m68k-amiga-russia.html.nl m68k-amiga-russia.html.po m68k-amiga-russia.html.sl m68k-amiga-russia.html.ru m68k-amiga-russia.var m68k-netbsd-russia.html.bg m68k-netbsd-russia.html.en m68k-netbsd-russia.html.fr m68k-netbsd-russia.html.id m68k-netbsd-russia.html.it m68k-netbsd-russia.html.nl m68k-netbsd-russia.html.po m68k-netbsd-russia.html.sl m68k-netbsd-russia.html.ru m68k-netbsd-russia.var docs-ftp.freepascal.org.html.bg docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.it docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.po docs-ftp.freepascal.org.html.sl docs-ftp.freepascal.org.html.ru docs-ftp.freepascal.org.var i386-beos-ftp.freepascal.org.html.bg i386-beos-ftp.freepascal.org.html.en i386-beos-ftp.freepascal.org.html.fr i386-beos-ftp.freepascal.org.html.id i386-beos-ftp.freepascal.org.html.it i386-beos-ftp.freepascal.org.html.nl i386-beos-ftp.freepascal.org.html.po i386-beos-ftp.freepascal.org.html.sl i386-beos-ftp.freepascal.org.html.ru i386-beos-ftp.freepascal.org.var i386-emx-ftp.freepascal.org.html.bg i386-emx-ftp.freepascal.org.html.en i386-emx-ftp.freepascal.org.html.fr i386-emx-ftp.freepascal.org.html.id i386-emx-ftp.freepascal.org.html.it i386-emx-ftp.freepascal.org.html.nl i386-emx-ftp.freepascal.org.html.po i386-emx-ftp.freepascal.org.html.sl i386-emx-ftp.freepascal.org.html.ru i386-emx-ftp.freepascal.org.var i386-netbsd-ftp.freepascal.org.html.bg i386-netbsd-ftp.freepascal.org.html.en i386-netbsd-ftp.freepascal.org.html.fr i386-netbsd-ftp.freepascal.org.html.id i386-netbsd-ftp.freepascal.org.html.it i386-netbsd-ftp.freepascal.org.html.nl i386-netbsd-ftp.freepascal.org.html.po i386-netbsd-ftp.freepascal.org.html.sl i386-netbsd-ftp.freepascal.org.html.ru i386-netbsd-ftp.freepascal.org.var i386-solaris-ftp.freepascal.org.html.bg i386-solaris-ftp.freepascal.org.html.en i386-solaris-ftp.freepascal.org.html.fr i386-solaris-ftp.freepascal.org.html.id i386-solaris-ftp.freepascal.org.html.it i386-solaris-ftp.freepascal.org.html.nl i386-solaris-ftp.freepascal.org.html.po i386-solaris-ftp.freepascal.org.html.sl i386-solaris-ftp.freepascal.org.html.ru i386-solaris-ftp.freepascal.org.var m68k-linux-ftp.freepascal.org.html.bg m68k-linux-ftp.freepascal.org.html.en m68k-linux-ftp.freepascal.org.html.fr m68k-linux-ftp.freepascal.org.html.id m68k-linux-ftp.freepascal.org.html.it m68k-linux-ftp.freepascal.org.html.nl m68k-linux-ftp.freepascal.org.html.po m68k-linux-ftp.freepascal.org.html.sl m68k-linux-ftp.freepascal.org.html.ru m68k-linux-ftp.freepascal.org.var down-ftp.freepascal.org.html.bg down-ftp.freepascal.org.html.en down-ftp.freepascal.org.html.fr down-ftp.freepascal.org.html.id down-ftp.freepascal.org.html.it down-ftp.freepascal.org.html.nl down-ftp.freepascal.org.html.po down-ftp.freepascal.org.html.sl down-ftp.freepascal.org.html.ru down-ftp.freepascal.org.var i386-go32v2-ftp.freepascal.org.html.bg i386-go32v2-ftp.freepascal.org.html.en i386-go32v2-ftp.freepascal.org.html.fr i386-go32v2-ftp.freepascal.org.html.id i386-go32v2-ftp.freepascal.org.html.it i386-go32v2-ftp.freepascal.org.html.nl i386-go32v2-ftp.freepascal.org.html.po i386-go32v2-ftp.freepascal.org.html.sl i386-go32v2-ftp.freepascal.org.html.ru i386-go32v2-ftp.freepascal.org.var i386-qnx-ftp.freepascal.org.html.bg i386-qnx-ftp.freepascal.org.html.en i386-qnx-ftp.freepascal.org.html.fr i386-qnx-ftp.freepascal.org.html.id i386-qnx-ftp.freepascal.org.html.it i386-qnx-ftp.freepascal.org.html.nl i386-qnx-ftp.freepascal.org.html.po i386-qnx-ftp.freepascal.org.html.sl i386-qnx-ftp.freepascal.org.html.ru i386-qnx-ftp.freepascal.org.var m68k-amiga-ftp.freepascal.org.html.bg m68k-amiga-ftp.freepascal.org.html.en m68k-amiga-ftp.freepascal.org.html.fr m68k-amiga-ftp.freepascal.org.html.id m68k-amiga-ftp.freepascal.org.html.it m68k-amiga-ftp.freepascal.org.html.nl m68k-amiga-ftp.freepascal.org.html.po m68k-amiga-ftp.freepascal.org.html.sl m68k-amiga-ftp.freepascal.org.html.ru m68k-amiga-ftp.freepascal.org.var m68k-netbsd-ftp.freepascal.org.html.bg m68k-netbsd-ftp.freepascal.org.html.en m68k-netbsd-ftp.freepascal.org.html.fr m68k-netbsd-ftp.freepascal.org.html.id m68k-netbsd-ftp.freepascal.org.html.it m68k-netbsd-ftp.freepascal.org.html.nl m68k-netbsd-ftp.freepascal.org.html.po m68k-netbsd-ftp.freepascal.org.html.sl m68k-netbsd-ftp.freepascal.org.html.ru m68k-netbsd-ftp.freepascal.org.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var i386-beos.html.bg i386-beos.html.en i386-beos.html.fr i386-beos.html.id i386-beos.html.it i386-beos.html.nl i386-beos.html.po i386-beos.html.sl i386-beos.html.ru i386-beos.var i386-emx.html.bg i386-emx.html.en i386-emx.html.fr i386-emx.html.id i386-emx.html.it i386-emx.html.nl i386-emx.html.po i386-emx.html.sl i386-emx.html.ru i386-emx.var i386-netbsd.html.bg i386-netbsd.html.en i386-netbsd.html.fr i386-netbsd.html.id i386-netbsd.html.it i386-netbsd.html.nl i386-netbsd.html.po i386-netbsd.html.sl i386-netbsd.html.ru i386-netbsd.var i386-solaris.html.bg i386-solaris.html.en i386-solaris.html.fr i386-solaris.html.id i386-solaris.html.it i386-solaris.html.nl i386-solaris.html.po i386-solaris.html.sl i386-solaris.html.ru i386-solaris.var m68k-linux.html.bg m68k-linux.html.en m68k-linux.html.fr m68k-linux.html.id m68k-linux.html.it m68k-linux.html.nl m68k-linux.html.po m68k-linux.html.sl m68k-linux.html.ru m68k-linux.var down.html.bg down.html.en down.html.fr down.html.id down.html.it down.html.nl down.html.po down.html.sl down.html.ru down.var i386-go32v2.html.bg i386-go32v2.html.en i386-go32v2.html.fr i386-go32v2.html.id i386-go32v2.html.it i386-go32v2.html.nl i386-go32v2.html.po i386-go32v2.html.sl i386-go32v2.html.ru i386-go32v2.var i386-qnx.html.bg i386-qnx.html.en i386-qnx.html.fr i386-qnx.html.id i386-qnx.html.it i386-qnx.html.nl i386-qnx.html.po i386-qnx.html.sl i386-qnx.html.ru i386-qnx.var m68k-amiga.html.bg m68k-amiga.html.en m68k-amiga.html.fr m68k-amiga.html.id m68k-amiga.html.it m68k-amiga.html.nl m68k-amiga.html.po m68k-amiga.html.sl m68k-amiga.html.ru m68k-amiga.var m68k-netbsd.html.bg m68k-netbsd.html.en m68k-netbsd.html.fr m68k-netbsd.html.id m68k-netbsd.html.it m68k-netbsd.html.nl m68k-netbsd.html.po m68k-netbsd.html.sl m68k-netbsd.html.ru m68k-netbsd.var mirrors.dat
 
 
 # clean

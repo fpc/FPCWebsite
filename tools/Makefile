@@ -27,6 +27,8 @@ endif
 .PHONY: all all_pages clean
 default: all
 all: all_pages
+delp.html.bg: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o delp.html.bg -oe iso-8859-5 delp.adp
 delp.html.en: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o delp.html.en -oe iso-8859-1 delp.adp
 delp.html.fr: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -46,6 +48,10 @@ delp.html.ru: delp.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 delp.var: gen_makefile.conf
 	echo > delp.var
+	echo 'URI: delp.html.bg' >> delp.var
+	echo 'Content-language: bg' >> delp.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> delp.var
+	echo >> delp.var
 	echo 'URI: delp.html.en' >> delp.var
 	echo 'Content-language: en' >> delp.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> delp.var
@@ -78,6 +84,8 @@ delp.var: gen_makefile.conf
 	echo 'Content-language: ru' >> delp.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> delp.var
 	echo >> delp.var
+fpcmake.html.bg: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o fpcmake.html.bg -oe iso-8859-5 fpcmake.adp
 fpcmake.html.en: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o fpcmake.html.en -oe iso-8859-1 fpcmake.adp
 fpcmake.html.fr: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -97,6 +105,10 @@ fpcmake.html.ru: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog
 
 fpcmake.var: gen_makefile.conf
 	echo > fpcmake.var
+	echo 'URI: fpcmake.html.bg' >> fpcmake.var
+	echo 'Content-language: bg' >> fpcmake.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> fpcmake.var
+	echo >> fpcmake.var
 	echo 'URI: fpcmake.html.en' >> fpcmake.var
 	echo 'Content-language: en' >> fpcmake.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> fpcmake.var
@@ -129,6 +141,8 @@ fpcmake.var: gen_makefile.conf
 	echo 'Content-language: ru' >> fpcmake.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> fpcmake.var
 	echo >> fpcmake.var
+h2pas.html.bg: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o h2pas.html.bg -oe iso-8859-5 h2pas.adp
 h2pas.html.en: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o h2pas.html.en -oe iso-8859-1 h2pas.adp
 h2pas.html.fr: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -148,6 +162,10 @@ h2pas.html.ru: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 h2pas.var: gen_makefile.conf
 	echo > h2pas.var
+	echo 'URI: h2pas.html.bg' >> h2pas.var
+	echo 'Content-language: bg' >> h2pas.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> h2pas.var
+	echo >> h2pas.var
 	echo 'URI: h2pas.html.en' >> h2pas.var
 	echo 'Content-language: en' >> h2pas.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> h2pas.var
@@ -180,6 +198,8 @@ h2pas.var: gen_makefile.conf
 	echo 'Content-language: ru' >> h2pas.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> h2pas.var
 	echo >> h2pas.var
+ppdep.html.bg: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o ppdep.html.bg -oe iso-8859-5 ppdep.adp
 ppdep.html.en: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppdep.html.en -oe iso-8859-1 ppdep.adp
 ppdep.html.fr: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -199,6 +219,10 @@ ppdep.html.ru: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 ppdep.var: gen_makefile.conf
 	echo > ppdep.var
+	echo 'URI: ppdep.html.bg' >> ppdep.var
+	echo 'Content-language: bg' >> ppdep.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppdep.var
+	echo >> ppdep.var
 	echo 'URI: ppdep.html.en' >> ppdep.var
 	echo 'Content-language: en' >> ppdep.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppdep.var
@@ -231,6 +255,8 @@ ppdep.var: gen_makefile.conf
 	echo 'Content-language: ru' >> ppdep.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ppdep.var
 	echo >> ppdep.var
+ppudump.html.bg: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o ppudump.html.bg -oe iso-8859-5 ppudump.adp
 ppudump.html.en: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppudump.html.en -oe iso-8859-1 ppudump.adp
 ppudump.html.fr: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -250,6 +276,10 @@ ppudump.html.ru: ppudump.adp ../default-master.adp ../site-master.adp ../catalog
 
 ppudump.var: gen_makefile.conf
 	echo > ppudump.var
+	echo 'URI: ppudump.html.bg' >> ppudump.var
+	echo 'Content-language: bg' >> ppudump.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppudump.var
+	echo >> ppudump.var
 	echo 'URI: ppudump.html.en' >> ppudump.var
 	echo 'Content-language: en' >> ppudump.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppudump.var
@@ -282,6 +312,8 @@ ppudump.var: gen_makefile.conf
 	echo 'Content-language: ru' >> ppudump.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ppudump.var
 	echo >> ppudump.var
+ppufiles.html.bg: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o ppufiles.html.bg -oe iso-8859-5 ppufiles.adp
 ppufiles.html.en: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppufiles.html.en -oe iso-8859-1 ppufiles.adp
 ppufiles.html.fr: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -301,6 +333,10 @@ ppufiles.html.ru: ppufiles.adp ../default-master.adp ../site-master.adp ../catal
 
 ppufiles.var: gen_makefile.conf
 	echo > ppufiles.var
+	echo 'URI: ppufiles.html.bg' >> ppufiles.var
+	echo 'Content-language: bg' >> ppufiles.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppufiles.var
+	echo >> ppufiles.var
 	echo 'URI: ppufiles.html.en' >> ppufiles.var
 	echo 'Content-language: en' >> ppufiles.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppufiles.var
@@ -333,6 +369,8 @@ ppufiles.var: gen_makefile.conf
 	echo 'Content-language: ru' >> ppufiles.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ppufiles.var
 	echo >> ppufiles.var
+ppumove.html.bg: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o ppumove.html.bg -oe iso-8859-5 ppumove.adp
 ppumove.html.en: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ppumove.html.en -oe iso-8859-1 ppumove.adp
 ppumove.html.fr: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -352,6 +390,10 @@ ppumove.html.ru: ppumove.adp ../default-master.adp ../site-master.adp ../catalog
 
 ppumove.var: gen_makefile.conf
 	echo > ppumove.var
+	echo 'URI: ppumove.html.bg' >> ppumove.var
+	echo 'Content-language: bg' >> ppumove.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ppumove.var
+	echo >> ppumove.var
 	echo 'URI: ppumove.html.en' >> ppumove.var
 	echo 'Content-language: en' >> ppumove.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ppumove.var
@@ -384,6 +426,8 @@ ppumove.var: gen_makefile.conf
 	echo 'Content-language: ru' >> ppumove.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ppumove.var
 	echo >> ppumove.var
+ptop.html.bg: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o ptop.html.bg -oe iso-8859-5 ptop.adp
 ptop.html.en: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o ptop.html.en -oe iso-8859-1 ptop.adp
 ptop.html.fr: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -403,6 +447,10 @@ ptop.html.ru: ptop.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 ptop.var: gen_makefile.conf
 	echo > ptop.var
+	echo 'URI: ptop.html.bg' >> ptop.var
+	echo 'Content-language: bg' >> ptop.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> ptop.var
+	echo >> ptop.var
 	echo 'URI: ptop.html.en' >> ptop.var
 	echo 'Content-language: en' >> ptop.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> ptop.var
@@ -435,6 +483,8 @@ ptop.var: gen_makefile.conf
 	echo 'Content-language: ru' >> ptop.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ptop.var
 	echo >> ptop.var
+rstconv.html.bg: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o rstconv.html.bg -oe iso-8859-5 rstconv.adp
 rstconv.html.en: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o rstconv.html.en -oe iso-8859-1 rstconv.adp
 rstconv.html.fr: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -454,6 +504,10 @@ rstconv.html.ru: rstconv.adp ../default-master.adp ../site-master.adp ../catalog
 
 rstconv.var: gen_makefile.conf
 	echo > rstconv.var
+	echo 'URI: rstconv.html.bg' >> rstconv.var
+	echo 'Content-language: bg' >> rstconv.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> rstconv.var
+	echo >> rstconv.var
 	echo 'URI: rstconv.html.en' >> rstconv.var
 	echo 'Content-language: en' >> rstconv.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> rstconv.var
@@ -486,6 +540,8 @@ rstconv.var: gen_makefile.conf
 	echo 'Content-language: ru' >> rstconv.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> rstconv.var
 	echo >> rstconv.var
+tools.html.bg: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o tools.html.bg -oe iso-8859-5 tools.adp
 tools.html.en: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o tools.html.en -oe iso-8859-1 tools.adp
 tools.html.fr: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -505,6 +561,10 @@ tools.html.ru: tools.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 tools.var: gen_makefile.conf
 	echo > tools.var
+	echo 'URI: tools.html.bg' >> tools.var
+	echo 'Content-language: bg' >> tools.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> tools.var
+	echo >> tools.var
 	echo 'URI: tools.html.en' >> tools.var
 	echo 'Content-language: en' >> tools.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tools.var
@@ -537,6 +597,8 @@ tools.var: gen_makefile.conf
 	echo 'Content-language: ru' >> tools.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> tools.var
 	echo >> tools.var
+tply.html.bg: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l bg_BG -m ../default-master.adp -o tply.html.bg -oe iso-8859-5 tply.adp
 tply.html.en: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.adp -l en_US -m ../default-master.adp -o tply.html.en -oe iso-8859-1 tply.adp
 tply.html.fr: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
@@ -556,6 +618,10 @@ tply.html.ru: tply.adp ../default-master.adp ../site-master.adp ../catalog.adp
 
 tply.var: gen_makefile.conf
 	echo > tply.var
+	echo 'URI: tply.html.bg' >> tply.var
+	echo 'Content-language: bg' >> tply.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> tply.var
+	echo >> tply.var
 	echo 'URI: tply.html.en' >> tply.var
 	echo 'Content-language: en' >> tply.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> tply.var
@@ -601,7 +667,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: delp.html.en delp.html.fr delp.html.id delp.html.it delp.html.nl delp.html.po delp.html.sl delp.html.ru delp.var fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.it fpcmake.html.nl fpcmake.html.po fpcmake.html.sl fpcmake.html.ru fpcmake.var h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.it h2pas.html.nl h2pas.html.po h2pas.html.sl h2pas.html.ru h2pas.var ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.it ppdep.html.nl ppdep.html.po ppdep.html.sl ppdep.html.ru ppdep.var ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.it ppudump.html.nl ppudump.html.po ppudump.html.sl ppudump.html.ru ppudump.var ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.it ppufiles.html.nl ppufiles.html.po ppufiles.html.sl ppufiles.html.ru ppufiles.var ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.it ppumove.html.nl ppumove.html.po ppumove.html.sl ppumove.html.ru ppumove.var ptop.html.en ptop.html.fr ptop.html.id ptop.html.it ptop.html.nl ptop.html.po ptop.html.sl ptop.html.ru ptop.var rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.it rstconv.html.nl rstconv.html.po rstconv.html.sl rstconv.html.ru rstconv.var tools.html.en tools.html.fr tools.html.id tools.html.it tools.html.nl tools.html.po tools.html.sl tools.html.ru tools.var tply.html.en tply.html.fr tply.html.id tply.html.it tply.html.nl tply.html.po tply.html.sl tply.html.ru tply.var mirrors.dat
+all_pages: delp.html.bg delp.html.en delp.html.fr delp.html.id delp.html.it delp.html.nl delp.html.po delp.html.sl delp.html.ru delp.var fpcmake.html.bg fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.it fpcmake.html.nl fpcmake.html.po fpcmake.html.sl fpcmake.html.ru fpcmake.var h2pas.html.bg h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.it h2pas.html.nl h2pas.html.po h2pas.html.sl h2pas.html.ru h2pas.var ppdep.html.bg ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.it ppdep.html.nl ppdep.html.po ppdep.html.sl ppdep.html.ru ppdep.var ppudump.html.bg ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.it ppudump.html.nl ppudump.html.po ppudump.html.sl ppudump.html.ru ppudump.var ppufiles.html.bg ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.it ppufiles.html.nl ppufiles.html.po ppufiles.html.sl ppufiles.html.ru ppufiles.var ppumove.html.bg ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.it ppumove.html.nl ppumove.html.po ppumove.html.sl ppumove.html.ru ppumove.var ptop.html.bg ptop.html.en ptop.html.fr ptop.html.id ptop.html.it ptop.html.nl ptop.html.po ptop.html.sl ptop.html.ru ptop.var rstconv.html.bg rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.it rstconv.html.nl rstconv.html.po rstconv.html.sl rstconv.html.ru rstconv.var tools.html.bg tools.html.en tools.html.fr tools.html.id tools.html.it tools.html.nl tools.html.po tools.html.sl tools.html.ru tools.var tply.html.bg tply.html.en tply.html.fr tply.html.id tply.html.it tply.html.nl tply.html.po tply.html.sl tply.html.ru tply.var mirrors.dat
 
 
 # clean

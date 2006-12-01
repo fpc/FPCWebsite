@@ -27,6 +27,8 @@ endif
 .PHONY: all all_pages clean
 default: all
 all: all_pages
+freebsd-australia.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-australia.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-australia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-australia.html.en -oe iso-8859-1 freebsd.adp
 freebsd-australia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -46,6 +48,10 @@ freebsd-australia.html.ru: freebsd.adp ../../default-master.adp ../../site-maste
 
 freebsd-australia.var: gen_makefile.conf
 	echo > freebsd-australia.var
+	echo 'URI: freebsd-australia.html.bg' >> freebsd-australia.var
+	echo 'Content-language: bg' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-australia.var
+	echo >> freebsd-australia.var
 	echo 'URI: freebsd-australia.html.en' >> freebsd-australia.var
 	echo 'Content-language: en' >> freebsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
@@ -78,6 +84,8 @@ freebsd-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-australia.var
 	echo >> freebsd-australia.var
+go32v2-australia.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-australia.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-australia.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-australia.html.en -oe iso-8859-1 go32v2.adp
 go32v2-australia.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -97,6 +105,10 @@ go32v2-australia.html.ru: go32v2.adp ../../default-master.adp ../../site-master.
 
 go32v2-australia.var: gen_makefile.conf
 	echo > go32v2-australia.var
+	echo 'URI: go32v2-australia.html.bg' >> go32v2-australia.var
+	echo 'Content-language: bg' >> go32v2-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-australia.var
+	echo >> go32v2-australia.var
 	echo 'URI: go32v2-australia.html.en' >> go32v2-australia.var
 	echo 'Content-language: en' >> go32v2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-australia.var
@@ -129,6 +141,8 @@ go32v2-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-australia.var
 	echo >> go32v2-australia.var
+linux-australia.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-australia.html.bg -oe iso-8859-5 linux.adp
 linux-australia.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-australia.html.en -oe iso-8859-1 linux.adp
 linux-australia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -148,6 +162,10 @@ linux-australia.html.ru: linux.adp ../../default-master.adp ../../site-master.ad
 
 linux-australia.var: gen_makefile.conf
 	echo > linux-australia.var
+	echo 'URI: linux-australia.html.bg' >> linux-australia.var
+	echo 'Content-language: bg' >> linux-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-australia.var
+	echo >> linux-australia.var
 	echo 'URI: linux-australia.html.en' >> linux-australia.var
 	echo 'Content-language: en' >> linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-australia.var
@@ -180,6 +198,8 @@ linux-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-australia.var
 	echo >> linux-australia.var
+netware-australia.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-australia.html.bg -oe iso-8859-5 netware.adp
 netware-australia.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-australia.html.en -oe iso-8859-1 netware.adp
 netware-australia.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -199,6 +219,10 @@ netware-australia.html.ru: netware.adp ../../default-master.adp ../../site-maste
 
 netware-australia.var: gen_makefile.conf
 	echo > netware-australia.var
+	echo 'URI: netware-australia.html.bg' >> netware-australia.var
+	echo 'Content-language: bg' >> netware-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-australia.var
+	echo >> netware-australia.var
 	echo 'URI: netware-australia.html.en' >> netware-australia.var
 	echo 'Content-language: en' >> netware-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-australia.var
@@ -231,6 +255,8 @@ netware-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-australia.var
 	echo >> netware-australia.var
+os2-australia.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-australia.html.bg -oe iso-8859-5 os2.adp
 os2-australia.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-australia.html.en -oe iso-8859-1 os2.adp
 os2-australia.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -250,6 +276,10 @@ os2-australia.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ..
 
 os2-australia.var: gen_makefile.conf
 	echo > os2-australia.var
+	echo 'URI: os2-australia.html.bg' >> os2-australia.var
+	echo 'Content-language: bg' >> os2-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-australia.var
+	echo >> os2-australia.var
 	echo 'URI: os2-australia.html.en' >> os2-australia.var
 	echo 'Content-language: en' >> os2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-australia.var
@@ -282,6 +312,8 @@ os2-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-australia.var
 	echo >> os2-australia.var
+win32-australia.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-australia.html.bg -oe iso-8859-5 win32.adp
 win32-australia.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-australia.html.en -oe iso-8859-1 win32.adp
 win32-australia.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -301,6 +333,10 @@ win32-australia.html.ru: win32.adp ../../default-master.adp ../../site-master.ad
 
 win32-australia.var: gen_makefile.conf
 	echo > win32-australia.var
+	echo 'URI: win32-australia.html.bg' >> win32-australia.var
+	echo 'Content-language: bg' >> win32-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-australia.var
+	echo >> win32-australia.var
 	echo 'URI: win32-australia.html.en' >> win32-australia.var
 	echo 'Content-language: en' >> win32-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-australia.var
@@ -333,6 +369,8 @@ win32-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-australia.var
 	echo >> win32-australia.var
+freebsd-austria.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-austria.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-austria.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-austria.html.en -oe iso-8859-1 freebsd.adp
 freebsd-austria.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -352,6 +390,10 @@ freebsd-austria.html.ru: freebsd.adp ../../default-master.adp ../../site-master.
 
 freebsd-austria.var: gen_makefile.conf
 	echo > freebsd-austria.var
+	echo 'URI: freebsd-austria.html.bg' >> freebsd-austria.var
+	echo 'Content-language: bg' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-austria.var
+	echo >> freebsd-austria.var
 	echo 'URI: freebsd-austria.html.en' >> freebsd-austria.var
 	echo 'Content-language: en' >> freebsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
@@ -384,6 +426,8 @@ freebsd-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-austria.var
 	echo >> freebsd-austria.var
+go32v2-austria.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-austria.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-austria.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-austria.html.en -oe iso-8859-1 go32v2.adp
 go32v2-austria.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -403,6 +447,10 @@ go32v2-austria.html.ru: go32v2.adp ../../default-master.adp ../../site-master.ad
 
 go32v2-austria.var: gen_makefile.conf
 	echo > go32v2-austria.var
+	echo 'URI: go32v2-austria.html.bg' >> go32v2-austria.var
+	echo 'Content-language: bg' >> go32v2-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-austria.var
+	echo >> go32v2-austria.var
 	echo 'URI: go32v2-austria.html.en' >> go32v2-austria.var
 	echo 'Content-language: en' >> go32v2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-austria.var
@@ -435,6 +483,8 @@ go32v2-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-austria.var
 	echo >> go32v2-austria.var
+linux-austria.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-austria.html.bg -oe iso-8859-5 linux.adp
 linux-austria.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-austria.html.en -oe iso-8859-1 linux.adp
 linux-austria.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -454,6 +504,10 @@ linux-austria.html.ru: linux.adp ../../default-master.adp ../../site-master.adp 
 
 linux-austria.var: gen_makefile.conf
 	echo > linux-austria.var
+	echo 'URI: linux-austria.html.bg' >> linux-austria.var
+	echo 'Content-language: bg' >> linux-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-austria.var
+	echo >> linux-austria.var
 	echo 'URI: linux-austria.html.en' >> linux-austria.var
 	echo 'Content-language: en' >> linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-austria.var
@@ -486,6 +540,8 @@ linux-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-austria.var
 	echo >> linux-austria.var
+netware-austria.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-austria.html.bg -oe iso-8859-5 netware.adp
 netware-austria.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-austria.html.en -oe iso-8859-1 netware.adp
 netware-austria.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -505,6 +561,10 @@ netware-austria.html.ru: netware.adp ../../default-master.adp ../../site-master.
 
 netware-austria.var: gen_makefile.conf
 	echo > netware-austria.var
+	echo 'URI: netware-austria.html.bg' >> netware-austria.var
+	echo 'Content-language: bg' >> netware-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-austria.var
+	echo >> netware-austria.var
 	echo 'URI: netware-austria.html.en' >> netware-austria.var
 	echo 'Content-language: en' >> netware-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-austria.var
@@ -537,6 +597,8 @@ netware-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-austria.var
 	echo >> netware-austria.var
+os2-austria.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-austria.html.bg -oe iso-8859-5 os2.adp
 os2-austria.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-austria.html.en -oe iso-8859-1 os2.adp
 os2-austria.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -556,6 +618,10 @@ os2-austria.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../.
 
 os2-austria.var: gen_makefile.conf
 	echo > os2-austria.var
+	echo 'URI: os2-austria.html.bg' >> os2-austria.var
+	echo 'Content-language: bg' >> os2-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-austria.var
+	echo >> os2-austria.var
 	echo 'URI: os2-austria.html.en' >> os2-austria.var
 	echo 'Content-language: en' >> os2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-austria.var
@@ -588,6 +654,8 @@ os2-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-austria.var
 	echo >> os2-austria.var
+win32-austria.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-austria.html.bg -oe iso-8859-5 win32.adp
 win32-austria.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-austria.html.en -oe iso-8859-1 win32.adp
 win32-austria.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -607,6 +675,10 @@ win32-austria.html.ru: win32.adp ../../default-master.adp ../../site-master.adp 
 
 win32-austria.var: gen_makefile.conf
 	echo > win32-austria.var
+	echo 'URI: win32-austria.html.bg' >> win32-austria.var
+	echo 'Content-language: bg' >> win32-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-austria.var
+	echo >> win32-austria.var
 	echo 'URI: win32-austria.html.en' >> win32-austria.var
 	echo 'Content-language: en' >> win32-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-austria.var
@@ -639,6 +711,8 @@ win32-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-austria.var
 	echo >> win32-austria.var
+freebsd-germany.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-germany.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-germany.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-germany.html.en -oe iso-8859-1 freebsd.adp
 freebsd-germany.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -658,6 +732,10 @@ freebsd-germany.html.ru: freebsd.adp ../../default-master.adp ../../site-master.
 
 freebsd-germany.var: gen_makefile.conf
 	echo > freebsd-germany.var
+	echo 'URI: freebsd-germany.html.bg' >> freebsd-germany.var
+	echo 'Content-language: bg' >> freebsd-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-germany.var
+	echo >> freebsd-germany.var
 	echo 'URI: freebsd-germany.html.en' >> freebsd-germany.var
 	echo 'Content-language: en' >> freebsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-germany.var
@@ -690,6 +768,8 @@ freebsd-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-germany.var
 	echo >> freebsd-germany.var
+go32v2-germany.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-germany.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-germany.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-germany.html.en -oe iso-8859-1 go32v2.adp
 go32v2-germany.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -709,6 +789,10 @@ go32v2-germany.html.ru: go32v2.adp ../../default-master.adp ../../site-master.ad
 
 go32v2-germany.var: gen_makefile.conf
 	echo > go32v2-germany.var
+	echo 'URI: go32v2-germany.html.bg' >> go32v2-germany.var
+	echo 'Content-language: bg' >> go32v2-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-germany.var
+	echo >> go32v2-germany.var
 	echo 'URI: go32v2-germany.html.en' >> go32v2-germany.var
 	echo 'Content-language: en' >> go32v2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-germany.var
@@ -741,6 +825,8 @@ go32v2-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-germany.var
 	echo >> go32v2-germany.var
+linux-germany.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-germany.html.bg -oe iso-8859-5 linux.adp
 linux-germany.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-germany.html.en -oe iso-8859-1 linux.adp
 linux-germany.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -760,6 +846,10 @@ linux-germany.html.ru: linux.adp ../../default-master.adp ../../site-master.adp 
 
 linux-germany.var: gen_makefile.conf
 	echo > linux-germany.var
+	echo 'URI: linux-germany.html.bg' >> linux-germany.var
+	echo 'Content-language: bg' >> linux-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-germany.var
+	echo >> linux-germany.var
 	echo 'URI: linux-germany.html.en' >> linux-germany.var
 	echo 'Content-language: en' >> linux-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-germany.var
@@ -792,6 +882,8 @@ linux-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-germany.var
 	echo >> linux-germany.var
+netware-germany.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-germany.html.bg -oe iso-8859-5 netware.adp
 netware-germany.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-germany.html.en -oe iso-8859-1 netware.adp
 netware-germany.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -811,6 +903,10 @@ netware-germany.html.ru: netware.adp ../../default-master.adp ../../site-master.
 
 netware-germany.var: gen_makefile.conf
 	echo > netware-germany.var
+	echo 'URI: netware-germany.html.bg' >> netware-germany.var
+	echo 'Content-language: bg' >> netware-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-germany.var
+	echo >> netware-germany.var
 	echo 'URI: netware-germany.html.en' >> netware-germany.var
 	echo 'Content-language: en' >> netware-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-germany.var
@@ -843,6 +939,8 @@ netware-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-germany.var
 	echo >> netware-germany.var
+os2-germany.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-germany.html.bg -oe iso-8859-5 os2.adp
 os2-germany.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-germany.html.en -oe iso-8859-1 os2.adp
 os2-germany.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -862,6 +960,10 @@ os2-germany.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../.
 
 os2-germany.var: gen_makefile.conf
 	echo > os2-germany.var
+	echo 'URI: os2-germany.html.bg' >> os2-germany.var
+	echo 'Content-language: bg' >> os2-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-germany.var
+	echo >> os2-germany.var
 	echo 'URI: os2-germany.html.en' >> os2-germany.var
 	echo 'Content-language: en' >> os2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-germany.var
@@ -894,6 +996,8 @@ os2-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-germany.var
 	echo >> os2-germany.var
+win32-germany.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-germany.html.bg -oe iso-8859-5 win32.adp
 win32-germany.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-germany.html.en -oe iso-8859-1 win32.adp
 win32-germany.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -913,6 +1017,10 @@ win32-germany.html.ru: win32.adp ../../default-master.adp ../../site-master.adp 
 
 win32-germany.var: gen_makefile.conf
 	echo > win32-germany.var
+	echo 'URI: win32-germany.html.bg' >> win32-germany.var
+	echo 'Content-language: bg' >> win32-germany.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-germany.var
+	echo >> win32-germany.var
 	echo 'URI: win32-germany.html.en' >> win32-germany.var
 	echo 'Content-language: en' >> win32-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-germany.var
@@ -945,6 +1053,8 @@ win32-germany.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-germany.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-germany.var
 	echo >> win32-germany.var
+freebsd-hungary.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-hungary.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-hungary.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-hungary.html.en -oe iso-8859-1 freebsd.adp
 freebsd-hungary.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -964,6 +1074,10 @@ freebsd-hungary.html.ru: freebsd.adp ../../default-master.adp ../../site-master.
 
 freebsd-hungary.var: gen_makefile.conf
 	echo > freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.bg' >> freebsd-hungary.var
+	echo 'Content-language: bg' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
 	echo 'URI: freebsd-hungary.html.en' >> freebsd-hungary.var
 	echo 'Content-language: en' >> freebsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
@@ -996,6 +1110,8 @@ freebsd-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-hungary.var
 	echo >> freebsd-hungary.var
+go32v2-hungary.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-hungary.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-hungary.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-hungary.html.en -oe iso-8859-1 go32v2.adp
 go32v2-hungary.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1015,6 +1131,10 @@ go32v2-hungary.html.ru: go32v2.adp ../../default-master.adp ../../site-master.ad
 
 go32v2-hungary.var: gen_makefile.conf
 	echo > go32v2-hungary.var
+	echo 'URI: go32v2-hungary.html.bg' >> go32v2-hungary.var
+	echo 'Content-language: bg' >> go32v2-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-hungary.var
+	echo >> go32v2-hungary.var
 	echo 'URI: go32v2-hungary.html.en' >> go32v2-hungary.var
 	echo 'Content-language: en' >> go32v2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-hungary.var
@@ -1047,6 +1167,8 @@ go32v2-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-hungary.var
 	echo >> go32v2-hungary.var
+linux-hungary.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-hungary.html.bg -oe iso-8859-5 linux.adp
 linux-hungary.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-hungary.html.en -oe iso-8859-1 linux.adp
 linux-hungary.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1066,6 +1188,10 @@ linux-hungary.html.ru: linux.adp ../../default-master.adp ../../site-master.adp 
 
 linux-hungary.var: gen_makefile.conf
 	echo > linux-hungary.var
+	echo 'URI: linux-hungary.html.bg' >> linux-hungary.var
+	echo 'Content-language: bg' >> linux-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-hungary.var
+	echo >> linux-hungary.var
 	echo 'URI: linux-hungary.html.en' >> linux-hungary.var
 	echo 'Content-language: en' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-hungary.var
@@ -1098,6 +1224,8 @@ linux-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-hungary.var
 	echo >> linux-hungary.var
+netware-hungary.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-hungary.html.bg -oe iso-8859-5 netware.adp
 netware-hungary.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-hungary.html.en -oe iso-8859-1 netware.adp
 netware-hungary.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1117,6 +1245,10 @@ netware-hungary.html.ru: netware.adp ../../default-master.adp ../../site-master.
 
 netware-hungary.var: gen_makefile.conf
 	echo > netware-hungary.var
+	echo 'URI: netware-hungary.html.bg' >> netware-hungary.var
+	echo 'Content-language: bg' >> netware-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-hungary.var
+	echo >> netware-hungary.var
 	echo 'URI: netware-hungary.html.en' >> netware-hungary.var
 	echo 'Content-language: en' >> netware-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-hungary.var
@@ -1149,6 +1281,8 @@ netware-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-hungary.var
 	echo >> netware-hungary.var
+os2-hungary.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-hungary.html.bg -oe iso-8859-5 os2.adp
 os2-hungary.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-hungary.html.en -oe iso-8859-1 os2.adp
 os2-hungary.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1168,6 +1302,10 @@ os2-hungary.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../.
 
 os2-hungary.var: gen_makefile.conf
 	echo > os2-hungary.var
+	echo 'URI: os2-hungary.html.bg' >> os2-hungary.var
+	echo 'Content-language: bg' >> os2-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-hungary.var
+	echo >> os2-hungary.var
 	echo 'URI: os2-hungary.html.en' >> os2-hungary.var
 	echo 'Content-language: en' >> os2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-hungary.var
@@ -1200,6 +1338,8 @@ os2-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-hungary.var
 	echo >> os2-hungary.var
+win32-hungary.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-hungary.html.bg -oe iso-8859-5 win32.adp
 win32-hungary.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-hungary.html.en -oe iso-8859-1 win32.adp
 win32-hungary.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1219,6 +1359,10 @@ win32-hungary.html.ru: win32.adp ../../default-master.adp ../../site-master.adp 
 
 win32-hungary.var: gen_makefile.conf
 	echo > win32-hungary.var
+	echo 'URI: win32-hungary.html.bg' >> win32-hungary.var
+	echo 'Content-language: bg' >> win32-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-hungary.var
+	echo >> win32-hungary.var
 	echo 'URI: win32-hungary.html.en' >> win32-hungary.var
 	echo 'Content-language: en' >> win32-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-hungary.var
@@ -1251,6 +1395,8 @@ win32-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-hungary.var
 	echo >> win32-hungary.var
+freebsd-israel.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-israel.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-israel.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-israel.html.en -oe iso-8859-1 freebsd.adp
 freebsd-israel.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1270,6 +1416,10 @@ freebsd-israel.html.ru: freebsd.adp ../../default-master.adp ../../site-master.a
 
 freebsd-israel.var: gen_makefile.conf
 	echo > freebsd-israel.var
+	echo 'URI: freebsd-israel.html.bg' >> freebsd-israel.var
+	echo 'Content-language: bg' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-israel.var
+	echo >> freebsd-israel.var
 	echo 'URI: freebsd-israel.html.en' >> freebsd-israel.var
 	echo 'Content-language: en' >> freebsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
@@ -1302,6 +1452,8 @@ freebsd-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-israel.var
 	echo >> freebsd-israel.var
+go32v2-israel.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-israel.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-israel.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-israel.html.en -oe iso-8859-1 go32v2.adp
 go32v2-israel.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1321,6 +1473,10 @@ go32v2-israel.html.ru: go32v2.adp ../../default-master.adp ../../site-master.adp
 
 go32v2-israel.var: gen_makefile.conf
 	echo > go32v2-israel.var
+	echo 'URI: go32v2-israel.html.bg' >> go32v2-israel.var
+	echo 'Content-language: bg' >> go32v2-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-israel.var
+	echo >> go32v2-israel.var
 	echo 'URI: go32v2-israel.html.en' >> go32v2-israel.var
 	echo 'Content-language: en' >> go32v2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-israel.var
@@ -1353,6 +1509,8 @@ go32v2-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-israel.var
 	echo >> go32v2-israel.var
+linux-israel.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-israel.html.bg -oe iso-8859-5 linux.adp
 linux-israel.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-israel.html.en -oe iso-8859-1 linux.adp
 linux-israel.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1372,6 +1530,10 @@ linux-israel.html.ru: linux.adp ../../default-master.adp ../../site-master.adp .
 
 linux-israel.var: gen_makefile.conf
 	echo > linux-israel.var
+	echo 'URI: linux-israel.html.bg' >> linux-israel.var
+	echo 'Content-language: bg' >> linux-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-israel.var
+	echo >> linux-israel.var
 	echo 'URI: linux-israel.html.en' >> linux-israel.var
 	echo 'Content-language: en' >> linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-israel.var
@@ -1404,6 +1566,8 @@ linux-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-israel.var
 	echo >> linux-israel.var
+netware-israel.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-israel.html.bg -oe iso-8859-5 netware.adp
 netware-israel.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-israel.html.en -oe iso-8859-1 netware.adp
 netware-israel.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1423,6 +1587,10 @@ netware-israel.html.ru: netware.adp ../../default-master.adp ../../site-master.a
 
 netware-israel.var: gen_makefile.conf
 	echo > netware-israel.var
+	echo 'URI: netware-israel.html.bg' >> netware-israel.var
+	echo 'Content-language: bg' >> netware-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-israel.var
+	echo >> netware-israel.var
 	echo 'URI: netware-israel.html.en' >> netware-israel.var
 	echo 'Content-language: en' >> netware-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-israel.var
@@ -1455,6 +1623,8 @@ netware-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-israel.var
 	echo >> netware-israel.var
+os2-israel.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-israel.html.bg -oe iso-8859-5 os2.adp
 os2-israel.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-israel.html.en -oe iso-8859-1 os2.adp
 os2-israel.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1474,6 +1644,10 @@ os2-israel.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../..
 
 os2-israel.var: gen_makefile.conf
 	echo > os2-israel.var
+	echo 'URI: os2-israel.html.bg' >> os2-israel.var
+	echo 'Content-language: bg' >> os2-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-israel.var
+	echo >> os2-israel.var
 	echo 'URI: os2-israel.html.en' >> os2-israel.var
 	echo 'Content-language: en' >> os2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-israel.var
@@ -1506,6 +1680,8 @@ os2-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-israel.var
 	echo >> os2-israel.var
+win32-israel.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-israel.html.bg -oe iso-8859-5 win32.adp
 win32-israel.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-israel.html.en -oe iso-8859-1 win32.adp
 win32-israel.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1525,6 +1701,10 @@ win32-israel.html.ru: win32.adp ../../default-master.adp ../../site-master.adp .
 
 win32-israel.var: gen_makefile.conf
 	echo > win32-israel.var
+	echo 'URI: win32-israel.html.bg' >> win32-israel.var
+	echo 'Content-language: bg' >> win32-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-israel.var
+	echo >> win32-israel.var
 	echo 'URI: win32-israel.html.en' >> win32-israel.var
 	echo 'Content-language: en' >> win32-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-israel.var
@@ -1557,6 +1737,8 @@ win32-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-israel.var
 	echo >> win32-israel.var
+freebsd-netherlands.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-netherlands.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-netherlands.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-netherlands.html.en -oe iso-8859-1 freebsd.adp
 freebsd-netherlands.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1576,6 +1758,10 @@ freebsd-netherlands.html.ru: freebsd.adp ../../default-master.adp ../../site-mas
 
 freebsd-netherlands.var: gen_makefile.conf
 	echo > freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.bg' >> freebsd-netherlands.var
+	echo 'Content-language: bg' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
 	echo 'URI: freebsd-netherlands.html.en' >> freebsd-netherlands.var
 	echo 'Content-language: en' >> freebsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
@@ -1608,6 +1794,8 @@ freebsd-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-netherlands.var
 	echo >> freebsd-netherlands.var
+go32v2-netherlands.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-netherlands.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-netherlands.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-netherlands.html.en -oe iso-8859-1 go32v2.adp
 go32v2-netherlands.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1627,6 +1815,10 @@ go32v2-netherlands.html.ru: go32v2.adp ../../default-master.adp ../../site-maste
 
 go32v2-netherlands.var: gen_makefile.conf
 	echo > go32v2-netherlands.var
+	echo 'URI: go32v2-netherlands.html.bg' >> go32v2-netherlands.var
+	echo 'Content-language: bg' >> go32v2-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-netherlands.var
+	echo >> go32v2-netherlands.var
 	echo 'URI: go32v2-netherlands.html.en' >> go32v2-netherlands.var
 	echo 'Content-language: en' >> go32v2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-netherlands.var
@@ -1659,6 +1851,8 @@ go32v2-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-netherlands.var
 	echo >> go32v2-netherlands.var
+linux-netherlands.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-netherlands.html.bg -oe iso-8859-5 linux.adp
 linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-netherlands.html.en -oe iso-8859-1 linux.adp
 linux-netherlands.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1678,6 +1872,10 @@ linux-netherlands.html.ru: linux.adp ../../default-master.adp ../../site-master.
 
 linux-netherlands.var: gen_makefile.conf
 	echo > linux-netherlands.var
+	echo 'URI: linux-netherlands.html.bg' >> linux-netherlands.var
+	echo 'Content-language: bg' >> linux-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
+	echo >> linux-netherlands.var
 	echo 'URI: linux-netherlands.html.en' >> linux-netherlands.var
 	echo 'Content-language: en' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
@@ -1710,6 +1908,8 @@ linux-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
 	echo >> linux-netherlands.var
+netware-netherlands.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-netherlands.html.bg -oe iso-8859-5 netware.adp
 netware-netherlands.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-netherlands.html.en -oe iso-8859-1 netware.adp
 netware-netherlands.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1729,6 +1929,10 @@ netware-netherlands.html.ru: netware.adp ../../default-master.adp ../../site-mas
 
 netware-netherlands.var: gen_makefile.conf
 	echo > netware-netherlands.var
+	echo 'URI: netware-netherlands.html.bg' >> netware-netherlands.var
+	echo 'Content-language: bg' >> netware-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-netherlands.var
+	echo >> netware-netherlands.var
 	echo 'URI: netware-netherlands.html.en' >> netware-netherlands.var
 	echo 'Content-language: en' >> netware-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-netherlands.var
@@ -1761,6 +1965,8 @@ netware-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-netherlands.var
 	echo >> netware-netherlands.var
+os2-netherlands.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-netherlands.html.bg -oe iso-8859-5 os2.adp
 os2-netherlands.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-netherlands.html.en -oe iso-8859-1 os2.adp
 os2-netherlands.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1780,6 +1986,10 @@ os2-netherlands.html.ru: os2.adp ../../default-master.adp ../../site-master.adp 
 
 os2-netherlands.var: gen_makefile.conf
 	echo > os2-netherlands.var
+	echo 'URI: os2-netherlands.html.bg' >> os2-netherlands.var
+	echo 'Content-language: bg' >> os2-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-netherlands.var
+	echo >> os2-netherlands.var
 	echo 'URI: os2-netherlands.html.en' >> os2-netherlands.var
 	echo 'Content-language: en' >> os2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-netherlands.var
@@ -1812,6 +2022,8 @@ os2-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-netherlands.var
 	echo >> os2-netherlands.var
+win32-netherlands.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-netherlands.html.bg -oe iso-8859-5 win32.adp
 win32-netherlands.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-netherlands.html.en -oe iso-8859-1 win32.adp
 win32-netherlands.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1831,6 +2043,10 @@ win32-netherlands.html.ru: win32.adp ../../default-master.adp ../../site-master.
 
 win32-netherlands.var: gen_makefile.conf
 	echo > win32-netherlands.var
+	echo 'URI: win32-netherlands.html.bg' >> win32-netherlands.var
+	echo 'Content-language: bg' >> win32-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-netherlands.var
+	echo >> win32-netherlands.var
 	echo 'URI: win32-netherlands.html.en' >> win32-netherlands.var
 	echo 'Content-language: en' >> win32-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-netherlands.var
@@ -1863,6 +2079,8 @@ win32-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-netherlands.var
 	echo >> win32-netherlands.var
+freebsd-norway.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-norway.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-norway.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-norway.html.en -oe iso-8859-1 freebsd.adp
 freebsd-norway.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1882,6 +2100,10 @@ freebsd-norway.html.ru: freebsd.adp ../../default-master.adp ../../site-master.a
 
 freebsd-norway.var: gen_makefile.conf
 	echo > freebsd-norway.var
+	echo 'URI: freebsd-norway.html.bg' >> freebsd-norway.var
+	echo 'Content-language: bg' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-norway.var
+	echo >> freebsd-norway.var
 	echo 'URI: freebsd-norway.html.en' >> freebsd-norway.var
 	echo 'Content-language: en' >> freebsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
@@ -1914,6 +2136,8 @@ freebsd-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-norway.var
 	echo >> freebsd-norway.var
+go32v2-norway.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-norway.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-norway.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-norway.html.en -oe iso-8859-1 go32v2.adp
 go32v2-norway.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1933,6 +2157,10 @@ go32v2-norway.html.ru: go32v2.adp ../../default-master.adp ../../site-master.adp
 
 go32v2-norway.var: gen_makefile.conf
 	echo > go32v2-norway.var
+	echo 'URI: go32v2-norway.html.bg' >> go32v2-norway.var
+	echo 'Content-language: bg' >> go32v2-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-norway.var
+	echo >> go32v2-norway.var
 	echo 'URI: go32v2-norway.html.en' >> go32v2-norway.var
 	echo 'Content-language: en' >> go32v2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-norway.var
@@ -1965,6 +2193,8 @@ go32v2-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-norway.var
 	echo >> go32v2-norway.var
+linux-norway.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-norway.html.bg -oe iso-8859-5 linux.adp
 linux-norway.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-norway.html.en -oe iso-8859-1 linux.adp
 linux-norway.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -1984,6 +2214,10 @@ linux-norway.html.ru: linux.adp ../../default-master.adp ../../site-master.adp .
 
 linux-norway.var: gen_makefile.conf
 	echo > linux-norway.var
+	echo 'URI: linux-norway.html.bg' >> linux-norway.var
+	echo 'Content-language: bg' >> linux-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-norway.var
+	echo >> linux-norway.var
 	echo 'URI: linux-norway.html.en' >> linux-norway.var
 	echo 'Content-language: en' >> linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-norway.var
@@ -2016,6 +2250,8 @@ linux-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-norway.var
 	echo >> linux-norway.var
+netware-norway.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-norway.html.bg -oe iso-8859-5 netware.adp
 netware-norway.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-norway.html.en -oe iso-8859-1 netware.adp
 netware-norway.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2035,6 +2271,10 @@ netware-norway.html.ru: netware.adp ../../default-master.adp ../../site-master.a
 
 netware-norway.var: gen_makefile.conf
 	echo > netware-norway.var
+	echo 'URI: netware-norway.html.bg' >> netware-norway.var
+	echo 'Content-language: bg' >> netware-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-norway.var
+	echo >> netware-norway.var
 	echo 'URI: netware-norway.html.en' >> netware-norway.var
 	echo 'Content-language: en' >> netware-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-norway.var
@@ -2067,6 +2307,8 @@ netware-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-norway.var
 	echo >> netware-norway.var
+os2-norway.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-norway.html.bg -oe iso-8859-5 os2.adp
 os2-norway.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-norway.html.en -oe iso-8859-1 os2.adp
 os2-norway.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2086,6 +2328,10 @@ os2-norway.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../..
 
 os2-norway.var: gen_makefile.conf
 	echo > os2-norway.var
+	echo 'URI: os2-norway.html.bg' >> os2-norway.var
+	echo 'Content-language: bg' >> os2-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-norway.var
+	echo >> os2-norway.var
 	echo 'URI: os2-norway.html.en' >> os2-norway.var
 	echo 'Content-language: en' >> os2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-norway.var
@@ -2118,6 +2364,8 @@ os2-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-norway.var
 	echo >> os2-norway.var
+win32-norway.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-norway.html.bg -oe iso-8859-5 win32.adp
 win32-norway.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-norway.html.en -oe iso-8859-1 win32.adp
 win32-norway.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2137,6 +2385,10 @@ win32-norway.html.ru: win32.adp ../../default-master.adp ../../site-master.adp .
 
 win32-norway.var: gen_makefile.conf
 	echo > win32-norway.var
+	echo 'URI: win32-norway.html.bg' >> win32-norway.var
+	echo 'Content-language: bg' >> win32-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-norway.var
+	echo >> win32-norway.var
 	echo 'URI: win32-norway.html.en' >> win32-norway.var
 	echo 'Content-language: en' >> win32-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-norway.var
@@ -2169,6 +2421,8 @@ win32-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-norway.var
 	echo >> win32-norway.var
+freebsd-russia.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-russia.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-russia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-russia.html.en -oe iso-8859-1 freebsd.adp
 freebsd-russia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2188,6 +2442,10 @@ freebsd-russia.html.ru: freebsd.adp ../../default-master.adp ../../site-master.a
 
 freebsd-russia.var: gen_makefile.conf
 	echo > freebsd-russia.var
+	echo 'URI: freebsd-russia.html.bg' >> freebsd-russia.var
+	echo 'Content-language: bg' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-russia.var
+	echo >> freebsd-russia.var
 	echo 'URI: freebsd-russia.html.en' >> freebsd-russia.var
 	echo 'Content-language: en' >> freebsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
@@ -2220,6 +2478,8 @@ freebsd-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-russia.var
 	echo >> freebsd-russia.var
+go32v2-russia.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-russia.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-russia.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-russia.html.en -oe iso-8859-1 go32v2.adp
 go32v2-russia.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2239,6 +2499,10 @@ go32v2-russia.html.ru: go32v2.adp ../../default-master.adp ../../site-master.adp
 
 go32v2-russia.var: gen_makefile.conf
 	echo > go32v2-russia.var
+	echo 'URI: go32v2-russia.html.bg' >> go32v2-russia.var
+	echo 'Content-language: bg' >> go32v2-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-russia.var
+	echo >> go32v2-russia.var
 	echo 'URI: go32v2-russia.html.en' >> go32v2-russia.var
 	echo 'Content-language: en' >> go32v2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-russia.var
@@ -2271,6 +2535,8 @@ go32v2-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-russia.var
 	echo >> go32v2-russia.var
+linux-russia.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-russia.html.bg -oe iso-8859-5 linux.adp
 linux-russia.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-russia.html.en -oe iso-8859-1 linux.adp
 linux-russia.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2290,6 +2556,10 @@ linux-russia.html.ru: linux.adp ../../default-master.adp ../../site-master.adp .
 
 linux-russia.var: gen_makefile.conf
 	echo > linux-russia.var
+	echo 'URI: linux-russia.html.bg' >> linux-russia.var
+	echo 'Content-language: bg' >> linux-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-russia.var
+	echo >> linux-russia.var
 	echo 'URI: linux-russia.html.en' >> linux-russia.var
 	echo 'Content-language: en' >> linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-russia.var
@@ -2322,6 +2592,8 @@ linux-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-russia.var
 	echo >> linux-russia.var
+netware-russia.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-russia.html.bg -oe iso-8859-5 netware.adp
 netware-russia.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-russia.html.en -oe iso-8859-1 netware.adp
 netware-russia.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2341,6 +2613,10 @@ netware-russia.html.ru: netware.adp ../../default-master.adp ../../site-master.a
 
 netware-russia.var: gen_makefile.conf
 	echo > netware-russia.var
+	echo 'URI: netware-russia.html.bg' >> netware-russia.var
+	echo 'Content-language: bg' >> netware-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-russia.var
+	echo >> netware-russia.var
 	echo 'URI: netware-russia.html.en' >> netware-russia.var
 	echo 'Content-language: en' >> netware-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-russia.var
@@ -2373,6 +2649,8 @@ netware-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-russia.var
 	echo >> netware-russia.var
+os2-russia.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-russia.html.bg -oe iso-8859-5 os2.adp
 os2-russia.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-russia.html.en -oe iso-8859-1 os2.adp
 os2-russia.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2392,6 +2670,10 @@ os2-russia.html.ru: os2.adp ../../default-master.adp ../../site-master.adp ../..
 
 os2-russia.var: gen_makefile.conf
 	echo > os2-russia.var
+	echo 'URI: os2-russia.html.bg' >> os2-russia.var
+	echo 'Content-language: bg' >> os2-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-russia.var
+	echo >> os2-russia.var
 	echo 'URI: os2-russia.html.en' >> os2-russia.var
 	echo 'Content-language: en' >> os2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-russia.var
@@ -2424,6 +2706,8 @@ os2-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-russia.var
 	echo >> os2-russia.var
+win32-russia.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-russia.html.bg -oe iso-8859-5 win32.adp
 win32-russia.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-russia.html.en -oe iso-8859-1 win32.adp
 win32-russia.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2443,6 +2727,10 @@ win32-russia.html.ru: win32.adp ../../default-master.adp ../../site-master.adp .
 
 win32-russia.var: gen_makefile.conf
 	echo > win32-russia.var
+	echo 'URI: win32-russia.html.bg' >> win32-russia.var
+	echo 'Content-language: bg' >> win32-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-russia.var
+	echo >> win32-russia.var
 	echo 'URI: win32-russia.html.en' >> win32-russia.var
 	echo 'Content-language: en' >> win32-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-russia.var
@@ -2475,6 +2763,8 @@ win32-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> win32-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-russia.var
 	echo >> win32-russia.var
+freebsd-ftp.freepascal.org.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.bg -oe iso-8859-5 freebsd.adp
 freebsd-ftp.freepascal.org.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd-ftp.freepascal.org.html.en -oe iso-8859-1 freebsd.adp
 freebsd-ftp.freepascal.org.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2494,6 +2784,10 @@ freebsd-ftp.freepascal.org.html.ru: freebsd.adp ../../default-master.adp ../../s
 
 freebsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo > freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.bg' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
 	echo 'URI: freebsd-ftp.freepascal.org.html.en' >> freebsd-ftp.freepascal.org.var
 	echo 'Content-language: en' >> freebsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
@@ -2526,6 +2820,8 @@ freebsd-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> freebsd-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-ftp.freepascal.org.var
 	echo >> freebsd-ftp.freepascal.org.var
+go32v2-ftp.freepascal.org.html.bg: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.bg -oe iso-8859-5 go32v2.adp
 go32v2-ftp.freepascal.org.html.en: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2-ftp.freepascal.org.html.en -oe iso-8859-1 go32v2.adp
 go32v2-ftp.freepascal.org.html.fr: go32v2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2545,6 +2841,10 @@ go32v2-ftp.freepascal.org.html.ru: go32v2.adp ../../default-master.adp ../../sit
 
 go32v2-ftp.freepascal.org.var: gen_makefile.conf
 	echo > go32v2-ftp.freepascal.org.var
+	echo 'URI: go32v2-ftp.freepascal.org.html.bg' >> go32v2-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> go32v2-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-ftp.freepascal.org.var
+	echo >> go32v2-ftp.freepascal.org.var
 	echo 'URI: go32v2-ftp.freepascal.org.html.en' >> go32v2-ftp.freepascal.org.var
 	echo 'Content-language: en' >> go32v2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2-ftp.freepascal.org.var
@@ -2577,6 +2877,8 @@ go32v2-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> go32v2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2-ftp.freepascal.org.var
 	echo >> go32v2-ftp.freepascal.org.var
+linux-ftp.freepascal.org.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux-ftp.freepascal.org.html.bg -oe iso-8859-5 linux.adp
 linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux-ftp.freepascal.org.html.en -oe iso-8859-1 linux.adp
 linux-ftp.freepascal.org.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2596,6 +2898,10 @@ linux-ftp.freepascal.org.html.ru: linux.adp ../../default-master.adp ../../site-
 
 linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo > linux-ftp.freepascal.org.var
+	echo 'URI: linux-ftp.freepascal.org.html.bg' >> linux-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> linux-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-ftp.freepascal.org.var
+	echo >> linux-ftp.freepascal.org.var
 	echo 'URI: linux-ftp.freepascal.org.html.en' >> linux-ftp.freepascal.org.var
 	echo 'Content-language: en' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-ftp.freepascal.org.var
@@ -2628,6 +2934,8 @@ linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
+netware-ftp.freepascal.org.html.bg: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware-ftp.freepascal.org.html.bg -oe iso-8859-5 netware.adp
 netware-ftp.freepascal.org.html.en: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware-ftp.freepascal.org.html.en -oe iso-8859-1 netware.adp
 netware-ftp.freepascal.org.html.fr: netware.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2647,6 +2955,10 @@ netware-ftp.freepascal.org.html.ru: netware.adp ../../default-master.adp ../../s
 
 netware-ftp.freepascal.org.var: gen_makefile.conf
 	echo > netware-ftp.freepascal.org.var
+	echo 'URI: netware-ftp.freepascal.org.html.bg' >> netware-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> netware-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-ftp.freepascal.org.var
+	echo >> netware-ftp.freepascal.org.var
 	echo 'URI: netware-ftp.freepascal.org.html.en' >> netware-ftp.freepascal.org.var
 	echo 'Content-language: en' >> netware-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware-ftp.freepascal.org.var
@@ -2679,6 +2991,8 @@ netware-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> netware-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware-ftp.freepascal.org.var
 	echo >> netware-ftp.freepascal.org.var
+os2-ftp.freepascal.org.html.bg: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2-ftp.freepascal.org.html.bg -oe iso-8859-5 os2.adp
 os2-ftp.freepascal.org.html.en: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2-ftp.freepascal.org.html.en -oe iso-8859-1 os2.adp
 os2-ftp.freepascal.org.html.fr: os2.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2698,6 +3012,10 @@ os2-ftp.freepascal.org.html.ru: os2.adp ../../default-master.adp ../../site-mast
 
 os2-ftp.freepascal.org.var: gen_makefile.conf
 	echo > os2-ftp.freepascal.org.var
+	echo 'URI: os2-ftp.freepascal.org.html.bg' >> os2-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> os2-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-ftp.freepascal.org.var
+	echo >> os2-ftp.freepascal.org.var
 	echo 'URI: os2-ftp.freepascal.org.html.en' >> os2-ftp.freepascal.org.var
 	echo 'Content-language: en' >> os2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2-ftp.freepascal.org.var
@@ -2730,6 +3048,8 @@ os2-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> os2-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2-ftp.freepascal.org.var
 	echo >> os2-ftp.freepascal.org.var
+win32-ftp.freepascal.org.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32-ftp.freepascal.org.html.bg -oe iso-8859-5 win32.adp
 win32-ftp.freepascal.org.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32-ftp.freepascal.org.html.en -oe iso-8859-1 win32.adp
 win32-ftp.freepascal.org.html.fr: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.adp
@@ -2749,6 +3069,10 @@ win32-ftp.freepascal.org.html.ru: win32.adp ../../default-master.adp ../../site-
 
 win32-ftp.freepascal.org.var: gen_makefile.conf
 	echo > win32-ftp.freepascal.org.var
+	echo 'URI: win32-ftp.freepascal.org.html.bg' >> win32-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> win32-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-ftp.freepascal.org.var
+	echo >> win32-ftp.freepascal.org.var
 	echo 'URI: win32-ftp.freepascal.org.html.en' >> win32-ftp.freepascal.org.var
 	echo 'Content-language: en' >> win32-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32-ftp.freepascal.org.var
@@ -2782,6 +3106,8 @@ win32-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> win32-ftp.freepascal.org.var
 	echo >> win32-ftp.freepascal.org.var
 
+freebsd.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o freebsd.html.bg -oe iso-8859-5 ../../templatemirror.adp
 freebsd.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.adp -l en_US -m ../../default-master.adp -o freebsd.html.en -oe iso-8859-1 ../../templatemirror.adp
 freebsd.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -2800,6 +3126,10 @@ freebsd.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp .
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o freebsd.html.ru -oe iso-8859-5 ../../templatemirror.adp
 freebsd.var: gen_makefile.conf
 	echo > freebsd.var
+	echo 'URI: freebsd.html.bg' >> freebsd.var
+	echo 'Content-language: bg' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd.var
+	echo >> freebsd.var
 	echo 'URI: freebsd.html.en' >> freebsd.var
 	echo 'Content-language: en' >> freebsd.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
@@ -2833,6 +3163,8 @@ freebsd.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd.var
 	echo >> freebsd.var
 
+go32v2.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=go32v2 -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o go32v2.html.bg -oe iso-8859-5 ../../templatemirror.adp
 go32v2.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=go32v2 -c ../../catalog.adp -l en_US -m ../../default-master.adp -o go32v2.html.en -oe iso-8859-1 ../../templatemirror.adp
 go32v2.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -2851,6 +3183,10 @@ go32v2.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ..
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=go32v2 -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o go32v2.html.ru -oe iso-8859-5 ../../templatemirror.adp
 go32v2.var: gen_makefile.conf
 	echo > go32v2.var
+	echo 'URI: go32v2.html.bg' >> go32v2.var
+	echo 'Content-language: bg' >> go32v2.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2.var
+	echo >> go32v2.var
 	echo 'URI: go32v2.html.en' >> go32v2.var
 	echo 'Content-language: en' >> go32v2.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> go32v2.var
@@ -2884,6 +3220,8 @@ go32v2.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> go32v2.var
 	echo >> go32v2.var
 
+linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
 linux.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l en_US -m ../../default-master.adp -o linux.html.en -oe iso-8859-1 ../../templatemirror.adp
 linux.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -2902,6 +3240,10 @@ linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
 linux.var: gen_makefile.conf
 	echo > linux.var
+	echo 'URI: linux.html.bg' >> linux.var
+	echo 'Content-language: bg' >> linux.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux.var
+	echo >> linux.var
 	echo 'URI: linux.html.en' >> linux.var
 	echo 'Content-language: en' >> linux.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> linux.var
@@ -2935,6 +3277,8 @@ linux.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux.var
 	echo >> linux.var
 
+netware.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=netware -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o netware.html.bg -oe iso-8859-5 ../../templatemirror.adp
 netware.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=netware -c ../../catalog.adp -l en_US -m ../../default-master.adp -o netware.html.en -oe iso-8859-1 ../../templatemirror.adp
 netware.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -2953,6 +3297,10 @@ netware.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp .
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=netware -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o netware.html.ru -oe iso-8859-5 ../../templatemirror.adp
 netware.var: gen_makefile.conf
 	echo > netware.var
+	echo 'URI: netware.html.bg' >> netware.var
+	echo 'Content-language: bg' >> netware.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netware.var
+	echo >> netware.var
 	echo 'URI: netware.html.en' >> netware.var
 	echo 'Content-language: en' >> netware.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> netware.var
@@ -2986,6 +3334,8 @@ netware.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> netware.var
 	echo >> netware.var
 
+os2.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=os2 -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o os2.html.bg -oe iso-8859-5 ../../templatemirror.adp
 os2.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=os2 -c ../../catalog.adp -l en_US -m ../../default-master.adp -o os2.html.en -oe iso-8859-1 ../../templatemirror.adp
 os2.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -3004,6 +3354,10 @@ os2.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../..
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=os2 -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o os2.html.ru -oe iso-8859-5 ../../templatemirror.adp
 os2.var: gen_makefile.conf
 	echo > os2.var
+	echo 'URI: os2.html.bg' >> os2.var
+	echo 'Content-language: bg' >> os2.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> os2.var
+	echo >> os2.var
 	echo 'URI: os2.html.en' >> os2.var
 	echo 'Content-language: en' >> os2.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> os2.var
@@ -3037,6 +3391,8 @@ os2.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> os2.var
 	echo >> os2.var
 
+win32.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.adp -l bg_BG -m ../../default-master.adp -o win32.html.bg -oe iso-8859-5 ../../templatemirror.adp
 win32.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.adp -l en_US -m ../../default-master.adp -o win32.html.en -oe iso-8859-1 ../../templatemirror.adp
 win32.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.adp
@@ -3055,6 +3411,10 @@ win32.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.adp -l ru_RU -m ../../default-master.adp -o win32.html.ru -oe iso-8859-5 ../../templatemirror.adp
 win32.var: gen_makefile.conf
 	echo > win32.var
+	echo 'URI: win32.html.bg' >> win32.var
+	echo 'Content-language: bg' >> win32.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win32.var
+	echo >> win32.var
 	echo 'URI: win32.html.en' >> win32.var
 	echo 'Content-language: en' >> win32.var
 	echo 'Content-type: text/html; charset=iso-8859-1' >> win32.var
@@ -3100,7 +3460,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: freebsd-australia.html.en freebsd-australia.html.fr freebsd-australia.html.id freebsd-australia.html.it freebsd-australia.html.nl freebsd-australia.html.po freebsd-australia.html.sl freebsd-australia.html.ru freebsd-australia.var go32v2-australia.html.en go32v2-australia.html.fr go32v2-australia.html.id go32v2-australia.html.it go32v2-australia.html.nl go32v2-australia.html.po go32v2-australia.html.sl go32v2-australia.html.ru go32v2-australia.var linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.it linux-australia.html.nl linux-australia.html.po linux-australia.html.sl linux-australia.html.ru linux-australia.var netware-australia.html.en netware-australia.html.fr netware-australia.html.id netware-australia.html.it netware-australia.html.nl netware-australia.html.po netware-australia.html.sl netware-australia.html.ru netware-australia.var os2-australia.html.en os2-australia.html.fr os2-australia.html.id os2-australia.html.it os2-australia.html.nl os2-australia.html.po os2-australia.html.sl os2-australia.html.ru os2-australia.var win32-australia.html.en win32-australia.html.fr win32-australia.html.id win32-australia.html.it win32-australia.html.nl win32-australia.html.po win32-australia.html.sl win32-australia.html.ru win32-australia.var freebsd-austria.html.en freebsd-austria.html.fr freebsd-austria.html.id freebsd-austria.html.it freebsd-austria.html.nl freebsd-austria.html.po freebsd-austria.html.sl freebsd-austria.html.ru freebsd-austria.var go32v2-austria.html.en go32v2-austria.html.fr go32v2-austria.html.id go32v2-austria.html.it go32v2-austria.html.nl go32v2-austria.html.po go32v2-austria.html.sl go32v2-austria.html.ru go32v2-austria.var linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.it linux-austria.html.nl linux-austria.html.po linux-austria.html.sl linux-austria.html.ru linux-austria.var netware-austria.html.en netware-austria.html.fr netware-austria.html.id netware-austria.html.it netware-austria.html.nl netware-austria.html.po netware-austria.html.sl netware-austria.html.ru netware-austria.var os2-austria.html.en os2-austria.html.fr os2-austria.html.id os2-austria.html.it os2-austria.html.nl os2-austria.html.po os2-austria.html.sl os2-austria.html.ru os2-austria.var win32-austria.html.en win32-austria.html.fr win32-austria.html.id win32-austria.html.it win32-austria.html.nl win32-austria.html.po win32-austria.html.sl win32-austria.html.ru win32-austria.var freebsd-germany.html.en freebsd-germany.html.fr freebsd-germany.html.id freebsd-germany.html.it freebsd-germany.html.nl freebsd-germany.html.po freebsd-germany.html.sl freebsd-germany.html.ru freebsd-germany.var go32v2-germany.html.en go32v2-germany.html.fr go32v2-germany.html.id go32v2-germany.html.it go32v2-germany.html.nl go32v2-germany.html.po go32v2-germany.html.sl go32v2-germany.html.ru go32v2-germany.var linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.it linux-germany.html.nl linux-germany.html.po linux-germany.html.sl linux-germany.html.ru linux-germany.var netware-germany.html.en netware-germany.html.fr netware-germany.html.id netware-germany.html.it netware-germany.html.nl netware-germany.html.po netware-germany.html.sl netware-germany.html.ru netware-germany.var os2-germany.html.en os2-germany.html.fr os2-germany.html.id os2-germany.html.it os2-germany.html.nl os2-germany.html.po os2-germany.html.sl os2-germany.html.ru os2-germany.var win32-germany.html.en win32-germany.html.fr win32-germany.html.id win32-germany.html.it win32-germany.html.nl win32-germany.html.po win32-germany.html.sl win32-germany.html.ru win32-germany.var freebsd-hungary.html.en freebsd-hungary.html.fr freebsd-hungary.html.id freebsd-hungary.html.it freebsd-hungary.html.nl freebsd-hungary.html.po freebsd-hungary.html.sl freebsd-hungary.html.ru freebsd-hungary.var go32v2-hungary.html.en go32v2-hungary.html.fr go32v2-hungary.html.id go32v2-hungary.html.it go32v2-hungary.html.nl go32v2-hungary.html.po go32v2-hungary.html.sl go32v2-hungary.html.ru go32v2-hungary.var linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.it linux-hungary.html.nl linux-hungary.html.po linux-hungary.html.sl linux-hungary.html.ru linux-hungary.var netware-hungary.html.en netware-hungary.html.fr netware-hungary.html.id netware-hungary.html.it netware-hungary.html.nl netware-hungary.html.po netware-hungary.html.sl netware-hungary.html.ru netware-hungary.var os2-hungary.html.en os2-hungary.html.fr os2-hungary.html.id os2-hungary.html.it os2-hungary.html.nl os2-hungary.html.po os2-hungary.html.sl os2-hungary.html.ru os2-hungary.var win32-hungary.html.en win32-hungary.html.fr win32-hungary.html.id win32-hungary.html.it win32-hungary.html.nl win32-hungary.html.po win32-hungary.html.sl win32-hungary.html.ru win32-hungary.var freebsd-israel.html.en freebsd-israel.html.fr freebsd-israel.html.id freebsd-israel.html.it freebsd-israel.html.nl freebsd-israel.html.po freebsd-israel.html.sl freebsd-israel.html.ru freebsd-israel.var go32v2-israel.html.en go32v2-israel.html.fr go32v2-israel.html.id go32v2-israel.html.it go32v2-israel.html.nl go32v2-israel.html.po go32v2-israel.html.sl go32v2-israel.html.ru go32v2-israel.var linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.it linux-israel.html.nl linux-israel.html.po linux-israel.html.sl linux-israel.html.ru linux-israel.var netware-israel.html.en netware-israel.html.fr netware-israel.html.id netware-israel.html.it netware-israel.html.nl netware-israel.html.po netware-israel.html.sl netware-israel.html.ru netware-israel.var os2-israel.html.en os2-israel.html.fr os2-israel.html.id os2-israel.html.it os2-israel.html.nl os2-israel.html.po os2-israel.html.sl os2-israel.html.ru os2-israel.var win32-israel.html.en win32-israel.html.fr win32-israel.html.id win32-israel.html.it win32-israel.html.nl win32-israel.html.po win32-israel.html.sl win32-israel.html.ru win32-israel.var freebsd-netherlands.html.en freebsd-netherlands.html.fr freebsd-netherlands.html.id freebsd-netherlands.html.it freebsd-netherlands.html.nl freebsd-netherlands.html.po freebsd-netherlands.html.sl freebsd-netherlands.html.ru freebsd-netherlands.var go32v2-netherlands.html.en go32v2-netherlands.html.fr go32v2-netherlands.html.id go32v2-netherlands.html.it go32v2-netherlands.html.nl go32v2-netherlands.html.po go32v2-netherlands.html.sl go32v2-netherlands.html.ru go32v2-netherlands.var linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.it linux-netherlands.html.nl linux-netherlands.html.po linux-netherlands.html.sl linux-netherlands.html.ru linux-netherlands.var netware-netherlands.html.en netware-netherlands.html.fr netware-netherlands.html.id netware-netherlands.html.it netware-netherlands.html.nl netware-netherlands.html.po netware-netherlands.html.sl netware-netherlands.html.ru netware-netherlands.var os2-netherlands.html.en os2-netherlands.html.fr os2-netherlands.html.id os2-netherlands.html.it os2-netherlands.html.nl os2-netherlands.html.po os2-netherlands.html.sl os2-netherlands.html.ru os2-netherlands.var win32-netherlands.html.en win32-netherlands.html.fr win32-netherlands.html.id win32-netherlands.html.it win32-netherlands.html.nl win32-netherlands.html.po win32-netherlands.html.sl win32-netherlands.html.ru win32-netherlands.var freebsd-norway.html.en freebsd-norway.html.fr freebsd-norway.html.id freebsd-norway.html.it freebsd-norway.html.nl freebsd-norway.html.po freebsd-norway.html.sl freebsd-norway.html.ru freebsd-norway.var go32v2-norway.html.en go32v2-norway.html.fr go32v2-norway.html.id go32v2-norway.html.it go32v2-norway.html.nl go32v2-norway.html.po go32v2-norway.html.sl go32v2-norway.html.ru go32v2-norway.var linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.it linux-norway.html.nl linux-norway.html.po linux-norway.html.sl linux-norway.html.ru linux-norway.var netware-norway.html.en netware-norway.html.fr netware-norway.html.id netware-norway.html.it netware-norway.html.nl netware-norway.html.po netware-norway.html.sl netware-norway.html.ru netware-norway.var os2-norway.html.en os2-norway.html.fr os2-norway.html.id os2-norway.html.it os2-norway.html.nl os2-norway.html.po os2-norway.html.sl os2-norway.html.ru os2-norway.var win32-norway.html.en win32-norway.html.fr win32-norway.html.id win32-norway.html.it win32-norway.html.nl win32-norway.html.po win32-norway.html.sl win32-norway.html.ru win32-norway.var freebsd-russia.html.en freebsd-russia.html.fr freebsd-russia.html.id freebsd-russia.html.it freebsd-russia.html.nl freebsd-russia.html.po freebsd-russia.html.sl freebsd-russia.html.ru freebsd-russia.var go32v2-russia.html.en go32v2-russia.html.fr go32v2-russia.html.id go32v2-russia.html.it go32v2-russia.html.nl go32v2-russia.html.po go32v2-russia.html.sl go32v2-russia.html.ru go32v2-russia.var linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.it linux-russia.html.nl linux-russia.html.po linux-russia.html.sl linux-russia.html.ru linux-russia.var netware-russia.html.en netware-russia.html.fr netware-russia.html.id netware-russia.html.it netware-russia.html.nl netware-russia.html.po netware-russia.html.sl netware-russia.html.ru netware-russia.var os2-russia.html.en os2-russia.html.fr os2-russia.html.id os2-russia.html.it os2-russia.html.nl os2-russia.html.po os2-russia.html.sl os2-russia.html.ru os2-russia.var win32-russia.html.en win32-russia.html.fr win32-russia.html.id win32-russia.html.it win32-russia.html.nl win32-russia.html.po win32-russia.html.sl win32-russia.html.ru win32-russia.var freebsd-ftp.freepascal.org.html.en freebsd-ftp.freepascal.org.html.fr freebsd-ftp.freepascal.org.html.id freebsd-ftp.freepascal.org.html.it freebsd-ftp.freepascal.org.html.nl freebsd-ftp.freepascal.org.html.po freebsd-ftp.freepascal.org.html.sl freebsd-ftp.freepascal.org.html.ru freebsd-ftp.freepascal.org.var go32v2-ftp.freepascal.org.html.en go32v2-ftp.freepascal.org.html.fr go32v2-ftp.freepascal.org.html.id go32v2-ftp.freepascal.org.html.it go32v2-ftp.freepascal.org.html.nl go32v2-ftp.freepascal.org.html.po go32v2-ftp.freepascal.org.html.sl go32v2-ftp.freepascal.org.html.ru go32v2-ftp.freepascal.org.var linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.it linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.po linux-ftp.freepascal.org.html.sl linux-ftp.freepascal.org.html.ru linux-ftp.freepascal.org.var netware-ftp.freepascal.org.html.en netware-ftp.freepascal.org.html.fr netware-ftp.freepascal.org.html.id netware-ftp.freepascal.org.html.it netware-ftp.freepascal.org.html.nl netware-ftp.freepascal.org.html.po netware-ftp.freepascal.org.html.sl netware-ftp.freepascal.org.html.ru netware-ftp.freepascal.org.var os2-ftp.freepascal.org.html.en os2-ftp.freepascal.org.html.fr os2-ftp.freepascal.org.html.id os2-ftp.freepascal.org.html.it os2-ftp.freepascal.org.html.nl os2-ftp.freepascal.org.html.po os2-ftp.freepascal.org.html.sl os2-ftp.freepascal.org.html.ru os2-ftp.freepascal.org.var win32-ftp.freepascal.org.html.en win32-ftp.freepascal.org.html.fr win32-ftp.freepascal.org.html.id win32-ftp.freepascal.org.html.it win32-ftp.freepascal.org.html.nl win32-ftp.freepascal.org.html.po win32-ftp.freepascal.org.html.sl win32-ftp.freepascal.org.html.ru win32-ftp.freepascal.org.var freebsd.html.en freebsd.html.fr freebsd.html.id freebsd.html.it freebsd.html.nl freebsd.html.po freebsd.html.sl freebsd.html.ru freebsd.var go32v2.html.en go32v2.html.fr go32v2.html.id go32v2.html.it go32v2.html.nl go32v2.html.po go32v2.html.sl go32v2.html.ru go32v2.var linux.html.en linux.html.fr linux.html.id linux.html.it linux.html.nl linux.html.po linux.html.sl linux.html.ru linux.var netware.html.en netware.html.fr netware.html.id netware.html.it netware.html.nl netware.html.po netware.html.sl netware.html.ru netware.var os2.html.en os2.html.fr os2.html.id os2.html.it os2.html.nl os2.html.po os2.html.sl os2.html.ru os2.var win32.html.en win32.html.fr win32.html.id win32.html.it win32.html.nl win32.html.po win32.html.sl win32.html.ru win32.var mirrors.dat
+all_pages: freebsd-australia.html.bg freebsd-australia.html.en freebsd-australia.html.fr freebsd-australia.html.id freebsd-australia.html.it freebsd-australia.html.nl freebsd-australia.html.po freebsd-australia.html.sl freebsd-australia.html.ru freebsd-australia.var go32v2-australia.html.bg go32v2-australia.html.en go32v2-australia.html.fr go32v2-australia.html.id go32v2-australia.html.it go32v2-australia.html.nl go32v2-australia.html.po go32v2-australia.html.sl go32v2-australia.html.ru go32v2-australia.var linux-australia.html.bg linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.it linux-australia.html.nl linux-australia.html.po linux-australia.html.sl linux-australia.html.ru linux-australia.var netware-australia.html.bg netware-australia.html.en netware-australia.html.fr netware-australia.html.id netware-australia.html.it netware-australia.html.nl netware-australia.html.po netware-australia.html.sl netware-australia.html.ru netware-australia.var os2-australia.html.bg os2-australia.html.en os2-australia.html.fr os2-australia.html.id os2-australia.html.it os2-australia.html.nl os2-australia.html.po os2-australia.html.sl os2-australia.html.ru os2-australia.var win32-australia.html.bg win32-australia.html.en win32-australia.html.fr win32-australia.html.id win32-australia.html.it win32-australia.html.nl win32-australia.html.po win32-australia.html.sl win32-australia.html.ru win32-australia.var freebsd-austria.html.bg freebsd-austria.html.en freebsd-austria.html.fr freebsd-austria.html.id freebsd-austria.html.it freebsd-austria.html.nl freebsd-austria.html.po freebsd-austria.html.sl freebsd-austria.html.ru freebsd-austria.var go32v2-austria.html.bg go32v2-austria.html.en go32v2-austria.html.fr go32v2-austria.html.id go32v2-austria.html.it go32v2-austria.html.nl go32v2-austria.html.po go32v2-austria.html.sl go32v2-austria.html.ru go32v2-austria.var linux-austria.html.bg linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.it linux-austria.html.nl linux-austria.html.po linux-austria.html.sl linux-austria.html.ru linux-austria.var netware-austria.html.bg netware-austria.html.en netware-austria.html.fr netware-austria.html.id netware-austria.html.it netware-austria.html.nl netware-austria.html.po netware-austria.html.sl netware-austria.html.ru netware-austria.var os2-austria.html.bg os2-austria.html.en os2-austria.html.fr os2-austria.html.id os2-austria.html.it os2-austria.html.nl os2-austria.html.po os2-austria.html.sl os2-austria.html.ru os2-austria.var win32-austria.html.bg win32-austria.html.en win32-austria.html.fr win32-austria.html.id win32-austria.html.it win32-austria.html.nl win32-austria.html.po win32-austria.html.sl win32-austria.html.ru win32-austria.var freebsd-germany.html.bg freebsd-germany.html.en freebsd-germany.html.fr freebsd-germany.html.id freebsd-germany.html.it freebsd-germany.html.nl freebsd-germany.html.po freebsd-germany.html.sl freebsd-germany.html.ru freebsd-germany.var go32v2-germany.html.bg go32v2-germany.html.en go32v2-germany.html.fr go32v2-germany.html.id go32v2-germany.html.it go32v2-germany.html.nl go32v2-germany.html.po go32v2-germany.html.sl go32v2-germany.html.ru go32v2-germany.var linux-germany.html.bg linux-germany.html.en linux-germany.html.fr linux-germany.html.id linux-germany.html.it linux-germany.html.nl linux-germany.html.po linux-germany.html.sl linux-germany.html.ru linux-germany.var netware-germany.html.bg netware-germany.html.en netware-germany.html.fr netware-germany.html.id netware-germany.html.it netware-germany.html.nl netware-germany.html.po netware-germany.html.sl netware-germany.html.ru netware-germany.var os2-germany.html.bg os2-germany.html.en os2-germany.html.fr os2-germany.html.id os2-germany.html.it os2-germany.html.nl os2-germany.html.po os2-germany.html.sl os2-germany.html.ru os2-germany.var win32-germany.html.bg win32-germany.html.en win32-germany.html.fr win32-germany.html.id win32-germany.html.it win32-germany.html.nl win32-germany.html.po win32-germany.html.sl win32-germany.html.ru win32-germany.var freebsd-hungary.html.bg freebsd-hungary.html.en freebsd-hungary.html.fr freebsd-hungary.html.id freebsd-hungary.html.it freebsd-hungary.html.nl freebsd-hungary.html.po freebsd-hungary.html.sl freebsd-hungary.html.ru freebsd-hungary.var go32v2-hungary.html.bg go32v2-hungary.html.en go32v2-hungary.html.fr go32v2-hungary.html.id go32v2-hungary.html.it go32v2-hungary.html.nl go32v2-hungary.html.po go32v2-hungary.html.sl go32v2-hungary.html.ru go32v2-hungary.var linux-hungary.html.bg linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.it linux-hungary.html.nl linux-hungary.html.po linux-hungary.html.sl linux-hungary.html.ru linux-hungary.var netware-hungary.html.bg netware-hungary.html.en netware-hungary.html.fr netware-hungary.html.id netware-hungary.html.it netware-hungary.html.nl netware-hungary.html.po netware-hungary.html.sl netware-hungary.html.ru netware-hungary.var os2-hungary.html.bg os2-hungary.html.en os2-hungary.html.fr os2-hungary.html.id os2-hungary.html.it os2-hungary.html.nl os2-hungary.html.po os2-hungary.html.sl os2-hungary.html.ru os2-hungary.var win32-hungary.html.bg win32-hungary.html.en win32-hungary.html.fr win32-hungary.html.id win32-hungary.html.it win32-hungary.html.nl win32-hungary.html.po win32-hungary.html.sl win32-hungary.html.ru win32-hungary.var freebsd-israel.html.bg freebsd-israel.html.en freebsd-israel.html.fr freebsd-israel.html.id freebsd-israel.html.it freebsd-israel.html.nl freebsd-israel.html.po freebsd-israel.html.sl freebsd-israel.html.ru freebsd-israel.var go32v2-israel.html.bg go32v2-israel.html.en go32v2-israel.html.fr go32v2-israel.html.id go32v2-israel.html.it go32v2-israel.html.nl go32v2-israel.html.po go32v2-israel.html.sl go32v2-israel.html.ru go32v2-israel.var linux-israel.html.bg linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.it linux-israel.html.nl linux-israel.html.po linux-israel.html.sl linux-israel.html.ru linux-israel.var netware-israel.html.bg netware-israel.html.en netware-israel.html.fr netware-israel.html.id netware-israel.html.it netware-israel.html.nl netware-israel.html.po netware-israel.html.sl netware-israel.html.ru netware-israel.var os2-israel.html.bg os2-israel.html.en os2-israel.html.fr os2-israel.html.id os2-israel.html.it os2-israel.html.nl os2-israel.html.po os2-israel.html.sl os2-israel.html.ru os2-israel.var win32-israel.html.bg win32-israel.html.en win32-israel.html.fr win32-israel.html.id win32-israel.html.it win32-israel.html.nl win32-israel.html.po win32-israel.html.sl win32-israel.html.ru win32-israel.var freebsd-netherlands.html.bg freebsd-netherlands.html.en freebsd-netherlands.html.fr freebsd-netherlands.html.id freebsd-netherlands.html.it freebsd-netherlands.html.nl freebsd-netherlands.html.po freebsd-netherlands.html.sl freebsd-netherlands.html.ru freebsd-netherlands.var go32v2-netherlands.html.bg go32v2-netherlands.html.en go32v2-netherlands.html.fr go32v2-netherlands.html.id go32v2-netherlands.html.it go32v2-netherlands.html.nl go32v2-netherlands.html.po go32v2-netherlands.html.sl go32v2-netherlands.html.ru go32v2-netherlands.var linux-netherlands.html.bg linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.it linux-netherlands.html.nl linux-netherlands.html.po linux-netherlands.html.sl linux-netherlands.html.ru linux-netherlands.var netware-netherlands.html.bg netware-netherlands.html.en netware-netherlands.html.fr netware-netherlands.html.id netware-netherlands.html.it netware-netherlands.html.nl netware-netherlands.html.po netware-netherlands.html.sl netware-netherlands.html.ru netware-netherlands.var os2-netherlands.html.bg os2-netherlands.html.en os2-netherlands.html.fr os2-netherlands.html.id os2-netherlands.html.it os2-netherlands.html.nl os2-netherlands.html.po os2-netherlands.html.sl os2-netherlands.html.ru os2-netherlands.var win32-netherlands.html.bg win32-netherlands.html.en win32-netherlands.html.fr win32-netherlands.html.id win32-netherlands.html.it win32-netherlands.html.nl win32-netherlands.html.po win32-netherlands.html.sl win32-netherlands.html.ru win32-netherlands.var freebsd-norway.html.bg freebsd-norway.html.en freebsd-norway.html.fr freebsd-norway.html.id freebsd-norway.html.it freebsd-norway.html.nl freebsd-norway.html.po freebsd-norway.html.sl freebsd-norway.html.ru freebsd-norway.var go32v2-norway.html.bg go32v2-norway.html.en go32v2-norway.html.fr go32v2-norway.html.id go32v2-norway.html.it go32v2-norway.html.nl go32v2-norway.html.po go32v2-norway.html.sl go32v2-norway.html.ru go32v2-norway.var linux-norway.html.bg linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.it linux-norway.html.nl linux-norway.html.po linux-norway.html.sl linux-norway.html.ru linux-norway.var netware-norway.html.bg netware-norway.html.en netware-norway.html.fr netware-norway.html.id netware-norway.html.it netware-norway.html.nl netware-norway.html.po netware-norway.html.sl netware-norway.html.ru netware-norway.var os2-norway.html.bg os2-norway.html.en os2-norway.html.fr os2-norway.html.id os2-norway.html.it os2-norway.html.nl os2-norway.html.po os2-norway.html.sl os2-norway.html.ru os2-norway.var win32-norway.html.bg win32-norway.html.en win32-norway.html.fr win32-norway.html.id win32-norway.html.it win32-norway.html.nl win32-norway.html.po win32-norway.html.sl win32-norway.html.ru win32-norway.var freebsd-russia.html.bg freebsd-russia.html.en freebsd-russia.html.fr freebsd-russia.html.id freebsd-russia.html.it freebsd-russia.html.nl freebsd-russia.html.po freebsd-russia.html.sl freebsd-russia.html.ru freebsd-russia.var go32v2-russia.html.bg go32v2-russia.html.en go32v2-russia.html.fr go32v2-russia.html.id go32v2-russia.html.it go32v2-russia.html.nl go32v2-russia.html.po go32v2-russia.html.sl go32v2-russia.html.ru go32v2-russia.var linux-russia.html.bg linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.it linux-russia.html.nl linux-russia.html.po linux-russia.html.sl linux-russia.html.ru linux-russia.var netware-russia.html.bg netware-russia.html.en netware-russia.html.fr netware-russia.html.id netware-russia.html.it netware-russia.html.nl netware-russia.html.po netware-russia.html.sl netware-russia.html.ru netware-russia.var os2-russia.html.bg os2-russia.html.en os2-russia.html.fr os2-russia.html.id os2-russia.html.it os2-russia.html.nl os2-russia.html.po os2-russia.html.sl os2-russia.html.ru os2-russia.var win32-russia.html.bg win32-russia.html.en win32-russia.html.fr win32-russia.html.id win32-russia.html.it win32-russia.html.nl win32-russia.html.po win32-russia.html.sl win32-russia.html.ru win32-russia.var freebsd-ftp.freepascal.org.html.bg freebsd-ftp.freepascal.org.html.en freebsd-ftp.freepascal.org.html.fr freebsd-ftp.freepascal.org.html.id freebsd-ftp.freepascal.org.html.it freebsd-ftp.freepascal.org.html.nl freebsd-ftp.freepascal.org.html.po freebsd-ftp.freepascal.org.html.sl freebsd-ftp.freepascal.org.html.ru freebsd-ftp.freepascal.org.var go32v2-ftp.freepascal.org.html.bg go32v2-ftp.freepascal.org.html.en go32v2-ftp.freepascal.org.html.fr go32v2-ftp.freepascal.org.html.id go32v2-ftp.freepascal.org.html.it go32v2-ftp.freepascal.org.html.nl go32v2-ftp.freepascal.org.html.po go32v2-ftp.freepascal.org.html.sl go32v2-ftp.freepascal.org.html.ru go32v2-ftp.freepascal.org.var linux-ftp.freepascal.org.html.bg linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.it linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.po linux-ftp.freepascal.org.html.sl linux-ftp.freepascal.org.html.ru linux-ftp.freepascal.org.var netware-ftp.freepascal.org.html.bg netware-ftp.freepascal.org.html.en netware-ftp.freepascal.org.html.fr netware-ftp.freepascal.org.html.id netware-ftp.freepascal.org.html.it netware-ftp.freepascal.org.html.nl netware-ftp.freepascal.org.html.po netware-ftp.freepascal.org.html.sl netware-ftp.freepascal.org.html.ru netware-ftp.freepascal.org.var os2-ftp.freepascal.org.html.bg os2-ftp.freepascal.org.html.en os2-ftp.freepascal.org.html.fr os2-ftp.freepascal.org.html.id os2-ftp.freepascal.org.html.it os2-ftp.freepascal.org.html.nl os2-ftp.freepascal.org.html.po os2-ftp.freepascal.org.html.sl os2-ftp.freepascal.org.html.ru os2-ftp.freepascal.org.var win32-ftp.freepascal.org.html.bg win32-ftp.freepascal.org.html.en win32-ftp.freepascal.org.html.fr win32-ftp.freepascal.org.html.id win32-ftp.freepascal.org.html.it win32-ftp.freepascal.org.html.nl win32-ftp.freepascal.org.html.po win32-ftp.freepascal.org.html.sl win32-ftp.freepascal.org.html.ru win32-ftp.freepascal.org.var freebsd.html.bg freebsd.html.en freebsd.html.fr freebsd.html.id freebsd.html.it freebsd.html.nl freebsd.html.po freebsd.html.sl freebsd.html.ru freebsd.var go32v2.html.bg go32v2.html.en go32v2.html.fr go32v2.html.id go32v2.html.it go32v2.html.nl go32v2.html.po go32v2.html.sl go32v2.html.ru go32v2.var linux.html.bg linux.html.en linux.html.fr linux.html.id linux.html.it linux.html.nl linux.html.po linux.html.sl linux.html.ru linux.var netware.html.bg netware.html.en netware.html.fr netware.html.id netware.html.it netware.html.nl netware.html.po netware.html.sl netware.html.ru netware.var os2.html.bg os2.html.en os2.html.fr os2.html.id os2.html.it os2.html.nl os2.html.po os2.html.sl os2.html.ru os2.var win32.html.bg win32.html.en win32.html.fr win32.html.id win32.html.it win32.html.nl win32.html.po win32.html.sl win32.html.ru win32.var mirrors.dat
 
 
 # clean
