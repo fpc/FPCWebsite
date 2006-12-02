@@ -45,7 +45,7 @@ begin
   writeln;
 end;
 
-procedure addlist(list: tstringlist; const failstr, data: string);
+procedure addlist(list: tstrings; const failstr, data: string);
 var
   tmpObj: TObject;
 begin
@@ -54,12 +54,52 @@ begin
   list.addobject(failstr, tmpObj);
 end;
 
+type
+  ttestrun = record
+    line, date, fail, data: string;
+    hour: integer;
+  end;
+
+function checkchange(var prev, curr: ttestrun; const prevdate, currdate: string;
+  changelist, nochangelist: tstrings): boolean;
 var
-  yesterday, today: string;
-  currline, currdate, prevline, prevdate: string;
-  currfail, prevfail, failstr, prevdata, currdata: string;
-  disappearlist, nochangelist, changelist, newlist: tstringlist;
+  failstr: string;
 begin
+  result := (prev.date = prevdate) and (prev.data = curr.data) and (curr.date = currdate);
+  if result then
+  begin
+    prev.fail := getfail(prev.line);
+    curr.fail := getfail(curr.line);
+    if prev.fail = curr.fail then
+    begin
+      failstr := curr.fail;
+      addlist(nochangelist, failstr, curr.data);
+    end else begin
+      failstr := prev.fail + ' -> ' + curr.fail;
+      addlist(changelist, failstr, curr.data);
+    end;
+    if length(failstr) > lenfailstr then
+      lenfailstr := length(failstr);
+    { both these lines have been processed }
+    curr.line := '';
+    curr.date := '';
+    curr.data := '';
+  end;
+end;
+
+const
+  { cut fails and date (first two fields, '| FAILS | DATE       ', 21 characters) 
+    cut time (last field, ' HH:MM:SS |', 11 characters) }
+  datastart = 21;
+  datacutlen = 31;
+
+var
+  twodaysago, yesterday, today: string;
+  curr, prev, old: ttestrun;
+  prevnochangelist, prevchangelist, disappearlist, nochangelist, changelist, newlist: tstringlist;
+begin
+  prevnochangelist := tstringlist.create;
+  prevchangelist := tstringlist.create;
   disappearlist := tstringlist.create;
   nochangelist := tstringlist.create;
   changelist := tstringlist.create;
@@ -70,64 +110,57 @@ begin
   until (length(header[0]) > 0) and (header[0][1] = '+');
   readln(header[1]);
   readln(header[2]);
+  twodaysago := FormatDateTime('YYYY-mm-dd', Now-2);
   yesterday := FormatDateTime('YYYY-mm-dd', Now-1);
   today := FormatDateTime('YYYY-mm-dd', Now);
   lenfailstr := 5;  { Length('FAILS') = column header }
   repeat
-    readln(currline);
-    currdate := getdate(currline);
-    currdata := copy(currline, 21, length(currline)-20);
-    if (prevdate = yesterday) and (prevdata = currdata) and (currdate = today) then
+    readln(curr.line);
+    curr.date := getdate(curr.line);
+    curr.data := copy(curr.line, datastart, length(curr.line)-datacutlen);
+    curr.hour := strtointdef(copy(curr.line, length(curr.line)-6, 2), 0);
+    if checkchange(prev, curr, yesterday, today, changelist, nochangelist) then
     begin
-      prevfail := getfail(prevline);
-      currfail := getfail(currline);
-      if prevfail = currfail then
-      begin
-        failstr := currfail;
-        addlist(nochangelist, failstr, currdata);
-      end else begin
-        failstr := prevfail + ' -> ' + currfail;
-        addlist(changelist, failstr, currdata);
-      end;
-      if length(failstr) > lenfailstr then
-        lenfailstr := length(failstr);
-      { both these lines have been processed }
-      currline := '';
-      currdate := '';
-      currdata := '';
-    end else 
-    if (prevdate = yesterday) then
-    begin
-      addlist(disappearlist, getfail(prevline), prevdata);
+      { 'same' testrun yesterday and today, changelist or nochangelist modified }
     end else
-    if (prevdate = today) then
+    if prev.date = yesterday then
     begin
-      addlist(newlist, getfail(prevline), prevdata);
+      { disappeared ? check if changed yesterday, and submitted late }
+      if (prev.hour >= 7) and not checkchange(old, prev, twodaysago, 
+          yesterday, prevchangelist, prevnochangelist) then
+        addlist(disappearlist, getfail(prev.line), prev.data);
+    end else
+    if prev.date = today then
+    begin
+      addlist(newlist, getfail(prev.line), prev.data);
     end;
-    if (length(currdate) > 0) and (currdate[1] = '-') then
+    if (length(curr.date) > 0) and (curr.date[1] = '-') then
     begin
-      footer := currline;
+      footer := curr.line;
       break;
     end;
-    prevline := currline;
-    prevdate := currdate;
-    prevdata := currdata;
+    old := prev;
+    prev := curr;
   until false;
   
   header[0] := copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[0], 21, length(header[0])-20);
+    copy(header[0], datastart, length(header[0])-datacutlen);
   header[1] := copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) + 
-    copy(header[1], 21, length(header[1])-20);
+    copy(header[1], datastart, length(header[1])-datacutlen);
   header[2] := copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[2], 21, length(header[2])-20);
+    copy(header[2], datastart, length(header[2])-datacutlen);
   footer    := copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(footer,    21, length(footer)-20);
+    copy(footer,    datastart, length(footer)-datacutlen);
   
   printtable(changelist, 'CHANGED:');
+  printtable(prevchangelist, 'CHANGED YESTERDAY:');
   printtable(nochangelist, 'UNCHANGED:');
+  printtable(prevnochangelist, 'UNCHANGED YESTERDAY:');
   printtable(disappearlist, 'DISAPPEARED:');
   printtable(newlist, 'NEW:');
-  
+
+  prevnochangelist.free;
+  prevchangelist.free;
   disappearlist.free;
   nochangelist.free;
   changelist.free;
