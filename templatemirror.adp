@@ -2,10 +2,10 @@
 <property name="title">Free Pascal - Select download mirror</property>
 <property name="entry">download</property>
 <property name="subentry">platform</property>
-<property name="header"><trn key="Select_download_mirror" locale="en_US">Select download mirror</trn></property>
+<property name="header"><trn key="website.Select_download_mirror" locale="en_US">Select download mirror</trn></property>
 <property name="maindir">../../</property>
 
-<trn key="Select_download_site" locale="en_US">Please select the site from which you want to download:</trn>
+<trn key="website.Select_download_site" locale="en_US">Please select the site from which you want to download:</trn>
 <p>
 
 <ul>
