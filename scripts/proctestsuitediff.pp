@@ -92,6 +92,8 @@ const
     cut time (last field, ' HH:MM:SS |', 11 characters) }
   datastart = 21;
   datacutlen = 31;
+  { position of hour counted from end }
+  houroffset = 9;
 
 var
   twodaysago, yesterday, today: string;
@@ -118,7 +120,7 @@ begin
     readln(curr.line);
     curr.date := getdate(curr.line);
     curr.data := copy(curr.line, datastart, length(curr.line)-datacutlen);
-    curr.hour := strtointdef(copy(curr.line, length(curr.line)-6, 2), 0);
+    curr.hour := strtointdef(copy(curr.line, length(curr.line)-houroffset, 2), 0);
     if checkchange(prev, curr, yesterday, today, changelist, nochangelist) then
     begin
       { 'same' testrun yesterday and today, changelist or nochangelist modified }
@@ -126,8 +128,8 @@ begin
     if prev.date = yesterday then
     begin
       { disappeared ? check if changed yesterday, and submitted late }
-      if (prev.hour >= 7) and not checkchange(old, prev, twodaysago, 
-          yesterday, prevchangelist, prevnochangelist) then
+      if not ((prev.hour >= 7) and checkchange(old, prev, twodaysago, 
+          yesterday, prevchangelist, prevnochangelist)) then
         addlist(disappearlist, getfail(prev.line), prev.data);
     end else
     if prev.date = today then
