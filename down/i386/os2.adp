@@ -12,8 +12,9 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.0.4</b
+  The latest release version is <b>2.0.4</b>
 </trn>
+<p>
 <trn key="website.i386-os2_available_in" locale="en_US">
   The FPC package for OS/2 and EComStation is available in the following formats:
 </trn>
