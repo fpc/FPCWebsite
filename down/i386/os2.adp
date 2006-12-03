@@ -11,9 +11,18 @@
 *****************************************************************************
 -->
 
-The latest release version is <b>2.0.4</b>
+<trn key="website.latest_version_is" locale="en_US">
+  The latest release version is <b>2.0.4</b
+</trn>
+<trn key="website.i386-os2_available_in" locale="en_US">
+  The FPC package for OS/2 and EComStation is available in the following formats:
+</trn>
+<ul>
+  <li> <a href="#os2big"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
+  <li> <a href="#os2sep"><trn key="website.separate_files" locale="en_US">Everything in separate files</trn></a>
+</ul>
 
-<h3>Download as one file</h3>
+<h3><a name="os2big"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
@@ -23,24 +32,24 @@ or you can download a file that contains the same, only without sources and docu
 </ul>
 
 <p>
-<h3>Sources</h3>
+<h3><trn key="website.Sources" locale="en_US">Sources</trn></h3>
 <ul>
 <li>
-You can download one archive containing individual source packages: <a href="@mirror_url@dist/source-2.0.4/short/src204.zip">src204.zip</a> (15 MB)
+<trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
+<a href="@mirror_url@dist/source-2.0.4/short/src204.zip">src204.zip</a> (15 MB)
 </ul>
 
 <p>
-<h3>Documentation</h3>
-<p>Documentation is available in several formats:
+<h3><trn key="website.Documentation" locale="en_US">Documentation</trn></h3>
+<trn key="website.Documentation_av_several_formats" locale="en_US">
+  Documentation is available in several formats (if you want to use the docs inside the text mode IDE, you need the
+  HTML ones):
+</trn>
 <ul>
-<li><a href="@mirror_url@dist/docs-2.0.4/doc-pdf.zip">PDF</a> (6.9 MB)</li>
-<li><a href="@mirror_url@dist/docs-2.0.4/doc-html.zip">HTML</a> (8.7 MB)
-<!--
- (to be used from IDE among others)
--->
-</li>
-<li><a href="@mirror_url@dist/docs-2.0.4/doc-ps.zip">PostScript</a> (4.1 MB)</li>
-<li><a href="@mirror_url@dist/docs-2.0.4/doc-txt.zip">plain text</a> (950 kB)</li>
+<li><a href="@mirror_url@dist/docs-2.0.4/doc-pdf.zip">PDF</a> (<trn key="website.already_included_zip" locale="en_US">already included in the big zipped file listed above</trn>)</li>
+<li><a href="@mirror_url@dist/docs-2.0.4/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">to be used from IDE among others</trn>)</li>
+<li><a href="@mirror_url@dist/docs-2.0.4/doc-ps.zip">PostScript</a></li>
+<li><a href="@mirror_url@dist/docs-2.0.4/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
 </ul>
 
 <h3> <a name="os2sep"></a>Download as separate files</h3>
@@ -147,6 +156,6 @@ change names of the files!
 
 <hr>
 <p>
-<a href="os2@x@">Back to mirror list</a><BR/>
-<a href="../../download@x@">Back to general download page</a>
+<a href="os2@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>
