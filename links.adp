@@ -103,6 +103,7 @@ your chances to contact them ;-).
   <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a>
   <li><a href='http://www.friends-of-fpc.org'>Friends-of-fpc: Lots of good articles</a>
   <li><a href='http://www.freepascal.ru'>FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
+  <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a>
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</a>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
   Win32 platforms, as well as general information on FPC. </li>
