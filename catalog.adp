@@ -316,9 +316,6 @@ Toekomstplannen
 <TRN locale="nl_NL" key="website.FPC_on_the_Mac">
 FPC op de Mac
 </TRN>
-<TRN locale="nl_NL" key="website.FAQ">
-Veelgestelde vragen
-</TRN>
 <TRN locale="nl_NL" key="website.Units">
 Units
 </TRN>
@@ -339,6 +336,9 @@ Auteurs
 </TRN>
 <TRN locale="nl_NL" key="website.Mailinglists">
 E-maillijsten
+</TRN>
+<TRN locale="nl_NL" key="website.FAQ">
+Vraagbaak
 </TRN>
 <TRN locale="he_IL" key="website.Current_Version_text">
 גרסה <em>2.0.4</em> היא הגרסה האחרונה והיציבה של Free Pascal. לחץ על <a href="download.html">הורדה</a> ותבחר במראה הקרובה אליך לקבלת עותק של המהדר. גרסת הפיתוח משוחררת עם הגרסה <em>2.1.x</em>. ראה את דף ה<a href="develop.html">פיתוח</a>, על מנת להשיג את קוד המקור העדכני, ותסייע בפיתוח.
@@ -2506,6 +2506,521 @@ is reeds aanwezig in het grote zip-bestand hierboven
 </TRN>
 <TRN locale="nl_NL" key="website.One_archive_individual_sources">
 Je kunt een enkel zip-bestand downloaden dat losse broncodepaketten bevat:
+</TRN>
+<TRN locale="it_IT" key="website.Coding">
+In dettaglio
+</TRN>
+<TRN locale="it_IT" key="website.Features_text">
+La sintassi del linguaggio ha un alto grado di compatibilità con Turbo Pascal 7.0 e in buona parte con le principali versioni di Delphi (classi, rtti, eccezioni, stringhe ansi, widestrings, interfacce).
+    E' previsto per chi usa Macintosh una modalità compatibile con Mac Pascal. Inoltre,
+    Free Pascal supporta function overloading, operator overloading, global properties e
+    altre caratteristiche sintattiche avanzate.
+ 
+</TRN>
+<TRN locale="it_IT" key="website.latest_release">
+La distribuzione più recente è la <b>2.0.4</b>
+</TRN>
+<TRN locale="it_IT" key="website.available_limited_platforms">
+  Data la mancanza di persone che si occupano di confezionare e testare i packages di distribuzione, la versione 2.0.4 è disponibile per un limitato numero di piattaforme e formato. Chi volesse contribuire nella preparazione e nella messa a punto delle nuove distribuzioni può contattarci con un messaggio sulle mailing lists.
+
+</TRN>
+<TRN locale="it_IT" key="website.can_download_for_platform">
+    Sono disponibili i download della versione 2.0.x per le seguenti piattaforme:
+  
+</TRN>
+<TRN locale="it_IT" key="website.download_documentation">
+    La documentazione è disponibile in vari formati sui seguenti <a href="down/docs/docs@x@">siti</a>.
+  
+</TRN>
+<TRN locale="it_IT" key="website.download_snapshots">
+  Oltre alle distribuzioni ufficiali, è possibile ottenere i cosiddetti "snapshots" del compilatore, delle librerie Runtime, dell'IDE e altri packages sulla pagina <a href="develop@x@">pagina sviluppo</a>. Queste sono versioni compilate con i sorgenti contenenti le ultime correzioni e gli ultimi miglioramenti apportati alla distribuzione più aggiornata. Si prega di usarli solo in caso di problemi, considerando ovviamente che potrebbero contenere nuovi errori. 
+
+</TRN>
+<TRN locale="it_IT" key="website.License_text">
+  Le librerie di runtime e i packages sono distribuiti con una licenza di tipo LGPL (Library GNU Public
+  License) che permette di sviluppare e distribuire applicazioni con link statico alle librerie stesse. Il sorgente del compilatore viene distribuito con licenza GPL (GNU General Public License). Sono disponibili sia i sorgenti delle librerie runtime che i sorgenti del compilatore, scritto anch'esso in Pascal. 
+
+</TRN>
+<TRN locale="it_IT" key="website.ready_made_packages">
+    Sono disponibili dei package preconfezionati, assieme ad un software di installazione, in modo da essere in breve tempo operativi. Tutti i packages contengono un file README che contiene istruzioni per l'installazione e le novità più recenti.   
+</TRN>
+<TRN locale="it_IT" key="website.down_i386_freebsd_note">
+FreeBSD 4.x e probabilmente anche 5.x
+</TRN>
+<TRN locale="it_IT" key="website.Source">
+Sorgenti
+</TRN>
+<TRN locale="it_IT" key="website.download_source">
+    I sorgenti sono disponibili separatemente in formato <b>zip</b>, oppure <b>tar.gz</b>, sui seguenti <a href="down/source/sources@x@">siti</a>.
+  
+</TRN>
+<TRN locale="it_IT" key="website.download_old_releases">
+  Sono disponibili sulle <a href="down/old/down@x@">seguenti pagine</a> anche versioni meno recenti (non più supportate) per piattaforme per le quali non vi sono possibilità di aggiornamento. Segnalazioni di errori per queste versioni non saranno prese in considerazione. Il motivo principale per cui queste versioni non sono più supportate è dovuto alla mancanza di persone che se ne prendano cura. Chi fosse interessato ad occuparsi ad un loro eventuale ripristino può inviare una segnalazione alla mailing list fpc-devel.
+
+</TRN>
+<TRN locale="it_IT" key="website.Official_releases">
+Distribuzioni ufficiali
+</TRN>
+<TRN locale="en_US" key="website.i386-os2_1_file_download_descr">
+
+  You can download the whole package as 1 big zipped file:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204full.zip">os2204full.zip</a> (42 MB),<br>
+  or you can download a file that contains the same, only without sources and documentation:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204.zip">os2204.zip</a> (13 MB).
+
+</TRN>
+<TRN locale="en_US" key="website.Download_as_separate_files">
+Download as separate files
+</TRN>
+<TRN locale="en_US" key="website.i386-os2_sep_download_descr">
+
+  You can download the contents of the above zip files (sources and binaries) as separate files:
+
+</TRN>
+<TRN locale="en_US" key="website.Mandatory_files">
+Mandatory files:
+</TRN>
+<TRN locale="en_US" key="website.Install_program">
+Install program:
+</TRN>
+<TRN locale="en_US" key="website.Base_files">
+Base files (program and units):
+</TRN>
+<TRN locale="en_US" key="website.selected_EMX_utilities">
+Selected EMX utilities for Free Pascal:
+</TRN>
+<TRN locale="en_US" key="website.Optional_files">
+Optional files:
+</TRN>
+<TRN locale="nl_NL" key="website.Download_as_separate_files">
+Download als gescheiden bestanden:
+</TRN>
+<TRN locale="nl_NL" key="website.Mandatory_files">
+Noodzakelijke bestanden:
+</TRN>
+<TRN locale="nl_NL" key="website.i386-os2_1_file_download_descr">
+U kunt het hele pakket als één groot gezipt bestand downloaden:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204full.zip">os2204full.zip</a> (42 MB),<br>
+of u kunt een bestand downloaden dat hetzelfde bevat maar zonder de broncode en documentatie:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204.zip">os2204.zip</a> (13 MB).
+
+</TRN>
+<TRN locale="nl_NL" key="website.Install_program">
+Installatieprogramma:
+</TRN>
+<TRN locale="nl_NL" key="website.Optional_files">
+Optionele bestanden:
+</TRN>
+<TRN locale="en_US" key="website.and_its_data_file">
+And its data file
+</TRN>
+<TRN locale="en_US" key="website.as_well_as_unzipdll">
+as well as the unzip dll:
+</TRN>
+<TRN locale="en_US" key="website.GNU_assembler_and_linker">
+GNU assembler and linker:
+</TRN>
+<TRN locale="en_US" key="website.Debugger">
+Debugger:
+</TRN>
+<TRN locale="en_US" key="website.The_readme_file">
+The readme file
+</TRN>
+<TRN locale="en_US" key="website.The_whatsnew_file">
+The "what's new?" file
+</TRN>
+<TRN locale="en_US" key="website.FCL_units">
+FCL units
+</TRN>
+<TRN locale="en_US" key="website.GTK_interface_units">
+GTK interface units
+</TRN>
+<TRN locale="en_US" key="website.fpGTK_units">
+fpGTK units
+</TRN>
+<TRN locale="en_US" key="website.PasZlib_units">
+PasZLib units (needed by FCL)
+</TRN>
+<TRN locale="en_US" key="website.regexp_unit">
+Regular expression unit
+</TRN>
+<TRN locale="en_US" key="website.unzip_unit">
+Unzip units
+</TRN>
+<TRN locale="en_US" key="website.Utilities">
+Utilities
+</TRN>
+<TRN locale="en_US" key="website.ClkDll_unit">
+ClkDll interface unit
+</TRN>
+<TRN locale="en_US" key="website.FtpApi_interface_unit">
+FtpApi interface unit
+</TRN>
+<TRN locale="en_US" key="website.Free_Vision_units">
+Free Vision units
+</TRN>
+<TRN locale="en_US" key="website.HWVideo_interface_unit">
+HWVideo interface unit
+</TRN>
+<TRN locale="nl_NL" key="website.GNU_assembler_and_linker">
+GNU-assembler en linker:
+</TRN>
+<TRN locale="nl_NL" key="website.and_its_data_file">
+En het bijbehorende databestand
+</TRN>
+<TRN locale="nl_NL" key="website.as_well_as_unzipdll">
+evenals de unzip-DLL:
+</TRN>
+<TRN locale="nl_NL" key="website.Debugger">
+Debugger:
+</TRN>
+<TRN locale="nl_NL" key="website.The_readme_file">
+Het "readme"-bestand
+</TRN>
+<TRN locale="nl_NL" key="website.i386-os2_sep_download_descr">
+U kunt de inhoud van de zip-bestanden hierboven (broncode en binaire bestanden) downloaden als gescheiden bestanden:
+
+</TRN>
+<TRN locale="nl_NL" key="website.Base_files">
+Basisbestanden (programma en units):
+</TRN>
+<TRN locale="nl_NL" key="website.selected_EMX_utilities">
+Geselecteerde EMX-hulpmiddelen voor Free-Pascal:
+</TRN>
+<TRN locale="nl_NL" key="website.Optionally_as_well">
+Optioneel kunt u ook downloaden:
+</TRN>
+<TRN locale="nl_NL" key="website.ClkDll_sources">
+Broncode van ClkDll
+</TRN>
+<TRN locale="nl_NL" key="website.NetDB_sources">
+Broncode van NetDB
+</TRN>
+<TRN locale="nl_NL" key="website.Hash_sources">
+Broncode van de hash-units
+</TRN>
+<TRN locale="nl_NL" key="website.Free_Vision_sources">
+Broncode van Free Vision
+</TRN>
+<TRN locale="nl_NL" key="website.PgSQL_interface_sources">
+Broncode van de PostgreSQL-interface
+</TRN>
+<TRN locale="nl_NL" key="website.OpenGL_interface_sources">
+Broncode van de OpenGL-interface
+</TRN>
+<TRN locale="nl_NL" key="website.fpGTK_sources">
+fpGTK-broncode
+</TRN>
+<TRN locale="nl_NL" key="website.FtpApi_sources">
+Broncode van de FtpApi-interface
+</TRN>
+<TRN locale="nl_NL" key="website.PasJPEG_sources">
+Broncode van PasJPEG
+</TRN>
+<TRN locale="nl_NL" key="website.Graph_unit_sources">
+Broncode van de graph-unit
+</TRN>
+<TRN locale="nl_NL" key="website.TCL_interface_sources">
+Broncode van de TCL-interface
+</TRN>
+<TRN locale="nl_NL" key="website.X11_interface_sources">
+X11-interface
+</TRN>
+<TRN locale="nl_NL" key="website.ODBC_interface_sources">
+Broncode van de ODBC-interface
+</TRN>
+<TRN locale="nl_NL" key="website.GTK_interface_sources">
+Broncode GTK-interface
+</TRN>
+<TRN locale="nl_NL" key="website.REXX_SAA_sources">
+Broncode van de REXX-SAA-interface
+</TRN>
+<TRN locale="nl_NL" key="website.MySQL_interface_sources">
+Broncode van de MySQL-interface
+</TRN>
+<TRN locale="nl_NL" key="website.Zlib_interface_sources">
+Broncode van de ZLib-interface
+</TRN>
+<TRN locale="nl_NL" key="website.Make_utils_descr">
+Make-gereedschappen (voor het bouwen van FPC zelf)
+</TRN>
+<TRN locale="nl_NL" key="website.GTK2_interface_sources">
+Broncode van de GTK2-interface
+</TRN>
+<TRN locale="nl_NL" key="website.LVM_interface_sources">
+Broncode van de LVM-interface
+</TRN>
+<TRN locale="nl_NL" key="website.MMOS2_toolkit_sources">
+Broncode van de MMOS/2-toolkit
+</TRN>
+<TRN locale="nl_NL" key="website.should_download_in_1_dir">
+Je dient al deze bestanden in één directory te downloaden, waarna je het installatieprogramma dient te starten. Dit zal vervolgens detecteren welke bestanden je hebt gedownload, en aanbieden alleen de bestanden te installeren die aanwezig zijn. Dit houdt in, dat je de bestanden niet mag hernoemen!
+</TRN>
+<TRN locale="nl_NL" key="website.The_whatsnew_file">
+Het "what's new?"-bestand
+</TRN>
+<TRN locale="nl_NL" key="website.FCL_units">
+FCL-units
+</TRN>
+<TRN locale="nl_NL" key="website.GTK_interface_units">
+GTK-interfaceunits
+</TRN>
+<TRN locale="nl_NL" key="website.fpGTK_units">
+fpGTK-units
+</TRN>
+<TRN locale="nl_NL" key="website.Utilities">
+Hulpmiddelen
+</TRN>
+<TRN locale="nl_NL" key="website.PasZlib_units">
+PasZLib-units (benodigd voor FCL)
+</TRN>
+<TRN locale="nl_NL" key="website.regexp_unit">
+Reguliere-expressieunit
+</TRN>
+<TRN locale="nl_NL" key="website.unzip_unit">
+Unzip-units
+</TRN>
+<TRN locale="nl_NL" key="website.Free_Vision_units">
+"Free Vision"-units
+</TRN>
+<TRN locale="en_US" key="website.Hash_units">
+Hash units
+</TRN>
+<TRN locale="en_US" key="website.Imblib_units">
+ImLib interface units
+</TRN>
+<TRN locale="en_US" key="website.LibPNG_units">
+LibPNG interface units
+</TRN>
+<TRN locale="en_US" key="website.LVM_interface_unit">
+LVM interface unit
+</TRN>
+<TRN locale="en_US" key="website.MMOS2_toolkit">
+MMOS/2 Toolkit (inteface units for multimedia)
+</TRN>
+<TRN locale="en_US" key="website.NetDB_unit">
+NetDB unit
+</TRN>
+<TRN locale="en_US" key="website.pasjpeg_unit">
+PasJPEG unit
+</TRN>
+<TRN locale="en_US" key="website.REXX_SAA_unit">
+REXX SAA interface unit
+</TRN>
+<TRN locale="en_US" key="website.TCL_units">
+TCL interface units
+</TRN>
+<TRN locale="en_US" key="website.X11_units">
+X11 interface units
+</TRN>
+<TRN locale="en_US" key="website.Zlib_units">
+ZLib interface units
+</TRN>
+<TRN locale="en_US" key="website.Demo_files">
+Demo files
+</TRN>
+<TRN locale="en_US" key="website.Optional_source_files">
+Optional source files:
+</TRN>
+<TRN locale="nl_NL" key="website.Hash_units">
+Hash-units
+</TRN>
+<TRN locale="nl_NL" key="website.Demo_files">
+Voorbeelden en demo's
+</TRN>
+<TRN locale="nl_NL" key="website.ClkDll_unit">
+ClkDll-interfaceunit
+</TRN>
+<TRN locale="nl_NL" key="website.Imblib_units">
+ImLib-interfaceunits
+</TRN>
+<TRN locale="nl_NL" key="website.LibPNG_units">
+LibPNG-interfaceunits
+</TRN>
+<TRN locale="nl_NL" key="website.FtpApi_interface_unit">
+FtpApi-interfaceunit
+</TRN>
+<TRN locale="nl_NL" key="website.HWVideo_interface_unit">
+HWVideo-interfaceunit
+</TRN>
+<TRN locale="nl_NL" key="website.LVM_interface_unit">
+LVM-interfaceunit
+</TRN>
+<TRN locale="nl_NL" key="website.MMOS2_toolkit">
+MMOS/2-toolkit (interfaceunits voor multimedia)
+</TRN>
+<TRN locale="nl_NL" key="website.NetDB_unit">
+NetDB-unit
+</TRN>
+<TRN locale="nl_NL" key="website.pasjpeg_unit">
+PasJPEG-unit
+</TRN>
+<TRN locale="nl_NL" key="website.Optional_source_files">
+Optionele bestanden met broncode:
+</TRN>
+<TRN locale="nl_NL" key="website.REXX_SAA_unit">
+REXX-SAA-interfaceunit
+</TRN>
+<TRN locale="nl_NL" key="website.TCL_units">
+TCL-interfaceunits
+</TRN>
+<TRN locale="nl_NL" key="website.X11_units">
+X11-interfaceunits
+</TRN>
+<TRN locale="nl_NL" key="website.Zlib_units">
+ZLib-interfaceunits
+</TRN>
+<TRN locale="en_US" key="website.Base_sources">
+Sources base
+</TRN>
+<TRN locale="en_US" key="website.Compiler_sources">
+The compiler sources
+</TRN>
+<TRN locale="en_US" key="website.RTL_sources">
+The runtime library sources
+</TRN>
+<TRN locale="en_US" key="website.FCL_sources">
+Free Component Library (FCL) sources
+</TRN>
+<TRN locale="en_US" key="website.gdbint_sources">
+GDB interface sources
+</TRN>
+<TRN locale="en_US" key="website.PasZlib_sources">
+PasZLib sources
+</TRN>
+<TRN locale="en_US" key="website.regexp_sources">
+Regular expressions sources
+</TRN>
+<TRN locale="en_US" key="website.zip_sources">
+Zip sources
+</TRN>
+<TRN locale="en_US" key="website.Installer_sources">
+Installer sources
+</TRN>
+<TRN locale="en_US" key="website.Documentation_sources">
+Documentation sources
+</TRN>
+<TRN locale="en_US" key="website.ClkDll_sources">
+ClkDll sources
+</TRN>
+<TRN locale="en_US" key="website.fpGTK_sources">
+fpGTK sources
+</TRN>
+<TRN locale="en_US" key="website.FtpApi_sources">
+FtpApi interface sources
+</TRN>
+<TRN locale="en_US" key="website.Free_Vision_sources">
+Free Vision sources
+</TRN>
+<TRN locale="en_US" key="website.Graph_unit_sources">
+Unit Graph sources
+</TRN>
+<TRN locale="en_US" key="website.GTK_interface_sources">
+GTK interface sources
+</TRN>
+<TRN locale="en_US" key="website.GTK2_interface_sources">
+GTK2 interface sources
+</TRN>
+<TRN locale="en_US" key="website.Hash_sources">
+Hash units sources
+</TRN>
+<TRN locale="en_US" key="website.HWVideo_sources">
+HWVideo interface sources
+</TRN>
+<TRN locale="en_US" key="website.Imlib_interface_sources">
+ImLib interface sources
+</TRN>
+<TRN locale="en_US" key="website.LibPNG_interface_sources">
+LibPNG interface sources
+</TRN>
+<TRN locale="en_US" key="website.LVM_interface_sources">
+LVM interface sources
+</TRN>
+<TRN locale="en_US" key="website.MMOS2_toolkit_sources">
+MMOS/2 Toolkit sources
+</TRN>
+<TRN locale="en_US" key="website.NetDB_sources">
+NetDB sources
+</TRN>
+<TRN locale="en_US" key="website.ODBC_interface_sources">
+ODBC interface sources
+</TRN>
+<TRN locale="en_US" key="website.MySQL_interface_sources">
+MySQL interface sources
+</TRN>
+<TRN locale="en_US" key="website.PgSQL_interface_sources">
+PostgreSQL interface sources
+</TRN>
+<TRN locale="en_US" key="website.OpenGL_interface_sources">
+OpenGL interface sources
+</TRN>
+<TRN locale="en_US" key="website.PasJPEG_sources">
+PasJPEG sources
+</TRN>
+<TRN locale="en_US" key="website.REXX_SAA_sources">
+REXX SAA interface sources
+</TRN>
+<TRN locale="en_US" key="website.TCL_interface_sources">
+TCL interface sources
+</TRN>
+<TRN locale="en_US" key="website.X11_interface_sources">
+X11 interface sources
+</TRN>
+<TRN locale="en_US" key="website.Zlib_interface_sources">
+ZLib interface sources
+</TRN>
+<TRN locale="en_US" key="website.should_download_in_1_dir">
+
+  You should download all these files in 1 directory, and then run the install
+  program in this directory. It will detect which files you downloaded, and
+  offer to install only those files actually present. Therefore, you cannot
+  change names of the files!
+
+</TRN>
+<TRN locale="en_US" key="website.Optionally_as_well">
+Optionally, you can download these files as well
+</TRN>
+<TRN locale="en_US" key="website.Make_utils_descr">
+Make utilities (for building FPC itself)
+</TRN>
+<TRN locale="nl_NL" key="website.Base_sources">
+Broncodebasis
+</TRN>
+<TRN locale="nl_NL" key="website.Compiler_sources">
+De compilerbroncode
+</TRN>
+<TRN locale="nl_NL" key="website.zip_sources">
+Zip-broncode
+</TRN>
+<TRN locale="nl_NL" key="website.gdbint_sources">
+Broncode van de GDB-interface
+</TRN>
+<TRN locale="nl_NL" key="website.FCL_sources">
+Broncode van de "Free Component Library" (FCL)
+</TRN>
+<TRN locale="nl_NL" key="website.regexp_sources">
+Broncode van de reguliere-expressieunit
+</TRN>
+<TRN locale="nl_NL" key="website.Installer_sources">
+Broncode van het installatieprogramma
+</TRN>
+<TRN locale="nl_NL" key="website.PasZlib_sources">
+Broncode van PasZlib
+</TRN>
+<TRN locale="nl_NL" key="website.Documentation_sources">
+Broncode van de documentatie
+</TRN>
+<TRN locale="nl_NL" key="website.RTL_sources">
+Broncode van de runtime-bibliotheek
+</TRN>
+<TRN locale="nl_NL" key="website.HWVideo_sources">
+HWVideo-interface
+</TRN>
+<TRN locale="nl_NL" key="website.Imlib_interface_sources">
+Broncode van de ImLib-interface
+</TRN>
+<TRN locale="nl_NL" key="website.LibPNG_interface_sources">
+Broncode van de LibPNG-interface
 </TRN>
 <TRN locale="id_ID" key="website.Feeling_Lucky">
 Merasa Beruntung
