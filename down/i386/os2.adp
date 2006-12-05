@@ -26,10 +26,12 @@
 <h3><a name="os2big"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 <li>
-You can download the whole package as 1 big zipped file:
-<a href="@mirror_url@dist/i386-os2-2.0.4/os2204full.zip">os2204full.zip</a> (42 MB),<br>
-or you can download a file that contains the same, only without sources and documentation:
-<a href="@mirror_url@dist/i386-os2-2.0.4/os2204.zip">os2204.zip</a> (13 MB).
+<trn key="website.i386-os2_1_file_download_descr" locale="en_US">
+  You can download the whole package as 1 big zipped file:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204full.zip">os2204full.zip</a> (42 MB),<br>
+  or you can download a file that contains the same, only without sources and documentation:
+  <a href="@mirror_url@dist/i386-os2-2.0.4/os2204.zip">os2204.zip</a> (13 MB).
+</trn>
 </ul>
 
 <p>
@@ -53,22 +55,25 @@ or you can download a file that contains the same, only without sources and docu
 <li><a href="@mirror_url@dist/docs-2.0.4/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
 </ul>
 
-<h3> <a name="os2sep"></a>Download as separate files</h3>
-You can download the contents of the above zip files (sources and binaries) as separate files:<br>
+<h3> <a name="os2sep"></a><trn key="website.Download_as_separate_files" locale="en_US">Download as separate files</trn></h3>
+<trn key="website.i386-os2_sep_download_descr" locale="en_US">
+  You can download the contents of the above zip files (sources and binaries) as separate files:
+</trn>
+<br>
 <OL>
-<li> <b>Mandatory files:</b>
+<li><b><trn key="website.Mandatory_files" locale="en_US">Mandatory files:</trn></b>
 <ul>
-<li>Install program: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.exe">install.exe</a> (360 kB)
+<li><trn key="website.Install_program" locale="en_US">Install program:</trn><a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.exe">install.exe</a> (360 kB)
 And its data file <a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.dat">install.dat</a> (17 kB)
 as well as the unzip dll: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/unzip32.dll">unzip32.dll</a> (220 kB)
-<li>Base files (program and units): <a href="@mirror_url@dist/i386-os2-2.0.4/separate/baseos2.zip">baseos2.zip</a> (3.8 MB)
-<li>Selected EMX utilities for Free Pascal:
+<li><trn key="website.Base_files" locale="en_US">Base files (program and units):</trn><a href="@mirror_url@dist/i386-os2-2.0.4/separate/baseos2.zip">baseos2.zip</a> (3.8 MB)
+<li><trn key="website.selected_EMX_utilities" locale="en_US">Selected EMX utilities for Free Pascal:</trn>
 <ul>
   <li> GNU assembler and linker: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/asldos2.zip">asldos2.zip</a> (2.2 MB)</li>
   <li> Debugger: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/gdbos2.zip">gdbos2.zip</a> (650 kB)
 </ul></li>
 </ul>
-<li> <b>Optional files:</b>
+<li> <b><trn key="website.Optional_files" locale="en_US">Optional files:</trn></b>
 <ul>
 <li> The readme file: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/readme.txt">readme.txt</a> (14 kB)
 <li> The "what's new?" file: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/whatsnew.txt">whatsnew.txt</a> (13 kB)
