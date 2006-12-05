@@ -939,6 +939,63 @@ port.var: gen_makefile.conf
 	echo 'Content-language: ru' >> port.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> port.var
 	echo >> port.var
+probs.html.bg: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o probs.html.bg -oe iso-8859-5 probs.adp
+probs.html.en: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o probs.html.en -oe iso-8859-1 probs.adp
+probs.html.fr: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o probs.html.fr -oe iso-8859-1 probs.adp
+probs.html.id: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o probs.html.id -oe iso-8859-1 probs.adp
+probs.html.it: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o probs.html.it -oe iso-8859-1 probs.adp
+probs.html.nl: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o probs.html.nl -oe iso-8859-1 probs.adp
+probs.html.po: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o probs.html.po -oe iso-8859-2 probs.adp
+probs.html.sl: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o probs.html.sl -oe iso-8859-2 probs.adp
+probs.html.ru: probs.adp default-master.adp site-master.adp catalog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o probs.html.ru -oe iso-8859-5 probs.adp
+
+probs.var: gen_makefile.conf
+	echo > probs.var
+	echo 'URI: probs.html.bg' >> probs.var
+	echo 'Content-language: bg' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.en' >> probs.var
+	echo 'Content-language: en' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.fr' >> probs.var
+	echo 'Content-language: fr' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.id' >> probs.var
+	echo 'Content-language: id' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.it' >> probs.var
+	echo 'Content-language: it' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.nl' >> probs.var
+	echo 'Content-language: nl' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.po' >> probs.var
+	echo 'Content-language: pl' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.sl' >> probs.var
+	echo 'Content-language: sl' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> probs.var
+	echo >> probs.var
+	echo 'URI: probs.html.ru' >> probs.var
+	echo 'Content-language: ru' >> probs.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> probs.var
+	echo >> probs.var
 units.html.bg: units.adp default-master.adp site-master.adp catalog.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o units.html.bg -oe iso-8859-5 units.adp
 units.html.en: units.adp default-master.adp site-master.adp catalog.adp
@@ -1066,7 +1123,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: aboutus.html.bg aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.it aboutus.html.nl aboutus.html.po aboutus.html.sl aboutus.html.ru aboutus.var advantage.html.bg advantage.html.en advantage.html.fr advantage.html.id advantage.html.it advantage.html.nl advantage.html.po advantage.html.sl advantage.html.ru advantage.var credits.html.bg credits.html.en credits.html.fr credits.html.id credits.html.it credits.html.nl credits.html.po credits.html.sl credits.html.ru credits.var develop.html.bg develop.html.en develop.html.fr develop.html.id develop.html.it develop.html.nl develop.html.po develop.html.sl develop.html.ru develop.var download.html.bg download.html.en download.html.fr download.html.id download.html.it download.html.nl download.html.po download.html.sl download.html.ru download.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var faq.html.bg faq.html.en faq.html.fr faq.html.id faq.html.it faq.html.nl faq.html.po faq.html.sl faq.html.ru faq.var fpc.html.bg fpc.html.en fpc.html.fr fpc.html.id fpc.html.it fpc.html.nl fpc.html.po fpc.html.sl fpc.html.ru fpc.var fpcmac.html.bg fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.it fpcmac.html.nl fpcmac.html.po fpcmac.html.sl fpcmac.html.ru fpcmac.var future.html.bg future.html.en future.html.fr future.html.id future.html.it future.html.nl future.html.po future.html.sl future.html.ru future.var links.html.bg links.html.en links.html.fr links.html.id links.html.it links.html.nl links.html.po links.html.sl links.html.ru links.var maillist.html.bg maillist.html.en maillist.html.fr maillist.html.id maillist.html.it maillist.html.nl maillist.html.po maillist.html.sl maillist.html.ru maillist.var mirrors.html.bg mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.it mirrors.html.nl mirrors.html.po mirrors.html.sl mirrors.html.ru mirrors.var moreinfo.html.bg moreinfo.html.en moreinfo.html.fr moreinfo.html.id moreinfo.html.it moreinfo.html.nl moreinfo.html.po moreinfo.html.sl moreinfo.html.ru moreinfo.var news.html.bg news.html.en news.html.fr news.html.id news.html.it news.html.nl news.html.po news.html.sl news.html.ru news.var port.html.bg port.html.en port.html.fr port.html.id port.html.it port.html.nl port.html.po port.html.sl port.html.ru port.var units.html.bg units.html.en units.html.fr units.html.id units.html.it units.html.nl units.html.po units.html.sl units.html.ru units.var unitsrtl.html.bg unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.it unitsrtl.html.nl unitsrtl.html.po unitsrtl.html.sl unitsrtl.html.ru unitsrtl.var mirrors.dat
+all_pages: aboutus.html.bg aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.it aboutus.html.nl aboutus.html.po aboutus.html.sl aboutus.html.ru aboutus.var advantage.html.bg advantage.html.en advantage.html.fr advantage.html.id advantage.html.it advantage.html.nl advantage.html.po advantage.html.sl advantage.html.ru advantage.var credits.html.bg credits.html.en credits.html.fr credits.html.id credits.html.it credits.html.nl credits.html.po credits.html.sl credits.html.ru credits.var develop.html.bg develop.html.en develop.html.fr develop.html.id develop.html.it develop.html.nl develop.html.po develop.html.sl develop.html.ru develop.var download.html.bg download.html.en download.html.fr download.html.id download.html.it download.html.nl download.html.po download.html.sl download.html.ru download.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var faq.html.bg faq.html.en faq.html.fr faq.html.id faq.html.it faq.html.nl faq.html.po faq.html.sl faq.html.ru faq.var fpc.html.bg fpc.html.en fpc.html.fr fpc.html.id fpc.html.it fpc.html.nl fpc.html.po fpc.html.sl fpc.html.ru fpc.var fpcmac.html.bg fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.it fpcmac.html.nl fpcmac.html.po fpcmac.html.sl fpcmac.html.ru fpcmac.var future.html.bg future.html.en future.html.fr future.html.id future.html.it future.html.nl future.html.po future.html.sl future.html.ru future.var links.html.bg links.html.en links.html.fr links.html.id links.html.it links.html.nl links.html.po links.html.sl links.html.ru links.var maillist.html.bg maillist.html.en maillist.html.fr maillist.html.id maillist.html.it maillist.html.nl maillist.html.po maillist.html.sl maillist.html.ru maillist.var mirrors.html.bg mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.it mirrors.html.nl mirrors.html.po mirrors.html.sl mirrors.html.ru mirrors.var moreinfo.html.bg moreinfo.html.en moreinfo.html.fr moreinfo.html.id moreinfo.html.it moreinfo.html.nl moreinfo.html.po moreinfo.html.sl moreinfo.html.ru moreinfo.var news.html.bg news.html.en news.html.fr news.html.id news.html.it news.html.nl news.html.po news.html.sl news.html.ru news.var port.html.bg port.html.en port.html.fr port.html.id port.html.it port.html.nl port.html.po port.html.sl port.html.ru port.var probs.html.bg probs.html.en probs.html.fr probs.html.id probs.html.it probs.html.nl probs.html.po probs.html.sl probs.html.ru probs.var units.html.bg units.html.en units.html.fr units.html.id units.html.it units.html.nl units.html.po units.html.sl units.html.ru units.var unitsrtl.html.bg unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.it unitsrtl.html.nl unitsrtl.html.po unitsrtl.html.sl unitsrtl.html.ru unitsrtl.var mirrors.dat
 
 
 #adp2html tool
