@@ -63,35 +63,35 @@
 <OL>
 <li><b><trn key="website.Mandatory_files" locale="en_US">Mandatory files:</trn></b>
 <ul>
-<li><trn key="website.Install_program" locale="en_US">Install program:</trn><a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.exe">install.exe</a> (360 kB)
-And its data file <a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.dat">install.dat</a> (17 kB)
-as well as the unzip dll: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/unzip32.dll">unzip32.dll</a> (220 kB)
+<li><trn key="website.Install_program" locale="en_US">Install program:</trn> <a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.exe">install.exe</a> (360 kB)
+<trn key="website.and_its_data_file" locale="en_US">And its data file</trn> <a href="@mirror_url@dist/i386-os2-2.0.4/separate/install.dat">install.dat</a> (17 kB)
+<trn key="website.as_well_as_unzipdll" locale="en_US">as well as the unzip dll:</trn> <a href="@mirror_url@dist/i386-os2-2.0.4/separate/unzip32.dll">unzip32.dll</a> (220 kB)
 <li><trn key="website.Base_files" locale="en_US">Base files (program and units):</trn><a href="@mirror_url@dist/i386-os2-2.0.4/separate/baseos2.zip">baseos2.zip</a> (3.8 MB)
 <li><trn key="website.selected_EMX_utilities" locale="en_US">Selected EMX utilities for Free Pascal:</trn>
 <ul>
-  <li> GNU assembler and linker: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/asldos2.zip">asldos2.zip</a> (2.2 MB)</li>
-  <li> Debugger: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/gdbos2.zip">gdbos2.zip</a> (650 kB)
+  <li> <trn key="website.GNU_assembler_and_linker" locale="en_US">GNU assembler and linker:</trn> <a href="@mirror_url@dist/i386-os2-2.0.4/separate/asldos2.zip">asldos2.zip</a> (2.2 MB)</li>
+  <li> <trn key="website.Debugger" locale="en_US">Debugger:</trn> <a href="@mirror_url@dist/i386-os2-2.0.4/separate/gdbos2.zip">gdbos2.zip</a> (650 kB)
 </ul></li>
 </ul>
 <li> <b><trn key="website.Optional_files" locale="en_US">Optional files:</trn></b>
 <ul>
-<li> The readme file: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/readme.txt">readme.txt</a> (14 kB)
-<li> The "what's new?" file: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/whatsnew.txt">whatsnew.txt</a> (13 kB)
+<li> <trn key="website.The_readme_file" locale="en_US">The readme file</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/readme.txt">readme.txt</a> (14 kB)
+<li> <trn key="website.The_whatsnew_file" locale="en_US">The "what's new?" file</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/whatsnew.txt">whatsnew.txt</a> (13 kB)
 <!--
 <li> IDE (without debugger): <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ideos2.zip">ideos2.zip</a> (890 kB)
 -->
-<li> FCL units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufclos2.zip">ufclos2.zip</a> (1.2 MB)
-<li> GTK interface units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ugtkos2.zip">ugtkos2.zip</a> (520 kB)
-<li> fpGTK units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufpgtos2.zip">ufpgtos2.zip</a> (250 kB)
-<li> PasZLib units (needed by FCL): <a href="@mirror_url@dist/i386-os2-2.0.4/separate/upzlos2.zip">upzlos2.zip</a> (77 kB)
-<li> Regular expression unit: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uregos2.zip">uregos2.zip</a> (6 kB)
-<li> Unzip units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uzipos2.zip">uzipos2.zip</a> (32 kB)
-<li> Utilities: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/utilos2.zip">utilos2.zip</a> (1.7 MB)
-<li> ClkDll interface unit: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uclkos2.zip">uclkos2.zip</a> (3 kB)
-<li> FtpApi interface unit: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uftpos2.zip">uftpos2.zip</a> (18 kB)
-<li> Free Vision units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufvos2.zip">ufvos2.zip</a> (310 kB)
-<li> HWVideo interface unit: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uhwvos2.zip">uhwvos2.zip</a> (4 kB)
-<li> Hash units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uhashos2.zip">uhashos2.zip</a> (9 kB)
+<li> <trn key="website.FCL_units" locale="en_US">FCL units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufclos2.zip">ufclos2.zip</a> (1.2 MB)
+<li> <trn key="website.GTK_interface_units" locale="en_US">GTK interface units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ugtkos2.zip">ugtkos2.zip</a> (520 kB)
+<li> <trn key="website.fpGTK_units" locale="en_US">fpGTK units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufpgtos2.zip">ufpgtos2.zip</a> (250 kB)
+<li> <trn key="website.PasZlib_units" locale="en_US">PasZLib units (needed by FCL)</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/upzlos2.zip">upzlos2.zip</a> (77 kB)
+<li> <trn key="website.regexp_unit" locale="en_US">Regular expression unit</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uregos2.zip">uregos2.zip</a> (6 kB)
+<li> <trn key="website.unzip_unit" locale="en_US">Unzip units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uzipos2.zip">uzipos2.zip</a> (32 kB)
+<li> <trn key="website.Utilities" locale="en_US">Utilities</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/utilos2.zip">utilos2.zip</a> (1.7 MB)
+<li> <trn key="website.ClkDll_unit" locale="en_US">ClkDll interface unit</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uclkos2.zip">uclkos2.zip</a> (3 kB)
+<li> <trn key="website.FtpApi_interface_unit" locale="en_US">FtpApi interface unit</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uftpos2.zip">uftpos2.zip</a> (18 kB)
+<li> <trn key="website.Free_Vision_units" locale="en_US">Free Vision units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ufvos2.zip">ufvos2.zip</a> (310 kB)
+<li> <trn key="website.HWVideo_interface_unit" locale="en_US">HWVideo interface unit</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uhwvos2.zip">uhwvos2.zip</a> (4 kB)
+<li> <trn key="website.Free_Vision_units" locale="en_US">Hash units</trn>: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uhashos2.zip">uhashos2.zip</a> (9 kB)
 <li> ImLib interface units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/uimlbos2.zip">uimlbos2.zip</a> (24 kB)
 <li> LibPNG interface units: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ulpngos2.zip">ulpngos2.zip</a> (34 kB)
 <li> LVM interface unit: <a href="@mirror_url@dist/i386-os2-2.0.4/separate/ulvmos2.zip">ulvmos2.zip</a> (28 kB)
