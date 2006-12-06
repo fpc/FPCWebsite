@@ -146,9 +146,9 @@
  <OL>
    <h2><li><trn key="website.General_Information">General information</trn></h2>
    <OL>
-        <li><a name=WhatIsFP></a>
-            <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
-
+        <li><a name='WhatIsFP'></a>
+          <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
+          <trn key="website.a_What_is_FPC" locale="en_US">
             <p>Originally named FPK-Pascal, the Free Pascal compiler is a 32
             and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
             DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic and
@@ -178,11 +178,11 @@
               <li>12/2005: 2.0.2 version
               <li>08/2006: 2.0.4 version
             </ul>
-            
+          </trn>  
 
-        <li><a name=versions></a>
-            <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
-
+        <li><a name='versions'></a>
+          <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
+          <trn key="website.a_What_versions_exist" locale="en_US">
             <p>The latest official version is 2.0.4, released as a bug fix release for
             2.0.x series. New development is performed in 2.1.x series, which eventually
             gets released as either 2.2.0, or 3.0.0 (depending on amount of accumulated
@@ -248,13 +248,14 @@
             <p>We advise all users to upgrade to the newest version for their
             target (Preferably the new stable 2.0.x series).
 
-	    <p> A graphical timeline of the FPC project plus its near future would
-		be:
-	    <img src="pic/timeline.png"></a>
+            <p> A graphical timeline of the FPC project plus its near future would
+            be:
+            <img src="pic/timeline.png"></a>
+          </trn>
 
-        <li><a name=FPandGNUPascal></a>
-            <h3><trn key="website.q_FPC_vs_GPC" locale="en_US">Free Pascal and GNU Pascal - a comparison</trn></h3>
-
+        <li><a name='FPandGNUPascal'></a>
+          <h3><trn key="website.q_FPC_vs_GPC" locale="en_US">Free Pascal and GNU Pascal - a comparison</trn></h3>
+          <trn key="website.a_FPC_vs_GPC" locale="en_US">
             <DL>
             <DT><b>Aim:</b>
             <DD>Free Pascal tries to implement a Borland compatible pascal
@@ -263,11 +264,11 @@
             <DT><b>Version:</b>
             <DD>Currently, Free Pascal is at version 2.0 (may 2005). GNU Pascal is at
             version 2.1 (from 2002, which can be built with several different GCC's as backend; 
- 	    their Mac OS X version is an exception though, as it follows the GCC version number).
-	    <DT><b>Tracking:</b>
-	    <DD>Between releases, development versions of FPC are available through daily snapshots
+            their Mac OS X version is an exception though, as it follows the GCC version number).
+            <DT><b>Tracking:</b>
+            <DD>Between releases, development versions of FPC are available through daily snapshots
 	        and the source via CVS. GPC issues a set of patches to the last version a few times 
-		a year, and there are regular snapshot for OS X and Windows, made by users.
+            a year, and there are regular snapshot for OS X and Windows, made by users.
             <DT><b>Operating systems:</b>
             <DD>Free Pascal runs on a large amount of platforms of OSes,
             e.g. DOS, Win32 (no Unix porting layer needed), Linux, FreeBSD,
@@ -276,8 +277,8 @@
             x86_64 (AMD64), Sparc, PowerPC, ARM and Motorola (Motorola only in version 1.0.x).
 
             GNU Pascal runs basically on any system that can run GNU C, and for which the buildprocess was verified.
-	    <DT><b>Bootstrapping:</b>
-	    <DD>FPC requires a suitable set of binutils (AS,AR,LD), gmake and a commandline compiler. New architectures/OSes are crosscompiled.
+            <DT><b>Bootstrapping:</b>
+            <DD>FPC requires a suitable set of binutils (AS,AR,LD), gmake and a commandline compiler. New architectures/OSes are crosscompiled.
 	        GPC bootstraps via a suitable version of GCC, and requires a full set of binutils, flex, bison, gmake, a POSIX shell and libtool 
             <DT><b>Sources:</b>
             <DD>Free Pascal is entirely written in Pascal (about 6 MB of source
@@ -286,20 +287,22 @@
             <DT><b>Language:</b>
             <DD>Free Pascal supports the Borland Pascal dialect, 
             implements the Delphi Object Pascal language and has some Mac Pascal extensions.
-	    GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
+            GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
             <DT><b>Extensions:</b>
             <DD>Free Pascal implements method, function and operator overloading. (later Delphi versions add these, so strictly not an extension anymore)
             GNU Pascal implements operator overloading.
             <DT><b>License:</b>
             <DD>Both compilers come under the GNU GPL.
             <DT><b>Author:</b>
-            <DD>Free Pascal was started by Florian Klaempfl, Germany
+            <DD>Free Pascal was started by Florian Kl&auml;mpfl, Germany
             (florian&#x040;freepascal.org), GNU Pascal was started by Jukka Virtanen,
             Finland (jtv&#x040;hut.fi). </DD></DL><br>
+          </trn>
 
-        <li><a name=general-license></a>
-            <h3><trn key="website.q_Licence_copyright_info" locale="en_US">License and copyright information</trn></h3>
 
+        <li><a name='general-license'></a>
+          <h3><trn key="website.q_Licence_copyright_info" locale="en_US">License and copyright information</trn></h3>
+          <trn key="website.a_Licence_copyright_info" locale="en_US">
             <p> Applications created by the compiler and using the runtime
             library come under a modified library gnu public license (LGPL),
             which permit no restriction on the type of license the application
@@ -307,65 +310,63 @@
             or proprietary software using Free Pascal.
             
 
-        <p>This extra exception to the LGPL is added:<br><I> As a special
-        exception, the copyright holders of this library give you
-		permission to link this library with independent modules to
-		produce an executable, regardless of the license terms of
-		these independent modules, and to copy and distribute the
-		resulting executable under terms of your choice, provided
-		that you also meet, for each linked independent module, the
-		terms and conditions of the license of that module. An
-		independent module is a module which is not derived from or
-		based on this library. If you modify this library, you may
-		extend this exception to your version of the library, but
-		you not obligated to do so. If you do not wish to do so,
-		delete this exception statement from your version.</I>
+            <p>This extra exception to the LGPL is added:<br><I> As a special
+            exception, the copyright holders of this library give you
+            permission to link this library with independent modules to
+            produce an executable, regardless of the license terms of
+            these independent modules, and to copy and distribute the
+            resulting executable under terms of your choice, provided
+            that you also meet, for each linked independent module, the
+            terms and conditions of the license of that module. An
+            independent module is a module which is not derived from or
+            based on this library. If you modify this library, you may
+            extend this exception to your version of the library, but
+            you not obligated to do so. If you do not wish to do so,
+            delete this exception statement from your version.</I>
 
-        Please note that you still have to comply to the LGPL, which, for example,
-        requires you to provide the source code of the runtime library. If you want
-        to write proprietary closed source software, please do this to comply:
-        <ul>
-           <li>Most people can satisfy the source code requirement by mentioning
-           the rtl source code can be downloaded at the Free Pascal
-           web site: if you did not modify the rtl this is considered adequate to
-           satisfy the LGPL requirement of providing source code.
-           <li>If you made modifications to the runtime library, you cannot keep them
-           for yourself, you must make them available if requested.
-           <li>Distribute the LGPL license with your product.
-        </ul>
+            Please note that you still have to comply to the LGPL, which, for example,
+            requires you to provide the source code of the runtime library. If you want
+            to write proprietary closed source software, please do this to comply:
+            <ul>
+              <li>Most people can satisfy the source code requirement by mentioning
+              the rtl source code can be downloaded at the Free Pascal
+              web site: if you did not modify the rtl this is considered adequate to
+              satisfy the LGPL requirement of providing source code.
+              <li>If you made modifications to the runtime library, you cannot keep them
+              for yourself, you must make them available if requested.
+              <li>Distribute the LGPL license with your product.
+            </ul>
 
             <p> The compiler source code, on the other hand, comes under
             the GNU Public license, which means that any usage of the compiler
             source can only be used in software projects which have the same
             license. 
-        
-        <p>
+          </trn>
 
-
-        <li><a name=WhereToGetFP></a>
-            <h3><trn key="website.q_Getting_the_compiler" locale="en_US">Getting the compiler</trn></h3>
-
-
+        <li><a name='WhereToGetFP'></a>
+          <h3><trn key="website.q_Getting_the_compiler" locale="en_US">Getting the compiler</trn></h3>
+          <trn key="website.a_Getting_the_compiler" locale="en_US">
             <p>The latest official stable Free Pascal release is available for download
-            from all <a href="download@x@">official mirrors
-            </a>
+            from all <a href="download@x@">official mirrors</a>
+          </trn>
 
-        <li><a name=general-install></a>
-             <h3><trn key="website.q_Installation_hints" locale="en_US">Free Pascal installation hints</trn></h3>
-
+        <li><a name='general-install'></a>
+           <h3><trn key="website.q_Installation_hints" locale="en_US">Free Pascal installation hints</trn></h3>
+           <trn key="website.a_Installation_hints" locale="en_US">
              <ul>
                <li> Do not install the compiler in a directory which contains spaces
                     in its name, since some of the compiler tools do not like these 
              </ul>
+           </trn>
 
 
-        <li><a name=ftpproblems></a>
-             <h3><trn key="website.q_Why_username_password_for_download" locale="en_US">Why do i have to supply a user name and password to get Free Pascal ?</trn></h3>
+        <li><a name='ftpproblems'></a>
+          <h3><trn key="website.q_Why_username_password_for_download" locale="en_US">Why do i have to supply a user name and password to get Free Pascal ?</trn></h3>
 
-
+          <trn key="website.a_Why_username_password_for_download" locale="en_US">
             <p> You are trying to login in to an ftp site. You must use the login name:
             anonymous and as your password, you should put your e-mail address.
-            
+          </trn>
         
 
         <li><a name=general-connectftp></a>
