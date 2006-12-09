@@ -22,7 +22,7 @@
     680x0 / BeOS versions: <a href="mailto:cecodere&#x040;yahoo.ca">Carl Eric Codere</a><br>
     EMX (OS/2 & Dos): <a href="mailto:d.s.p.mantione&#x040;twi.tudelft.nl">Dani&euml;l Mantione</a><br>
     FreeBSD: <a href="mailto:marco&#x040;freepascal.org">Marco van de Voort</a><br>
-    MacOSX / Darwin: <a href="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a><br>
+    MacOSX / Darwin: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a><br>
     MacOS classic: <a href="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</a><br>
   </ul>
   <li>if you have general pascal questions, please post them to one of the following

@@ -132,7 +132,7 @@ mirror download sites</a>.
       </td><TD WIDTH="43%">
          <p>For Mac OS X
       </td><TD >
-         <p><a href="jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a>
+         <p><a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a>
       
       </td></tr>
    <tr>
