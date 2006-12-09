@@ -783,7 +783,7 @@
 
         <li><a name=dotnet></a>
           <h3><trn key="website.q_What_about_dotNET" locale="en_US">What about .NET?</trn></h3>
-          <trn key="website.a_What_about_dotNET" locale="en_US">What about .NET?</trn>
+          <trn key="website.a_What_about_dotNET" locale="en_US">
 	   Occasionally, users ask about a FPC that supports .NET, or our
 	   plans in that direction. <p>
 
