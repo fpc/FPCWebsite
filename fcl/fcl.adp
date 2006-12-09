@@ -1,11 +1,9 @@
-<html>
-<!--
-#TITLE Free Pascal - Programming Tools
-#ENTRY prog
-#SUBENTRY fcl
-#MAINDIR ..
-#HEADER fcl
--->
+<master>
+<property name='title'>Free Pascal - Programming Tools</property>
+<property name='entry'>prog</property>
+<property name='subentry'>fcl</property>
+<property name='maindir'>../</property>
+<property name='header'>fcl</property>
 <h1>FCL - Free Component Library</h1>
 <h2>Introduction</h2>
 The Free Component Library is meant to be an free equivalent of Delphi's
@@ -117,4 +115,3 @@ A unit to take an XML document object and generate an XML file from it.
 A unit that contains compression streams and streams to read <b>.gz</b>
 gzipped files.
 </DL>
-</html>

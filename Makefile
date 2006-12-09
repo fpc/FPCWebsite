@@ -26,7 +26,7 @@ endif
 
 .PHONY: all all_pages clean zip tar
 default: all
-all: $(ADP2HTML) all_pages down_all tools_all
+all: $(ADP2HTML) all_pages down_all fcl_all tools_all
 aboutus.html.bg: aboutus.adp default-master.adp site-master.adp catalog.adp
 	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o aboutus.html.bg -oe iso-8859-5 aboutus.adp
 aboutus.html.en: aboutus.adp default-master.adp site-master.adp catalog.adp
@@ -1134,15 +1134,21 @@ $(ADP2HTML): adp2html.pp
 down_all:
 	$(MAKE) -C down all
 
+fcl_all:
+	$(MAKE) -C fcl all
+
 tools_all:
 	$(MAKE) -C tools all
 
 # clean
-clean: clean_down clean_tools
+clean: clean_down clean_fcl clean_tools
 	rm -f *.html.* *.var mirrors.dat adp2html
 
 clean_down:
 	$(MAKE) -C down clean
+
+clean_fcl:
+	$(MAKE) -C fcl clean
 
 clean_tools:
 	$(MAKE) -C tools clean
