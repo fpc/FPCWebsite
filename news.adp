@@ -483,7 +483,7 @@ cycle itself on linux-m68k) </li>
           and WindowsNT. Also the false "Error -2 -- Disk full?" errors have been
           fixed. If you had problems with the old install.exe, you can download a
           new one from the <a href="download@x@">download</a> page. See also
-          <a href="faq@x@l#instal10NT">this</a> FAQ question.
+          <a href="faq@x@#instal10NT">this</a> FAQ question.
      </li>
    </ul>
 
