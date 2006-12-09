@@ -28,6 +28,6 @@ See the README inside for more information about the status of this port.
 <hr>
 <p>
 <a href="i386-netbsd@x@">Back to mirror list</a><BR/>
-<a href="down-@mirror_suffix@@x@">Back to all old releases</a><BR/>
+<a href="down-@mirrorsuffix@@x@">Back to all old releases</a><BR/>
 <a href="../../download@x@">Back to general download page</a>
 <p>
