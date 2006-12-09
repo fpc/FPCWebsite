@@ -144,7 +144,7 @@
 </OL>
 
  <OL>
-   <h2><li><trn key="website.General_Information">General information</trn></h2>
+   <h2><li><trn key="website.General_Information" locale="en_US">General information</trn></h2>
    <OL>
         <li><a name='WhatIsFP'></a>
           <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
@@ -668,7 +668,7 @@
         
 
 
-        <li><a name=cantfindunit></a>
+        <li><a name='cantfindunit'></a>
           <h3><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></h3>
           <h3><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn></h3>
 
