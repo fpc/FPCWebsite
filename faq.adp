@@ -380,10 +380,10 @@
           </trn>
         
 
-        <li><a name=snapshot></a>
+        <li><a name='snapshot'></a>
           <h3><trn key="website.q_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn></h3>
 
-          <trn key="website.a_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn>
+          <trn key="website.a_Wanna_new_version_now" locale="en_US">I want a new version NOW
             <p>In the time between the release of new official versions, you can
             have a look at and test developer versions (so-called "snapshots"). Be
             warned though: this is work under progress, so in addition to old bugs
@@ -423,7 +423,7 @@
         <li><a name='KnownBugs'></a>
           <h3><trn key="website.q_Known_bugs" locale="en_US">Known bugs / Reporting bugs</trn></h3>
 
-          <trn key="website.a_Known_bugs" locale="en_US">Known bugs / Reporting bugs</trn>
+          <trn key="website.a_Known_bugs" locale="en_US">Known bugs / Reporting bugs
             <p>Go to the <a href="bugs@x@">bugs page</a>. 
 
             <p>If you wish to know the bugs for a specific Free Pascal version, go to the bugs
