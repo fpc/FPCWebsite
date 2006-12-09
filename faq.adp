@@ -144,7 +144,7 @@
 </OL>
 
  <OL>
-   <h2><li><trn key="website.General_Information" locale="en_US">General information</trn></h2>
+   <li><h2><trn key="website.General_Information" locale="en_US">General information</trn></h2>
    <OL>
         <li><a name='WhatIsFP'></a>
           <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
@@ -250,7 +250,7 @@
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
-            <img src="pic/timeline.png"></a>
+            <img src="pic/timeline.png">
           </trn>
 
         <li><a name='FPandGNUPascal'></a>
@@ -472,7 +472,7 @@
           </trn>
         
         <li><a name='ErrorPos'></a>
-          <h3><trn key="website.q_Crash_analysis" locale="en_US">Getting more information when an application crashes</trn>Getting more information when an application crashes</trn></h3>
+          <h3><trn key="website.q_Crash_analysis" locale="en_US">Getting more information when an application crashes</trn></h3>
           <trn key="website.a_Crash_analysis" locale="en_US">
             <OL>
                 <li>The easiest possibility is to recompile your program with -gl
@@ -798,7 +798,7 @@
 	   in combination with FPC:
 	   	
         <OL> 
-        <li>FPC's language uses pointers, and so can only be
+        <li>Pascal is a language that uses pointers, and so can only be
 	   unmanaged. Unmanaged code is not portable under .NET, so that
 	   already kills all possible benefits. This also means that
 	   existing FPC and Delphi code won't run on .NET.
