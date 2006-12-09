@@ -30,7 +30,7 @@ available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
 </li>
 <li>August 28, 2006
  <ul><li>Long awaited release 2.0.4 is finally out (go
-<a href="download.html">here</a> to select the nearest mirror), bringing
+<a href="download@x@">here</a> to select the nearest mirror), bringing
 you lots of fixes and some enhancements (remember this is primarily a bug-fix
 release for 2.0.x series, whereas new development is happening in 2.1.x branch)
 over the previous released version 2.0.2 (or even 2.0.0, because builds for
@@ -128,7 +128,7 @@ yum install fpc-src
    <li>15 May 2005
    <ul>
      <li>
-      Free Pascal <b>2.0</b> is released! Go get it at <a href='download.html'>one of the mirrors</a>! This is the
+      Free Pascal <b>2.0</b> is released! Go get it at <a href='download@x@'>one of the mirrors</a>! This is the
       first stable release of the development branch we started five years ago. The 2.0 release is technically
       vastly superior to version 1.0 and has everything in it to belong to the select group of big compilers.
      </li>
@@ -147,7 +147,7 @@ yum install fpc-src
    <ul>
      <li>
         A second release candidate for 2.0 has been released. It
-        has been released as version 1.9.8. <a href="ftp://ftp.freepascal.org/pub/fpc/beta/whatsnew.txt">Read more</a>. <a href="download.html">Get it</a>.
+        has been released as version 1.9.8. <a href="ftp://ftp.freepascal.org/pub/fpc/beta/whatsnew.txt">Read more</a>. <a href="download@x@">Get it</a>.
      </li>
    </ul></li>
    <li>10 Feb 2005
@@ -168,7 +168,7 @@ yum install fpc-src
    <ul>
      <li>
         For the first time there is a Free Pascal beta release for classic Mac OS.
-        <a href="fpcmac.html">Read more</a>.
+        <a href="fpcmac@x@">Read more</a>.
      </li>
    </ul></li>
    <li>05 Nov 2004
@@ -264,7 +264,7 @@ yum install fpc-src
    <li>25 September 2003
    <ul><li> Merging of the new register allocator has
 	largely finished, and focus is shifting to get a first 2.0 beta for
-	testing purposes out later this year. The <a href="future.html"> Future Plans (Roadmap)</a>
+	testing purposes out later this year. The <a href="future@x@"> Future Plans (Roadmap)</a>
 	page has been updated with some details
 	about what to expect for the 2.0 series of compilers
 	</li>
@@ -439,7 +439,7 @@ cycle itself on linux-m68k) </li>
    <li>31 December 2000
    <ul>
      <li> Version 1.0.4 of the Free Pascal Compiler has been officially released.
-          Hit the <a href="download.html">download</a> link and select a mirror close
+          Hit the <a href="download@x@">download</a> link and select a mirror close
           to you to download your copy.
      </li>
    </ul></li>
@@ -456,7 +456,7 @@ cycle itself on linux-m68k) </li>
  <li>12 October 2000
    <ul>
      <li> Version 1.0.2 of the Free Pascal Compiler has been officially released.
-          Hit the <a href="download.html">download</a> link and select a mirror close
+          Hit the <a href="download@x@">download</a> link and select a mirror close
           to you to download your copy.
      </li>
    </ul></li>
@@ -482,15 +482,15 @@ cycle itself on linux-m68k) </li>
           in the OS/2 and DosW32 packages) to fix the reported crashes under OS/2
           and WindowsNT. Also the false "Error -2 -- Disk full?" errors have been
           fixed. If you had problems with the old install.exe, you can download a
-          new one from the <a href="download.html">download</a> page. See also
-          <a href="faq.html#instal10NT">this</a> FAQ question.
+          new one from the <a href="download@x@">download</a> page. See also
+          <a href="faq@x@l#instal10NT">this</a> FAQ question.
      </li>
    </ul>
 
  <li>12 July 2000
    <ul>
      <li> Version 1.00 of the Free Pascal Compiler has been officially released.
-          Hit the <a href="download.html">download</a> link and select a mirror close
+          Hit the <a href="download@x@">download</a> link and select a mirror close
           to you to download your copy.
      </li>
    </ul>
@@ -509,8 +509,8 @@ cycle itself on linux-m68k) </li>
      <li> Version 0.99.14a has been released for Dos,Win32. It contains fixes
           for the readln and graph bugs. And the installer problems have been
           fixed.<br>
-          Get it at one of the <a href="download.html">mirrors</a> (USA mirrors of the FTP site only
-          can be found in the <a href="links.html">links</a> section).
+          Get it at one of the <a href="download@x@">mirrors</a> (USA mirrors of the FTP site only
+          can be found in the <a href="links@x@">links</a> section).
      </li>
    </ul>
   <li>22 February 2000<br>
@@ -543,8 +543,8 @@ cycle itself on linux-m68k) </li>
    <ul>
      <li>
           The OS/2 version of Free Pascal 0.99.14 has been released today! Go get it
-          at one of the <a href="download.html">mirrors</a>! (USA mirrors of the FTP site only
-          can be found in the <a href="links.html">links</a> section).
+          at one of the <a href="download@x@">mirrors</a>! (USA mirrors of the FTP site only
+          can be found in the <a href="links@x@">links</a> section).
      </li>
    </ul>
  <li>31 January 2000
@@ -557,8 +557,8 @@ cycle itself on linux-m68k) </li>
  <li>27 January 2000
    <ul>
      <li> Version 0.99.14 (aka 1.0beta4) has been released for Dos,Win32 and Linux! Go get it
-          at one of the <a href="download.html">mirrors</a>! (USA mirrors of the FTP site only
-          can be found in the <a href="links.html">links</a> section).
+          at one of the <a href="download@x@">mirrors</a>! (USA mirrors of the FTP site only
+          can be found in the <a href="links@x@">links</a> section).
      </li>
    </ul>
  <li>7 January 2000
@@ -569,10 +569,10 @@ cycle itself on linux-m68k) </li>
           for version 1.0. Some weeks later, we'll (finally) release version 1.0.
      </li>
      <li> As always, you can get the latest compiler and RTL in the form of
-          a snapshot in the <a href="develop.html">development section</a> if you
+          a snapshot in the <a href="develop@x@">development section</a> if you
           want to see what we've done since the last official release.
      </li>
-     <li> A new section has been added: <a href="prog.html">programmer tools</a>.
+     <li> A new section has been added: <a href="prog@x@">programmer tools</a>.
           It contains documentation for all helper programs included with FPC.
           Check it out!
      </li>
@@ -580,10 +580,10 @@ cycle itself on linux-m68k) </li>
  <li>26 July 1999
   <ul>
      <li> Bugfix version 0.99.12b has been released for Dos,Win32 and Linux. You can
-          download it <a href="download.html">here</a>.
+          download it <a href="download@x@">here</a>.
      </li>
      <li> For linux the source rpm's and debian sources are also available on
-          ftp and <a href="download.html">download</a> page
+          ftp and <a href="download@x@">download</a> page
      </li>
      <li> Default documentation is now in PDF format which looks much better.
      </li>
@@ -591,16 +591,16 @@ cycle itself on linux-m68k) </li>
  <li>25 June 1999
   <ul>
      <li> Version 0.99.12 (aka 1.0beta3) has been released! Go get it at one of the
-          <a href="download.html">mirrors</a>! (USA mirrors of the FTP site only
-          can be found in the <a href="links.html">links</a> section)
+          <a href="download@x@">mirrors</a>! (USA mirrors of the FTP site only
+          can be found in the <a href="links@x@">links</a> section)
      </li>
-     <li>The Free Pascal newsletter <a href="news9906.html">06/99</a> is available.
+     <li>The Free Pascal newsletter <a href="news9906@x@">06/99</a> is available.
      </li>
   </ul></li>
  <li>9 April 1999
   <ul>
       <li>Snapshots for the IDE are now available from the
-      <a href="develop.html">development</a> page.
+      <a href="develop@x@">development</a> page.
       <li>If you want to use the daily source packages you also need
       the "base" package, installation notes are included in that package.
   </ul>
