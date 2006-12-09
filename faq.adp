@@ -369,18 +369,21 @@
           </trn>
         
 
-        <li><a name=general-connectftp></a>
-            <h3><trn key="website.q_Access_denies_while_download" locale="en_US">Access denied error when connecting to the Free Pascal FTP site</trn></h3>
+        <li><a name='general-connectftp'></a>
+          <h3><trn key="website.q_Access_denies_while_download" locale="en_US">Access denied error when connecting to the Free Pascal FTP site</trn></h3>
 
+          <trn key="website.a_Access_denies_while_download" locale="en_US">
             <p>The Free Pascal main ftp site can only accept a maximum number of
             simultaneous connections. If this error occurs, it is because
             this limit has been reached. The solution is either to wait and
             retry later, or better still use one of the Free Pascal mirror sites.
+          </trn>
         
 
         <li><a name=snapshot></a>
-            <h3><trn key="website.q_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn></h3>
+          <h3><trn key="website.q_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn></h3>
 
+          <trn key="website.a_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn>
             <p>In the time between the release of new official versions, you can
             have a look at and test developer versions (so-called "snapshots"). Be
             warned though: this is work under progress, so in addition to old bugs
@@ -395,11 +398,13 @@
             <p>The latest snapshot can always be downloaded from the <A
             href="develop@x@#snapshot">development</a>
             web page. 
+          </trn>
         
 
-        <li><a name=installsnap></a>
-            <h3><trn key="website.q_Installing_snapshot" locale="en_US">Installing a snapshot</trn></h3>
+        <li><a name='installsnap'></a>
+          <h3><trn key="website.q_Installing_snapshot" locale="en_US">Installing a snapshot</trn></h3>
 
+          <trn key="website.a_Installing_snapshot" locale="en_US">
             <p>To install a snapshot, extract the zip archive into the existing
             program directory of the last official version of Free Pascal (after
             making a backup of the original of course). You can also extract it into
@@ -411,11 +416,14 @@
             use "pkunzip -d" instead of just "pkunzip". Note that snapshots also
             contain a new RTL which most likely can't be used with the previous
             release version, so backup your old RTL as well. 
+          </trn>
         
 
 
-        <li><a name=KnownBugs></a>
-            <h3><trn key="website.q_Known_bugs" locale="en_US">Known bugs / Reporting bugs</trn></h3>
+        <li><a name='KnownBugs'></a>
+          <h3><trn key="website.q_Known_bugs" locale="en_US">Known bugs / Reporting bugs</trn></h3>
+
+          <trn key="website.a_Known_bugs" locale="en_US">Known bugs / Reporting bugs</trn>
             <p>Go to the <a href="bugs@x@">bugs page</a>. 
 
             <p>If you wish to know the bugs for a specific Free Pascal version, go to the bugs
@@ -425,26 +433,32 @@
             "With Status" choose "Unfixed". This should display all bugs
             which are present in the specific version of the compiler
             you requested.
-            
+          </trn>            
         
 
 
-        <li><a name=HOMEWORK></a>
-            <h3><trn key="website.q_Homework" locale="en_US">I have to write a program for homework. Can you help?</trn></h3>
+        <li><a name='HOMEWORK'></a>
+          <h3><trn key="website.q_Homework" locale="en_US">I have to write a program for homework. Can you help?</trn></h3>
 
+          <trn key="website.a_Homework" locale="en_US">
             <p>No. Please, don't send us mail about homework, we are no teachers.
             The Free Pascal development team tries to give good support for the Free
             Pascal compiler and are trying to always reply to emails. If we get
             emails like this, this becomes harder and harder. 
-        
+          </trn>
+
         <li><a name="windowsapp"></a>
-            <h3><trn key="website.q_Real_windows_application" locale="en_US">How do I make a real Windows application with windows and menu bars?</trn></h3>
+          <h3><trn key="website.q_Real_windows_application" locale="en_US">How do I make a real Windows application with windows and menu bars?</trn></h3>
+
+          <trn key="website.a_Real_windows_application" locale="en_US">
             The easiest way is to <a href='http://www.lazarus.freepascal.org'>download Lazarus</a>.
             It won't be just a Windows application, it will also work under Linux, FreeBSD and
             MacOS X.
+          </trn>
         
         <li><a name="game"></a>
-            <h3><trn key="website.q_Game_in_FPC" locale="en_US">How do I make a game with Free Pascal? Can I make a game like Doom 3?</trn></h3>
+          <h3><trn key="website.q_Game_in_FPC" locale="en_US">How do I make a game with Free Pascal? Can I make a game like Doom 3?</trn></h3>
+          <trn key="website.a_Game_in_FPC" locale="en_US">
             Yes, you can make games with Free Pascal and if you are really good you can make
             a game like Doom 3. Making games is difficult, you need to be an experienced
             programmer to make them. The web site <a href='http://www.pascalgamedevelopment.com'>
@@ -455,10 +469,11 @@
             or <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Also you can try to study an existing game, for example
             <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is a very simple game and it should not be
             very hard to understand its code.
+          </trn>
         
-        <li><a name=ErrorPos></a>
-            <h3><trn key="website.q_Crash_analysis" locale="en_US">Getting more information when an application crashes</trn>Getting more information when an application crashes</trn></h3>
-
+        <li><a name='ErrorPos'></a>
+          <h3><trn key="website.q_Crash_analysis" locale="en_US">Getting more information when an application crashes</trn>Getting more information when an application crashes</trn></h3>
+          <trn key="website.a_Crash_analysis" locale="en_US">
             <OL>
                 <li>The easiest possibility is to recompile your program with -gl
                 debugging option. This way unit LineInfo is automatically linked in,
@@ -491,11 +506,12 @@
                 which source code lines these present using the command
                 <PRE>info line *&lt;address&gt;</PRE>For example:<PRE>info line *0x05bd8</PRE>
             </OL>
+          </trn>
 
 
-        <li><a name=general-heap></a>
-        <h3><trn key="website.q_Increase_heap" locale="en_US">Increasing the heap size</trn></h3>
-
+        <li><a name='general-heap'></a>
+          <h3><trn key="website.q_Increase_heap" locale="en_US">Increasing the heap size</trn></h3>
+          <trn key="website.a_Increase_heap" locale="en_US">
             <p>By default Free Pascal allocates a small part of RAM for your
             application as heap memory. If it just allocated all it could get,
             people running Windows would have problems as Windows would increase
@@ -513,11 +529,12 @@
             <p>It is only handy if you know you will need at least a certain amount
             of memory. You can then specify this value using the -Ch parameter, so
             your program will allocate it at once on startup. This is slightly
-            faster than growing the heap a number of times. 
+            faster than growing the heap a number of times.
+          </trn>
          
 
 
-        <li><a name=general-doesntfindfiles></a>
+        <li><a name='general-doesntfindfiles'></a>
             <h3><trn key="website.q_Compiler_skips_files" locale="en_US">Compiler seems to skip files in directories that -Fu points to</trn></h3>
 
             <p>This sometimes happens with installation/compilation scripts if the
@@ -529,9 +546,9 @@
 		includefiles or duplicate names might trigger an attempt at recompiling
         
 
-        <li><a name=binariesbig></a>
-            <h3><trn key="website.q_Big_binaries" locale="en_US">Why are the generated binaries so big?</trn></h3>
-
+        <li><a name='binariesbig'></a>
+          <h3><trn key="website.q_Big_binaries" locale="en_US">Why are the generated binaries so big?</trn></h3>
+          <trn key="website.a_Big_binaries" locale="en_US">
             There are several reasons and remedies for this: 
 
             <OL>
@@ -569,6 +586,7 @@
             however, it doesn't hide code in large dynamic libraries. Free Pascal generates
             larger binaries than compilers from long ago do. Large framework libraries result
             in larger executables.
+          </trn>
         
 
 
@@ -588,9 +606,9 @@
         
 
 
-        <li><a name=runerror></a>
-            <h3><trn key="website.q_Runtime_errors" locale="en_US">Runtime errors</trn></h3>
-
+        <li><a name='runerror'></a>
+          <h3><trn key="website.q_Runtime_errors" locale="en_US">Runtime errors</trn></h3>
+          <trn key="website.a_Runtime_errors" locale="en_US">
             <p> When there is abnormal termination of an application generated
             by Free Pascal, it is very probable that a runtime error will be
             generated. These errors have the form : 
@@ -605,20 +623,17 @@
             number. The definition of the different runtime error numbers is
             described in the Free Pascal user's manual, Appendix D. The
             hexadecimal numbers represent the call stack when the error occured.
+          </trn>
             
 
-        
-
-        <li><a name=stdunits></a>
-            <h3><trn key="website.q_Standard_units" locale="en_US">Standard units</trn></h3>
-
+        <li><a name='stdunits'></a>
+          <h3><trn key="website.q_Standard_units" locale="en_US">Standard units</trn></h3>
+          <trn key="website.a_Standard_units" locale="en_US">
             <p> To see the list of base units supplied with Free Pascal, and
             on which platform they are supported, consult the Free Pascal user's manual.
             There is also a short description of what each unit does in the same section
             of the manual.
-            
-
-        
+          </trn>
 
         <li><a name=internaldocs></a>
            <h3>How does the compiler work internally?</h3>
@@ -654,9 +669,10 @@
 
 
         <li><a name=cantfindunit></a>
-            <h3><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></h3>
-            <h3><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn></h3>
+          <h3><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></h3>
+          <h3><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn></h3>
 
+          <trn key="website.a_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn>
             <p>
             Sometimes, even though there is a binary version of a module (unit file and object file)
             available, the compiler still gives compilation errors. This can be caused either by an
@@ -682,7 +698,7 @@
                which means they are binary compatible, but because the interface of the units
                of the RTL certainly changes between versions, recompilation will be required
                for each version anyways.
-            
+          </trn>
 
         
         <li><a name=filemode></a>
@@ -729,8 +745,9 @@
             <p> For more information, consult the Free Pascal reference manual
          
         <li><a name='isoxpascal'></a>
-           <h3><trn key="website.q_isoxpascal" locale="en_US">Will you support ISO Extended Pascal?</trn></h3>
-       We are not against support for ISO Extended Pascal, but the Free Pascal
+          <h3><trn key="website.q_isoxpascal" locale="en_US">Will you support ISO Extended Pascal?</trn></h3>
+          <trn key="website.a_isoxpascal" locale="en_US">
+       We are open for support for ISO Extended Pascal, but the Free Pascal
        development team does not consider extended Pascal compatibility important,
        and therefore will not spend time on it. The reason is that the
        ISO Extended Pascal must be considered a failed standard.
@@ -761,11 +778,12 @@
        GNU-Pascal is a modern compiler that can compile ISO Extended Pascal. If you have
        any need for the ISO Extended Pascal dialect, we recommend to take a look at this
        compiler.
+         </trn>
 
 
         <li><a name=dotnet></a>
-           <h3><trn key="website.q_What_about_dotNET" locale="en_US">What about .NET?</trn></h3>
-
+          <h3><trn key="website.q_What_about_dotNET" locale="en_US">What about .NET?</trn></h3>
+          <trn key="website.a_What_about_dotNET" locale="en_US">What about .NET?</trn>
 	   Occasionally, users ask about a FPC that supports .NET, or our
 	   plans in that direction. <p>
 
@@ -798,34 +816,33 @@
 	     the win32 interface is unmanaged. 
 	</OL> <p>
         
-        So effectively this means that for FPC to benefit from .NET you
-	would have to significantly adapt the language (thus compiler) and
-	libraries, and be incompatible with the existing native sourcecode.
-	This is not adding support for .NET in FPC, but reimplementing FPC
-	on .NET from near scratch without backwards compability. Moreover
-	that also means that existing apps would have to be rewritten for
-	.NET, since it would take more than a simple recompile with a
-	FPC/.NET compiler.<p>
+    So effectively this means that for FPC to benefit from .NET you
+    would have to significantly adapt the language (thus compiler) and
+    libraries, and be incompatible with the existing native sourcecode.
+    This is not adding support for .NET in FPC, but reimplementing FPC
+    on .NET from near scratch without backwards compability. Moreover
+    that also means that existing apps would have to be rewritten for
+    .NET, since it would take more than a simple recompile with a
+    FPC/.NET compiler.<p>
 
-	While unmanaged code has some uses (allows to integrate with managed
-	code inside windows easier), this still needs a codegenerator
-	backend to be written, interfaces and libraries defined, for little
-	practical use. This means a <b>lot of work</b> and since .NET take
-	up is not really high, this might not be worth it, since an
-	unmanaged FPC/.NET would only be minimally used. <p>
+    While unmanaged code has some uses (allows to integrate with managed
+    code inside windows easier), this still needs a codegenerator
+    backend to be written, interfaces and libraries defined, for little
+    practical use. This means a <b>lot of work</b> and since .NET take
+    up is not really high, this might not be worth it, since an
+    unmanaged FPC/.NET would only be minimally used. <p>
 
-	However if a FPC user does the bulk of the work (e.g. a bytecode
-	codegenerator, and maybe some base libraries) and if the work is
-	suitable for inclusion in FPC (a very big if), we will of course
-	include it.<p>
+    However if a FPC user does the bulk of the work (e.g. a bytecode
+    codegenerator, and maybe some base libraries) and if the work is
+    suitable for inclusion in FPC (a very big if), we will of course
+    include it.<p>
 
-	These problems are pretty much similar for the Java (bytecode) too. 
-	One has to mutilate the language, and rewrite the libraries from
-	scratch on the base libraries of the target (Java/.NET). Such an
-	attempt would have little synergy with the FPC project as it is
-	today.<p>
-       
-   </OL>
+    These problems are pretty much similar for the Java (bytecode) too. 
+    One has to mutilate the language, and rewrite the libraries from
+    scratch on the base libraries of the target (Java/.NET). Such an
+    attempt would have little synergy with the FPC project as it is
+    today.<p>
+          </trn>       
 
 
    <h2><li><trn key="website.Pascal_lang_rel_inf" locale="en_US">Pascal language related information</trn></h2>
