@@ -1333,9 +1333,6 @@ Naast de officiële uitgaven, bieden we ook zogenaamde "momentopnamen" aan van d
     Francesco Lombardi sta scrivendo <a href='http://itaprogaming.free.fr/tutorial.html'> una guida su come sviluppare giochi per Game Boy Advance</a> con Free Pascal.
   
 </TRN>
-<TRN locale="it_IT" key="website.Bugtracker">
-Gestione difetti
-</TRN>
 <TRN locale="sl_SI" key="website.req_arma">
 Arhitektura ARM
 </TRN>
@@ -1355,6 +1352,9 @@ Arhitektura ARM
     Jezikovna sintaksa ima odlično kompatibilnost z TP 7.0 tako kot z večino verzij Delphija (classes, rtti, exceptions, ansistrings, widestrings, interfaces).
     Dodali smo Mac Pascal kompatibilni način za pomoč uporabnikom sistemov Apple. Poleg tega Free Pascal podpira function overloading, operator overloading, global properties in druge podobne lastnosti.
   
+</TRN>
+<TRN locale="it_IT" key="website.Bugtracker">
+Registro errori
 </TRN>
 <TRN locale="it_IT" key="website.Current_Version_text">
  La <em>2.0.4</em> è la versione più aggiornata di Free Pascal. Seleziona questo collegamento <a href="download@x@">download</a> per accedere al mirror più vicino da cui scaricare la tua copia.
@@ -3021,6 +3021,146 @@ Broncode van de ImLib-interface
 </TRN>
 <TRN locale="nl_NL" key="website.LibPNG_interface_sources">
 Broncode van de LibPNG-interface
+</TRN>
+<TRN locale="nl_NL" key="website.q_What_is_FPC">
+Wat is Free Pascal (FPC)?
+</TRN>
+<TRN locale="en_US" key="website.q_What_is_FPC">
+What is Free Pascal (FPC)?
+</TRN>
+<TRN locale="en_US" key="website.q_What_versions_exist">
+Which versions exist, and which one should I use?
+</TRN>
+<TRN locale="en_US" key="website.q_FPC_vs_GPC">
+Free Pascal and GNU Pascal - a comparison
+</TRN>
+<TRN locale="en_US" key="website.q_Licence_copyright_info">
+License and copyright information
+</TRN>
+<TRN locale="en_US" key="website.q_Getting_the_compiler">
+Getting the compiler
+</TRN>
+<TRN locale="en_US" key="website.q_Installation_hints">
+Free Pascal installation hints
+</TRN>
+<TRN locale="en_US" key="website.q_Why_username_password_for_download">
+Why do i have to supply a user name and password to get Free Pascal ?
+</TRN>
+<TRN locale="en_US" key="website.q_Access_denies_while_download">
+Access denied error when connecting to the Free Pascal FTP site
+</TRN>
+<TRN locale="en_US" key="website.q_Wanna_new_version_now">
+I want a new version NOW
+</TRN>
+<TRN locale="en_US" key="website.q_Installing_snapshot">
+Installing a snapshot
+</TRN>
+<TRN locale="en_US" key="website.q_Known_bugs">
+Known bugs / Reporting bugs
+</TRN>
+<TRN locale="en_US" key="website.q_Homework">
+I have to write a program for homework. Can you help?
+</TRN>
+<TRN locale="en_US" key="website.q_Real_windows_application">
+How do I make a real Windows application with windows and menu bars?
+</TRN>
+<TRN locale="en_US" key="website.q_Game_in_FPC">
+How do I make a game with Free Pascal? Can I make a game like Doom 3?
+</TRN>
+<TRN locale="en_US" key="website.q_Crash_analysis">
+Getting more information when an application crashes
+</TRN>
+<TRN locale="en_US" key="website.q_Increase_heap">
+Increasing the heap size
+</TRN>
+<TRN locale="en_US" key="website.q_Compiler_skips_files">
+Compiler seems to skip files in directories -Fu points to
+</TRN>
+<TRN locale="en_US" key="website.q_Big_binaries">
+Why are the generated binaries so big?
+</TRN>
+<TRN locale="en_US" key="website.q_cfg_problems">
+Configuration file problems (fpc.cfg or ppc386.cfg)
+</TRN>
+<TRN locale="en_US" key="website.q_Runtime_errors">
+Runtime errors
+</TRN>
+<TRN locale="en_US" key="website.q_Standard_units">
+Standard units
+</TRN>
+<TRN locale="en_US" key="website.q_Debug_smartlinked">
+Debugging smartlinked code does not fully work
+</TRN>
+<TRN locale="en_US" key="website.q_Debugging_DLL">
+Debugging shared library (dynamic linked library) code does not fully work
+</TRN>
+<TRN locale="en_US" key="website.q_PPU_bin_compatibility">
+PPU files binary compatibility between versions
+</TRN>
+<TRN locale="en_US" key="website.q_Cannot_compile_with_bin_unit">
+Can't compile a program using a binary only version of a unit
+</TRN>
+<TRN locale="en_US" key="website.q_isoxpascal">
+Will you support ISO Extended Pascal?
+</TRN>
+<TRN locale="en_US" key="website.q_What_about_dotNET">
+What about .NET?
+</TRN>
+<TRN locale="nl_NL" key="website.faq_intro">
+<p>Dit document geeft op de valreep bekend geworden informatie betreffende de compiler, beantwoordt veelgestelde vragen en geeft antwoorden op veelvoorkomende problemen die mensen tegenkomen. De informatie in dit document heeft altijd voorrang op hetgeen in de documentatie staat vermeld.
+</TRN>
+<TRN locale="nl_NL" key="website.for_comprehensive">
+<p>Voor meer uitvoerige informatie betreffende de programmeertaal Pascal, en een beschrijving van de meegeleverde bibiliotheken, zie de Free-Pascal-handleidingen. Onderwerpen behandeld in dit document zijn:
+
+</TRN>
+<TRN locale="it_IT" key="website.snapshots">
+Snapshots
+</TRN>
+<TRN locale="it_IT" key="website.latest_version_is">
+  La versione più recente è la <b>2.0.4</b>.
+
+</TRN>
+<TRN locale="it_IT" key="website.supported_windows_versions">
+  Versioni di Windows supportate: 95, 98, ME, NT, 2000, XP e 2003
+
+</TRN>
+<TRN locale="it_IT" key="website.Sources">
+Sorgenti
+</TRN>
+<TRN locale="it_IT" key="website.Get_the_sources_here">
+Scarica i sorgenti da <a href="@mirror_url@/dist/source-2.0.4">qui</a>
+</TRN>
+<TRN locale="it_IT" key="website.You_can_download_installer">
+Scarica il programma di installazione 
+</TRN>
+<TRN locale="it_IT" key="website.Documentation_av_several_formats">
+  La documentazione è disponibile in diversi formati (per accedere alla documentazione nell'IDE in modo testo, sono necessari i file HTML):
+
+</TRN>
+<TRN locale="it_IT" key="website.already_included_installer">
+già inclusi nel programma di installazione 
+</TRN>
+<TRN locale="it_IT" key="website.to_be_used_from_IDE">
+da utilizzare con l'IDE oltre agli altri 
+</TRN>
+<TRN locale="it_IT" key="website.plain_text">
+puro testo
+</TRN>
+<TRN locale="it_IT" key="website.cross_compiler_i386-linux_arm-linux">
+  Questo è un cross compiler da i386-linux a arm-linux. Prima di utilizzarlo è necessario installare <a href="../i386/linux-@mirrorsuffix@@x@">fpc for i386-linux</a>.
+
+</TRN>
+<TRN locale="it_IT" key="website.everything_in_1">
+Tutto in un singolo package
+</TRN>
+<TRN locale="it_IT" key="website.arm-linux_available_in">
+Il package FPC per arm-linux è disponibile in un unico formato:
+
+</TRN>
+<TRN locale="it_IT" key="website.arm-linux_1_file_download_descr">
+<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
+  è un archivio tar standard, contenente uno script di installazione.<br>
+  Dopo aver estratto l'archivio in una directory temporanea, impartire il comando "<tt>sh install.sh</tt>" per l'installazione. 
 </TRN>
 <TRN locale="id_ID" key="website.Feeling_Lucky">
 Merasa Beruntung
