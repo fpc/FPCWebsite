@@ -808,7 +808,7 @@
  	   moreover the libraries could only be unmanaged too, or they
 	   would be incompatible
 
- 	<li>There is nothing <emph>practical</emph> known yet about how
+ 	<li>There is nothing <em>practical</em> known yet about how
 	    portable an average .NET code will be. Little experiments with
 	    hello world level code mean nothing, that kind of code works
 	    with plain C too. 
@@ -845,7 +845,7 @@
           </trn>       
 
 
-   <h2><li><trn key="website.Pascal_lang_rel_inf" locale="en_US">Pascal language related information</trn></h2>
+   <li><h2><trn key="website.Pascal_lang_rel_inf" locale="en_US">Pascal language related information</trn></h2>
    <OL>
 
         <li><a name=PortingCPU></a>
