@@ -594,7 +594,7 @@ cycle itself on linux-m68k) </li>
           <a href="download@x@">mirrors</a>! (USA mirrors of the FTP site only
           can be found in the <a href="links@x@">links</a> section)
      </li>
-     <li>The Free Pascal newsletter <a href="news9906@x@">06/99</a> is available.
+     <li>The Free Pascal newsletter <a href="news9906.html">06/99</a> is available.
      </li>
   </ul></li>
  <li>9 April 1999
