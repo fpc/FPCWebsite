@@ -331,6 +331,7 @@ sf/index.html svneol=native#text/plain
 /tags.txt svneol=native#text/plain
 /template.fpht svneol=native#text/plain
 /templatemirror.adp svneol=native#text/plain
+/test_website -text svneol=unset#application/x-tcl
 tmpl/Makefile svneol=native#text/plain
 tmpl/foot.tmpl svneol=native#text/plain
 tmpl/head.tmpl svneol=native#text/plain
