@@ -3168,3 +3168,703 @@ Merasa Beruntung
 <TRN locale="pl_PL" key="website.Feeling_Lucky">
 Szczęśliwy Traf
 </TRN>
+<TRN locale="en_US" key="website.a_What_is_FPC">
+
+            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 32
+            and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
+            DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic and
+            several other platforms (the number of supported targets grows
+            all the time, although not all of them are on the same level as
+            the main ones).
+	
+            <p>The Free Pascal compiler is available for several
+            architectures, x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron)
+            and Powerpc. An older version (the 1.0 series) also supports
+            m68k.
+  	  	
+            <p>The compiler is written in Pascal and is able to compile its
+            own sources. The source files are under GPL and included.
+
+            <p>Short history:
+            <ul>
+              <li>06/1993: project start
+              <li>10/1993: first little programs work
+              <li>03/1995: the compiler compiles the own sources
+              <li>03/1996: released to the internet
+              <li>07/2000: 1.0 version
+              <li>12/2000: 1.0.4 version
+              <li>04/2002: 1.0.6 version
+              <li>07/2003: 1.0.10 version
+              <li>05/2005: 2.0.0 version
+              <li>12/2005: 2.0.2 version
+              <li>08/2006: 2.0.4 version
+            </ul>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_What_versions_exist">
+
+            <p>The latest official version is 2.0.4, released as a bug fix release for
+            2.0.x series. New development is performed in 2.1.x series, which eventually
+            gets released as either 2.2.0, or 3.0.0 (depending on amount of accumulated
+            changes at the time of release).
+
+            <h4>Historic versions</h4>
+
+            <p>FPC's version numbering changed a few times over the years. Versions
+            before 0.99.5 are considered archaic. After the release of 0.99.5 a
+            system in version numbering was introduced, and that system was changed
+            slightly changed after the 1.0 release. 
+
+            <p><b>Versioning for versions 0.99.5 - 1.0</b><p>
+
+            <p>Compilers with an <b>even</b> last number are <b>release</b>
+            versions (e.g. 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers and
+            packages with an <b>odd</b> last number are <b>development</b> versions
+            (e.g. 0.99.9, 0.99.11, 0.99.13, 0.99.15) 
+
+            <p>0.99.5 is an exception to this rule, since <b>0.99.5 IS a release</b>
+            (a release prior to the introduction of this odd/even system).
+
+            <p>Letters behind the version number (0.99.12b, 0.99.5d) indicate
+            release versions with some bugs and problems in the original release
+            (respectively 0.99.12 and 0.99.5) fixed.
+
+            <p><b>Versioning after 1.0</b>
+
+            <p>Together with the release of 1.0 the version numbering was
+            slightly changed, and a system in versioning resembling the Linux
+            kernel's has been introduced. The main difference is that the difference
+            between a release version is now in the second number (1.0.x vs 1.1.x)
+            instead of the third number (0.99.14 vs 0.99.15), and the third number
+            now becomes the patch level, replacing the postfixed letter in the old
+            system. 
+
+            <p>
+            <ul>
+             <li>Releases that only fixed bugs in version 1.0 were numbered 1.0.x.
+             <li>New development (the so called snapshots) started with version number
+              1.1.x.
+             <li>Eventually the 1.1.x versions, when stabilized turned to 2.x. Fixes on
+              2.0 release are numbered 2.0.x.
+             <li>The new development after the 2.0 release is numbered 2.1.x
+              and so on.
+            </ul>
+            <p>
+
+            <p>Normally you would want to use a release. Releases are considered
+            stable, and easier to support (the bugs, quirks and unintended
+            "features" are well known after a period of time, and workarounds
+            exist).
+
+            <p>Development snapshots (which are generated daily) reflect the current
+            status of the compiler. Development versions probably have new features
+            and larger bugs fixed since the last release, but might have some
+            temporary stability drawbacks (which are usually fixed by the next day).
+
+            <p>Development snapshots are often quite useful for certain categories of
+            users. Ask in the maillists if it is worth the trouble in your case if
+            you're not sure.
+
+            <p>We advise all users to upgrade to the newest version for their
+            target (Preferably the new stable 2.0.x series).
+
+            <p> A graphical timeline of the FPC project plus its near future would
+            be:
+            <img src="pic/timeline.png"></a>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_FPC_vs_GPC">
+
+            <DL>
+            <DT><b>Aim:</b>
+            <DD>Free Pascal tries to implement a Borland compatible pascal
+            compiler on as many platforms as possible. GNU Pascal tries to
+            implement a portable pascal compiler based on POSIX.
+            <DT><b>Version:</b>
+            <DD>Currently, Free Pascal is at version 2.0 (may 2005). GNU Pascal is at
+            version 2.1 (from 2002, which can be built with several different GCC's as backend; 
+            their Mac OS X version is an exception though, as it follows the GCC version number).
+            <DT><b>Tracking:</b>
+            <DD>Between releases, development versions of FPC are available through daily snapshots
+	        and the source via CVS. GPC issues a set of patches to the last version a few times 
+            a year, and there are regular snapshot for OS X and Windows, made by users.
+            <DT><b>Operating systems:</b>
+            <DD>Free Pascal runs on a large amount of platforms of OSes,
+            e.g. DOS, Win32 (no Unix porting layer needed), Linux, FreeBSD,
+            NetBSD, OS/2, BeOS, Classic Mac OS, Mac OS X, and AmigaOS, on,  at
+            the moment the following architectures: x86,
+            x86_64 (AMD64), Sparc, PowerPC, ARM and Motorola (Motorola only in version 1.0.x).
+
+            GNU Pascal runs basically on any system that can run GNU C, and for which the buildprocess was verified.
+            <DT><b>Bootstrapping:</b>
+            <DD>FPC requires a suitable set of binutils (AS,AR,LD), gmake and a commandline compiler. New architectures/OSes are crosscompiled.
+	        GPC bootstraps via a suitable version of GCC, and requires a full set of binutils, flex, bison, gmake, a POSIX shell and libtool 
+            <DT><b>Sources:</b>
+            <DD>Free Pascal is entirely written in Pascal (about 6 MB of source
+            code), while GNU Pascal is written in C (it's an adaptation of the GNU
+            C compiler: 2.8 MB code + 8 MB of GNU C code)
+            <DT><b>Language:</b>
+            <DD>Free Pascal supports the Borland Pascal dialect, 
+            implements the Delphi Object Pascal language and has some Mac Pascal extensions.
+            GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
+            <DT><b>Extensions:</b>
+            <DD>Free Pascal implements method, function and operator overloading. (later Delphi versions add these, so strictly not an extension anymore)
+            GNU Pascal implements operator overloading.
+            <DT><b>License:</b>
+            <DD>Both compilers come under the GNU GPL.
+            <DT><b>Author:</b>
+            <DD>Free Pascal was started by Florian Kl&auml;mpfl, Germany
+            (florian&#x040;freepascal.org), GNU Pascal was started by Jukka Virtanen,
+            Finland (jtv&#x040;hut.fi). </DD></DL><br>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Licence_copyright_info">
+
+            <p> Applications created by the compiler and using the runtime
+            library come under a modified library gnu public license (LGPL),
+            which permit no restriction on the type of license the application
+            has. It is therefore possible to create closed source
+            or proprietary software using Free Pascal.
+            
+
+            <p>This extra exception to the LGPL is added:<br><I> As a special
+            exception, the copyright holders of this library give you
+            permission to link this library with independent modules to
+            produce an executable, regardless of the license terms of
+            these independent modules, and to copy and distribute the
+            resulting executable under terms of your choice, provided
+            that you also meet, for each linked independent module, the
+            terms and conditions of the license of that module. An
+            independent module is a module which is not derived from or
+            based on this library. If you modify this library, you may
+            extend this exception to your version of the library, but
+            you not obligated to do so. If you do not wish to do so,
+            delete this exception statement from your version.</I>
+
+            Please note that you still have to comply to the LGPL, which, for example,
+            requires you to provide the source code of the runtime library. If you want
+            to write proprietary closed source software, please do this to comply:
+            <ul>
+              <li>Most people can satisfy the source code requirement by mentioning
+              the rtl source code can be downloaded at the Free Pascal
+              web site: if you did not modify the rtl this is considered adequate to
+              satisfy the LGPL requirement of providing source code.
+              <li>If you made modifications to the runtime library, you cannot keep them
+              for yourself, you must make them available if requested.
+              <li>Distribute the LGPL license with your product.
+            </ul>
+
+            <p> The compiler source code, on the other hand, comes under
+            the GNU Public license, which means that any usage of the compiler
+            source can only be used in software projects which have the same
+            license. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Getting_the_compiler">
+
+            <p>The latest official stable Free Pascal release is available for download
+            from all <a href="download@x@">official mirrors</a>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Installation_hints">
+
+             <ul>
+               <li> Do not install the compiler in a directory which contains spaces
+                    in its name, since some of the compiler tools do not like these 
+             </ul>
+           
+</TRN>
+<TRN locale="en_US" key="website.a_Why_username_password_for_download">
+
+            <p> You are trying to login in to an ftp site. You must use the login name:
+            anonymous and as your password, you should put your e-mail address.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Access_denies_while_download">
+
+            <p>The Free Pascal main ftp site can only accept a maximum number of
+            simultaneous connections. If this error occurs, it is because
+            this limit has been reached. The solution is either to wait and
+            retry later, or better still use one of the Free Pascal mirror sites.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Installing_snapshot">
+
+            <p>To install a snapshot, extract the zip archive into the existing
+            program directory of the last official version of Free Pascal (after
+            making a backup of the original of course). You can also extract it into
+            an empty directory and then move the files to the program directory,
+            overwriting existing files. 
+
+            <p> Make sure that you extract the ZIP archive such that the included
+            directory structure remains intact. For example if you use PKUNZIP,
+            use "pkunzip -d" instead of just "pkunzip". Note that snapshots also
+            contain a new RTL which most likely can't be used with the previous
+            release version, so backup your old RTL as well. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Known_bugs">
+Known bugs / Reporting bugs
+</TRN>
+<TRN locale="en_US" key="website.a_Homework">
+
+            <p>No. Please, don't send us mail about homework, we are no teachers.
+            The Free Pascal development team tries to give good support for the Free
+            Pascal compiler and are trying to always reply to emails. If we get
+            emails like this, this becomes harder and harder. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Real_windows_application">
+
+            The easiest way is to <a href='http://www.lazarus.freepascal.org'>download Lazarus</a>.
+            It won't be just a Windows application, it will also work under Linux, FreeBSD and
+            MacOS X.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Game_in_FPC">
+
+            Yes, you can make games with Free Pascal and if you are really good you can make
+            a game like Doom 3. Making games is difficult, you need to be an experienced
+            programmer to make them. The web site <a href='http://www.pascalgamedevelopment.com'>
+            www.pascalgamedevelopment.com</a> is a community of people who program games in Free
+            Pascal and Delphi.
+            <p>
+            If you want a start, please start to study <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a>
+            or <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Also you can try to study an existing game, for example
+            <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is a very simple game and it should not be
+            very hard to understand its code.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Crash_analysis">
+
+            <OL>
+                <li>The easiest possibility is to recompile your program with -gl
+                debugging option. This way unit LineInfo is automatically linked in,
+                and the printout after a program crash then contains source line
+                numbers in addition to addresses of the crash. To see runtime library (RTL)
+                functions in the backtrace with their real name, you have to recompile
+                the RTL with -gl too.
+                <li>For more comprehensive checking, compile the
+                program with debugging information (use the -g command line option) 
+                <li>Load the program in the debugger <PRE>gdb(pas)(w) --directory=&lt;src dirs&gt; myprog.exe</PRE>Notes:
+                <ul>
+                    <li>Under UNIX systems (Linux, the BSD's), don't add the ".exe" after myprog
+                    <li>"<TT>src dirs</TT>" is a list of directories containing the
+                    source code files of myprog and the units it uses seperated by
+                    semi-colons (";"). The current directory is automatically included.
+                </ul>
+                <li>Once inside the debugger, you can (optionally) set the command
+                line options that will be passed to your program using the command
+                "<TT>set args &lt;option1 option2 ...&gt;</TT>"
+                <li>To start the program, type "<TT>run</TT>" and press enter
+                <li>After the program has crashed, the address of the instruction
+                where the crash occurred will be shown. The debugger will try to
+                display the source code line corresponding with this address. Note
+                that this can be inside a procedure of the RTL, so the source may not
+                always be available and most likely the RTL wasn't compiled with
+                debugging information.
+                <li>If you then type "<TT>bt</TT>" (BackTrace), the addreses in the
+                call stack will be shown (the addresses of the procedures which were
+                called before the program got to the current address). You can see
+                which source code lines these present using the command
+                <PRE>info line *&lt;address&gt;</PRE>For example:<PRE>info line *0x05bd8</PRE>
+            </OL>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Increase_heap">
+
+            <p>By default Free Pascal allocates a small part of RAM for your
+            application as heap memory. If it just allocated all it could get,
+            people running Windows would have problems as Windows would increase
+            the swap file size to give the program more memory on and on, until
+            the swap file drive would be full. 
+
+            <p>You can specify the size of the heap with -Chxxxx. 
+
+            <p>However, the heap size doesn't really matter, since the Heap
+            is able to grow: if you've used all the available heap space, the
+            program will try to get more memory from the Operating system (OS),
+            so the heap is limited to the maximum amount of free memory provided by
+            the OS. 
+
+            <p>It is only handy if you know you will need at least a certain amount
+            of memory. You can then specify this value using the -Ch parameter, so
+            your program will allocate it at once on startup. This is slightly
+            faster than growing the heap a number of times.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Big_binaries">
+
+            There are several reasons and remedies for this: 
+
+            <OL>
+                <li>
+                    <p>You can create smartlinked applications. To turn on
+                    the generation of smartlinkable units, use the -Cx command
+                    line option when compiling your units. To turn on
+                    the linking of previously generated smarlinkable units, use the -XX
+                    (-XS in 0.99.12 and earlier) command line option when compiling a
+                    program. 
+                <li>Normally, all symbol information is included in the resulting
+                    program (for easier debugging). You can remove this by using the -Xs
+                    command line option when compiling your program (it won't do anything
+                    when compiling units)
+                <li>You can use UPX to pack the .EXEs (just like e.g. pklite) for Dos
+                    (GO32v2) and Windows targets. Look <A
+                        href="http://upx.sourceforge.net/">here</a> for
+                    more info.
+                <li>You can use LXLITE for packing EMX binaries, but you won't be able
+                    to run them under DOS (with extender) any more then. This issues is
+                    not relevant for native OS/2 binaries compiled for target OS2 with
+                    version 1.9.x and above, because these don't run under DOS anyway.
+                    In addition, it might not be possible to use compressed binaries
+                    on lower OS/2 versions (like 2.x) depending on chosen type of
+                    compression. LXLITE can be found e.g. on
+                    <a href="http://hobbes.nmsu.edu/">Hobbes</a>, search for LXLITE.
+                <li>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
+                    and for your own code, this will also decrease the code size. 
+                <li>Keep in mind that under NT,2000,XP, compressed binaries startup	
+		            relatively slow. Test under various conditions (OS, CPU speed, memory)
+                    if the behaviour is acceptable before compressing			   
+           </OL>
+
+            Generally Free Pascal generates smaller binaries than modern competing compilers,
+            however, it doesn't hide code in large dynamic libraries. Free Pascal generates
+            larger binaries than compilers from long ago do. Large framework libraries result
+            in larger executables.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Runtime_errors">
+
+            <p> When there is abnormal termination of an application generated
+            by Free Pascal, it is very probable that a runtime error will be
+            generated. These errors have the form : 
+
+            <PRE>
+            Runtime error 201 at $00010F86
+              $00010F86  main,  line 7 of testr.pas
+              $0000206D
+            </PRE>
+
+            <p> The 201 in this case indicates the runtime error
+            number. The definition of the different runtime error numbers is
+            described in the Free Pascal user's manual, Appendix D. The
+            hexadecimal numbers represent the call stack when the error occured.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Standard_units">
+
+            <p> To see the list of base units supplied with Free Pascal, and
+            on which platform they are supported, consult the Free Pascal user's manual.
+            There is also a short description of what each unit does in the same section
+            of the manual.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Cannot_compile_with_bin_unit">
+Can't compile a program using a binary only version of a unit
+</TRN>
+<TRN locale="en_US" key="website.a_isoxpascal">
+
+       We are open for support for ISO Extended Pascal, but the Free Pascal
+       development team does not consider extended Pascal compatibility important,
+       and therefore will not spend time on it. The reason is that the
+       ISO Extended Pascal must be considered a failed standard.
+       <p>
+       To explain the reasons for this, we need to go back to the 1970's. At
+       that time a specific Pascal compiler got popular, UCSD-Pascal, its
+       ability to allow programs written on one architecture to run on another
+       played an important factor in this. All major Pascal compilers derive their
+       language from the UCSD-Pascal compiler, including the well known Borland
+       and Mac-Pascal dialects.
+       <p>
+       UCSD-Pascal introduced the unit system and the string variables we all know
+       very well. The ISO Extended Pascal language is mutually exclusive with both
+       of these features; ISO Extended Pascal both has a completely different system
+       for modular programming, as that its string system is totally different from
+       the UCSD model. In short it is not possible to support both dialects at the
+       same time.
+       <p>
+       Because of this, the software industry could not switch to ISO Extended Pascal
+       without breaking compatibility with all source code. Because of this,
+       very few compilers did implement ISO Extended Pascal. Compilers that did
+       were mostly unpopular.
+       <p>
+       Nowadays, there exists very little code written in ISO Extended Pascal. While
+       Free Pascal could support it using another compiler mode, there is little point
+       spending time making a compiler for which no source exists that it can compile.
+       <p>
+       GNU-Pascal is a modern compiler that can compile ISO Extended Pascal. If you have
+       any need for the ISO Extended Pascal dialect, we recommend to take a look at this
+       compiler.
+         
+</TRN>
+<TRN locale="en_US" key="website.General_Information">
+General information
+</TRN>
+<TRN locale="nl_NL" key="website.General_Information">
+Algemene informatie
+</TRN>
+<TRN locale="nl_NL" key="website.q_What_about_dotNET">
+Hoe zit het met .NET?
+</TRN>
+<TRN locale="en_US" key="website.a_What_about_dotNET">
+
+	   Occasionally, users ask about a FPC that supports .NET, or our
+	   plans in that direction. <p>
+
+	   Mainly the users are either interested because of .NET's
+	   portability aspects (Mono is quoted over and over again), or
+	   because it is supposed to be the next big thing in Windows
+	   programming.<p>
+
+           While the FPC core developpers are somewhat interested out of
+	   academic curiousity (mainly because it could be a pilot for
+	   creating bytecode) there are however several problems with .NET
+	   in combination with FPC:
+	   	
+        <OL> 
+        <li>FPC's language uses pointers, and so can only be
+	   unmanaged. Unmanaged code is not portable under .NET, so that
+	   already kills all possible benefits. This also means that
+	   existing FPC and Delphi code won't run on .NET.
+
+	<li>FPC's libraries don't base on .NET classes and datamodels (and
+ 	   can't be changed to do so without effectively rewriting them),
+ 	   moreover the libraries could only be unmanaged too, or they
+	   would be incompatible
+
+ 	<li>There is nothing <emph>practical</emph> known yet about how
+	    portable an average .NET code will be. Little experiments with
+	    hello world level code mean nothing, that kind of code works
+	    with plain C too. 
+ 	<li>Operating System dependant code wouldn't work anymore, since
+	     the win32 interface is unmanaged. 
+	</OL> <p>
+        
+    So effectively this means that for FPC to benefit from .NET you
+    would have to significantly adapt the language (thus compiler) and
+    libraries, and be incompatible with the existing native sourcecode.
+    This is not adding support for .NET in FPC, but reimplementing FPC
+    on .NET from near scratch without backwards compability. Moreover
+    that also means that existing apps would have to be rewritten for
+    .NET, since it would take more than a simple recompile with a
+    FPC/.NET compiler.<p>
+
+    While unmanaged code has some uses (allows to integrate with managed
+    code inside windows easier), this still needs a codegenerator
+    backend to be written, interfaces and libraries defined, for little
+    practical use. This means a <b>lot of work</b> and since .NET take
+    up is not really high, this might not be worth it, since an
+    unmanaged FPC/.NET would only be minimally used. <p>
+
+    However if a FPC user does the bulk of the work (e.g. a bytecode
+    codegenerator, and maybe some base libraries) and if the work is
+    suitable for inclusion in FPC (a very big if), we will of course
+    include it.<p>
+
+    These problems are pretty much similar for the Java (bytecode) too. 
+    One has to mutilate the language, and rewrite the libraries from
+    scratch on the base libraries of the target (Java/.NET). Such an
+    attempt would have little synergy with the FPC project as it is
+    today.<p>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_What_about_dotNET">
+Van tijd tot tijd vragen gebruikers wel eens om een FPC die .NET ondersteunt, of om onze plannen in die richting.
+<p>
+Hoofdzakelijk zijn deze gebruikers ofwel geïnteresseerd in de platformonafhankelijke eigenschappen van .NET (Mono wordt keer op keer genoemd), ofwel omdat het het volgende grote ding op het gebied van Windowsprogrammering is.
+<p>
+Hoewel het kernontwikkelteam van FPC vanuit academische nieuwsgierigheid enigzins geïnteresseerd is (vooral omdat het een proeftuintje kan zijn voor het genereren van bytecode) zijn er een aantal hindernissen met .NET in combinatie met FPC:
+
+<OL> 
+<li>Pascal is een taal die pointers gebruikt en kan aldus alleen onbeheerd zijn. Onbeheerde code is niet platformonafhankelijk onder .NET, hetwelk direct alle voordelen op dit gebied afschiet. Dit betekent ook dat bestaande FPC- en Delphicode niet onder .NET zal draaien.
+
+<li>FPC z'n bibliotheken zijn niet gebaseerd op .NET-klassen en datamodellen (en kunnen er niet op overgezet worden zonder ze feitelijk te herschrijven) en bovendien zouden de bibliotheken eveneens alleen onbeheerd kunnen zijn, want anders zijn ze niet compatibel meer.
+
+<li>Er is <emph>praktisch gezien</emph> nog niets bekend hoe platformonafhankelijk een gemiddelde .NET-code zal zijn. Kleinschalige experimenten met "Hallo Wereld"-achtige code betekenen niets, dat werkt ook met gewoon C, of natuurlijk Pascal.
+<li>Besturingssysteemafhankelijke code zou niet meer werken, omdat de Win32-interface onbeheerd is.
+</OL> <p>
+
+Feitelijk betekent dit, dat als je FPC van .NET voordeel zou laten willen nemen, dat je de taal aanzienlijk moet aanpassen (en dus de compiler), evenals de bibliotheken. Het onvermijdelijke gevolg is incompatibiliteit met de bestaande code. Je praat niet meer over het toevoegen van .NET-ondersteuning in FPC, maar over het herimplementeren van FPC vanaf vrijwel nul, zonder achterwaardse compatibiliteit. Verder betekent dit onvermijdelijk ook dat bestaande applicaties herschreven zullen moeten worden voor .NET, gezien het meer dan een simpele hercompilatie zou vereisen met een FPC/.NET-compiler.<p>
+Hoewel onbeheerde code op bepaalde plaatsen nuttig kan zijn (het integreert beter met beheerde code), dient hiervoor nog steeds een nieuw codegeneratorbackend geschreven te worden, interfaces en bibliotheken gedefinieerd worden, voor weinig praktisch nut. Dit betekent een <b>zeer grote stapel werk</b> en gezien .NET niet zo'n enorm succes heeft, kan dit het wel eens niet waard zijn, in het bijzonder omdat een onbeheerde FPC/.NET slechts minimaal gebruikt zou worden. <p>
+
+Echter, als een FPC-gebruiker het merendeel van het werk doet (d.w.z. een bytecode-codegenerator, en wellicht wat basisbibliotheken) en het werk geschikt is voor opname in FPC (een grote maar!), dan zullen we het vanzelfspreken opnemen.<p>
+
+De hierboven geschetste problemen zijn gelijkaardig voor Java-bytecode. Men dient de taal te misvormen, de bibliotheken vanaf bijna nul te herschrijven op basis van de basisbibliotheken van het doelplatform (Java/.NET). Een dergelijke inspanning zou weinig synergie hebben met het FPC-project zoals het vandaag bestaat.<p>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_What_is_FPC">
+<p>De Free Pascalcompiler, oorspronkelijk geheten FPK-Pascal, is een 32- en 64-bit Pascal compiler, compatibel met Turbo Pascal en Delphi, voor DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic en verscheidene andere platformen (het aantal doelplatformen groet voortdurend, hoewel niet ieder platform op hetzelfde niveau staat als de hoofdplatformen).
+<p>De Free Pascalcompiler is beschikbaar architecturen, x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron) en Powerpc. Een oudere versie (de versie 1.0) ondersteunt ook m68k.
+<p>The compiler is geschreven in Pascal en in staat om zijn eigen broncode te compileren. De broncode is beschikbaar onder GPL en wordt meegeleverd.
+<p>Korte geschiedenis:
+<ul>
+<li>06/1993: start van het project
+<li>10/1993: eerste kleine programmaatjes werken
+<li>03/1995: de compiler compileert zijn eigen broncode
+<li>03/1996: vrijgegeven op het internet
+<li>07/2000: versie 1.0
+<li>12/2000: versie 1.0.4
+<li>04/2002: versie 1.0.6
+<li>07/2003: versie 1.0.10
+<li>05/2005: versie 2.0.0
+<li>12/2005: versie 2.0.2
+<li>08/2006: versie 2.0.4
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_What_versions_exist">
+Welke versies zijn er, en welke moet ik gebruiken?
+</TRN>
+<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
+<DL>
+<DT><b>Doel:</b>
+<DD>Free Pascal probeert een Borland-compatible Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
+<DT><b>Versie:</b>
+<DD>Op dit moment is Free Pascal bij versie on 2.0 (may 2005). GNU-Pascal is bij versie 2.1 (from 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-version is echter een uitzondering, deze volgt de GCC-versienummering).
+<DT><b>Ontwikkelstatus volgen:</b>
+<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
+<DT><b>Besturingssystemen:</b>
+<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
+
+GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
+<DT><b>Bootstrappen:</b>
+<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
+<DT><b>Broncode:</b>
+<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
+<DT><b>Taal:</b>
+<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
+<DT><b>Extensies:</b>
+<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
+<DT><b>Licentie:</b>
+<DD>Beide compilers worden geleverd onder de GNU-GPL.
+<DT><b>Auteur:</b>
+<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
+ 
+</TRN>
+<TRN locale="nl_NL" key="website.q_FPC_vs_GPC">
+Free Pascal en GNU Pascal - een vergelijking
+</TRN>
+<TRN locale="nl_NL" key="website.a_What_versions_exist">
+<p>De meeste recente officiële uitgave is 2.0.4, uitgebracht als bugfixuitgave voor de 2.0.x-series. Nieuwe ontwikkelingen worden gedaan in de 2.1.x-series, welke uiteindelijk uitgeven zal wordt als 2.2.0 danwel 3.0.0 (afhankelijk van de hoeveelheid wijzigingen en verbeteringen die er op het moment van uitgave zijn).
+
+<h4>Historische versies</h4>
+
+<p>FPC's versienummering is gedurende de jaren enkele malen veranderd. Versiens voor 0.99.5 worden als archaïsch beschouwd. Na de uitgave van 0.99.5 werd een systeem in de versienummering geïntroduceerd, hetwelk na de 1.0-uitgave licht veranderd is. 
+
+<p><b>Versienummering voor versies 0.99.5 - 1.0</b><p>
+<p>Compilers met een <b>even</b> nummer aan het eind zijn <b>uitgaveversies</b> (bijvoorbeeld 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers en pakketten met een <b>oneven</b> getal aan het eind zijn <b>ontwikkeluitgaven</b> (bijvoorbeeld 0.99.9, 0.99.11, 0.99.13, 0.99.15) 
+
+
+<p>0.99.5 is een uitzondering op dit schema, gezien <b>0.99.5 een uitgaveversie is</b> (uitgegeven voor de introductie van dit even-/onevensysteem).
+
+<p>Letters die achter het versienummer komen (0.99.12b, 0.99.5d) geven uitgaveversies aan waarbij een minimaal aantal bugs en/of problemen ten opzichte van de originele uitgave verholpen is (respectievelijk 0.99.12 en 0.99.5).
+
+<p><b>Versienummering na 1.0</b>
+
+<p>Gelijktijdig met de uitgave van  1.0 is de versienummering lichtelijk veranderd, en een nummeringssysteem dat vergelijkbaar is met dat van de Linuxkernel  werd geïntroduceerd. Het hoofdzakelijke verschil is dat het verschil tussen een uitgave- en ontwikkelversie 'm nu zit in het tweede getal (1.0.x vs 1.1.x), in plaats van in het derde getal (0.99.14 versus 0.99.15). Het derde getal wordt nu het patchniveau en vervangt het letterachtervoegsel in het oude systeem. 
+<p>
+<ul>
+<li>Uitgaven die zich beperkten tot bugfixes in versie 1.0 werden 1.0.x genoemd.
+<li>Nieuwe ontwikkeling (de zogenaamde momentopnamen) werd gestart met versienummer 1.1.x.
+<li>De 1.1.x-versies, werden toen zij uiteindelijk stabiliseerden versie 2.x, met 1.9.x als beta's. Versies die zich beperken tot bugfixes worden 2.0.x genoemd.
+<li>Nieuwe ontwikkeling sinds de 2.0 release wordt 2.1.x genoemd, zo verder.
+</ul>
+<p>
+
+<p>Normalgesproken wil je een officiële uitgave gebruiken. Uitgaven worden als stabiel beschouwd, en zijn eenvoudiger te ondersteunen (de bugs, eigenaardigheden en onbedoelde "functionaliteit" zijn na bepaalde tijd bekend, evenals omweggetjes eromheen).
+
+<p>Momentopnamen van de ontwikkelversies (welke iedere dag gegenereerd worden) geven een afspiegeling van de huidige status van de compiler. Ontwikkelversies hebben waarschijnlijk nieuwe functionaliteit en grote bugs verholpen in vergelijking met de meest recente uitgave. Echter, ze kunnen een tijdelijke terugval in stabiliteit vertonen (welke echter vaak weer snel verholpen worden).
+
+<p>Momentopnamen van de ontwikkelversies zijn veelal zeer bruikbaar voor bepaalde groepen gebruikers. Vraag op de e-maillijsten of het de moeite in jouw geval waard is.
+
+<p>We adviseren alle gebruikers de nieuwste versie voor hun doelplatform te gebruiken. (Bij voorkeur de nieuwe stabiele 2.0.x-serie).
+<p>Een grafische tijdlijn van het FPC-project plus de nabije toekomst ervan zou zijn:
+            <img src="pic/timeline.png">
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_Getting_the_compiler">
+Hoe kom ik aan de compiler?
+</TRN>
+<TRN locale="nl_NL" key="website.q_Licence_copyright_info">
+Informatie betreffende de licentie en auteursrechten
+</TRN>
+<TRN locale="nl_NL" key="website.q_Installing_snapshot">
+Hoe installeer ik een momentopname?
+</TRN>
+<TRN locale="nl_NL" key="website.a_Getting_the_compiler">
+<p>De meest recente officiële versie van Free Pascal is beschikbaar om te downloaden vanaf alle <a href="download@x@">officiële mirrors</a>
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_Installing_snapshot">
+<p>Om een momentopname te installeren, pak je het zip-archief uit in de bestaande programmadirectory van de laatste officiële versie van Free Pascal (uiteraard na het makeing van een reservekopie van het origineel). Je kunt het ook uitpakken in een lege directory en de bestanden dan naar de programmadirectory verplaatsen, waarbij je de bestaande bestanden overschrijft.
+<p> Verzeker je ervan dat je het zip-archief op zo'n manier uitpakt dat de interne directorystructuur intact blijft. Als je bijvoorbeeld PKUNZIP gebruikt, gebruik dan "pkunzip -d" in plaats van gewoon "pkunzip". Merk op dat momentopnamen ook een nieuwe RTL bevatten die hoogstwaarschijnlijk niet gebruikt kan worden met de vorige uitgave, dus maak ook een kopie van de oude RTL. 
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_Licence_copyright_info">
+<p>Applicaties die gemaakt zijn met de compiler gebruiken de runtime-bibliotheek. Deze runtime-bibliotheek wordt geleverd onder een gewijzigde GNU Library Public License (LGPL), welke geen beperkingen oplegt aan de licentie die applicatie kan hebben. Het is daarom mogelijk applicaties met gesloten broncode, ofwel propriëtaire applicaties met Free Pascal te maken.
+
+<p>Deze extra uitzondering op de LGPL wordt gemaakt (Engelstalig omdat de licentie Engelstalig is):<br><I> As a special
+exception, the copyright holders of this library give you
+            permission to link this library with independent modules to
+produce an executable, regardless of the license terms of these independent modules, and to copy and distribute the resulting executable under terms of your choice, provided that you also meet, for each linked independent module, the terms and conditions of the license of that module. An independent module is a module which is not derived from or based on this library. If you modify this library, you may extend this exception to your version of the library, but you not obligated to do so. If you do not wish to do so, delete this exception statement from your version.</I>
+<P>
+Merk op dat je je in alle gevallen nog steeds dient te houden aan de LGPL, die bijvoorbeeld, vereist dat je de broncode van de runtime-bibliotheek meelevert. Als je propiëtaire geslotenbronsoftware wilt schrijven, doe dan het volgende om in orde met de licentie te zijn:
+<ul>
+<li>De meeste mensen kunnen de eis broncode mee te leveren door te vermelden dat de rtl-broncode vanaf de Free-Pascalwebsite gedownload kan worden: als je rtl niet gewijzigd hebt, dan wordt dit door ons als adequaat gezien om aan de LGPL-vereiste broncode mee te leveren te voldoen.
+<li>Als je wijzigingen in de runtime-bibliotheek hebt gemaakt, dan kan je die niet voor jezelf houden, je moet ze beschikbaar maken als daarom gevraagd wordt.
+<li>Distribueer de LGPL-licentie met je produkt.
+</ul>
+
+<P>De broncode van de compiler wordt, in contrast met de runtime-bibliotheek geleverd onder de GNU Public license, hetwelk betekent dat elk gebruik van de compilerbroncode alleen kan plaatsvinden in softwareprojecten onder dezelfde licentie.
+
+</TRN>
+<TRN locale="en_US" key="website.a_Wanna_new_version_now">
+I want a new version NOW
+            <p>In the time between the release of new official versions, you can
+            have a look at and test developer versions (so-called "snapshots"). Be
+            warned though: this is work under progress, so in addition to old bugs
+            fixed and new features added, this may also contain new bugs. 
+
+            <p>Snapshots are generated automatically each night from the current
+            source at that moment. Sometimes this may fail due to bigger changes not
+            yet fully implemented. If your version doesn't work, try again one or
+            two days later. You're advised not to download the GO32v1 version for
+            Dos, since it's not supported any more. 
+
+            <p>The latest snapshot can always be downloaded from the <A
+            href="develop@x@#snapshot">development</a>
+            web page. 
+          
+</TRN>
+<TRN locale="nl_NL" key="website.FAQ_kbase">
+Vraagbaak / Kennisbank
+</TRN>
+<TRN locale="en_US" key="website.a_Debug_smartlinked">
+
+            <p>Debugging smart linked code might not work correctly. This is
+            due to the fact that no type information is emitted for
+            smartlinked code. If this would not be done, the files
+            would become enormous.
+           
+            <p> While debugging, it is not recommended to use the
+            smartlinking option.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Debugging_DLL">
+
+            <p>Debugging shared libraries (or dynamic linked libraries) produced
+              by the Free Pascal compiler is not officially supported.
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_Installation_hints">
+Installatiehints voor Free Pascal
+</TRN>
+<TRN locale="nl_NL" key="website.a_Installation_hints">
+<ul>
+<li>Het is niet verstandig de compiler te installeren in een directory met spaties in de naam, gezien sommige hulpprogramma's die de compiler nodig geeft hier niet van houden</ul>
+           
+</TRN>
+<TRN locale="en_US" key="website.FAQ_kbase">
+FAQ / Knowledge base
+</TRN>
