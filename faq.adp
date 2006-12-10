@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Knowledge base</property>
 <property name="entry">faq</property>
-<property name="header">FAQ / Knowledge base</property>
+<property name="header"><trn key="website.FAQ_kbase" locale="en_US">FAQ / Knowledge base</trn></property>
 
 <trn key="website.faq_intro" locale="en_US" locale="en_US">
   <p>This document gives last minute information regarding the compiler. Furthermore,
@@ -591,8 +591,8 @@
 
 
         <li><a name=cfgfiles></a>
-            <h3><trn key="website.q_cfg_problems" locale="en_US">Configuration file problems (fpc.cfg or ppc386.cfg)</trn></h3>
-
+          <h3><trn key="website.q_cfg_problems" locale="en_US">Configuration file problems (fpc.cfg or ppc386.cfg)</trn></h3>
+          <trn key="website.q_cfg_problems" locale="en_US">
             <p> Starting from version 1.0.6 of Free Pascal, the configuration
             file is now called <TT>fpc.cfg</TT> instead of <TT>ppc386.cfg</TT>.
             For backward compatibility , <TT>ppc386.cfg</TT> is still searched first
@@ -602,7 +602,7 @@
             so if you wish to use an earlier version of the compiler using the
             same configuration file used with FPC version 1.0.6 (or later),
             the configuration file should be renamed to <TT>ppc386.cfg</TT>.
-
+          </trn>
         
 
 
@@ -645,24 +645,26 @@
         
 
         <li><a name=debugsmart></a>
-           <h3><trn key="website.q_Debug_smartlinked" locale="en_US">Debugging smartlinked code does not fully work</trn></h3>
-
-           <p>Debugging smart linked code might not work correctly. This is
-           due to the fact that no type information is emitted for
-           smartlinked code. If this would not be done, the files
-           would become enormous.
+          <h3><trn key="website.q_Debug_smartlinked" locale="en_US">Debugging smartlinked code does not fully work</trn></h3>
+          <trn key="website.a_Debug_smartlinked" locale="en_US">
+            <p>Debugging smart linked code might not work correctly. This is
+            due to the fact that no type information is emitted for
+            smartlinked code. If this would not be done, the files
+            would become enormous.
            
-
-           <p> While debugging, it is not recommended to use the
-               smartlinking option.
+            <p> While debugging, it is not recommended to use the
+            smartlinking option.
+          </trn>
 
         
 
         <li><a name=debugshared></a>
-           <h3><trn key="website.q_Debugging_DLL" locale="en_US">Debugging shared library (dynamic linked library) code does not fully work</trn></h3>
+          <h3><trn key="website.q_Debugging_DLL" locale="en_US">Debugging shared library (dynamic linked library) code does not fully work</trn></h3>
 
-           <p>Debugging shared libraries (or dynamic linked libraries) produced
+          <trn key="website.a_Debugging_DLL" locale="en_US">
+            <p>Debugging shared libraries (or dynamic linked libraries) produced
               by the Free Pascal compiler is not officially supported.
+          </trn>
            
 
         
@@ -848,7 +850,7 @@
    <li><h2><trn key="website.Pascal_lang_rel_inf" locale="en_US">Pascal language related information</trn></h2>
    <OL>
 
-        <li><a name=PortingCPU></a>
+        <li><a name='PortingCPU'></a>
             <h3>Considerations in porting to other processors</h3>
 
             <p>Because the compiler now supports processors other than the Intel, it
