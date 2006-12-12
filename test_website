@@ -10,6 +10,6 @@ foreach language $languages {
     exec wget "--header=Accept-Language: $language" --delete-after -nv -X /docs-html -X /docs -X /pic -X /wiki -X /packages -r http://www.freepascal.org 2> test_output_$language
     puts "Done. We will now grep the log for errors. If you see any below, please check log."
     puts "grep -i ERROR test_output_$language"
-    puts [exec grep -i ERROR test_output_$language]
+    catch {puts [exec grep -i ERROR test_output_$language]}
     puts ""
 }

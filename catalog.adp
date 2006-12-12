@@ -2533,7 +2533,7 @@ La distribuzione più recente è la <b>2.0.4</b>
   
 </TRN>
 <TRN locale="it_IT" key="website.download_snapshots">
-  Oltre alle distribuzioni ufficiali, è possibile ottenere i cosiddetti "snapshots" del compilatore, delle librerie Runtime, dell'IDE e altri packages sulla pagina <a href="develop@x@">pagina sviluppo</a>. Queste sono versioni compilate con i sorgenti contenenti le ultime correzioni e gli ultimi miglioramenti apportati alla distribuzione più aggiornata. Si prega di usarli solo in caso di problemi, considerando ovviamente che potrebbero contenere nuovi errori. 
+  Oltre alle distribuzioni ufficiali, è possibile ottenere i cosiddetti "snapshots" del compilatore, delle librerie Runtime, dell'IDE e altri packages sulla pagina dedicata allo <a href="develop@x@">sviluppo</a>. Queste sono versioni compilate con i sorgenti contenenti le ultime correzioni e gli ultimi miglioramenti apportati alla distribuzione più aggiornata. Si prega di usarli solo in caso di problemi, considerando ovviamente che potrebbero contenere nuovi errori. 
 
 </TRN>
 <TRN locale="it_IT" key="website.License_text">
@@ -3693,69 +3693,34 @@ Echter, als een FPC-gebruiker het merendeel van het werk doet (d.w.z. een byteco
 De hierboven geschetste problemen zijn gelijkaardig voor Java-bytecode. Men dient de taal te misvormen, de bibliotheken vanaf bijna nul te herschrijven op basis van de basisbibliotheken van het doelplatform (Java/.NET). Een dergelijke inspanning zou weinig synergie hebben met het FPC-project zoals het vandaag bestaat.<p>
           
 </TRN>
-<TRN locale="nl_NL" key="website.a_What_is_FPC">
-<p>De Free Pascalcompiler, oorspronkelijk geheten FPK-Pascal, is een 32- en 64-bit Pascal compiler, compatibel met Turbo Pascal en Delphi, voor DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic en verscheidene andere platformen (het aantal doelplatformen groet voortdurend, hoewel niet ieder platform op hetzelfde niveau staat als de hoofdplatformen).
-<p>De Free Pascalcompiler is beschikbaar architecturen, x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron) en Powerpc. Een oudere versie (de versie 1.0) ondersteunt ook m68k.
-<p>The compiler is geschreven in Pascal en in staat om zijn eigen broncode te compileren. De broncode is beschikbaar onder GPL en wordt meegeleverd.
-<p>Korte geschiedenis:
-<ul>
-<li>06/1993: start van het project
-<li>10/1993: eerste kleine programmaatjes werken
-<li>03/1995: de compiler compileert zijn eigen broncode
-<li>03/1996: vrijgegeven op het internet
-<li>07/2000: versie 1.0
-<li>12/2000: versie 1.0.4
-<li>04/2002: versie 1.0.6
-<li>07/2003: versie 1.0.10
-<li>05/2005: versie 2.0.0
-<li>12/2005: versie 2.0.2
-<li>08/2006: versie 2.0.4
-</ul>
-          
-</TRN>
 <TRN locale="nl_NL" key="website.q_What_versions_exist">
 Welke versies zijn er, en welke moet ik gebruiken?
-</TRN>
-<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
-<DL>
-<DT><b>Doel:</b>
-<DD>Free Pascal probeert een Borland-compatible Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
-<DT><b>Versie:</b>
-<DD>Op dit moment is Free Pascal bij versie on 2.0 (may 2005). GNU-Pascal is bij versie 2.1 (from 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-version is echter een uitzondering, deze volgt de GCC-versienummering).
-<DT><b>Ontwikkelstatus volgen:</b>
-<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
-<DT><b>Besturingssystemen:</b>
-<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
-
-GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
-<DT><b>Bootstrappen:</b>
-<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
-<DT><b>Broncode:</b>
-<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
-<DT><b>Taal:</b>
-<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
-<DT><b>Extensies:</b>
-<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
-<DT><b>Licentie:</b>
-<DD>Beide compilers worden geleverd onder de GNU-GPL.
-<DT><b>Auteur:</b>
-<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
- 
 </TRN>
 <TRN locale="nl_NL" key="website.q_FPC_vs_GPC">
 Free Pascal en GNU Pascal - een vergelijking
 </TRN>
+<TRN locale="nl_NL" key="website.q_Getting_the_compiler">
+Hoe kom ik aan de compiler?
+</TRN>
+<TRN locale="nl_NL" key="website.q_Licence_copyright_info">
+Informatie betreffende de licentie en auteursrechten
+</TRN>
+<TRN locale="nl_NL" key="website.q_Installing_snapshot">
+Hoe installeer ik een momentopname?
+</TRN>
+<TRN locale="nl_NL" key="website.a_Getting_the_compiler">
+<p>De meest recente officiële versie van Free Pascal is beschikbaar om te downloaden vanaf alle <a href="download@x@">officiële mirrors</a>
+
+</TRN>
 <TRN locale="nl_NL" key="website.a_What_versions_exist">
-<p>De meeste recente officiële uitgave is 2.0.4, uitgebracht als bugfixuitgave voor de 2.0.x-series. Nieuwe ontwikkelingen worden gedaan in de 2.1.x-series, welke uiteindelijk uitgeven zal wordt als 2.2.0 danwel 3.0.0 (afhankelijk van de hoeveelheid wijzigingen en verbeteringen die er op het moment van uitgave zijn).
+<p>De meeste recente officiële uitgave is 2.0.4, uitgebracht als bugfixuitgave voor de 2.0.x-series. Nieuwe ontwikkelingen worden gedaan in de 2.1.x-serie, welke uiteindelijk uitgeven zal wordt als 2.2.0 danwel 3.0.0 (afhankelijk van de hoeveelheid wijzigingen en verbeteringen die er op het moment van uitgave zijn).
 
 <h4>Historische versies</h4>
 
 <p>FPC's versienummering is gedurende de jaren enkele malen veranderd. Versiens voor 0.99.5 worden als archaïsch beschouwd. Na de uitgave van 0.99.5 werd een systeem in de versienummering geïntroduceerd, hetwelk na de 1.0-uitgave licht veranderd is. 
 
 <p><b>Versienummering voor versies 0.99.5 - 1.0</b><p>
-<p>Compilers met een <b>even</b> nummer aan het eind zijn <b>uitgaveversies</b> (bijvoorbeeld 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers en pakketten met een <b>oneven</b> getal aan het eind zijn <b>ontwikkeluitgaven</b> (bijvoorbeeld 0.99.9, 0.99.11, 0.99.13, 0.99.15) 
-
-
+<p>Compilers met een <b>even</b> nummer aan het eind zijn <b>uitgaveversies</b> (bijvoorbeeld 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilers en pakketten met een <b>oneven</b> getal aan het eind zijn <b>ontwikkelversies</b> (bijvoorbeeld 0.99.9, 0.99.11, 0.99.13, 0.99.15) 
 <p>0.99.5 is een uitzondering op dit schema, gezien <b>0.99.5 een uitgaveversie is</b> (uitgegeven voor de introductie van dit even-/onevensysteem).
 
 <p>Letters die achter het versienummer komen (0.99.12b, 0.99.5d) geven uitgaveversies aan waarbij een minimaal aantal bugs en/of problemen ten opzichte van de originele uitgave verholpen is (respectievelijk 0.99.12 en 0.99.5).
@@ -3772,7 +3737,7 @@ Free Pascal en GNU Pascal - een vergelijking
 </ul>
 <p>
 
-<p>Normalgesproken wil je een officiële uitgave gebruiken. Uitgaven worden als stabiel beschouwd, en zijn eenvoudiger te ondersteunen (de bugs, eigenaardigheden en onbedoelde "functionaliteit" zijn na bepaalde tijd bekend, evenals omweggetjes eromheen).
+<p>Normaalgesproken wil je een officiële uitgave gebruiken. Uitgaven worden als stabiel beschouwd, en zijn eenvoudiger te ondersteunen (de bugs, eigenaardigheden en onbedoelde "functionaliteit" zijn na bepaalde tijd bekend, evenals omweggetjes eromheen).
 
 <p>Momentopnamen van de ontwikkelversies (welke iedere dag gegenereerd worden) geven een afspiegeling van de huidige status van de compiler. Ontwikkelversies hebben waarschijnlijk nieuwe functionaliteit en grote bugs verholpen in vergelijking met de meest recente uitgave. Echter, ze kunnen een tijdelijke terugval in stabiliteit vertonen (welke echter vaak weer snel verholpen worden).
 
@@ -3781,19 +3746,6 @@ Free Pascal en GNU Pascal - een vergelijking
 <p>We adviseren alle gebruikers de nieuwste versie voor hun doelplatform te gebruiken. (Bij voorkeur de nieuwe stabiele 2.0.x-serie).
 <p>Een grafische tijdlijn van het FPC-project plus de nabije toekomst ervan zou zijn:
             <img src="pic/timeline.png">
-
-</TRN>
-<TRN locale="nl_NL" key="website.q_Getting_the_compiler">
-Hoe kom ik aan de compiler?
-</TRN>
-<TRN locale="nl_NL" key="website.q_Licence_copyright_info">
-Informatie betreffende de licentie en auteursrechten
-</TRN>
-<TRN locale="nl_NL" key="website.q_Installing_snapshot">
-Hoe installeer ik een momentopname?
-</TRN>
-<TRN locale="nl_NL" key="website.a_Getting_the_compiler">
-<p>De meest recente officiële versie van Free Pascal is beschikbaar om te downloaden vanaf alle <a href="download@x@">officiële mirrors</a>
 
 </TRN>
 <TRN locale="nl_NL" key="website.a_Installing_snapshot">
@@ -3867,4 +3819,238 @@ Installatiehints voor Free Pascal
 </TRN>
 <TRN locale="en_US" key="website.FAQ_kbase">
 FAQ / Knowledge base
+</TRN>
+<TRN locale="it_IT" key="website.faq_intro">
+  <p>Questo documento fornisce informazioni aggiorante sul compilatore. Qui si possono trovare risposte alle domande più frequenti e soluzioni ai problemi più comuni nell'uso di Free Pascal. Queste informazioni sono da considerarsi più aggiornate rispetto a quelle contenute nella documentazione di Free Pascal. </p>
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
+<DL>
+<DT><b>Doel:</b>
+<DD>Free Pascal probeert een Borland-compatibele Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
+<DT><b>Versie:</b>
+<DD>Op dit moment is Free Pascal bij versie on 2.0 (may 2005). GNU-Pascal is bij versie 2.1 (from 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-version is echter een uitzondering, deze volgt de GCC-versienummering).
+<DT><b>Ontwikkelstatus volgen:</b>
+<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
+<DT><b>Besturingssystemen:</b>
+<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
+
+GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
+<DT><b>Bootstrappen:</b>
+<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
+<DT><b>Broncode:</b>
+<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
+<DT><b>Taal:</b>
+<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
+<DT><b>Extensies:</b>
+<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
+<DT><b>Licentie:</b>
+<DD>Beide compilers worden geleverd onder de GNU-GPL.
+<DT><b>Auteur:</b>
+<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
+ 
+</TRN>
+<TRN locale="nl_NL" key="website.q_Why_username_password_for_download">
+Waarom moet ik een gebruikersnaam en wachtwoord invoeren om Free Pascal te downloaden?
+</TRN>
+<TRN locale="nl_NL" key="website.a_Access_denies_while_download">
+<p>De hoofd-FTP-site van Free Pascal accepteert slechts een beperkte hoeveelheid verbindingen tegelijk. Indien deze fout optreedt is deze limiet bereikt. De oplossing is om ofwel later te proberen, of beter nog één van de mirrorsites te gebruiken.
+</TRN>
+<TRN locale="nl_NL" key="website.q_Known_bugs">
+Bekende bugs / Bugs aanmelden
+</TRN>
+<TRN locale="nl_NL" key="website.q_Real_windows_application">
+Hoe maak ik een echte applicatie met vensters en menubalken?
+</TRN>
+<TRN locale="nl_NL" key="website.q_Game_in_FPC">
+Hoe maak ik een computerspel met Free Pascal? Kan ik ook een spel zoals Doom 3 maken?
+</TRN>
+<TRN locale="nl_NL" key="website.a_Game_in_FPC">
+Je kunt inderdaad gewoon computerspellen met Free Pascal schrijven, en als je echt goed bent, dan kan je zelfs een spel als Doom 3 maken. Het maken van computerspellen is echter behoorlijk ingewikkeld, je dient een ervaren programmeur te zijn en bovendien creatief te zijn. De website <a href='http://www.pascalgamedevelopment.com'>www.pascalgamedevelopment.com</a> is een gemeenschap van mensen die spellen in Free Pascal en Delphi maken.
+<p>
+Als je je met spellen bezig wilt houden, begin dan met het bestuderen van <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a> of <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Je kunt ook proberen een bestaan spel te bestuderen, <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is een zeer eenvoudig spel en het zou niet moeilijk moeten zijn om de code ervan te begrijpen.
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_Real_windows_application">
+De makkelijkste manier is <a href='http://www.lazarus.freepascal.org'> Lazarus te downloaden</a>. Als bonus maak je niet zomaar een Windowsapplicatie, hij werkt ook onder Linux, FreeBSD en Mac OS X.
+</TRN>
+<TRN locale="nl_NL" key="website.q_Big_binaries">
+Waarom zijn de gegenereerde programma's zo groot?
+</TRN>
+<TRN locale="it_IT" key="website.for_comprehensive">
+  <p> Per informazioni più dettagliate sul linguaggio Pascal e la libreria Runtime (RTL) consultare la documentazione di Free Pascal. Argomenti trattati in questo documento: </p>
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_What_is_FPC">
+<p>De Free Pascalcompiler, oorspronkelijk geheten FPK-Pascal, is een 32- en 64-bit Pascal compiler, compatibel met Turbo Pascal en Delphi, voor DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic en verscheidene andere platformen (het aantal doelplatformen groeit voortdurend, hoewel niet ieder platform op hetzelfde niveau staat als de hoofdplatformen).
+<p>De Free Pascalcompiler is beschikbaar architecturen, x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron) en Powerpc. Een oudere versie (de versie 1.0) ondersteunt ook m68k.
+<p>The compiler is geschreven in Pascal en in staat om zijn eigen broncode te compileren. De broncode is beschikbaar onder GPL en wordt meegeleverd.
+<p>Korte geschiedenis:
+<ul>
+<li>06/1993: start van het project
+<li>10/1993: eerste kleine programmaatjes werken
+<li>03/1995: de compiler compileert zijn eigen broncode
+<li>03/1996: vrijgegeven op het internet
+<li>07/2000: versie 1.0
+<li>12/2000: versie 1.0.4
+<li>04/2002: versie 1.0.6
+<li>07/2003: versie 1.0.10
+<li>05/2005: versie 2.0.0
+<li>12/2005: versie 2.0.2
+<li>08/2006: versie 2.0.4
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_Why_username_password_for_download">
+<p> Je bent aan het inloggen op een ftp-site. Dat gaat doormiddel van het invoeren van "anonymous" als loginnaam en voor het wachtwoord dien je je e-mailadres in te voeren.          
+</TRN>
+<TRN locale="nl_NL" key="website.q_Wanna_new_version_now">
+Ik heb ONMIDDELIJK een nieuwe versie nodig
+</TRN>
+<TRN locale="nl_NL" key="website.q_Access_denies_while_download">
+Ik krijg "Toegang gewijgerd" bij het verbinden met de Free Pascal FTP-site.
+</TRN>
+<TRN locale="nl_NL" key="website.a_Wanna_new_version_now">
+<p>In de tijd tussen de uitgave van nieuwe, officiële versies, kan je een blik werpen op ontwikkelversies (zogeheten "momentopnamen"). Wees echter gewaarschuwd: dit is werk in uitvoering, behalve oude bugs die verholpen zijn en nieuwe functionaliteit, kunnen er ook nieuwe bugs ingeslopen zijn. 
+<p>Momentopnamen worden automatisch iedere nacht gegenereerd vanuit de broncode van dat moment. Soms kan dit mislukken als gevolg van grotere wijzigingen die nog niet volledig zijn geïmplementeerd. Als jouw versie niet werkt, probeer het een paar dagen later nog eens. We adviseren je de GO32v1-versie voor Dos niet meer te downloaden, gezien deze niet meer ondersteund wordt.
+<p>De meest recente momentopnamen kunnen altijd gedownload worden vanaf de <A href="develop@x@#snapshot">ontwikkelpagina</a>. 
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_Big_binaries">
+Daar kunnen een aantal redenen en manieren op het op te lossen voor zijn: 
+<OL>
+<li>
+<p>Je kunt slim gelinkte applicaties maken. Om het genereren van slim gelinkte units aan te zetten gebruik je de commandoregeloptieu -Cx tijdens het compileren van je units. Om de eerder slim linkbare units daadwerkelijk slim te linken, gebruik je de commandoregeloptie -XX (-XS in 0.99.12 en ouder) tijdens het compileren van een programma.
+<li>Normaalgesproken wordt alle symboolinformatie in het uiteindelijke programma ingevoegd (dit is nodig om te kunnen debuggen). Je kunt dit laten verwijderen door de commandoregeloptie -Xs tijdens het compileren van je programma te gebruiken (het geeft geen effect tijdens het compileren van units).
+<li>Je kunt UPX gebruiken om je .EXEs in te pakken (net als bijvoorbeeld met pklite) voor Dos- (GO32v2) en Windowsplatformen. Kijk <A ref="http://upx.sourceforge.net/">hier> voor meer informatie.
+<li>Je kunt LXLITE gebruiken om EMX-programmabestanden in te pakken, maar je kunt ze daarna niet meer onder DOS (met extender) draaien. Deze kwestie is niet relevant voor echte OS/2-programmabestanden gecompileerd voor doelplatform OS2 versie 1.9.x en hoger. deze lopen zowieso niet onder DOS. Verder kan het niet mogelijk zijn gecomprimeerde programmabestanden op oude OS/2-versies (zoals 2.x) dte draaien, afhankelijk van het gekozen type compressie. Je kunt LXLITE vinden op bijvoorbeeld <a href="http://hobbes.nmsu.edu/">Hobbes</a>, zoek naar LXLITE.
+                <li>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
+                    and for your own code, this will also decrease the code size. 
+                <li>Keep in mind that under NT,2000,XP, compressed binaries startup	
+		            relatively slow. Test under various conditions (OS, CPU speed, memory)
+                    if the behaviour is acceptable before compressing			   
+           </OL>
+
+            Generally Free Pascal generates smaller binaries than modern competing compilers,
+            however, it doesn't hide code in large dynamic libraries. Free Pascal generates
+            larger binaries than compilers from long ago do. Large framework libraries result
+            in larger executables.
+          
+</TRN>
+<TRN locale="pl_PL" key="website.Advantages">
+Zalety
+</TRN>
+<TRN locale="pl_PL" key="website.Documentation">
+Dokumentacja
+</TRN>
+<TRN locale="pl_PL" key="website.Community">
+Społeczność
+</TRN>
+<TRN locale="pl_PL" key="website.FAQ">
+FAQ
+</TRN>
+<TRN locale="pl_PL" key="website.Units">
+Moduły
+</TRN>
+<TRN locale="pl_PL" key="website.Authors">
+Autorzy
+</TRN>
+<TRN locale="pl_PL" key="website.Requirements">
+Wymagania
+</TRN>
+<TRN locale="pl_PL" key="website.License">
+Licencja
+</TRN>
+<TRN locale="pl_PL" key="website.overview">
+Wprowadzenie
+</TRN>
+<TRN locale="pl_PL" key="website.Links_mirrors">
+Linki/Mirror'y
+</TRN>
+<TRN locale="pl_PL" key="website.Tools">
+Narzędzia
+</TRN>
+<TRN locale="pl_PL" key="website.More_information">
+Więcej informacji
+</TRN>
+<TRN locale="pl_PL" key="website.latest_news">
+Ostatnie Wieści
+</TRN>
+<TRN locale="pl_PL" key="website.General">
+Ogólnie
+</TRN>
+<TRN locale="pl_PL" key="website.Advantages_title">
+Zalety Free Pascala
+</TRN>
+<TRN locale="pl_PL" key="website.Advantages_of">
+Zalety programowania w Pascalu i Free Pascalu
+</TRN>
+<TRN locale="pl_PL" key="website.Compiler_sources">
+Źródła kompilatora
+</TRN>
+<TRN locale="pl_PL" key="website.Binaries">
+Binaria
+</TRN>
+<TRN locale="pl_PL" key="website.down_i386_netware_note">
+tylko 2.0.0
+</TRN>
+<TRN locale="pl_PL" key="website.Download_as_installer">
+Pobierz instalator
+</TRN>
+<TRN locale="pl_PL" key="website.down_sparc_linux_note">
+tylko 2.0.0
+</TRN>
+<TRN locale="pl_PL" key="website.FtpApi_interface_unit">
+Moduły interfejsu FtpApi
+</TRN>
+<TRN locale="pl_PL" key="website.FtpApi_sources">
+Źródła interfejsu FtpApi
+</TRN>
+<TRN locale="pl_PL" key="website.gdbint_sources">
+Źródła interfejsu GDB
+</TRN>
+<TRN locale="pl_PL" key="website.GNU_assembler_and_linker">
+GNU assembler i linker:
+</TRN>
+<TRN locale="pl_PL" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="pl_PL" key="website.News">
+Aktualności
+</TRN>
+<TRN locale="pl_PL" key="website.Download">
+Pobierz
+</TRN>
+<TRN locale="pl_PL" key="website.Future_Plans">
+Plany Rozwoju
+</TRN>
+<TRN locale="pl_PL" key="website.FPC_on_the_Mac">
+FPC na Mac'a
+</TRN>
+<TRN locale="pl_PL" key="website.Home">
+Strona główna
+</TRN>
+<TRN locale="pl_PL" key="website.FCL_units">
+Moduły FCL
+</TRN>
+<TRN locale="pl_PL" key="website.fpGTK_sources">
+Źrodła fpGTK
+</TRN>
+<TRN locale="pl_PL" key="website.fpGTK_units">
+Moduły fpGTK
+</TRN>
+<TRN locale="pl_PL" key="website.Free_Vision_sources">
+Źrodła Free Vision
+</TRN>
+<TRN locale="pl_PL" key="website.Free_Vision_units">
+Moduły Free Vision
+</TRN>
+<TRN locale="pl_PL" key="website.GTK2_interface_sources">
+Źródła interfejsu GTK2
+</TRN>
+<TRN locale="pl_PL" key="website.GTK_interface_sources">
+Źródła interfejsu GTK
+</TRN>
+<TRN locale="pl_PL" key="website.GTK_interface_units">
+Moduły interfejsu GTK
 </TRN>
