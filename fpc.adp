@@ -17,6 +17,12 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+ <trn locale="en_US" key="website.news_headline_20061204">
+  <em>December 14, 2006</em>
+  Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
+ </trn>
+</p>
+<p>
   <trn locale="en_US" key="website.news_headline_20061125">
     <em>November 25-26, 2006</em>
     Lazarus and FPC will be on the HCC in Utrecht, Netherlands in the HCC Pascal booth.
