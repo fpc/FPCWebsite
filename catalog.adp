@@ -3824,32 +3824,6 @@ FAQ / Knowledge base
   <p>Questo documento fornisce informazioni aggiorante sul compilatore. Qui si possono trovare risposte alle domande più frequenti e soluzioni ai problemi più comuni nell'uso di Free Pascal. Queste informazioni sono da considerarsi più aggiornate rispetto a quelle contenute nella documentazione di Free Pascal. </p>
 
 </TRN>
-<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
-<DL>
-<DT><b>Doel:</b>
-<DD>Free Pascal probeert een Borland-compatibele Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
-<DT><b>Versie:</b>
-<DD>Op dit moment is Free Pascal bij versie on 2.0 (may 2005). GNU-Pascal is bij versie 2.1 (from 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-version is echter een uitzondering, deze volgt de GCC-versienummering).
-<DT><b>Ontwikkelstatus volgen:</b>
-<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
-<DT><b>Besturingssystemen:</b>
-<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
-
-GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
-<DT><b>Bootstrappen:</b>
-<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
-<DT><b>Broncode:</b>
-<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
-<DT><b>Taal:</b>
-<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
-<DT><b>Extensies:</b>
-<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
-<DT><b>Licentie:</b>
-<DD>Beide compilers worden geleverd onder de GNU-GPL.
-<DT><b>Auteur:</b>
-<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
- 
-</TRN>
 <TRN locale="nl_NL" key="website.q_Why_username_password_for_download">
 Waarom moet ik een gebruikersnaam en wachtwoord invoeren om Free Pascal te downloaden?
 </TRN>
@@ -3864,12 +3838,6 @@ Hoe maak ik een echte applicatie met vensters en menubalken?
 </TRN>
 <TRN locale="nl_NL" key="website.q_Game_in_FPC">
 Hoe maak ik een computerspel met Free Pascal? Kan ik ook een spel zoals Doom 3 maken?
-</TRN>
-<TRN locale="nl_NL" key="website.a_Game_in_FPC">
-Je kunt inderdaad gewoon computerspellen met Free Pascal schrijven, en als je echt goed bent, dan kan je zelfs een spel als Doom 3 maken. Het maken van computerspellen is echter behoorlijk ingewikkeld, je dient een ervaren programmeur te zijn en bovendien creatief te zijn. De website <a href='http://www.pascalgamedevelopment.com'>www.pascalgamedevelopment.com</a> is een gemeenschap van mensen die spellen in Free Pascal en Delphi maken.
-<p>
-Als je je met spellen bezig wilt houden, begin dan met het bestuderen van <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a> of <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Je kunt ook proberen een bestaan spel te bestuderen, <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is een zeer eenvoudig spel en het zou niet moeilijk moeten zijn om de code ervan te begrijpen.
-
 </TRN>
 <TRN locale="nl_NL" key="website.a_Real_windows_application">
 De makkelijkste manier is <a href='http://www.lazarus.freepascal.org'> Lazarus te downloaden</a>. Als bonus maak je niet zomaar een Windowsapplicatie, hij werkt ook onder Linux, FreeBSD en Mac OS X.
@@ -4053,4 +4021,170 @@ Moduły Free Vision
 </TRN>
 <TRN locale="pl_PL" key="website.GTK_interface_units">
 Moduły interfejsu GTK
+</TRN>
+<TRN locale="it_IT" key="website.q_What_is_FPC">
+Cos'è Free Pascal (FPC)?
+</TRN>
+<TRN locale="it_IT" key="website.General_Information">
+Informazioni generali
+</TRN>
+<TRN locale="it_IT" key="website.a_What_is_FPC">
+            <p>Conosciuto in origine come FPK-Pascal, Free Pascal è un compilatore a 32 e 64 bit compatibile con Turbo Pascal e Delphi per DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic e diverse altre piattaforme (il numero sta aumentando nel tempo, anche se non tutte sono supportate allo stesso livello di quelle principali).
+	
+            <p>Free Pascal compiler è disponibile per diverse architetture: x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron) e Powerpc. Una versione meno recente (sulla serie 1.0) supporta anche m68k.<p>Il compilatore è scritto in Pascal ed è in grado di compilare i suoi stessi sorgenti. I sorgenti sono distribuiti con licenza GPL. <p>Breve storia: <ul>
+              <li>06/1993: inizio del progetto
+              <li>10/1993: i primi programmi funzionano
+              <li>03/1995: il compilatore compila i suoi sorgenti
+              <li>03/1996: distribuzione su internet
+              <li>07/2000: versione 1.0
+              <li>12/2000: versione 1.0.4
+              <li>04/2002: versione 1.0.6
+              <li>07/2003: versione 1.0.10
+              <li>05/2005: versione 2.0.0 
+              <li>12/2005: versione 2.0.2 
+              <li>08/2006: versione 2.0.4
+            </ul>
+          
+</TRN>
+<TRN locale="it_IT" key="website.q_What_versions_exist">
+Quali sono le versioni disponibili e quale dovrei utilizzare?
+</TRN>
+<TRN locale="it_IT" key="website.a_What_versions_exist">
+            <p>La versione più recente è la 2.0.4, rilasciata come versione di correzione per la serie 2.0.x. Lo sviluppo si è spostato sulla serie  2.1.x, che uscirà eventualmente con versione 2.2.0 oppure 3.0.0 (in funzione alla quantità di modifiche apportate alla data del rilascio).
+
+            <h4>Versioni precedenti</h4>
+
+            <p>Negli anni il criterio di numerazione delle versioni ha subito alcuni cambiamenti. Le versioni precedenti alla 0.99.5 vanno considerate come "arcaiche". A partire dalla versione 0.99.5 è stato introdotto un sistema di numerazione che è stato successivamente modificato dopo la verione 1.0. 
+
+            <p><b>Numerazione delle versioni da 0.99.5 a 1.0</b><p>
+
+            <p>I compilatori che terminano con un numero <b>pari</b> sono versioni di <b>rilascio</b> (es. 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Compilatori e packages che terminano con un numero <b>dispari</b> sono versioni di <b>sviluppo</b> 
+            (es. 0.99.9, 0.99.11, 0.99.13, 0.99.15) 
+
+            <p>la versione 0.99.5 è un'eccezione allo schema, dato che <b>0.99.5 è una versione di rilascio</b>
+            (precedente all'introduzione del nuovo schema pari/dispari).
+
+            <p>Una lettera dopo il numero (0.99.12b, 0.99.5d) indica una versione di correzione ad errori o problemi nella versione originale      (rispettivamente 0.99.12 and 0.99.5).
+
+            <p><b>Numerazione dopo la versione 1.0</b>
+
+            <p>Con il rilascio della versione 1.0 lo schema di numerazione è stato modificato, introducendo uno schema simile a quello usato per il kernel di Linux. La differenza principale consiste nel fatto che ora una versione di rilascio viene identificata dalla seconda cifra (1.0.x rispetto a 1.1.x) mentre la terza cifra (0.99.14 rispetto a 0.99.15), indica il livello di revisione, al posto della lettera finale. 
+
+            <p>
+            <ul>
+             <li>Le versioni di correzione alla versione 1.0 sono state numerate con lo schema 1.0.x.
+             <li>Un nuovo ramo di sviluppo (detto snapshot) inizia poi con la versione 1.1.x.
+             <li>Eventualmente, le versioni 1.1.x, nel momento in cui saranno dichiarate stabili passeranno alla versione 2.x. Le revisioni sulla versione 2.0 vengono numerate con lo schema 2.0.x.
+             <li>Il nuovo ramo di sviluppo dopo la versione 2.0 userà lo schema 2.1.x e così via.
+            </ul>
+            <p>
+
+            <p>Normalmente si dovrebbero usare le versioni di rilascio che sono considerate stabili e più semplici da supportare (errori, piccoli problemi e "funzionalità inattese" sono noti, come anche i rimedi e i piccoli trucchi).
+
+            <p>Gli Snapshots di sviluppo (in genere su base giornaliera) riflettono lo status corrente di sviluppo del compilatore. Le versioni di sviluppo possono contenere nuove funzionalità e correzioni degli errori dell'ultima versione, ma potrebbero anche presentare problemi temporanei di instabilità (che possono essere corretti anche il giorno successivo).
+
+            <p>Gli snapshots di sviluppo sono spesso utili per alcune categorie di utilizzatori. In caso di dubbio, chiedere in mailing list riguardo alle opportunità di utilizzo. 
+            <p>Il consiglio a tutti gli utilizzatori è di tenersi aggiornati alla versione più recente (in particolare alla serie 2.0.x).
+
+            <p> Lo schema seguente illustra sinteticamente l'evoluzione nel tempo delle versioni di Free Pascal:<p> 
+            <img src="pic/timeline.png"></a>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_Game_in_FPC">
+Je kunt inderdaad gewoon computerspellen met Free Pascal schrijven, en als je echt goed bent, dan kan je zelfs een spel als Doom 3 maken. Het maken van computerspellen is echter behoorlijk ingewikkeld, je dient een ervaren programmeur te zijn en bovendien creatief te zijn. De website <a href='http://www.pascalgamedevelopment.com'>www.pascalgamedevelopment.com</a> is een gemeenschap van mensen die spellen in Free Pascal en Delphi maken.
+<p>
+Als je je met spellen bezig wilt houden, begin dan met het bestuderen van <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a> of <a href='http://ptcpas.sourceforge.net'>PTCPas</a>. Je kunt ook proberen een bestaand spel te bestuderen, <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a> is een zeer eenvoudig spel en het zou niet moeilijk moeten zijn om de code ervan te begrijpen.
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_Runtime_errors">
+Runtime-fouten
+</TRN>
+<TRN locale="nl_NL" key="website.a_Runtime_errors">
+<p>Als er een abnormale beëindiging van een programma gemaakt met Free Pascal optreedt is het zeer waarschijnlijk dat er een runtime-fout optreedt. Deze fouten hebben de vorm:: 
+<PRE>
+            Runtime error 201 at $00010F86
+              $00010F86  main,  line 7 of testr.pas
+              $0000206D
+</PRE>
+<p> De 201 die je hier ziet is het nummer van de runtime-fout. De definitie van de runtime-fouten wordt beschreven in de gebruikershandleiding, Appendix D. De hexadecimale getallen die afgedrukt worden geven de aanroepstack aan zoals deze was op het moment dat de fout optrad.
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_Debug_smartlinked">
+Debuggen van slim gelinkte code werkt niet zoals het hoort
+</TRN>
+<TRN locale="nl_NL" key="website.a_Debug_smartlinked">
+<p>Het debuggen van slim gelinkte code kan inderdaad niet helemaal juist werken. Dit wortd veroorzaakt door het feit dant geen typeinformatie weggeschreven wordt voor slim gelinkte code. Als de typeinformatie wel geschreven zou worden, zouden de bestanden enorm groot worden.
+<p>Het is tijdens het debuggen niet verstandig gebruik te maken van de optie om slim te linken.
+</TRN>
+<TRN locale="pl_PL" key="website.req_x86a">
+Architektura x86:
+</TRN>
+<TRN locale="pl_PL" key="website.req_sparca">
+Architektura Sparc:
+</TRN>
+<TRN locale="pl_PL" key="website.reqppca">
+Architektura PowerPC:
+</TRN>
+<TRN locale="pl_PL" key="website.req_arma">
+Architektura ARM:
+</TRN>
+<TRN locale="pl_PL" key="website.License_text">
+Pakiety oraz biblioteka wykonawcza opierają się na zmodyfikowanej Licencji Publicznej GNU dla Bibliotek, co pozwala na używanie statycznych bibiotek przy tworzeniu aplikacji. Źródła kompilatora oparte są na Powszechnej Licencji Publicznej GNU. Źródła zarówno kompilatora, jak i biblioteki wykonawczej są dostępne; kompilator jest w całości napisany w Pascalu.
+</TRN>
+<TRN locale="pl_PL" key="website.news_headline_20060925">
+<em>25 września 2006</em>  Francesco Lombardi jest w trakcie pisania <a href='http://itaprogaming.free.fr/tutorial.html'> obszernego poradnika na temat tworzenia gier na Game Boy Advance</a> przy użyciu Free Pascala.
+</TRN>
+<TRN locale="en_US" key="website.news_headline_20061204">
+
+  <em>December 14, 2006</em>
+  Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
+ 
+</TRN>
+<TRN locale="pl_PL" key="website.news_headline_20061125">
+<em>25-26 października 2006</em>  Lazarus i FPC będa na targach HCC w Utrecht (Holandia), na stanowisku HCC Pascal.
+</TRN>
+<TRN locale="he_IL" key="website.news_headline_20061204">
+  <em>December 14, 2006</em>
+  Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
+ 
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20061204">
+<em>14 december 2006</em>
+Ido Kanner zal op maandag 15 januari 2007 een lezing geven over FPC bij <a href="http://haifux.org/future.html">HAIFUX</a>, een Linuxclub gelieerd aan de Technion-universiteit in Haifa. De lezing wordt nog een keer gegeven bij <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, een [universitaire] Linuxclub in Tel Aviv.
+
+</TRN>
+<TRN locale="pl_PL" key="website.news_headline_20060927">
+<em>27 września 2006</em>  Lazarus i FPC bedą na październikowych targach Systems 2006 w Monachium - hala A3, stanowisko 542. Postaramy się być obecni przez całe 5 dni. Więcej informacji na temat Systems 2006 można znaleźć <a href="http://www.systems-world.de/id/7672/">tutaj</a>.
+</TRN>
+<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
+<DL>
+<DT><b>Doel:</b>
+<DD>Free Pascal probeert een Borland-compatibele Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
+<DT><b>Versie:</b>
+<DD>Op dit moment is Free Pascal bij versie on 2.0 (mei 2005). GNU-Pascal is bij versie 2.1 (uit 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-versie is echter een uitzondering, deze volgt de GCC-versienummering).
+<DT><b>Ontwikkelstatus volgen:</b>
+<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
+<DT><b>Besturingssystemen:</b>
+<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
+
+GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
+<DT><b>Bootstrappen:</b>
+<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
+<DT><b>Broncode:</b>
+<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
+<DT><b>Taal:</b>
+<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
+<DT><b>Extensies:</b>
+<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
+<DT><b>Licentie:</b>
+<DD>Beide compilers worden geleverd onder de GNU-GPL.
+<DT><b>Auteur:</b>
+<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
+ 
+</TRN>
+<TRN locale="pl_PL" key="website.news_headline_20061204">
+<em>14 grudnia 2006</em> Ido Kanner poprowadzi wykład na temat FPC w <a href="http://haifux.org/future.html">HAIFUX</a>, Klubie Linuksa na Instytucie Technologii Technion w Hajfie, w poniedziałek, 15 stycznia 2007. Wykład zostanie powtórzony w <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, [uniwersyteckim] Klubie Linuksa w Tel Aviv.
+</TRN>
+<TRN locale="pl_PL" key="website.overview_text">
+Free Pascal (dawniej FPK Pascal) jest 32- i 64-bitowym profesjonalnym kompilatorem Pascala. Dostępny jest na różne architektury: Intel x86, Amd64/x86_64, PowerPC, Sparc. Nie rozwijana już wersja 1.0 była również dostępna na Motorole 680x0. Obsługiwane są następujące systemy operacyjne: Linux, FreeBSD, <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2, Netware (libc i classic) oraz MorphOS.
 </TRN>
