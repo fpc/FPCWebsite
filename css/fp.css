@@ -8,6 +8,24 @@ body {
 	text-align:left;
 }
 
+/* Bi-Directional support */
+*[lang="he"], *[lang="ar"] /* not supported by IE */
+{
+  direction : rtl;
+  text-align : right;
+}
+
+body[lang="he"], body[lang="ar"]
+{
+ 	margin:0;
+	color:#111111;
+	background-color:#FFFFFF;
+	font-family:"Trebuchet MS", Arial, Verdana, sans-serif;
+  text-align : right;
+  direction : rtl;
+  /*unicode-bidi : embed; */
+}
+
 a {
 	color:#4D87CE;
 	text-decoration:none;
@@ -36,10 +54,30 @@ ul li {
 	background-image:url(../pic/backgrounds/back.png);
 	background-repeat:repeat-x;
 }
+
+div[lang="he"]#menu, div[lang="ar"]#menu
+{
+  width:100%;
+	padding-top:20px;
+	padding-bottom:20px;
+	background-color:#253183;
+	margin:0;
+	color:#ff0000;
+	text-align:center;
+	font-family:Verdana, Arial, sans-serif;
+	font-size:90%; 
+	font-variant:small-caps;
+	background-image:url(../pic/backgrounds/back.png);
+	background-repeat:repeat-x;
+  direction : rtl;
+  
+}
+
 #menu a {
 	color:#ffffff;
 	text-decoration:none;
 	padding:20px 10px;
+  direction: inherit;
 }
 #menu a:hover {
 	border-bottom:1px solid #ffffff;
@@ -50,6 +88,7 @@ ul li {
 	color:#000000;
 	background-color:#808080;
 	background-image:url(../pic/backgrounds/hover.jpg);
+  direction: inherit;
 }
 
 #logoheader {
@@ -61,8 +100,28 @@ ul li {
 #welcome {
 	margin:0 0 0 40px;
 }
+
+div[lang="he"]#welcome, div[lang="ar"]#welcome
+{
+	margin:0 0 0 40px;
+  direction : rtl;
+  text-align : right;
+  /*unicode-bidi : ; */
+}
+
+div[lang="he"]#welcome span, div[lang="ar"]#welcome span
+{
+  unicode-bidi : embed;
+}
+
 #welcome a {
 	margin:0 5px;
+}
+
+div[lang="he"]#welcome a, div[lang="ar"]#welcome a {
+	margin:0 5px;
+  text-align : right;
+  direction : rtl;
 }
 
 #header .spacer {
@@ -116,6 +175,20 @@ ul li {
 	margin:0;
 	padding-top:0;
 }
+
+#sidebar[lang="he"], #sidebar[lang="ar"]
+{
+  width:10em;
+	float:right;
+	font-size:95%;
+	color:#253183;
+	background-color:#ffffff;
+	text-align:right;
+	margin:0;
+	padding-top:0;
+
+}
+
 #sidebar h1 {
 	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
 	font-size:140%;
@@ -127,6 +200,21 @@ ul li {
 	text-align:right;
 	margin-top: 10px;
 }
+
+#sidebar[lang="he"] h1, #sidebar[lang="ar"] h1
+{
+	font-family:"Century Gothic", "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+	font-size:140%;
+	text-transform:uppercase;
+	font-weight:normal;
+	border-bottom:1px solid #eeeeee;
+	color:#253183;
+	background-color:#ffffff;
+	text-align:left;
+	margin-top: 10px;
+
+}
+
 .submenu a {
 	display:block;
 	width:100%;
@@ -134,18 +222,40 @@ ul li {
 	background-position:right;
 	background-repeat:no-repeat;
 	padding:3px 0px 3px 5px;
+  text-align : left;
 }
+
+.submenu[lang="he"] a, .submenu[lang="ar"] a
+{
+  display:block;
+	width:100%;
+	background-image:url(../pic/backgrounds/submenubidi.png); 
+	background-position:left;
+	background-repeat:no-repeat;
+	padding:3px 0px 3px 5px;
+  text-align : right;
+}
+
 .submenu a:hover {
 	background-color:#eeeeee;
 	background-image:url(../pic/backgrounds/submenua_hover.jpg);
 	background-repeat:repeat-y;
 }
+
+.submenu[lang="he"] a:hover, .submenu[lang="ar"] a:hover
+{
+	background-color:#eeeeee;
+	background-image:url(../pic/backgrounds/submenua_hover_bidi.jpg);
+	background-repeat:repeat-y;
+}
+
 .submenu span {
 	display: block;
 	width:100%;
 	text-align:center;
 	padding:5px;
 }
+
 #sidebar div.logos {
 	padding: 10px 0px;
 	text-align:center;
@@ -194,6 +304,13 @@ ul li {
 .navlinks {
 	margin: 3px 0 0 10px;
 }
+
+.navlinks[lang="he"], .navlinks[lang="ar"]
+{
+  text-align : right;
+
+}
+
 .navlinks a {
 	margin: 3px;
 }
@@ -218,6 +335,7 @@ blockquote {
 	padding-bottom:5px;
 	margin: 0 auto 0 auto;
 	color:#FFFFFF;
+  direction : ltr;
 }
 #footer a {
 	color:#81C0FF;
