@@ -51,14 +51,14 @@
    <OL>
     <li><a href="#PortingCPU"><trn key="website.q_porting_CPU" locale="en_US">Considerations in porting code to other processors</trn></a>
     <li><a href="#PortingOS"><trn key="website.q_porting_OS" locale="en_US">Considerations in porting code to other operating systems</trn></a>
-    <li><a href="#OOP"><trn key="q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></a>
-    <li><a href="#HowcanIbuildaunit"><trn key="q_build_unit" locale="en_US">Building a unit</trn></a>
-    <li><a href="#CompileSystemUnit"><trn key="q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></a>
-    <li><a href="#Howdoesprocedureoverloadingwork"><trn key="q_how_does_proc_overloading_work" locale="en_US">How does function overloading work?</trn></a>
-    <li><a href="#HowToCallCFuncuntions"><trn key="q_calling_C_functions" locale="en_US">Calling C functions</trn></a>
-    <li><a href="#IntegratedAssemblerSyntax"><trn key="q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></a>
-    <li><a href="#systemnotfound"><trn key="q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></a>
-    <li><a href="#extensionselect"><trn key="q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></a> 
+    <li><a href="#OOP"><trn key="website.q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></a>
+    <li><a href="#HowcanIbuildaunit"><trn key="website.q_build_unit" locale="en_US">Building a unit</trn></a>
+    <li><a href="#CompileSystemUnit"><trn key="website.q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></a>
+    <li><a href="#Howdoesprocedureoverloadingwork"><trn key="website.q_how_does_proc_overloading_work" locale="en_US">How does function overloading work?</trn></a>
+    <li><a href="#HowToCallCFuncuntions"><trn key="website.q_calling_C_functions" locale="en_US">Calling C functions</trn></a>
+    <li><a href="#IntegratedAssemblerSyntax"><trn key="website.q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></a>
+    <li><a href="#systemnotfound"><trn key="website.q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></a>
+    <li><a href="#extensionselect"><trn key="website.q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></a> 
     </OL>
    <li><trn key="website.RTL_rel_inf" locale="en_US">Runtime library related information</trn>
    <OL>
@@ -927,7 +927,7 @@
         <p>
 
         <li><a name='OOP'></a>
-            <h3><trn key="q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></h3>
+            <h3><trn key="website.q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></h3>
 
             <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
             -Sd switches (see the manuals for the meaning of these switches). For a
@@ -935,7 +935,7 @@
         
 
         <li><a name='HowcanIbuildaunit'></a>
-            <h3><trn key="q_build_unit" locale="en_US">Building a unit</trn></h3>
+            <h3><trn key="website.q_build_unit" locale="en_US">Building a unit</trn></h3>
 
             <p>It works like in Turbo Pascal. The first keyword in the file must be
             UNIT (not case sensitive). The compiler will generate two files:
@@ -947,7 +947,7 @@
         
 
         <li><a name='CompileSystemUnit'></a>
-            <h3><trn key="q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
+            <h3><trn key="website.q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
 
             <p>To recompile the system unit, it is recommended to have GNU make
             installed. typing 'make' in the rtl source directory will then recompile
@@ -959,7 +959,7 @@
 
 
         <li><a name='Howdoesprocedureoverloadingwork'></a>
-            <h3><trn key="q_how_does_proc_overloading_work" locale="en_US">How does procedure overloading work?</trn></h3>
+            <h3><trn key="website.q_how_does_proc_overloading_work" locale="en_US">How does procedure overloading work?</trn></h3>
 
             <p>Here is a procedure overloading example:
             <PRE>
@@ -986,7 +986,7 @@
         
 
         <li><a name='HowToCallCFuncuntions'></a>
-            <h3><trn key="q_calling_C_functions" locale="en_US">Calling C functions</trn></h3>
+            <h3><trn key="website.q_calling_C_functions" locale="en_US">Calling C functions</trn></h3>
 
             <p>
             It is possible to call functions coded in C, which were compiled
@@ -1000,7 +1000,7 @@
 
 
         <li><a name='IntegratedAssemblerSyntax'></a>
-            <h3><trn key="q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></h3>
+            <h3><trn key="website.q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></h3>
 
             <p>The default assembler syntax (AT&amp;T style) is different from the
             one in Borland Pascal (Intel style). 
@@ -1019,7 +1019,7 @@
 
 
         <li><a name='systemnotfound'></a>
-            <h3><trn key="q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></h3>
+            <h3><trn key="website.q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></h3>
 
             <p>System (syslinux - not the bootloader, sysos2 or syswin32, depending
             on platform) is Pascal's base unit which is implicitely used in all programs.
@@ -1059,7 +1059,7 @@
             <p>
         
         <li><a name='extensionselect'></a>
-            <h3><trn key="q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></h3>
+            <h3><trn key="website.q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></h3>
         <p>
             Occasionally somebody asks for a new extension on the maillist,
 	    and the discussions that follow have a recurring pattern. An
