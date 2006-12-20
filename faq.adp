@@ -592,7 +592,7 @@
 
         <li><a name=cfgfiles></a>
           <h3><trn key="website.q_cfg_problems" locale="en_US">Configuration file problems (fpc.cfg or ppc386.cfg)</trn></h3>
-          <trn key="website.q_cfg_problems" locale="en_US">
+          <trn key="website.a_cfg_problems" locale="en_US">
             <p> Starting from version 1.0.6 of Free Pascal, the configuration
             file is now called <TT>fpc.cfg</TT> instead of <TT>ppc386.cfg</TT>.
             For backward compatibility , <TT>ppc386.cfg</TT> is still searched first
@@ -674,7 +674,7 @@
           <h3><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></h3>
           <h3><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn></h3>
 
-          <trn key="website.a_Cannot_compile_with_bin_unit" locale="en_US">Can't compile a program using a binary only version of a unit</trn>
+          <trn key="website.a_Cannot_compile_with_bin_unit" locale="en_US">
             <p>
             Sometimes, even though there is a binary version of a module (unit file and object file)
             available, the compiler still gives compilation errors. This can be caused either by an
@@ -703,7 +703,7 @@
           </trn>
 
         
-        <li><a name=filemode></a>
+        <li><a name='filemode'></a>
            <h3>File denied errors when opening files with reset </h3>
 
            <p> Trying to open files using <CODE>reset</CODE> on non-text files
