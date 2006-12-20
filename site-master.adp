@@ -72,7 +72,7 @@
     <a href="@maindir@tools/rstconv@x@">RSTConv</a>
     <a href="@maindir@tools/tply@x@">TPLY</a>
     <a href="@maindir@fcl/fcl@x@">FCL</a>
-    <a href="@maindir@packages/packages@x@"><trn locale="en_US" key="website.Packages">Packages</trn></a>
+    <a href="@maindir@packages/"><trn locale="en_US" key="website.Packages">Packages</trn></a>
    </div>
 
   <h1><trn locale="en_US" key="freepascal.search">Search</trn></h1>
