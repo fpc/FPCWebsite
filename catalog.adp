@@ -4188,3 +4188,38 @@ GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor h
 <TRN locale="pl_PL" key="website.overview_text">
 Free Pascal (dawniej FPK Pascal) jest 32- i 64-bitowym profesjonalnym kompilatorem Pascala. Dostępny jest na różne architektury: Intel x86, Amd64/x86_64, PowerPC, Sparc. Nie rozwijana już wersja 1.0 była również dostępna na Motorole 680x0. Obsługiwane są następujące systemy operacyjne: Linux, FreeBSD, <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2, Netware (libc i classic) oraz MorphOS.
 </TRN>
+<TRN locale="nl_NL" key="website.q_isoxpascal">
+Gaan jullie ISO Extended Pascal ondersteunen?
+</TRN>
+<TRN locale="nl_NL" key="website.a_isoxpascal">
+We staan open voor ondersteuning voor ISO Extended Pascal, maar het Free-Pascal-ontwikkelteam ziet compatibiliteit met extended Pascal niet als belangrijk, en zal er daarom zelf geen tijd aan besteden. De reden is dat ISO Extended Pascal gezien moet worden als een mislukte standaard.
+<p>
+Om de redenen hiervoor toe te kunnen begrijpen, dienen we terug te gaan naar de jaren '70. Destijds werd een specifieke Pascalcompiler populair, UCSD-Pascal. De mogelijk om programma's die voor een bepaalde architectuur geschreven waren op een andere heeft hierin een belangrijke factor gespeeld. Alle Pascal compilers van belang hebben hun taaldialect afgelijk van de UCSD-Pascalcompiler, waaronder de bekende Borland- en Mac-Pascaldialecten.
+<p>
+UCSD-Pascal introduceerde het unit-stelsel en de stringvariabelen waar iedere Pascalprogrammeur mee vertrouwd is. De ISO Extended Pascal-taal sluit beide taalonderdelen uit; ISO Extended Pascal heeft zowel een volledig andere systeem voor modulaire programmering als wel als dat het stringstelsel volledig verschilt van dat uit het UCSD-model. Kort gezegd is het niet mogelijk om beide dialecten tegelijk te ondersteunen.
+<p>
+Als gevolg hiervan, kon de softwareindustrie niet overstappen op ISO Extended Pascal zonder de compatibiliteit te verbreken met alle bekende broncode. Bijgevolg hebben uiteindelijk zeer weinig compilers ISO Extended Pascal geïmplementeerd, en degenen die dat wel deden hebben geen grote populariteit genoten.
+<p>
+Vandaag de dag bestaat er zeer weinig code die geschreven is in ISO Extended Pascal. Hoewel Free Pascal het wellicht kan ondersteunen met een aparte compilermode, is het niet al te zinnig om een compiler te maken waarvoor geen broncode bestaat dat deze kan compileren.
+<p>
+GNU-Pascal is een moderne compiler die  ISO Extended Pascal kan compileren. Als je om wat voor reden dan ook nood ziet voor het ISO Extended Pascaldialect, dan bevelen we je aan eens naar deze compiler te kijken.
+</TRN>
+<TRN locale="nl_NL" key="website.q_Debugging_DLL">
+Het debuggen van gedeelde bibliotheken (dynamisch gelinkte bibliotheken) werkt niet zoals het hoort
+</TRN>
+<TRN locale="nl_NL" key="website.a_Debugging_DLL">
+<p>Het debuggen van gedeelde bibliotheken (of dynamisch gelinkte bibliotheken) gemaakt met de Free-Pascalcompiler wordt niet officieel ondersteund.
+          
+</TRN>
+<TRN locale="pl_PL" key="website.req_armb">
+Obecnie możliwa jest tylko kompilacja kodu na ARM z innej architektury (tzw. cross-compiling).
+</TRN>
+<TRN locale="pl_PL" key="website.reqppcb">
+Wymagany jest dowolny procesor PowerPC i 16 MB pamięci RAM. Wersja Mac OS classic przeznaczona jest na System 7.5.3 i nowsze. Wersja Mac OS X wymaga Mac OS X 10.1 lub nowszego, z zainstalowanymi narzędziami deweloperskimi. Na innych systemach operacyjnych Free Pascal będzie działać w każdym systemie, który potrafi uruchomić system operacyjny.
+</TRN>
+<TRN locale="pl_PL" key="website.req_sparcb">
+Wymagane jest 16 MB pamięci RAM. Działa na każdej instalacji Sparc Linuksa.
+</TRN>
+<TRN locale="pl_PL" key="website.req_x86b">
+Wersja 80x86 będzie działać już na procesorze 386, ale zalecany jest co najmniej 486.
+</TRN>
