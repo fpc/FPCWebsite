@@ -3403,9 +3403,6 @@ Szczęśliwy Traf
             release version, so backup your old RTL as well. 
           
 </TRN>
-<TRN locale="en_US" key="website.a_Known_bugs">
-Known bugs / Reporting bugs
-</TRN>
 <TRN locale="en_US" key="website.a_Homework">
 
             <p>No. Please, don't send us mail about homework, we are no teachers.
@@ -4217,9 +4214,81 @@ Obecnie możliwa jest tylko kompilacja kodu na ARM z innej architektury (tzw. cr
 <TRN locale="pl_PL" key="website.reqppcb">
 Wymagany jest dowolny procesor PowerPC i 16 MB pamięci RAM. Wersja Mac OS classic przeznaczona jest na System 7.5.3 i nowsze. Wersja Mac OS X wymaga Mac OS X 10.1 lub nowszego, z zainstalowanymi narzędziami deweloperskimi. Na innych systemach operacyjnych Free Pascal będzie działać w każdym systemie, który potrafi uruchomić system operacyjny.
 </TRN>
+<TRN locale="pl_PL" key="website.Features_text">
+Składnia języka jest w pełni kompatybilna z TP 7.0, jak i z większością wersji Delphi (klasy, rtti, wyjątki, ansistrings, widestrings, interfejsy). Z myślą o użytkownikach Apple'a, dostępny jest również tryb kompatybilności z Mac Pascalem. Ponadto Free Pascal pozwala na przeciążanie funkcji (ang. function overloading) i operatorów (ang. operator overloading), globalne właściwości i wiele innych.
+</TRN>
+<TRN locale="pl_PL" key="website.can_download_for_platform">
+Możesz ściągnąć wydanie 2.0.x dla następujących procesorów i systemów operacyjnych:
+</TRN>
+<TRN locale="pl_PL" key="website.download_documentation">
+Dokumentację można pobrać w różnych formatach z jednej z naszych <a href="down/docs/docs@x@">pobieralni</a>.
+</TRN>
+<TRN locale="pl_PL" key="website.Source">
+Źródła
+</TRN>
+<TRN locale="pl_PL" key="website.download_source">
+Źródła można pobrać oddzielnie w pliku <b>zip</b> lub <b>tar.gz</b> z jednej z naszych <a href="down/source/sources@x@">pobieralni</a>.
+</TRN>
+<TRN locale="pl_PL" key="website.Sources">
+Źródła
+</TRN>
+<TRN locale="pl_PL" key="website.You_can_download_installer">
+Możesz pobrać instalator
+</TRN>
+<TRN locale="pl_PL" key="website.Documentation_av_several_formats">
+Dokumentacja jest dostępna w różnych formatach (jeżeli chcesz jej użyć w tekstowym IDE, potrzebujesz formatu HTML):
+</TRN>
+<TRN locale="pl_PL" key="website.Get_the_sources_here">
+Źródła pobierzesz <a href="@mirror_url@/dist/source-2.0.4">tutaj</a>
+</TRN>
+<TRN locale="pl_PL" key="website.Coding">
+Programowanie
+</TRN>
 <TRN locale="pl_PL" key="website.req_sparcb">
 Wymagane jest 16 MB pamięci RAM. Działa na każdej instalacji Sparc Linuksa.
 </TRN>
 <TRN locale="pl_PL" key="website.req_x86b">
 Wersja 80x86 będzie działać już na procesorze 386, ale zalecany jest co najmniej 486.
+</TRN>
+<TRN locale="pl_PL" key="website.Porting_from_TP7">
+Przenoszenie kodu z TP7
+</TRN>
+<TRN locale="pl_PL" key="website.Current_Version">
+Aktualna Wersja
+</TRN>
+<TRN locale="pl_PL" key="website.Old_releases">
+Stare wydania
+</TRN>
+<TRN locale="nl_NL" key="website.q_Increase_heap">
+De heap vergroten
+</TRN>
+<TRN locale="pl_PL" key="website.Features">
+Możliwości
+</TRN>
+<TRN locale="pl_PL" key="website.Official_releases">
+Oficjalne wydania
+</TRN>
+<TRN locale="pl_PL" key="website.latest_release">
+Najnowsze wydanie to <b>2.0.4</b>
+</TRN>
+<TRN locale="pl_PL" key="website.down_i386_freebsd_note">
+FreeBSD 4.x i prawdopodobnie 5.x również
+</TRN>
+<TRN locale="pl_PL" key="website.latest_version_is">
+Najnowsze wydanie jest w wersji <b>2.0.4</b>.
+</TRN>
+<TRN locale="pl_PL" key="website.supported_windows_versions">
+Obsługiwane są następujące wersje systemu Windows: 95, 98, ME, NT, 2000, XP oraz 2003
+</TRN>
+<TRN locale="pl_PL" key="website.already_included_installer">
+domyślnie dołączona do instalatora
+</TRN>
+<TRN locale="nl_NL" key="website.a_Increase_heap">
+<p>Standaard wijst Free Pascal een klein deel van het geheugen aan je applicatie toe als heapgeheugen. Als Free Pascal zoveel mogelijk geheugen zou opeisen als het maar kan krijgen, dan zouden mensen die bijvoorbeeld Windows draaien problemen krijgen omdat Windows zijn wisselbestand zou vergroten om programma's meer geheugen te kunnen toewijzen. Dat zou net zolang doorgaan totdat de schijf waarop het wisselbestand staat vol zou zijn. 
+
+<p>Je kunt de grootte van de heap opgeven met -Chxxxx. 
+
+<p>Desalniettemin maakt de grootte van de heap niet echt veel uit omdat de heap kan groeien: als je programma alle ruimte op de heap heeft opgebruikt zal het meer geheugen aan het besturingssysteem vragen, zodat de heap beperkt is tot de maximale hoeveelheid geheugen dat het besturingssysteem kan of wil leveren.
+
+<p>Het instellen van de heapgrootte is alleen handig als je zeker weet dat je een bepaalde hoeveelheid geheugen nodig hebt. Je kunt deze waarde opgeven met de commandoregeloptie -Ch, zodat je programma al het benodigde geheugen direct tijdens het opstarten opeist. Dit is wat efficiënter dan wanneer je de heap enkele malen zou laten groeien.  
 </TRN>

@@ -49,16 +49,16 @@
    </OL>
    <li><trn key="website.Pascal_lang_rel_inf" locale="en_US">Pascal language related information</trn>
    <OL>
-    <li><a href="#PortingCPU">Considerations in porting code to other processors</a>
-    <li><a href="#PortingOS">Considerations in porting code to other operating systems</a>
-    <li><a href="#OOP">Compiling Delphi code using Free Pascal</a>
-    <li><a href="#HowcanIbuildaunit">Building a unit</a>
-    <li><a href="#CompileSystemUnit">Compiling the system unit</a>
-    <li><a href="#Howdoesfunctionoverloadingwork">How does function overloading work?</a>
-    <li><a href="#HowToCallCFuncuntions">Calling C functions</a>
-    <li><a href="#IntegratedAssemblerSyntax">Integrated Assembler syntax</a>
-    <li><a href="#systemnotfound">Unit system, syslinux, sysos2 or syswin32 not found errors</a>
-    <li><a href="#extensionselect">There is a new extension that will be really useful. Will you include it?</a> 
+    <li><a href="#PortingCPU"><trn key="website.q_porting_CPU" locale="en_US">Considerations in porting code to other processors</trn></a>
+    <li><a href="#PortingOS"><trn key="website.q_porting_OS" locale="en_US">Considerations in porting code to other operating systems</trn></a>
+    <li><a href="#OOP"><trn key="q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></a>
+    <li><a href="#HowcanIbuildaunit"><trn key="q_build_unit" locale="en_US">Building a unit</trn></a>
+    <li><a href="#CompileSystemUnit"><trn key="q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></a>
+    <li><a href="#Howdoesprocedureoverloadingwork"><trn key="q_how_does_proc_overloading_work" locale="en_US">How does function overloading work?</trn></a>
+    <li><a href="#HowToCallCFuncuntions"><trn key="q_calling_C_functions" locale="en_US">Calling C functions</trn></a>
+    <li><a href="#IntegratedAssemblerSyntax"><trn key="q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></a>
+    <li><a href="#systemnotfound"><trn key="q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></a>
+    <li><a href="#extensionselect"><trn key="q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></a> 
     </OL>
    <li><trn key="website.RTL_rel_inf" locale="en_US">Runtime library related information</trn>
    <OL>
@@ -783,7 +783,7 @@
          </trn>
 
 
-        <li><a name=dotnet></a>
+        <li><a name='dotnet'></a>
           <h3><trn key="website.q_What_about_dotNET" locale="en_US">What about .NET?</trn></h3>
           <trn key="website.a_What_about_dotNET" locale="en_US">
 	   Occasionally, users ask about a FPC that supports .NET, or our
@@ -851,7 +851,7 @@
    <OL>
 
         <li><a name='PortingCPU'></a>
-            <h3>Considerations in porting to other processors</h3>
+            <h3><trn key="website.q_porting_CPU" locale="en_US">Considerations in porting to other processors</trn></h3>
 
             <p>Because the compiler now supports processors other than the Intel, it
             is important to take a few precautions so that your code will execute
@@ -871,14 +871,14 @@
               as this is the limit of some processors, use const or var parameters
               instead. 
               <li>The <TT>integer</TT> and <TT>cardinal</TT> types might have different
-	      sizes and ranges on each processor, as well as depending on the compiler
-	      mode.
+              sizes and ranges on each processor, as well as depending on the compiler
+              mode.
               
               <li>The <TT>CPU32</TT> or <TT>CPU64</TT> (defined by FPC starting 
               from version 1.9.3) are defined indicating if the target is a 32-bit or 
               64-bit cpu; This can help you separate 32-bit and 64-bit specific code. 
               
-              <li>Use the <TT>ptrint</TT> type (defined by FPC starting 
+              <li>Use the <TT>ptruint</TT> type (defined by FPC starting 
               from version 1.9.3) when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
               the processor and operating system. 
@@ -887,8 +887,8 @@
         
         <p>
 
-        <li><a name=PortingOS></a>
-            <h3>Considerations in porting code to other operating systems</h3>
+        <li><a name='PortingOS'></a>
+            <h3><trn key="website.q_porting_OS" locale="en_US">Considerations in porting code to other operating systems</trn></h3>
 
             <p>Because the compiler supports several different operating systems,
             is important to take a few precautions so that your code will execute
@@ -926,16 +926,16 @@
         
         <p>
 
-        <li><a name=OOP></a>
-            <h3>Compiling Delphi code using Free Pascal</h3>
+        <li><a name='OOP'></a>
+            <h3><trn key="q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></h3>
 
             <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
             -Sd switches (see the manuals for the meaning of these switches). For a
             list of Delphi incompabilities also check the manual. 
         
 
-        <li><a name=HowcanIbuildaunit></a>
-            <h3>Building a unit</h3>
+        <li><a name='HowcanIbuildaunit'></a>
+            <h3><trn key="q_build_unit" locale="en_US">Building a unit</trn></h3>
 
             <p>It works like in Turbo Pascal. The first keyword in the file must be
             UNIT (not case sensitive). The compiler will generate two files:
@@ -946,8 +946,8 @@
             USES clause of your program. 
         
 
-        <li><a name=CompileSystemUnit></a>
-            <h3>Compiling the system unit</h3>
+        <li><a name='CompileSystemUnit'></a>
+            <h3><trn key="q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
 
             <p>To recompile the system unit, it is recommended to have GNU make
             installed. typing 'make' in the rtl source directory will then recompile
@@ -958,10 +958,10 @@
         
 
 
-        <li><a name=Howdoesfunctionoverloadingwork></a>
-            <h3>How does function overloading work?</h3>
+        <li><a name='Howdoesprocedureoverloadingwork'></a>
+            <h3><trn key="q_how_does_proc_overloading_work" locale="en_US">How does procedure overloading work?</trn></h3>
 
-            <p>function overloading is implemented, like in C++:
+            <p>Here is a procedure overloading example:
             <PRE>
                     procedure a(i : integer);
                     begin
@@ -985,8 +985,8 @@
             return types are different. 
         
 
-        <li><a name=HowToCallCFuncuntions></a>
-            <h3>Calling C functions</h3>
+        <li><a name='HowToCallCFuncuntions'></a>
+            <h3><trn key="q_calling_C_functions" locale="en_US">Calling C functions</trn></h3>
 
             <p>
             It is possible to call functions coded in C, which were compiled
@@ -999,24 +999,27 @@
         
 
 
-        <li><a name=IntegratedAssemblerSyntax></a>
-            <h3>Integrated Assembler syntax</h3>
+        <li><a name='IntegratedAssemblerSyntax'></a>
+            <h3><trn key="q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></h3>
 
             <p>The default assembler syntax (AT&amp;T style) is different from the
             one in Borland Pascal (Intel style). 
 
             <p>However, as of version 0.99.0, the compiler supports Intel style
             assembly syntax. See the documentation for more info on how to use
-            different assembler styles. 
+            different assembler styles.
+
+            <p>Since version 1.9.2, the compiler also uses the register calling
+            convention, which means the compiler can assemble assembler routines
+            in Delphi source code without modification.
 
             <p>A description of the AT&amp;T syntax can be found in the GNU
             Assembler documentation. 
         
 
 
-
-        <li><a name=systemnotfound></a>
-            <h3>Unit system, syslinux, sysos2 or syswin32 not found errors</h3>
+        <li><a name='systemnotfound'></a>
+            <h3><trn key="q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></h3>
 
             <p>System (syslinux - not the bootloader, sysos2 or syswin32, depending
             on platform) is Pascal's base unit which is implicitely used in all programs.
@@ -1055,8 +1058,8 @@
             </PRE>
             <p>
         
-        <li><a name=extensionselect></a>
-            <h3>There is a new extension that will be really useful. Will you include it?</h3>
+        <li><a name='extensionselect'></a>
+            <h3><trn key="q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></h3>
         <p>
             Occasionally somebody asks for a new extension on the maillist,
 	    and the discussions that follow have a recurring pattern. An
