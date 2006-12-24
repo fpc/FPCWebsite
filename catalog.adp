@@ -3557,9 +3557,6 @@ Szczęśliwy Traf
             of the manual.
           
 </TRN>
-<TRN locale="en_US" key="website.a_Cannot_compile_with_bin_unit">
-Can't compile a program using a binary only version of a unit
-</TRN>
 <TRN locale="en_US" key="website.a_isoxpascal">
 
        We are open for support for ISO Extended Pascal, but the Free Pascal
@@ -4188,10 +4185,17 @@ Free Pascal (dawniej FPK Pascal) jest 32- i 64-bitowym profesjonalnym kompilator
 <TRN locale="nl_NL" key="website.q_isoxpascal">
 Gaan jullie ISO Extended Pascal ondersteunen?
 </TRN>
+<TRN locale="nl_NL" key="website.q_Debugging_DLL">
+Het debuggen van gedeelde bibliotheken (dynamisch gelinkte bibliotheken) werkt niet zoals het hoort
+</TRN>
+<TRN locale="nl_NL" key="website.a_Debugging_DLL">
+<p>Het debuggen van gedeelde bibliotheken (of dynamisch gelinkte bibliotheken) gemaakt met de Free-Pascalcompiler wordt niet officieel ondersteund.
+          
+</TRN>
 <TRN locale="nl_NL" key="website.a_isoxpascal">
 We staan open voor ondersteuning voor ISO Extended Pascal, maar het Free-Pascal-ontwikkelteam ziet compatibiliteit met extended Pascal niet als belangrijk, en zal er daarom zelf geen tijd aan besteden. De reden is dat ISO Extended Pascal gezien moet worden als een mislukte standaard.
 <p>
-Om de redenen hiervoor toe te kunnen begrijpen, dienen we terug te gaan naar de jaren '70. Destijds werd een specifieke Pascalcompiler populair, UCSD-Pascal. De mogelijk om programma's die voor een bepaalde architectuur geschreven waren op een andere heeft hierin een belangrijke factor gespeeld. Alle Pascal compilers van belang hebben hun taaldialect afgelijk van de UCSD-Pascalcompiler, waaronder de bekende Borland- en Mac-Pascaldialecten.
+Om de redenen hiervoor toe te kunnen begrijpen, dienen we terug te gaan naar de jaren '70. Destijds werd een specifieke Pascalcompiler populair, UCSD-Pascal. De mogelijk om programma's die voor een bepaalde architectuur geschreven waren op een andere heeft hierin een belangrijke factor gespeeld. Alle Pascal compilers van belang hebben hun taaldialect afgeleid van de UCSD-Pascalcompiler, waaronder de bekende Borland- en Mac-Pascaldialecten.
 <p>
 UCSD-Pascal introduceerde het unit-stelsel en de stringvariabelen waar iedere Pascalprogrammeur mee vertrouwd is. De ISO Extended Pascal-taal sluit beide taalonderdelen uit; ISO Extended Pascal heeft zowel een volledig andere systeem voor modulaire programmering als wel als dat het stringstelsel volledig verschilt van dat uit het UCSD-model. Kort gezegd is het niet mogelijk om beide dialecten tegelijk te ondersteunen.
 <p>
@@ -4200,13 +4204,6 @@ Als gevolg hiervan, kon de softwareindustrie niet overstappen op ISO Extended Pa
 Vandaag de dag bestaat er zeer weinig code die geschreven is in ISO Extended Pascal. Hoewel Free Pascal het wellicht kan ondersteunen met een aparte compilermode, is het niet al te zinnig om een compiler te maken waarvoor geen broncode bestaat dat deze kan compileren.
 <p>
 GNU-Pascal is een moderne compiler die  ISO Extended Pascal kan compileren. Als je om wat voor reden dan ook nood ziet voor het ISO Extended Pascaldialect, dan bevelen we je aan eens naar deze compiler te kijken.
-</TRN>
-<TRN locale="nl_NL" key="website.q_Debugging_DLL">
-Het debuggen van gedeelde bibliotheken (dynamisch gelinkte bibliotheken) werkt niet zoals het hoort
-</TRN>
-<TRN locale="nl_NL" key="website.a_Debugging_DLL">
-<p>Het debuggen van gedeelde bibliotheken (of dynamisch gelinkte bibliotheken) gemaakt met de Free-Pascalcompiler wordt niet officieel ondersteund.
-          
 </TRN>
 <TRN locale="pl_PL" key="website.req_armb">
 Obecnie możliwa jest tylko kompilacja kodu na ARM z innej architektury (tzw. cross-compiling).
@@ -4291,4 +4288,198 @@ domyślnie dołączona do instalatora
 <p>Desalniettemin maakt de grootte van de heap niet echt veel uit omdat de heap kan groeien: als je programma alle ruimte op de heap heeft opgebruikt zal het meer geheugen aan het besturingssysteem vragen, zodat de heap beperkt is tot de maximale hoeveelheid geheugen dat het besturingssysteem kan of wil leveren.
 
 <p>Het instellen van de heapgrootte is alleen handig als je zeker weet dat je een bepaalde hoeveelheid geheugen nodig hebt. Je kunt deze waarde opgeven met de commandoregeloptie -Ch, zodat je programma al het benodigde geheugen direct tijdens het opstarten opeist. Dit is wat efficiënter dan wanneer je de heap enkele malen zou laten groeien.  
+</TRN>
+<TRN locale="en_US" key="website.q_porting_CPU">
+Considerations in porting code to other processors
+</TRN>
+<TRN locale="en_US" key="website.q_porting_OS">
+Considerations in porting code to other operating systems
+</TRN>
+<TRN locale="en_US" key="website.a_Known_bugs">
+Known bugs / Reporting bugs
+            <p>Go to the <a href="bugs@x@">bugs page</a>. 
+
+            <p>If you wish to know the bugs for a specific Free Pascal version, go to the bugs
+            page, display the bug database. At the end of the page you should
+            see an option to view only specific bugs. Choose "With Version"
+            with the version you want to get information about and
+            "With Status" choose "Unfixed". This should display all bugs
+            which are present in the specific version of the compiler
+            you requested.
+          
+</TRN>
+<TRN locale="en_US" key="website.q_OOP">
+Compiling Delphi code using Free Pascal
+</TRN>
+<TRN locale="en_US" key="website.q_build_unit">
+Building a unit
+</TRN>
+<TRN locale="en_US" key="website.q_compiling_systemunit">
+Compiling the system unit
+</TRN>
+<TRN locale="en_US" key="website.q_how_does_proc_overloading_work">
+How does function overloading work?
+</TRN>
+<TRN locale="en_US" key="website.q_calling_C_functions">
+Calling C functions
+</TRN>
+<TRN locale="en_US" key="website.q_integrated_assembler_syntax">
+Integrated Assembler syntax
+</TRN>
+<TRN locale="en_US" key="website.q_system_not_found">
+Unit system, syslinux, sysos2 or syswin32 not found errors
+</TRN>
+<TRN locale="en_US" key="website.q_extenstion">
+There is a new extension that will be really useful. Will you include it?
+</TRN>
+<TRN locale="nl_NL" key="website.q_Cannot_compile_with_bin_unit">
+Ik wil een voorgecompileerde unit gebruiken, maar dat lukt niet
+</TRN>
+<TRN locale="en_US" key="website.a_cfg_problems">
+
+            <p> Starting from version 1.0.6 of Free Pascal, the configuration
+            file is now called <TT>fpc.cfg</TT> instead of <TT>ppc386.cfg</TT>.
+            For backward compatibility , <TT>ppc386.cfg</TT> is still searched first
+            and, if found, is used instead of <TT>fpc.cfg</TT>
+
+            <p> Versions prior to Free Pascal 1.0.6 do not recognize <TT>fpc.cfg</TT>,
+            so if you wish to use an earlier version of the compiler using the
+            same configuration file used with FPC version 1.0.6 (or later),
+            the configuration file should be renamed to <TT>ppc386.cfg</TT>.
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_PPU_bin_compatibility">
+Binaire compatibiliteit van PPU-bestanden tussen versies
+</TRN>
+<TRN locale="en_US" key="website.a_Cannot_compile_with_bin_unit">
+
+            <p>
+            Sometimes, even though there is a binary version of a module (unit file and object file)
+            available, the compiler still gives compilation errors. This can be caused either by an
+            incompatibility in the PPU file format (which should change only between
+            major versions of the compiler), or by a change in one of the units of the RTL
+            which has changed in between releases.
+            
+
+            <p>
+            To get more information, compile the code using the -va (show all information)
+            compiler switch, and the unit loading phase will be displayed. You might
+            discover that the unit being loaded requires to be recompiled because one
+            of the unit it uses has changed.
+            
+
+            <p>So if you plan on distributing a module without the source code, the binaries
+               should be compiled and made available for all versions of the compiler you
+               wish to support, otherwise compilation errors are bound to occur.
+            
+
+            <p>In other words, the unit (PPU) file format does not change significantly
+               in between minor releases of the compiler (for exemple : from 1.0.4 and 1.0.6)
+               which means they are binary compatible, but because the interface of the units
+               of the RTL certainly changes between versions, recompilation will be required
+               for each version anyways.
+          
+</TRN>
+<TRN locale="pl_PL" key="website.q_FPC_vs_GPC">
+Free Pascal i GNU Pascal - porównanie
+</TRN>
+<TRN locale="pl_PL" key="website.q_Homework">
+Moim zadaniem domowym jest napisanie programu. Możecie mi pomóc?
+</TRN>
+<TRN locale="pl_PL" key="website.q_Wanna_new_version_now">
+Chcę nową wersję NATYCHMIAST
+</TRN>
+<TRN locale="pl_PL" key="website.q_Game_in_FPC">
+Jak mogę zrobić grę za pomocą Free Pascala? Mogę zrobić grę taką jak Doom 3?
+</TRN>
+<TRN locale="pl_PL" key="website.q_Real_windows_application">
+Jak mogę zrobić prawdziwą Windows'ową aplikację z oknami i paskami menu?
+</TRN>
+<TRN locale="pl_PL" key="website.a_Real_windows_application">
+Najłatwiejszą drogą jest <a href='http://www.lazarus.freepascal.org'>pobranie Lazarusa</a>. Nie będzie to tylko Windows'owa aplikacja, ale również działająca pod Linuksem, FreeBSD oraz MacOS X.
+</TRN>
+<TRN locale="nl_NL" key="website.a_Cannot_compile_with_bin_unit">
+<p>Als je een voorgecompileerde unit (ppu- en objectbestand) probeert te gebruiken, dan kan het gebeuren dat de compiler hier compilatiefouten op geeft. Dat kan veroorzaakt worden door een incompatibiliteit in de indeling van het PPU-bestand (tussen belangrijke versieverschillen van de compiler kan incompatibilteit van de PPU-bestanden optreden), of door een wijziging in de interface van één van de units waar de unit van afhankelijk is.
+<p>
+Om meer informatie te krijgen, compileer je de code met de commandoregeloptie -va (dan wordt alle informatie getoond), en bekijk je de laadinformatie van de unit. Je kunt hiermee zien dat de unit die geladen worden gehercompileerd dient te worden omdat één van de units waar hij van afhankelijk is veranderd.
+
+<p>Dus, als je van plan bent een module zonder de broncode te verspreiden, dan moeten de voorgecompileerde units gecompileerd worden en beschikbaar gemaakt worden voor alle versies van de compiler die je wenst te ondersteunen, anders kun je zeker zijn dat compilatiefouten zullen optreden.
+
+<p>Met andere woorden, de indeling van de unitbestanden (PPU) veranderen in principe niet in een mate van belang tussen kleine versiesverschillen van de verschillende compileruitgaven (bijvoorbeeld: tussen 1.0.4 en 1.0.6), hetwelk betekent dat ze binair compatibel zijn. Echter, omdat de interface van de units gegarandeerd verandert tussen versies, zal hercompilatie desondanks noodzakelijk zijn voor iedere compilerversie die uitkomt.     
+</TRN>
+<TRN locale="pl_PL" key="website.q_What_versions_exist">
+Jakie istnieją wersje i której powinienem używać?
+</TRN>
+<TRN locale="pl_PL" key="website.q_Known_bugs">
+Znane błędy / Zgłaszanie błędów
+</TRN>
+<TRN locale="pl_PL" key="website.q_Installing_snapshot">
+Instalowanie snapshot'a
+</TRN>
+<TRN locale="pl_PL" key="website.q_What_is_FPC">
+Czym jest Free Pascal (FPC)?
+</TRN>
+<TRN locale="pl_PL" key="website.q_Installation_hints">
+Wskazówki dotyczące instalacji Free Pascala
+</TRN>
+<TRN locale="nl_NL" key="website.q_cfg_problems">
+Problemen met de configuratiebestanden (fpc.cfg of ppc386.cfg)
+</TRN>
+<TRN locale="nl_NL" key="website.a_cfg_problems">
+<p>Vanaf uitgave 1.0.6 of Free Pascal wordt het configuratiebestand  <TT>fpc.cfg</TT> in plaats van <TT>ppc386.cfg</TT> genoemd.
+Voor compatibiliteit met eerdere versies wordt <TT>ppc386.cfg</TT> nog steeds als eerste gezocht, en, indien gevonden, gebruikt in plaats van <TT>fpc.cfg</TT>
+
+<p> Versies voor Free Pascal 1.0.6 herkennen <TT>fpc.cfg</TT> niet, dus als je een eerdere uitgave van de compiler met hetzelfde configuratiebestand wilt gebruiken als voor FPC-uitgave 1.0.6 (of later), dien je het configuratiebestand te hernoemen naar <TT>ppc386.cfg</TT>.
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_Homework">
+Ik moet een programma voor mijn huiswerk schrijven. Zouden jullie me er mee kunnen helpen?
+</TRN>
+<TRN locale="nl_NL" key="website.a_Homework">
+In principe niet. We zijn geen leraren, en kunnen je dus niet helpen Pascal of programmeren in het algemeen te leren. We ontvangen regelmatig verzoeken van mensen die graag willen dat wij hun huiswerk doen. Hoewel we altijd op alle e-mailberichten proberen te antwoorden, wordt dat met dit soort verzoeken moeilijker en moeilijker.
+</TRN>
+<TRN locale="nl_NL" key="website.a_Known_bugs">
+Bekende bugs/bugs aanmelden
+<p>Ga naar de <a href="bugs@x@">bugspagina</a>. 
+
+<p>Als je de bugs voor een specifieke versie van Free Pascal wilt weten, ga naar de bugspagina en kies "meldingen bekijken". Bij produktversie geeft je de betreffende versie op en klik op "Filter". Klik vervolgens op "Filter gebruiken". Dit toont alle bugs die in de versie die je opgeeft bekend zijn.
+</TRN>
+<TRN locale="pl_PL" key="website.Mailinglists">
+Listy Dyskusyjne
+</TRN>
+<TRN locale="pl_PL" key="website.available_limited_platforms">
+Z powodu braku osób przygotowujących i testujących wydania, 2.0.4 jest dostępna tylko na pewną liczbę platform i nie we wszystkich rodzajach pakietów. Jeżeli chcesz to zmienić i czujesz się na siłach przygotować oraz przetestować przyszłe wydania, skontaktuj się z nami poprzez listy dyskusyjne.
+</TRN>
+<TRN locale="pl_PL" key="website.q_Standard_units">
+Podstawowe moduły
+</TRN>
+<TRN locale="pl_PL" key="website.Pascal_lang_rel_inf">
+Informacje dotyczące języka Pascal
+</TRN>
+<TRN locale="pl_PL" key="website.download_old_releases">
+Odnośniki do paru starych wydań (już bez naszego wsparcia) FPC dla platform, dla których w danym momencie nie istnieje lepsza alternatywa, znajdują się <a href="down/old/down@x@">tutaj</a>. Nie kłopocz się zgłaszaniem błędów odnośnie tych wydań - nie poprawimy ich. Głównym powodem, dla których te platformy nie są już wspierane, jest brak osób, które mogłyby zająć się ich rozwojem - jeżeli jesteś zainteresowany uaktualnieniem obsługi tych platform, odezwij się do nas (np. poprzez listę dyskusyjną fpc-devel).
+</TRN>
+<TRN locale="pl_PL" key="website.Development">
+Rozwój
+</TRN>
+<TRN locale="pl_PL" key="website.q_Licence_copyright_info">
+Licencja i prawa autorskie
+</TRN>
+<TRN locale="pl_PL" key="website.q_Big_binaries">
+Dlaczego wygenerowane binaria są takie duże?
+</TRN>
+<TRN locale="pl_PL" key="website.q_cfg_problems">
+Problemy z plikiem konfiguracyjnym (fpc.cfg lub ppc386.cfg)
+</TRN>
+<TRN locale="pl_PL" key="website.General_Information">
+Podstawowe informacje
+</TRN>
+<TRN locale="pl_PL" key="website.Current_Version_text">
+Wersja <em>2.0.4</em> jest najnowszym stabilnym wydaniem Free Pascala. Aby uzyskać swoją kopię, przejdź do strony <a href="download@x@">pobrania</a> i wybierz najbliższy Ciebie mirror. Wydania rozwojowe mają numery wersji <em>2.1.x</em>. Zaglądnij na stronę <a href="develop.html">rozwoju</a> projektu, by dowiedzieć się, jak pozyskać najnowsze kody źródłowe i jak wspomóc dalszy rozwój.
+</TRN>
+<TRN locale="pl_PL" key="website.General_information">
+Podstawowe informacje
+</TRN>
+<TRN locale="pl_PL" key="website.q_Getting_the_compiler">
+Pozyskanie kompilatora
 </TRN>

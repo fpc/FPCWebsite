@@ -17,6 +17,12 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <trn locale="en_US" key="website.news_headline_20061224">
+    <em>December 24, 2006</em>
+    A <A href='http://www.computerbooks.hu/FreePascal'>book about Free Pascal</a> has been published in Hungary.
+    The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.
+  </trn>
+<p>
  <trn locale="en_US" key="website.news_headline_20061204">
   <em>December 14, 2006</em>
   Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
