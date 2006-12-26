@@ -4456,6 +4456,10 @@ Podstawowe moduły
 <TRN locale="pl_PL" key="website.Pascal_lang_rel_inf">
 Informacje dotyczące języka Pascal
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20061224">
+<em>24 december 2006</em>
+Er is een <A href='http://www.computerbooks.hu/FreePascal'>boek over Free Pascal</a> gepubliceerd in Hongarije. Het 270 bladzijdes tellende boek leert de lezer de Pascaltaal vanaf het begin. Ook de geavanceerde functies van Free Pascal worden behandeld.
+</TRN>
 <TRN locale="pl_PL" key="website.download_old_releases">
 Odnośniki do paru starych wydań (już bez naszego wsparcia) FPC dla platform, dla których w danym momencie nie istnieje lepsza alternatywa, znajdują się <a href="down/old/down@x@">tutaj</a>. Nie kłopocz się zgłaszaniem błędów odnośnie tych wydań - nie poprawimy ich. Głównym powodem, dla których te platformy nie są już wspierane, jest brak osób, które mogłyby zająć się ich rozwojem - jeżeli jesteś zainteresowany uaktualnieniem obsługi tych platform, odezwij się do nas (np. poprzez listę dyskusyjną fpc-devel).
 </TRN>
@@ -4474,6 +4478,13 @@ Problemy z plikiem konfiguracyjnym (fpc.cfg lub ppc386.cfg)
 <TRN locale="pl_PL" key="website.General_Information">
 Podstawowe informacje
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20061224">
+
+    <em>December 24, 2006</em>
+    A <A href='http://www.computerbooks.hu/FreePascal'>book about Free Pascal</a> has been published in Hungary.
+    The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.
+  
+</TRN>
 <TRN locale="pl_PL" key="website.Current_Version_text">
 Wersja <em>2.0.4</em> jest najnowszym stabilnym wydaniem Free Pascala. Aby uzyskać swoją kopię, przejdź do strony <a href="download@x@">pobrania</a> i wybierz najbliższy Ciebie mirror. Wydania rozwojowe mają numery wersji <em>2.1.x</em>. Zaglądnij na stronę <a href="develop.html">rozwoju</a> projektu, by dowiedzieć się, jak pozyskać najnowsze kody źródłowe i jak wspomóc dalszy rozwój.
 </TRN>
@@ -4482,4 +4493,7 @@ Podstawowe informacje
 </TRN>
 <TRN locale="pl_PL" key="website.q_Getting_the_compiler">
 Pozyskanie kompilatora
+</TRN>
+<TRN locale="pl_PL" key="website.news_headline_20061224">
+<em>24 grudnia 2006</em> Na Węgrzech została opublikowana <a href='http://www.computerbooks.hu/FreePascal'>książka na temat Free Pascala</a>. Na 270 stronach książki dokładnie omówiono język Pascal od podstaw, uwzględniając również opis zaawansowanych możliwości języka.
 </TRN>
