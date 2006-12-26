@@ -1,0 +1,11 @@
+#!/usr/bin/tclsh
+
+set cookie "Cookie: ad_session_id=25884064%2c0%2c0+%7b918+1167147021+EC738D4C83EBB771A221CD40EE162523B9977FD7%7d"
+
+source gen_makefile.conf
+
+foreach language $languages {
+  set locale $language_locale($language)
+  exec wget --header $cookie -S -O catalog.${language}.adp "http://community.freepascal.org:10000/freepascal/get_language_catalog?package=website&locale=$locale" >&@ stdout
+}
+

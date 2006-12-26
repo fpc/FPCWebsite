@@ -27,24 +27,24 @@ endif
 .PHONY: all all_pages clean zip tar
 default: all
 all: $(ADP2HTML) all_pages down_all fcl_all tools_all
-aboutus.html.bg: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o aboutus.html.bg -oe iso-8859-5 aboutus.adp
-aboutus.html.en: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o aboutus.html.en -oe iso-8859-1 aboutus.adp
-aboutus.html.fr: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o aboutus.html.fr -oe iso-8859-1 aboutus.adp
-aboutus.html.id: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o aboutus.html.id -oe iso-8859-1 aboutus.adp
-aboutus.html.it: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o aboutus.html.it -oe iso-8859-1 aboutus.adp
-aboutus.html.nl: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o aboutus.html.nl -oe iso-8859-1 aboutus.adp
-aboutus.html.po: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o aboutus.html.po -oe iso-8859-2 aboutus.adp
-aboutus.html.sl: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o aboutus.html.sl -oe iso-8859-2 aboutus.adp
-aboutus.html.ru: aboutus.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o aboutus.html.ru -oe iso-8859-5 aboutus.adp
+aboutus.html.bg: aboutus.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o aboutus.html.bg -oe iso-8859-5 aboutus.adp
+aboutus.html.en: aboutus.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o aboutus.html.en -oe iso-8859-1 aboutus.adp
+aboutus.html.fr: aboutus.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o aboutus.html.fr -oe iso-8859-1 aboutus.adp
+aboutus.html.id: aboutus.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o aboutus.html.id -oe iso-8859-1 aboutus.adp
+aboutus.html.it: aboutus.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o aboutus.html.it -oe iso-8859-1 aboutus.adp
+aboutus.html.nl: aboutus.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o aboutus.html.nl -oe iso-8859-1 aboutus.adp
+aboutus.html.po: aboutus.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o aboutus.html.po -oe iso-8859-2 aboutus.adp
+aboutus.html.sl: aboutus.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o aboutus.html.sl -oe iso-8859-2 aboutus.adp
+aboutus.html.ru: aboutus.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o aboutus.html.ru -oe iso-8859-5 aboutus.adp
 
 aboutus.var: gen_makefile.conf
 	echo > aboutus.var
@@ -84,24 +84,24 @@ aboutus.var: gen_makefile.conf
 	echo 'Content-language: ru' >> aboutus.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> aboutus.var
 	echo >> aboutus.var
-advantage.html.bg: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o advantage.html.bg -oe iso-8859-5 advantage.adp
-advantage.html.en: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o advantage.html.en -oe iso-8859-1 advantage.adp
-advantage.html.fr: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o advantage.html.fr -oe iso-8859-1 advantage.adp
-advantage.html.id: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o advantage.html.id -oe iso-8859-1 advantage.adp
-advantage.html.it: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o advantage.html.it -oe iso-8859-1 advantage.adp
-advantage.html.nl: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o advantage.html.nl -oe iso-8859-1 advantage.adp
-advantage.html.po: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o advantage.html.po -oe iso-8859-2 advantage.adp
-advantage.html.sl: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o advantage.html.sl -oe iso-8859-2 advantage.adp
-advantage.html.ru: advantage.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o advantage.html.ru -oe iso-8859-5 advantage.adp
+advantage.html.bg: advantage.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o advantage.html.bg -oe iso-8859-5 advantage.adp
+advantage.html.en: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o advantage.html.en -oe iso-8859-1 advantage.adp
+advantage.html.fr: advantage.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o advantage.html.fr -oe iso-8859-1 advantage.adp
+advantage.html.id: advantage.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o advantage.html.id -oe iso-8859-1 advantage.adp
+advantage.html.it: advantage.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o advantage.html.it -oe iso-8859-1 advantage.adp
+advantage.html.nl: advantage.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o advantage.html.nl -oe iso-8859-1 advantage.adp
+advantage.html.po: advantage.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o advantage.html.po -oe iso-8859-2 advantage.adp
+advantage.html.sl: advantage.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o advantage.html.sl -oe iso-8859-2 advantage.adp
+advantage.html.ru: advantage.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o advantage.html.ru -oe iso-8859-5 advantage.adp
 
 advantage.var: gen_makefile.conf
 	echo > advantage.var
@@ -141,24 +141,24 @@ advantage.var: gen_makefile.conf
 	echo 'Content-language: ru' >> advantage.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> advantage.var
 	echo >> advantage.var
-credits.html.bg: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o credits.html.bg -oe iso-8859-5 credits.adp
-credits.html.en: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o credits.html.en -oe iso-8859-1 credits.adp
-credits.html.fr: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o credits.html.fr -oe iso-8859-1 credits.adp
-credits.html.id: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o credits.html.id -oe iso-8859-1 credits.adp
-credits.html.it: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o credits.html.it -oe iso-8859-1 credits.adp
-credits.html.nl: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o credits.html.nl -oe iso-8859-1 credits.adp
-credits.html.po: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o credits.html.po -oe iso-8859-2 credits.adp
-credits.html.sl: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o credits.html.sl -oe iso-8859-2 credits.adp
-credits.html.ru: credits.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o credits.html.ru -oe iso-8859-5 credits.adp
+credits.html.bg: credits.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o credits.html.bg -oe iso-8859-5 credits.adp
+credits.html.en: credits.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o credits.html.en -oe iso-8859-1 credits.adp
+credits.html.fr: credits.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o credits.html.fr -oe iso-8859-1 credits.adp
+credits.html.id: credits.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o credits.html.id -oe iso-8859-1 credits.adp
+credits.html.it: credits.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o credits.html.it -oe iso-8859-1 credits.adp
+credits.html.nl: credits.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o credits.html.nl -oe iso-8859-1 credits.adp
+credits.html.po: credits.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o credits.html.po -oe iso-8859-2 credits.adp
+credits.html.sl: credits.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o credits.html.sl -oe iso-8859-2 credits.adp
+credits.html.ru: credits.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o credits.html.ru -oe iso-8859-5 credits.adp
 
 credits.var: gen_makefile.conf
 	echo > credits.var
@@ -198,24 +198,24 @@ credits.var: gen_makefile.conf
 	echo 'Content-language: ru' >> credits.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> credits.var
 	echo >> credits.var
-develop.html.bg: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o develop.html.bg -oe iso-8859-5 develop.adp
-develop.html.en: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o develop.html.en -oe iso-8859-1 develop.adp
-develop.html.fr: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o develop.html.fr -oe iso-8859-1 develop.adp
-develop.html.id: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o develop.html.id -oe iso-8859-1 develop.adp
-develop.html.it: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o develop.html.it -oe iso-8859-1 develop.adp
-develop.html.nl: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o develop.html.nl -oe iso-8859-1 develop.adp
-develop.html.po: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o develop.html.po -oe iso-8859-2 develop.adp
-develop.html.sl: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o develop.html.sl -oe iso-8859-2 develop.adp
-develop.html.ru: develop.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o develop.html.ru -oe iso-8859-5 develop.adp
+develop.html.bg: develop.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o develop.html.bg -oe iso-8859-5 develop.adp
+develop.html.en: develop.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o develop.html.en -oe iso-8859-1 develop.adp
+develop.html.fr: develop.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o develop.html.fr -oe iso-8859-1 develop.adp
+develop.html.id: develop.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o develop.html.id -oe iso-8859-1 develop.adp
+develop.html.it: develop.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o develop.html.it -oe iso-8859-1 develop.adp
+develop.html.nl: develop.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o develop.html.nl -oe iso-8859-1 develop.adp
+develop.html.po: develop.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o develop.html.po -oe iso-8859-2 develop.adp
+develop.html.sl: develop.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o develop.html.sl -oe iso-8859-2 develop.adp
+develop.html.ru: develop.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o develop.html.ru -oe iso-8859-5 develop.adp
 
 develop.var: gen_makefile.conf
 	echo > develop.var
@@ -255,24 +255,24 @@ develop.var: gen_makefile.conf
 	echo 'Content-language: ru' >> develop.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> develop.var
 	echo >> develop.var
-download.html.bg: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o download.html.bg -oe iso-8859-5 download.adp
-download.html.en: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o download.html.en -oe iso-8859-1 download.adp
-download.html.fr: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o download.html.fr -oe iso-8859-1 download.adp
-download.html.id: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o download.html.id -oe iso-8859-1 download.adp
-download.html.it: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o download.html.it -oe iso-8859-1 download.adp
-download.html.nl: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o download.html.nl -oe iso-8859-1 download.adp
-download.html.po: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o download.html.po -oe iso-8859-2 download.adp
-download.html.sl: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o download.html.sl -oe iso-8859-2 download.adp
-download.html.ru: download.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o download.html.ru -oe iso-8859-5 download.adp
+download.html.bg: download.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o download.html.bg -oe iso-8859-5 download.adp
+download.html.en: download.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o download.html.en -oe iso-8859-1 download.adp
+download.html.fr: download.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o download.html.fr -oe iso-8859-1 download.adp
+download.html.id: download.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o download.html.id -oe iso-8859-1 download.adp
+download.html.it: download.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o download.html.it -oe iso-8859-1 download.adp
+download.html.nl: download.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o download.html.nl -oe iso-8859-1 download.adp
+download.html.po: download.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o download.html.po -oe iso-8859-2 download.adp
+download.html.sl: download.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o download.html.sl -oe iso-8859-2 download.adp
+download.html.ru: download.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o download.html.ru -oe iso-8859-5 download.adp
 
 download.var: gen_makefile.conf
 	echo > download.var
@@ -312,24 +312,24 @@ download.var: gen_makefile.conf
 	echo 'Content-language: ru' >> download.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> download.var
 	echo >> download.var
-docs.html.bg: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o docs.html.bg -oe iso-8859-5 docs.adp
-docs.html.en: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o docs.html.en -oe iso-8859-1 docs.adp
-docs.html.fr: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o docs.html.fr -oe iso-8859-1 docs.adp
-docs.html.id: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o docs.html.id -oe iso-8859-1 docs.adp
-docs.html.it: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o docs.html.it -oe iso-8859-1 docs.adp
-docs.html.nl: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o docs.html.nl -oe iso-8859-1 docs.adp
-docs.html.po: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o docs.html.po -oe iso-8859-2 docs.adp
-docs.html.sl: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o docs.html.sl -oe iso-8859-2 docs.adp
-docs.html.ru: docs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o docs.html.ru -oe iso-8859-5 docs.adp
+docs.html.bg: docs.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o docs.html.bg -oe iso-8859-5 docs.adp
+docs.html.en: docs.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o docs.html.en -oe iso-8859-1 docs.adp
+docs.html.fr: docs.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o docs.html.fr -oe iso-8859-1 docs.adp
+docs.html.id: docs.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o docs.html.id -oe iso-8859-1 docs.adp
+docs.html.it: docs.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o docs.html.it -oe iso-8859-1 docs.adp
+docs.html.nl: docs.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o docs.html.nl -oe iso-8859-1 docs.adp
+docs.html.po: docs.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o docs.html.po -oe iso-8859-2 docs.adp
+docs.html.sl: docs.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o docs.html.sl -oe iso-8859-2 docs.adp
+docs.html.ru: docs.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o docs.html.ru -oe iso-8859-5 docs.adp
 
 docs.var: gen_makefile.conf
 	echo > docs.var
@@ -369,24 +369,24 @@ docs.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs.var
 	echo >> docs.var
-faq.html.bg: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o faq.html.bg -oe iso-8859-5 faq.adp
-faq.html.en: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o faq.html.en -oe iso-8859-1 faq.adp
-faq.html.fr: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o faq.html.fr -oe iso-8859-1 faq.adp
-faq.html.id: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o faq.html.id -oe iso-8859-1 faq.adp
-faq.html.it: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o faq.html.it -oe iso-8859-1 faq.adp
-faq.html.nl: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o faq.html.nl -oe iso-8859-1 faq.adp
-faq.html.po: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o faq.html.po -oe iso-8859-2 faq.adp
-faq.html.sl: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o faq.html.sl -oe iso-8859-2 faq.adp
-faq.html.ru: faq.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o faq.html.ru -oe iso-8859-5 faq.adp
+faq.html.bg: faq.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o faq.html.bg -oe iso-8859-5 faq.adp
+faq.html.en: faq.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o faq.html.en -oe iso-8859-1 faq.adp
+faq.html.fr: faq.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o faq.html.fr -oe iso-8859-1 faq.adp
+faq.html.id: faq.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o faq.html.id -oe iso-8859-1 faq.adp
+faq.html.it: faq.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o faq.html.it -oe iso-8859-1 faq.adp
+faq.html.nl: faq.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o faq.html.nl -oe iso-8859-1 faq.adp
+faq.html.po: faq.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o faq.html.po -oe iso-8859-2 faq.adp
+faq.html.sl: faq.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o faq.html.sl -oe iso-8859-2 faq.adp
+faq.html.ru: faq.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o faq.html.ru -oe iso-8859-5 faq.adp
 
 faq.var: gen_makefile.conf
 	echo > faq.var
@@ -426,24 +426,24 @@ faq.var: gen_makefile.conf
 	echo 'Content-language: ru' >> faq.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> faq.var
 	echo >> faq.var
-fpc.html.bg: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o fpc.html.bg -oe iso-8859-5 fpc.adp
-fpc.html.en: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o fpc.html.en -oe iso-8859-1 fpc.adp
-fpc.html.fr: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o fpc.html.fr -oe iso-8859-1 fpc.adp
-fpc.html.id: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o fpc.html.id -oe iso-8859-1 fpc.adp
-fpc.html.it: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o fpc.html.it -oe iso-8859-1 fpc.adp
-fpc.html.nl: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o fpc.html.nl -oe iso-8859-1 fpc.adp
-fpc.html.po: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o fpc.html.po -oe iso-8859-2 fpc.adp
-fpc.html.sl: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o fpc.html.sl -oe iso-8859-2 fpc.adp
-fpc.html.ru: fpc.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o fpc.html.ru -oe iso-8859-5 fpc.adp
+fpc.html.bg: fpc.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o fpc.html.bg -oe iso-8859-5 fpc.adp
+fpc.html.en: fpc.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o fpc.html.en -oe iso-8859-1 fpc.adp
+fpc.html.fr: fpc.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o fpc.html.fr -oe iso-8859-1 fpc.adp
+fpc.html.id: fpc.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o fpc.html.id -oe iso-8859-1 fpc.adp
+fpc.html.it: fpc.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o fpc.html.it -oe iso-8859-1 fpc.adp
+fpc.html.nl: fpc.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o fpc.html.nl -oe iso-8859-1 fpc.adp
+fpc.html.po: fpc.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o fpc.html.po -oe iso-8859-2 fpc.adp
+fpc.html.sl: fpc.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o fpc.html.sl -oe iso-8859-2 fpc.adp
+fpc.html.ru: fpc.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o fpc.html.ru -oe iso-8859-5 fpc.adp
 
 fpc.var: gen_makefile.conf
 	echo > fpc.var
@@ -483,24 +483,24 @@ fpc.var: gen_makefile.conf
 	echo 'Content-language: ru' >> fpc.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> fpc.var
 	echo >> fpc.var
-fpcmac.html.bg: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o fpcmac.html.bg -oe iso-8859-5 fpcmac.adp
-fpcmac.html.en: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o fpcmac.html.en -oe iso-8859-1 fpcmac.adp
-fpcmac.html.fr: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o fpcmac.html.fr -oe iso-8859-1 fpcmac.adp
-fpcmac.html.id: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o fpcmac.html.id -oe iso-8859-1 fpcmac.adp
-fpcmac.html.it: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o fpcmac.html.it -oe iso-8859-1 fpcmac.adp
-fpcmac.html.nl: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o fpcmac.html.nl -oe iso-8859-1 fpcmac.adp
-fpcmac.html.po: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o fpcmac.html.po -oe iso-8859-2 fpcmac.adp
-fpcmac.html.sl: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o fpcmac.html.sl -oe iso-8859-2 fpcmac.adp
-fpcmac.html.ru: fpcmac.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o fpcmac.html.ru -oe iso-8859-5 fpcmac.adp
+fpcmac.html.bg: fpcmac.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o fpcmac.html.bg -oe iso-8859-5 fpcmac.adp
+fpcmac.html.en: fpcmac.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o fpcmac.html.en -oe iso-8859-1 fpcmac.adp
+fpcmac.html.fr: fpcmac.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o fpcmac.html.fr -oe iso-8859-1 fpcmac.adp
+fpcmac.html.id: fpcmac.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o fpcmac.html.id -oe iso-8859-1 fpcmac.adp
+fpcmac.html.it: fpcmac.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o fpcmac.html.it -oe iso-8859-1 fpcmac.adp
+fpcmac.html.nl: fpcmac.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o fpcmac.html.nl -oe iso-8859-1 fpcmac.adp
+fpcmac.html.po: fpcmac.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o fpcmac.html.po -oe iso-8859-2 fpcmac.adp
+fpcmac.html.sl: fpcmac.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o fpcmac.html.sl -oe iso-8859-2 fpcmac.adp
+fpcmac.html.ru: fpcmac.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o fpcmac.html.ru -oe iso-8859-5 fpcmac.adp
 
 fpcmac.var: gen_makefile.conf
 	echo > fpcmac.var
@@ -540,24 +540,24 @@ fpcmac.var: gen_makefile.conf
 	echo 'Content-language: ru' >> fpcmac.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> fpcmac.var
 	echo >> fpcmac.var
-future.html.bg: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o future.html.bg -oe iso-8859-5 future.adp
-future.html.en: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o future.html.en -oe iso-8859-1 future.adp
-future.html.fr: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o future.html.fr -oe iso-8859-1 future.adp
-future.html.id: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o future.html.id -oe iso-8859-1 future.adp
-future.html.it: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o future.html.it -oe iso-8859-1 future.adp
-future.html.nl: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o future.html.nl -oe iso-8859-1 future.adp
-future.html.po: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o future.html.po -oe iso-8859-2 future.adp
-future.html.sl: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o future.html.sl -oe iso-8859-2 future.adp
-future.html.ru: future.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o future.html.ru -oe iso-8859-5 future.adp
+future.html.bg: future.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o future.html.bg -oe iso-8859-5 future.adp
+future.html.en: future.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o future.html.en -oe iso-8859-1 future.adp
+future.html.fr: future.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o future.html.fr -oe iso-8859-1 future.adp
+future.html.id: future.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o future.html.id -oe iso-8859-1 future.adp
+future.html.it: future.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o future.html.it -oe iso-8859-1 future.adp
+future.html.nl: future.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o future.html.nl -oe iso-8859-1 future.adp
+future.html.po: future.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o future.html.po -oe iso-8859-2 future.adp
+future.html.sl: future.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o future.html.sl -oe iso-8859-2 future.adp
+future.html.ru: future.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o future.html.ru -oe iso-8859-5 future.adp
 
 future.var: gen_makefile.conf
 	echo > future.var
@@ -597,24 +597,24 @@ future.var: gen_makefile.conf
 	echo 'Content-language: ru' >> future.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> future.var
 	echo >> future.var
-links.html.bg: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o links.html.bg -oe iso-8859-5 links.adp
-links.html.en: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o links.html.en -oe iso-8859-1 links.adp
-links.html.fr: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o links.html.fr -oe iso-8859-1 links.adp
-links.html.id: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o links.html.id -oe iso-8859-1 links.adp
-links.html.it: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o links.html.it -oe iso-8859-1 links.adp
-links.html.nl: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o links.html.nl -oe iso-8859-1 links.adp
-links.html.po: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o links.html.po -oe iso-8859-2 links.adp
-links.html.sl: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o links.html.sl -oe iso-8859-2 links.adp
-links.html.ru: links.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o links.html.ru -oe iso-8859-5 links.adp
+links.html.bg: links.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o links.html.bg -oe iso-8859-5 links.adp
+links.html.en: links.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o links.html.en -oe iso-8859-1 links.adp
+links.html.fr: links.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o links.html.fr -oe iso-8859-1 links.adp
+links.html.id: links.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o links.html.id -oe iso-8859-1 links.adp
+links.html.it: links.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o links.html.it -oe iso-8859-1 links.adp
+links.html.nl: links.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o links.html.nl -oe iso-8859-1 links.adp
+links.html.po: links.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o links.html.po -oe iso-8859-2 links.adp
+links.html.sl: links.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o links.html.sl -oe iso-8859-2 links.adp
+links.html.ru: links.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o links.html.ru -oe iso-8859-5 links.adp
 
 links.var: gen_makefile.conf
 	echo > links.var
@@ -654,24 +654,24 @@ links.var: gen_makefile.conf
 	echo 'Content-language: ru' >> links.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> links.var
 	echo >> links.var
-maillist.html.bg: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o maillist.html.bg -oe iso-8859-5 maillist.adp
-maillist.html.en: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o maillist.html.en -oe iso-8859-1 maillist.adp
-maillist.html.fr: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o maillist.html.fr -oe iso-8859-1 maillist.adp
-maillist.html.id: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o maillist.html.id -oe iso-8859-1 maillist.adp
-maillist.html.it: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o maillist.html.it -oe iso-8859-1 maillist.adp
-maillist.html.nl: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o maillist.html.nl -oe iso-8859-1 maillist.adp
-maillist.html.po: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o maillist.html.po -oe iso-8859-2 maillist.adp
-maillist.html.sl: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o maillist.html.sl -oe iso-8859-2 maillist.adp
-maillist.html.ru: maillist.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o maillist.html.ru -oe iso-8859-5 maillist.adp
+maillist.html.bg: maillist.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o maillist.html.bg -oe iso-8859-5 maillist.adp
+maillist.html.en: maillist.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o maillist.html.en -oe iso-8859-1 maillist.adp
+maillist.html.fr: maillist.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o maillist.html.fr -oe iso-8859-1 maillist.adp
+maillist.html.id: maillist.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o maillist.html.id -oe iso-8859-1 maillist.adp
+maillist.html.it: maillist.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o maillist.html.it -oe iso-8859-1 maillist.adp
+maillist.html.nl: maillist.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o maillist.html.nl -oe iso-8859-1 maillist.adp
+maillist.html.po: maillist.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o maillist.html.po -oe iso-8859-2 maillist.adp
+maillist.html.sl: maillist.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o maillist.html.sl -oe iso-8859-2 maillist.adp
+maillist.html.ru: maillist.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o maillist.html.ru -oe iso-8859-5 maillist.adp
 
 maillist.var: gen_makefile.conf
 	echo > maillist.var
@@ -711,24 +711,24 @@ maillist.var: gen_makefile.conf
 	echo 'Content-language: ru' >> maillist.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> maillist.var
 	echo >> maillist.var
-mirrors.html.bg: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o mirrors.html.bg -oe iso-8859-5 mirrors.adp
-mirrors.html.en: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o mirrors.html.en -oe iso-8859-1 mirrors.adp
-mirrors.html.fr: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o mirrors.html.fr -oe iso-8859-1 mirrors.adp
-mirrors.html.id: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o mirrors.html.id -oe iso-8859-1 mirrors.adp
-mirrors.html.it: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o mirrors.html.it -oe iso-8859-1 mirrors.adp
-mirrors.html.nl: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o mirrors.html.nl -oe iso-8859-1 mirrors.adp
-mirrors.html.po: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o mirrors.html.po -oe iso-8859-2 mirrors.adp
-mirrors.html.sl: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o mirrors.html.sl -oe iso-8859-2 mirrors.adp
-mirrors.html.ru: mirrors.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o mirrors.html.ru -oe iso-8859-5 mirrors.adp
+mirrors.html.bg: mirrors.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o mirrors.html.bg -oe iso-8859-5 mirrors.adp
+mirrors.html.en: mirrors.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o mirrors.html.en -oe iso-8859-1 mirrors.adp
+mirrors.html.fr: mirrors.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o mirrors.html.fr -oe iso-8859-1 mirrors.adp
+mirrors.html.id: mirrors.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o mirrors.html.id -oe iso-8859-1 mirrors.adp
+mirrors.html.it: mirrors.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o mirrors.html.it -oe iso-8859-1 mirrors.adp
+mirrors.html.nl: mirrors.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o mirrors.html.nl -oe iso-8859-1 mirrors.adp
+mirrors.html.po: mirrors.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o mirrors.html.po -oe iso-8859-2 mirrors.adp
+mirrors.html.sl: mirrors.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o mirrors.html.sl -oe iso-8859-2 mirrors.adp
+mirrors.html.ru: mirrors.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o mirrors.html.ru -oe iso-8859-5 mirrors.adp
 
 mirrors.var: gen_makefile.conf
 	echo > mirrors.var
@@ -768,24 +768,24 @@ mirrors.var: gen_makefile.conf
 	echo 'Content-language: ru' >> mirrors.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> mirrors.var
 	echo >> mirrors.var
-moreinfo.html.bg: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o moreinfo.html.bg -oe iso-8859-5 moreinfo.adp
-moreinfo.html.en: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o moreinfo.html.en -oe iso-8859-1 moreinfo.adp
-moreinfo.html.fr: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o moreinfo.html.fr -oe iso-8859-1 moreinfo.adp
-moreinfo.html.id: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o moreinfo.html.id -oe iso-8859-1 moreinfo.adp
-moreinfo.html.it: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o moreinfo.html.it -oe iso-8859-1 moreinfo.adp
-moreinfo.html.nl: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o moreinfo.html.nl -oe iso-8859-1 moreinfo.adp
-moreinfo.html.po: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o moreinfo.html.po -oe iso-8859-2 moreinfo.adp
-moreinfo.html.sl: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o moreinfo.html.sl -oe iso-8859-2 moreinfo.adp
-moreinfo.html.ru: moreinfo.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o moreinfo.html.ru -oe iso-8859-5 moreinfo.adp
+moreinfo.html.bg: moreinfo.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o moreinfo.html.bg -oe iso-8859-5 moreinfo.adp
+moreinfo.html.en: moreinfo.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o moreinfo.html.en -oe iso-8859-1 moreinfo.adp
+moreinfo.html.fr: moreinfo.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o moreinfo.html.fr -oe iso-8859-1 moreinfo.adp
+moreinfo.html.id: moreinfo.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o moreinfo.html.id -oe iso-8859-1 moreinfo.adp
+moreinfo.html.it: moreinfo.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o moreinfo.html.it -oe iso-8859-1 moreinfo.adp
+moreinfo.html.nl: moreinfo.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o moreinfo.html.nl -oe iso-8859-1 moreinfo.adp
+moreinfo.html.po: moreinfo.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o moreinfo.html.po -oe iso-8859-2 moreinfo.adp
+moreinfo.html.sl: moreinfo.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o moreinfo.html.sl -oe iso-8859-2 moreinfo.adp
+moreinfo.html.ru: moreinfo.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o moreinfo.html.ru -oe iso-8859-5 moreinfo.adp
 
 moreinfo.var: gen_makefile.conf
 	echo > moreinfo.var
@@ -825,24 +825,24 @@ moreinfo.var: gen_makefile.conf
 	echo 'Content-language: ru' >> moreinfo.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> moreinfo.var
 	echo >> moreinfo.var
-news.html.bg: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o news.html.bg -oe iso-8859-5 news.adp
-news.html.en: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o news.html.en -oe iso-8859-1 news.adp
-news.html.fr: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o news.html.fr -oe iso-8859-1 news.adp
-news.html.id: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o news.html.id -oe iso-8859-1 news.adp
-news.html.it: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o news.html.it -oe iso-8859-1 news.adp
-news.html.nl: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o news.html.nl -oe iso-8859-1 news.adp
-news.html.po: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o news.html.po -oe iso-8859-2 news.adp
-news.html.sl: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o news.html.sl -oe iso-8859-2 news.adp
-news.html.ru: news.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o news.html.ru -oe iso-8859-5 news.adp
+news.html.bg: news.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o news.html.bg -oe iso-8859-5 news.adp
+news.html.en: news.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o news.html.en -oe iso-8859-1 news.adp
+news.html.fr: news.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o news.html.fr -oe iso-8859-1 news.adp
+news.html.id: news.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o news.html.id -oe iso-8859-1 news.adp
+news.html.it: news.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o news.html.it -oe iso-8859-1 news.adp
+news.html.nl: news.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o news.html.nl -oe iso-8859-1 news.adp
+news.html.po: news.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o news.html.po -oe iso-8859-2 news.adp
+news.html.sl: news.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o news.html.sl -oe iso-8859-2 news.adp
+news.html.ru: news.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o news.html.ru -oe iso-8859-5 news.adp
 
 news.var: gen_makefile.conf
 	echo > news.var
@@ -882,24 +882,24 @@ news.var: gen_makefile.conf
 	echo 'Content-language: ru' >> news.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> news.var
 	echo >> news.var
-port.html.bg: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o port.html.bg -oe iso-8859-5 port.adp
-port.html.en: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o port.html.en -oe iso-8859-1 port.adp
-port.html.fr: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o port.html.fr -oe iso-8859-1 port.adp
-port.html.id: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o port.html.id -oe iso-8859-1 port.adp
-port.html.it: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o port.html.it -oe iso-8859-1 port.adp
-port.html.nl: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o port.html.nl -oe iso-8859-1 port.adp
-port.html.po: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o port.html.po -oe iso-8859-2 port.adp
-port.html.sl: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o port.html.sl -oe iso-8859-2 port.adp
-port.html.ru: port.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o port.html.ru -oe iso-8859-5 port.adp
+port.html.bg: port.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o port.html.bg -oe iso-8859-5 port.adp
+port.html.en: port.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o port.html.en -oe iso-8859-1 port.adp
+port.html.fr: port.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o port.html.fr -oe iso-8859-1 port.adp
+port.html.id: port.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o port.html.id -oe iso-8859-1 port.adp
+port.html.it: port.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o port.html.it -oe iso-8859-1 port.adp
+port.html.nl: port.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o port.html.nl -oe iso-8859-1 port.adp
+port.html.po: port.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o port.html.po -oe iso-8859-2 port.adp
+port.html.sl: port.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o port.html.sl -oe iso-8859-2 port.adp
+port.html.ru: port.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o port.html.ru -oe iso-8859-5 port.adp
 
 port.var: gen_makefile.conf
 	echo > port.var
@@ -939,24 +939,24 @@ port.var: gen_makefile.conf
 	echo 'Content-language: ru' >> port.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> port.var
 	echo >> port.var
-prog.html.bg: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o prog.html.bg -oe iso-8859-5 prog.adp
-prog.html.en: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o prog.html.en -oe iso-8859-1 prog.adp
-prog.html.fr: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o prog.html.fr -oe iso-8859-1 prog.adp
-prog.html.id: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o prog.html.id -oe iso-8859-1 prog.adp
-prog.html.it: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o prog.html.it -oe iso-8859-1 prog.adp
-prog.html.nl: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o prog.html.nl -oe iso-8859-1 prog.adp
-prog.html.po: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o prog.html.po -oe iso-8859-2 prog.adp
-prog.html.sl: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o prog.html.sl -oe iso-8859-2 prog.adp
-prog.html.ru: prog.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o prog.html.ru -oe iso-8859-5 prog.adp
+prog.html.bg: prog.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o prog.html.bg -oe iso-8859-5 prog.adp
+prog.html.en: prog.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o prog.html.en -oe iso-8859-1 prog.adp
+prog.html.fr: prog.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o prog.html.fr -oe iso-8859-1 prog.adp
+prog.html.id: prog.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o prog.html.id -oe iso-8859-1 prog.adp
+prog.html.it: prog.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o prog.html.it -oe iso-8859-1 prog.adp
+prog.html.nl: prog.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o prog.html.nl -oe iso-8859-1 prog.adp
+prog.html.po: prog.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o prog.html.po -oe iso-8859-2 prog.adp
+prog.html.sl: prog.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o prog.html.sl -oe iso-8859-2 prog.adp
+prog.html.ru: prog.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o prog.html.ru -oe iso-8859-5 prog.adp
 
 prog.var: gen_makefile.conf
 	echo > prog.var
@@ -996,24 +996,24 @@ prog.var: gen_makefile.conf
 	echo 'Content-language: ru' >> prog.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> prog.var
 	echo >> prog.var
-probs.html.bg: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o probs.html.bg -oe iso-8859-5 probs.adp
-probs.html.en: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o probs.html.en -oe iso-8859-1 probs.adp
-probs.html.fr: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o probs.html.fr -oe iso-8859-1 probs.adp
-probs.html.id: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o probs.html.id -oe iso-8859-1 probs.adp
-probs.html.it: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o probs.html.it -oe iso-8859-1 probs.adp
-probs.html.nl: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o probs.html.nl -oe iso-8859-1 probs.adp
-probs.html.po: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o probs.html.po -oe iso-8859-2 probs.adp
-probs.html.sl: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o probs.html.sl -oe iso-8859-2 probs.adp
-probs.html.ru: probs.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o probs.html.ru -oe iso-8859-5 probs.adp
+probs.html.bg: probs.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o probs.html.bg -oe iso-8859-5 probs.adp
+probs.html.en: probs.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o probs.html.en -oe iso-8859-1 probs.adp
+probs.html.fr: probs.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o probs.html.fr -oe iso-8859-1 probs.adp
+probs.html.id: probs.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o probs.html.id -oe iso-8859-1 probs.adp
+probs.html.it: probs.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o probs.html.it -oe iso-8859-1 probs.adp
+probs.html.nl: probs.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o probs.html.nl -oe iso-8859-1 probs.adp
+probs.html.po: probs.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o probs.html.po -oe iso-8859-2 probs.adp
+probs.html.sl: probs.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o probs.html.sl -oe iso-8859-2 probs.adp
+probs.html.ru: probs.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o probs.html.ru -oe iso-8859-5 probs.adp
 
 probs.var: gen_makefile.conf
 	echo > probs.var
@@ -1053,24 +1053,24 @@ probs.var: gen_makefile.conf
 	echo 'Content-language: ru' >> probs.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> probs.var
 	echo >> probs.var
-units.html.bg: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o units.html.bg -oe iso-8859-5 units.adp
-units.html.en: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o units.html.en -oe iso-8859-1 units.adp
-units.html.fr: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o units.html.fr -oe iso-8859-1 units.adp
-units.html.id: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o units.html.id -oe iso-8859-1 units.adp
-units.html.it: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o units.html.it -oe iso-8859-1 units.adp
-units.html.nl: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o units.html.nl -oe iso-8859-1 units.adp
-units.html.po: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o units.html.po -oe iso-8859-2 units.adp
-units.html.sl: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o units.html.sl -oe iso-8859-2 units.adp
-units.html.ru: units.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o units.html.ru -oe iso-8859-5 units.adp
+units.html.bg: units.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o units.html.bg -oe iso-8859-5 units.adp
+units.html.en: units.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o units.html.en -oe iso-8859-1 units.adp
+units.html.fr: units.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o units.html.fr -oe iso-8859-1 units.adp
+units.html.id: units.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o units.html.id -oe iso-8859-1 units.adp
+units.html.it: units.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o units.html.it -oe iso-8859-1 units.adp
+units.html.nl: units.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o units.html.nl -oe iso-8859-1 units.adp
+units.html.po: units.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o units.html.po -oe iso-8859-2 units.adp
+units.html.sl: units.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o units.html.sl -oe iso-8859-2 units.adp
+units.html.ru: units.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o units.html.ru -oe iso-8859-5 units.adp
 
 units.var: gen_makefile.conf
 	echo > units.var
@@ -1110,24 +1110,24 @@ units.var: gen_makefile.conf
 	echo 'Content-language: ru' >> units.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> units.var
 	echo >> units.var
-unitsrtl.html.bg: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l bg_BG -m default-master.adp -o unitsrtl.html.bg -oe iso-8859-5 unitsrtl.adp
-unitsrtl.html.en: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l en_US -m default-master.adp -o unitsrtl.html.en -oe iso-8859-1 unitsrtl.adp
-unitsrtl.html.fr: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l fr_FR -m default-master.adp -o unitsrtl.html.fr -oe iso-8859-1 unitsrtl.adp
-unitsrtl.html.id: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l id_ID -m default-master.adp -o unitsrtl.html.id -oe iso-8859-1 unitsrtl.adp
-unitsrtl.html.it: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l it_IT -m default-master.adp -o unitsrtl.html.it -oe iso-8859-1 unitsrtl.adp
-unitsrtl.html.nl: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l nl_NL -m default-master.adp -o unitsrtl.html.nl -oe iso-8859-1 unitsrtl.adp
-unitsrtl.html.po: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l pl_PL -m default-master.adp -o unitsrtl.html.po -oe iso-8859-2 unitsrtl.adp
-unitsrtl.html.sl: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l sl_SI -m default-master.adp -o unitsrtl.html.sl -oe iso-8859-2 unitsrtl.adp
-unitsrtl.html.ru: unitsrtl.adp default-master.adp site-master.adp catalog.adp
-	./adp2html -p x=$(URL_EXTENSION) -c catalog.adp -l ru_RU -m default-master.adp -o unitsrtl.html.ru -oe iso-8859-5 unitsrtl.adp
+unitsrtl.html.bg: unitsrtl.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o unitsrtl.html.bg -oe iso-8859-5 unitsrtl.adp
+unitsrtl.html.en: unitsrtl.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o unitsrtl.html.en -oe iso-8859-1 unitsrtl.adp
+unitsrtl.html.fr: unitsrtl.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o unitsrtl.html.fr -oe iso-8859-1 unitsrtl.adp
+unitsrtl.html.id: unitsrtl.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o unitsrtl.html.id -oe iso-8859-1 unitsrtl.adp
+unitsrtl.html.it: unitsrtl.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o unitsrtl.html.it -oe iso-8859-1 unitsrtl.adp
+unitsrtl.html.nl: unitsrtl.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o unitsrtl.html.nl -oe iso-8859-1 unitsrtl.adp
+unitsrtl.html.po: unitsrtl.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o unitsrtl.html.po -oe iso-8859-2 unitsrtl.adp
+unitsrtl.html.sl: unitsrtl.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o unitsrtl.html.sl -oe iso-8859-2 unitsrtl.adp
+unitsrtl.html.ru: unitsrtl.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o unitsrtl.html.ru -oe iso-8859-5 unitsrtl.adp
 
 unitsrtl.var: gen_makefile.conf
 	echo > unitsrtl.var

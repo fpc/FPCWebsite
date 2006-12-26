@@ -10,12 +10,12 @@ global catalog master-template site-template adp2html
 source gen_makefile.conf
 
 #Try to detect the location of the catalog file
-if {[file exists "catalog.adp"]} then {
-    set catalog "catalog.adp"
-} elseif {[file exists "../catalog.adp"]} then {
-    set catalog "../catalog.adp"
-} elseif {[file exists "../../catalog.adp"]} then {
-    set catalog "../../catalog.adp"
+if {[file exists "catalog.en.adp"]} then {
+    set catalog_dir "./"
+} elseif {[file exists "../catalog.en.adp"]} then {
+    set catalog_dir "../"
+} elseif {[file exists "../../catalog.en.adp"]} then {
+    set catalog_dir "../../"
 }
 
 #Try to detect the location of the master template
@@ -102,6 +102,7 @@ foreach page $pages {
     set rootname [file rootname $page]
     # Generate html files
     foreach language $languages {
+        set catalog "${catalog_dir}catalog.${language}.adp"
         if [info exists language_fileext($language)] then {
             set fileext $language_fileext($language)
         } else {
@@ -140,6 +141,7 @@ foreach mirror $mirrors {
         set rootname [file rootname $page]
         # Generate html files
         foreach language $languages {
+            set catalog "${catalog_dir}catalog.${language}.adp"
             set small_mirror_name [string tolower $mirror_name]
             if [info exists language_fileext($language)] then {
                 set fileext $language_fileext($language)
