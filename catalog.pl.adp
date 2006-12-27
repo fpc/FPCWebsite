@@ -169,14 +169,8 @@ Możesz ściągnąć wydanie 2.0.x dla następujących procesorów i systemów o
 <TRN locale="pl_PL" key="website.download_documentation">
 Dokumentację można pobrać w różnych formatach z jednej z naszych <a href="down/docs/docs@x@">pobieralni</a>.
 </TRN>
-<TRN locale="pl_PL" key="website.Source">
-Źródła
-</TRN>
 <TRN locale="pl_PL" key="website.download_source">
 Źródła można pobrać oddzielnie w pliku <b>zip</b> lub <b>tar.gz</b> z jednej z naszych <a href="down/source/sources@x@">pobieralni</a>.
-</TRN>
-<TRN locale="pl_PL" key="website.Sources">
-Źródła
 </TRN>
 <TRN locale="pl_PL" key="website.You_can_download_installer">
 Możesz pobrać instalator
@@ -189,6 +183,12 @@ Dokumentacja jest dostępna w różnych formatach (jeżeli chcesz jej użyć w t
 </TRN>
 <TRN locale="pl_PL" key="website.Coding">
 Programowanie
+</TRN>
+<TRN locale="pl_PL" key="website.Source">
+Kody źródłowe
+</TRN>
+<TRN locale="pl_PL" key="website.Sources">
+Kody źródłowe
 </TRN>
 <TRN locale="pl_PL" key="website.req_sparcb">
 Wymagane jest 16 MB pamięci RAM. Działa na każdej instalacji Sparc Linuksa.
@@ -300,4 +300,37 @@ Pozyskanie kompilatora
 </TRN>
 <TRN locale="pl_PL" key="website.news_headline_20061224">
 <em>24 grudnia 2006</em> Na Węgrzech została opublikowana <a href='http://www.computerbooks.hu/FreePascal'>książka na temat Free Pascala</a>. Na 270 stronach książki dokładnie omówiono język Pascal od podstaw, uwzględniając również opis zaawansowanych możliwości języka.
+</TRN>
+<TRN locale="pl_PL" key="website.snapshots">
+Snapshot'y
+</TRN>
+<TRN locale="pl_PL" key="website.download_snapshots">
+Jako dodatek do oficjalnych wydań, oferujemy również tzw. wersje snapshot kompilatora, RTL, IDE i parę innych pakietów na <a href="develop@x@">stronie rozwoju</a> projektu. Są one skompilowane z aktualnych kodów źródłowych, ze wszystkimi poprawkami i ulepszeniami od oficjalnego wydania, dlatego wypróbuj je, jeżeli napotkałeś dotychczas jakieś problemy. Oczywiście mogą one również zawierać nowe błędy.
+</TRN>
+<TRN locale="pl_PL" key="website.Back_to_general_download_page">
+Wróć do strony głównej pobieralni
+</TRN>
+<TRN locale="pl_PL" key="website.Back_to_mirrorlist">
+Wróć do listy mirror'ów
+</TRN>
+<TRN locale="pl_PL" key="website.i386-os2_available_in">
+Pakiet FPC dla OS/2 i EComStation jest dostępny w następujących formatach:
+</TRN>
+<TRN locale="pl_PL" key="website.everything_in_1">
+Wszystko w jednym dużym pakiecie
+</TRN>
+<TRN locale="pl_PL" key="website.Install_program">
+Program instalacyjny:
+</TRN>
+<TRN locale="pl_PL" key="website.PasZlib_units">
+Moduły PasZLib (wymagane przez FCL)
+</TRN>
+<TRN locale="pl_PL" key="website.unzip_unit">
+Moduły Unzip
+</TRN>
+<TRN locale="pl_PL" key="website.NetDB_unit">
+Moduł NetDB
+</TRN>
+<TRN locale="pl_PL" key="website.pasjpeg_unit">
+Moduł PasJPEG
 </TRN>
