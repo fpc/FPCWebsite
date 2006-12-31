@@ -5,8 +5,8 @@
 
 <h2><FONT color='#ff0000'>Best wishes</FONT></h2>
 <STRONG>
-The FPC team wishes all users a Happy New Year and a fruitful 2007 !
-(and to ourselves a quick restore of the failed server ;) )
+The FPC team wishes all users a Happy New Year and a fruitful 2007 !<BR>
+(and to ourselves a quick restore of the failed server ;-) )
 </STRONG>
 
 <h2><FONT color='#ff0000'>Server problems</FONT></h2>
@@ -29,6 +29,10 @@ access to the server to find out what is wrong.
 </p>
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
+<p>
+  <trn locale="en_US" key="website.news_headline_20070101">
+    <em>Januari 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
+  </trn>
 <p>
   <trn locale="en_US" key="website.news_headline_20061224">
     <em>December 24, 2006</em>
