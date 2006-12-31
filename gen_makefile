@@ -61,6 +61,7 @@ if $subdir then {
 #Put some variables in Makefile
 puts "
 URL_EXTENSION=.var
+URL_EXTENSION_EN=.html
 
 #
 # OS depended stuff
@@ -89,13 +90,16 @@ if $subdir {
     puts ".PHONY: all all_pages clean"
     puts "default: all"
     puts "all: all_pages"
+    puts "english: all_en_pages"
 } else {
     puts ".PHONY: all all_pages clean zip tar"
     puts "default: all"
     puts "all: \$(ADP2HTML) all_pages down_all fcl_all tools_all"
+    puts "english: \$(ADP2HTML) all_en_pages down_all_en fcl_all_en tools_all_en"
 }
 
 set all ""
+set all_pages ""
 
 #Generate normal pages
 foreach page $pages {
@@ -111,12 +115,20 @@ foreach page $pages {
         set html_file "$rootname.html.$fileext"
         puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
-        lappend all $html_file
+        lappend all_pages $html_file
     }
+    
+    # Generate rule for English only file.
+    set catalog "${catalog_dir}catalog.en.adp"
+    set html_file "$rootname.html"
+    puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
+    puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $page"
+    lappend en_only_pages $html_file
+
     puts ""
     # Generate var file
     set var_file "${rootname}.var"
-    lappend all $var_file
+    lappend all_pages $var_file
     puts "$var_file: gen_makefile.conf"
     puts "\techo > $var_file"
     foreach language $languages {
@@ -137,12 +149,12 @@ foreach page $pages {
 foreach mirror $mirrors {
     set mirror_name [lindex $mirror 0]
     set mirror_url [lindex $mirror 1]
+    set small_mirror_name [string tolower $mirror_name]
     foreach page $mirror_pages {
         set rootname [file rootname $page]
         # Generate html files
         foreach language $languages {
             set catalog "${catalog_dir}catalog.${language}.adp"
-            set small_mirror_name [string tolower $mirror_name]
             if [info exists language_fileext($language)] then {
                 set fileext $language_fileext($language)
             } else {
@@ -151,12 +163,20 @@ foreach mirror $mirrors {
             set html_file "${rootname}-${small_mirror_name}.html.${fileext}"
             puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
             puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
-            lappend all $html_file
+            lappend all_pages $html_file
         }
+
+        # Generate rule for English only file.
+        set catalog "${catalog_dir}catalog.en.adp"
+        set html_file "${rootname}-${small_mirror_name}.html"
+        puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $page"
+        lappend en_only_pages $html_file
+
         puts ""
         # Generate var file
         set var_file "${rootname}-[string tolower $mirror_name].var"
-        lappend all $var_file
+        lappend all_pages $var_file
         puts "$var_file: gen_makefile.conf"
         puts "\techo > $var_file"
         foreach language $languages {
@@ -187,11 +207,11 @@ foreach page $mirror_pages {
         set html_file "${rootname}.html.$fileext"
         puts "$html_file: ${templatemirror} mirrors.dat ${master-template} ${catalog}"
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $templatemirror"
-        lappend all $html_file
+        lappend all_pages $html_file
     }
     # Generate var file
     set var_file "${rootname}.var"
-    lappend all $var_file
+    lappend all_pages $var_file
     puts "$var_file: gen_makefile.conf"
     puts "\techo > $var_file"
     foreach language $languages {
@@ -222,7 +242,8 @@ foreach mirror $mirrors {
 lappend all "mirrors.dat"
 
 puts ""
-puts "all_pages: [join $all]"
+puts "all_pages: [join $all] [join $all_pages]"
+puts "all_en_pages: [join $all] [join $en_only_pages]"
 puts ""
 
 #Put some standard rules in Makefile
@@ -248,6 +269,15 @@ fcl_all:
 
 tools_all:
 \t\$(MAKE) -C tools all
+
+down_all_en:
+\t\$(MAKE) -C down english
+
+fcl_all_en:
+\t\$(MAKE) -C fcl english
+
+tools_all_en:
+\t\$(MAKE) -C tools english
 
 # clean
 clean: clean_down clean_fcl clean_tools

@@ -8,6 +8,8 @@ default: all
 
 all:
 	for f in $(DIRS) ; do $(MAKE) -C $$f all ; done
+english:
+	for f in $(DIRS) ; do $(MAKE) -C $$f english ; done
 	
 clean:
 	for f in $(DIRS) ; do $(MAKE) -C $$f clean ; done

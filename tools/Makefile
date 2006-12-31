@@ -1,5 +1,6 @@
 
 URL_EXTENSION=.var
+URL_EXTENSION_EN=.html
 
 #
 # OS depended stuff
@@ -27,6 +28,7 @@ endif
 .PHONY: all all_pages clean
 default: all
 all: all_pages
+english: all_en_pages
 delp.html.bg: delp.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o delp.html.bg -oe iso-8859-5 delp.adp
 delp.html.en: delp.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
@@ -45,6 +47,8 @@ delp.html.sl: delp.adp ../default-master.adp ../site-master.adp ../catalog.sl.ad
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o delp.html.sl -oe iso-8859-2 delp.adp
 delp.html.ru: delp.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o delp.html.ru -oe iso-8859-5 delp.adp
+delp.html: delp.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o delp.html -oe ISO-8859-1 delp.adp
 
 delp.var: gen_makefile.conf
 	echo > delp.var
@@ -102,6 +106,8 @@ fpcmake.html.sl: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o fpcmake.html.sl -oe iso-8859-2 fpcmake.adp
 fpcmake.html.ru: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o fpcmake.html.ru -oe iso-8859-5 fpcmake.adp
+fpcmake.html: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o fpcmake.html -oe ISO-8859-1 fpcmake.adp
 
 fpcmake.var: gen_makefile.conf
 	echo > fpcmake.var
@@ -159,6 +165,8 @@ h2pas.html.sl: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.sl.
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o h2pas.html.sl -oe iso-8859-2 h2pas.adp
 h2pas.html.ru: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o h2pas.html.ru -oe iso-8859-5 h2pas.adp
+h2pas.html: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o h2pas.html -oe ISO-8859-1 h2pas.adp
 
 h2pas.var: gen_makefile.conf
 	echo > h2pas.var
@@ -216,6 +224,8 @@ ppdep.html.sl: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.sl.
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ppdep.html.sl -oe iso-8859-2 ppdep.adp
 ppdep.html.ru: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ppdep.html.ru -oe iso-8859-5 ppdep.adp
+ppdep.html: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ppdep.html -oe ISO-8859-1 ppdep.adp
 
 ppdep.var: gen_makefile.conf
 	echo > ppdep.var
@@ -273,6 +283,8 @@ ppudump.html.sl: ppudump.adp ../default-master.adp ../site-master.adp ../catalog
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ppudump.html.sl -oe iso-8859-2 ppudump.adp
 ppudump.html.ru: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ppudump.html.ru -oe iso-8859-5 ppudump.adp
+ppudump.html: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ppudump.html -oe ISO-8859-1 ppudump.adp
 
 ppudump.var: gen_makefile.conf
 	echo > ppudump.var
@@ -330,6 +342,8 @@ ppufiles.html.sl: ppufiles.adp ../default-master.adp ../site-master.adp ../catal
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ppufiles.html.sl -oe iso-8859-2 ppufiles.adp
 ppufiles.html.ru: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ppufiles.html.ru -oe iso-8859-5 ppufiles.adp
+ppufiles.html: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ppufiles.html -oe ISO-8859-1 ppufiles.adp
 
 ppufiles.var: gen_makefile.conf
 	echo > ppufiles.var
@@ -387,6 +401,8 @@ ppumove.html.sl: ppumove.adp ../default-master.adp ../site-master.adp ../catalog
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ppumove.html.sl -oe iso-8859-2 ppumove.adp
 ppumove.html.ru: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ppumove.html.ru -oe iso-8859-5 ppumove.adp
+ppumove.html: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ppumove.html -oe ISO-8859-1 ppumove.adp
 
 ppumove.var: gen_makefile.conf
 	echo > ppumove.var
@@ -444,6 +460,8 @@ ptop.html.sl: ptop.adp ../default-master.adp ../site-master.adp ../catalog.sl.ad
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ptop.html.sl -oe iso-8859-2 ptop.adp
 ptop.html.ru: ptop.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ptop.html.ru -oe iso-8859-5 ptop.adp
+ptop.html: ptop.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ptop.html -oe ISO-8859-1 ptop.adp
 
 ptop.var: gen_makefile.conf
 	echo > ptop.var
@@ -501,6 +519,8 @@ rstconv.html.sl: rstconv.adp ../default-master.adp ../site-master.adp ../catalog
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o rstconv.html.sl -oe iso-8859-2 rstconv.adp
 rstconv.html.ru: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o rstconv.html.ru -oe iso-8859-5 rstconv.adp
+rstconv.html: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o rstconv.html -oe ISO-8859-1 rstconv.adp
 
 rstconv.var: gen_makefile.conf
 	echo > rstconv.var
@@ -558,6 +578,8 @@ tools.html.sl: tools.adp ../default-master.adp ../site-master.adp ../catalog.sl.
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o tools.html.sl -oe iso-8859-2 tools.adp
 tools.html.ru: tools.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o tools.html.ru -oe iso-8859-5 tools.adp
+tools.html: tools.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o tools.html -oe ISO-8859-1 tools.adp
 
 tools.var: gen_makefile.conf
 	echo > tools.var
@@ -615,6 +637,8 @@ tply.html.sl: tply.adp ../default-master.adp ../site-master.adp ../catalog.sl.ad
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o tply.html.sl -oe iso-8859-2 tply.adp
 tply.html.ru: tply.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o tply.html.ru -oe iso-8859-5 tply.adp
+tply.html: tply.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o tply.html -oe ISO-8859-1 tply.adp
 
 tply.var: gen_makefile.conf
 	echo > tply.var
@@ -667,7 +691,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: delp.html.bg delp.html.en delp.html.fr delp.html.id delp.html.it delp.html.nl delp.html.po delp.html.sl delp.html.ru delp.var fpcmake.html.bg fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.it fpcmake.html.nl fpcmake.html.po fpcmake.html.sl fpcmake.html.ru fpcmake.var h2pas.html.bg h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.it h2pas.html.nl h2pas.html.po h2pas.html.sl h2pas.html.ru h2pas.var ppdep.html.bg ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.it ppdep.html.nl ppdep.html.po ppdep.html.sl ppdep.html.ru ppdep.var ppudump.html.bg ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.it ppudump.html.nl ppudump.html.po ppudump.html.sl ppudump.html.ru ppudump.var ppufiles.html.bg ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.it ppufiles.html.nl ppufiles.html.po ppufiles.html.sl ppufiles.html.ru ppufiles.var ppumove.html.bg ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.it ppumove.html.nl ppumove.html.po ppumove.html.sl ppumove.html.ru ppumove.var ptop.html.bg ptop.html.en ptop.html.fr ptop.html.id ptop.html.it ptop.html.nl ptop.html.po ptop.html.sl ptop.html.ru ptop.var rstconv.html.bg rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.it rstconv.html.nl rstconv.html.po rstconv.html.sl rstconv.html.ru rstconv.var tools.html.bg tools.html.en tools.html.fr tools.html.id tools.html.it tools.html.nl tools.html.po tools.html.sl tools.html.ru tools.var tply.html.bg tply.html.en tply.html.fr tply.html.id tply.html.it tply.html.nl tply.html.po tply.html.sl tply.html.ru tply.var mirrors.dat
+all_pages: mirrors.dat delp.html.bg delp.html.en delp.html.fr delp.html.id delp.html.it delp.html.nl delp.html.po delp.html.sl delp.html.ru delp.var fpcmake.html.bg fpcmake.html.en fpcmake.html.fr fpcmake.html.id fpcmake.html.it fpcmake.html.nl fpcmake.html.po fpcmake.html.sl fpcmake.html.ru fpcmake.var h2pas.html.bg h2pas.html.en h2pas.html.fr h2pas.html.id h2pas.html.it h2pas.html.nl h2pas.html.po h2pas.html.sl h2pas.html.ru h2pas.var ppdep.html.bg ppdep.html.en ppdep.html.fr ppdep.html.id ppdep.html.it ppdep.html.nl ppdep.html.po ppdep.html.sl ppdep.html.ru ppdep.var ppudump.html.bg ppudump.html.en ppudump.html.fr ppudump.html.id ppudump.html.it ppudump.html.nl ppudump.html.po ppudump.html.sl ppudump.html.ru ppudump.var ppufiles.html.bg ppufiles.html.en ppufiles.html.fr ppufiles.html.id ppufiles.html.it ppufiles.html.nl ppufiles.html.po ppufiles.html.sl ppufiles.html.ru ppufiles.var ppumove.html.bg ppumove.html.en ppumove.html.fr ppumove.html.id ppumove.html.it ppumove.html.nl ppumove.html.po ppumove.html.sl ppumove.html.ru ppumove.var ptop.html.bg ptop.html.en ptop.html.fr ptop.html.id ptop.html.it ptop.html.nl ptop.html.po ptop.html.sl ptop.html.ru ptop.var rstconv.html.bg rstconv.html.en rstconv.html.fr rstconv.html.id rstconv.html.it rstconv.html.nl rstconv.html.po rstconv.html.sl rstconv.html.ru rstconv.var tools.html.bg tools.html.en tools.html.fr tools.html.id tools.html.it tools.html.nl tools.html.po tools.html.sl tools.html.ru tools.var tply.html.bg tply.html.en tply.html.fr tply.html.id tply.html.it tply.html.nl tply.html.po tply.html.sl tply.html.ru tply.var
+all_en_pages: mirrors.dat delp.html fpcmake.html h2pas.html ppdep.html ppudump.html ppufiles.html ppumove.html ptop.html rstconv.html tools.html tply.html
 
 
 # clean

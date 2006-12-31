@@ -1,5 +1,6 @@
 
 URL_EXTENSION=.var
+URL_EXTENSION_EN=.html
 
 #
 # OS depended stuff
@@ -27,6 +28,7 @@ endif
 .PHONY: all all_pages clean zip tar
 default: all
 all: $(ADP2HTML) all_pages down_all fcl_all tools_all
+english: $(ADP2HTML) all_en_pages down_all_en fcl_all_en tools_all_en
 aboutus.html.bg: aboutus.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o aboutus.html.bg -oe iso-8859-5 aboutus.adp
 aboutus.html.en: aboutus.adp default-master.adp site-master.adp ./catalog.en.adp
@@ -45,6 +47,8 @@ aboutus.html.sl: aboutus.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o aboutus.html.sl -oe iso-8859-2 aboutus.adp
 aboutus.html.ru: aboutus.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o aboutus.html.ru -oe iso-8859-5 aboutus.adp
+aboutus.html: aboutus.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o aboutus.html -oe ISO-8859-1 aboutus.adp
 
 aboutus.var: gen_makefile.conf
 	echo > aboutus.var
@@ -102,6 +106,8 @@ advantage.html.sl: advantage.adp default-master.adp site-master.adp ./catalog.sl
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o advantage.html.sl -oe iso-8859-2 advantage.adp
 advantage.html.ru: advantage.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o advantage.html.ru -oe iso-8859-5 advantage.adp
+advantage.html: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o advantage.html -oe ISO-8859-1 advantage.adp
 
 advantage.var: gen_makefile.conf
 	echo > advantage.var
@@ -159,6 +165,8 @@ credits.html.sl: credits.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o credits.html.sl -oe iso-8859-2 credits.adp
 credits.html.ru: credits.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o credits.html.ru -oe iso-8859-5 credits.adp
+credits.html: credits.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o credits.html -oe ISO-8859-1 credits.adp
 
 credits.var: gen_makefile.conf
 	echo > credits.var
@@ -216,6 +224,8 @@ develop.html.sl: develop.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o develop.html.sl -oe iso-8859-2 develop.adp
 develop.html.ru: develop.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o develop.html.ru -oe iso-8859-5 develop.adp
+develop.html: develop.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o develop.html -oe ISO-8859-1 develop.adp
 
 develop.var: gen_makefile.conf
 	echo > develop.var
@@ -273,6 +283,8 @@ download.html.sl: download.adp default-master.adp site-master.adp ./catalog.sl.a
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o download.html.sl -oe iso-8859-2 download.adp
 download.html.ru: download.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o download.html.ru -oe iso-8859-5 download.adp
+download.html: download.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o download.html -oe ISO-8859-1 download.adp
 
 download.var: gen_makefile.conf
 	echo > download.var
@@ -330,6 +342,8 @@ docs.html.sl: docs.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o docs.html.sl -oe iso-8859-2 docs.adp
 docs.html.ru: docs.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o docs.html.ru -oe iso-8859-5 docs.adp
+docs.html: docs.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o docs.html -oe ISO-8859-1 docs.adp
 
 docs.var: gen_makefile.conf
 	echo > docs.var
@@ -387,6 +401,8 @@ faq.html.sl: faq.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o faq.html.sl -oe iso-8859-2 faq.adp
 faq.html.ru: faq.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o faq.html.ru -oe iso-8859-5 faq.adp
+faq.html: faq.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o faq.html -oe ISO-8859-1 faq.adp
 
 faq.var: gen_makefile.conf
 	echo > faq.var
@@ -444,6 +460,8 @@ fpc.html.sl: fpc.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o fpc.html.sl -oe iso-8859-2 fpc.adp
 fpc.html.ru: fpc.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o fpc.html.ru -oe iso-8859-5 fpc.adp
+fpc.html: fpc.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o fpc.html -oe ISO-8859-1 fpc.adp
 
 fpc.var: gen_makefile.conf
 	echo > fpc.var
@@ -501,6 +519,8 @@ fpcmac.html.sl: fpcmac.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o fpcmac.html.sl -oe iso-8859-2 fpcmac.adp
 fpcmac.html.ru: fpcmac.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o fpcmac.html.ru -oe iso-8859-5 fpcmac.adp
+fpcmac.html: fpcmac.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o fpcmac.html -oe ISO-8859-1 fpcmac.adp
 
 fpcmac.var: gen_makefile.conf
 	echo > fpcmac.var
@@ -558,6 +578,8 @@ future.html.sl: future.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o future.html.sl -oe iso-8859-2 future.adp
 future.html.ru: future.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o future.html.ru -oe iso-8859-5 future.adp
+future.html: future.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o future.html -oe ISO-8859-1 future.adp
 
 future.var: gen_makefile.conf
 	echo > future.var
@@ -615,6 +637,8 @@ links.html.sl: links.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o links.html.sl -oe iso-8859-2 links.adp
 links.html.ru: links.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o links.html.ru -oe iso-8859-5 links.adp
+links.html: links.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o links.html -oe ISO-8859-1 links.adp
 
 links.var: gen_makefile.conf
 	echo > links.var
@@ -672,6 +696,8 @@ maillist.html.sl: maillist.adp default-master.adp site-master.adp ./catalog.sl.a
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o maillist.html.sl -oe iso-8859-2 maillist.adp
 maillist.html.ru: maillist.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o maillist.html.ru -oe iso-8859-5 maillist.adp
+maillist.html: maillist.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o maillist.html -oe ISO-8859-1 maillist.adp
 
 maillist.var: gen_makefile.conf
 	echo > maillist.var
@@ -729,6 +755,8 @@ mirrors.html.sl: mirrors.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o mirrors.html.sl -oe iso-8859-2 mirrors.adp
 mirrors.html.ru: mirrors.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o mirrors.html.ru -oe iso-8859-5 mirrors.adp
+mirrors.html: mirrors.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o mirrors.html -oe ISO-8859-1 mirrors.adp
 
 mirrors.var: gen_makefile.conf
 	echo > mirrors.var
@@ -786,6 +814,8 @@ moreinfo.html.sl: moreinfo.adp default-master.adp site-master.adp ./catalog.sl.a
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o moreinfo.html.sl -oe iso-8859-2 moreinfo.adp
 moreinfo.html.ru: moreinfo.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o moreinfo.html.ru -oe iso-8859-5 moreinfo.adp
+moreinfo.html: moreinfo.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o moreinfo.html -oe ISO-8859-1 moreinfo.adp
 
 moreinfo.var: gen_makefile.conf
 	echo > moreinfo.var
@@ -843,6 +873,8 @@ news.html.sl: news.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o news.html.sl -oe iso-8859-2 news.adp
 news.html.ru: news.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o news.html.ru -oe iso-8859-5 news.adp
+news.html: news.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o news.html -oe ISO-8859-1 news.adp
 
 news.var: gen_makefile.conf
 	echo > news.var
@@ -900,6 +932,8 @@ port.html.sl: port.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o port.html.sl -oe iso-8859-2 port.adp
 port.html.ru: port.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o port.html.ru -oe iso-8859-5 port.adp
+port.html: port.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o port.html -oe ISO-8859-1 port.adp
 
 port.var: gen_makefile.conf
 	echo > port.var
@@ -957,6 +991,8 @@ prog.html.sl: prog.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o prog.html.sl -oe iso-8859-2 prog.adp
 prog.html.ru: prog.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o prog.html.ru -oe iso-8859-5 prog.adp
+prog.html: prog.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o prog.html -oe ISO-8859-1 prog.adp
 
 prog.var: gen_makefile.conf
 	echo > prog.var
@@ -1014,6 +1050,8 @@ probs.html.sl: probs.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o probs.html.sl -oe iso-8859-2 probs.adp
 probs.html.ru: probs.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o probs.html.ru -oe iso-8859-5 probs.adp
+probs.html: probs.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o probs.html -oe ISO-8859-1 probs.adp
 
 probs.var: gen_makefile.conf
 	echo > probs.var
@@ -1071,6 +1109,8 @@ units.html.sl: units.adp default-master.adp site-master.adp ./catalog.sl.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o units.html.sl -oe iso-8859-2 units.adp
 units.html.ru: units.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o units.html.ru -oe iso-8859-5 units.adp
+units.html: units.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o units.html -oe ISO-8859-1 units.adp
 
 units.var: gen_makefile.conf
 	echo > units.var
@@ -1128,6 +1168,8 @@ unitsrtl.html.sl: unitsrtl.adp default-master.adp site-master.adp ./catalog.sl.a
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o unitsrtl.html.sl -oe iso-8859-2 unitsrtl.adp
 unitsrtl.html.ru: unitsrtl.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o unitsrtl.html.ru -oe iso-8859-5 unitsrtl.adp
+unitsrtl.html: unitsrtl.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o unitsrtl.html -oe ISO-8859-1 unitsrtl.adp
 
 unitsrtl.var: gen_makefile.conf
 	echo > unitsrtl.var
@@ -1180,7 +1222,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: aboutus.html.bg aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.it aboutus.html.nl aboutus.html.po aboutus.html.sl aboutus.html.ru aboutus.var advantage.html.bg advantage.html.en advantage.html.fr advantage.html.id advantage.html.it advantage.html.nl advantage.html.po advantage.html.sl advantage.html.ru advantage.var credits.html.bg credits.html.en credits.html.fr credits.html.id credits.html.it credits.html.nl credits.html.po credits.html.sl credits.html.ru credits.var develop.html.bg develop.html.en develop.html.fr develop.html.id develop.html.it develop.html.nl develop.html.po develop.html.sl develop.html.ru develop.var download.html.bg download.html.en download.html.fr download.html.id download.html.it download.html.nl download.html.po download.html.sl download.html.ru download.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var faq.html.bg faq.html.en faq.html.fr faq.html.id faq.html.it faq.html.nl faq.html.po faq.html.sl faq.html.ru faq.var fpc.html.bg fpc.html.en fpc.html.fr fpc.html.id fpc.html.it fpc.html.nl fpc.html.po fpc.html.sl fpc.html.ru fpc.var fpcmac.html.bg fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.it fpcmac.html.nl fpcmac.html.po fpcmac.html.sl fpcmac.html.ru fpcmac.var future.html.bg future.html.en future.html.fr future.html.id future.html.it future.html.nl future.html.po future.html.sl future.html.ru future.var links.html.bg links.html.en links.html.fr links.html.id links.html.it links.html.nl links.html.po links.html.sl links.html.ru links.var maillist.html.bg maillist.html.en maillist.html.fr maillist.html.id maillist.html.it maillist.html.nl maillist.html.po maillist.html.sl maillist.html.ru maillist.var mirrors.html.bg mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.it mirrors.html.nl mirrors.html.po mirrors.html.sl mirrors.html.ru mirrors.var moreinfo.html.bg moreinfo.html.en moreinfo.html.fr moreinfo.html.id moreinfo.html.it moreinfo.html.nl moreinfo.html.po moreinfo.html.sl moreinfo.html.ru moreinfo.var news.html.bg news.html.en news.html.fr news.html.id news.html.it news.html.nl news.html.po news.html.sl news.html.ru news.var port.html.bg port.html.en port.html.fr port.html.id port.html.it port.html.nl port.html.po port.html.sl port.html.ru port.var prog.html.bg prog.html.en prog.html.fr prog.html.id prog.html.it prog.html.nl prog.html.po prog.html.sl prog.html.ru prog.var probs.html.bg probs.html.en probs.html.fr probs.html.id probs.html.it probs.html.nl probs.html.po probs.html.sl probs.html.ru probs.var units.html.bg units.html.en units.html.fr units.html.id units.html.it units.html.nl units.html.po units.html.sl units.html.ru units.var unitsrtl.html.bg unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.it unitsrtl.html.nl unitsrtl.html.po unitsrtl.html.sl unitsrtl.html.ru unitsrtl.var mirrors.dat
+all_pages: mirrors.dat aboutus.html.bg aboutus.html.en aboutus.html.fr aboutus.html.id aboutus.html.it aboutus.html.nl aboutus.html.po aboutus.html.sl aboutus.html.ru aboutus.var advantage.html.bg advantage.html.en advantage.html.fr advantage.html.id advantage.html.it advantage.html.nl advantage.html.po advantage.html.sl advantage.html.ru advantage.var credits.html.bg credits.html.en credits.html.fr credits.html.id credits.html.it credits.html.nl credits.html.po credits.html.sl credits.html.ru credits.var develop.html.bg develop.html.en develop.html.fr develop.html.id develop.html.it develop.html.nl develop.html.po develop.html.sl develop.html.ru develop.var download.html.bg download.html.en download.html.fr download.html.id download.html.it download.html.nl download.html.po download.html.sl download.html.ru download.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var faq.html.bg faq.html.en faq.html.fr faq.html.id faq.html.it faq.html.nl faq.html.po faq.html.sl faq.html.ru faq.var fpc.html.bg fpc.html.en fpc.html.fr fpc.html.id fpc.html.it fpc.html.nl fpc.html.po fpc.html.sl fpc.html.ru fpc.var fpcmac.html.bg fpcmac.html.en fpcmac.html.fr fpcmac.html.id fpcmac.html.it fpcmac.html.nl fpcmac.html.po fpcmac.html.sl fpcmac.html.ru fpcmac.var future.html.bg future.html.en future.html.fr future.html.id future.html.it future.html.nl future.html.po future.html.sl future.html.ru future.var links.html.bg links.html.en links.html.fr links.html.id links.html.it links.html.nl links.html.po links.html.sl links.html.ru links.var maillist.html.bg maillist.html.en maillist.html.fr maillist.html.id maillist.html.it maillist.html.nl maillist.html.po maillist.html.sl maillist.html.ru maillist.var mirrors.html.bg mirrors.html.en mirrors.html.fr mirrors.html.id mirrors.html.it mirrors.html.nl mirrors.html.po mirrors.html.sl mirrors.html.ru mirrors.var moreinfo.html.bg moreinfo.html.en moreinfo.html.fr moreinfo.html.id moreinfo.html.it moreinfo.html.nl moreinfo.html.po moreinfo.html.sl moreinfo.html.ru moreinfo.var news.html.bg news.html.en news.html.fr news.html.id news.html.it news.html.nl news.html.po news.html.sl news.html.ru news.var port.html.bg port.html.en port.html.fr port.html.id port.html.it port.html.nl port.html.po port.html.sl port.html.ru port.var prog.html.bg prog.html.en prog.html.fr prog.html.id prog.html.it prog.html.nl prog.html.po prog.html.sl prog.html.ru prog.var probs.html.bg probs.html.en probs.html.fr probs.html.id probs.html.it probs.html.nl probs.html.po probs.html.sl probs.html.ru probs.var units.html.bg units.html.en units.html.fr units.html.id units.html.it units.html.nl units.html.po units.html.sl units.html.ru units.var unitsrtl.html.bg unitsrtl.html.en unitsrtl.html.fr unitsrtl.html.id unitsrtl.html.it unitsrtl.html.nl unitsrtl.html.po unitsrtl.html.sl unitsrtl.html.ru unitsrtl.var
+all_en_pages: mirrors.dat aboutus.html advantage.html credits.html develop.html download.html docs.html faq.html fpc.html fpcmac.html future.html links.html maillist.html mirrors.html moreinfo.html news.html port.html prog.html probs.html units.html unitsrtl.html
 
 
 #adp2html tool
@@ -1196,6 +1239,15 @@ fcl_all:
 
 tools_all:
 	$(MAKE) -C tools all
+
+down_all_en:
+	$(MAKE) -C down english
+
+fcl_all_en:
+	$(MAKE) -C fcl english
+
+tools_all_en:
+	$(MAKE) -C tools english
 
 # clean
 clean: clean_down clean_fcl clean_tools
