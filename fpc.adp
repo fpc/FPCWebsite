@@ -6,6 +6,7 @@
 <h2><FONT color='#ff0000'>Best wishes</FONT></h2>
 <STRONG>
 The FPC team wishes all users a Happy New Year and a fruitful 2007 !
+(and to ourselves a quick restore of the failed server ;) )
 </STRONG>
 
 <h2><FONT color='#ff0000'>Server problems</FONT></h2>
