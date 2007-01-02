@@ -3,19 +3,6 @@
 <property name="entry">fpc</property>
 <property name="header"><trn locale="en_US" key="website.Introduction">Introduction</trn></property>
 
-<h2><FONT color='#ff0000'>Best wishes</FONT></h2>
-<STRONG>
-The FPC team wishes all users a Happy New Year and a fruitful 2007 !<BR>
-(and to ourselves a quick restore of the failed server ;-) )
-</STRONG>
-
-<h2><FONT color='#ff0000'>Server problems</FONT></h2>
-<STRONG>
-Due to a server failure, Community, Mailing Lists, FTP server, Lazarus Wiki and FPCBot
-are off-line. Due to the year-end, it might take a few days until we can get physical
-access to the server to find out what is wrong.
-</STRONG>
-
 <h2><trn locale="en_US" key="website.overview">Overview</trn></h2>
 <p>
   <trn locale="en_US" key="website.overview_text">
