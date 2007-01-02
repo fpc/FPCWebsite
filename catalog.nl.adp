@@ -976,3 +976,6 @@ Bekende bugs/bugs aanmelden
 <em>24 december 2006</em>
 Er is een <A href='http://www.computerbooks.hu/FreePascal'>boek over Free Pascal</a> gepubliceerd in Hongarije. Het 270 bladzijdes tellende boek leert de lezer de Pascaltaal vanaf het begin. Ook de geavanceerde functies van Free Pascal worden behandeld.
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070101">
+<em>1 januari 2007</em> Het Free-Pascalteam wenst iedereen een gelukkig Nieuwjaar en een voorspoedig 2007!
+</TRN>

@@ -1,9 +1,6 @@
 <TRN locale="fr_FR" key="website.search">
 Chercher
 </TRN>
-<TRN locale="fr_FR" key="website.searchwhat">
-Chercher dans la documentation, les forums et les listes de mails.
-</TRN>
 <TRN locale="fr_FR" key="website.Feeling_Lucky">
 J'ai de la chance
 </TRN>
@@ -38,9 +35,9 @@ Vous trouverez les modifications <a href="http://svn.freepascal.org/svn/fpcbuild
 16 Mo  de RAM minimum, et Linux pour Sparc (toute version).
 </TRN>
 <TRN locale="fr_FR" key="website.License_text">
-  Les paquets et la librairie d'execution (packages and runtime library) sont sous licence Library GNU Public
-  License pour permettre l'usage des librairies statiques lors de la création d'applications. Le code source du compilateur proprement dit est sous licence GNU General Public License.
-  Les sources du compilateur et de ses librairies sont disponibles, le compîlateur en lui meme est entièrement écrit en Pascal.
+  Les paquets et la bibliothèque d'exécution (packages and runtime library) sont sous licence Library GNU Public
+  License pour permettre l'usage des bibliothèques statiques lors de la création d'applications. Le code source du compilateur proprement dit est sous licence GNU General Public License.
+  Les sources du compilateur et de ses bibliothèques sont disponibles, le compilateur en lui même est entièrement écrit en Pascal.
 </TRN>
 <TRN locale="fr_FR" key="website.Features_text">
  La syntaxe du language a une excellente compatibilité avec TP 7.0 et la plupart des versions de Delphi (classes, rtti, exceptions, ansistrings, widestrings, interfaces).
@@ -85,9 +82,6 @@ Version courante
 <TRN locale="fr_FR" key="website.latest_news">
 Actualités :
 </TRN>
-<TRN locale="fr_FR" key="website.Advantages">
-Advantages
-</TRN>
 <TRN locale="fr_FR" key="website.adv_Fast">
 <STRONG>Les compilateurs Pascal sont très rapides, et FreePascal ne fait pas exception.</STRONG>
     Fini les pauses café de 30 minutes à chaque compilation, en FreePascal, vous appuyez sur compiler, et c'est compilé.
@@ -126,6 +120,9 @@ Advantages
     d'objets dont vous pourrez avoir besoin.
     FreePascal supporte les Bases de données (PostgreSQL, MySQL, Interbase et ODBC).
 </TRN>
+<TRN locale="fr_FR" key="website.Advantages">
+Avantages
+</TRN>
 <TRN locale="fr_FR" key="website.Advantages_title">
 Advantages de Free Pascal
 </TRN>
@@ -153,4 +150,73 @@ Les avantages de la programmation en Pascal et Free Pascal
 <TRN locale="fr_FR" key="website.adv_Smartlink">
 <li><STRONG>Smartlinking</STRONG> Le linkeur intelligent de Free Pascal supprime toutes les portions de code et les variables non utilisées.
     Ce qui donne des petits executables, tout en bénéficiant des liens statiques : on evite ainsi l'enfer des DLL.
+</TRN>
+<TRN locale="fr_FR" key="website.Home">
+Page d'accueil
+</TRN>
+<TRN locale="fr_FR" key="website.News">
+Actualités
+</TRN>
+<TRN locale="fr_FR" key="website.Download">
+Téléchargements
+</TRN>
+<TRN locale="fr_FR" key="website.Community">
+Communauté
+</TRN>
+<TRN locale="fr_FR" key="website.Development">
+Développement
+</TRN>
+<TRN locale="fr_FR" key="website.Units">
+Unités
+</TRN>
+<TRN locale="fr_FR" key="website.FAQ">
+FAQ
+</TRN>
+<TRN locale="fr_FR" key="website.Documentation">
+Documentation
+</TRN>
+<TRN locale="fr_FR" key="website.Wiki">
+Wiki
+</TRN>
+<TRN locale="fr_FR" key="website.Features">
+Caractéristiques
+</TRN>
+<TRN locale="fr_FR" key="website.news_headline_20061224">
+    <em>24 décembre 2006 :</em>
+    Un <A href='http://www.computerbooks.hu/FreePascal'>livre sur Free Pascal</a> vient d'être publié en Hongrie.
+    Ce livre de 270 pages enseigne le langage Pascal à partir de zéro mais couvre également les caractéristiques avancées du langage.
+  
+</TRN>
+<TRN locale="fr_FR" key="website.General">
+Général
+</TRN>
+<TRN locale="fr_FR" key="website.FPC_on_the_Mac">
+FPC pour le Mac
+</TRN>
+<TRN locale="fr_FR" key="website.searchwhat">
+Chercher dans la documentation, les forums et les listes de diffusion.
+</TRN>
+<TRN locale="fr_FR" key="website.Tools">
+Outils
+</TRN>
+<TRN locale="fr_FR" key="website.Authors">
+Auteurs
+</TRN>
+<TRN locale="fr_FR" key="website.More_information">
+Informations complémentaires
+</TRN>
+<TRN locale="fr_FR" key="website.Credits">
+Remerciements
+</TRN>
+<TRN locale="fr_FR" key="website.Mailinglists">
+Listes de diffusion
+</TRN>
+<TRN locale="fr_FR" key="website.Future_Plans">
+Évolutions futures
+</TRN>
+<TRN locale="fr_FR" key="website.Contribute">
+Contribuer
+</TRN>
+<TRN locale="fr_FR" key="website.Bugtracker">
+Suivi des bogues
 </TRN>

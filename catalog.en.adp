@@ -1528,3 +1528,8 @@ There is a new extension that will be really useful. Will you include it?
     The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.
   
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20070101">
+
+    <em>Januari 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
+  
+</TRN>
