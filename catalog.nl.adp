@@ -814,7 +814,7 @@ Waarom zijn de gegenereerde programma's zo groot?
 Ik heb ONMIDDELIJK een nieuwe versie nodig
 </TRN>
 <TRN locale="nl_NL" key="website.q_Access_denies_while_download">
-Ik krijg "Toegang gewijgerd" bij het verbinden met de Free Pascal FTP-site.
+Ik krijg "Toegang geweigerd" bij het verbinden met de Free Pascal FTP-site.
 </TRN>
 <TRN locale="nl_NL" key="website.a_Wanna_new_version_now">
 <p>In de tijd tussen de uitgave van nieuwe, officiële versies, kan je een blik werpen op ontwikkelversies (zogeheten "momentopnamen"). Wees echter gewaarschuwd: dit is werk in uitvoering, behalve oude bugs die verholpen zijn en nieuwe functionaliteit, kunnen er ook nieuwe bugs ingeslopen zijn. 
@@ -917,7 +917,7 @@ Om de redenen hiervoor toe te kunnen begrijpen, dienen we terug te gaan naar de 
 <p>
 UCSD-Pascal introduceerde het unit-stelsel en de stringvariabelen waar iedere Pascalprogrammeur mee vertrouwd is. De ISO Extended Pascal-taal sluit beide taalonderdelen uit; ISO Extended Pascal heeft zowel een volledig andere systeem voor modulaire programmering als wel als dat het stringstelsel volledig verschilt van dat uit het UCSD-model. Kort gezegd is het niet mogelijk om beide dialecten tegelijk te ondersteunen.
 <p>
-Als gevolg hiervan, kon de softwareindustrie niet overstappen op ISO Extended Pascal zonder de compatibiliteit te verbreken met alle bekende broncode. Bijgevolg hebben uiteindelijk zeer weinig compilers ISO Extended Pascal geïmplementeerd, en degenen die dat wel deden hebben geen grote populariteit genoten.
+Als gevolg hiervan, kon de softwareïndustrie niet overstappen op ISO Extended Pascal zonder de compatibiliteit te verbreken met alle bekende broncode. Bijgevolg hebben uiteindelijk zeer weinig compilers ISO Extended Pascal geïmplementeerd, en degenen die dat wel deden hebben geen grote populariteit genoten.
 <p>
 Vandaag de dag bestaat er zeer weinig code die geschreven is in ISO Extended Pascal. Hoewel Free Pascal het wellicht kan ondersteunen met een aparte compilermode, is het niet al te zinnig om een compiler te maken waarvoor geen broncode bestaat dat deze kan compileren.
 <p>
@@ -978,4 +978,27 @@ Er is een <A href='http://www.computerbooks.hu/FreePascal'>boek over Free Pascal
 </TRN>
 <TRN locale="nl_NL" key="website.news_headline_20070101">
 <em>1 januari 2007</em> Het Free-Pascalteam wenst iedereen een gelukkig Nieuwjaar en een voorspoedig 2007!
+</TRN>
+<TRN locale="nl_NL" key="website.q_Crash_analysis">
+Meer informatie verkrijgen als een applicatie crasht
+</TRN>
+<TRN locale="nl_NL" key="website.a_Crash_analysis">
+<OL>
+<li>De eenvoudigste manier is om je programma met de debugoptie -gl te compileren. Op deze manier wordt de lineinfo-unit automatisch meegelinkt, waarna de uitvoer na een programmacrash de locaties in de broncode bevat, naast de adressen van de crash. Om de procedures in de runtime-bibliotheek te zien met hun echte namen dien je de runtime-bibliotheek zelf ook met -gl te compileren.
+<li>Om uitvoeriger te testen, compiler je het programma met debuginformatie  (gebruik de commandoregeloptie -g) 
+<li>Laad het programma in de debugger: <PRE>gdb(pas)(w) --directory=&lt;src dirs&gt; myprog.exe</PRE>
+Opmerkingen:
+<ul>
+<li>Op UNIX-systemen (Linux, de BSD's) dien je geen ".exe" na myprog te plaatsen
+<li>"<TT>src dirs</TT>" is een lijst van directories die de broncodebestanden van myprog de units die het gebruikt, gescheiden door puntkomma's (";"). De huidige directory wordt automatisch in deze lijst bijgevoegd.
+</ul>
+<li>Zodra je in de debugger bent, kan je (optioneel) de commandoregelopties instellen die aan je programma doorgegeven worden met het commando "<TT>set args &lt;option1 option2 ...&gt;</TT>"
+<li>Om het programma te starten typ je  "<TT>run</TT>" en druk op enter.
+<li>Nadat het programma gecrasht is, wordt het adres waar de crash is opgetreden getoond. De debugger zal de regel in de broncode proberen te tonen dat bij dit adres hoort. Merk op dat dit middenin een procedure van de runtime-bibliotheek kan zijn, waarvan de broncode niet altijd beschikbaar is, danwel dat deze niet met debuginformatie gecompileerd is.
+<li>Als je hierna "<TT>bt</TT>" (backtrace) typt, wordt het adres in de aanroepstack getoond  (de adressen van de procedure welke aangeroepen zijn voordat het programma op het huidige adres terecht kwam).
+Je kunt zien welke broncoderegels hierbij horen met het commando:
+<PRE>info line *&lt;address&gt;</PRE>
+Bijvoorbeeld:<PRE>info line *0x05bd8</PRE>
+</OL>
+          
 </TRN>

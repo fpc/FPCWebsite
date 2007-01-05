@@ -334,3 +334,6 @@ Moduł NetDB
 <TRN locale="pl_PL" key="website.pasjpeg_unit">
 Moduł PasJPEG
 </TRN>
+<TRN locale="pl_PL" key="website.news_headline_20070101">
+<em>1 stycznia 2007</em> Zespół FPC życzy wszystkim użytkownikom szczęśliwego i owocnego Nowego Roku 2007 !
+</TRN>

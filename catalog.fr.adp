@@ -220,3 +220,16 @@ Contribuer
 <TRN locale="fr_FR" key="website.Bugtracker">
 Suivi des bogues
 </TRN>
+<TRN locale="fr_FR" key="website.news_headline_20070101">
+    <em>1er Janvier 2007 : </em> L'équipe de FPC souhaite à tous les utilisateurs une heureuse et fructueuse année 2007 !
+  
+</TRN>
+<TRN locale="fr_FR" key="website.Links_mirrors">
+Liens/Miroirs
+</TRN>
+<TRN locale="fr_FR" key="website.Contributed_Units">
+Unités reçues de contributeurs
+</TRN>
+<TRN locale="fr_FR" key="website.Porting_from_TP7">
+Portage depuis TP7
+</TRN>
