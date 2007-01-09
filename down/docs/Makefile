@@ -147,65 +147,6 @@ docs-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> docs-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-austria.var
 	echo >> docs-austria.var
-docs-germany.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o docs-germany.html.bg -oe iso-8859-5 docs.adp
-docs-germany.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o docs-germany.html.en -oe iso-8859-1 docs.adp
-docs-germany.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o docs-germany.html.fr -oe iso-8859-1 docs.adp
-docs-germany.html.id: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o docs-germany.html.id -oe iso-8859-1 docs.adp
-docs-germany.html.it: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o docs-germany.html.it -oe iso-8859-1 docs.adp
-docs-germany.html.nl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o docs-germany.html.nl -oe iso-8859-1 docs.adp
-docs-germany.html.po: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o docs-germany.html.po -oe iso-8859-2 docs.adp
-docs-germany.html.sl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o docs-germany.html.sl -oe iso-8859-2 docs.adp
-docs-germany.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o docs-germany.html.ru -oe iso-8859-5 docs.adp
-docs-germany.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o docs-germany.html -oe ISO-8859-1 docs.adp
-
-docs-germany.var: gen_makefile.conf
-	echo > docs-germany.var
-	echo 'URI: docs-germany.html.bg' >> docs-germany.var
-	echo 'Content-language: bg' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.en' >> docs-germany.var
-	echo 'Content-language: en' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.fr' >> docs-germany.var
-	echo 'Content-language: fr' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.id' >> docs-germany.var
-	echo 'Content-language: id' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.it' >> docs-germany.var
-	echo 'Content-language: it' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.nl' >> docs-germany.var
-	echo 'Content-language: nl' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.po' >> docs-germany.var
-	echo 'Content-language: pl' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.sl' >> docs-germany.var
-	echo 'Content-language: sl' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-germany.var
-	echo >> docs-germany.var
-	echo 'URI: docs-germany.html.ru' >> docs-germany.var
-	echo 'Content-language: ru' >> docs-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-germany.var
-	echo >> docs-germany.var
 docs-hungary.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o docs-hungary.html.bg -oe iso-8859-5 docs.adp
 docs-hungary.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -622,7 +563,6 @@ mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
 	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
 	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	echo -e 'Germany\tgermany\tftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/' >> mirrors.dat
 	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
 	echo -e 'Israel\tisrael\thttp://mirror.mirimar.net/freepascal/' >> mirrors.dat
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
@@ -630,8 +570,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat docs-australia.html.bg docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.it docs-australia.html.nl docs-australia.html.po docs-australia.html.sl docs-australia.html.ru docs-australia.var docs-austria.html.bg docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.it docs-austria.html.nl docs-austria.html.po docs-austria.html.sl docs-austria.html.ru docs-austria.var docs-germany.html.bg docs-germany.html.en docs-germany.html.fr docs-germany.html.id docs-germany.html.it docs-germany.html.nl docs-germany.html.po docs-germany.html.sl docs-germany.html.ru docs-germany.var docs-hungary.html.bg docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.it docs-hungary.html.nl docs-hungary.html.po docs-hungary.html.sl docs-hungary.html.ru docs-hungary.var docs-israel.html.bg docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.it docs-israel.html.nl docs-israel.html.po docs-israel.html.sl docs-israel.html.ru docs-israel.var docs-netherlands.html.bg docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.it docs-netherlands.html.nl docs-netherlands.html.po docs-netherlands.html.sl docs-netherlands.html.ru docs-netherlands.var docs-norway.html.bg docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.it docs-norway.html.nl docs-norway.html.po docs-norway.html.sl docs-norway.html.ru docs-norway.var docs-russia.html.bg docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.it docs-russia.html.nl docs-russia.html.po docs-russia.html.sl docs-russia.html.ru docs-russia.var docs-ftp.freepascal.org.html.bg docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.it docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.po docs-ftp.freepascal.org.html.sl docs-ftp.freepascal.org.html.ru docs-ftp.freepascal.org.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var
-all_en_pages: mirrors.dat docs-australia.html docs-austria.html docs-germany.html docs-hungary.html docs-israel.html docs-netherlands.html docs-norway.html docs-russia.html docs-ftp.freepascal.org.html
+all_pages: mirrors.dat docs-australia.html.bg docs-australia.html.en docs-australia.html.fr docs-australia.html.id docs-australia.html.it docs-australia.html.nl docs-australia.html.po docs-australia.html.sl docs-australia.html.ru docs-australia.var docs-austria.html.bg docs-austria.html.en docs-austria.html.fr docs-austria.html.id docs-austria.html.it docs-austria.html.nl docs-austria.html.po docs-austria.html.sl docs-austria.html.ru docs-austria.var docs-hungary.html.bg docs-hungary.html.en docs-hungary.html.fr docs-hungary.html.id docs-hungary.html.it docs-hungary.html.nl docs-hungary.html.po docs-hungary.html.sl docs-hungary.html.ru docs-hungary.var docs-israel.html.bg docs-israel.html.en docs-israel.html.fr docs-israel.html.id docs-israel.html.it docs-israel.html.nl docs-israel.html.po docs-israel.html.sl docs-israel.html.ru docs-israel.var docs-netherlands.html.bg docs-netherlands.html.en docs-netherlands.html.fr docs-netherlands.html.id docs-netherlands.html.it docs-netherlands.html.nl docs-netherlands.html.po docs-netherlands.html.sl docs-netherlands.html.ru docs-netherlands.var docs-norway.html.bg docs-norway.html.en docs-norway.html.fr docs-norway.html.id docs-norway.html.it docs-norway.html.nl docs-norway.html.po docs-norway.html.sl docs-norway.html.ru docs-norway.var docs-russia.html.bg docs-russia.html.en docs-russia.html.fr docs-russia.html.id docs-russia.html.it docs-russia.html.nl docs-russia.html.po docs-russia.html.sl docs-russia.html.ru docs-russia.var docs-ftp.freepascal.org.html.bg docs-ftp.freepascal.org.html.en docs-ftp.freepascal.org.html.fr docs-ftp.freepascal.org.html.id docs-ftp.freepascal.org.html.it docs-ftp.freepascal.org.html.nl docs-ftp.freepascal.org.html.po docs-ftp.freepascal.org.html.sl docs-ftp.freepascal.org.html.ru docs-ftp.freepascal.org.var docs.html.bg docs.html.en docs.html.fr docs.html.id docs.html.it docs.html.nl docs.html.po docs.html.sl docs.html.ru docs.var
+all_en_pages: mirrors.dat docs-australia.html docs-austria.html docs-hungary.html docs-israel.html docs-netherlands.html docs-norway.html docs-russia.html docs-ftp.freepascal.org.html
 
 
 # clean

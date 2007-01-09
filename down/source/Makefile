@@ -147,65 +147,6 @@ sources-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> sources-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-austria.var
 	echo >> sources-austria.var
-sources-germany.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources-germany.html.bg -oe iso-8859-5 sources.adp
-sources-germany.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sources-germany.html.en -oe iso-8859-1 sources.adp
-sources-germany.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o sources-germany.html.fr -oe iso-8859-1 sources.adp
-sources-germany.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o sources-germany.html.id -oe iso-8859-1 sources.adp
-sources-germany.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o sources-germany.html.it -oe iso-8859-1 sources.adp
-sources-germany.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o sources-germany.html.nl -oe iso-8859-1 sources.adp
-sources-germany.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o sources-germany.html.po -oe iso-8859-2 sources.adp
-sources-germany.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o sources-germany.html.sl -oe iso-8859-2 sources.adp
-sources-germany.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o sources-germany.html.ru -oe iso-8859-5 sources.adp
-sources-germany.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/ -p mirrorsuffix=germany -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sources-germany.html -oe ISO-8859-1 sources.adp
-
-sources-germany.var: gen_makefile.conf
-	echo > sources-germany.var
-	echo 'URI: sources-germany.html.bg' >> sources-germany.var
-	echo 'Content-language: bg' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.en' >> sources-germany.var
-	echo 'Content-language: en' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.fr' >> sources-germany.var
-	echo 'Content-language: fr' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.id' >> sources-germany.var
-	echo 'Content-language: id' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.it' >> sources-germany.var
-	echo 'Content-language: it' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.nl' >> sources-germany.var
-	echo 'Content-language: nl' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.po' >> sources-germany.var
-	echo 'Content-language: pl' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.sl' >> sources-germany.var
-	echo 'Content-language: sl' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-germany.var
-	echo >> sources-germany.var
-	echo 'URI: sources-germany.html.ru' >> sources-germany.var
-	echo 'Content-language: ru' >> sources-germany.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-germany.var
-	echo >> sources-germany.var
 sources-hungary.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources-hungary.html.bg -oe iso-8859-5 sources.adp
 sources-hungary.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -622,7 +563,6 @@ mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
 	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
 	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	echo -e 'Germany\tgermany\tftp://ftp.uni-erlangen.de/pub/mirrors/freepascal/' >> mirrors.dat
 	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
 	echo -e 'Israel\tisrael\thttp://mirror.mirimar.net/freepascal/' >> mirrors.dat
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
@@ -630,8 +570,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat sources-australia.html.bg sources-australia.html.en sources-australia.html.fr sources-australia.html.id sources-australia.html.it sources-australia.html.nl sources-australia.html.po sources-australia.html.sl sources-australia.html.ru sources-australia.var sources-austria.html.bg sources-austria.html.en sources-austria.html.fr sources-austria.html.id sources-austria.html.it sources-austria.html.nl sources-austria.html.po sources-austria.html.sl sources-austria.html.ru sources-austria.var sources-germany.html.bg sources-germany.html.en sources-germany.html.fr sources-germany.html.id sources-germany.html.it sources-germany.html.nl sources-germany.html.po sources-germany.html.sl sources-germany.html.ru sources-germany.var sources-hungary.html.bg sources-hungary.html.en sources-hungary.html.fr sources-hungary.html.id sources-hungary.html.it sources-hungary.html.nl sources-hungary.html.po sources-hungary.html.sl sources-hungary.html.ru sources-hungary.var sources-israel.html.bg sources-israel.html.en sources-israel.html.fr sources-israel.html.id sources-israel.html.it sources-israel.html.nl sources-israel.html.po sources-israel.html.sl sources-israel.html.ru sources-israel.var sources-netherlands.html.bg sources-netherlands.html.en sources-netherlands.html.fr sources-netherlands.html.id sources-netherlands.html.it sources-netherlands.html.nl sources-netherlands.html.po sources-netherlands.html.sl sources-netherlands.html.ru sources-netherlands.var sources-norway.html.bg sources-norway.html.en sources-norway.html.fr sources-norway.html.id sources-norway.html.it sources-norway.html.nl sources-norway.html.po sources-norway.html.sl sources-norway.html.ru sources-norway.var sources-russia.html.bg sources-russia.html.en sources-russia.html.fr sources-russia.html.id sources-russia.html.it sources-russia.html.nl sources-russia.html.po sources-russia.html.sl sources-russia.html.ru sources-russia.var sources-ftp.freepascal.org.html.bg sources-ftp.freepascal.org.html.en sources-ftp.freepascal.org.html.fr sources-ftp.freepascal.org.html.id sources-ftp.freepascal.org.html.it sources-ftp.freepascal.org.html.nl sources-ftp.freepascal.org.html.po sources-ftp.freepascal.org.html.sl sources-ftp.freepascal.org.html.ru sources-ftp.freepascal.org.var sources.html.bg sources.html.en sources.html.fr sources.html.id sources.html.it sources.html.nl sources.html.po sources.html.sl sources.html.ru sources.var
-all_en_pages: mirrors.dat sources-australia.html sources-austria.html sources-germany.html sources-hungary.html sources-israel.html sources-netherlands.html sources-norway.html sources-russia.html sources-ftp.freepascal.org.html
+all_pages: mirrors.dat sources-australia.html.bg sources-australia.html.en sources-australia.html.fr sources-australia.html.id sources-australia.html.it sources-australia.html.nl sources-australia.html.po sources-australia.html.sl sources-australia.html.ru sources-australia.var sources-austria.html.bg sources-austria.html.en sources-austria.html.fr sources-austria.html.id sources-austria.html.it sources-austria.html.nl sources-austria.html.po sources-austria.html.sl sources-austria.html.ru sources-austria.var sources-hungary.html.bg sources-hungary.html.en sources-hungary.html.fr sources-hungary.html.id sources-hungary.html.it sources-hungary.html.nl sources-hungary.html.po sources-hungary.html.sl sources-hungary.html.ru sources-hungary.var sources-israel.html.bg sources-israel.html.en sources-israel.html.fr sources-israel.html.id sources-israel.html.it sources-israel.html.nl sources-israel.html.po sources-israel.html.sl sources-israel.html.ru sources-israel.var sources-netherlands.html.bg sources-netherlands.html.en sources-netherlands.html.fr sources-netherlands.html.id sources-netherlands.html.it sources-netherlands.html.nl sources-netherlands.html.po sources-netherlands.html.sl sources-netherlands.html.ru sources-netherlands.var sources-norway.html.bg sources-norway.html.en sources-norway.html.fr sources-norway.html.id sources-norway.html.it sources-norway.html.nl sources-norway.html.po sources-norway.html.sl sources-norway.html.ru sources-norway.var sources-russia.html.bg sources-russia.html.en sources-russia.html.fr sources-russia.html.id sources-russia.html.it sources-russia.html.nl sources-russia.html.po sources-russia.html.sl sources-russia.html.ru sources-russia.var sources-ftp.freepascal.org.html.bg sources-ftp.freepascal.org.html.en sources-ftp.freepascal.org.html.fr sources-ftp.freepascal.org.html.id sources-ftp.freepascal.org.html.it sources-ftp.freepascal.org.html.nl sources-ftp.freepascal.org.html.po sources-ftp.freepascal.org.html.sl sources-ftp.freepascal.org.html.ru sources-ftp.freepascal.org.var sources.html.bg sources.html.en sources.html.fr sources.html.id sources.html.it sources.html.nl sources.html.po sources.html.sl sources.html.ru sources.var
+all_en_pages: mirrors.dat sources-australia.html sources-austria.html sources-hungary.html sources-israel.html sources-netherlands.html sources-norway.html sources-russia.html sources-ftp.freepascal.org.html
 
 
 # clean

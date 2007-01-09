@@ -874,32 +874,6 @@ Debuggen van slim gelinkte code werkt niet zoals het hoort
 Ido Kanner zal op maandag 15 januari 2007 een lezing geven over FPC bij <a href="http://haifux.org/future.html">HAIFUX</a>, een Linuxclub gelieerd aan de Technion-universiteit in Haifa. De lezing wordt nog een keer gegeven bij <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, een [universitaire] Linuxclub in Tel Aviv.
 
 </TRN>
-<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
-<DL>
-<DT><b>Doel:</b>
-<DD>Free Pascal probeert een Borland-compatibele Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
-<DT><b>Versie:</b>
-<DD>Op dit moment is Free Pascal bij versie on 2.0 (mei 2005). GNU-Pascal is bij versie 2.1 (uit 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-versie is echter een uitzondering, deze volgt de GCC-versienummering).
-<DT><b>Ontwikkelstatus volgen:</b>
-<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
-<DT><b>Besturingssystemen:</b>
-<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
-
-GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
-<DT><b>Bootstrappen:</b>
-<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
-<DT><b>Broncode:</b>
-<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
-<DT><b>Taal:</b>
-<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
-<DT><b>Extensies:</b>
-<DD>Free Pascal implementeerd methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
-<DT><b>Licentie:</b>
-<DD>Beide compilers worden geleverd onder de GNU-GPL.
-<DT><b>Auteur:</b>
-<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
- 
-</TRN>
 <TRN locale="nl_NL" key="website.q_isoxpascal">
 Gaan jullie ISO Extended Pascal ondersteunen?
 </TRN>
@@ -1001,4 +975,42 @@ Je kunt zien welke broncoderegels hierbij horen met het commando:
 Bijvoorbeeld:<PRE>info line *0x05bd8</PRE>
 </OL>
           
+</TRN>
+<TRN locale="nl_NL" key="website.a_FPC_vs_GPC">
+<DL>
+<DT><b>Doel:</b>
+<DD>Free Pascal probeert een Borland-compatibele Pascalcompiler op zoveel platformen als mogelijk te implementeren. GNU-Pascal probeert een platformonafhankelijke Pascalcompiler gebaseerd op POSIX te implementeren.
+<DT><b>Versie:</b>
+<DD>Op dit moment is Free Pascal bij versie on 2.0 (mei 2005). GNU-Pascal is bij versie 2.1 (uit 2002, welke gebouwd kan worden met verschillende GCC's als backend; hun Mac OS X-versie is echter een uitzondering, deze volgt de GCC-versienummering).
+<DT><b>Ontwikkelstatus volgen:</b>
+<DD>Tussen uitgaven in worden ontwikkelversies van FPC beschikbaar gemaakt doormiddel van dagelijkse momentopnamen, en de broncode via SVN. GPC heeft een paar keer per jaar een zet patches uit ten opzichte van de laatste versie en er zijn reguliere momentopnamen voor OS X en Windows, gemaakt door gebruikers..
+<DT><b>Besturingssystemen:</b>
+<DD>Free Pascal loopt op een groot aantal platformen, zoals DOS, Win32 (geen Unixsimulatielaag nodig), Linux, FreeBSD, NetBSD, OS/2, BeOS, Klassiek Mac OS, Mac OS X en AmigaOS, op, op dit moment de volgende architecturen: x86, x86_64 (AMD64), Sparc, PowerPC, ARM en Motorola (Motorola alleen in versie 1.0.x).
+
+GNU-Pascal loopt effectief op ieder systeem dat GNU-C kan draaien, en waarvoor het bouwproces gekeurd is..
+<DT><b>Bootstrappen:</b>
+<DD>FPC vereist een geschikte verzameling binutils (AS,AR,LD), gmake en een commandoregelcompiler. Nieuwe architecturen/besturingssystemen worden gekruiscompileerd. GPC bootstrapt via een geschikte versie van GCC, en vereist een volledige verzameling binutils, flex, bison, gmake, een POSIX-shell en libtool 
+<DT><b>Broncode:</b>
+<DD>Free Pascal is volledig geschreven in Pascal (ongeveer 7 MB broncode), terwijl GNU-Pascal geschreven is in C (het is een aanpassing van de GNU-C-compiler: 2,8 MB eigen code + 8 MB GNU-C-code)
+<DT><b>Taal:</b>
+<DD>Free Pascal ondersteunt het Borland-Pascaldialect, implementeert de Delphi objectpascaltaal en heeft enkele Mac Pascal extensies. GNU Pascal ondersteunt ISO 7185, ISO 10206, (het meeste van) Borland Pascal 7.0
+<DT><b>Extensies:</b>
+<DD>Free Pascal implementeert methode-, functie- en operatoroverroeping. (Recentere Delphiversies hebben dit ook, dus is het strict genomen geen extensie meer.) GNU-Pascal implementeert operatoroverroeping.
+<DT><b>Licentie:</b>
+<DD>Beide compilers worden geleverd onder de GNU-GPL.
+<DT><b>Auteur:</b>
+<DD>Free Pascal is begonnen door Florian Kl&auml;mpfl, Duitsland (florian&#x040;freepascal.org), GNU-Pascal is begonnen door Jukka Virtanen, Finland (jtv&#x040;hut.fi). </DD></DL><br>
+ 
+</TRN>
+<TRN locale="nl_NL" key="website.q_Standard_units">
+Standaardunits
+</TRN>
+<TRN locale="nl_NL" key="website.a_Standard_units">
+<P>Om de lijst van units te zien die standaard met Free Pascal meegeleverd worden, zie de gebruikershandleiding. Er is daar ook een korte lijst van wat iedere unit doet in hetzelfde deel van de handleiding.          
+</TRN>
+<TRN locale="nl_NL" key="website.q_Compiler_skips_files">
+De compiler slaat bestanden over in directories waar -Fu naar wijst
+</TRN>
+<TRN locale="nl_NL" key="website.q_porting_CPU">
+Overwegingen bij het coderen van code naar andere processoren
 </TRN>
