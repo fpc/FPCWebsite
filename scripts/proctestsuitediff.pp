@@ -131,7 +131,9 @@ begin
     { 'same' testrun yesterday and today, changelist or nochangelist modified }
     checkchange(prev, curr, yesterday, today, changelist, nochangelist);
     { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
-    checkchange(old, prev, twodaysago, yesterday, prevchangelist, prevnochangelist);
+    { only detect equal testruns yesterday if submitted late for diff mail yesterday }
+    if prev.hour >= 7 then
+      checkchange(old, prev, twodaysago, yesterday, prevchangelist, prevnochangelist);
     { still some unprocessed line? }
     if length(old.line) > 0 then
     begin
