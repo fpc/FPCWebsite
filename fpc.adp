@@ -17,6 +17,12 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <trn locale="en_US" key="website.news_headline_20070115">
+    <em>Januari 15, 2007</em> The Pascal Game Development annual contest
+    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 3 February</A>.
+    Can you write a game with Free Pascal? You might win several prizes. More information will follow.
+  </trn>
+<p>
   <trn locale="en_US" key="website.news_headline_20070101">
     <em>Januari 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
   </trn>
@@ -31,27 +37,6 @@
   <em>December 14, 2006</em>
   Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
  </trn>
-</p>
-<p>
-  <trn locale="en_US" key="website.news_headline_20061125">
-    <em>November 25-26, 2006</em>
-    Lazarus and FPC will be on the HCC in Utrecht, Netherlands in the HCC Pascal booth.
-  </trn>
-</p>
-<p>
-  <trn locale="en_US" key="website.news_headline_20060927">
-    <em>September 27, 2006</em>
-    Lazarus and FPC will be on the Systems 2006 in Munich in October in hall A3 booth 542.
-    We will try to be there on all 5 days. You can find more information about the Systems 2006 
-    <a href="http://www.systems-world.de/id/7672/">here</a>.
-  </trn>
-</p>
-<p>
-  <trn locale="en_US" key="website.news_headline_20060925">
-    <em>September 25, 2006</em>
-    Francesco Lombardi is writing <a href='http://itaprogaming.free.fr/tutorial.html'> an
-    extensive guide how to develop games on the Game Boy Advance</a> using Free Pascal.
-  </trn>
 </p>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>

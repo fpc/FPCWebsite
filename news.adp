@@ -10,6 +10,11 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>January 15, 2007
+<ul><li>The Pascal Game Development annual contest
+    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 3 February</A>.
+    Can you write a game with Free Pascal? You might win several prizes. More information will follow.
+
 <li>December 24, 2006
 <ul><li>A <A href='http://www.computerbooks.hu/FreePascal'>book about Free Pascal</a> has been published in Hungary.
     The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.</ul>
