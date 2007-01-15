@@ -1533,3 +1533,10 @@ There is a new extension that will be really useful. Will you include it?
     <em>Januari 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
   
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20070115">
+
+    <em>Januari 15, 2007</em> The Pascal Game Development annual contest
+    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 3 February</A>.
+    Can you write a game with Free Pascal? You might win several prizes. More information will follow.
+  
+</TRN>

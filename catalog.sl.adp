@@ -132,7 +132,7 @@ Novice
 </TRN>
 <TRN locale="sl_SI" key="website.news_headline_20060925">
     <em>September 25, 2006</em>
-    Francesco Lombardi piše <a href='http://itaprogaming.free.fr/tutorial.html'> obširni prirošnik o razvoju iger na Game Boy Advance</a> z Free Pascalom.
+    Francesco Lombardi piše <a href='http://itaprogaming.free.fr/tutorial.html'> obširni priročnik o razvoju iger na Game Boy Advance</a> z Free Pascalom.
   
 </TRN>
 <TRN locale="sl_SI" key="website.news_headline_20060927">
@@ -145,6 +145,21 @@ Novice
 <TRN locale="sl_SI" key="website.news_headline_20061125">
     <em>November 25-26, 2006</em>
     Lazarus in FPC bodo prisotni na HCC v Utrechtu, Nizozemska, v prostorih HCC Pascal.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20061204">
+  <em>14 December 2006</em>
+  Ido Kanner bo predaval o FPC-ju na <a href="http://haifux.org/future.html">HAIFUX</a>, Linux klubu na Technion University v Haifi, v Ponedeljek, 15 Januarja 2007. Lekcijo bo ponovil na <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, Univerzitetni Linux Klub v Tel Avivu.
+ 
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20061224">
+    <em>24 December 2006</em>
+    Izdana je bila knjiga <A href='http://www.computerbooks.hu/FreePascal'> o Free Pascalu</a> na Madžarskem.
+    Knjiga, ki ima 270 strani je primerna za učenje jezika Pascal od začetka in  obravnava napredne zmožnosti jezika.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20070101">
+    <em>1. Januar 2007</em> FPC team želi vsem uporabnikom Srečno Novo Leto in uspešno 2007 !
   
 </TRN>
 <TRN locale="sl_SI" key="website.Official_releases">

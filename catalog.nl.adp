@@ -1014,3 +1014,8 @@ De compiler slaat bestanden over in directories waar -Fu naar wijst
 <TRN locale="nl_NL" key="website.q_porting_CPU">
 Overwegingen bij het coderen van code naar andere processoren
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070115">
+<em>15 januari 2007</em> De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'> zal beginnen op 1 februari</A>.
+Kan jij een met Free Pascal een computerspel schrijven? Er zijn mooie prijzen te winnen. Meer informatie zal volgen.
+
+</TRN>

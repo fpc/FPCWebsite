@@ -19,7 +19,7 @@
 <p>
   <trn locale="en_US" key="website.news_headline_20070115">
     <em>Januari 15, 2007</em> The Pascal Game Development annual contest
-    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 3 February</A>.
+    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 1 February</A>.
     Can you write a game with Free Pascal? You might win several prizes. More information will follow.
   </trn>
 <p>
