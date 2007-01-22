@@ -298,6 +298,7 @@ pic/news.gif -text svneol=unset#image/gif
 pic/newslet.gif -text svneol=unset#image/gif
 pic/oldfp.gif -text svneol=unset#image/gif
 pic/port.gif -text svneol=unset#image/gif
+pic/running_cheetah_dan_gerh_01.svg svneol=native#text/plain
 pic/shadowb.png -text svneol=unset#image/png
 pic/shadowlb.png -text svneol=unset#image/png
 pic/shadowr.png -text svneol=unset#image/png
