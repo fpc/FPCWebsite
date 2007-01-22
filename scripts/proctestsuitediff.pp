@@ -100,7 +100,7 @@ const
 var
   twodaysago, yesterday, today: string;
   curr, prev, old: ttestrun;
-  prevnochangelist, prevchangelist, disappearlist, nochangelist, changelist, newlist: tstringlist;
+  list, prevnochangelist, prevchangelist, disappearlist, nochangelist, changelist, newlist: tstringlist;
 begin
   prevnochangelist := tstringlist.create;
   prevchangelist := tstringlist.create;
@@ -137,14 +137,16 @@ begin
     { still some unprocessed line? }
     if length(old.line) > 0 then
     begin
+      list := nil;
       if old.date = yesterday then
-      begin
-        addlist(disappearlist, getfail(old.line), old.data);
-      end else
-      if old.date = today then
-      begin
-        addlist(newlist, getfail(old.line), old.data);
-      end;
+        if old.hour < 7 then
+          list := disappearlist
+        else
+          list := newlist
+      else if old.date = today then
+        list := newlist;
+      if list <> nil then
+        addlist(list, getfail(old.line), old.data);
     end;
     old := prev;
     prev := curr;
