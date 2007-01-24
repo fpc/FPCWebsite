@@ -21,14 +21,22 @@ begin
   result := copy(line, i, j-i);
 end;
 
+type
+  toutputline = class(tobject)
+  public
+    data, url: string;
+  end;
+
 var
   header: array[0..2] of string;
   footer: string;
   lenfailstr: integer;
+  urllist: tstrings;
 
 procedure printtable(list: tstringlist; heading: string);
 var
-  str: string;
+  outputline: toutputline;
+  str, urlref: string;
   i: integer;
 begin
   if list.count = 0 then
@@ -39,26 +47,49 @@ begin
   for i := 0 to list.count - 1 do
   begin
     str := list.strings[i];
-    writeln('| ' + str + stringofchar(' ', lenfailstr - length(str)) + ' ' + string(list.objects[i]));
+    outputline := toutputline(list.objects[i]);
+    urlref := inttostr(urllist.count+1);
+    writeln('| ' + stringofchar(' ', 3 - length(urlref)) + urlref + ' | ' + str + stringofchar(' ', lenfailstr - length(str)) + ' ' + outputline.data);
+    urllist.add(outputline.url);
   end;
   writeln(footer);
   writeln;
 end;
 
-procedure addlist(list: tstrings; const failstr, data: string);
+procedure printurllist;
 var
-  tmpObj: TObject;
+  i: integer;
 begin
-  tmpObj := nil;
-  string(tmpObj) := data;
-  list.addobject(failstr, tmpObj);
+  for i := 0 to urllist.count-1 do
+    writeln('[' + inttostr(i+1) + ']: ' + urllist.strings[i]);
+  writeln;
+end;
+
+procedure addlist(list: tstrings; const failstr, data, url: string);
+var
+  outputline: toutputline;
+begin
+  outputline := toutputline.create;
+  outputline.data := data;
+  outputline.url := url;
+  list.addobject(failstr, outputline);
 end;
 
 type
   ttestrun = record
-    line, date, fail, data: string;
+    line, date, fail, data, runid: string;
     hour: integer;
   end;
+
+function construct_results_url(const runid: string): string;
+begin
+  result := 'http://www.freepascal.org/cgi-bin/testsuite.cgi?action=1&run1id='+runid;
+end;
+
+function construct_compare_url(const run1id, run2id: string): string;
+begin
+  result := 'http://www.freepascal.org/cgi-bin/testsuite.cgi?action=1&run1id='+run1id+'&run2id='+run2id+'&noskipped=1';
+end;
 
 function checkchange(var prev, curr: ttestrun; const prevdate, currdate: string;
   changelist, nochangelist: tstrings): boolean;
@@ -75,10 +106,10 @@ begin
       if prev.fail = curr.fail then
       begin
         failstr := curr.fail;
-        addlist(nochangelist, failstr, curr.data);
+        addlist(nochangelist, failstr, curr.data, construct_results_url(curr.runid));
       end else begin
         failstr := prev.fail + ' -> ' + curr.fail;
-        addlist(changelist, failstr, curr.data);
+        addlist(changelist, failstr, curr.data, construct_compare_url(prev.runid, curr.runid));
       end;
       if length(failstr) > lenfailstr then
         lenfailstr := length(failstr);
@@ -91,11 +122,13 @@ end;
 
 const
   { cut fails and date (first two fields, '| FAILS | DATE       ', 21 characters) 
-    cut time (last field, ' HH:MM:SS |', 11 characters) }
+    cut time (last 2 fields, ' HH:MM:SS |  XXXX |', 19 characters) }
   datastart = 21;
-  datacutlen = 31;
+  datacutlen = 39;
   { position of hour counted from end }
-  houroffset = 9;
+  houroffset = 17;
+  { position of testrun id counted from end }
+  runidoffset = 6;
 
 var
   twodaysago, yesterday, today: string;
@@ -108,6 +141,7 @@ begin
   nochangelist := tstringlist.create;
   changelist := tstringlist.create;
   newlist := tstringlist.create;
+  urllist := tstringlist.create;
   readln;
   repeat
     readln(header[0]);
@@ -125,6 +159,7 @@ begin
       curr.date := getdate(curr.line);
       curr.data := copy(curr.line, datastart, length(curr.line)-datacutlen);
       curr.hour := strtointdef(copy(curr.line, length(curr.line)-houroffset, 2), 0);
+      curr.runid := trim(copy(curr.line, length(curr.line)-runidoffset, 5));
     end else 
     if length(footer) = 0 then
       footer := curr.line;
@@ -146,19 +181,19 @@ begin
       else if old.date = today then
         list := newlist;
       if list <> nil then
-        addlist(list, getfail(old.line), old.data);
+        addlist(list, getfail(old.line), old.data, construct_results_url(old.runid));
     end;
     old := prev;
     prev := curr;
   until (length(old.line) > 0) and (old.line[1] = '+');
   
-  header[0] := copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) + 
+  header[0] :=            copy(header[0], 1, 1) + stringofchar('-', lenfailstr+8) + 
     copy(header[0], datastart, length(header[0])-datacutlen);
-  header[1] := copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) + 
+  header[1] := '| URL ' + copy(header[1], 1, 7) +  stringofchar(' ', lenfailstr-4) + 
     copy(header[1], datastart, length(header[1])-datacutlen);
-  header[2] := copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) + 
+  header[2] :=            copy(header[2], 1, 1) + stringofchar('-', lenfailstr+8) + 
     copy(header[2], datastart, length(header[2])-datacutlen);
-  footer    := copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
+  footer    :=            copy(footer,    1, 1) + stringofchar('-', lenfailstr+8) + 
     copy(footer,    datastart, length(footer)-datacutlen);
   
   printtable(changelist, 'CHANGED:');
@@ -167,6 +202,8 @@ begin
   printtable(prevnochangelist, 'UNCHANGED YESTERDAY:');
   printtable(disappearlist, 'DISAPPEARED:');
   printtable(newlist, 'NEW:');
+
+  printurllist;
 
   prevnochangelist.free;
   prevchangelist.free;
