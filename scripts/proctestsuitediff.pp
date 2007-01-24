@@ -187,13 +187,13 @@ begin
     prev := curr;
   until (length(old.line) > 0) and (old.line[1] = '+');
   
-  header[0] :=            copy(header[0], 1, 1) + stringofchar('-', lenfailstr+8) + 
+  header[0] := '+-----' + copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) + 
     copy(header[0], datastart, length(header[0])-datacutlen);
-  header[1] := '| URL ' + copy(header[1], 1, 7) +  stringofchar(' ', lenfailstr-4) + 
+  header[1] := '| URL ' + copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) + 
     copy(header[1], datastart, length(header[1])-datacutlen);
-  header[2] :=            copy(header[2], 1, 1) + stringofchar('-', lenfailstr+8) + 
+  header[2] := '+-----' + copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) + 
     copy(header[2], datastart, length(header[2])-datacutlen);
-  footer    :=            copy(footer,    1, 1) + stringofchar('-', lenfailstr+8) + 
+  footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
     copy(footer,    datastart, length(footer)-datacutlen);
   
   printtable(changelist, 'CHANGED:');
