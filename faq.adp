@@ -851,8 +851,9 @@
    <OL>
 
         <li><a name='PortingCPU'></a>
-            <h3><trn key="website.q_porting_CPU" locale="en_US">Considerations in porting to other processors</trn></h3>
+          <h3><trn key="website.q_porting_CPU" locale="en_US">Considerations in porting to other processors</trn></h3>
 
+          <trn key="website.a_porting_CPU" locale="en_US">
             <p>Because the compiler now supports processors other than the Intel, it
             is important to take a few precautions so that your code will execute
             correctly on all processors. 
@@ -882,14 +883,15 @@
               from version 1.9.3) when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
               the processor and operating system. 
-              
             </ul>
+          </trn>
         
         <p>
 
         <li><a name='PortingOS'></a>
-            <h3><trn key="website.q_porting_OS" locale="en_US">Considerations in porting code to other operating systems</trn></h3>
+          <h3><trn key="website.q_porting_OS" locale="en_US">Considerations in porting code to other operating systems</trn></h3>
 
+          <trn key="website.a_porting_OS" locale="en_US">
             <p>Because the compiler supports several different operating systems,
             is important to take a few precautions so that your code will execute
             correctly on all systems. 
@@ -923,44 +925,50 @@
                defined in <TT>sysutils</TT>.
               
             </ul>
+          </trn>
         
         <p>
 
         <li><a name='OOP'></a>
-            <h3><trn key="website.q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></h3>
+          <h3><trn key="website.q_OOP" locale="en_US">Compiling Delphi code using Free Pascal</trn></h3>
+          <trn key="website.a_OOP" locale="en_US">
 
             <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
             -Sd switches (see the manuals for the meaning of these switches). For a
             list of Delphi incompabilities also check the manual. 
-        
+          </trn>        
 
         <li><a name='HowcanIbuildaunit'></a>
-            <h3><trn key="website.q_build_unit" locale="en_US">Building a unit</trn></h3>
+          <h3><trn key="website.q_build_unit" locale="en_US">Building a unit</trn></h3>
 
+          <trn key="website.a_build_unit" locale="en_US">
             <p>It works like in Turbo Pascal. The first keyword in the file must be
             UNIT (not case sensitive). The compiler will generate two files:
             <TT>XXX.PPU</TT> and <TT>XXX.O</TT>. The PPU file contains the interface
             information for the compiler and the O-file the machine code (an object
             file, whose precise structure depends on the assembler you used). To use
             this unit in another unit or program, you must include its name in the
-            USES clause of your program. 
+            USES clause of your program.
+          </trn> 
         
 
         <li><a name='CompileSystemUnit'></a>
-            <h3><trn key="website.q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
+          <h3><trn key="website.q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
 
+          <trn key="website.q_compiling_systemunit" locale="en_US">
             <p>To recompile the system unit, it is recommended to have GNU make
             installed. typing 'make' in the rtl source directory will then recompile
             all RTL units including the system unit. You may choose to descend into
             the directory of your OS (e.g. rtl/go32v2) and do a 'make' there. 
             <p>It is possible to do all this manually, but you need more detailed
             knowledge of the RTL tree structure for that. 
-        
+          </trn>        
 
 
         <li><a name='Howdoesprocedureoverloadingwork'></a>
-            <h3><trn key="website.q_how_does_proc_overloading_work" locale="en_US">How does procedure overloading work?</trn></h3>
+          <h3><trn key="website.q_how_does_proc_overloading_work" locale="en_US">How does procedure overloading work?</trn></h3>
 
+          <trn key="website.a_how_does_proc_overloading_work" locale="en_US">
             <p>Here is a procedure overloading example:
             <PRE>
                     procedure a(i : integer);
@@ -983,11 +991,11 @@
             with a 'This overloaded function can't be local' message. Overloaded
             functions must differ in their parameters, it's not enough if their
             return types are different. 
-        
+          </trn>
 
         <li><a name='HowToCallCFuncuntions'></a>
-            <h3><trn key="website.q_calling_C_functions" locale="en_US">Calling C functions</trn></h3>
-
+          <h3><trn key="website.q_calling_C_functions" locale="en_US">Calling C functions</trn></h3>
+          <trn key="website.a_calling_C_functions" locale="en_US">
             <p>
             It is possible to call functions coded in C, which were compiled
             with the GNU C compiler (<TT>GCC</TT>). Versions which have been
@@ -995,13 +1003,13 @@
             C function strcmp declare the following:
             
             <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
-
+          </trn>
         
 
 
         <li><a name='IntegratedAssemblerSyntax'></a>
-            <h3><trn key="website.q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></h3>
-
+          <h3><trn key="website.q_integrated_assembler_syntax" locale="en_US">Integrated Assembler syntax</trn></h3>
+          <trn key="website.a_integrated_assembler_syntax" locale="en_US">
             <p>The default assembler syntax (AT&amp;T style) is different from the
             one in Borland Pascal (Intel style). 
 
@@ -1015,12 +1023,12 @@
 
             <p>A description of the AT&amp;T syntax can be found in the GNU
             Assembler documentation. 
-        
+          </trn>
 
 
         <li><a name='systemnotfound'></a>
-            <h3><trn key="website.q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></h3>
-
+          <h3><trn key="website.q_system_not_found" locale="en_US">Unit system, syslinux, sysos2 or syswin32 not found errors</trn></h3>
+          <trn key="website.a_system_not_found" locale="en_US">
             <p>System (syslinux - not the bootloader, sysos2 or syswin32, depending
             on platform) is Pascal's base unit which is implicitely used in all programs.
             This unit defines several standard procedures and structures, and must be found to
@@ -1057,10 +1065,11 @@
                     unix, linux: ppc386 programname -vt |less<br>
             </PRE>
             <p>
+          </trn>
         
         <li><a name='extensionselect'></a>
-            <h3><trn key="website.q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></h3>
-        <p>
+          <h3><trn key="website.q_extenstion" locale="en_US">There is a new extension that will be really useful. Will you include it?</trn></h3>
+          <TRN key="website.a_extenstion" locale="en_US">
             Occasionally somebody asks for a new extension on the maillist,
 	    and the discussions that follow have a recurring pattern. An
 	    extension is quite a big deal for the FPC team, and there are
@@ -1114,7 +1123,7 @@
 	    chances are slim.  Remarks as &quot;this will attract a lot of
 	    users because&quot; are considered with a lot of scepsis, since
 	    that applies to any new development.
-	           
+	  </TRN>
    </OL>
 
    <li><h2><trn key="website.RTL_rel_inf" locale="en_US">Runtime library related information</trn></h2>
