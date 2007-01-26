@@ -871,10 +871,6 @@
               <li>Try limiting the size of parameters passed to subroutines to 32K,
               as this is the limit of some processors, use const or var parameters
               instead. 
-              <li>The <TT>integer</TT> and <TT>cardinal</TT> types might have different
-              sizes and ranges on each processor, as well as depending on the compiler
-              mode.
-              
               <li>The <TT>CPU32</TT> or <TT>CPU64</TT> (defined by FPC starting 
               from version 1.9.3) are defined indicating if the target is a 32-bit or 
               64-bit cpu; This can help you separate 32-bit and 64-bit specific code. 
