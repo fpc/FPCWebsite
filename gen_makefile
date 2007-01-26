@@ -298,5 +298,11 @@ tar: all
 
 zip: all
 \tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+
+english_tar: english
+\ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+
+english_zip: english
+\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 "
 }
