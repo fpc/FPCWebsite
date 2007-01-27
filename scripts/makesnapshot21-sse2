@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Snapshot building for Free Pascal Compiler
+#
+set -e
+
+# Checkout dir
+CHECKOUTDIR=$HOME/snapshot/fpc-2.1
+STARTPP=/home/fpchome/fpc/bin/ppc386_start
+INSTALLCOMPILER=$HOME/bin/ppc386-211
+MAILFILE=$HOME/logs/snapshot-2.1-sse2.mail
+LOGFILE=$HOME/logs/snapshot-2.1-sse2.log
+FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/v21/x86_64-linux
+TESTSUITEOPT="-O2 -Cfsse2"
+# FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/v21/i386-linux
+# LIBGDBZIP=$HOME/snapshotlibgdb/libgdb-6.2.1-i386-linux.zip
+
+# Include common makesnapshot script
+. $HOME/scripts/makesnapshot-sse2

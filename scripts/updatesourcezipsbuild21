@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Updatesourcezips for 2.0.x branch
+#
+
+WORKDIR=$HOME/fpc
+DESTDIR=$HOME/ftp/snapshot/v21/source
+CHECKOUTDIR=$WORKDIR/svnbuild21
+TAG=trunk
+MODULES='fpcbuild'
+SUFFIX=
+#ZIPPACKAGES='rtl compiler utils fcl packages ide demo'
+ZIPPACKAGES=
+
+. $HOME/scripts/updatesourcezips

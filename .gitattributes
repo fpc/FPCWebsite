@@ -314,14 +314,18 @@ pic/unitsrtl.gif -text svneol=unset#image/gif
 /prog.adp svneol=native#text/plain
 /resources.html svneol=native#text/plain
 rtl/rtl.fp svneol=native#text/plain
+scripts/allsourcezips -text
 scripts/copydocs svneol=native#text/plain
 scripts/dailymsgdiff svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
 scripts/mailtestresults.sh -text
 scripts/makereleasezips svneol=native#text/plain
 scripts/makesnapshot svneol=native#text/plain
+scripts/makesnapshot-sse2 -text
 scripts/makesnapshot20 svneol=native#text/plain
 scripts/makesnapshot21 svneol=native#text/plain
+scripts/makesnapshot21-sse2 -text
+scripts/makesnapshots -text
 scripts/proctestsuitediff.pp svneol=native#text/plain
 scripts/readcfg.sh -text
 scripts/updatearchive svneol=native#text/plain
@@ -333,6 +337,8 @@ scripts/updatesourcezips10 svneol=native#text/plain
 scripts/updatesourcezips11 svneol=native#text/plain
 scripts/updatesourcezips20 svneol=native#text/plain
 scripts/updatesourcezips21 svneol=native#text/plain
+scripts/updatesourcezipsbuild20 -text
+scripts/updatesourcezipsbuild21 -text
 scripts/updatesourcezipslazarus svneol=native#text/plain
 scripts/updatetestsuite svneol=native#text/plain
 sf/index.html svneol=native#text/plain
