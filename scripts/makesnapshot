@@ -46,16 +46,18 @@ cd $CHECKOUTDIR
 make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP
 
 # copy current compiler to bin dir
-cp $CHECKOUTDIR/compiler/ppc386 $INSTALLCOMPILER
+PPNAME=`fpc -PB`
+PPNAME=`basename $PPNAME`
+cp $CHECKOUTDIR/compiler/$PPNAME $INSTALLCOMPILER
 
 # run testsuite and store results in database
 cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest
+make clean all digest uploadrun FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest
 if [ "$TESTSUITEOPT" != "" ]; then
-    make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
+    make clean all digest uploadrun FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
 fi
 
 # move snapshot
