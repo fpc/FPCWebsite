@@ -17,7 +17,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-  <trn locale="en_US" key="website.news_headline_20070115">
+  <trn locale="en_US" key="website.news_headline_20070127">
     <em>January 27, 2007</em> <A href='http://mypage.bluewin.ch/msegui'>MSEGUI and MSEIDE</A>
     version 1.0 has been released. MSEIDE is a Rapid Application Development tool to build
     graphical Windows and Linux applications using the MSEGUI user interface framework.
