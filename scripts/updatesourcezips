@@ -39,6 +39,12 @@ checkoutmodules() {
   fi
   for f in $3; do
     svn co $SVNOPT $SVNROOT/$f/$BRANCH $f
+    cd $f
+    svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev"> readme.rev
+    if [ -n "`svn pg svn:externals`" ]; then
+     svn pg svn:externals | cut -f 1 -d " " | xargs svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev" >> readme.rev
+    fi
+    cd ..
   done
 }
 
