@@ -1019,3 +1019,14 @@ Overwegingen bij het coderen van code naar andere processoren
 Kan jij een met Free Pascal een computerspel schrijven? Je kunt er mooie prijzen mee winnen. Meer informatie zal volgen.
 
 </TRN>
+<TRN locale="nl_NL" key="website.a_porting_CPU">
+<p>Omdat de compiler tegenwoordig andere dan x86-processoren ondersteunt, is het belangrijk om een aantal voorzorgsmaatregelen te nemen om je verzekeren dat deze correct op alle processoren zal lopen. 
+<ul>
+<li>Beperkt het gebruik van assemblerblokken tenzij het om snelheidskritieke code gaat.
+<li>Probeer niet te vertrouwen op een bepaalde bytevolgorde bij het uitvoeren van rekenkundige bewerkingen.pecific machines when Verder zal het lezen en schrijven van en naar bestanden byteverwisselingen vereisen om interoperabiliteit tussen machines met verschillende bytevolgordes tot stand te brengen (hiervoor zijn functies in de system-unit aanwezig). Dit is nog belangrijker als je binaire data naar bestanden schrijft. Free Pascal definieert              <CODE>ENDIAN&#x5F;LITTLE</CODE> of <CODE>ENDIAN&#x5F;BIG</CODE> om aan te geven wat de bytevolgorde van de het platform waarvoor je compileert is. 
+<li>Probeer je lokale variabelen in subroutines te beperken tot 32 kilobyte, gezien dit de limiet van sommige processoren is. Als je meer ruimte nodig hebt, gebruik dan geheugen van de heap.
+<li>Probeer de grootte van de parameters die aan subroutines doorgegeven worden te beperken tot 32 kilobyte, gezien dit de limiet van sommige processoren is. Gebruik in plaats hiervan const- of varparameters.
+<li>De definities <TT>CPU32</TT> of <TT>CPU64</TT> (gedefinieerd door FPC sedert versie 1.9.3) worden gedefinieerd om aan te geven of het platform waarvoor je compileert een 32-bits of 64-bits processor is. Dit maakt het mogelijk 32- en 64-bitspecifieke code te scheiden.
+<li>Gebruik de typen <TT>ptruint</TT> (gedefinieerd door FPC sedert versie 1.9.3) als je een integer declareert die een pointerwaarde zal bevatten, dit omdat pointers zowel 32- als 64-bit kunnen zijn, afhankelijk van de processor en het besturingssysteem. </ul>
+
+</TRN>

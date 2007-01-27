@@ -1533,3 +1533,210 @@ There is a new extension that will be really useful. Will you include it?
     <em>Januari 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
   
 </TRN>
+<TRN locale="en_US" key="website.a_porting_OS">
+
+            <p>Because the compiler supports several different operating systems,
+            is important to take a few precautions so that your code will execute
+            correctly on all systems. 
+            <ul>
+              <li>File sharing is implemented differently on different operating
+              systems, so opening already opened files may fail on some operating
+              systems (such as Windows). The only correct way to make sure to
+              have the same file sharing behavior is to use the I/O routines
+              furnished in <TT>sysutils</TT>. 
+              <li>Clean up at the end of your program, i.e. close all files on exit, and
+              release all allocated heap memory, as some operating systems don't like it
+              when some things are left allocated or opened.
+              <li> Some operating systems limit the local stack space which can be allocated,
+              therefore it is important to limit subroutine nesting, and the amount of
+              local variables. Limiting total stack space usage at a given moment to
+              at most 256 KBytes while make porting easier.
+              <li> Do not hard code paths to files, try to use relative paths
+              instead 
+              <li> Use the following constants (defined in the system unit)
+              to get information on files, line endings, and to build paths:
+                  <ul>
+                    <li> <TT>LineEnding</TT> : Indicates the characters which end a text line
+                    <li> <TT>LFNSupport</TT> : Indicates if long filenames are supported (more then 8.3 characters)
+                    <li> <TT>DirectorySeparator</TT> : The character or characters which separate path components 
+                    <li> <TT>DriveSeparator</TT> : The character which separate the drive specification from the rest
+                           of the path
+                    <li> <TT>PathSeparator</TT> : The character which separates directories in the search path environment
+                    <li> <TT>FileNameCaseSensitive</TT> : Boolean indicating if the filenames for this system are case-sensitive or not
+                  </ul>
+               It is also possible to use the <TT>PathDelim</TT>, <TT>PathSep</TT> and <TT>DriveDelim</TT> constants
+               defined in <TT>sysutils</TT>.
+              
+            </ul>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_OOP">
+
+
+            <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
+            -Sd switches (see the manuals for the meaning of these switches). For a
+            list of Delphi incompabilities also check the manual. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_build_unit">
+
+            <p>It works like in Turbo Pascal. The first keyword in the file must be
+            UNIT (not case sensitive). The compiler will generate two files:
+            <TT>XXX.PPU</TT> and <TT>XXX.O</TT>. The PPU file contains the interface
+            information for the compiler and the O-file the machine code (an object
+            file, whose precise structure depends on the assembler you used). To use
+            this unit in another unit or program, you must include its name in the
+            USES clause of your program.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_how_does_proc_overloading_work">
+
+            <p>Here is a procedure overloading example:
+            <PRE>
+                    procedure a(i : integer);
+                    begin
+                    end;
+
+                    procedure a(s : string);
+                    begin
+                    end;
+
+                    begin
+                        a('asdfdasf');
+                        a(1234);
+                    end.
+                </PRE>
+
+            <p>You must be careful. If one of your overloaded functions is in the
+            interface part of your unit, then all overloaded functions must be in
+            the interface part. If you leave one out, the compiler will complain
+            with a 'This overloaded function can't be local' message. Overloaded
+            functions must differ in their parameters, it's not enough if their
+            return types are different. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_calling_C_functions">
+
+            <p>
+            It is possible to call functions coded in C, which were compiled
+            with the GNU C compiler (<TT>GCC</TT>). Versions which have been
+            tested are version 2.7.2 through 2.95.2 of GCC. For calling the
+            C function strcmp declare the following:
+            
+            <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_integrated_assembler_syntax">
+
+            <p>The default assembler syntax (AT&amp;T style) is different from the
+            one in Borland Pascal (Intel style). 
+
+            <p>However, as of version 0.99.0, the compiler supports Intel style
+            assembly syntax. See the documentation for more info on how to use
+            different assembler styles.
+
+            <p>Since version 1.9.2, the compiler also uses the register calling
+            convention, which means the compiler can assemble assembler routines
+            in Delphi source code without modification.
+
+            <p>A description of the AT&amp;T syntax can be found in the GNU
+            Assembler documentation. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_system_not_found">
+
+            <p>System (syslinux - not the bootloader, sysos2 or syswin32, depending
+            on platform) is Pascal's base unit which is implicitely used in all programs.
+            This unit defines several standard procedures and structures, and must be found to
+            be able to compile any pascal program by FPC. 
+
+            <p>The location of the system.ppu and syslinux.o files are determined by
+            the -Fu switch which can be specified commandline, but is usually in the
+            ppc386.cfg or fpc.cfg configuration file. 
+
+            <p>If the compiler can't find this unit there are three possible causes:
+            <OL>
+                <li>The ppc386.cfg or fpc.cfg isn't in the same path as the compiler
+                executable (go32v2, win32 and OS/2) or can't be found as
+                "/etc/fpc.cfg" or ".fpc.cfg" in your homedirectory (Linux).
+                <li>The fpc.cfg or ppc386.cfg doesn't contain the -Fu line, or a wrong one.
+                See the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">build faq (PDF)</a>, especially the chapters
+                about the fpc.cfg and the directory structure.
+                <li>The files ARE found but the wrong version or platform. Correct
+                ppc386.cfg or fpc.cfg to point to the right versions or reinstall the right
+                versions (this can happen if you try to use a <A
+                href="#snapshot">snapshot</a>
+                compiler while the -Fu statement in the used fpc.cfg still points to
+                the RTL that came with the official release compiler). 
+            </OL>
+
+            <p>A handy trick can be executing "ppc386 programname -vt", this shows
+            where the compiler is currently looking for the system unit's files. You
+            might want to pipe this through more (Dos, OS/2, Windows) or less
+            (Linux), since it can generate more than one screen information: 
+
+            <p>
+            <PRE>
+                    Dos, OS/2, Windows: ppc386 programname -vt |more<br>
+                    unix, linux: ppc386 programname -vt |less<br>
+            </PRE>
+            <p>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_extenstion">
+
+            Occasionally somebody asks for a new extension on the maillist,
+	    and the discussions that follow have a recurring pattern. An
+	    extension is quite a big deal for the FPC team, and there are
+	    some criteria that are used to select if an extension is
+	    &quot;worth&quot; the trouble. The most important pre-selection criteria are:
+ 	    <OL>
+		<li>Compability must not be compromised in any way. Existing
+			codebases on at least the Pascal level must keep 
+			running. This is often more difficult than most people
+		        think.
+		<li>The extension must have real value.  Anything that is only
+			a shorter notation does not apply, unless it is 
+			out of compatibility with an existing Pascal/Delphi
+			codebase. Practically it means it must make something
+			possible that can't be done otherwise or be a compability
+			item 
+		<li>The change must fit in with the scope of the project, 
+			implementing a Pascal compiler which can have a RAD
+			and generic DB system. This excludes features like
+			inline SQL, and large garbage collected objectframeworks.
+		
+	    </OL>	
+
+            Exceptions to the second rule are sometimes made for platform
+	    specific reasons (e.g. interfacing to some other language or
+	    OS). The first rule is often a problem, because issues aren't
+	    easily recognizable unless one has tried to make extensions
+	    before. Best is to make a thoroughly written proposal that the
+	    devels can review with
+	    <ul><li> Explanation of the feature
+		<li> Why it is needed, what does it make possible?
+		<li> How you would implement it?
+		<li> Lots of examples of typical use, and tests for possible problem
+			cases
+	    </ul>	
+	    Try to be verbose and really try to view this from the viewpoint
+	    of somebody who has to implement it, and try to make examples
+	    that span multiple units and procedures, and review what happens.
+	    Be critical, try to punch holes in your
+	    own reasoning and find possible problematic cases, and document
+	    them.	
+         
+        <p>
+  	    Besides these pre-selection rules and documentation, the other
+	    important question is who is going to do the work. Keep in mind
+	    that the FPC devels are volunteers with to-do lists that are
+	    booked till the next decade. You can't simply expect they'll
+	    drop everything from their hands and implement the feature
+	    because you need it urgently, or think it is nice. If you are
+	    not willing to implement it yourself, and submit patches,
+	    chances are slim.  Remarks as &quot;this will attract a lot of
+	    users because&quot; are considered with a lot of scepsis, since
+	    that applies to any new development.
+	  
+</TRN>
