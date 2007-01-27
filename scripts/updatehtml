@@ -45,7 +45,31 @@ zip -q -9 -o -r ~/ftp/snapshot/html.zip * -x '*bugs/*'
 #echo Starting make
 
 # make makeidx all >& /dev/null
-make makeidx all
+#make makeidx all
+
+
+
+make english
+if [ $? != 0 ]; then
+  echo could not make html pages
+  exit
+else
+  #echo made pages.
+  echo made pages.
+fi
+# make tar >& /dev/null
+make english_tar
+if [ $? != 0 ]; then
+  echo Could not make tar archive
+  exit
+fi
+#echo Made English tar.
+# Move to ftp site
+cp htmls.tar.gz ~/ftp/dist/htmls-english.tar.gz
+
+make clean
+
+make all
 if [ $? != 0 ]; then
   echo could not make html pages
   exit
@@ -93,7 +117,7 @@ rm -rf tools/*
 ln -sf ~/logs logs
 # ln -sf ~/lists lists
 tar xfz $CHECKOUTDIR/html/htmls.tar.gz
-ln -s fpc.html index.html
+#ln -s fpc.html index.html
 # mv download.html /tmp/dl.html
 # sed -e s+ftp.freepascal.org+ftp.hu.freepascal.org+g -e s+mypath+pub/fpc/dist+g </tmp/dl.html >download.html
 # rm /tmp/dl.html
@@ -172,11 +196,13 @@ else
   echo Files removed
 fi
 
-Copy current to reference directory
+#Copy current to reference directory
 if [ ! -e $HTMLREFDIR ]; then
   mkdir $HTMLREFDIR 
 fi
 cp *.html $HTMLREFDIR 
+cp *.html.* $HTMLREFDIR 
+cp *.var $HTMLREFDIR 
 if [ $? != 0 ]; then
   echo Error when copying files.
 else
