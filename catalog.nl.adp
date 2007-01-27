@@ -1012,7 +1012,7 @@ Standaardunits
 De compiler slaat bestanden over in directories waar -Fu naar wijst
 </TRN>
 <TRN locale="nl_NL" key="website.q_porting_CPU">
-Overwegingen bij het coderen van code naar andere processoren
+Overwegingen bij het porteren van code naar andere processoren
 </TRN>
 <TRN locale="nl_NL" key="website.news_headline_20070115">
 <em>15 januari 2007</em> De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'> zal beginnen op 1 februari</A>.
@@ -1029,4 +1029,57 @@ Kan jij een met Free Pascal een computerspel schrijven? Je kunt er mooie prijzen
 <li>De definities <TT>CPU32</TT> of <TT>CPU64</TT> (gedefinieerd door FPC sedert versie 1.9.3) worden gedefinieerd om aan te geven of het platform waarvoor je compileert een 32-bits of 64-bits processor is. Dit maakt het mogelijk 32- en 64-bitspecifieke code te scheiden.
 <li>Gebruik de typen <TT>ptruint</TT> (gedefinieerd door FPC sedert versie 1.9.3) als je een integer declareert die een pointerwaarde zal bevatten, dit omdat pointers zowel 32- als 64-bit kunnen zijn, afhankelijk van de processor en het besturingssysteem. </ul>
 
+</TRN>
+<TRN locale="nl_NL" key="website.q_porting_OS">
+Overwegingen bij het porteren van code naar andere besturingssystemen
+</TRN>
+<TRN locale="nl_NL" key="website.a_porting_OS">
+<p>Omdat de compiler meerdere verschillende besturingssystemen ondersteunt, is het van belang om een aantal voorzorgsmaatregelen te nemen om te verzekeren dat de code correct zal werken op alle systemen. 
+<ul>
+<li>Bestandsdeling wordt door verschillende besturingssystemen op verschillende manieren geïmplementeerd. Hierdoor kan het openen van reeds geopende bestanden op sommige systemen mislukken (zoals onder Windows). De enige juiste manier om je te verzekeren dat het deelgedrag van bestanden gelijk is, is gebruik te maken van de in- en uitvoerroutines in <TT>sysutils</TT>. 
+<li>Ruim netjes op aan het eind van je programma, bijv. sluit alle bestanden en geef al het opgevraagde geheugen terug. Sommige besturingssystemen houden er niet van dat programma's dingen open laten of niet vrijgeven.
+<li> Sommige besturingssystemen beperken de lokale stackruimte die opgeëist kan worden. Het kan daarom van belang zijn het nesten van subroutines te beperken, evenals de hoeveelheid lokale variabelen. Het beperken van de gebruikte stackruimte tot maximaal 256 kilobyte maakt het porteren eenvoudiger.
+<li>Zet padnamen van bestanden niet vast in je code, probeer plaats daarvan relatieve padnamen te gebruiken.
+<li>Gebruik de volgende constanten (gedefinieerd in de system-unit) om informatie te verkrijgen over bestanden, regeleinden en om padnamen op te bouwen:
+<ul>
+<li> <TT>LineEnding</TT> : Dit is de tekenreeks die het eind van een tekstregel aangeven op het platform.
+                    <li> <TT>LFNSupport</TT> : Geeft aan of lange bestandsnamen worden ondersteund  (meer dan 8.3 tekens)
+<li> <TT>DirectorySeparator</TT> : Het teken of de tekens welke delen van een padnaam scheiden.
+<li> <TT>DriveSeparator</TT> : Het teken dat de schijfaanduiding scheidt van de rest van de padnaam.
+<li> <TT>PathSeparator</TT> : Het teken dat directories in de zoekpad-omgevingsvariabele (PATH) scheidt.
+<li> <TT>FileNameCaseSensitive</TT> : Een boolean die aangeeft of de bestandsnamen hoofdletergevoelig op dit systeem zijn.
+</ul>
+Het is ook mogelijk om de constanten <TT>PathDelim</TT>, <TT>PathSep</TT> en <TT>DriveDelim</TT> te gebruiken, welke in <TT>sysutils</TT> worden gedeclareerd.
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_OOP">
+Delphicode onder Free Pascal compileren
+</TRN>
+<TRN locale="nl_NL" key="website.a_OOP">
+<p>De compiler is compatibel met Delphi, waarbij het Pascaldialect van Delphi wordt ondersteund tot en met Delphi 7. Standaard staat de compiler echter in een mode die veel op het Turbo-Pascaldialect lijkt. Verzeker je er daarom van de Delphimode in de IDE aan te zetten of de commandoregelopties -S2 of -Sd mee te geven. Zie de handleiding voor meer uitgebreide informatie over wat ze doen. Je kunt daar ook een lijst met bekende Delphi-incompabiliteiten vinden.
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_calling_C_functions">
+C-functies aanroepen
+</TRN>
+<TRN locale="nl_NL" key="website.a_calling_C_functions">
+<p>
+Het is mogelijk om functies die in C geschreven zijn aan te roepen. Om de C-functie strcmp aan te roepen doe je bijvoorbeeld het volgende:
+<PRE>function strcmp(s1,s2:Pchar):integer;cdecl;external;</PRE>
+
+Verder zul je de bibliotheek waar deze functie zich in bevindt mee moeten linken, libc onder Linux link je bijvoorbeeld als volgt mee:
+<PRE>
+{$linklib c}
+</PRE>
+
+Als de C-funcie in een objectbestand zit kun je dat als volgt meelinken:
+<PRE>
+{$l objectbestand}
+</PRE>
+Normaliter laat je de extensie van het bestand weg.
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070127">
+<em>27 januari 2007</em> Versie 1.0 van <A href='http://mypage.bluewin.ch/msegui'>MSEGUI en MSEIDE</A> is uitgebracht. MSEIDE is een gereedschap voor visuele programmering van gebruikersinterfaces en kan gebruikt worden om grafische Windows- en Linuxapplicatiess te bouwen met behulp van het grafische gebruikersinterfaceraamwerk MSEGUI.
+Het Free-Pascalteam feliciteert de ontwikkelaars van MSEGUI/MSEIDE met deze mijlpaal en wenst hun het beste voor de verdere ontwikkeling van deze geavanceerde ontwikkelomgeving.
 </TRN>
