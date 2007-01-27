@@ -24,6 +24,7 @@
     The Free Pascal team wishes the MSEGUI/MSEIDE developers their congratulations and best wishes
     for this milestone.
   </trn>
+<p>
   <trn locale="en_US" key="website.news_headline_20070115">
     <em>January 15, 2007</em> The Pascal Game Development annual contest
     <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 1 February</A>.
