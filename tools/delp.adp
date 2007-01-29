@@ -33,7 +33,7 @@ delp(1)           Free Pascal file deletion tool          delp(1)
 
 
 <b>USAGE</b>
-       <b>fpcmake </b>takes no options at this time. It just attempts to
+       <b>delp </b>takes no options at this time. It just attempts to
        delete all known files.
 
 
