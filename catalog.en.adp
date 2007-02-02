@@ -1749,10 +1749,3 @@ There is a new extension that will be really useful. Will you include it?
     for this milestone.
   
 </TRN>
-<TRN locale="en_US" key="website.news_headline_20070201">
-
-    The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
-    write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
-    <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
-  
-</TRN>
