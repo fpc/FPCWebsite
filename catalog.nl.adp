@@ -1084,6 +1084,6 @@ Normaliter laat je de extensie van het bestand weg.
 Het Free-Pascalteam feliciteert de ontwikkelaars van MSEGUI/MSEIDE met deze mijlpaal en wenst hun het beste voor de verdere ontwikkeling van deze geavanceerde ontwikkelomgeving.
 </TRN>
 <TRN locale="nl_NL" key="website.news_headline_20070201">
-De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development begint. Het thema van dit jaar is "Multiplexiteit": schrijf een spel dat meerdere spelgenres combineert. Kan jij een spel in Free Pascal maken? <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>Schrijf je dan nu in</a>!
+<em>1 februari 2007</em>De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development begint. Het thema van dit jaar is "Multiplexiteit": schrijf een spel dat meerdere spelgenres combineert. Kan jij een spel in Free Pascal maken? <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>Schrijf je dan nu in</a>!
   
 </TRN>
