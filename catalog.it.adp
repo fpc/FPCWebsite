@@ -268,6 +268,27 @@ Notizie
     Francesco Lombardi sta scrivendo <a href='http://itaprogaming.free.fr/tutorial.html'> una guida su come sviluppare giochi per Game Boy Advance</a> con Free Pascal.
   
 </TRN>
+<TRN locale="it_IT" key="website.news_headline_20061224">
+    <em>Dicembre 24, 2006</em>
+   Un  <a href='http://www.computerbooks.hu/FreePascal'>libro su Free Pascal</a> è stato pubblicato in Ungheria.
+    Il tomo da 270 pagine illustra il linguaggio Pascal dalle basi per poi passare alle caratteristiche avanzate del linguaggio.
+  
+</TRN>
+<TRN locale="it_IT" key="website.news_headline_20070101">
+    <em>Gennaio 1, 2007</em> FPC team augura a tutti un felice anno nuovo e un fruttuoso 2007!
+  
+</TRN>
+<TRN locale="it_IT" key="website.news_headline_20070115">
+    <em>Gennaio 15, 2007</em> Avrà inizio il 3 febbraio il concorso annuale
+    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>Pascal Game Development</A>.
+    Sei in grado di scrivere un gioco con Free Pascal? Si possono vincere dei premi. Altre informazioni seguiranno a breve.
+  
+</TRN>
+<TRN locale="it_IT" key="website.news_headline_20070127">
+    <em>Gennaio 27, 2007</em> Disponibile l'ultima versione 1.0 di <A href='http://mypage.bluewin.ch/msegui'>MSEGUI and MSEIDE</A>. MSEIDE è un ambiente RAD (Rapid Application Development) per costruire applicazioni con interfaccia grafica Windows e Linux per mezzo del framework di interfaccia MSEGUI.
+    Free Pascal team si congratula con gli sviluppatori per questa tappa importante.
+  
+</TRN>
 <TRN locale="it_IT" key="website.Official_releases">
 Distribuzioni ufficiali
 </TRN>

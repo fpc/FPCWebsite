@@ -1083,3 +1083,7 @@ Normaliter laat je de extensie van het bestand weg.
 <em>27 januari 2007</em> Versie 1.0 van <A href='http://mypage.bluewin.ch/msegui'>MSEGUI en MSEIDE</A> is uitgebracht. MSEIDE is een gereedschap voor visuele programmering van gebruikersinterfaces en kan gebruikt worden om grafische Windows- en Linuxapplicatiess te bouwen met behulp van het grafische gebruikersinterfaceraamwerk MSEGUI.
 Het Free-Pascalteam feliciteert de ontwikkelaars van MSEGUI/MSEIDE met deze mijlpaal en wenst hun het beste voor de verdere ontwikkeling van deze geavanceerde ontwikkelomgeving.
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070201">
+De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development begint. Het thema van dit jaar is "Multiplexiteit": schrijf een spel dat meerdere spelgenres combineert. Kan jij een spel in Free Pascal maken? <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>Schrijf je dan nu in</a>!
+  
+</TRN>
