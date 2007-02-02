@@ -1918,24 +1918,24 @@ morphos-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-ftp.freepascal.org.var
 	echo >> morphos-ftp.freepascal.org.var
 
-linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
+linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
 linux.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html.en -oe iso-8859-1 ../../templatemirror.adp
-linux.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l fr_FR -m ../../default-master.adp -o linux.html.fr -oe iso-8859-1 ../../templatemirror.adp
-linux.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l id_ID -m ../../default-master.adp -o linux.html.id -oe iso-8859-1 ../../templatemirror.adp
-linux.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l it_IT -m ../../default-master.adp -o linux.html.it -oe iso-8859-1 ../../templatemirror.adp
-linux.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl -oe iso-8859-1 ../../templatemirror.adp
-linux.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l pl_PL -m ../../default-master.adp -o linux.html.po -oe iso-8859-2 ../../templatemirror.adp
-linux.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l sl_SI -m ../../default-master.adp -o linux.html.sl -oe iso-8859-2 ../../templatemirror.adp
-linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
+linux.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o linux.html.fr -oe iso-8859-1 ../../templatemirror.adp
+linux.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o linux.html.id -oe iso-8859-1 ../../templatemirror.adp
+linux.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o linux.html.it -oe iso-8859-1 ../../templatemirror.adp
+linux.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl -oe iso-8859-1 ../../templatemirror.adp
+linux.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o linux.html.po -oe iso-8859-2 ../../templatemirror.adp
+linux.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o linux.html.sl -oe iso-8859-2 ../../templatemirror.adp
+linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
 linux.var: gen_makefile.conf
 	echo > linux.var
 	echo 'URI: linux.html.bg' >> linux.var
@@ -1975,24 +1975,24 @@ linux.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux.var
 	echo >> linux.var
 
-macos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l bg_BG -m ../../default-master.adp -o macos.html.bg -oe iso-8859-5 ../../templatemirror.adp
+macos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macos.html.bg -oe iso-8859-5 ../../templatemirror.adp
 macos.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macos.html.en -oe iso-8859-1 ../../templatemirror.adp
-macos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l fr_FR -m ../../default-master.adp -o macos.html.fr -oe iso-8859-1 ../../templatemirror.adp
-macos.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l id_ID -m ../../default-master.adp -o macos.html.id -oe iso-8859-1 ../../templatemirror.adp
-macos.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l it_IT -m ../../default-master.adp -o macos.html.it -oe iso-8859-1 ../../templatemirror.adp
-macos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l nl_NL -m ../../default-master.adp -o macos.html.nl -oe iso-8859-1 ../../templatemirror.adp
-macos.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l pl_PL -m ../../default-master.adp -o macos.html.po -oe iso-8859-2 ../../templatemirror.adp
-macos.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l sl_SI -m ../../default-master.adp -o macos.html.sl -oe iso-8859-2 ../../templatemirror.adp
-macos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.en.adp -l ru_RU -m ../../default-master.adp -o macos.html.ru -oe iso-8859-5 ../../templatemirror.adp
+macos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macos.html.fr -oe iso-8859-1 ../../templatemirror.adp
+macos.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macos.html.id -oe iso-8859-1 ../../templatemirror.adp
+macos.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macos.html.it -oe iso-8859-1 ../../templatemirror.adp
+macos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macos.html.nl -oe iso-8859-1 ../../templatemirror.adp
+macos.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macos.html.po -oe iso-8859-2 ../../templatemirror.adp
+macos.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macos.html.sl -oe iso-8859-2 ../../templatemirror.adp
+macos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macos.html.ru -oe iso-8859-5 ../../templatemirror.adp
 macos.var: gen_makefile.conf
 	echo > macos.var
 	echo 'URI: macos.html.bg' >> macos.var
@@ -2032,24 +2032,24 @@ macos.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos.var
 	echo >> macos.var
 
-macosx.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l bg_BG -m ../../default-master.adp -o macosx.html.bg -oe iso-8859-5 ../../templatemirror.adp
+macosx.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx.html.bg -oe iso-8859-5 ../../templatemirror.adp
 macosx.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx.html.en -oe iso-8859-1 ../../templatemirror.adp
-macosx.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l fr_FR -m ../../default-master.adp -o macosx.html.fr -oe iso-8859-1 ../../templatemirror.adp
-macosx.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l id_ID -m ../../default-master.adp -o macosx.html.id -oe iso-8859-1 ../../templatemirror.adp
-macosx.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l it_IT -m ../../default-master.adp -o macosx.html.it -oe iso-8859-1 ../../templatemirror.adp
-macosx.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l nl_NL -m ../../default-master.adp -o macosx.html.nl -oe iso-8859-1 ../../templatemirror.adp
-macosx.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l pl_PL -m ../../default-master.adp -o macosx.html.po -oe iso-8859-2 ../../templatemirror.adp
-macosx.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l sl_SI -m ../../default-master.adp -o macosx.html.sl -oe iso-8859-2 ../../templatemirror.adp
-macosx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l ru_RU -m ../../default-master.adp -o macosx.html.ru -oe iso-8859-5 ../../templatemirror.adp
+macosx.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx.html.fr -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx.html.id -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx.html.it -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx.html.nl -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx.html.po -oe iso-8859-2 ../../templatemirror.adp
+macosx.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx.html.sl -oe iso-8859-2 ../../templatemirror.adp
+macosx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx.html.ru -oe iso-8859-5 ../../templatemirror.adp
 macosx.var: gen_makefile.conf
 	echo > macosx.var
 	echo 'URI: macosx.html.bg' >> macosx.var
@@ -2089,24 +2089,24 @@ macosx.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx.var
 	echo >> macosx.var
 
-morphos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l bg_BG -m ../../default-master.adp -o morphos.html.bg -oe iso-8859-5 ../../templatemirror.adp
+morphos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o morphos.html.bg -oe iso-8859-5 ../../templatemirror.adp
 morphos.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o morphos.html.en -oe iso-8859-1 ../../templatemirror.adp
-morphos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l fr_FR -m ../../default-master.adp -o morphos.html.fr -oe iso-8859-1 ../../templatemirror.adp
-morphos.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l id_ID -m ../../default-master.adp -o morphos.html.id -oe iso-8859-1 ../../templatemirror.adp
-morphos.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l it_IT -m ../../default-master.adp -o morphos.html.it -oe iso-8859-1 ../../templatemirror.adp
-morphos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l nl_NL -m ../../default-master.adp -o morphos.html.nl -oe iso-8859-1 ../../templatemirror.adp
-morphos.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l pl_PL -m ../../default-master.adp -o morphos.html.po -oe iso-8859-2 ../../templatemirror.adp
-morphos.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l sl_SI -m ../../default-master.adp -o morphos.html.sl -oe iso-8859-2 ../../templatemirror.adp
-morphos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l ru_RU -m ../../default-master.adp -o morphos.html.ru -oe iso-8859-5 ../../templatemirror.adp
+morphos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o morphos.html.fr -oe iso-8859-1 ../../templatemirror.adp
+morphos.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o morphos.html.id -oe iso-8859-1 ../../templatemirror.adp
+morphos.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o morphos.html.it -oe iso-8859-1 ../../templatemirror.adp
+morphos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o morphos.html.nl -oe iso-8859-1 ../../templatemirror.adp
+morphos.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o morphos.html.po -oe iso-8859-2 ../../templatemirror.adp
+morphos.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o morphos.html.sl -oe iso-8859-2 ../../templatemirror.adp
+morphos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o morphos.html.ru -oe iso-8859-5 ../../templatemirror.adp
 morphos.var: gen_makefile.conf
 	echo > morphos.var
 	echo 'URI: morphos.html.bg' >> morphos.var

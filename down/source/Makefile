@@ -502,24 +502,24 @@ sources-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-ftp.freepascal.org.var
 	echo >> sources-ftp.freepascal.org.var
 
-sources.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l bg_BG -m ../../default-master.adp -o sources.html.bg -oe iso-8859-5 ../../templatemirror.adp
+sources.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources.html.bg -oe iso-8859-5 ../../templatemirror.adp
 sources.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sources.html.en -oe iso-8859-1 ../../templatemirror.adp
-sources.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l fr_FR -m ../../default-master.adp -o sources.html.fr -oe iso-8859-1 ../../templatemirror.adp
-sources.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l id_ID -m ../../default-master.adp -o sources.html.id -oe iso-8859-1 ../../templatemirror.adp
-sources.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l it_IT -m ../../default-master.adp -o sources.html.it -oe iso-8859-1 ../../templatemirror.adp
-sources.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l nl_NL -m ../../default-master.adp -o sources.html.nl -oe iso-8859-1 ../../templatemirror.adp
-sources.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l pl_PL -m ../../default-master.adp -o sources.html.po -oe iso-8859-2 ../../templatemirror.adp
-sources.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l sl_SI -m ../../default-master.adp -o sources.html.sl -oe iso-8859-2 ../../templatemirror.adp
-sources.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l ru_RU -m ../../default-master.adp -o sources.html.ru -oe iso-8859-5 ../../templatemirror.adp
+sources.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o sources.html.fr -oe iso-8859-1 ../../templatemirror.adp
+sources.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o sources.html.id -oe iso-8859-1 ../../templatemirror.adp
+sources.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o sources.html.it -oe iso-8859-1 ../../templatemirror.adp
+sources.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o sources.html.nl -oe iso-8859-1 ../../templatemirror.adp
+sources.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o sources.html.po -oe iso-8859-2 ../../templatemirror.adp
+sources.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o sources.html.sl -oe iso-8859-2 ../../templatemirror.adp
+sources.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o sources.html.ru -oe iso-8859-5 ../../templatemirror.adp
 sources.var: gen_makefile.conf
 	echo > sources.var
 	echo 'URI: sources.html.bg' >> sources.var

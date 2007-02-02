@@ -199,6 +199,7 @@ foreach page $mirror_pages {
     puts ""
     # Generate html mirror selector files
     foreach language $languages {
+        set catalog "${catalog_dir}catalog.${language}.adp"
         if [info exists language_fileext($language)] then {
             set fileext $language_fileext($language)
         } else {
