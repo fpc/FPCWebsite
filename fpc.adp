@@ -18,6 +18,7 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
   <trn locale="en_US" key="website.news_headline_20070201">
+    <em>February 1, 2007</em>
     The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
     write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
     <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
@@ -30,28 +31,6 @@
     The Free Pascal team wishes the MSEGUI/MSEIDE developers their congratulations and best wishes
     for this milestone.
   </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20070115">
-    <em>January 15, 2007</em> The Pascal Game Development annual contest
-    <A href='http://www.pascalgamedevelopment.com/viewtopic.php?p=29788'>will start on 1 February</A>.
-    Can you write a game with Free Pascal? You might win several prizes. More information will follow.
-  </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20070101">
-    <em>January 1, 2007</em> The FPC team wishes all users a Happy New Year and a fruitful 2007 !
-  </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20061224">
-    <em>December 24, 2006</em>
-    A <A href='http://www.computerbooks.hu/FreePascal'>book about Free Pascal</a> has been published in Hungary.
-    The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.
-  </trn>
-<p>
- <trn locale="en_US" key="website.news_headline_20061204">
-  <em>December 14, 2006</em>
-  Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a [University] Linux club in Tel Aviv.
- </trn>
-</p>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
