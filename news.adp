@@ -10,6 +10,11 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>February 1, 2007
+<ul><li>The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
+write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
+<a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
+
 <li>January 27, 2007
 <ul><li><A href='http://mypage.bluewin.ch/msegui'>MSEGUI and MSEIDE</A>
     version 1.0 has been released. MSEIDE is a Rapid Application Development tool to build

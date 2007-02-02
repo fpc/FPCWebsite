@@ -17,6 +17,12 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <trn locale="en_US" key="website.news_headline_20070201">
+    The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
+    write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
+    <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
+  </trn>
+<p>
   <trn locale="en_US" key="website.news_headline_20070127">
     <em>January 27, 2007</em> <A href='http://mypage.bluewin.ch/msegui'>MSEGUI and MSEIDE</A>
     version 1.0 has been released. MSEIDE is a Rapid Application Development tool to build
