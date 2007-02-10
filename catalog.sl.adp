@@ -162,6 +162,18 @@ Novice
     <em>1. Januar 2007</em> FPC team želi vsem uporabnikom Srečno Novo Leto in uspešno 2007 !
   
 </TRN>
+<TRN locale="sl_SI" key="website.news_headline_20070127">
+    <em>27. Januar 2007</em> <A href='http://mypage.bluewin.ch/msegui'>Izdana je bila verzija 1.0 MSEGUI and MSEIDE</A>. MSEIDE je orodje RAD (Rapid Application Development) za gradnjo 
+    grafičnih Windows in Linux programov z uporabo okolja MSEGUI user interface framework.
+    Moštvo Free Pascal-a čestita razvijalcem  MSEGUI/MSEIDE za ta dosežek in jim želi obilo uspehov v nadaljnem delu.
+  
+</TRN>
+<TRN locale="sl_SI" key="website.news_headline_20070201">
+    Začenja se vsakoletno tekmovanje The Pascal Game Development. Letošnja tema je "Multiplexity":
+    napisati igro ki vsebuje razlicne zvrsti iger. Znaš pisati igre v Free Pascalu? Torej
+    <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>vpiši se takoj</a>!
+  
+</TRN>
 <TRN locale="sl_SI" key="website.Official_releases">
 Uradne izdaje
 </TRN>

@@ -7,6 +7,58 @@ Vantaggi della programmazione in Pascal e in Free Pascal
 <TRN locale="it_IT" key="website.Advantages_title">
 Vantaggi del Free Pascal
 </TRN>
+<TRN locale="it_IT" key="website.a_FPC_vs_GPC">
+            <DL>
+            <DT><b>Obiettivo:</b>
+            <DD>Free Pascal è un'implementazione compatibile con il compilatore Borland Pascal sul maggior numero possibile di piattaforme. GNU Pascal è un compilatore pascal basato su POSIX.
+            <DT><b>Versione</b>
+            <DD>Attualmente, Free Pascal è alla versione 2.0 (maggio 2005). GNU Pascal è alla versione 2.1 (dal 2002, che può essere compilato con diverse implementazioni di GCC; la versione per Mac OS X è un'eccezione in quanto porta lo stesso numero di versione di GCC).
+            <DT><b>Sviluppo:</b>
+            <DD>Tra ogni rilascio, sono disponibili versioni di sviluppo di FPC per mezzo di snapshots giornallieri, e i sorgenti per mezzo di CVS. GPC rende disponibili durente l'anno un insieme di patches alla versione più recente, mentre alcuni utilizzatori rilasciano regolari snapshots per OS X e Windows.
+            <DT><b>Sistemi operativi:</b>
+            <DD>Free Pascal può essere eseguito su un gran numero di piattaforme, ad esempio DOS, Win32 (senza richiedere alcun layer Unix), Linux, FreeBSD NetBSD, OS/2, BeOS, Classic Mac OS, Mac OS X, e AmigaOS sulle seguenti architetture: x86, x86_64 (AMD64), Sparc, PowerPC, ARM e Motorola (Motorola solo per la versione 1.0.x). 
+GNU Pascal può essere eseguito su qualsiasi sistema in grado di eseguire GNU C, e per il quale il processo di compilazione è stato verificato.             <DT><b>Autoinnesco:</b>
+            <DD>Per ricompilare il compilatore, FPC richiede un adeguato insieme di programmi binutils (AS, AR, LD), gmake e un compilatore a riga di comando. Nuove architetture/sistemi operativi sono cross-compilate. 
+GPC richiede una versione adeguata del compilatore GCC e un insieme completo di binutils, flex, bison, gmake, una shell POSIX e libtool.
+            <DT><b>Sorgenti:</b>
+            <DD>Free Pascal è scritto interamente in Pascal (circa 6 MB di codice sorgente), GNU Pascal è scritto in C (un adattamento del compilatore GNU C: 2.8 MB di codice + 8 MB di codice GNU C).
+            <DT><b>Linguaggio:</b>
+            <DD>Free Pascal supporta il dialetto Borland Pascal, implementa il linguaggio Delphi Object Pascal e alcune estensioni di Mac Pascal. 
+GNU Pascal supporta ISO 7185, ISO 10206, Borland Pascal 7.0 (in gran parte).
+            <DT><b>Estensioni:</b>
+            <DD>Free pascal implementa l'overloading di metodi, funzioni e operatori. (come anche versioni recenti di Delphi, non propriamente un'estensione in senso stretto), GNU Pascal implementa l'overloading di metodi.
+            <DT><b>Licenza:</b>
+            <DD>Entrambi i compilatori sono distribuiti con licenza GPL. 
+            <DT><b>Autori:</b>
+            <DD>Free Pascal è stato iniziato da Florian Kl&auml;mpfl, Germany
+            (florian&#x040;freepascal.org), GNU Pascal è stato iniziato da Jukka Virtanen,
+            Finland (jtv&#x040;hut.fi). </DD></DL><br>
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Installation_hints">
+             <ul>
+               <li> Non installare Free Pascal in una directory il cui nome contiene dei caratteri di spaziatura, questo può causare dei problemi durante la compilazione. 
+             </ul>
+           
+</TRN>
+<TRN locale="it_IT" key="website.a_Licence_copyright_info">
+            <p> Applicazioni create con il compilatore che utilizzano la libreria runtime sono soggetti ad una licenza pubblica Gnu Library (LGPL), che non impone restrizioni sul tipo di licenza delle applicazioni stesse. 
+Con Free Pascal è perciò possibile creare codice non aperto o proprietario. 
+
+            <p>Alla licenza LGPL è aggiunta la seguente eccezione:<br><I> Come eccezione speciale, i detentori dei diritti di autore di questa libreria danno il permesso di collegare (link) questa libreria a moduli indipendenti al fine di produrre un codice eseguibile, indipendentemente dai termini di licenza con cui saranno distribuiti tali moduli e il permesso di copiare e distribuire l'eseguibile nei termini che si ritengono più adeguati posto che siano rispettati, per ogni singolo modulo indipendente, i termini e le condizioni di licenza del modulo stesso. Un modulo indipendente è un modulo non derivato da o basato sulla libreria runtime. 
+Se si modifica la libreria è possibile estendere questa eccezione alla nuova versione, ma non è obbligatorio. Se non si intende farlo, si può cancellare l'eccezione dalla nuova versione. </I>
+
+Si noti che è comunque necessario conformarsi alla LGPL che per esempio richiede di fornire il codice sorgente della libreria runtime. 
+
+Tenere in considerazione, e prendere atto che, se si vuole scrivere software non aperto: 
+            <ul>
+              <li>Solitamente i requisiti del codice sorgente possono essere soddisfatti semplicemente menzionando che il sorgente della libreria RTL possono essere scaricati dal sito web di Free Pascal: se la libreria runtime non è stata modificata ciò è considerato adeguato per soddisfare i requisiti della licenza LGPL sul prodotto. 
+              <li>Se si apportano delle modifiche alla libreria runtime, tali modifiche devono essere rese disponibili, qualora richiesto. 
+              <li>Distribuire insieme al software una copia della licenza LGPL.            </ul>
+
+            <p> Il codice sorgente del compilatore, d'altra parte, viene distribuito con licenza GPL, ciò significa che ove si utilizzino tali sorgenti nella realizzazione di un software, esso deve portare la stessa licenza dei sorgenti. 
+          
+</TRN>
 <TRN locale="it_IT" key="website.already_included_installer">
 già inclusi nel programma di installazione 
 </TRN>
@@ -312,11 +364,35 @@ puro testo
 <TRN locale="it_IT" key="website.Porting_from_TP7">
 Porting dal TP7
 </TRN>
+<TRN locale="it_IT" key="website.q_Access_denies_while_download">
+Nell'accedere al server FTP di Free Pascal ricevo l'errore "Access denied"
+</TRN>
+<TRN locale="it_IT" key="website.q_FPC_vs_GPC">
+Free Pascal e GNU Pascal a confronto
+</TRN>
+<TRN locale="it_IT" key="website.q_Homework">
+I have to write a program for homework. Can you help?
+</TRN>
+<TRN locale="it_IT" key="website.q_Installation_hints">
+Consigli per installare Free Pascal
+</TRN>
+<TRN locale="it_IT" key="website.q_Installing_snapshot">
+Installare uno snapshot
+</TRN>
+<TRN locale="it_IT" key="website.q_Licence_copyright_info">
+Licenza e copyright
+</TRN>
+<TRN locale="it_IT" key="website.q_Wanna_new_version_now">
+Voglio una nuova versione ADESSO
+</TRN>
 <TRN locale="it_IT" key="website.q_What_is_FPC">
 Cos'è Free Pascal (FPC)?
 </TRN>
 <TRN locale="it_IT" key="website.q_What_versions_exist">
 Quali sono le versioni disponibili e quale dovrei utilizzare?
+</TRN>
+<TRN locale="it_IT" key="website.q_Why_username_password_for_download">
+Perché devo fornire un nome utente e una password per scaricare Free Pascal ?
 </TRN>
 <TRN locale="it_IT" key="website.ready_made_packages">
     Sono disponibili dei package preconfezionati, assieme ad un software di installazione, in modo da essere in breve tempo operativi. Tutti i packages contengono un file README che contiene istruzioni per l'installazione e le novità più recenti.   

@@ -1084,6 +1084,15 @@ Normaliter laat je de extensie van het bestand weg.
 Het Free-Pascalteam feliciteert de ontwikkelaars van MSEGUI/MSEIDE met deze mijlpaal en wenst hun het beste voor de verdere ontwikkeling van deze geavanceerde ontwikkelomgeving.
 </TRN>
 <TRN locale="nl_NL" key="website.news_headline_20070201">
-<em>1 februari 2007</em>De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development begint. Het thema van dit jaar is "Multiplexiteit": schrijf een spel dat meerdere spelgenres combineert. Kan jij een spel in Free Pascal maken? <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>Schrijf je dan nu in</a>!
+<em>1 februari 2007</em> De jaarlijkse spelontwerpwijdstrijd van Pascal Game Development begint. Het thema van dit jaar is "Multiplexiteit": schrijf een spel dat meerdere spelgenres combineert. Kan jij een spel in Free Pascal maken? <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>Schrijf je dan nu in</a>!
   
+</TRN>
+<TRN locale="nl_NL" key="website.q_build_unit">
+Een unit bouwen
+</TRN>
+<TRN locale="nl_NL" key="website.a_build_unit">
+<p>Het werkt net als in Turbo Pascal. Het eerste sleutelwoord in het bestand moet UNIT zijn (niet hoofdlettergevoelig). De compiler zal daaruit twee bestanden genereren: <tt>XXX.PPU</tt> en <tt>XXX.O.</tt> Het PPU-bestand bevat de interfaceinformatie voor de compiler en het O-bestand de machinecode (een objectbestand, waarvan de precieze structuur afhangt van de assembler die je gebruikt). Om deze unit in een andere unit of programma te gebruiken, dien je de naam er van in de USES-clausule van je programma te zetten.
+</TRN>
+<TRN locale="nl_NL" key="website.q_integrated_assembler_syntax">
+Syntaxis van de geïntegreerde assembler
 </TRN>
