@@ -12,6 +12,39 @@ function EmitAddForm ( ) {
   include ('form.php');
   EndForm ();
 }
+
+function DoCheck($ATitle,$ADescr,$AText) {
+  if (!(strpos($ADescr,$AText)===false)) {
+    return True;
+  }
+  if (!(strpos($ATitle,$AText)===false)) {
+    return True;
+  }
+  return False;
+}
+
+$SpamWords = array('xanax','viagra','cialis','porno','valium','reductil');
+
+function Spam($ATitle,$ADescr) {
+  global $SpamWords;
+  $ATitle=strtolower($ATitle);
+  $ADescr=strtolower($ADescr);
+  while ( list($key,$val) = each($SpamWords) ) {
+    if (DoCheck($ADescr,$ATitle,$val)) {
+      return True;
+    }
+  }
+  return False;
+/*
+  if (!(strpos($ADescr,'valium')===false)) {
+    return True;
+  }
+  if (!(strpos($ATitle,'valium')===false)) {
+    return True;
+  }
+  return FALSE;
+*/
+}
 /*
  * Start of program
  */
@@ -24,6 +57,16 @@ $db = ConnectToFPC();
  */ 
 if ( $confirm == "yes") {
   /* Add the entry */
+  if (Spam($name,$descr)) {
+    exit('Spam entry not allowed');
+  }
+  if (Spam($homepage,$email)) {
+    exit('Spam entry not allowed');
+  }
+  if (!$category) {
+    exit('No category specified');
+  }
+
   $query = "INSERT INTO contribs (Name,Author,Email,ftpFile,homepage,date,os,category,descr,version,pwd) VALUES (";
   $query .= EscapeSQL ($name);
   $query .= "," . EscapeSQL ($author);
