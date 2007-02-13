@@ -47,7 +47,7 @@ Year of birth: 1975<br>
 Job: Developing software for medical devices and preparing a PhD
 Erlangen-N&uuml;rnberg, Germany<br>
 Hobbies: computers, classical music, rc planes, books<br>
-Blog: <a href="http://www.de.freepascal.org/~florian/nucleus/">Link</a><br>
+Blog: <a href="http://www.florianklaempfl.de/nucleus">Link</a><br>
 <p>
 Contributes the following work to the project:
 <ul>
