@@ -1,3 +1,24 @@
+<TRN locale="it_IT" key="website.a_Access_denies_while_download">
+            <p>Il server principale di Free Pascal è in grado di gestire un numero limitato di connessioni. Se si verifica questo errore, significa che il limite è stato raggiunto. Per superare questo problema è possibile attendere e riprovare più tardi, oppure provare ad accedere ad uno dei mirror disponibili.
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Crash_analysis">
+            <OL>
+                <li>Il metodo più semplice consiste nel ricompilare il programma con l'opzione di debug -gl. In questo modo l'unit LineInfo viene automaticamente compilata nel programma e il messaggio che viene generato se il programma si interrompe contiene riferimenti al numero di riga, oltre che all'indirizzo in cui si è verificato l'errore. Per vedere il nome delle funzioni della libreria runtime (RTL) è necessario ricompilare il programma con l'opzione di compilazione -gl.                <li>Per un controllo più esteso, compilare il rpogramma comprendendo le informazioni di debug (opzione -g).
+                <li>Caricare il programma dal debugger <PRE>gdb(pas)(w) --directory=&lt;src dirs&gt; myprog.exe</PRE>Note:
+                <ul>
+                    <li>Su sistemi UNIX (Linux o la famiglia BSD) non aggiungere l'estensione ".exe" dopo myprog
+                    <li>"<TT>src dirs</TT>" è un elenco di directories contenente i file sorgenti del programma e delle units che utilizza, separate da un punto e virgola (";"). La directory corrente viene inclusa automaticamente.
+                </ul>
+                <li>Dopo aver caricato il debugger, si possono impostare le opzioni della riga di comando che devono essere inviate al programma per mezzo del comando "<TT>set args &lt;option1 option2 ...&gt;</TT>"
+                <li>Per aviare il programma scrivere "<TT>run</TT>" e premere il tasto invio
+                <li>Quando il programma si interrompe viene visualizzato l'indirizzo in cui è avvenuta l'interruzione. Il debugger tenterà di visualizzare il numero di linea del sorgente corrispondente a questo indirizzo. Notare che questo potrebbe verificarsi in una procedura della RTL, e le informazioni sul codice sorgente potrebbero non essere disponibili, dato che la libreria runtime non è stata compilata con le informazioni di debug.
+                <li>Se successivamente si scrive "<TT>bt</TT>" (BackTrace), verrà visualizzato l'indirizzo sullo stack di chiamata (l'indirizzo delle procedure che sono state richiamate prima che l'esecuzione arrivasse in quel punto). 
+
+Con il comando <PRE>info line *&lt;address&gt;</PRE> si puo vedere a quali righe di codice corrispondono questi indirizzi. Ad esempio: <PRE>info line *0x05bd8</PRE>
+            </OL>
+          
+</TRN>
 <TRN locale="it_IT" key="website.Advantages">
 Vantaggi
 </TRN>
@@ -35,14 +56,47 @@ GNU Pascal supporta ISO 7185, ISO 10206, Borland Pascal 7.0 (in gran parte).
             Finland (jtv&#x040;hut.fi). </DD></DL><br>
           
 </TRN>
+<TRN locale="it_IT" key="website.a_Game_in_FPC">
+            Con Free Pascal si possono realizzare dei giochi e se si è abbastanza abili, anche un gioco come Doom 3. Creare dei giochi non è facile, bisogna essere programmatori esperti. Alla pagina <a href='http://www.pascalgamedevelopment.com'>
+            www.pascalgamedevelopment.com</a> si può trovare una comunità di programmatori di giochi per Free Pascal e Delphi.
+            <p>
+            Per iniziare è consigliabile studiare <a href='http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME'>JEDI-SDL</a>
+            o <a href='http://ptcpas.sourceforge.net'>PTCPas</a> oppure i sorgenti di un gioco già realizzato, ad esempio             <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a>, un gioco molto semplice il cui codice non dovrebbe essere troppo difficile da analizzare. 
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Getting_the_compiler">
+            <p>La versione stabile più recente di Free Pascal si può essere scaricata da uno dei seguenti <a href="download@x@">mirrors ufficiali</a>
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Homework">
+            <p>No. Non siamo insegnanti, per favore non inviateci email di questo genere. Il team di sviluppo di Free Pascal ha lo scopo di fornire supporto per il compilatore e cerca sempre di fornire una risposta alle varie domande. Risolvere i compiti per casa spetta a chi li deve svolgere. 
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Increase_heap">
+            <p>Per default Free Pascal riserva un piccola parte della memoria RAM per l'applicazione come memoria Heap. Se venisse riservata tuta la memoria disponibile, con Windows si potrebbero verificare dei problemi, dato che Windows andrebbe ad incrementare progressivamente le dimensioni del file di scambio per fornire ulteriore memoria agli altri programmi. 
+
+            <p>Le dimensioni della memoria heap possono essere specificate con l'opzione -Chxxxx. 
+
+            <p>Tuttavia, la dimensione dell'heap non è realmente determinante, dato che questi è in grado di espandersi: qualora la memoria disponibile venisse utilizzata tutta, il programma cercherà di ottenere ulteriore memoria dal sistama operativo (OS), in questo modo la memoria heap è limitata solo dalla massima memoria che il sistema operativo è in grado di gestire. 
+
+            <p>Questa opzione è utile solo se già si ritiene che il programma necessita di una quantità di memoria prefissata. Specificando il parametro -Ch il programma eseguirà l'allocazione necessaria al suo avvio migliorandone le prestazioni durante l'esecuzione. 
+
+          
+</TRN>
 <TRN locale="it_IT" key="website.a_Installation_hints">
              <ul>
                <li> Non installare Free Pascal in una directory il cui nome contiene dei caratteri di spaziatura, questo può causare dei problemi durante la compilazione. 
              </ul>
            
 </TRN>
+<TRN locale="it_IT" key="website.a_Installing_snapshot">
+            <p>Per installare uno snapshot, estrarre il file zip nella directory in cui è installato Free Pascal (dopo aver fatto una copia di sicurezza, ovviamente). Si può anche estrarre il file zip in una directory vuota e poi spostarne il contenuto nella directory di Free Pascal, sovrascrivendo i file esistenti. 
+
+            <p> Verificare di estrarre il file zip in modo da mantenere intatta la struttura delle directory. Ad esempio, se si usa PKUNZIP, impartire il comando "pkunzip -d" e non semplicemente "pkunzip". Si noti che uno snapshot potrebbe contenere nuove versioni della RTL che con molta probabilità non possono essere utilizzate con le versioni precedenti, quindi effettuare sempre anche un backup della RTL. 
+          
+</TRN>
 <TRN locale="it_IT" key="website.a_Licence_copyright_info">
-            <p> Applicazioni create con il compilatore che utilizzano la libreria runtime sono soggetti ad una licenza pubblica Gnu Library (LGPL), che non impone restrizioni sul tipo di licenza delle applicazioni stesse. 
+            <p> Applicazioni create con il compilatore che utilizzano la libreria runtime sono soggette sono soggette ad una variante della licenza Library Gnu Public License (LGPL), che non impone restrizioni sul tipo di licenza delle applicazioni stesse. 
 Con Free Pascal è perciò possibile creare codice non aperto o proprietario. 
 
             <p>Alla licenza LGPL è aggiunta la seguente eccezione:<br><I> Come eccezione speciale, i detentori dei diritti di autore di questa libreria danno il permesso di collegare (link) questa libreria a moduli indipendenti al fine di produrre un codice eseguibile, indipendentemente dai termini di licenza con cui saranno distribuiti tali moduli e il permesso di copiare e distribuire l'eseguibile nei termini che si ritengono più adeguati posto che siano rispettati, per ogni singolo modulo indipendente, i termini e le condizioni di licenza del modulo stesso. Un modulo indipendente è un modulo non derivato da o basato sulla libreria runtime. 
@@ -65,6 +119,9 @@ già inclusi nel programma di installazione
 <TRN locale="it_IT" key="website.Amiga_tel_inf">
 Informazioni relative all'Amiga
 </TRN>
+<TRN locale="it_IT" key="website.a_Real_windows_application">
+            Il modo più semplice è di procurarsi e installare <a href='http://www.lazarus.freepascal.org'>Lazarus</a>, che permette di realizzare non solo applicazioni su Windows, ma anche su Linux e MacOS X.           
+</TRN>
 <TRN locale="it_IT" key="website.arm-linux_1_file_download_descr">
 <a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
   è un archivio tar standard, contenente uno script di installazione.<br>
@@ -80,6 +137,16 @@ Autori
 <TRN locale="it_IT" key="website.available_limited_platforms">
   Data la mancanza di persone che si occupano di confezionare e testare i packages di distribuzione, la versione 2.0.4 è disponibile per un limitato numero di piattaforme e formato. Chi volesse contribuire nella preparazione e nella messa a punto delle nuove distribuzioni può contattarci con un messaggio sulle mailing lists.
 
+</TRN>
+<TRN locale="it_IT" key="website.a_Wanna_new_version_now">
+            <p>Prima del rilascio di una nuova versione ufficiale, è possibile dare un'occhiata e provare le versioni di sviluppo (i cosiddetti "snapshots"). Si avverte però che questi sono lavori in corso, cos', oltre a trovare rimedi ad errori conosciuti e nuove funzionalità si possono anche incontrare nuovi errori. 
+
+            <p>Uno Snapshot viene generato automaticamente nottetempo dai sorgenti disponibili in quel momento. Talvolta questo può non andare a buon fine a causa di modifiche troppo impegnative. Se uno snapshot non dovesse funzionare, si deve aspettare e riprovare un paio di giorni più tardi. Evitare di scaricare la versione GO32v1 per Dos, dato che non viene più supportata. 
+
+
+            <p>Lo snapshot più recente può essere scaricato dalla pagina web di <A
+            href="develop@x@#snapshot"> sviluppo</a>. 
+          
 </TRN>
 <TRN locale="it_IT" key="website.a_What_is_FPC">
             <p>Conosciuto in origine come FPK-Pascal, Free Pascal è un compilatore a 32 e 64 bit compatibile con Turbo Pascal e Delphi per DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic e diverse altre piattaforme (il numero sta aumentando nel tempo, anche se non tutte sono supportate allo stesso livello di quelle principali).
@@ -140,6 +207,10 @@ Autori
             <img src="pic/timeline.png"></a>
           
 </TRN>
+<TRN locale="it_IT" key="website.a_Why_username_password_for_download">
+            <p> Solitamente, per scaricare da un server FTP è necessario fornire il nome utente "anonymous" e il proprio indirizzo e-mail come password.
+          
+</TRN>
 <TRN locale="it_IT" key="website.Back_to_general_download_page">
 Torna alla pagina generale scaricamenti
 </TRN>
@@ -184,7 +255,7 @@ Versione corrente
 <TRN locale="it_IT" key="website.Current_Version_text">
  La <em>2.0.4</em> è la versione più aggiornata di Free Pascal. Seleziona questo collegamento <a href="download@x@">download</a> per accedere al mirror più vicino da cui scaricare la tua copia.
     Le versioni in fase di sviluppo hanno numeri di versione di tipo <EM>2.1.x</EM>.
-    Consultare la pagina <a href="develop.html">development</a> per accedere ai codici di programmazione e contribuire cosí allo sviluppo della versione stessa. 
+    Consultare la pagina <a href="develop.html">development</a> per accedere ai sorgenti e contribuire cosí allo sviluppo della versione stessa. 
   
 </TRN>
 <TRN locale="it_IT" key="website.Development">
@@ -367,11 +438,23 @@ Porting dal TP7
 <TRN locale="it_IT" key="website.q_Access_denies_while_download">
 Nell'accedere al server FTP di Free Pascal ricevo l'errore "Access denied"
 </TRN>
+<TRN locale="it_IT" key="website.q_Crash_analysis">
+Ottenere maggiori informazioni quando un'applicazione va in errore. 
+</TRN>
 <TRN locale="it_IT" key="website.q_FPC_vs_GPC">
 Free Pascal e GNU Pascal a confronto
 </TRN>
+<TRN locale="it_IT" key="website.q_Game_in_FPC">
+Come posso realizzare un gioco con Free Pascal? Posso realizzare un gioco come Doom3?
+</TRN>
+<TRN locale="it_IT" key="website.q_Getting_the_compiler">
+Dove trovarlo
+</TRN>
 <TRN locale="it_IT" key="website.q_Homework">
-I have to write a program for homework. Can you help?
+Come compito per casa devo scrivere un programma, potete aiutarmi?
+</TRN>
+<TRN locale="it_IT" key="website.q_Increase_heap">
+Aumentare le dimensioni della memoria
 </TRN>
 <TRN locale="it_IT" key="website.q_Installation_hints">
 Consigli per installare Free Pascal
@@ -381,6 +464,9 @@ Installare uno snapshot
 </TRN>
 <TRN locale="it_IT" key="website.q_Licence_copyright_info">
 Licenza e copyright
+</TRN>
+<TRN locale="it_IT" key="website.q_Real_windows_application">
+Come posso creare un'applicazione Windows con finestre e barre dei menu'?
 </TRN>
 <TRN locale="it_IT" key="website.q_Wanna_new_version_now">
 Voglio una nuova versione ADESSO
