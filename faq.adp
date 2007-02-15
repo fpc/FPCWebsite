@@ -66,7 +66,7 @@
     <li><a href="#WrongColors">Why do I get wrong colors when using the graph unit?</a>
     <li><a href="#fileshare"> File sharing and file locks </a>
     <li><a href="#filebig"> Accessing huge files using standard I/O routines </a>
-    <li><a href="#filemode">File denied errors when opening files with reset </a>
+    <li><a href="#filemode"><trn key="website.q_File_denied_errors" locale="en_US">File denied errors when opening files with reset</trn></a>
     <li><a href="#TurboVision">Turbo Vision libraries</a>
    </OL>
    <li><trn key="website.DOS_rel_inf" locale="en_US">DOS related information</trn>
@@ -535,15 +535,16 @@
 
 
         <li><a name='general-doesntfindfiles'></a>
-            <h3><trn key="website.q_Compiler_skips_files" locale="en_US">Compiler seems to skip files in directories that -Fu points to</trn></h3>
-
+          <h3><trn key="website.q_Compiler_skips_files" locale="en_US">Compiler seems to skip files in directories that -Fu points to</trn></h3>
+          <trn key="website.a_Compiler_skips_files" locale="en_US">
             <p>This sometimes happens with installation/compilation scripts if the
             copying command doesn't preserve dates. The object files get older than
             the PPU file, and the compiler tries to recompile them. A simple <TT>touch</TT>
             will solve it. 
-	    <p>
-	      Also note that FPC, contrary to Turbo Pascal keeps track of includefiles. Modified
-		includefiles or duplicate names might trigger an attempt at recompiling
+            <p>
+	        Also note that FPC, contrary to Turbo Pascal keeps track of includefiles. Modified
+            includefiles or duplicate names might trigger an attempt at recompiling
+          </trn>
         
 
         <li><a name='binariesbig'></a>
@@ -703,48 +704,6 @@
           </trn>
 
         
-        <li><a name='filemode'></a>
-           <h3>File denied errors when opening files with reset </h3>
-
-           <p> Trying to open files using <CODE>reset</CODE> on non-text files
-               might cause a Runtime Error 5 (Access denied). 
-
-           <p> All files opened using the above system unit routine use the current
-               <CODE>filemode</CODE> value to determine how the file is opened. By
-               default, <CODE>filemode</CODE> is set to 2 (Read/Write access).
-            
-
-            <p>So, a call to <CODE>reset</CODE> on non-text files does <EM>not</EM>
-               indicate that the file will be opened read-only. So, trying to open a file
-               using <CODE>reset</CODE> with the defaults will fail on read-only files.
-               <CODE>filemode</CODE> should be set to 0 (Real-only access) before
-               calling <CODE>reset</CODE> to solve this problem. A sample solution
-               is shown below.
-            
-
-            <PRE>
-              const
-                 { possible values for filemode }
-                 READ&#95;ONLY = 0;
-                 WRITE&#95;ONLY = 1;
-                 READ&#95;WRITE = 2;
-              var
-                 oldfilemode : byte;
-                 f: file;
-              begin
-                 assign(f,'myfile.txt');
-                 oldfilemode := filemode;
-                 { reset will open read-only }
-                 filemode := READ&#95;ONLY;
-                 reset(f,1);
-                 { restore file mode value }
-                 filemode := oldfilemode;
-                 // ...
-                 close(f);
-              end.
-            </PRE>
-
-            <p> For more information, consult the Free Pascal reference manual
          
         <li><a name='isoxpascal'></a>
           <h3><trn key="website.q_isoxpascal" locale="en_US">Will you support ISO Extended Pascal?</trn></h3>
@@ -1214,6 +1173,50 @@
                  calls (if the OS supports such files) to workaround the problem.
              
         
+        <li><a name='filemode'></a>
+          <h3><trn key="website.q_File_denied_errors" locale="en_US">File denied errors when opening files with reset</trn></h3>
+          <trn key="website.a_File_denied_errors" locale="en_US">
+
+           <p> Trying to open files using <CODE>reset</CODE> on non-text files
+               might cause a Runtime Error 5 (Access denied). 
+
+           <p> All files opened using the above system unit routine use the current
+               <CODE>filemode</CODE> value to determine how the file is opened. By
+               default, <CODE>filemode</CODE> is set to 2 (Read/Write access).
+            
+
+            <p>So, a call to <CODE>reset</CODE> on non-text files does <EM>not</EM>
+               indicate that the file will be opened read-only. So, trying to open a file
+               using <CODE>reset</CODE> with the defaults will fail on read-only files.
+               <CODE>filemode</CODE> should be set to 0 (Real-only access) before
+               calling <CODE>reset</CODE> to solve this problem. A sample solution
+               is shown below.
+            
+
+            <PRE>
+              const
+                 { possible values for filemode }
+                 READ&#95;ONLY = 0;
+                 WRITE&#95;ONLY = 1;
+                 READ&#95;WRITE = 2;
+              var
+                 oldfilemode : byte;
+                 f: file;
+              begin
+                 assign(f,'myfile.txt');
+                 oldfilemode := filemode;
+                 { reset will open read-only }
+                 filemode := READ&#95;ONLY;
+                 reset(f,1);
+                 { restore file mode value }
+                 filemode := oldfilemode;
+                 // ...
+                 close(f);
+              end.
+            </PRE>
+
+            <p> For more information, consult the Free Pascal reference manual
+          </trn>
 
         <li><a name=TurboVision></a>
             <h3>Turbo vision libraries</h3>
