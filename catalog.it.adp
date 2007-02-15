@@ -2,6 +2,47 @@
             <p>Il server principale di Free Pascal è in grado di gestire un numero limitato di connessioni. Se si verifica questo errore, significa che il limite è stato raggiunto. Per superare questo problema è possibile attendere e riprovare più tardi, oppure provare ad accedere ad uno dei mirror disponibili.
           
 </TRN>
+<TRN locale="it_IT" key="website.a_Big_binaries">
+            Per questo problema vi sono diverse ragioni e rimedi: 
+
+            <OL>
+                <li>
+                    <p>Le applicazioni possono essere compilate con smartlink. Per attivare la generazione di unit con smartlink, usare l'opzione -Cx sulla riga di comando per compilare le unit. Per attivare il link di unit compilate con smartlink, utilizzare l'opzione -XX (-XS in 0.99.12 e precedenti) sulla riga di comando per compilare il programma. 
+                <li>Normalmente, tutte le informazioni sui simboli vengono incorporate nel file eseguibile (per agevolare il debugging). Queste informazioni possono essere rimosse per mezzo dell'opzione -Xs sulla riga di comando per compilare il programma (non ha alcun effetto nella compilazione delle unit).
+                <li>Si può usare UPX per comprimere i file eseguibili .EXE per Dos (GO32v2) e Windows. Vedi <A
+                        href="http://upx.sourceforge.net/">qui</a> for
+                    per ulteriori informazioni.
+                <li>Si può usare LXLITE per comprimere binari EMX, ma non sarà più possibile eseguirli su Dos (con un extender). Questo problema non è rilevante per binari nativi OS/2 compilati per OS2 con versioni 1.9.x e successive, dato che ugualmente non possono essere eseguite su Dos. Inoltre, potrebbe non essere possibile usare binari compressi su versioni OS/2 meno recenti (es. 2.x) in funzione del tipo di compressione prescelto. LXLITE si può reperire su 
+                    <a href="http://hobbes.nmsu.edu/">Hobbes</a>, con una ricerca su LXLITE.
+                <li>Attivare le ottimizzazioni, sia per i package forniti in dotazione (RTL, FV, FCL) che per il programma, questo riduce le dimensioni del codice.  
+                <li>Considerare che su Windows NT,2000,XP gli eseguibili compressi richiedono più tempo per avviare l'esecuzione. Prima si adottare questo rimedio, eseguire alcuni test sotto varie condizioni (OS, frequenza CPU, memoria). 			   
+           </OL>
+
+            In genere Free Pascal produce file binari più ridotti rispetto al altri moderni compilatori, tuttavia, il codice non viene nascosto in grosse librerie dinamiche. Free Pascal produce binari di maggiori dimensioni rispetto a compilatori meno recenti. Librerie di grosse dimensioni danno luogo a eseguibili più grandi. 
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Cannot_compile_with_bin_unit">
+            <p>
+            Talvolta, anche se si dispone di una versione binaria di un modulo (file unit e file oggetto) il compilatore dà errori di compilazione. Questo può essere causato da un'incompatibilità nel formato del file PPU (che dovrebbe cambiare solo tra versioni principali del compilatore), oppure  da modifiche in una delle unit della RTL che è stata modificata nella nuova versione. 
+            
+
+            <p>
+            Per avere maggiori informazioni,compilare il codice con l'opzione -vm (visualizzazione di tutte le informazioni) verrà così visualizzata la fase di caricamento dell'unit. Si dovrebbe notare che l'unit in questione richiede una ricompilazione dovuta ad una modifica delle unit che utilizza. 
+            
+
+            <p>In questo modo, se si intende distribuire un modulo senza i file sorgenti, i file binari dovrebbero essere compilati e resi disponibili per tutte le versioni del compilatore da supportare. Questo per evitare errori di compilazione con le nuove versioni. 
+
+            <p>In altre parole, il formato dei file PPU non cambia in modo significativo tra versioni minori del compilatore (ad esempio 1.0.4 e 1.0.6) e dovrebbe essere compatibile a livello binario, tuttavia, dato che l'interfaccia delle unit della RTL subisce senz'altro delle variazioni tra versioni minori, la ricompilazione sarà in ogni caso necessaria. 
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_cfg_problems">
+            <p> A partire dalla versione 1.0.6 il nome del file di configurazione non è più <TT>ppc386.cfg</TT>, ma <TT>fpc.cfg</TT>.
+            Per mantenere la compatiblitità con le vecchie precedenti, <TT>ppc386.cfg</TT> viene ancora ricercato per primo e se esiste, viene utilizzato al posto di <TT>fpc.cfg</TT>.
+
+            <p> Le versioni precedenti alla 1.0.6 non riconoscono il file di configurazione <TT>fpc.cfg</TT>.
+            Se si desidera usare lo stesso file di configurazione con versioni precedenti è necessario fare attenzione a modificare il nome del file di configurazione da <TT>fpc.cfg</TT> a <TT>ppc386.cfg</TT>.
+          
+</TRN>
 <TRN locale="it_IT" key="website.a_Crash_analysis">
             <OL>
                 <li>Il metodo più semplice consiste nel ricompilare il programma con l'opzione di debug -gl. In questo modo l'unit LineInfo viene automaticamente compilata nel programma e il messaggio che viene generato se il programma si interrompe contiene riferimenti al numero di riga, oltre che all'indirizzo in cui si è verificato l'errore. Per vedere il nome delle funzioni della libreria runtime (RTL) è necessario ricompilare il programma con l'opzione di compilazione -gl.                <li>Per un controllo più esteso, compilare il rpogramma comprendendo le informazioni di debug (opzione -g).
@@ -17,6 +58,17 @@
 
 Con il comando <PRE>info line *&lt;address&gt;</PRE> si puo vedere a quali righe di codice corrispondono questi indirizzi. Ad esempio: <PRE>info line *0x05bd8</PRE>
             </OL>
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Debugging_DLL">
+            <p>Il debug di librerie condivise (DLL) con Free Pascal non è supportato.
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Debug_smartlinked">
+            <p>Questo problema è dovuto al fatto che quando il codice viene generato con smartlink, allo scopo di ridurre le dimensioni del codice finale, non vengono generate informazioni sul tipo dei dati necessarie al debugging.  
+
+           
+            <p> Si consiglia di disattivare smartlink durante le fasi di debug. 
           
 </TRN>
 <TRN locale="it_IT" key="website.Advantages">
@@ -95,6 +147,20 @@ GNU Pascal supporta ISO 7185, ISO 10206, Borland Pascal 7.0 (in gran parte).
             <p> Verificare di estrarre il file zip in modo da mantenere intatta la struttura delle directory. Ad esempio, se si usa PKUNZIP, impartire il comando "pkunzip -d" e non semplicemente "pkunzip". Si noti che uno snapshot potrebbe contenere nuove versioni della RTL che con molta probabilità non possono essere utilizzate con le versioni precedenti, quindi effettuare sempre anche un backup della RTL. 
           
 </TRN>
+<TRN locale="it_IT" key="website.a_isoxpascal">
+       Siamo disposti a supportare l'ISO Extended Pascal, ma il team di sviluppo di Free Pascal non ritiene importate questo aspetto e non investirà risorse in questa direzione. La ragione è che ISO Extended Pascal va considerato uno standard fallito. 
+       <p>
+       Per spiegare la ragione di ciò si deve tornare indietro agli anni '70. In quegli anni era popolare un compilatore UCSD-Pascal con la caratteristica di permettere a programmi compilati su un'architattura di essere eseguiti su un'altra. Tutti i principali compilatori Pascal derivano dal compilatore UCSD-Pascal, compresi quello di Borland e i vari dialetti Mac-Pascal. 
+       <p>
+       UCSD-Pascal introdusse il sistema delle unit e delle variabili stringa che tutti conosciamo. Per la programmazione modulare e per la gestione delle stringhe ISO Extended Pascal ha un sistema completamente diverso rispetto al modello UCSD. In pratica, non è possibile supportare allo stesso tempo entrambi i dialetti. 
+       <p>
+       A causa di ciò, l'industria del software non è stata in grado di passare allo standard ISO Extended Pascal senza compromettere la compatibilità con tutto il software già esistente. Per questo, pochi compilatori implementarono questo standard e quelli che lo fecero non si diffusero significativamente.  
+       <p>
+       Attualmente esiste poco codice scritto in ISO Extendes Pascal. Per questo non vi sono molte valide ragioni per investire risorse per implementare una modalità di questo genere in Free Pascal.
+       <p>
+       GNU-Pascal è un moderno compilatore in grado di compilare ISO Extended Pascal. Se si ha bisogno di sviluppare applicazioni con un dialetto ISO Extended, si consiglia di utilizzare questo compilatore. 
+         
+</TRN>
 <TRN locale="it_IT" key="website.a_Licence_copyright_info">
             <p> Applicazioni create con il compilatore che utilizzano la libreria runtime sono soggette sono soggette ad una variante della licenza Library Gnu Public License (LGPL), che non impone restrizioni sul tipo di licenza delle applicazioni stesse. 
 Con Free Pascal è perciò possibile creare codice non aperto o proprietario. 
@@ -130,6 +196,22 @@ Informazioni relative all'Amiga
 <TRN locale="it_IT" key="website.arm-linux_available_in">
 Il package FPC per arm-linux è disponibile in un unico formato:
 
+</TRN>
+<TRN locale="it_IT" key="website.a_Runtime_errors">
+            <p> In caso di interruzione anomala di un'applicazione compilata con Free Pascal, è molto probabile che venga generato un errore di runtime. Questi errori assumono la forma: 
+
+            <PRE>
+            Runtime error 201 at $00010F86
+              $00010F86  main,  line 7 of testr.pas
+              $0000206D
+            </PRE>
+
+            <p> Il valore 201 in questo caso indica il codice di errore. Le descrizioni associate ai codici di errore di runtimen si trovano nell'appendice D del Manuale d'Uso di Free Pascal. I numeri in esadecimale rappresentano lo stato dello stack di richiamo nel momento in cui si è verificato l'errore.
+          
+</TRN>
+<TRN locale="it_IT" key="website.a_Standard_units">
+            <p> Per un elenco delle unit fornite in dotazione con Free Pascal, una breve descrizione e le piattaforme in cui sono supportate, consultare il Manuale d'uso di Free Pascal. 
+          
 </TRN>
 <TRN locale="it_IT" key="website.Authors">
 Autori
@@ -438,8 +520,26 @@ Porting dal TP7
 <TRN locale="it_IT" key="website.q_Access_denies_while_download">
 Nell'accedere al server FTP di Free Pascal ricevo l'errore "Access denied"
 </TRN>
+<TRN locale="it_IT" key="website.q_Big_binaries">
+Perché i file compilati sono così voluminosi?
+</TRN>
+<TRN locale="it_IT" key="website.q_Cannot_compile_with_bin_unit">
+Non riesco a compilare un programma usando la versione binaria di una unit 
+</TRN>
+<TRN locale="it_IT" key="website.q_cfg_problems">
+Problemi con il file di configurazione (fpc.cfg or ppc386.cfg)
+</TRN>
+<TRN locale="it_IT" key="website.q_Compiler_skips_files">
+Sembra che il compilatore ignori i file contenuti nelle directory indicate con -Fu
+</TRN>
 <TRN locale="it_IT" key="website.q_Crash_analysis">
 Ottenere maggiori informazioni quando un'applicazione va in errore. 
+</TRN>
+<TRN locale="it_IT" key="website.q_Debugging_DLL">
+Il debug di librerie condivise (dynamic linked libraries) non funziona correttamente
+</TRN>
+<TRN locale="it_IT" key="website.q_Debug_smartlinked">
+Il debug di codice compilato con smartlink non funziona correttamente. 
 </TRN>
 <TRN locale="it_IT" key="website.q_FPC_vs_GPC">
 Free Pascal e GNU Pascal a confronto
@@ -462,11 +562,23 @@ Consigli per installare Free Pascal
 <TRN locale="it_IT" key="website.q_Installing_snapshot">
 Installare uno snapshot
 </TRN>
+<TRN locale="it_IT" key="website.q_isoxpascal">
+Avete intenzione di supportare ISO Extended Pascal?
+</TRN>
 <TRN locale="it_IT" key="website.q_Licence_copyright_info">
 Licenza e copyright
 </TRN>
+<TRN locale="it_IT" key="website.q_PPU_bin_compatibility">
+Compatibilità dei files binari PPU tra una versione e l'altra 
+</TRN>
 <TRN locale="it_IT" key="website.q_Real_windows_application">
 Come posso creare un'applicazione Windows con finestre e barre dei menu'?
+</TRN>
+<TRN locale="it_IT" key="website.q_Runtime_errors">
+Errori Runtime
+</TRN>
+<TRN locale="it_IT" key="website.q_Standard_units">
+Unit standard
 </TRN>
 <TRN locale="it_IT" key="website.q_Wanna_new_version_now">
 Voglio una nuova versione ADESSO

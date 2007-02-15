@@ -1096,3 +1096,64 @@ Een unit bouwen
 <TRN locale="nl_NL" key="website.q_integrated_assembler_syntax">
 Syntaxis van de geïntegreerde assembler
 </TRN>
+<TRN locale="nl_NL" key="website.a_Compiler_skips_files">
+<p>Dit treedt soms op met installatie-/compilatiescripts als het kopiërende commando datums niet behoudt. De objectbestanden worden hierdoor oude dan het PPU-bestand, waardoor de compiler ze probeert te hercompileren. Een eenvoudige <TT>touch</TT> lost het probleem op.
+<p>
+Merk op dat FPC, in tegenstelling tot Turbo Pascal ook de includebestanden navolgt. Gewijzigde includebestanden of dubbele bestandsnamen kunnen een hercompilatie in gang zetten.
+</TRN>
+<TRN locale="nl_NL" key="website.q_compiling_systemunit">
+De system-unit hercompileren
+</TRN>
+<TRN locale="nl_NL" key="website.q_using_graph">
+De graph-unit met Free Pascal gebruiken
+</TRN>
+<TRN locale="nl_NL" key="website.a_using_graph">
+<p>Sinds versie 1.0 hebben we een volledig platformonafhankelijke manier om resoluties en bitdieptes te kiezen. Je wordt sterk aangeraden om dit te gebruiken vanwege het feit dat andere manier op zonder twijfel op een bepaald platform zullen falen. Meer informatie vind je in de documentatie van de graph-unit.
+</TRN>
+<TRN locale="nl_NL" key="website.q_how_does_proc_overloading_work">
+Hoe werkt procedure-overroeping?
+</TRN>
+<TRN locale="nl_NL" key="website.a_how_does_proc_overloading_work">
+            <p>Dit voorbeeldje toont hoe je procedure-overroeping doet:
+            <PRE>
+                    procedure a(i : integer);
+                    begin
+                    end;
+
+                    procedure a(s : string);
+                    begin
+                    end;
+
+                    begin
+                        a('asdfdasf');
+                        a(1234);
+                    end.
+                </PRE>
+
+            <p>Je dient voorzichtig te zijn, namelijk, als één van de overroepen procedures in het interfacedeel van je unit staat, dan moeten alle overroepen procedures in het interfacedeel staan. Als je er één weg laat zal de compiler weigeren met de melding 'Deze overroepen procedure kan niet lokaal zijn'. Overroepen functies moeten verschillende parameters hebben, het is niet voldoende als het resultaattype verschillend is.
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_compiling_systemunit">
+<p>Om de system-unit te hercompileren wordt aanbevolen om GNU-make geïnstalleerd te hebben. Het typen van 'make' in de broncodedirectory van de runtime-bibliotheek zal dan alle RTL-units inclusief de system-unit compileren. Je kunt afdalen naar de subdirectory van je besturingssysteem (bijv. rtl/go32v2) en daar een 'make' uitvoeren. 
+<p>Het is ook mogelijk dit met de hand te doen, maar je hebt dan een meer gedetailleerde kennis van de directorystructuur van de runtimebibliotheek nodig.
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_extenstion">
+Ik heb een taalverbetering/-uitbreiding voor Pascal bedacht. Kunnen jullie dit inbouwen?
+</TRN>
+<TRN locale="nl_NL" key="website.a_extenstion">
+Van tijd tot tijd vraagt iemand om een taaluitbreiding of denkt een verbetering bedacht te hebben. De discussies op de e-maillijsten en forums gaan dan vaak volgens een bekend patroon. Een taaluitbreiding is een relatief groot karwei voor het FPC-team, bijgevolg worden een aantal criteria gebruikt om te bepalen of een taaluitbreiding de moeite waard is. De belangrijkste voorselectiecriteria zijn:
+<OL>
+<li>Compatibiliteit mag niet in het gedrang zijn. Bestaande codebanken  moeten blijven werken, in elk geval op het niveau van broncode. Dit is vaak moeilijker dan veel mensen denken.
+<li>De taaluitbreiding moet daadwerkelijk waarde hebben. Alle vindingen voor een kortere notatie voldoen hier niet aan, tenzij het voor compatibiliteit dient met een bestaande Pascal-codebank. Praktisch gezien moet het iets zijn dan iets mogelijk maakt dat nog niet eerder mogelijk was, of van belang zijn voor compatibiliteit met een andere compiler.
+<li>De taalverandering moet binnen de het gezichtsveld van het project vallen, dat wil zeggen het implementeren van een Pascalcompiler die een RAD-systeem en een generiek databasesysteem kan dragen. Dit sluit functionaliteit als inline-SQL en garbagecollection uit.
+</OL>	
+Uitzonderingen op de tweede regel worden soms gemaakt voor platformspecifieke redenen (bijvoorbeeld interfacen met een andere taal of een vreemd besturingssysteem). De eerste regel vormt vaak een probleem omdat minder gewenste effecten vaak niet op het oog herkenbaar zijn tenzij men eerder geprobeerd heeft taaluitbreidingen op het betreffende gebied te bouwen. Het is vaak het beste om een doordacht voorstel te schrijven dat de ontwikkelaars kunnen toetsen op:
+<ul><li>Uitleg wat de taaluitbreiding doet
+<li>Waarom is het nodig, wat maakt het mogelijk?
+<li>Hoe zou je het implementeren?
+<li>Veel voorbeelden van typisch gebruik en tests voor mogelijke probleemgevallen.
+</ul>	
+Probeer uitvoerig te zijn en probeer het van de kant te zien van iemand die het moet implementeren. Probeer voorbeelden te maken die meerdere units overspannen en bekijk wat er gebeurt. Wees kritisch, probeer gaten te schieten in je eigen redenering en vind mogelijke probleemgevallen en documenteer deze.
+<p>behalve deze voorselectieregels en -documentatie is de andere belangrijke vraag wie het werk gaat doen. Hou in gedachte dat de FPC-ontwikkelaars vrijwilligers zijn die lijsten hebben van werk dat nog gedaan moet worden om ze het eerste decennium bezig te houden. Je kunt niet verwachten dat ze alles uit hun handen laten vallen en de functionaliteit die je nodig hebt implementeren omdat jij het nodig hebt of denkt dat het fraai of handig is. Als je niet bereid bent het zelf te implementeren en patches in te sturen, zijn de kansen beperkt. Opmerkingen als "dit zal veel gebruikers" aantrekken worden met een hoop scepsis tegenmoet getreden, omdat dat voor elke nieuwe ontwikkeling geldt.
+</TRN>

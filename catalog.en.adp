@@ -1749,3 +1749,151 @@ There is a new extension that will be really useful. Will you include it?
     for this milestone.
   
 </TRN>
+<TRN locale="en_US" key="website.q_File_denied_errors">
+File denied errors when opening files with reset
+</TRN>
+<TRN locale="en_US" key="website.q_using_graph">
+Using the graph unit with Free Pascal
+</TRN>
+<TRN locale="en_US" key="website.q_wrong_colours_using_graph">
+Why do I get wrong colors when using the graph unit?
+</TRN>
+<TRN locale="en_US" key="website.q_filesharing">
+File sharing and file locks
+</TRN>
+<TRN locale="en_US" key="website.a_using_graph">
+
+            <p>Since version 1.0, we  have a completely platform independent way
+            of selecting resolutions and bitdepths. You are strongly encouraged to
+            use it, because other ways will probably fail on one or other platform.
+            See the documentation of the graph unit for more information. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_wrong_colours_using_graph">
+
+            <p>If you use <TT>detect</TT> as graphdriver, you will end up with the
+            highest supported bitdepth. Since the graph unit currently only supports
+            up to 16 bits per pixel modes and since this bitdepth is supported by
+            all graphics cards made in at least the last 5 years, you will most
+            likely get a 16 bit mode. 
+
+            <p>The main problem is that in 16 (and 15, 24, 32, ...) bit modes, the
+            colors aren't set anymore using an index in a palette (the palettized
+            way is called "indexed color"). In these modes, the color number itself
+            determines what color you get on screen and you can't change this color.
+            The color is encoded as follows (for most graphics cards on PC's at
+            least): 
+
+            <ul>
+                <li>15 bit color: lower 5 bits are blue intensity, next come 5 bits of
+                green and then 5 bits of red. The highest bit of the word is ignored.
+                <li>16 bit color: lower 5 bits are blue intensite, next come *6* bits
+                of green and then 5 bits of red. 
+            </ul>
+
+            <p>This means that either you have to rewrite your program so it can
+            work with this so-called "direct color" scheme, or that you have to use
+            <TT>D8BIT</TT> as graphdriver and <TT>DetectMode</TT> as graphmode. This
+            will ensure that you end up with a 256 (indexed) color mode. If there
+            are no 256 color modes supported, then graphresult will contain the
+            value <TT>GrNotDetected</TT> after you called InitGraph and you can
+            retry with graphdriver <TT>D4BIT</TT>. Make sure you use the constant
+            names (D8BIT, D4BIT, ...) and not their actual numeric values, because
+            those values can change with the next release! That is the very reason why
+            such symbolic constants exist. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_Compiler_skips_files">
+
+            <p>This sometimes happens with installation/compilation scripts if the
+            copying command doesn't preserve dates. The object files get older than
+            the PPU file, and the compiler tries to recompile them. A simple <TT>touch</TT>
+            will solve it. 
+            <p>
+	        Also note that FPC, contrary to Turbo Pascal keeps track of includefiles. Modified
+            includefiles or duplicate names might trigger an attempt at recompiling
+          
+</TRN>
+<TRN locale="en_US" key="website.a_File_denied_errors">
+
+
+           <p> Trying to open files using <CODE>reset</CODE> on non-text files
+               might cause a Runtime Error 5 (Access denied). 
+
+           <p> All files opened using the above system unit routine use the current
+               <CODE>filemode</CODE> value to determine how the file is opened. By
+               default, <CODE>filemode</CODE> is set to 2 (Read/Write access).
+            
+
+            <p>So, a call to <CODE>reset</CODE> on non-text files does <EM>not</EM>
+               indicate that the file will be opened read-only. So, trying to open a file
+               using <CODE>reset</CODE> with the defaults will fail on read-only files.
+               <CODE>filemode</CODE> should be set to 0 (Real-only access) before
+               calling <CODE>reset</CODE> to solve this problem. A sample solution
+               is shown below.
+            
+
+            <PRE>
+              const
+                 { possible values for filemode }
+                 READ&#95;ONLY = 0;
+                 WRITE&#95;ONLY = 1;
+                 READ&#95;WRITE = 2;
+              var
+                 oldfilemode : byte;
+                 f: file;
+              begin
+                 assign(f,'myfile.txt');
+                 oldfilemode := filemode;
+                 { reset will open read-only }
+                 filemode := READ&#95;ONLY;
+                 reset(f,1);
+                 { restore file mode value }
+                 filemode := oldfilemode;
+                 // ...
+                 close(f);
+              end.
+            </PRE>
+
+            <p> For more information, consult the Free Pascal reference manual
+          
+</TRN>
+<TRN locale="en_US" key="website.a_compiling_systemunit">
+
+            <p>To recompile the system unit, it is recommended to have GNU make
+            installed. typing 'make' in the rtl source directory will then recompile
+            all RTL units including the system unit. You may choose to descend into
+            the directory of your OS (e.g. rtl/go32v2) and do a 'make' there. 
+            <p>It is possible to do all this manually, but you need more detailed
+            knowledge of the RTL tree structure for that. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_filesharing">
+
+             <p> The standard runtime library file I/O routines open
+             files in the default sharing mode of the operating system
+             (<TT>system, objects</TT> units). Because of this, you
+             might get problems if the file is opened more than once either
+             by another process or the same process. 
+
+             <p> Generally the behaviors for the different operating
+                 systems are as follows : 
+             <ul>
+                <li> UNIX systems : There is no verification at all. 
+                <li> Windows : An access denied error will be reported. 
+                <li> Amiga : An access denied error will be reported. 
+                <li> DOS / OS/2 : If the file is opened more than once by
+                     the same process, no errors will occur, otherwise an
+                     access denied error will be reported. 
+             </ul>
+
+             <p>There are two ways to solve this problem:
+             <ul>
+               <li> Use specific operating system calls (such as file locking
+                    on UNIX and Amiga systems) to get the correct behavior. 
+               <li> Use the <TT>sysutils</TT> unit or the Free Component Library
+                    <TT>TFileStream</TT> File I/O routines, which try
+                    to simulate, as much as possible, file sharing mechanisms. 
+             </ul>
+           
+</TRN>
