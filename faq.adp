@@ -62,9 +62,9 @@
     </OL>
    <li><trn key="website.RTL_rel_inf" locale="en_US">Runtime library related information</trn>
    <OL>
-    <li><a href="#HowToUseGraph">Using the graph unit with Free Pascal</a>
-    <li><a href="#WrongColors">Why do I get wrong colors when using the graph unit?</a>
-    <li><a href="#fileshare"> File sharing and file locks </a>
+    <li><a href="#HowToUseGraph"><trn key="website.q_using_graph" locale="en_US">Using the graph unit with Free Pascal</trn></a>
+    <li><a href="#WrongColors"><trn key="website.q_wrong_colours_using_graph" locale="en_US">Why do I get wrong colors when using the graph unit?</trn></a>
+    <li><a href="#fileshare"><trn key="website.q_filesharing" locale="en_US">File sharing and file locks</trn></a>
     <li><a href="#filebig"> Accessing huge files using standard I/O routines </a>
     <li><a href="#filemode"><trn key="website.q_File_denied_errors" locale="en_US">File denied errors when opening files with reset</trn></a>
     <li><a href="#TurboVision">Turbo Vision libraries</a>
@@ -1085,18 +1085,19 @@
    <OL>
 
 
-        <li><a name=HowToUseGraph></a>
-            <h3>Using the graph unit with Free Pascal</h3>
-
+        <li><a name='HowToUseGraph'></a>
+          <h3><trn key="website.q_using_graph" locale="en_US">Using the graph unit with Free Pascal</trn></h3>
+          <trn key="website.a_using_graph" locale="en_US">
             <p>Since version 1.0, we  have a completely platform independent way
             of selecting resolutions and bitdepths. You are strongly encouraged to
             use it, because other ways will probably fail on one or other platform.
             See the documentation of the graph unit for more information. 
+          </trn>
         
 
         <li><a name=WrongColors></a>
-            <h3>Why do I get wrong colors when using the graph unit?</h3>
-
+          <h3><trn key="website.q_wrong_colours_using_graph" locale="en_US">Why do I get wrong colours when using the graph unit?</trn></h3>
+          <trn key="website.a_wrong_colours_using_graph" locale="en_US">
             <p>If you use <TT>detect</TT> as graphdriver, you will end up with the
             highest supported bitdepth. Since the graph unit currently only supports
             up to 16 bits per pixel modes and since this bitdepth is supported by
@@ -1127,11 +1128,12 @@
             names (D8BIT, D4BIT, ...) and not their actual numeric values, because
             those values can change with the next release! That is the very reason why
             such symbolic constants exist. 
+          </trn>
         
 
-        <li><a name=fileshare></a>
-             <h3> File sharing and file locks </h3>
-
+        <li><a name='fileshare'></a>
+           <h3><trn key="website.q_filesharing" locale="en_US">File sharing and file locks</trn></h3>
+           <trn key="website.a_filesharing" locale="en_US">
              <p> The standard runtime library file I/O routines open
              files in the default sharing mode of the operating system
              (<TT>system, objects</TT> units). Because of this, you
@@ -1157,8 +1159,7 @@
                     <TT>TFileStream</TT> File I/O routines, which try
                     to simulate, as much as possible, file sharing mechanisms. 
              </ul>
-            <p>
-
+           </trn>
 
         
         <li><a name=filebig></a>
