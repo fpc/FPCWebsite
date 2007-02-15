@@ -910,7 +910,7 @@
         <li><a name='CompileSystemUnit'></a>
           <h3><trn key="website.q_compiling_systemunit" locale="en_US">Compiling the system unit</trn></h3>
 
-          <trn key="website.q_compiling_systemunit" locale="en_US">
+          <trn key="website.a_compiling_systemunit" locale="en_US">
             <p>To recompile the system unit, it is recommended to have GNU make
             installed. typing 'make' in the rtl source directory will then recompile
             all RTL units including the system unit. You may choose to descend into
