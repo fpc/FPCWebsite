@@ -48,5 +48,11 @@ length of 80 chars.</h3></li>
   <li>Generating shared libraries is not yet supported
   <li>The currency type has some problems with values close to the upper and lower limits (because the double type is used for some conversions, whose precision is too small in those cases).
 </ul>
+
+
+<li><h3>Known bugs specific to version 2.0.4</h3>
+<ul>
+  <li>A bug was encountered in the unit handling that can cause an IE200306067. The bug was fixed in the 2.1.x branch. A workaround for 2.0.4 is to delete the projects .ppu's and .o's and rebuild</li>
+</ul>
 </ol>
 
