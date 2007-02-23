@@ -1157,3 +1157,60 @@ Uitzonderingen op de tweede regel worden soms gemaakt voor platformspecifieke re
 Probeer uitvoerig te zijn en probeer het van de kant te zien van iemand die het moet implementeren. Probeer voorbeelden te maken die meerdere units overspannen en bekijk wat er gebeurt. Wees kritisch, probeer gaten te schieten in je eigen redenering en vind mogelijke probleemgevallen en documenteer deze.
 <p>behalve deze voorselectieregels en -documentatie is de andere belangrijke vraag wie het werk gaat doen. Hou in gedachte dat de FPC-ontwikkelaars vrijwilligers zijn die lijsten hebben van werk dat nog gedaan moet worden om ze het eerste decennium bezig te houden. Je kunt niet verwachten dat ze alles uit hun handen laten vallen en de functionaliteit die je nodig hebt implementeren omdat jij het nodig hebt of denkt dat het fraai of handig is. Als je niet bereid bent het zelf te implementeren en patches in te sturen, zijn de kansen beperkt. Opmerkingen als "dit zal veel gebruikers" aantrekken worden met een hoop scepsis tegenmoet getreden, omdat dat voor elke nieuwe ontwikkeling geldt.
 </TRN>
+<TRN locale="nl_NL" key="website.q_system_not_found">
+Foutmeldingen die aangeven dat unit system, syslinux, sysos2 of syswin32 niet gevonden wordt
+</TRN>
+<TRN locale="nl_NL" key="website.q_wrong_colours_using_graph">
+Ik gebruik de graph-unit. Waarom krijg ik de verkeerde kleuren op mijn scherm?
+</TRN>
+<TRN locale="nl_NL" key="website.a_system_not_found">
+<p>System (syslinux - niet de bootloader, sysos2 or syswin32, afhankelijk van het platform) is de basisunit in Pascal en wordt impliciet in alle programma's gebruikt. Deze unit definieert een aantal elementaire standaardprocedures en -datastructuren. De unit dient daarom gevonden te worden om een Pascalprogramma met FPC te compileren. 
+<p>De locatie waar system.ppu en system.o worden gezocht wordt bepaald door de commandoregeloptie -Fu, welke behalve op de commandoregel ook in de configuratiebestanden ppc386.cfg of fpc.cfg kan worden gezet.
+
+<p>In het geval dat de compiler deze unit niet kan vinden zijn er drie mogelijke oorzaken:
+<OL>
+<li>De ppc386.cfg of fpc.cfg bevindt zich niet op dezelfde locatie als het programmabestand van de compiler (go32v2, win32 and OS/2) of kan niet worden gevonden als "/etc/fpc.cfg" of ".fpc.cfg" in je homedirectory (Linux/FreeBSD/Mac OS X).
+<li>De fpc.cfg of ppc386.cfg bevat geen regel met -Fu, of de verkeerde.
+Zie de <a href="http://www.stack.nl/~marcov/buildfaq.pdf">buildfaq (PDF)</a>, en in het bijzonder de hoofdstukken over en de fpc.cfg en de directorystructuur.
+<li>De bestanden worden wel gevonden, maar de verkeerde versie of ze zijn voor een ander platform. Corrigeer
+ppc386.cfg of fpc.cfg zodat ze naar de juiste versie wijzen of herinstalleer de juiste versies (dit kan gebeuren als je een <A href="#snapshot">momentopname</a> gebruikt terwijl de -Fu-regels in de gebruikte fpc.cfg nog altijd wijzen naar de runtimebibliotheek die bij de laatste officiële uitgave van de compiler werd geleverd. 
+</OL>
+
+<p>Een handige truuk is het volgende: voer "ppc386 programname -vt" uit. Dit toont waar de compiler met de huidige instellingen zoekt naar de bestanden van de system-unit. Je kunt dit het best door "more" heen pijpen (Dos, OS/2, Windows) of "less" (Linux/FreeBSD/MacOS X), omdat het veelal meer dan één scherm informatie zal genereren:
+<PRE>
+    Dos, OS/2, Windows: ppc386 programname -vt |more<br>
+    Unix, linux: ppc386 programname -vt |less<br>
+</PRE>
+<p>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.a_wrong_colours_using_graph">
+<p>Als je <TT>detect</TT> gebruikt als graphdriver, dan krijg je een videomode met de hoogste ondersteunde bitdiepte. Omdat de graph-unit op dit moment bitdieptes tot en met 16 bits per pixel ondersteunt en omdat alle grafische kaarten die in de laatste 10 jaar gemaakt zijn deze bitdiepte ondersteunen zal je hoogstwaarschijnlijk een 16-bitmode krijgen.
+<p>De kern van het probleem is dat in 16-bitmodes (en 15, 24, 32, ...) de kleuren niet meer geschreven worden als index in een kleurenpalet. In deze modes bepaalt de waarde die je wegschrijft direct welke kleur je op het scherm krijgt. Deze kleur wordt als volgt opgebouwd (in ieder geval voor de meeste videokaarten op PC's): 
+<ul>
+<li>15-bits kleur: de laagste 5 bits zijn de blauwintensiteit, gevolgd door 15 bits groen en dan 5 bits rood. Het hoogste bit van het woord wordt genegeerd.
+<li>16-bits kleur: de laagste 5 bits zijn de blauwintensiteit, gevolgd door  *6* bits groen en daarop 5 bits rood. 
+</ul>
+<p>Dit betekend dat je je programma ofwel dient te herschrijven zodat het kan werken met deze zogeheten "directe kleuren", ofwel dat je
+            <TT>D8BIT</TT> als graphdriver dient te gebruiken <TT>DetectMode</TT> as graphmode. Dit verzekert dat je een geïndexeerde 256-kleurenmode krijgt. Als geen 256-kleurenmodes worden ondersteund, zal graphresult de waarde <TT>GrNotDetected</TT> bevatten nadat je InitGraph hebt aangeroept, waarna je opnieuw kunt proberen met graphdriver <TT>D4BIT</TT>. Verzeker je er van de constantennamen te gebruiken (D8BIT, D4BIT, ...) en niet hun eigenlijke numerieke waarden; deze kunnen in de toekomst veranderen; we bieden de constanten met een reden aan.
+</TRN>
+<TRN locale="nl_NL" key="website.q_filesharing">
+Bestandsdeling en -vergrendeling
+</TRN>
+<TRN locale="nl_NL" key="website.a_filesharing">
+<p> De bestandsin- en uitvoerroutines in de runtimebibliotheek openen bestanden met de standaard bestandsdeelmodes van het besturingssysteem (geldt voor de units <TT>system, objects</TT>). Het gevolg hiervan is dat je problemen kunt ondervinden als een bestand meer dan eens wordt geopend, hetzij door een ander proces of door hetzelfde proces. 
+<p>Over het algemeen is het gedrag van de verschillende besturingssystemen als volgt: 
+<ul>
+<li>UNIX-systemen : Het besturingssysteem laat je zonder enige toetsing bestanden openen.
+<li> Windows : Er ontstaat een foutsituatie dat toegang geweigerd is.
+<li> Amiga : Er ontstaat een foutsituatie dat toegang geweigerd is.
+<li> DOS / OS/2 : Als het bestand meer dan eens door hetzelfde proces wordt geopend zullen geen fouten optreden, in andere gevallen zal een foutsituatie ontstaan dat toegang geweigerd is.
+</ul>
+
+<p>Er zijn twee manieren om hier mee om te gaan:
+<ul>
+<li>Gebruik besturingssysteemspecifieke systeemaanroepen (zoals bestandsvergrendeling op Unix en Amiga) om het gewenste gedrag te verkrijgen. 
+<li> Gebruik de <TT>sysutils</TT>-unit of <TT>TFileStream</TT> bestands-I/O-routines uit de Free Component Library, welke zo goed als mogelijk de bestandsdeelmechanismen van het Windowsplatform emuleren.
+</ul>
+           
+</TRN>
