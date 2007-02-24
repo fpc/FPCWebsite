@@ -100,6 +100,14 @@
 
 @modify@
 
+<div id="site-footer">
+  <div class="action-list">
+    <ul>
+     <font color="#199b02">&#x2713;</font><a href='@maindir@lang_howto@x@'><trn key="website.Multilingual_website" locale="en_US">Multilingual website</trn></a>
+    </ul>
+  </div>
+</div>
+
 <div id="footer">
   Copyright Free Pascal team 1993-2007.<br />
   Page design by <a href="http://www.sixshootermedia.com">6ix Shooter Media</a>, additional modifications by <a href="mailto:mcposeidon@mcville.net">Pos3idon</a>.

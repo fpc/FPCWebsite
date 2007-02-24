@@ -323,6 +323,23 @@ blockquote {
 	margin: 0 3%;
 }
 
+#site-footer {
+  clear: both;
+  border-top: 1px solid #ccc;
+  font-family: tahoma, verdana, helvetica, sans-serif;
+  font-size: 85%;
+  margin-top: 24px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+
+#site-footer .action-list {
+  float: left;
+}
+
 #footer {
 	clear:both;
 	width:95%;
@@ -340,6 +357,8 @@ blockquote {
 #footer a {
 	color:#81C0FF;
 }
+
 #footer a:hover {
 	color:#AFD7FF;
 }
+

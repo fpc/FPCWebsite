@@ -179,6 +179,7 @@ html_d/split.fp svneol=native#text/plain
 html_d/template.fp svneol=native#text/plain
 html_d/units.fp svneol=native#text/plain
 html_d/unitsrtl.fp svneol=native#text/plain
+/lang_howto.adp svneol=native#text/html
 /links.adp svneol=native#text/plain
 /logoshowad -text
 /maillist.adp svneol=native#text/plain
