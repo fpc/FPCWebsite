@@ -3,7 +3,7 @@
 <property name="entry">lang_howto</property>
 <property name="header">Getting the website in your language</property>
 
-<h2><trn key="website.config_browser_d" locale="en_US">Configuring your browser</trn></h2>
+<h2><trn key="website.config_browser_t" locale="en_US">Configuring your browser</trn></h2>
 <trn key="website.config_browser_d" locale="en_US">
 The Free Pascal web site is available in Bulgarian, Dutch, English, French, Polish,
 Slovenian and Russian. The method that decides in which language it will show is
