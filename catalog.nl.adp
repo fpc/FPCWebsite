@@ -1214,3 +1214,58 @@ Bestandsdeling en -vergrendeling
 </ul>
            
 </TRN>
+<TRN locale="nl_NL" key="website.a_integrated_assembler_syntax">
+<p>De assemblersyntaxis die standaard gebruikt wordt (AT&amp;T-stijl) is anders dan die in Borland Pascal (Intelstijl). 
+<p>Sinds versie 0.99.0 ondersteunt de compiler ook assembler in Intelstijl. Hoe je tussen verschillende assemblerstijlen schakelt staat beschreven in de documentatie.
+<p>Sinds versie 1.9.2 gebruiker de compilers de "register"-aanroepconventie, hetgeen betekent dat de compiler assemblerroutines uit Delphi-broncode kan gebruiken zonder dat enige aanpassing noodzakelijk is.
+<p>Een beschrijving van de AT&amp;T-syntaxis kan je vinden in de doucmentatie van de GNU-assembler. 
+
+</TRN>
+<TRN locale="nl_NL" key="website.Known_Problems">
+Bekende problemen
+</TRN>
+<TRN locale="nl_NL" key="website.q_Huge_files">
+Toegang tot zeer grote bestanden met de standaard-I/O-routines
+</TRN>
+<TRN locale="nl_NL" key="website.q_File_denied_errors">
+Toegang geweigerd bij het openen van bestanden met "reset"
+</TRN>
+<TRN locale="nl_NL" key="website.a_File_denied_errors">
+<p>Het openen van bestanden met <CODE>reset</CODE> kan op niet-tekstbestanden een runtimefout 5 veroorzaken (toegang geweigerd). 
+
+<p>Alle bestanden die met bovenstaande routine uit de system-unit worden geopend gebruiken de huidige waarde van <CODE>filemode</CODE> om te bepalen hoe het bestand geopend is. Standaard wordt <CODE>filemode</CODE> op 2 gezet (lees- en schrijftoegang).
+            
+<p>Het gevolg is dat een aanroep van  <CODE>reset</CODE> op niet-tekstbestanden <EM>niet</EM> betekent dat het bestand alleen-lezen geopend wordt. Het openen van een bestand met <CODE>reset</CODE> bij gebruik van de standaardwaarde zal daarom falen op bestanden waar geen schrijfrechten mogelijk zijn.
+<CODE>filemode</CODE> dient op 0 gezet te worden (alleen leestoegang) voordat <CODE>reset</CODE> aangeroepen wordt, ten einde dit probleem op te lossen. Een voorbeeld wordt hieronder getoond.
+            
+<PRE>
+{Mogelijke waarden voor filemode:}
+const READ_ONLY    = 0;
+      WRITE_ONLY   = 1;
+      READ_WRITE   = 2;
+
+var oldfilemode:byte;
+    f:file;
+
+begin
+  assign(f,'myfile.txt');
+  oldfilemode:=filemode;
+  {Reset zal nu voor alleen-lezen openen.}
+  filemode:=READ&#95;ONLY;
+  reset(f,1);
+  {Zet de oude waarde van filemode terug.}
+  filemode := oldfilemode;
+  { .... }
+  close(f);
+end.
+</PRE>
+
+<p>Meer informatie kan worden gevonden in het referentiehandboek.
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_Huge_files">
+<p>De runtime-bibliotheek beperkt op dit moment de toegang tot bestanden die bestandsgroottes hebben die in een 32-bits integer met voorteken passen (<TT>longint</TT>).
+<p>Het gevolg is dat toegang tot bestanden met bestandsgrootten groter dan twee gigabyte ongedefinieerd gedrag oplevert. Applicaties die zulke grote bestanden gebruiken zullen directe aanroepen naar het besturingssysteem moeten gebruiken
+(als het besturingssysteem zulke bestanden tenminste ondersteunt) om het probleem te omzeilen.
+          
+</TRN>
