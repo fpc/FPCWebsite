@@ -103,7 +103,7 @@
 <div id="site-footer">
   <div class="action-list">
     <ul>
-     <font color="#199b02">&#x2713;</font><a href='@maindir@lang_howto@x@'><trn key="website.Multilingual_website" locale="en_US">Multilingual website</trn></a>
+     <font color="#199b02">&#x2713;</font> <a href='@maindir@lang_howto@x@'><trn key="website.Multilingual_website" locale="en_US">Multilingual website</trn></a>
     </ul>
   </div>
 </div>
