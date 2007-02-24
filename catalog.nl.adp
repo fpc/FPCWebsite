@@ -1230,6 +1230,9 @@ Toegang tot zeer grote bestanden met de standaard-I/O-routines
 <TRN locale="nl_NL" key="website.q_File_denied_errors">
 Toegang geweigerd bij het openen van bestanden met "reset"
 </TRN>
+<TRN locale="nl_NL" key="website.Multilingual_website">
+Meertalige website
+</TRN>
 <TRN locale="nl_NL" key="website.a_File_denied_errors">
 <p>Het openen van bestanden met <CODE>reset</CODE> kan op niet-tekstbestanden een runtimefout 5 veroorzaken (toegang geweigerd). 
 
@@ -1268,4 +1271,49 @@ end.
 <p>Het gevolg is dat toegang tot bestanden met bestandsgrootten groter dan twee gigabyte ongedefinieerd gedrag oplevert. Applicaties die zulke grote bestanden gebruiken zullen directe aanroepen naar het besturingssysteem moeten gebruiken
 (als het besturingssysteem zulke bestanden tenminste ondersteunt) om het probleem te omzeilen.
           
+</TRN>
+<TRN locale="nl_NL" key="website.help_translating_t">
+Help met vertalen
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_d">
+De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in de webpagina getoont wordt in de taal waarin je webbrowser deze opvraagt.
+<P>
+Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_konqi">
+Open het bestand ~/.kde/share/config/kio_httprc. Voeg bovenin het bestand een regel toe zoals dit:
+
+<PRE>
+Languages=&lt;isocode&gt;
+</PRE>
+
+... waar &lt;isocode&gt; de isocode van de gewenste taal is.
+
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_opera">
+Kies Tools -> Voorkeuren uit het menu. In het venster voorkeuren, kies "Talen", voeg de taal toe die je wilt hebben, en plaats deze bovenaan.
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_ie">
+Kies Extra -> Internetopties uit het menu. In het venster internetopties,
+kies het tabblad "Algemeen". Klik op de knop "Talen". Voeg de taal toe die je wilt hebben en zorg dat deze bovenaan staat.
+
+
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_t">
+Je webbrowser op de juiste taal instellen
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_firefox">
+Kies Bewerken -> Opties uit het menu. Op het tabblad "Geavanceerd", kies je het subtabblad "Algemeen". In het vak over talen, klik je op de knop "Kiezen...". Voeg de gewenste taal toe, en zorg dat deze bovenaan staat.
+</TRN>
+<TRN locale="nl_NL" key="website.help_translating_d">
+Veel mensen leren op jonge leefttijd programmeren, vaak voordat ze een vreemde taal afdoende beheersen. Engelstalige teksten zijn dan ook vaak een barrière. Zeker voor Pascal, wat een programmeertaal is die veel in het onderwijs gebruikt wordt, kan het beschikbaar hebben van informatie in lokale talen erg nuttig zijn om het gebruik van Pascal te bevorderen.
+<p>
+Daarom geldt zeker voor onze website, hoe meer talen, hoe beter. Als je zou willen helpen de website in meer talen beschikbaar te maken, zou dat zeer welkom zijn. Om toegang te krijgen tot de vertaler kun je het volgende doen:
+<p>
+<ul>
+<li>Schrijft je zelf in bij <A href='http://community.freepascal.org:10000'>gemeenschapswebsite</A>, als je dat tenminste nog niet gedaan had.
+<li>Verkrijg <A href='http://community.freepascal.org:10000/freepascal/request-permissions'>
+hier</A> de vertaalrechten.
+</ul>
+
 </TRN>
