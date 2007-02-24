@@ -39,10 +39,10 @@ Open the file ~/.kde/share/config/kio_httprc. At the top of the file, add a line
 like this:
 
 <PRE>
-Languages=<isocode>
+Languages=&lt;isocode&gt;
 </PRE>
 
-... where <isocode> is the iso code of the desired language.
+... where &lt;isocode&gt; is the iso code of the desired language.
 </trn>
 
 <h3>Opera</h3>
