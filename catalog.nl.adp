@@ -131,14 +131,14 @@ Zoeken
 <TRN locale="nl_NL" key="website.searchwhat">
 Doorzoek documentatie, forums en e-maillijsten
 </TRN>
-<TRN locale="nl_NL" key="website.General">
-Algemeen
-</TRN>
 <TRN locale="nl_NL" key="website.Coding">
 Coden
 </TRN>
 <TRN locale="nl_NL" key="website.Tools">
 Hulpmiddelen
+</TRN>
+<TRN locale="nl_NL" key="website.General">
+Algemeen
 </TRN>
 <TRN locale="nl_NL" key="website.adv_No_Makefiles">
 <STRONG>Geen Makefiles</STRONG> In tegenstelling tot de meeste talen heeft Pascal geen Makefiles nodig. Dit kan handenvol tijd besparen, de compiler zoekt gewoon zelf uit welke bestanden opnieuw gecompileerd moeten worden.
@@ -371,9 +371,6 @@ Algemene informatie
 <TRN locale="nl_NL" key="website.Select_download_mirror">
 Kies downloadlocatie
 </TRN>
-<TRN locale="nl_NL" key="website.Windows_rel_inf">
-Windows-gerelateerde informatie
-</TRN>
 <TRN locale="nl_NL" key="website.Pascal_lang_rel_inf">
 Informatie betreffende de programmeertaal Pascal
 </TRN>
@@ -400,6 +397,9 @@ Informatie betreffende OS/2
 </TRN>
 <TRN locale="nl_NL" key="website.separate_files">
 Alles in gescheiden bestanden
+</TRN>
+<TRN locale="nl_NL" key="website.Windows_rel_inf">
+Informatie betreffende Windows
 </TRN>
 <TRN locale="nl_NL" key="website.i386-os2_available_in">
 Het FPC-pakket voor OS/2 en EComStation is beschikbaar in de volgende indelingen:
@@ -751,8 +751,7 @@ Merk op dat je je in alle gevallen nog steeds dient te houden aan de LGPL, die b
 <li>Als je wijzigingen in de runtime-bibliotheek hebt gemaakt, dan kan je die niet voor jezelf houden, je moet ze beschikbaar maken als daarom gevraagd wordt.
 <li>Distribueer de LGPL-licentie met je produkt.
 </ul>
-
-<P>De broncode van de compiler wordt, in contrast met de runtime-bibliotheek geleverd onder de GNU Public license, hetwelk betekent dat elk gebruik van de compilerbroncode alleen kan plaatsvinden in softwareprojecten onder dezelfde licentie.
+<P>De broncode van de compiler wordt, in tegenstelling tot de runtime-bibliotheek geleverd onder de GNU Public license, hetwelk betekent dat elk gebruik van de compilerbroncode alleen kan plaatsvinden in softwareprojecten onder dezelfde licentie.
 
 </TRN>
 <TRN locale="nl_NL" key="website.FAQ_kbase">
@@ -828,20 +827,13 @@ Daar kunnen een aantal redenen en manieren op het op te lossen voor zijn:
 <li>
 <p>Je kunt slim gelinkte applicaties maken. Om het genereren van slim gelinkte units aan te zetten gebruik je de commandoregeloptieu -Cx tijdens het compileren van je units. Om de eerder slim linkbare units daadwerkelijk slim te linken, gebruik je de commandoregeloptie -XX (-XS in 0.99.12 en ouder) tijdens het compileren van een programma.
 <li>Normaalgesproken wordt alle symboolinformatie in het uiteindelijke programma ingevoegd (dit is nodig om te kunnen debuggen). Je kunt dit laten verwijderen door de commandoregeloptie -Xs tijdens het compileren van je programma te gebruiken (het geeft geen effect tijdens het compileren van units).
-<li>Je kunt UPX gebruiken om je .EXEs in te pakken (net als bijvoorbeeld met pklite) voor Dos- (GO32v2) en Windowsplatformen. Kijk <A ref="http://upx.sourceforge.net/">hier> voor meer informatie.
+<li>Je kunt UPX gebruiken om je .EXEs in te pakken (net als bijvoorbeeld met pklite) voor Dos- (GO32v2) en Windowsplatformen. Kijk <A href="http://upx.sourceforge.net/">hier</A> voor meer informatie.
 <li>Je kunt LXLITE gebruiken om EMX-programmabestanden in te pakken, maar je kunt ze daarna niet meer onder DOS (met extender) draaien. Deze kwestie is niet relevant voor echte OS/2-programmabestanden gecompileerd voor doelplatform OS2 versie 1.9.x en hoger. deze lopen zowieso niet onder DOS. Verder kan het niet mogelijk zijn gecomprimeerde programmabestanden op oude OS/2-versies (zoals 2.x) dte draaien, afhankelijk van het gekozen type compressie. Je kunt LXLITE vinden op bijvoorbeeld <a href="http://hobbes.nmsu.edu/">Hobbes</a>, zoek naar LXLITE.
-                <li>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
-                    and for your own code, this will also decrease the code size. 
-                <li>Keep in mind that under NT,2000,XP, compressed binaries startup	
-		            relatively slow. Test under various conditions (OS, CPU speed, memory)
-                    if the behaviour is acceptable before compressing			   
-           </OL>
+<li>Schakel optimalisaties in, zowel voor meegeleverde pakketten (RTL, FV, FCL) en voor je eigen code, dit zal de grootte van de code verkleinen. 
+<li>Houd in gedachten dat gecomprimeerde programmabestanden onder Linux, Windows NT,2000,XP relatief traag starten. Test onder een variabele omgeving (besturingssysteem, processorsnelheid, geheugen) of het gedrag acceptabel is voordat je comprimeert.
+</OL>
 
-            Generally Free Pascal generates smaller binaries than modern competing compilers,
-            however, it doesn't hide code in large dynamic libraries. Free Pascal generates
-            larger binaries than compilers from long ago do. Large framework libraries result
-            in larger executables.
-          
+Over het algemeen genereert Free Pascal kleinere programmabestanden dan moderne concurrerende compilers, echter het verbergt geen code in dynamische bibliotheken. Free Pascal genereert wel grotere programmabestanden dan compilers van lang geleden. Het gebruik van grote raamwerkbibliotheek heeft grote programmabestanden tot gevolg.
 </TRN>
 <TRN locale="nl_NL" key="website.a_Game_in_FPC">
 Je kunt inderdaad gewoon computerspellen met Free Pascal schrijven, en als je echt goed bent, dan kan je zelfs een spel als Doom 3 maken. Het maken van computerspellen is echter behoorlijk ingewikkeld, je dient een ervaren programmeur te zijn en bovendien creatief te zijn. De website <a href='http://www.pascalgamedevelopment.com'>www.pascalgamedevelopment.com</a> is een gemeenschap van mensen die spellen in Free Pascal en Delphi maken.
@@ -1275,11 +1267,6 @@ end.
 <TRN locale="nl_NL" key="website.help_translating_t">
 Help met vertalen
 </TRN>
-<TRN locale="nl_NL" key="website.config_browser_d">
-De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in de webpagina getoont wordt in de taal waarin je webbrowser deze opvraagt.
-<P>
-Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
-</TRN>
 <TRN locale="nl_NL" key="website.config_browser_konqi">
 Open het bestand ~/.kde/share/config/kio_httprc. Voeg bovenin het bestand een regel toe zoals dit:
 
@@ -1316,4 +1303,23 @@ Daarom geldt zeker voor onze website, hoe meer talen, hoe beter. Als je zou will
 hier</A> de vertaalrechten.
 </ul>
 
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_d">
+De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
+<P>
+Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
+</TRN>
+<TRN locale="nl_NL" key="website.a_dos_release">
+<ul>
+<li>Als je programma vlottendekommacode bevat (wat zeer waarschijnlijk is), lees dan zeker ook "<a href="#fp386">Applicaties gemaakt met Free Pascal crashen op 80386-systemen</a>" betreffende bijzondere kwesties die kunnen optreden. Emulatie van de wiskundige coprocessor is dan vereist (<TT>wmemu387.dxe</TT> dient met je programma meegedistributeerd te worden) 
+<li>Het bestemmingssysteem dient over een DPMI-server te beschikken. Om problemen te vermijden dient het bestand <TT>cwsdpmi.exe</TT> altijd meeleverd te worden met je programma.
+<li>Het bestemmingssysteem dient over DOS 3.3 of een latere versie te beschikken.
+<li>De standaardgrootte van de heap is 2 megabytes. De heap zal automatisch groeien als hij leeg raakt.
+<li>De standaardgrootte van de stack is 256 kilobyte. Zie ook "<a href="#dos-stack">De standaardstackgrootte veranderen</a>" 
+<li>De mogelijkheid voor stackcontrole is aanwezig op dit platform.
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_dos_release">
+Software uitgeven die gemaakt is met de DOS-compiler
 </TRN>
