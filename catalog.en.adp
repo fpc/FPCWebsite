@@ -1995,3 +1995,46 @@ manager, please do as following:"
 </ul>
 
 </TRN>
+<TRN locale="en_US" key="website.q_debugging">
+Debugging
+</TRN>
+<TRN locale="en_US" key="website.q_dynamic_libraries">
+Dynamic libraries
+</TRN>
+<TRN locale="en_US" key="website.q_profiling">
+Profiling
+</TRN>
+<TRN locale="en_US" key="website.q_fpwithoutfpu">
+Running Free Pascal without a math coprocessor
+</TRN>
+<TRN locale="en_US" key="website.a_debugging">
+
+            <p>The GNU debugger v4.16 and later have been tested, and generally work as
+            they should. Because the GNU debugger is C oriented, some pascal types might not be
+            represented as they should. It is suggested to use gdbpas or the text mode
+            IDE instead of GDB, which are both available for the DOS target.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_dynamic_libraries">
+
+            <p>Creation or use of shared libraries (also called dynamic link libraries) is not
+               supported under this platform.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_profiling">
+  
+            <p>Profiling with <TT>gprof</TT> is supported for this platform. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_fpwithoutfpu">
+
+            <p>On the Intel version the emulator is automatically loaded by the
+            compiler if you add the following commands to your autoexec.bat: 
+
+            <p><PRE>
+                    SET 387=N
+                    SET EMU387=C:\PP\BIN\GO32V2\WEMU387.DXE
+            </PRE>(don't forget to replace the <TT>C:\PP</TT> with the directory
+            where you installed FPC)
+          
+</TRN>

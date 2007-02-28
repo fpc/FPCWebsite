@@ -1323,3 +1323,36 @@ Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als d
 <TRN locale="nl_NL" key="website.q_dos_release">
 Software uitgeven die gemaakt is met de DOS-compiler
 </TRN>
+<TRN locale="nl_NL" key="website.q_debugging">
+Debuggen
+</TRN>
+<TRN locale="nl_NL" key="website.q_dynamic_libraries">
+Dynamische bibliotheken
+</TRN>
+<TRN locale="nl_NL" key="website.q_profiling">
+Profilen
+</TRN>
+<TRN locale="nl_NL" key="website.q_fpwithoutfpu">
+Free Pascal zonder wiskundige coprocessor draaien
+</TRN>
+<TRN locale="nl_NL" key="website.a_debugging">
+<p>Versies van de GNU-debugger vanaf versie 4.16 zijn getest en werken over het algemeen zoals het hoort. Omdat de GNU-debugger C-georiënteerd is, kunnen sommige Pascaltypen anders weergegeven worden dan je verwacht. Op de Free-Pascal-downloadlocaties is een speciaal aangepaste gdbpas te vinden. Het is aanbevelenswaardig de tekstmode-IDE te gebruiken of gdbpas inplaats van de gewone GDB. Beiden zijn beschikbaar voor het DOS-platform.
+</TRN>
+<TRN locale="nl_NL" key="website.a_profiling">
+<p>Profilen met <TT>gprof</TT> wordt ondersteund op dit platform.
+</TRN>
+<TRN locale="nl_NL" key="website.a_fpwithoutfpu">
+<p>Onder Dos wordt de FPU-emulator automatisch geladen door de compiler als je de volgende commando's aan je autoexec.bat toevoegt:
+
+<PRE>
+SET 387=N
+SET EMU387=C\PP\BIN\GO32V2\WEMU387.DXE
+</PRE>
+
+(vergeet niet de <TT>C:\PP</TT> door de directory te vervangen waar je FPC hebt geïnstalleerd)
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_dynamic_libraries">
+<p>De aanmaak en het gebruik van gedeelde bibliotheken (ook dynamische bibliotheken genoemd) wordt niet ondersteund op dit platform.
+
+</TRN>
