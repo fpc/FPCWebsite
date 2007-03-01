@@ -48,7 +48,7 @@ length of 80 chars.</h3></li>
      This means programs made using Free Pascal, including Free Pascal itself, will not
      be able to use the mouse correctly on the Linux console.
      This issue has been reported to Debian as
-     <A href='http://bugs.debian.org/bugreport.cgi?bug=412927'>bug 412927</A>.
+     <A href='http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=412927'>bug 412927</A>.
 </ul>
 
 <li><h3>Known bugs specific to Darwin/Mac OS X and Classic Mac OS</h3>
