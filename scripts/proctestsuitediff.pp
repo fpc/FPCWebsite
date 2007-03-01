@@ -83,7 +83,7 @@ type
 
 function construct_results_url(const runid: string): string;
 begin
-  result := 'http://www.freepascal.org/cgi-bin/testsuite.cgi?action=1&run1id='+runid;
+  result := 'http://www.freepascal.org/cgi-bin/testsuite.cgi?action=1&failedonly=1&run1id='+runid;
 end;
 
 function construct_compare_url(const run1id, run2id: string): string;
@@ -133,12 +133,19 @@ const
 var
   twodaysago, yesterday, today: string;
   curr, prev, old: ttestrun;
-  list, prevnochangelist, prevchangelist, disappearlist, nochangelist, changelist, newlist: tstringlist;
+  list, prevnochangelist, prevchangelist, prevdisappearlist: tstringlist;
+  prevnewlist, disappearlist, nochangelist, changelist, newlist: tstringlist;
+  blinkerchangelist, blinkernochangelist: tstringlist;
+  todaydate: TDateTime;
 begin
+  blinkernochangelist := tstringlist.create;
+  blinkerchangelist := tstringlist.create;
+  prevdisappearlist := tstringlist.create;
   prevnochangelist := tstringlist.create;
   prevchangelist := tstringlist.create;
   disappearlist := tstringlist.create;
   nochangelist := tstringlist.create;
+  prevnewlist := tstringlist.create;
   changelist := tstringlist.create;
   newlist := tstringlist.create;
   urllist := tstringlist.create;
@@ -148,9 +155,14 @@ begin
   until (length(header[0]) > 0) and (header[0][1] = '+');
   readln(header[1]);
   readln(header[2]);
-  twodaysago := FormatDateTime('YYYY-mm-dd', Now-2);
-  yesterday := FormatDateTime('YYYY-mm-dd', Now-1);
-  today := FormatDateTime('YYYY-mm-dd', Now);
+  if ParamCount >= 3 then
+    todaydate := EncodeDate(StrToInt(ParamStr(1)), StrToInt(ParamStr(2)), 
+      StrToInt(ParamStr(3)))
+  else
+    todaydate := Now;
+  twodaysago := FormatDateTime('YYYY-mm-dd', todaydate-2);
+  yesterday := FormatDateTime('YYYY-mm-dd', todaydate-1);
+  today := FormatDateTime('YYYY-mm-dd', todaydate);
   lenfailstr := 5;  { Length('FAILS') = column header }
   repeat
     if (length(curr.line) = 0) or (curr.line[1] <> '+') then
@@ -165,6 +177,8 @@ begin
       footer := curr.line;
     { 'same' testrun yesterday and today, changelist or nochangelist modified }
     checkchange(prev, curr, yesterday, today, changelist, nochangelist);
+    { 'same' testrun two days ago and today, a "blinker" }
+    checkchange(old, curr, twodaysago, today, blinkerchangelist, blinkernochangelist);
     { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
     { only detect equal testruns yesterday if submitted late for diff mail yesterday }
     if prev.hour >= 7 then
@@ -173,11 +187,16 @@ begin
     if length(old.line) > 0 then
     begin
       list := nil;
-      if old.date = yesterday then
+      if old.date = twodaysago then
+      begin
+        if old.hour >= 7 then
+          list := prevdisappearlist
+        { else we already had it disappear yesterday }
+      end else if old.date = yesterday then
         if old.hour < 7 then
           list := disappearlist
         else
-          list := newlist
+          list := prevnewlist
       else if old.date = today then
         list := newlist;
       if list <> nil then
@@ -196,19 +215,27 @@ begin
   footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
     copy(footer,    datastart, length(footer)-datacutlen);
   
+  printtable(disappearlist, 'DISAPPEARED:');
+  printtable(prevdisappearlist, 'DISAPPEARED YESTERDAY:');
   printtable(changelist, 'CHANGED:');
   printtable(prevchangelist, 'CHANGED YESTERDAY:');
+  printtable(blinkerchangelist, 'CHANGED BLINKER:');
+  printtable(newlist, 'NEW:');
+  printtable(prevnewlist, 'NEW YESTERDAY:');
   printtable(nochangelist, 'UNCHANGED:');
   printtable(prevnochangelist, 'UNCHANGED YESTERDAY:');
-  printtable(disappearlist, 'DISAPPEARED:');
-  printtable(newlist, 'NEW:');
+  printtable(blinkernochangelist, 'UNCHANGED BLINKER:');
 
   printurllist;
 
-  prevnochangelist.free;
-  prevchangelist.free;
-  disappearlist.free;
-  nochangelist.free;
-  changelist.free;
   newlist.free;
+  changelist.free;
+  prevnewlist.free;
+  nochangelist.free;
+  disappearlist.free;
+  prevchangelist.free;
+  prevnochangelist.free;
+  prevdisappearlist.free;
+  blinkerchangelist.free;
+  blinkernochangelist.free;
 end.
