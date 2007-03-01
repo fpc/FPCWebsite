@@ -40,6 +40,16 @@ length of 80 chars.</h3></li>
 	  by the interface, and the interface only.</li>
 </ul>
 
+<li><h3>Known incompabilities with Debian and Ubuntu</h3>
+<ul>
+     <li>The gpm package shipped with Debian uses a patch that makes the wire protocol
+     incompatible with the standard gpm. Unfortunately, it is not possible for us to detect
+     wether the gpm server we are talking to is a Debian patched gpm server.
+     This means programs made using Free Pascal, including Free Pascal itself, will not
+     be able to use the mouse correctly on the Linux console.
+     This issue has been reported to Debian as
+     <A href='http://bugs.debian.org/bugreport.cgi?id=412927'>bug 412927</A>.
+</ul>
 
 <li><h3>Known bugs specific to Darwin/Mac OS X and Classic Mac OS</h3>
 <ul>
