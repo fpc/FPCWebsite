@@ -9,6 +9,8 @@
   <li><trn key="website.known_probs_204_2" locale="en_US">A bug was encountered in the unit handling that can cause an IE200306067.
   The bug was fixed in the 2.1.x branch. A workaround for 2.0.4 is to delete the projects .ppu's and .o's and rebuild.
   </trn>
+  <li><trn key="website.known_probs_204_3" locale="en_US">A bug was encountered that can crash the IDE during debugging. Users
+  experiencing a crashing IDE are recommended to install a 2.0.5 snapshot</trn>
 </ul>
 
 
