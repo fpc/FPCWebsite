@@ -61,8 +61,8 @@
   <li><trn key="website.Currency_limits" locale="en_US">The currency type has some problems with values close to the upper and lower limits (because the double type is used for some conversions, whose precision is too small in those cases).</trn>
 </ul>
 
-<li><h3><trn key="website.Set_sizes" locale="en_US">In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi.</h3>
-Sets are always 4 (0..32 elements) or 32 bytes (33..256 elements).</trn>
+<li><h3><trn key="website.Set_sizes" locale="en_US">In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi.</trn></h3>
+<trn key="website.Set_sizes2" locale="en_US">Sets are always 4 (0..32 elements) or 32 bytes (33..256 elements).</trn>
 
 <li><h3><trn key="website.Doc_line_length" locale="en_US">Line length of the documentation in plain text format
 is &gt; 80 characters.</trn></h3>
