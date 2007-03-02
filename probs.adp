@@ -4,9 +4,9 @@
 <property name="header"><trn key="website.Known_problems" locale="en_US">Known problems</trn></property>
 <ol>
 
-<li><h3><trn key="website.known_probs_204">Known bugs specific to version 2.0.4</trn></h3>
+<li><h3><trn key="website.known_probs_204" locale="en_US">Known bugs specific to version 2.0.4</trn></h3>
 <ul>
-  <li><trn key="website.known_probs_204">A bug was encountered in the unit handling that can cause an IE200306067.
+  <li><trn key="website.known_probs_204_2" locale="en_US">A bug was encountered in the unit handling that can cause an IE200306067.
   The bug was fixed in the 2.1.x branch. A workaround for 2.0.4 is to delete the projects .ppu's and .o's and rebuild.
   </trn>
 </ul>
