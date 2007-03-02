@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Known problems</property>
 <property name="entry">bugs</property>
-<property name="header"><trn key="website.Known_problems" locale="en_US">Known problems</trn></property>
+<property name="header"><trn key="website.Known_Problems" locale="en_US">Known problems</trn></property>
 <ol>
 
 <li><h3><trn key="website.known_probs_204" locale="en_US">Known bugs specific to version 2.0.4</trn></h3>
