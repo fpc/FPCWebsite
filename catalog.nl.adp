@@ -1356,3 +1356,80 @@ SET EMU387=C\PP\BIN\GO32V2\WEMU387.DXE
 <p>De aanmaak en het gebruik van gedeelde bibliotheken (ook dynamische bibliotheken genoemd) wordt niet ondersteund op dit platform.
 
 </TRN>
+<TRN locale="nl_NL" key="website.known_probs_204">
+Bekende bugs betreffende versie 2.0.4
+</TRN>
+<TRN locale="nl_NL" key="website.known_probs_204_2">
+Er is een bug gevonden in het unitafhandelingssysteem welke een  IE200306067 kan veroorzaken. De bug is verholpen in de 2.1-tak. Je kunt er om heen werken door de .ppu's en .o's te verwijderen en je programma te herbouwen.
+
+</TRN>
+<TRN locale="nl_NL" key="website.known_probs_204_3">
+Er is een bug gevonden welke de IDE kan crashen tijdens het debuggen. Gebruikers die last hebben vast een crashende IDE worden aangeraden een 2.0.5-momentopname te installeren.
+</TRN>
+<TRN locale="nl_NL" key="website.Debian_known_incompat">
+Bekende incompatibiliteiten met Debian en Ubuntu
+</TRN>
+<TRN locale="nl_NL" key="website.Debian_bug_412927">
+Het gpm-pakket dat met Debian wordt meegeleverd is met een patch bewerkt dat het draadprotocol incompatibel met het protocol van de standaard-gpm maakt. Spijtig genoeg is het voor ons niet mogelijk om te detecteren of de gpm-server waar we mee praten een door Debian gepatchte versie is of een gewone gpm. Dit betekent dat programma's die met Free Pascal gemaakt worden, inclusief Free Pascal zelf, indien zij op een Debian- of Ubuntusysteem gedraaid worden, niet in staat zijn de muis correct te gebruiken op de Linuxconsole. Deze kwestie is bij Debian gemeld als <A href='http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=412927'>bug 412927</A>.
+     
+</TRN>
+<TRN locale="nl_NL" key="website.Gentoo_known_incompat">
+Bekende incompatibiliteiten met Gentoo
+</TRN>
+<TRN locale="nl_NL" key="website.Gentoo_lib32">
+Onder Gentoo op x86_64-systemen worden 32-bits bibliotheken geïnstalleerd in /lib32. Dit leidt tot problemen als je de i386-compiler op een Gentoo-distributie op een x86_64-systeem installeert, gezien deze de bibliotheken verwacht aan te treffen in /lib, hetwelke de plaats is waar de compiler ze volgens de x86_64-ABI dient te zoeken.
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_known_incompat">
+Bekende incompatibiliteiten met Delphi
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_extern_implementation">
+Vanwege het gebruik van een externe linker en wegens multiplatformoverwegingen is het niet mogelijk om een functie in de interface van een unit te declareren en deze vervolgens als extern te declareren in de implementatie. Een externe functie dient volledig en alleen in de interface gedeclareerd te worden.
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_unimplemented">
+De volgende Delphifunctionaliteit is op dit moment nog niet geïmplementeerd
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_unimplemented_dispinterface">
+Display interfaces (dispinterface) en de dispip index modifier
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_unimplemented_packages">
+Pakketten en sharemem plus gerelateerde DLL-functionaliteit
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_unimplemented_delegation">
+Delegatie doormiddel van het sleutelwoord <b>implements</b>
+</TRN>
+<TRN locale="nl_NL" key="website.Delphi_unimplemented_regcall">
+De registeraanroepconventie plaatst de argumenten in de verkeerde volgorde op de stack (de parameters die over zijn nadat de registers zijn gevuld).
+</TRN>
+<TRN locale="nl_NL" key="website.Macos_known_bugs">
+Bekende bugs specifiek tot Darwin/Mac OS X en klassiek Mac OS
+</TRN>
+<TRN locale="nl_NL" key="website.Shared_libraries_not_yet_supported">
+Het bouwen van gedeelde bibliotheken is nog niet mogelijk
+</TRN>
+<TRN locale="nl_NL" key="website.GNU_ld_lfn">
+Problemen indien de compiler in een directory wordt geïnstalleerd die een lange bestandsnaam vereist
+</TRN>
+<TRN locale="nl_NL" key="website.Records_by_value_to_C">
+Het doorgeven van records per waarde aan C-routines werkt nog niet voor records wiens grootte anders is dan 1,2 of 4 bytes.
+</TRN>
+<TRN locale="nl_NL" key="website.Elipsis_AIX_ABI">
+Het doorgeven van vlottendekommaparameters aan C-routines elipsparameters (zoals printf) werkt nog niet voor de AIX-ABI (welke voor de hierboven genoemde besturingssystemen gebruikt wordt).
+</TRN>
+<TRN locale="nl_NL" key="website.GNU_ld_lfn_2">
+De GNU-linker (gebruikt door FPC) voor Dos en Windows ondersteunt geen lange bestandsnamen. Installeer de compiler daarom niet in een directory die een lange bestandsnaam vereist en probeer niet om code in een directory met een lange naam te compileren. De FPC-runtimebibliotheek ondersteunt daarentegen lange bestandsnamen, dus zullen de programma's die je met FPC maakt met lange bestandsnamen overweg kunnen. Dit probleem is alleen van toepassing op de Windows- en Dosversie.
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_line_length">
+Regellengte van de documentatie in kaletekstindeling is &gt; 80 tekens.
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_line_length_2">
+Het gereedschap waar we de documentatie van Tex-broncode mee omzetten naar kale tekst is niet in staat om bestanden te maken met een regellengte van maximaal 80 tekens.
+</TRN>
+<TRN locale="nl_NL" key="website.Set_sizes">
+In Turbo-Pascal- en Delphimode komt de grootte van sets niet overeen met die van de echte TP/Delphi
+</TRN>
+<TRN locale="nl_NL" key="website.Set_sizes2">
+Sets zijn altijd 4 (0..32 elementen) of 32 bytes groot (33..256 elementen).
+</TRN>
+<TRN locale="nl_NL" key="website.Currency_limits">
+Het type <tt>currency</tt> kent enkele problemen met waarden dicht in de buurt van de onder- en bovenlimieten (dit omdat het type <tt>double</tt> gebruikt wordt waarvan in bepaalde gevallen de precisie te kort schiet).
+</TRN>

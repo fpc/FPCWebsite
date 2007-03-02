@@ -2038,3 +2038,106 @@ Running Free Pascal without a math coprocessor
             where you installed FPC)
           
 </TRN>
+<TRN locale="en_US" key="website.Delphi_unimplemented">
+The following Delphi functionality is as of yet not implemented
+</TRN>
+<TRN locale="en_US" key="website.Delphi_unimplemented_dispinterface">
+Display interfaces (dispinterface) and the dispip index modifier
+</TRN>
+<TRN locale="en_US" key="website.Delphi_unimplemented_packages">
+Packages and sharemem, and related DLL functionality
+</TRN>
+<TRN locale="en_US" key="website.Delphi_unimplemented_delegation">
+delegation with the <b>implements</b> keyword
+</TRN>
+<TRN locale="en_US" key="website.Delphi_unimplemented_regcall">
+The register calling convention pushes the arguments in the wrong order on the stack
+        (the params left after the registers are filled)
+</TRN>
+<TRN locale="en_US" key="website.Delphi_known_incompat">
+Known incompabilities with Delphi
+</TRN>
+<TRN locale="en_US" key="website.Delphi_extern_implementation">
+Due to use of an external linker and out of multiplatform concerns,
+	  it is not possible to declare a function in an interface of an unit, 
+          and redeclare it as external in the implemention. An external function must be fully defined
+	  by the interface, and the interface only.
+      
+</TRN>
+<TRN locale="en_US" key="website.Debian_known_incompat">
+Known incompabilities with Debian and Ubuntu
+</TRN>
+<TRN locale="en_US" key="website.Debian_bug_412927">
+The gpm package shipped with Debian uses a patch that makes the wire protocol
+     incompatible with the standard gpm. Unfortunately, it is not possible for us to detect
+     wether the gpm server we are talking to is a Debian patched gpm server.
+     This means programs made using Free Pascal, including Free Pascal itself, will not
+     be able to use the mouse correctly on the Linux console.
+     This issue has been reported to Debian as
+     <A href='http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=412927'>bug 412927</A>.
+     
+</TRN>
+<TRN locale="en_US" key="website.Gentoo_known_incompat">
+Known incompabilities with Gentoo
+</TRN>
+<TRN locale="en_US" key="website.Gentoo_lib32">
+On Gentoo x86_64 systems, 32-bit libraries are installed in /lib32. This results in problems if you
+         install the i386 compiler, on a Gentoo x86_64 system, as it expects to find its libraries in /lib,
+         which is where the compiler should search according to the x86_64 ABI.
+         
+</TRN>
+<TRN locale="en_US" key="website.Macos_known_bugs">
+Known bugs specific to Darwin/Mac OS X and Classic Mac OS
+</TRN>
+<TRN locale="en_US" key="website.Elipsis_AIX_ABI">
+Passing floating point parameters to C routines with elipsis parameters (such as printf) does not yet work for the AIX ABI (which is used by all of the above OS'es).
+</TRN>
+<TRN locale="en_US" key="website.Records_by_value_to_C">
+Passing records by value to C routines does not yet work for records whose size is different from 1, 2 and 4 bytes.
+</TRN>
+<TRN locale="en_US" key="website.Shared_libraries_not_yet_supported">
+Generating shared libraries is not yet supported
+</TRN>
+<TRN locale="en_US" key="website.Currency_limits">
+The currency type has some problems with values close to the upper and lower limits (because the double type is used for some conversions, whose precision is too small in those cases).
+</TRN>
+<TRN locale="en_US" key="website.Doc_line_length">
+Line length of the documentation in plain text format
+is &gt; 80 characters.
+</TRN>
+<TRN locale="en_US" key="website.Doc_line_length_2">
+The tool which is used to create the plain text documentation
+      from the TeX sources isn't able to create files with a max. line
+      length of 80 chars.
+</TRN>
+<TRN locale="en_US" key="website.GNU_ld_lfn">
+Problems when the compiler is installed in a directory which
+requires a long file name
+</TRN>
+<TRN locale="en_US" key="website.GNU_ld_lfn_2">
+The GNU Linker (which is used by FPC)
+for DOS and Windows doesn't support long file names so
+don't install the compiler in a directory which requires a long file name
+nor try to compiler sources in a directory with a long file name.
+Nevertheless the FPC run time library supports long file names so
+your programs compiled by FPC will support long file names.
+This problem applies only to the DOS and Windows version.
+</TRN>
+<TRN locale="en_US" key="website.known_probs_204">
+Known bugs specific to version 2.0.4
+</TRN>
+<TRN locale="en_US" key="website.known_probs_204_2">
+A bug was encountered in the unit handling that can cause an IE200306067.
+  The bug was fixed in the 2.1.x branch. A workaround for 2.0.4 is to delete the projects .ppu's and .o's and rebuild.
+  
+</TRN>
+<TRN locale="en_US" key="website.known_probs_204_3">
+A bug was encountered that can crash the IDE during debugging. Users
+  experiencing a crashing IDE are recommended to install a 2.0.5 snapshot
+</TRN>
+<TRN locale="en_US" key="website.Set_sizes2">
+Sets are always 4 (0..32 elements) or 32 bytes (33..256 elements).
+</TRN>
+<TRN locale="en_US" key="website.Set_sizes">
+In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi.
+</TRN>
