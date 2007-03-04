@@ -35,6 +35,15 @@
       an identifier needs to be unique accross the entire program. No, in
       Pascal each unit gets it's own namespace and that's very relaxed.
     </trn>
+    <li><trn key="website.adv_Fast_code" locale="en_US">
+      <STRONG>High speed, low memory</STRONG> Being a language that is
+      compiled into fast machine code by a modern compiler, Free Pascal
+      has been able to make Pascal one of the fastest languages there are.
+      Further, Free Pascal programs tend to use little memory.
+      For comparison with other languages we suggest the
+      <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark</A> 
+      and recommend you modify the weights to your own taste.
+    </trn>
     <li><trn key="website.adv_IDE" locale="en_US">
       <STRONG>Integrated development environment</STRONG> Free Pascal comes
       with an IDE which work on several platforms, in which you can write, compile
