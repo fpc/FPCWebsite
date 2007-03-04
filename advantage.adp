@@ -36,7 +36,7 @@
       Pascal each unit gets it's own namespace and that's very relaxed.
     </trn>
     <li><trn key="website.adv_Fast_code" locale="en_US">
-      <STRONG>High speed, low memory</STRONG> Being a language that is
+      <STRONG>High speed, low memory use</STRONG> Being a language that is
       compiled into fast machine code by a modern compiler, Free Pascal
       has been able to make Pascal one of the fastest languages there are.
       Further, Free Pascal programs tend to use little memory.
