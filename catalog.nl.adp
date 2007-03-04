@@ -1433,3 +1433,9 @@ Sets zijn altijd 4 (0..32 elementen) of 32 bytes groot (33..256 elementen).
 <TRN locale="nl_NL" key="website.Currency_limits">
 Het type <tt>currency</tt> kent enkele problemen met waarden dicht in de buurt van de onder- en bovenlimieten (dit omdat het type <tt>double</tt> gebruikt wordt waarvan in bepaalde gevallen de precisie te kort schiet).
 </TRN>
+<TRN locale="nl_NL" key="website.adv_Fast_code">
+<STRONG>Hoge snelheid, laag geheugenverbruik</STRONG> Pascal is een taal die gecompileerd wordt naar echte machinetaal. Door dit te combineren met een moderne compiler is  Free Pascal in staat geweest Pascal één van de snelste talen die er zijn te maken. Verder gebruiken Free-Pascalprogramma's doorgaans weinig geheugen. Voor een vergelijking met andere talen is kan de 
+      <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootoutbenchmark</A> 
+gebruikt worden. We nodigen je van harte uit de gewichten te wijzigen zoals je ze zelf graag wilt zien.
+
+</TRN>

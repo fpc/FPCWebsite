@@ -2141,3 +2141,14 @@ Sets are always 4 (0..32 elements) or 32 bytes (33..256 elements).
 <TRN locale="en_US" key="website.Set_sizes">
 In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi.
 </TRN>
+<TRN locale="en_US" key="website.adv_Fast_code">
+
+      <STRONG>High speed, low memory</STRONG> Being a language that is
+      compiled into fast machine code by a modern compiler, Free Pascal
+      has been able to make Pascal one of the fastest languages there are.
+      Further, Free Pascal programs tend to use little memory.
+      For comparison with other languages we suggest the
+      <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark</A> 
+      and recommend you modify the weights to your own taste.
+    
+</TRN>
