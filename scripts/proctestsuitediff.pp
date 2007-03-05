@@ -176,9 +176,13 @@ begin
     if length(footer) = 0 then
       footer := curr.line;
     { 'same' testrun yesterday and today, changelist or nochangelist modified }
-    checkchange(prev, curr, yesterday, today, changelist, nochangelist);
+    if checkchange(prev, curr, yesterday, today, changelist, nochangelist) 
+        and (old.data = prev.data) then
+      old.line := '';
     { 'same' testrun two days ago and today, a "blinker" }
-    checkchange(old, curr, twodaysago, today, blinkerchangelist, blinkernochangelist);
+    if checkchange(prev, curr, twodaysago, today, blinkerchangelist, blinkernochangelist)
+        and (old.data = prev.data) then
+      old.line := '';
     { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
     { only detect equal testruns yesterday if submitted late for diff mail yesterday }
     if prev.hour >= 7 then
