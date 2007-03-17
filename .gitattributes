@@ -326,6 +326,8 @@ scripts/makesnapshot-sse2 -text
 scripts/makesnapshot20 svneol=native#text/plain
 scripts/makesnapshot21 svneol=native#text/plain
 scripts/makesnapshot21-sse2 -text
+scripts/makesnapshot_trunk -text
+scripts/makesnapshot_trunk-sse2 -text
 scripts/makesnapshots -text
 scripts/proctestsuitediff.pp svneol=native#text/plain
 scripts/readcfg.sh -text
@@ -338,8 +340,10 @@ scripts/updatesourcezips10 svneol=native#text/plain
 scripts/updatesourcezips11 svneol=native#text/plain
 scripts/updatesourcezips20 svneol=native#text/plain
 scripts/updatesourcezips21 svneol=native#text/plain
+scripts/updatesourcezips_trunk -text
 scripts/updatesourcezipsbuild20 -text
 scripts/updatesourcezipsbuild21 -text
+scripts/updatesourcezipsbuild_trunk -text
 scripts/updatesourcezipslazarus svneol=native#text/plain
 scripts/updatetestsuite svneol=native#text/plain
 sf/index.html svneol=native#text/plain

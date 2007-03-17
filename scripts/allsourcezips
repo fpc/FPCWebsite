@@ -1,7 +1,9 @@
 #!/bin/sh
 
+$HOME/scripts/updatesourcezips_trunk
 $HOME/scripts/updatesourcezips21
 $HOME/scripts/updatesourcezips20
+$HOME/scripts/updatesourcezipsbuild_trunk
 $HOME/scripts/updatesourcezipsbuild21
 $HOME/scripts/updatesourcezipsbuild20
 

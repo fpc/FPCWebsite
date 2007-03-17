@@ -6,7 +6,7 @@
 WORKDIR=$HOME/fpc
 DESTDIR=$HOME/ftp/snapshot/v21/source
 CHECKOUTDIR=$WORKDIR/svnbuild21
-TAG=trunk
+TAG=fixes_2_2
 MODULES='fpcbuild'
 SUFFIX=
 #ZIPPACKAGES='rtl compiler utils fcl packages ide demo'

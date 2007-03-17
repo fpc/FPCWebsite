@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-# Updatesourcezips for 2.0.x branch
+# Updatesourcezips for trunk
 #
 
 WORKDIR=$HOME/fpc
-DESTDIR=$HOME/ftp/snapshot/v21/source
-CHECKOUTDIR=$WORKDIR/svn21
-TAG=fixes_2_2
+DESTDIR=$HOME/ftp/snapshot/trunk/source
+CHECKOUTDIR=$WORKDIR/svn_trunk
+TAG=trunk
 MODULES='fpc'
 SUFFIX=
 #ZIPPACKAGES='rtl compiler utils fcl packages ide demo'
