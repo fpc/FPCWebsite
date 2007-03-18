@@ -107,7 +107,7 @@ work on non-Intel processors (and will slow down data access severly in all case
          end;
      </PRE>
   <li>The above example would work with TP, but the compiler would assume
-      that the <TT>a&gt;12 </TT>is a recursive call. To do a recursive call in
+      that the <TT>a&gt;4 </TT>is a recursive call. To do a recursive call in
       FPC you must append <TT>() </TT>behind the function name (not in TP mode):</li>
       <PRE>
       function a : longint;
