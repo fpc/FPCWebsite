@@ -265,7 +265,7 @@
             their Mac OS X version is an exception though, as it follows the GCC version number).
             <DT><b>Tracking:</b>
             <DD>Between releases, development versions of FPC are available through daily snapshots
-	        and the source via CVS. GPC issues a set of patches to the last version a few times 
+	        and the source via SVN. GPC issues a set of patches to the last version a few times 
             a year, and there are regular snapshot for OS X and Windows, made by users.
             <DT><b>Operating systems:</b>
             <DD>Free Pascal runs on a large amount of platforms of OSes,
@@ -1606,7 +1606,7 @@
 
             <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
-            represented as they should. For FreeBSD a recent GDB (v5) CVS snapshot is
+            represented as they should. For FreeBSD a recent GDB (v5) SVN snapshot is
                 recommended for Pascal support and ease of building
         
         <p>
