@@ -55,9 +55,8 @@ Several bugfixes related to overflow checking on PPC
 <br>
 <br>
 There is now a
-<a href="http://www.freepascal.org/wiki/index.php/Porting_from_Mac_Pascal">
-wiki page</a> covering porting issues, from traditional mac
-pascals to FPC.
+<a href="http://wiki.freepascal.org/Porting_from_Mac_Pascal"> wiki page</a> 
+covering porting issues, from traditional mac pascals to FPC.
 <br>
 <br>
 <b>2005-06-21:</b>
@@ -302,7 +301,7 @@ has to be downloaded separatelly.</p>
 
 <p>
 There is some limited possibilities to debug programs in classic MacOS. See
-<a href="http://www.freepascal.org/wiki/index.php/MPW_debugging">MPW debugging</a>
+<a href="http://wiki.freepascal.org/MPW_debugging">MPW debugging</a>
 in the wiki.
 </p>
 <p>
@@ -342,7 +341,7 @@ Most of the constructs found in interface files, especially
 Apples Universal Interfaces. Cycle, Leave, Otherwise. More is planned.
 
 <p>
-More updated info on the <a href="http://www.freepascal.org/wiki/wiki.phtml?title=Mode_MacPas">Wiki page</a>.
+More updated info on the <a href="http://wiki.freepascal.org/Mode_MacPas">Wiki page</a>.
 
 <hr>
 <p>By Olle Raab</p>
