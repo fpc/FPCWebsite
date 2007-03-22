@@ -2,7 +2,7 @@
 
 set -e
 
-REPOS="fpc html fpc/trunk fpc/branches/fixes_2_0 fpcdocs/trunk"
+REPOS="fpc html fpc/trunk fpc/branches/fixes_2_0 fpc/branches/fixes_2_2 fpcdocs/trunk fpcbuild fpcbuild/branches/fixes_2_2 fpcbuild/branches/fixes_2_0 fpcprojects lazarus" 
 
 LOGSDIR=$HOME/snapshot/logs
 
