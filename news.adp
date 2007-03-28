@@ -12,7 +12,7 @@
 <ul>
 <li>March 28, 2007
 <ul><li><a href='http://www.morfik.com'>MORFIK</A> has released
-    version 1.0.0.7 of it's WebOS AppsBuilder. It's the first version of AppsBuilder that uses FPC
+    version 1.0.0.7 of its WebOS AppsBuilder. It is the first version of AppsBuilder that uses FPC
     to create the backend.</ul>
 
 <li>February 1, 2007
