@@ -17,19 +17,17 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <trn locale="en_US" key="website.news_headline_20070328">
+    <em>March 28, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> has released
+    version 1.0.0.7 of it's WebOS AppsBuilder. It's the first version of AppsBuilder that uses FPC
+    to create the backend.
+  </trn>
+<p>
   <trn locale="en_US" key="website.news_headline_20070201">
     <em>February 1, 2007</em>
     The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
     write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
     <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
-  </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20070127">
-    <em>January 27, 2007</em> <A href='http://mypage.bluewin.ch/msegui'>MSEGUI and MSEIDE</A>
-    version 1.0 has been released. MSEIDE is a Rapid Application Development tool to build
-    graphical Windows and Linux applications using the MSEGUI user interface framework.
-    The Free Pascal team wishes the MSEGUI/MSEIDE developers their congratulations and best wishes
-    for this milestone.
   </trn>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>

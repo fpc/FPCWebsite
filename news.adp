@@ -10,6 +10,11 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>March 28, 2007
+<ul><li><a href='http://www.morfik.com'>MORFIK</A> has released
+    version 1.0.0.7 of it's WebOS AppsBuilder. It's the first version of AppsBuilder that uses FPC
+    to create the backend.</ul>
+
 <li>February 1, 2007
 <ul><li>The Pascal Game Development annual contest is starting. This years theme is "Multiplexity":
 write a game that combines multiple game genres. Can you write a game in Free Pascal? Then
