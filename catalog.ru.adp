@@ -1,5 +1,5 @@
 <TRN locale="ru_RU" key="website.a_Access_denies_while_download">
-<p>У главного ftp сайт Free Pascal есть ограничение сверху на количество одновременных соединений. Если произошла эта ошибка, то потому, что предел был достигнут. В качестве решения можно подождать и попробовать позже, а ещё лучше &mdash; использовать один из зеркальных сайтов Free Pascal.
+<p>У главного FTP сайта Free Pascal есть ограничение сверху на количество одновременных соединений. Если произошла эта ошибка, то потому, что был достигнут предел. В качестве решения можно подождать и попробовать позже, а ещё лучше &mdash; использовать один из зеркальных сайтов Free Pascal.
 </TRN>
 <TRN locale="ru_RU" key="website.a_cfg_problems">
 <p>Начиная с версии Free Pascal 1.0.6, конфигурационный файл называется <TT>fpc.cfg</TT> вместо <TT>ppc386.cfg</TT>. Для обратной совместимости наличие <TT>ppc386.cfg</TT> и сейчас проверяется первым и, если он найден, то используется вместо <TT>fpc.cfg</TT>
@@ -123,6 +123,9 @@
 </TRN>
 <TRN locale="ru_RU" key="website.Back_to_mirrorlist">
 Назад к списку зеркальных сайтов
+</TRN>
+<TRN locale="ru_RU" key="website.Base_files">
+Base files (program and units):
 </TRN>
 <TRN locale="ru_RU" key="website.BeOS_related_information">
 Относящееся к BeOS
