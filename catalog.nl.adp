@@ -1439,3 +1439,7 @@ Het type <tt>currency</tt> kent enkele problemen met waarden dicht in de buurt v
 gebruikt worden. We nodigen je van harte uit de gewichten te wijzigen zoals je ze zelf graag wilt zien.
 
 </TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070328">
+<em>28 maart 2007</em> <A href='http://www.morfik.com'>MORFIK</A>heeft versie van zijn WebOS AppsBuilder uitgebracht. Het is de eerste versie van AppsBuilder die Free Pascal als back-end gebruikt..
+  
+</TRN>

@@ -438,6 +438,9 @@ Pagina principale
 <TRN locale="it_IT" key="website.Introduction">
 Introduzione
 </TRN>
+<TRN locale="it_IT" key="website.Known_Problems">
+Known Problems
+</TRN>
 <TRN locale="it_IT" key="website.latest_news">
 Ultime notizie
 </TRN>

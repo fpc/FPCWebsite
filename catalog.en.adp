@@ -2152,3 +2152,10 @@ In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi
       and recommend you modify the weights to your own taste.
     
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20070328">
+
+    <em>March 28, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> has released
+    version 1.0.0.7 of its WebOS AppsBuilder. It is the first version of AppsBuilder that uses FPC
+    to create the backend.
+  
+</TRN>
