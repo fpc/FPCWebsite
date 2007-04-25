@@ -102,6 +102,7 @@
     <li><a href="#unix-debugging">Debugging</a>
     <li><a href="#unix-dll">Dynamic libraries</a>
     <li><a href="#unix-profile">Profiling</a>
+    <li><a href="#libci386">Libc is missing on platforms other than i386</a>
     <li><a href="#vgamissing">Why can't the linker find "vga"?</a>
     <li><a href="#unix-asldmissing">Compiler indicates missing as and ld</a>
    </OL>
@@ -1643,7 +1644,14 @@
                supported.
             
         
-        
+        <li><a name=libci386></a>
+            <h3>Libc is missing on platforms other than i386</h3>
+            <P>Libc is a Kylix compatibility unit. Because it contains many
+            i386 specific code, it has not been made available on other
+            platforms.
+
+            <P>To access Unix functionality, please use units like baseunix
+            and unix.
 
         <li><a name=vgamissing></a>
             <h3>Why can't the linker find "vga"?</h3>
