@@ -2159,3 +2159,101 @@ In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi
     to create the backend.
   
 </TRN>
+<TRN locale="en_US" key="website.q_app_crash_on_386">
+Applications created with Free Pascal crash on 80386 systems
+</TRN>
+<TRN locale="en_US" key="website.q_no_mouse_graph_mode">
+The mouse cursor is not visible in graphics screens
+</TRN>
+<TRN locale="en_US" key="website.q_accessing_io_ports">
+Accessing I/O ports
+</TRN>
+<TRN locale="en_US" key="website.q_accessing_dosmem">
+Accessing DOS memory / Doing graphics programming
+</TRN>
+<TRN locale="en_US" key="website.q_change_dos_stacksize">
+Changing the default stack size
+</TRN>
+<TRN locale="en_US" key="website.q_os2_apps_under_dos">
+Using OS/2 generated applications under DOS
+</TRN>
+<TRN locale="en_US" key="website.a_app_crash_on_386">
+
+            <ul>
+                <li>
+                 <p>Trying to run an application which does floating point operations
+                 on a 386 system without a math co-processor will crash unless
+                 the <TT>emu387</TT> unit is used, as this unit loads the math co-processor
+                 emulator (called <TT>wmemu387.dxe</TT>). You can add the unit as follows:
+
+                <p><PRE>
+                        program myprog;
+                        uses emu387, ...
+                </PRE>
+                
+
+
+                <p>When the application is released, the software package should also
+                include the wmemu387.dxe redistributable file to avoid problems. .
+
+
+                <li>
+                <p>Some 80386 systems have a hardware bug which corrupt the accumulator
+                register <TT>EAX</TT> if it is used in a <TT>MOV</TT> instruction just
+                after a <TT>POPAL</TT> instruction. Prior to version 1.0.5, the compiler
+                and runtime library could generate such code sequences. This is now
+                fixed and should no longer cause problems
+            </ul>
+          
+</TRN>
+<TRN locale="en_US" key="website.a_no_mouse_graph_mode">
+
+
+            <p>A lot of DOS mouse drivers don't support mouse cursors in VESA modes
+            properly. Logitech is said to have a decent mouse driver, which can be
+            found <A
+            href="ftp://ftp.logitech.com/pub/techsupport/mouse/m643&nbsp;w31.exe">here</a>
+         
+</TRN>
+<TRN locale="en_US" key="website.a_accessing_io_ports">
+
+            <p>With versions before 0.99.10: if you're under DOS you can use the
+            <TT>outport*</TT> and <TT>inport*</TT> procedures of the go32 unit. 
+
+            <p>Since version 0.99.8, the Port array is supported like in TP, as long
+            as you use the ports unit in your program (not available under Win32).
+
+            <p>I/O port access is possible under Linux, but that requires root
+            privileges. Check the manuals for the IOPerm, ReadPort and WritePort
+            procedures. (Unit Linux) 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_accessing_dosmem">
+
+            <p>You can do like in Turbo Pascal, via absolute or mem[]. For larger memory
+            blocks use the dosmemput/dosmemget routines in the <TT>Go32</TT> unit. 
+          
+</TRN>
+<TRN locale="en_US" key="website.a_change_dos_stacksize">
+
+            <p>Under the DOS (GO32V2) target, the default stack size to 256 bKbytes. This can
+            be modified with a special DJGPP utility called <TT>stubedit</TT>. It is to note
+            that the stack may also be changed with some compiler switches, this stack size,
+            if greater then the default stack size will be used instead, otherwise the default
+            stack size is used.
+          
+</TRN>
+<TRN locale="en_US" key="website.a_os2_apps_under_dos">
+
+            <p>OS/2 applications (including the compiler) created with version 1.0.x
+            and before should work correctly under vanilla DOS, since they are based
+            on EMX (versions prior to 1.0.5 had big problems with EMX under DOS, this
+            is now fixed). It is important to note that the compiled applications
+            require the EMX runtime files (<TT>emx.exe</TT>) to execute properly. It may be
+            necessary to distribute these files with the generated application.
+            <p>Binaries created for target OS2 with version 1.9.x and above cannot
+            run under DOS any more, because they directly use OS/2 API functions not
+            available when running under extender - you need to compile for a newly added
+            EMX target which provides this capability of running on both platforms.
+          
+</TRN>

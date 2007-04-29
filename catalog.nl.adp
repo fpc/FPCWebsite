@@ -1304,11 +1304,6 @@ hier</A> de vertaalrechten.
 </ul>
 
 </TRN>
-<TRN locale="nl_NL" key="website.config_browser_d">
-De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
-<P>
-Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
-</TRN>
 <TRN locale="nl_NL" key="website.a_dos_release">
 <ul>
 <li>Als je programma vlottendekommacode bevat (wat zeer waarschijnlijk is), lees dan zeker ook "<a href="#fp386">Applicaties gemaakt met Free Pascal crashen op 80386-systemen</a>" betreffende bijzondere kwesties die kunnen optreden. Emulatie van de wiskundige coprocessor is dan vereist (<TT>wmemu387.dxe</TT> dient met je programma meegedistributeerd te worden) 
@@ -1442,4 +1437,41 @@ gebruikt worden. We nodigen je van harte uit de gewichten te wijzigen zoals je z
 <TRN locale="nl_NL" key="website.news_headline_20070328">
 <em>28 maart 2007</em> <A href='http://www.morfik.com'>MORFIK</A> heeft versie van zijn WebOS AppsBuilder uitgebracht. Het is de eerste versie van AppsBuilder die Free Pascal als back-end gebruikt..
   
+</TRN>
+<TRN locale="nl_NL" key="website.q_app_crash_on_386">
+Applicaties gemaakt met Free Pascal crashen op 80386-systemen
+</TRN>
+<TRN locale="nl_NL" key="website.a_app_crash_on_386">
+<ul>
+  <li>
+    <p>Als je probeert een applicatie die vlottendekommabewerkingen gebruikt op een 80386-systeem zonder rekenkundige coprocessor te draaien zal deze crashen tenzij de  <TT>emu387</TT>-unit gebruikt is. Deze unit laadt de coprocessoremulator (geheten <TT>wmemu387.dxe</TT>). Je kunt deze unit als volgt toevoegen:
+  <p><PRE>
+    program myprog;
+
+    uses emu387, ...
+  </PRE>
+<p>Als je je applicatie uitgeeft dien je bij je applicatie ook het bestand wmemu387.dxe te voegen om dit soort problemen te vermijden.
+<li>
+ <p>Sommige 80386-systemen hebben een hardwarebug welke het accumulatorregister <TT>EAX</TT> verknoeit als deze in een <TT>MOV</TT>-instructie net na een <TT>POPAL</TT> gebruikt wordt. Voorafgaand aan versie 1.0.5 konden de compiler en runtime-bibliotheek zulke code genereren. Met moderne compilerversies zou dit niet meer voor mogen komen.
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.q_no_mouse_graph_mode">
+De muiscursor is niet zichtbaar op grafische schermen
+</TRN>
+<TRN locale="nl_NL" key="website.a_no_mouse_graph_mode">
+<p>Veel DOS-muisdrivers kunnen niet overweg met muiscursors in VESA-modes. Er wordt melding gemaakt dat Logitech een degelijke muisdriver heeft, welke hier <A href="ftp://ftp.logitech.com/pub/techsupport/mouse/m643&nbsp;w31.exe">hier</a> gevonden kan worden.
+         
+</TRN>
+<TRN locale="nl_NL" key="website.q_accessing_dosmem">
+Toegang krijgen tot DOS-geheugen / Low-level grafisch programmeren
+</TRN>
+<TRN locale="nl_NL" key="website.a_accessing_dosmem">
+<p>Je kunt dit doen zoals in Turbo Pascal, via "absolute" of "mem[]". Voor grotere geheugenblokken kun je de  dosmemput-/dosmemget-routines in de <TT>Go32</TT>-unit gebruiken. 
+ 
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_d">
+De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in dat de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
+<P>
+Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
 </TRN>
