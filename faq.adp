@@ -74,12 +74,12 @@
     <li><a href="#dos-dll"><trn key="website.q_dynamic_libraries" locale="en_US">Dynamic libraries</trn></a>
     <li><a href="#dos-profile"><trn key="website.q_profiling" locale="en_US">Profiling</trn></a>
     <li><a href="#FPwithoutfpu"><trn key="website.q_fpwithoutfpu" locale="en_US">Running Free Pascal without a math coprocessor</trn></a>
-    <li><a href="#fp386">Applications created with Free Pascal crash on 80386 systems</a>
-    <li><a href="#nomousegraph">The mouse cursor is not visible in graphics screens</a>
-    <li><a href="#accessioports">Accessing I/O ports</a>
-    <li><a href="#HowToAccessDosMemory">Accessing DOS memory / Doing graphics programming</a>
-    <li><a href="#dos-stack">Changing the default stack size</a>
-    <li><a href="#dos-os2">Using OS/2 generated applications under DOS</a>
+    <li><a href="#fp386"><trn key="website.q_app_crash_on_386" locale="en_US">Applications created with Free Pascal crash on 80386 systems</trn></a>
+    <li><a href="#nomousegraph"><trn key="website.q_no_mouse_graph_mode" locale="en_US">The mouse cursor is not visible in graphics screens</trn></a>
+    <li><a href="#accessioports"><trn key="website.q_accessing_io_ports" locale="en_US">Accessing I/O ports</trn></a>
+    <li><a href="#HowToAccessDosMemory"><trn key="website.q_accessing_dosmem" locale="en_US">Accessing DOS memory / Doing graphics programming</trn></a>
+    <li><a href="#dos-stack"><trn key="website.q_change_dos_stacksize" locale="en_US">Changing the default stack size</trn></a>
+    <li><a href="#dos-os2"><trn key="website.q_os2_apps_under_dos" locale="en_US">Using OS/2 generated applications under DOS</trn></a>
    </OL>
    <li><trn key="website.Windows_rel_inf" locale="en_US">Windows related information</trn>
    <OL>
@@ -617,9 +617,9 @@
             of the manual.
           </trn>
 
+<!--
         <li><a name=internaldocs></a>
            <h3>How does the compiler work internally?</h3>
-<!--
            <p>A draft document describing the internals of the Free Pascal compiler is
            available <a href="ftp://ftp.freepascal.org/pub/fpc/docs/fpc-int10.zip">here</a>.
            
@@ -1271,8 +1271,8 @@
         
 
         <li><a name=fp386></a>
-            <h3>Applications created with Free Pascal crash on 80386 systems</h3>
-
+          <h3><trn key="website.q_app_crash_on_386" locale="en_US">Applications created with Free Pascal crash on 80386 systems</trn></h3>
+          <trn key="website.a_app_crash_on_386" locale="en_US">
             <ul>
                 <li>
                  <p>Trying to run an application which does floating point operations
@@ -1297,25 +1297,25 @@
                 after a <TT>POPAL</TT> instruction. Prior to version 1.0.5, the compiler
                 and runtime library could generate such code sequences. This is now
                 fixed and should no longer cause problems
-                
-
             </ul>
+          </trn>
         <p>
         
 
 
         <li><a name=nomousegraph></a>
-            <h3>The mouse cursor is not visible in graphics screens</h3>
+          <h3><trn key="website.q_no_mouse_graph_mode" locale="en_US">The mouse cursor is not visible in graphics screens</trn></h3>
+          <trn key="website.a_no_mouse_graph_mode" locale="en_US">
 
             <p>A lot of DOS mouse drivers don't support mouse cursors in VESA modes
             properly. Logitech is said to have a decent mouse driver, which can be
             found <A
             href="ftp://ftp.logitech.com/pub/techsupport/mouse/m643&nbsp;w31.exe">here</a>
-         
+         </trn>
 
         <li><a name=accessioports></a>
-            <h3>Accessing I/O ports</h3>
-
+          <h3><trn key="website.q_accessing_io_ports" locale="en_US">Accessing I/O ports</trn></h3>
+          <trn key="website.a_accessing_io_ports" locale="en_US">
             <p>With versions before 0.99.10: if you're under DOS you can use the
             <TT>outport*</TT> and <TT>inport*</TT> procedures of the go32 unit. 
 
@@ -1325,31 +1325,30 @@
             <p>I/O port access is possible under Linux, but that requires root
             privileges. Check the manuals for the IOPerm, ReadPort and WritePort
             procedures. (Unit Linux) 
+          </trn>
         
 
         <li><a name=HowToAccessDosMemory></a>
-            <h3>Accessing DOS memory / Doing graphics programming</h3>
-
+          <h3><trn key="website.q_accessing_dosmem" locale="en_US">Accessing DOS memory / Doing graphics programming</trn></h3>
+          <trn key="website.a_accessing_dosmem" locale="en_US">
             <p>You can do like in Turbo Pascal, via absolute or mem[]. For larger memory
             blocks use the dosmemput/dosmemget routines in the <TT>Go32</TT> unit. 
-        
+          </trn>        
 
         <li><a name=dos-stack></a>
-            <h3>Changing the default stack size</h3>
-
+          <h3><trn key="website.q_change_dos_stacksize" locale="en_US">Changing the default stack size</trn></h3>
+          <trn key="website.a_change_dos_stacksize" locale="en_US">
             <p>Under the DOS (GO32V2) target, the default stack size to 256 bKbytes. This can
             be modified with a special DJGPP utility called <TT>stubedit</TT>. It is to note
             that the stack may also be changed with some compiler switches, this stack size,
             if greater then the default stack size will be used instead, otherwise the default
             stack size is used.
-
-        
+          </trn>
         <p>
 
-
         <li><a name=dos-os2></a>
-            <h3>Using OS/2 generated applications under DOS</h3>
-
+          <h3><trn key="website.q_os2_apps_under_dos" locale="en_US">Using OS/2 generated applications under DOS</trn></h3>
+          <trn key="website.a_os2_apps_under_dos" locale="en_US">
             <p>OS/2 applications (including the compiler) created with version 1.0.x
             and before should work correctly under vanilla DOS, since they are based
             on EMX (versions prior to 1.0.5 had big problems with EMX under DOS, this
@@ -1360,7 +1359,7 @@
             run under DOS any more, because they directly use OS/2 API functions not
             available when running under extender - you need to compile for a newly added
             EMX target which provides this capability of running on both platforms.
-        
+          </trn>
 
 
    </OL>
