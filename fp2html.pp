@@ -25,6 +25,7 @@ uses
 
 const
   InputExt = '.fp';
+  VarNameChars: set of char = ['a'..'z', 'A'..'Z', '0'..'9', '_'];
 
 var
   TemplateFile: string;
@@ -158,25 +159,26 @@ var
     close(t);
   end;
 
-  procedure Replace(const s1,s2:string);
+  procedure Replace(var s: string; const s1,s2:string);
   var
-    hs : string;
     i  : longint;
+    c  : char;
   begin
-    hs:=s;
-    s:='';
     repeat
-      i:=pos(s1,hs);
-      if i=0 then
-       begin
-         s:=s+hs;
-         break;
-       end
+      i:=pos(s1,s);
+
+      //check if true variable is found
+      //as in "myvar_url" and "myvar"
+      if i + length(s1) >= length(s) then
+        c := #0
       else
-       begin
-         s:=s+Copy(hs,1,i-1)+s2;
-         Delete(hs,1,i+length(s1)-1);
-       end;
+        c := s[i+length(s1)];
+        
+      if (i = 0) or (c in VarNameChars) then
+        break
+      else
+         s := StringReplace(s, s1, s2, []);
+
     until false;
   end;
 
@@ -205,7 +207,7 @@ var
     i: integer;
   begin
     for i := 0 to High(varlist) do
-      Replace(varlist[i].name, varlist[i].value);
+      Replace(s, varlist[i].name, varlist[i].value);
   end;
 
   function create_new_filename(const s:string):string;
@@ -360,9 +362,9 @@ begin
      readln(t,s);
      s:=Trim(s);
    {Replace}
-     Replace('$TITLE',title);
-     Replace('$HEADER',header);
-     Replace('"pic/','"'+picdir);
+     Replace(s, '$TITLE',title);
+     Replace(s, '$HEADER',header);
+     Replace(s, '"pic/','"'+picdir);
      ReplaceVarList;
    {Fix Index}
       if s='<!-- TEXT -->' then
@@ -372,9 +374,9 @@ begin
             readln(f,s);
 
             //replace
-            Replace('$TITLE',title);
-            Replace('$HEADER',header);
-            Replace('"pic/','"'+picdir);
+            Replace(s, '$TITLE',title);
+            Replace(s, '$HEADER',header);
+            Replace(s, '"pic/','"'+picdir);
             ReplaceVarList;
 
             WriteHtml(s);
@@ -429,25 +431,25 @@ end;
                                 General Stuff
 ****************************************************************************}
 
+procedure helpscreen;
+begin
+  writeln(ParamStr(0), ' [Options] <InFile(s)>');
+  writeln;
+  writeln('Options:');
+  writeln(' -O<extension> Specify OutputExt Mask');
+  writeln(' -M<file>      Use <file> for modifying');
+  writeln(' -T<file>      Use <file> as template file');
+  writeln(' -D<path>      Output directory');
+  writeln(' -r            Recursively process directories');
+  writeln(' -v            Be more verbose');
+  writeln(' -h            This help screen');
+  halt(1);
+end;
+
 procedure getpara;
 var
   ch: char;
   i:  integer;
-
-  procedure helpscreen;
-  begin
-    writeln(ParamStr(0), ' [Options] <InFile(s)>');
-    writeln;
-    writeln('Options:');
-    writeln(' -O<extension> Specify OutputExt Mask');
-    writeln(' -M<file>      Use <file> for modifying');
-    writeln(' -T<file>      Use <file> as template file');
-    writeln(' -D<path>      Output directory');
-    writeln(' -r            Recursively process directories');
-    writeln(' -v            Be more verbose');
-    writeln(' -h            This help screen');
-    halt(1);
-  end;
 
   procedure AddInFile(str: string);
   begin
@@ -540,6 +542,9 @@ begin
     FileDone(ChangeFileExt(ModifyFile,OutputExt));
 
   //process all infiles
+  if Length(InFile) = 0 then
+    helpscreen;
+    
   for i:=0 to High(InFile) do
     if FileExists(InFile[i]) then
       Convert(InFile[i])
