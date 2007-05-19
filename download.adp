@@ -83,15 +83,47 @@
 </ul>
 -->
 
-<h2>Official beta releases</h2>
-<p>
-  These are ready made packages, together with an install program, to
-  get you up and running in no time. All packages contain a README file,
-  which you should read for installation instructions and latest news.
+
+<a name="beta"></a><h2>Official beta releases</h2>
+
 <p>
   The latest beta is <b>2.1.4</b>.
 <p>
-  You can download the 2.1.4 release from <a href="ftp://ftp.freepascal.org/fpc/beta/2.1.4">our ftp-server</a>.
+  You can download the 2.1.4 release for the following operating systems:
+<ul>
+    <li>arm
+    <ul>
+      <li><a href="down2/arm/linux@x@">Linux</a>
+    </ul>
+  <li>intel/i386
+    <ul>
+      <li><a href="down2/i386/go32v2@x@">Dos</a> (GO32v2 extender)
+      <li><a href="down2/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
+      <li><a href="down2/i386/linux@x@">Linux</a>
+      <li><a href="down2/i386/win32@x@">Win32</a> (Windows 95, 98, ME, NT, 2000, XP)
+    </ul>  
+  <li>powerpc
+    <ul>
+      <li><a href="down2/powerpc/linux@x@">Linux</a>
+      <li><a href="down2/powerpc/macosx@x@">Mac OS X</a>
+    </ul>  
+  <li>sparc
+    <ul>
+      <li><a href="down2/sparc/linux@x@">Linux</a>
+    </ul>  
+  <li>amd64/x86_64
+    <ul>
+      <li><a href="down2/x86_64/linux@x@">Linux</a>
+      <li><a href="down2/x86_64/win64@x@">Win64</a>
+    </ul>  
+</ul>
+<p>
+  Furthermore, you can download the following:
+<ul>
+  <li><a href="down2/docs/docs@x@">Documentation</a> in different formats
+  <li><a href="down2/source/sources@x@">Sources</a>
+</ul>
+
 
 <h2><trn key="website.snapshots" locale="en_US">Snapshots</trn></h2>
 <p>
