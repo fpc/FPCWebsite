@@ -10,6 +10,20 @@
 <h3>Latest changes:</h3>
 
 <ul>
+<li>May 19, 2007
+<ul><li>After years of development the new fpc version 2.2.0, version 2.1.4 aka 2.2.0-beta is released.
+    The beta will be available for about two months whereafter 2.2.0 will be released. We ask all
+    our users to test this release, and report bugs on <a href="mantis">the bug-tracker</a>. If you
+    want to know if your bug is already solved, you can look it up in <a href="mantis">mantis</a>, or
+    try one of the daily snapshots, based on the fixes_2_2 branch. Helping us to test version 2.1.4 now,
+    can avoid problems when you finally update your fpc-version to 2.2.0. So please help us make version
+    2.2.0 the most stable version of freepascal, until now. List of changes can be found 
+    <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">here</a>.
+    The <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">
+    releasenotes</a> are also available. Please note that there are some intentional incompatibilities 
+    with previous versions. For an overview click <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
+    here</a>.</ul>
+
 <li>March 28, 2007
 <ul><li><a href='http://www.morfik.com'>MORFIK</A> has released
     version 1.0.0.7 of its WebOS AppsBuilder. It is the first version of AppsBuilder that uses FPC

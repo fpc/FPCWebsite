@@ -83,26 +83,15 @@
 </ul>
 -->
 
-<!--
 <h2>Official beta releases</h2>
 <p>
   These are ready made packages, together with an install program, to
   get you up and running in no time. All packages contain a README file,
   which you should read for installation instructions and latest news.
 <p>
-  The latest beta is <b>2.1.2</b>.
+  The latest beta is <b>2.1.4</b>.
 <p>
-  You can download the 2.1.2 release for the following operating systems:
-<ul>
-  <li><a href="down2-i386-linux@x@">Linux (Intel X86)</a>
-</ul>
-<p>
-  Furthermore, you can download the following:
-<ul>
-  <li><a href="down2-docs@x@">Documentation</a> in different formats
-  <li><a href="down2-source@x@">Sources</a>
-</ul>
--->
+  You can download the 2.1.4 release from <a href="ftp://ftp.freepascal.org/fpc/beta/2.1.4">our ftp-server</a>.
 
 <h2><trn key="website.snapshots" locale="en_US">Snapshots</trn></h2>
 <p>
