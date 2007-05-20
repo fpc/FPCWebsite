@@ -136,11 +136,11 @@ mirror download sites</a>.
       </td></tr>
    <tr>
       <TD WIDTH="22%">
-         <p><a href="#TargetMacOS"><b>MacOS</b> on PowerPC</a>
+         <p><a href="#TargetMacOS"><b>Mac OS</b> on PowerPC</a>
       </td><TD WIDTH="9%">
          <p>final
       </td><TD WIDTH="43%">
-         <p>Target MacOS means classic Mac OS, up to System 9.x.
+         <p>Target Mac OS means classic Mac OS, up to System 9.x.
          Although it of course also work in the classic
          environment in Mac OS X
       </td><TD >
@@ -148,7 +148,7 @@ mirror download sites</a>.
       </td></tr>
    <tr>
       <TD WIDTH="22%">
-         <p>MacOS on M68K
+         <p>Mac OS on M68K
       </td><TD WIDTH="9%">
          <p>not planned
       </td><TD WIDTH="43%">
@@ -199,7 +199,7 @@ here</a> (10.4 MB)
 with, among others, support for mac style object pascal. See above under NEWS. 
 
 <p>Note that the compiler is a unix style program and is run from the
-Terminal on MacOS X.</p>
+Terminal on Mac OS X.</p>
 
 <p>Please report any bugs encountered.</p>
 
@@ -211,7 +211,7 @@ Look at the step-by-step instruction of how to download and install the
 Thanks to Rolf Jansen for this contribution.
 <p>
 
-<h1><a name="TargetMacOS"></a>Target MacOS (Classic Mac OS)</h1>
+<h1><a name="TargetMacOS"></a>Target Mac OS (Classic Mac OS)</h1>
 
 <p>Free Pascal 2.0 for Mac OS is the current release. It will work on 
 latest classic Mac OS (that is 9.2.2) and below, probably down to 7.1.2 (the first
@@ -300,12 +300,12 @@ has to be downloaded separatelly.</p>
 <h2>Debugging</h2>
 
 <p>
-There is some limited possibilities to debug programs in classic MacOS. See
+There is some limited possibilities to debug programs in classic Mac OS. See
 <a href="http://wiki.freepascal.org/MPW_debugging">MPW debugging</a>
 in the wiki.
 </p>
 <p>
-As an alternative, you might do the main debugging in a MacOSX/Darwin
+As an alternative, you might do the main debugging in a Mac OS X/Darwin
 version of your program.
 </p>
 

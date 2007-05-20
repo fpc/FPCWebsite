@@ -254,7 +254,7 @@ yum install fpc-src
    <ul>
      <li>
      A third public beta for 2.0 has released as version 1.9.4.
-     PowerPC is stable and has now also support for MacOSX.
+     PowerPC is stable and has now also support for Mac OS X.
      
    </ul>
    <li>02 May 2004

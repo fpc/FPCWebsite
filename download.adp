@@ -43,7 +43,7 @@
   <li>powerpc
     <ul>
       <li><a href="down/powerpc/linux@x@">Linux</a>
-      <li><a href="down/powerpc/macos@x@">MacOS</a>
+      <li><a href="down/powerpc/macos@x@">Mac OS</a>
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
       <li><a href="down/powerpc/morphos@x@">MorphOS</a>
     </ul>  

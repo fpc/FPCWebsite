@@ -150,7 +150,7 @@
           <trn key="website.a_What_is_FPC" locale="en_US">
             <p>Originally named FPK-Pascal, the Free Pascal compiler is a 32
             and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
-            DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic and
+            DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, Mac OS X, Mac OS classic and
             several other platforms (the number of supported targets grows
             all the time, although not all of them are on the same level as
             the main ones).
@@ -434,7 +434,7 @@
           <trn key="website.a_Real_windows_application" locale="en_US">
             The easiest way is to <a href='http://www.lazarus.freepascal.org'>download Lazarus</a>.
             It won't be just a Windows application, it will also work under Linux, FreeBSD and
-            MacOS X.
+            Mac OS X.
           </trn>
         
         <li><a name="game"></a>

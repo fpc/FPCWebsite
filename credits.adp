@@ -28,7 +28,7 @@ to the compiler / runtime library and associated software.
 <li>John Lee : Snapshot creation and maintenance</li>
 <li>Mark May : DOS unit for linux (rtl)</li>
 <li>Mazen Neifer: sparc port (compiler,rtl)</li>
-<li>Olle Raab : MacOS Classic port (compiler, rtl), Mac Pascal dialect</li>
+<li>Olle Raab : Mac OS Classic port (compiler, rtl), Mac Pascal dialect</li>
 <li>Thomas Schatzl : Graph unit (rtl), GO32 unit (rtl), many other (compiler,rtl)</li>
 <li>Balazs Scheidler : Objects unit (rtl), ex-mailing list administrator</li>
 <li>Nils Sjoholm : Amiga port (rtl), debugging.</li>
