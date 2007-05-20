@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Download Mac OS X</property>
 <property name="entry">download</property>
-<property name="header">Download Mac OS X PowerPC</property>
+<property name="header">Download Mac OS X i386</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -11,17 +11,10 @@
 *****************************************************************************
 -->
 
-The latest release version is <b>2.0.4</b>.
-
 <h3><a name="macosxdmg"></a>Download in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/powerpc-macosx-2.0.4/fpc-2.0.4.powerpc-macosx.dmg">fpc-2.0.4.powerpc-macosx.dmg</a> (27 MB)
-contains an installation package<br>
-</ul>
-<h3><a name="XCodeIntegration"></a>XCode Integration Toolkit:</h3>
-<ul>
-<li> <a href="@mirror_url@dist/powerpc-macosx-2.0.4/fpc-xcode-2.0.4.dmg">XCode Integration Toolkit</a> (150 kB)
-
+<li> <a href="@mirror_url@beta/2.1.4/i386-macosx/fpc-2.1.4.intel-macosx.dmg">fpc-2.1.4.powerpc-macosx.dmg</a> (45 MB)
+contains an installation package for compiling both Intel and PowerPC programs (can be used to create universal binaries)<br>
 </ul>
 
 <hr>

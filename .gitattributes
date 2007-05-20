@@ -121,6 +121,7 @@ down2/i386/freebsd.adp svneol=native#text/plain
 down2/i386/gen_makefile.conf svneol=native#text/plain
 down2/i386/go32v2.adp svneol=native#text/plain
 down2/i386/linux.adp svneol=native#text/plain
+down2/i386/macosx.adp svneol=native#text/plain
 down2/i386/win32.adp svneol=native#text/plain
 down2/powerpc/Makefile svneol=native#text/plain
 down2/powerpc/gen_makefile.conf svneol=native#text/plain

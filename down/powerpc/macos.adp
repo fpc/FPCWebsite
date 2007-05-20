@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download MacOS classic</property>
+<property name="title">Free Pascal - Download Mac OS classic</property>
 <property name="entry">download</property>
-<property name="header">Download MacOS PowerPC</property>
+<property name="header">Download Mac OS PowerPC</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

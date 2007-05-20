@@ -1,20 +1,20 @@
 <master>
-<property name="title">Free Pascal - Download MacOS X</property>
+<property name="title">Free Pascal - Download Mac OS X</property>
 <property name="entry">download</property>
-<property name="header">Download MacOS X PowerPC</property>
+<property name="header">Download Mac OS X PowerPC</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
 <!--
 *****************************************************************************
-                                 FreeBSD
+                                 Mac OS X
 *****************************************************************************
 -->
 
 <h3><a name="macosxdmg"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a href="@mirror_url@beta/2.1.4/powerpc-macosx/fpc-2.1.4.powerpc-macosx.dmg">fpc-2.1.4.powerpc-macosx.dmg</a> (29 MB)
-contains an installation package<br>
+contains an installation package (only supports creating PowerPC programs; you need the Intel/i386 version of the compiler to create universal binaries)<br>
 </ul>
 
 <hr>

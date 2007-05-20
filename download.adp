@@ -100,6 +100,7 @@
       <li><a href="down2/i386/go32v2@x@">Dos</a> (GO32v2 extender)
       <li><a href="down2/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
       <li><a href="down2/i386/linux@x@">Linux</a>
+      <li><a href="down2/i386/macosx@x@">Mac OS X</a>
       <li><a href="down2/i386/win32@x@">Win32</a> (Windows 95, 98, ME, NT, 2000, XP)
     </ul>  
   <li>powerpc
