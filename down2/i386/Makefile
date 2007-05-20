@@ -206,6 +206,65 @@ linux-australia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-australia.var
 	echo >> linux-australia.var
+macosx-australia.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-australia.html.bg -oe iso-8859-5 macosx.adp
+macosx-australia.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-australia.html.en -oe iso-8859-1 macosx.adp
+macosx-australia.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-australia.html.fr -oe iso-8859-1 macosx.adp
+macosx-australia.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-australia.html.id -oe iso-8859-1 macosx.adp
+macosx-australia.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-australia.html.it -oe iso-8859-1 macosx.adp
+macosx-australia.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-australia.html.nl -oe iso-8859-1 macosx.adp
+macosx-australia.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-australia.html.po -oe iso-8859-2 macosx.adp
+macosx-australia.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-australia.html.sl -oe iso-8859-2 macosx.adp
+macosx-australia.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-australia.html.ru -oe iso-8859-5 macosx.adp
+macosx-australia.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-australia.html -oe ISO-8859-1 macosx.adp
+
+macosx-australia.var: gen_makefile.conf
+	echo > macosx-australia.var
+	echo 'URI: macosx-australia.html.bg' >> macosx-australia.var
+	echo 'Content-language: bg' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.en' >> macosx-australia.var
+	echo 'Content-language: en' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.fr' >> macosx-australia.var
+	echo 'Content-language: fr' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.id' >> macosx-australia.var
+	echo 'Content-language: id' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.it' >> macosx-australia.var
+	echo 'Content-language: it' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.nl' >> macosx-australia.var
+	echo 'Content-language: nl' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.po' >> macosx-australia.var
+	echo 'Content-language: pl' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.sl' >> macosx-australia.var
+	echo 'Content-language: sl' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-australia.var
+	echo >> macosx-australia.var
+	echo 'URI: macosx-australia.html.ru' >> macosx-australia.var
+	echo 'Content-language: ru' >> macosx-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-australia.var
+	echo >> macosx-australia.var
 win32-australia.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-australia.html.bg -oe iso-8859-5 win32.adp
 win32-australia.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -442,6 +501,65 @@ linux-austria.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-austria.var
 	echo >> linux-austria.var
+macosx-austria.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-austria.html.bg -oe iso-8859-5 macosx.adp
+macosx-austria.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-austria.html.en -oe iso-8859-1 macosx.adp
+macosx-austria.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-austria.html.fr -oe iso-8859-1 macosx.adp
+macosx-austria.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-austria.html.id -oe iso-8859-1 macosx.adp
+macosx-austria.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-austria.html.it -oe iso-8859-1 macosx.adp
+macosx-austria.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-austria.html.nl -oe iso-8859-1 macosx.adp
+macosx-austria.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-austria.html.po -oe iso-8859-2 macosx.adp
+macosx-austria.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-austria.html.sl -oe iso-8859-2 macosx.adp
+macosx-austria.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-austria.html.ru -oe iso-8859-5 macosx.adp
+macosx-austria.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-austria.html -oe ISO-8859-1 macosx.adp
+
+macosx-austria.var: gen_makefile.conf
+	echo > macosx-austria.var
+	echo 'URI: macosx-austria.html.bg' >> macosx-austria.var
+	echo 'Content-language: bg' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.en' >> macosx-austria.var
+	echo 'Content-language: en' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.fr' >> macosx-austria.var
+	echo 'Content-language: fr' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.id' >> macosx-austria.var
+	echo 'Content-language: id' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.it' >> macosx-austria.var
+	echo 'Content-language: it' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.nl' >> macosx-austria.var
+	echo 'Content-language: nl' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.po' >> macosx-austria.var
+	echo 'Content-language: pl' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.sl' >> macosx-austria.var
+	echo 'Content-language: sl' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-austria.var
+	echo >> macosx-austria.var
+	echo 'URI: macosx-austria.html.ru' >> macosx-austria.var
+	echo 'Content-language: ru' >> macosx-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-austria.var
+	echo >> macosx-austria.var
 win32-austria.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-austria.html.bg -oe iso-8859-5 win32.adp
 win32-austria.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -678,6 +796,65 @@ linux-hungary.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-hungary.var
 	echo >> linux-hungary.var
+macosx-hungary.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-hungary.html.bg -oe iso-8859-5 macosx.adp
+macosx-hungary.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-hungary.html.en -oe iso-8859-1 macosx.adp
+macosx-hungary.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-hungary.html.fr -oe iso-8859-1 macosx.adp
+macosx-hungary.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-hungary.html.id -oe iso-8859-1 macosx.adp
+macosx-hungary.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-hungary.html.it -oe iso-8859-1 macosx.adp
+macosx-hungary.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-hungary.html.nl -oe iso-8859-1 macosx.adp
+macosx-hungary.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-hungary.html.po -oe iso-8859-2 macosx.adp
+macosx-hungary.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-hungary.html.sl -oe iso-8859-2 macosx.adp
+macosx-hungary.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-hungary.html.ru -oe iso-8859-5 macosx.adp
+macosx-hungary.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-hungary.html -oe ISO-8859-1 macosx.adp
+
+macosx-hungary.var: gen_makefile.conf
+	echo > macosx-hungary.var
+	echo 'URI: macosx-hungary.html.bg' >> macosx-hungary.var
+	echo 'Content-language: bg' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.en' >> macosx-hungary.var
+	echo 'Content-language: en' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.fr' >> macosx-hungary.var
+	echo 'Content-language: fr' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.id' >> macosx-hungary.var
+	echo 'Content-language: id' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.it' >> macosx-hungary.var
+	echo 'Content-language: it' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.nl' >> macosx-hungary.var
+	echo 'Content-language: nl' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.po' >> macosx-hungary.var
+	echo 'Content-language: pl' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.sl' >> macosx-hungary.var
+	echo 'Content-language: sl' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-hungary.var
+	echo >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.ru' >> macosx-hungary.var
+	echo 'Content-language: ru' >> macosx-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-hungary.var
+	echo >> macosx-hungary.var
 win32-hungary.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-hungary.html.bg -oe iso-8859-5 win32.adp
 win32-hungary.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -914,6 +1091,65 @@ linux-israel.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-israel.var
 	echo >> linux-israel.var
+macosx-israel.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-israel.html.bg -oe iso-8859-5 macosx.adp
+macosx-israel.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-israel.html.en -oe iso-8859-1 macosx.adp
+macosx-israel.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-israel.html.fr -oe iso-8859-1 macosx.adp
+macosx-israel.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-israel.html.id -oe iso-8859-1 macosx.adp
+macosx-israel.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-israel.html.it -oe iso-8859-1 macosx.adp
+macosx-israel.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-israel.html.nl -oe iso-8859-1 macosx.adp
+macosx-israel.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-israel.html.po -oe iso-8859-2 macosx.adp
+macosx-israel.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-israel.html.sl -oe iso-8859-2 macosx.adp
+macosx-israel.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-israel.html.ru -oe iso-8859-5 macosx.adp
+macosx-israel.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-israel.html -oe ISO-8859-1 macosx.adp
+
+macosx-israel.var: gen_makefile.conf
+	echo > macosx-israel.var
+	echo 'URI: macosx-israel.html.bg' >> macosx-israel.var
+	echo 'Content-language: bg' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.en' >> macosx-israel.var
+	echo 'Content-language: en' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.fr' >> macosx-israel.var
+	echo 'Content-language: fr' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.id' >> macosx-israel.var
+	echo 'Content-language: id' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.it' >> macosx-israel.var
+	echo 'Content-language: it' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.nl' >> macosx-israel.var
+	echo 'Content-language: nl' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.po' >> macosx-israel.var
+	echo 'Content-language: pl' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.sl' >> macosx-israel.var
+	echo 'Content-language: sl' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-israel.var
+	echo >> macosx-israel.var
+	echo 'URI: macosx-israel.html.ru' >> macosx-israel.var
+	echo 'Content-language: ru' >> macosx-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-israel.var
+	echo >> macosx-israel.var
 win32-israel.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-israel.html.bg -oe iso-8859-5 win32.adp
 win32-israel.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1150,6 +1386,65 @@ linux-netherlands.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
 	echo >> linux-netherlands.var
+macosx-netherlands.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-netherlands.html.bg -oe iso-8859-5 macosx.adp
+macosx-netherlands.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-netherlands.html.en -oe iso-8859-1 macosx.adp
+macosx-netherlands.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-netherlands.html.fr -oe iso-8859-1 macosx.adp
+macosx-netherlands.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-netherlands.html.id -oe iso-8859-1 macosx.adp
+macosx-netherlands.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-netherlands.html.it -oe iso-8859-1 macosx.adp
+macosx-netherlands.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-netherlands.html.nl -oe iso-8859-1 macosx.adp
+macosx-netherlands.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-netherlands.html.po -oe iso-8859-2 macosx.adp
+macosx-netherlands.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-netherlands.html.sl -oe iso-8859-2 macosx.adp
+macosx-netherlands.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-netherlands.html.ru -oe iso-8859-5 macosx.adp
+macosx-netherlands.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-netherlands.html -oe ISO-8859-1 macosx.adp
+
+macosx-netherlands.var: gen_makefile.conf
+	echo > macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.bg' >> macosx-netherlands.var
+	echo 'Content-language: bg' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.en' >> macosx-netherlands.var
+	echo 'Content-language: en' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.fr' >> macosx-netherlands.var
+	echo 'Content-language: fr' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.id' >> macosx-netherlands.var
+	echo 'Content-language: id' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.it' >> macosx-netherlands.var
+	echo 'Content-language: it' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.nl' >> macosx-netherlands.var
+	echo 'Content-language: nl' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.po' >> macosx-netherlands.var
+	echo 'Content-language: pl' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.sl' >> macosx-netherlands.var
+	echo 'Content-language: sl' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.ru' >> macosx-netherlands.var
+	echo 'Content-language: ru' >> macosx-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-netherlands.var
+	echo >> macosx-netherlands.var
 win32-netherlands.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-netherlands.html.bg -oe iso-8859-5 win32.adp
 win32-netherlands.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1386,6 +1681,65 @@ linux-norway.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-norway.var
 	echo >> linux-norway.var
+macosx-norway.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-norway.html.bg -oe iso-8859-5 macosx.adp
+macosx-norway.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-norway.html.en -oe iso-8859-1 macosx.adp
+macosx-norway.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-norway.html.fr -oe iso-8859-1 macosx.adp
+macosx-norway.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-norway.html.id -oe iso-8859-1 macosx.adp
+macosx-norway.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-norway.html.it -oe iso-8859-1 macosx.adp
+macosx-norway.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-norway.html.nl -oe iso-8859-1 macosx.adp
+macosx-norway.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-norway.html.po -oe iso-8859-2 macosx.adp
+macosx-norway.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-norway.html.sl -oe iso-8859-2 macosx.adp
+macosx-norway.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-norway.html.ru -oe iso-8859-5 macosx.adp
+macosx-norway.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-norway.html -oe ISO-8859-1 macosx.adp
+
+macosx-norway.var: gen_makefile.conf
+	echo > macosx-norway.var
+	echo 'URI: macosx-norway.html.bg' >> macosx-norway.var
+	echo 'Content-language: bg' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.en' >> macosx-norway.var
+	echo 'Content-language: en' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.fr' >> macosx-norway.var
+	echo 'Content-language: fr' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.id' >> macosx-norway.var
+	echo 'Content-language: id' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.it' >> macosx-norway.var
+	echo 'Content-language: it' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.nl' >> macosx-norway.var
+	echo 'Content-language: nl' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.po' >> macosx-norway.var
+	echo 'Content-language: pl' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.sl' >> macosx-norway.var
+	echo 'Content-language: sl' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-norway.var
+	echo >> macosx-norway.var
+	echo 'URI: macosx-norway.html.ru' >> macosx-norway.var
+	echo 'Content-language: ru' >> macosx-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-norway.var
+	echo >> macosx-norway.var
 win32-norway.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-norway.html.bg -oe iso-8859-5 win32.adp
 win32-norway.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1622,6 +1976,65 @@ linux-russia.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-russia.var
 	echo >> linux-russia.var
+macosx-russia.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-russia.html.bg -oe iso-8859-5 macosx.adp
+macosx-russia.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-russia.html.en -oe iso-8859-1 macosx.adp
+macosx-russia.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-russia.html.fr -oe iso-8859-1 macosx.adp
+macosx-russia.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-russia.html.id -oe iso-8859-1 macosx.adp
+macosx-russia.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-russia.html.it -oe iso-8859-1 macosx.adp
+macosx-russia.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-russia.html.nl -oe iso-8859-1 macosx.adp
+macosx-russia.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-russia.html.po -oe iso-8859-2 macosx.adp
+macosx-russia.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-russia.html.sl -oe iso-8859-2 macosx.adp
+macosx-russia.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-russia.html.ru -oe iso-8859-5 macosx.adp
+macosx-russia.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-russia.html -oe ISO-8859-1 macosx.adp
+
+macosx-russia.var: gen_makefile.conf
+	echo > macosx-russia.var
+	echo 'URI: macosx-russia.html.bg' >> macosx-russia.var
+	echo 'Content-language: bg' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.en' >> macosx-russia.var
+	echo 'Content-language: en' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.fr' >> macosx-russia.var
+	echo 'Content-language: fr' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.id' >> macosx-russia.var
+	echo 'Content-language: id' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.it' >> macosx-russia.var
+	echo 'Content-language: it' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.nl' >> macosx-russia.var
+	echo 'Content-language: nl' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.po' >> macosx-russia.var
+	echo 'Content-language: pl' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.sl' >> macosx-russia.var
+	echo 'Content-language: sl' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-russia.var
+	echo >> macosx-russia.var
+	echo 'URI: macosx-russia.html.ru' >> macosx-russia.var
+	echo 'Content-language: ru' >> macosx-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-russia.var
+	echo >> macosx-russia.var
 win32-russia.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-russia.html.bg -oe iso-8859-5 win32.adp
 win32-russia.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1858,6 +2271,65 @@ linux-ftp.freepascal.org.var: gen_makefile.conf
 	echo 'Content-language: ru' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
+macosx-ftp.freepascal.org.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.bg -oe iso-8859-5 macosx.adp
+macosx-ftp.freepascal.org.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.en -oe iso-8859-1 macosx.adp
+macosx-ftp.freepascal.org.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.fr -oe iso-8859-1 macosx.adp
+macosx-ftp.freepascal.org.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.id -oe iso-8859-1 macosx.adp
+macosx-ftp.freepascal.org.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.it -oe iso-8859-1 macosx.adp
+macosx-ftp.freepascal.org.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.nl -oe iso-8859-1 macosx.adp
+macosx-ftp.freepascal.org.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.po -oe iso-8859-2 macosx.adp
+macosx-ftp.freepascal.org.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.sl -oe iso-8859-2 macosx.adp
+macosx-ftp.freepascal.org.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx-ftp.freepascal.org.html.ru -oe iso-8859-5 macosx.adp
+macosx-ftp.freepascal.org.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx-ftp.freepascal.org.html -oe ISO-8859-1 macosx.adp
+
+macosx-ftp.freepascal.org.var: gen_makefile.conf
+	echo > macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.bg' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.en' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: en' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.fr' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: fr' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.id' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: id' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.it' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: it' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.nl' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: nl' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.po' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: pl' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.sl' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: sl' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.ru' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: ru' >> macosx-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-ftp.freepascal.org.var
+	echo >> macosx-ftp.freepascal.org.var
 win32-ftp.freepascal.org.html.bg: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32-ftp.freepascal.org.html.bg -oe iso-8859-5 win32.adp
 win32-ftp.freepascal.org.html.en: win32.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -2089,6 +2561,63 @@ linux.var: gen_makefile.conf
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux.var
 	echo >> linux.var
 
+macosx.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o macosx.html.bg -oe iso-8859-5 ../../templatemirror.adp
+macosx.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx.html.en -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o macosx.html.fr -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o macosx.html.id -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o macosx.html.it -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o macosx.html.nl -oe iso-8859-1 ../../templatemirror.adp
+macosx.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o macosx.html.po -oe iso-8859-2 ../../templatemirror.adp
+macosx.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx.html.sl -oe iso-8859-2 ../../templatemirror.adp
+macosx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx.html.ru -oe iso-8859-5 ../../templatemirror.adp
+macosx.var: gen_makefile.conf
+	echo > macosx.var
+	echo 'URI: macosx.html.bg' >> macosx.var
+	echo 'Content-language: bg' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.en' >> macosx.var
+	echo 'Content-language: en' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.fr' >> macosx.var
+	echo 'Content-language: fr' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.id' >> macosx.var
+	echo 'Content-language: id' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.it' >> macosx.var
+	echo 'Content-language: it' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.nl' >> macosx.var
+	echo 'Content-language: nl' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.po' >> macosx.var
+	echo 'Content-language: pl' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.sl' >> macosx.var
+	echo 'Content-language: sl' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx.var
+	echo >> macosx.var
+	echo 'URI: macosx.html.ru' >> macosx.var
+	echo 'Content-language: ru' >> macosx.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx.var
+	echo >> macosx.var
+
 win32.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o win32.html.bg -oe iso-8859-5 ../../templatemirror.adp
 win32.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
@@ -2157,8 +2686,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat freebsd-australia.html.bg freebsd-australia.html.en freebsd-australia.html.fr freebsd-australia.html.id freebsd-australia.html.it freebsd-australia.html.nl freebsd-australia.html.po freebsd-australia.html.sl freebsd-australia.html.ru freebsd-australia.var go32v2-australia.html.bg go32v2-australia.html.en go32v2-australia.html.fr go32v2-australia.html.id go32v2-australia.html.it go32v2-australia.html.nl go32v2-australia.html.po go32v2-australia.html.sl go32v2-australia.html.ru go32v2-australia.var linux-australia.html.bg linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.it linux-australia.html.nl linux-australia.html.po linux-australia.html.sl linux-australia.html.ru linux-australia.var win32-australia.html.bg win32-australia.html.en win32-australia.html.fr win32-australia.html.id win32-australia.html.it win32-australia.html.nl win32-australia.html.po win32-australia.html.sl win32-australia.html.ru win32-australia.var freebsd-austria.html.bg freebsd-austria.html.en freebsd-austria.html.fr freebsd-austria.html.id freebsd-austria.html.it freebsd-austria.html.nl freebsd-austria.html.po freebsd-austria.html.sl freebsd-austria.html.ru freebsd-austria.var go32v2-austria.html.bg go32v2-austria.html.en go32v2-austria.html.fr go32v2-austria.html.id go32v2-austria.html.it go32v2-austria.html.nl go32v2-austria.html.po go32v2-austria.html.sl go32v2-austria.html.ru go32v2-austria.var linux-austria.html.bg linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.it linux-austria.html.nl linux-austria.html.po linux-austria.html.sl linux-austria.html.ru linux-austria.var win32-austria.html.bg win32-austria.html.en win32-austria.html.fr win32-austria.html.id win32-austria.html.it win32-austria.html.nl win32-austria.html.po win32-austria.html.sl win32-austria.html.ru win32-austria.var freebsd-hungary.html.bg freebsd-hungary.html.en freebsd-hungary.html.fr freebsd-hungary.html.id freebsd-hungary.html.it freebsd-hungary.html.nl freebsd-hungary.html.po freebsd-hungary.html.sl freebsd-hungary.html.ru freebsd-hungary.var go32v2-hungary.html.bg go32v2-hungary.html.en go32v2-hungary.html.fr go32v2-hungary.html.id go32v2-hungary.html.it go32v2-hungary.html.nl go32v2-hungary.html.po go32v2-hungary.html.sl go32v2-hungary.html.ru go32v2-hungary.var linux-hungary.html.bg linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.it linux-hungary.html.nl linux-hungary.html.po linux-hungary.html.sl linux-hungary.html.ru linux-hungary.var win32-hungary.html.bg win32-hungary.html.en win32-hungary.html.fr win32-hungary.html.id win32-hungary.html.it win32-hungary.html.nl win32-hungary.html.po win32-hungary.html.sl win32-hungary.html.ru win32-hungary.var freebsd-israel.html.bg freebsd-israel.html.en freebsd-israel.html.fr freebsd-israel.html.id freebsd-israel.html.it freebsd-israel.html.nl freebsd-israel.html.po freebsd-israel.html.sl freebsd-israel.html.ru freebsd-israel.var go32v2-israel.html.bg go32v2-israel.html.en go32v2-israel.html.fr go32v2-israel.html.id go32v2-israel.html.it go32v2-israel.html.nl go32v2-israel.html.po go32v2-israel.html.sl go32v2-israel.html.ru go32v2-israel.var linux-israel.html.bg linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.it linux-israel.html.nl linux-israel.html.po linux-israel.html.sl linux-israel.html.ru linux-israel.var win32-israel.html.bg win32-israel.html.en win32-israel.html.fr win32-israel.html.id win32-israel.html.it win32-israel.html.nl win32-israel.html.po win32-israel.html.sl win32-israel.html.ru win32-israel.var freebsd-netherlands.html.bg freebsd-netherlands.html.en freebsd-netherlands.html.fr freebsd-netherlands.html.id freebsd-netherlands.html.it freebsd-netherlands.html.nl freebsd-netherlands.html.po freebsd-netherlands.html.sl freebsd-netherlands.html.ru freebsd-netherlands.var go32v2-netherlands.html.bg go32v2-netherlands.html.en go32v2-netherlands.html.fr go32v2-netherlands.html.id go32v2-netherlands.html.it go32v2-netherlands.html.nl go32v2-netherlands.html.po go32v2-netherlands.html.sl go32v2-netherlands.html.ru go32v2-netherlands.var linux-netherlands.html.bg linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.it linux-netherlands.html.nl linux-netherlands.html.po linux-netherlands.html.sl linux-netherlands.html.ru linux-netherlands.var win32-netherlands.html.bg win32-netherlands.html.en win32-netherlands.html.fr win32-netherlands.html.id win32-netherlands.html.it win32-netherlands.html.nl win32-netherlands.html.po win32-netherlands.html.sl win32-netherlands.html.ru win32-netherlands.var freebsd-norway.html.bg freebsd-norway.html.en freebsd-norway.html.fr freebsd-norway.html.id freebsd-norway.html.it freebsd-norway.html.nl freebsd-norway.html.po freebsd-norway.html.sl freebsd-norway.html.ru freebsd-norway.var go32v2-norway.html.bg go32v2-norway.html.en go32v2-norway.html.fr go32v2-norway.html.id go32v2-norway.html.it go32v2-norway.html.nl go32v2-norway.html.po go32v2-norway.html.sl go32v2-norway.html.ru go32v2-norway.var linux-norway.html.bg linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.it linux-norway.html.nl linux-norway.html.po linux-norway.html.sl linux-norway.html.ru linux-norway.var win32-norway.html.bg win32-norway.html.en win32-norway.html.fr win32-norway.html.id win32-norway.html.it win32-norway.html.nl win32-norway.html.po win32-norway.html.sl win32-norway.html.ru win32-norway.var freebsd-russia.html.bg freebsd-russia.html.en freebsd-russia.html.fr freebsd-russia.html.id freebsd-russia.html.it freebsd-russia.html.nl freebsd-russia.html.po freebsd-russia.html.sl freebsd-russia.html.ru freebsd-russia.var go32v2-russia.html.bg go32v2-russia.html.en go32v2-russia.html.fr go32v2-russia.html.id go32v2-russia.html.it go32v2-russia.html.nl go32v2-russia.html.po go32v2-russia.html.sl go32v2-russia.html.ru go32v2-russia.var linux-russia.html.bg linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.it linux-russia.html.nl linux-russia.html.po linux-russia.html.sl linux-russia.html.ru linux-russia.var win32-russia.html.bg win32-russia.html.en win32-russia.html.fr win32-russia.html.id win32-russia.html.it win32-russia.html.nl win32-russia.html.po win32-russia.html.sl win32-russia.html.ru win32-russia.var freebsd-ftp.freepascal.org.html.bg freebsd-ftp.freepascal.org.html.en freebsd-ftp.freepascal.org.html.fr freebsd-ftp.freepascal.org.html.id freebsd-ftp.freepascal.org.html.it freebsd-ftp.freepascal.org.html.nl freebsd-ftp.freepascal.org.html.po freebsd-ftp.freepascal.org.html.sl freebsd-ftp.freepascal.org.html.ru freebsd-ftp.freepascal.org.var go32v2-ftp.freepascal.org.html.bg go32v2-ftp.freepascal.org.html.en go32v2-ftp.freepascal.org.html.fr go32v2-ftp.freepascal.org.html.id go32v2-ftp.freepascal.org.html.it go32v2-ftp.freepascal.org.html.nl go32v2-ftp.freepascal.org.html.po go32v2-ftp.freepascal.org.html.sl go32v2-ftp.freepascal.org.html.ru go32v2-ftp.freepascal.org.var linux-ftp.freepascal.org.html.bg linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.it linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.po linux-ftp.freepascal.org.html.sl linux-ftp.freepascal.org.html.ru linux-ftp.freepascal.org.var win32-ftp.freepascal.org.html.bg win32-ftp.freepascal.org.html.en win32-ftp.freepascal.org.html.fr win32-ftp.freepascal.org.html.id win32-ftp.freepascal.org.html.it win32-ftp.freepascal.org.html.nl win32-ftp.freepascal.org.html.po win32-ftp.freepascal.org.html.sl win32-ftp.freepascal.org.html.ru win32-ftp.freepascal.org.var freebsd.html.bg freebsd.html.en freebsd.html.fr freebsd.html.id freebsd.html.it freebsd.html.nl freebsd.html.po freebsd.html.sl freebsd.html.ru freebsd.var go32v2.html.bg go32v2.html.en go32v2.html.fr go32v2.html.id go32v2.html.it go32v2.html.nl go32v2.html.po go32v2.html.sl go32v2.html.ru go32v2.var linux.html.bg linux.html.en linux.html.fr linux.html.id linux.html.it linux.html.nl linux.html.po linux.html.sl linux.html.ru linux.var win32.html.bg win32.html.en win32.html.fr win32.html.id win32.html.it win32.html.nl win32.html.po win32.html.sl win32.html.ru win32.var
-all_en_pages: mirrors.dat freebsd-australia.html go32v2-australia.html linux-australia.html win32-australia.html freebsd-austria.html go32v2-austria.html linux-austria.html win32-austria.html freebsd-hungary.html go32v2-hungary.html linux-hungary.html win32-hungary.html freebsd-israel.html go32v2-israel.html linux-israel.html win32-israel.html freebsd-netherlands.html go32v2-netherlands.html linux-netherlands.html win32-netherlands.html freebsd-norway.html go32v2-norway.html linux-norway.html win32-norway.html freebsd-russia.html go32v2-russia.html linux-russia.html win32-russia.html freebsd-ftp.freepascal.org.html go32v2-ftp.freepascal.org.html linux-ftp.freepascal.org.html win32-ftp.freepascal.org.html
+all_pages: mirrors.dat freebsd-australia.html.bg freebsd-australia.html.en freebsd-australia.html.fr freebsd-australia.html.id freebsd-australia.html.it freebsd-australia.html.nl freebsd-australia.html.po freebsd-australia.html.sl freebsd-australia.html.ru freebsd-australia.var go32v2-australia.html.bg go32v2-australia.html.en go32v2-australia.html.fr go32v2-australia.html.id go32v2-australia.html.it go32v2-australia.html.nl go32v2-australia.html.po go32v2-australia.html.sl go32v2-australia.html.ru go32v2-australia.var linux-australia.html.bg linux-australia.html.en linux-australia.html.fr linux-australia.html.id linux-australia.html.it linux-australia.html.nl linux-australia.html.po linux-australia.html.sl linux-australia.html.ru linux-australia.var macosx-australia.html.bg macosx-australia.html.en macosx-australia.html.fr macosx-australia.html.id macosx-australia.html.it macosx-australia.html.nl macosx-australia.html.po macosx-australia.html.sl macosx-australia.html.ru macosx-australia.var win32-australia.html.bg win32-australia.html.en win32-australia.html.fr win32-australia.html.id win32-australia.html.it win32-australia.html.nl win32-australia.html.po win32-australia.html.sl win32-australia.html.ru win32-australia.var freebsd-austria.html.bg freebsd-austria.html.en freebsd-austria.html.fr freebsd-austria.html.id freebsd-austria.html.it freebsd-austria.html.nl freebsd-austria.html.po freebsd-austria.html.sl freebsd-austria.html.ru freebsd-austria.var go32v2-austria.html.bg go32v2-austria.html.en go32v2-austria.html.fr go32v2-austria.html.id go32v2-austria.html.it go32v2-austria.html.nl go32v2-austria.html.po go32v2-austria.html.sl go32v2-austria.html.ru go32v2-austria.var linux-austria.html.bg linux-austria.html.en linux-austria.html.fr linux-austria.html.id linux-austria.html.it linux-austria.html.nl linux-austria.html.po linux-austria.html.sl linux-austria.html.ru linux-austria.var macosx-austria.html.bg macosx-austria.html.en macosx-austria.html.fr macosx-austria.html.id macosx-austria.html.it macosx-austria.html.nl macosx-austria.html.po macosx-austria.html.sl macosx-austria.html.ru macosx-austria.var win32-austria.html.bg win32-austria.html.en win32-austria.html.fr win32-austria.html.id win32-austria.html.it win32-austria.html.nl win32-austria.html.po win32-austria.html.sl win32-austria.html.ru win32-austria.var freebsd-hungary.html.bg freebsd-hungary.html.en freebsd-hungary.html.fr freebsd-hungary.html.id freebsd-hungary.html.it freebsd-hungary.html.nl freebsd-hungary.html.po freebsd-hungary.html.sl freebsd-hungary.html.ru freebsd-hungary.var go32v2-hungary.html.bg go32v2-hungary.html.en go32v2-hungary.html.fr go32v2-hungary.html.id go32v2-hungary.html.it go32v2-hungary.html.nl go32v2-hungary.html.po go32v2-hungary.html.sl go32v2-hungary.html.ru go32v2-hungary.var linux-hungary.html.bg linux-hungary.html.en linux-hungary.html.fr linux-hungary.html.id linux-hungary.html.it linux-hungary.html.nl linux-hungary.html.po linux-hungary.html.sl linux-hungary.html.ru linux-hungary.var macosx-hungary.html.bg macosx-hungary.html.en macosx-hungary.html.fr macosx-hungary.html.id macosx-hungary.html.it macosx-hungary.html.nl macosx-hungary.html.po macosx-hungary.html.sl macosx-hungary.html.ru macosx-hungary.var win32-hungary.html.bg win32-hungary.html.en win32-hungary.html.fr win32-hungary.html.id win32-hungary.html.it win32-hungary.html.nl win32-hungary.html.po win32-hungary.html.sl win32-hungary.html.ru win32-hungary.var freebsd-israel.html.bg freebsd-israel.html.en freebsd-israel.html.fr freebsd-israel.html.id freebsd-israel.html.it freebsd-israel.html.nl freebsd-israel.html.po freebsd-israel.html.sl freebsd-israel.html.ru freebsd-israel.var go32v2-israel.html.bg go32v2-israel.html.en go32v2-israel.html.fr go32v2-israel.html.id go32v2-israel.html.it go32v2-israel.html.nl go32v2-israel.html.po go32v2-israel.html.sl go32v2-israel.html.ru go32v2-israel.var linux-israel.html.bg linux-israel.html.en linux-israel.html.fr linux-israel.html.id linux-israel.html.it linux-israel.html.nl linux-israel.html.po linux-israel.html.sl linux-israel.html.ru linux-israel.var macosx-israel.html.bg macosx-israel.html.en macosx-israel.html.fr macosx-israel.html.id macosx-israel.html.it macosx-israel.html.nl macosx-israel.html.po macosx-israel.html.sl macosx-israel.html.ru macosx-israel.var win32-israel.html.bg win32-israel.html.en win32-israel.html.fr win32-israel.html.id win32-israel.html.it win32-israel.html.nl win32-israel.html.po win32-israel.html.sl win32-israel.html.ru win32-israel.var freebsd-netherlands.html.bg freebsd-netherlands.html.en freebsd-netherlands.html.fr freebsd-netherlands.html.id freebsd-netherlands.html.it freebsd-netherlands.html.nl freebsd-netherlands.html.po freebsd-netherlands.html.sl freebsd-netherlands.html.ru freebsd-netherlands.var go32v2-netherlands.html.bg go32v2-netherlands.html.en go32v2-netherlands.html.fr go32v2-netherlands.html.id go32v2-netherlands.html.it go32v2-netherlands.html.nl go32v2-netherlands.html.po go32v2-netherlands.html.sl go32v2-netherlands.html.ru go32v2-netherlands.var linux-netherlands.html.bg linux-netherlands.html.en linux-netherlands.html.fr linux-netherlands.html.id linux-netherlands.html.it linux-netherlands.html.nl linux-netherlands.html.po linux-netherlands.html.sl linux-netherlands.html.ru linux-netherlands.var macosx-netherlands.html.bg macosx-netherlands.html.en macosx-netherlands.html.fr macosx-netherlands.html.id macosx-netherlands.html.it macosx-netherlands.html.nl macosx-netherlands.html.po macosx-netherlands.html.sl macosx-netherlands.html.ru macosx-netherlands.var win32-netherlands.html.bg win32-netherlands.html.en win32-netherlands.html.fr win32-netherlands.html.id win32-netherlands.html.it win32-netherlands.html.nl win32-netherlands.html.po win32-netherlands.html.sl win32-netherlands.html.ru win32-netherlands.var freebsd-norway.html.bg freebsd-norway.html.en freebsd-norway.html.fr freebsd-norway.html.id freebsd-norway.html.it freebsd-norway.html.nl freebsd-norway.html.po freebsd-norway.html.sl freebsd-norway.html.ru freebsd-norway.var go32v2-norway.html.bg go32v2-norway.html.en go32v2-norway.html.fr go32v2-norway.html.id go32v2-norway.html.it go32v2-norway.html.nl go32v2-norway.html.po go32v2-norway.html.sl go32v2-norway.html.ru go32v2-norway.var linux-norway.html.bg linux-norway.html.en linux-norway.html.fr linux-norway.html.id linux-norway.html.it linux-norway.html.nl linux-norway.html.po linux-norway.html.sl linux-norway.html.ru linux-norway.var macosx-norway.html.bg macosx-norway.html.en macosx-norway.html.fr macosx-norway.html.id macosx-norway.html.it macosx-norway.html.nl macosx-norway.html.po macosx-norway.html.sl macosx-norway.html.ru macosx-norway.var win32-norway.html.bg win32-norway.html.en win32-norway.html.fr win32-norway.html.id win32-norway.html.it win32-norway.html.nl win32-norway.html.po win32-norway.html.sl win32-norway.html.ru win32-norway.var freebsd-russia.html.bg freebsd-russia.html.en freebsd-russia.html.fr freebsd-russia.html.id freebsd-russia.html.it freebsd-russia.html.nl freebsd-russia.html.po freebsd-russia.html.sl freebsd-russia.html.ru freebsd-russia.var go32v2-russia.html.bg go32v2-russia.html.en go32v2-russia.html.fr go32v2-russia.html.id go32v2-russia.html.it go32v2-russia.html.nl go32v2-russia.html.po go32v2-russia.html.sl go32v2-russia.html.ru go32v2-russia.var linux-russia.html.bg linux-russia.html.en linux-russia.html.fr linux-russia.html.id linux-russia.html.it linux-russia.html.nl linux-russia.html.po linux-russia.html.sl linux-russia.html.ru linux-russia.var macosx-russia.html.bg macosx-russia.html.en macosx-russia.html.fr macosx-russia.html.id macosx-russia.html.it macosx-russia.html.nl macosx-russia.html.po macosx-russia.html.sl macosx-russia.html.ru macosx-russia.var win32-russia.html.bg win32-russia.html.en win32-russia.html.fr win32-russia.html.id win32-russia.html.it win32-russia.html.nl win32-russia.html.po win32-russia.html.sl win32-russia.html.ru win32-russia.var freebsd-ftp.freepascal.org.html.bg freebsd-ftp.freepascal.org.html.en freebsd-ftp.freepascal.org.html.fr freebsd-ftp.freepascal.org.html.id freebsd-ftp.freepascal.org.html.it freebsd-ftp.freepascal.org.html.nl freebsd-ftp.freepascal.org.html.po freebsd-ftp.freepascal.org.html.sl freebsd-ftp.freepascal.org.html.ru freebsd-ftp.freepascal.org.var go32v2-ftp.freepascal.org.html.bg go32v2-ftp.freepascal.org.html.en go32v2-ftp.freepascal.org.html.fr go32v2-ftp.freepascal.org.html.id go32v2-ftp.freepascal.org.html.it go32v2-ftp.freepascal.org.html.nl go32v2-ftp.freepascal.org.html.po go32v2-ftp.freepascal.org.html.sl go32v2-ftp.freepascal.org.html.ru go32v2-ftp.freepascal.org.var linux-ftp.freepascal.org.html.bg linux-ftp.freepascal.org.html.en linux-ftp.freepascal.org.html.fr linux-ftp.freepascal.org.html.id linux-ftp.freepascal.org.html.it linux-ftp.freepascal.org.html.nl linux-ftp.freepascal.org.html.po linux-ftp.freepascal.org.html.sl linux-ftp.freepascal.org.html.ru linux-ftp.freepascal.org.var macosx-ftp.freepascal.org.html.bg macosx-ftp.freepascal.org.html.en macosx-ftp.freepascal.org.html.fr macosx-ftp.freepascal.org.html.id macosx-ftp.freepascal.org.html.it macosx-ftp.freepascal.org.html.nl macosx-ftp.freepascal.org.html.po macosx-ftp.freepascal.org.html.sl macosx-ftp.freepascal.org.html.ru macosx-ftp.freepascal.org.var win32-ftp.freepascal.org.html.bg win32-ftp.freepascal.org.html.en win32-ftp.freepascal.org.html.fr win32-ftp.freepascal.org.html.id win32-ftp.freepascal.org.html.it win32-ftp.freepascal.org.html.nl win32-ftp.freepascal.org.html.po win32-ftp.freepascal.org.html.sl win32-ftp.freepascal.org.html.ru win32-ftp.freepascal.org.var freebsd.html.bg freebsd.html.en freebsd.html.fr freebsd.html.id freebsd.html.it freebsd.html.nl freebsd.html.po freebsd.html.sl freebsd.html.ru freebsd.var go32v2.html.bg go32v2.html.en go32v2.html.fr go32v2.html.id go32v2.html.it go32v2.html.nl go32v2.html.po go32v2.html.sl go32v2.html.ru go32v2.var linux.html.bg linux.html.en linux.html.fr linux.html.id linux.html.it linux.html.nl linux.html.po linux.html.sl linux.html.ru linux.var macosx.html.bg macosx.html.en macosx.html.fr macosx.html.id macosx.html.it macosx.html.nl macosx.html.po macosx.html.sl macosx.html.ru macosx.var win32.html.bg win32.html.en win32.html.fr win32.html.id win32.html.it win32.html.nl win32.html.po win32.html.sl win32.html.ru win32.var
+all_en_pages: mirrors.dat freebsd-australia.html go32v2-australia.html linux-australia.html macosx-australia.html win32-australia.html freebsd-austria.html go32v2-austria.html linux-austria.html macosx-austria.html win32-austria.html freebsd-hungary.html go32v2-hungary.html linux-hungary.html macosx-hungary.html win32-hungary.html freebsd-israel.html go32v2-israel.html linux-israel.html macosx-israel.html win32-israel.html freebsd-netherlands.html go32v2-netherlands.html linux-netherlands.html macosx-netherlands.html win32-netherlands.html freebsd-norway.html go32v2-norway.html linux-norway.html macosx-norway.html win32-norway.html freebsd-russia.html go32v2-russia.html linux-russia.html macosx-russia.html win32-russia.html freebsd-ftp.freepascal.org.html go32v2-ftp.freepascal.org.html linux-ftp.freepascal.org.html macosx-ftp.freepascal.org.html win32-ftp.freepascal.org.html
 
 
 # clean
