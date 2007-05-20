@@ -304,10 +304,12 @@ tar: all
 \ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 
 zip: all
-\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
+\tzip htmls.zip -T file_list \$(OTHERFILES)
 
 english_tar: english
-\ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
+\ttar -czf htmls.tar.gz -T file_list \$(OTHERFILES)
 
 english_zip: english
 \tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
