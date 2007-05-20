@@ -210,6 +210,12 @@ foreach page $mirror_pages {
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $templatemirror"
         lappend all_pages $html_file
     }
+    # Generate rule for English only file.
+    set catalog "${catalog_dir}catalog.en.adp"
+    set html_file "${rootname}.html"
+    puts "$html_file: ${templatemirror} mirrors.dat ${master-template} ${catalog}"
+    puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $templatemirror"
+    lappend all_pages $html_file
     # Generate var file
     set var_file "${rootname}.var"
     lappend all_pages $var_file
