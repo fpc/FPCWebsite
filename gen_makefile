@@ -301,11 +301,11 @@ clean_tools:
 
 # archives (unix only)
 tar: all
-\ttar -czf htmls.tar.gz `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
+\ttar -czf htmls.tar.gz -T file_list \$(OTHERFILES)
 
 zip: all
-\tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
-\tzip htmls.zip -T file_list \$(OTHERFILES)
+\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 
 english_tar: english
 \tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
