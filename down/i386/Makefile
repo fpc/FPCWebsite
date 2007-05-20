@@ -2881,7 +2881,7 @@ freebsd.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp .
 freebsd.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o freebsd.html.ru -oe iso-8859-5 ../../templatemirror.adp
 freebsd.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o freebsd.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=freebsd -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o freebsd.html -oe ISO-8859-1 ../../templatemirror.adp
 freebsd.var: gen_makefile.conf
 	echo > freebsd.var
 	echo 'URI: freebsd.html.bg' >> freebsd.var
@@ -2940,7 +2940,7 @@ go32v2.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ..
 go32v2.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=go32v2 -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o go32v2.html.ru -oe iso-8859-5 ../../templatemirror.adp
 go32v2.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=go32v2 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o go32v2.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=go32v2 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o go32v2.html -oe ISO-8859-1 ../../templatemirror.adp
 go32v2.var: gen_makefile.conf
 	echo > go32v2.var
 	echo 'URI: go32v2.html.bg' >> go32v2.var
@@ -2999,7 +2999,7 @@ linux.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
 linux.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -oe ISO-8859-1 ../../templatemirror.adp
 linux.var: gen_makefile.conf
 	echo > linux.var
 	echo 'URI: linux.html.bg' >> linux.var
@@ -3058,7 +3058,7 @@ netware.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp .
 netware.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=netware -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o netware.html.ru -oe iso-8859-5 ../../templatemirror.adp
 netware.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=netware -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o netware.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=netware -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o netware.html -oe ISO-8859-1 ../../templatemirror.adp
 netware.var: gen_makefile.conf
 	echo > netware.var
 	echo 'URI: netware.html.bg' >> netware.var
@@ -3117,7 +3117,7 @@ os2.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../..
 os2.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=os2 -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o os2.html.ru -oe iso-8859-5 ../../templatemirror.adp
 os2.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=os2 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o os2.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=os2 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o os2.html -oe ISO-8859-1 ../../templatemirror.adp
 os2.var: gen_makefile.conf
 	echo > os2.var
 	echo 'URI: os2.html.bg' >> os2.var
@@ -3176,7 +3176,7 @@ win32.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 win32.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o win32.html.ru -oe iso-8859-5 ../../templatemirror.adp
 win32.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=win32 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o win32.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=win32 -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o win32.html -oe ISO-8859-1 ../../templatemirror.adp
 win32.var: gen_makefile.conf
 	echo > win32.var
 	echo 'URI: win32.html.bg' >> win32.var

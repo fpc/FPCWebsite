@@ -214,7 +214,7 @@ foreach page $mirror_pages {
     set catalog "${catalog_dir}catalog.en.adp"
     set html_file "${rootname}.html"
     puts "$html_file: ${templatemirror} mirrors.dat ${master-template} ${catalog}"
-    puts "\t$adp2html -p x=\$(URL_EXTENSION) -p pagename=${rootname} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $templatemirror"
+    puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -p pagename=${rootname} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $templatemirror"
     lappend en_only_pages $html_file
     # Generate var file
     set var_file "${rootname}.var"

@@ -1937,7 +1937,7 @@ gba.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../..
 gba.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=gba -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o gba.html.ru -oe iso-8859-5 ../../templatemirror.adp
 gba.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=gba -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o gba.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=gba -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o gba.html -oe ISO-8859-1 ../../templatemirror.adp
 gba.var: gen_makefile.conf
 	echo > gba.var
 	echo 'URI: gba.html.bg' >> gba.var
@@ -1996,7 +1996,7 @@ linux.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
 linux.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -oe ISO-8859-1 ../../templatemirror.adp
 linux.var: gen_makefile.conf
 	echo > linux.var
 	echo 'URI: linux.html.bg' >> linux.var
@@ -2055,7 +2055,7 @@ nds.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../..
 nds.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=nds -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o nds.html.ru -oe iso-8859-5 ../../templatemirror.adp
 nds.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=nds -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o nds.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=nds -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o nds.html -oe ISO-8859-1 ../../templatemirror.adp
 nds.var: gen_makefile.conf
 	echo > nds.var
 	echo 'URI: nds.html.bg' >> nds.var
@@ -2114,7 +2114,7 @@ wince.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../
 wince.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=wince -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o wince.html.ru -oe iso-8859-5 ../../templatemirror.adp
 wince.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=wince -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o wince.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=wince -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o wince.html -oe ISO-8859-1 ../../templatemirror.adp
 wince.var: gen_makefile.conf
 	echo > wince.var
 	echo 'URI: wince.html.bg' >> wince.var

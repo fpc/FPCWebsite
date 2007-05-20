@@ -521,7 +521,7 @@ sources.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp .
 sources.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o sources.html.ru -oe iso-8859-5 ../../templatemirror.adp
 sources.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sources.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=sources -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sources.html -oe ISO-8859-1 ../../templatemirror.adp
 sources.var: gen_makefile.conf
 	echo > sources.var
 	echo 'URI: sources.html.bg' >> sources.var
