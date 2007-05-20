@@ -1305,7 +1305,7 @@ down_all_en:
 	$(MAKE) -C down english
 
 down2_all_en:
-	$(MAKE) -C down english
+	$(MAKE) -C down2 english
 
 fcl_all_en:
 	$(MAKE) -C fcl english
