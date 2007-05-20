@@ -93,7 +93,10 @@
 <ul>
     <li>arm
     <ul>
+      <li><a href="down2/arm/gba@x@">Game Boy Advance</a>
       <li><a href="down2/arm/linux@x@">Linux</a>
+      <li><a href="down2/arm/nds@x@">Nintendo DS</a>
+      <li><a href="down2/arm/wince@x@">Windows CE</a>
     </ul>
   <li>intel/i386
     <ul>
