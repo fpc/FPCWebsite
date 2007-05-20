@@ -22,7 +22,7 @@
 <ul>
 <li>
 <trn key="website.You_can_download_installer_beta" locale="en_US">You can download the installer</trn>:
-<a href="@mirror_url@beta/2.1.4/i386-win32/fpc-2.1.4.arm-wince.exe">fpc-2.1.4.arm-wince.exe</a> (31 MB)
+<a href="@mirror_url@beta/2.1.4/arm-wince/fpc-2.1.4.arm-wince.exe">fpc-2.1.4.arm-wince.exe</a> (31 MB)
 </ul>
 
 <hr>
