@@ -136,6 +136,9 @@ Base files (program and units):
 <TRN locale="ru_RU" key="website.Binary_packages">
 Собранные пакеты
 </TRN>
+<TRN locale="ru_RU" key="website.Bugtracker">
+Поиск ошибок
+</TRN>
 <TRN locale="ru_RU" key="website.can_download_for_platform">
 Вы можете скачать выпуск версии 2.0.x для следующих процессоров и операционных систем:
   
@@ -283,6 +286,9 @@ FPC на Mac
 </TRN>
 <TRN locale="ru_RU" key="website.It_is_available_in">
 Доступен в различных форматах:
+</TRN>
+<TRN locale="ru_RU" key="website.Known_Problems">
+Известные сложности
 </TRN>
 <TRN locale="ru_RU" key="website.latest_news">
 Последние новости
@@ -452,6 +458,9 @@ RPM (Redhat Package Manager &mdash; управление пакетами Redhat
 </TRN>
 <TRN locale="ru_RU" key="website.UNIX_rel_inf">
 Относящееся к UNIX
+</TRN>
+<TRN locale="ru_RU" key="website.Wiki">
+Вики
 </TRN>
 <TRN locale="ru_RU" key="website.Windows_rel_inf">
 Относящееся к Windows

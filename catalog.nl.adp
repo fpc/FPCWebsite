@@ -1475,3 +1475,51 @@ De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans,
 <P>
 Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
 </TRN>
+<TRN locale="nl_NL" key="website.q_accessing_io_ports">
+Toegang krijgen tot I/O-poorten
+</TRN>
+<TRN locale="nl_NL" key="website.q_change_dos_stacksize">
+De standaard stackgrootte aanpassen
+</TRN>
+<TRN locale="nl_NL" key="website.a_accessing_io_ports">
+<p>Versies ouder dan 0.99.10: als je onder DOS programmeert kun je de 
+procedures <TT>outport*</TT> en <TT>inport*</TT> uit de <TT>go32</TT>-unit gebruiken.
+
+<p>Sedert versie 0.99.8, wordt de <TT>port</TT>-array ondersteund zoals in TP. Hiertoe dien je wel de unit <TT>ports</TT> te gebruiken in je programma (niet beschikbaar op alle platformen, onder andere niet op Win32).
+<P>Voor Linux geldt dat het mogelijk is poorten, inclusief de <TT>ports</TT> unit te gebruiken, mits je de programma's met rootprivileges uitvoert. Raadpleeg de handleidingen voor de procedures IOPerm, ReadPort en WritePort procedures. (In de unit x86) 
+
+</TRN>
+<TRN locale="nl_NL" key="website.a_change_dos_stacksize">
+<p>Onder DOS (GO32V2), wordt de standaard stackgrootte gezet op 256 kilobyte. Je kunt dit aanpassen met een speciaal DJGPP-programmaatje genaamd <TT>stubedit</TT>. Er dient vermeld te worden dat de stack ook aangepast kan worden met compileropties. Indien deze stackgrootte groter is dan de standaard stackgrootte zal deze gebruikt worden, anders wordt de standaard stackgrootte gebruikt.
+</TRN>
+<TRN locale="nl_NL" key="website.q_os2_apps_under_dos">
+OS/2-gegenereerde applicaties onder DOS gebruiken
+</TRN>
+<TRN locale="nl_NL" key="website.a_os2_apps_under_dos">
+<p>OS/2-applicaties (daarbij inbegrepen de compiler zelf) gemaakt met versie 1.0.x en eerder zouden correct onder een eenvoudige DOS moeten draaien, gezien ze op EMX zijn gebaseerd (versies ouder dan 1.0.5 hadden grote problemen met EMX onder DOS, dit is nu opgelost). Merk op dat de gecompileerde programma's de EMX-runtimebestanden nodig hebben (<TT>emx.exe</TT>) om te kunnen draaien. Het kan noodzakelijk zijn om deze bestanden met de gegenereerde applicatie meet te leveren.
+<p>Programma's gemaakt met versie 1.9.x en nieuwer voor het bestemmingsplatform OS2 kunnen niet meer onder DOS draaien omdat zij rechtstreeks de OS/2-API aanspreken die niet beschikbaar is onder de extender - je dient voor een nieuw toegevoegd EMX-bestemmingsplatform te compileren. Aldus gecompileerde programma's hebben het vermogen om op beide platformen te draaien.
+
+</TRN>
+<TRN locale="nl_NL" key="website.q_win_release">
+Software uitgeven gegenereerd met de Windows-compiler
+</TRN>
+<TRN locale="nl_NL" key="website.a_win_release">
+<p>Er zijn geen speciale eisen om software voor het Windowsplatform te kunnen uitgeven, dit zou zonder enige poespas moeten werken op het systeem van de gebruiker. De volgende puntjes zijn standaard op het Windowsplatform:
+<ul>
+<li>De standaard heapgrootte is 256 kilobytes. De heap kan automatisch groeien. Opgemerkt dient te worden dat  Windows 95, Windows 98 en Windows Me de heap tot 256 megabyte beperken
+(dit is een beperking van deze besturingssystemen, niet van Free Pascal, raadpleeg consult MSDN-artikel Q198959 voor meer informatie).
+<li>De stackgrootte is onbeperkt
+<li>Stackcontrole is niet beschikbaar op dit platform.
+</ul>
+          
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070520">
+Na jaren ontwikkeling aan de nieuwe FPC versie 2.2 is versie <em>2.1.4</em> ook bekend als <em>2.2.0-beta</em> <a href="download@x@#beta">vrijgegeven</a>.
+De beta zal voor ongeveer twee manden beschikbaar zijn, waarna hij door versie 2.2.0 afgelost zal worden. Alle gebruikers worden gevraagd deze uitgave te testen en bugs aan te melden <a href="mantis/set_project.php?project_id=6">
+in de bugtracker</a>. Als je wilt weten of je bug al is opgelost, kan je dat in
+    <a href="mantis/set_project.php?project_id=6">mantis</a>,
+opzoeken of één van de dagelijkse momentopnamen gebaseerd de "fixes_2_2"-branch. Op die manier help je ons versie 2.2.0 de meest stabiele versie van Free Pascal tot nog toe te maken. Een lijst van wijzigingen kan 
+    <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">hier</a> gevonden worden. De <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">de mededelingen betreffende deze uitgave</a> zijn ook beschikbaar. Merk op dat er enkele bewuste incompatibiliteiten zijn met eerdere versies, voor een overzicht klik <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
+hier</a>.
+  
+</TRN>
