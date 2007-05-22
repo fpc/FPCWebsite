@@ -87,9 +87,11 @@
 <a name="beta"></a><h2>Official beta releases</h2>
 
 <p>
-  The latest beta is <b>2.1.4</b>.
+  <trn key="website.latest_beta" locale="en_US">The latest beta is <b>2.1.4</b></trn>.
 <p>
-  You can download the 2.1.4 release for the following operating systems:
+  <trn key="website.can_download_for_platform_beta" locale="en_US">
+    You can download the 2.1.4 release for the following operating systems:
+  </trn>
 <ul>
     <li>arm
     <ul>
@@ -124,8 +126,8 @@
 <p>
   Furthermore, you can download the following:
 <ul>
-  <li><a href="down2/docs/docs@x@">Documentation</a> in different formats
-  <li><a href="down2/source/sources@x@">Sources</a>
+  <li><trn key="website.Documentation_in_diff_formats" locale="en_US"><a href="down2/docs/docs@x@">Documentation</a> in different formats</trn>
+  <li><a href="down2/source/sources@x@"><trn key="website.Sources" locale="en_US">Sources</trn></a>
 </ul>
 
 
