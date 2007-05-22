@@ -1513,13 +1513,3 @@ Software uitgeven gegenereerd met de Windows-compiler
 </ul>
           
 </TRN>
-<TRN locale="nl_NL" key="website.news_headline_20070520">
-Na jaren ontwikkeling aan de nieuwe FPC versie 2.2 is versie <em>2.1.4</em> ook bekend als <em>2.2.0-beta</em> <a href="download@x@#beta">vrijgegeven</a>.
-De beta zal voor ongeveer twee manden beschikbaar zijn, waarna hij door versie 2.2.0 afgelost zal worden. Alle gebruikers worden gevraagd deze uitgave te testen en bugs aan te melden <a href="mantis/set_project.php?project_id=6">
-in de bugtracker</a>. Als je wilt weten of je bug al is opgelost, kan je dat in
-    <a href="mantis/set_project.php?project_id=6">mantis</a>,
-opzoeken of één van de dagelijkse momentopnamen gebaseerd de "fixes_2_2"-branch. Op die manier help je ons versie 2.2.0 de meest stabiele versie van Free Pascal tot nog toe te maken. Een lijst van wijzigingen kan 
-    <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">hier</a> gevonden worden. De <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">de mededelingen betreffende deze uitgave</a> zijn ook beschikbaar. Merk op dat er enkele bewuste incompatibiliteiten zijn met eerdere versies, voor een overzicht klik <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
-hier</a>.
-  
-</TRN>
