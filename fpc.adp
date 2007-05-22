@@ -17,8 +17,8 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-    <em>May 20, 2007</em>
   <trn locale="en_US" key="website.news_headline_20070520">
+    <em>May 20, 2007</em>
     After years of development the new fpc version 2.2.0, version <em>2.1.4</em>
     aka <em>2.2.0-beta</em> is <a href="download@x@#beta">released</a>.
     The beta will be available for about two months whereafter 2.2.0 will be released. We ask all
