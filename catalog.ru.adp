@@ -351,6 +351,14 @@ Ido Kanner будет читать лекцию о FPC в <a href="http://haifux
 <TRN locale="ru_RU" key="website.news_headline_20070201">
 <em>1 февраля, 2007</em> Начинается ежегодный конкурс по разработке игр на Паскале (The Pascal Game Development). Тема этого года &mdash; "Мультиплексирование": напишите игру, сочетающую много жанров. Вы же можете написать игру на Free Pascal? Тогда <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>включайтесь!</a>
 </TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070328">
+<em>28 Марта, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> выпустил версию 1.0.0.7 своего WebOS AppsBuilder. Это первая версия AppsBuilder, которая использует FPC.
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070520">
+<em>20 Мая, 2007</em> После долгих лет разработки следующей FPC версии 2.2.0, версия <em>2.1.4</em>, известная как <em>2.2.0-beta</em> <a href="download@x@#beta">выпущена</a>.
+Бета-версия будет доступна около двух месяцев, после чего будет выпущена 2.2.0. Просим всех наших пользователей тестировать этот выпуск, сообщая об ошибках на <a href="mantis/set_project.php?project_id=6">поиск ошибок</a>. Если Вы хотите знать, не исправлена ли уже найденная Вами ошибка, Вы можете поискать информацию в <a href="mantis/set_project.php?project_id=6">mantis</a> или проверить её наличие в ежедневном выпуске, основанном на ветке fixes_2_2. Так что, пожалуйста, помогите нам сделать из версии 2.2.0 самую стабильную версию FreePascal на сегодняшний день. Список изменений можно найти <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">здесь</a>. <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">Замечания о выпуске</a> также доступны. Пожалуйста, обратите внимание на наличие некоторых сознательных несовместимостей с предыдущими версиями, обзор их можно увидеть <a href="http://wiki.freepascal.org/User_Changes_2.2.0">здесь</a>.
+  
+</TRN>
 <TRN locale="ru_RU" key="website.Official_releases">
 Официальные выпуски
 </TRN>

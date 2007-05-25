@@ -2396,3 +2396,14 @@ INSTALL.EXE of version 1.0.6 returns errors under some version of Windows
     here</a>.
   
 </TRN>
+<TRN locale="en_US" key="website.latest_beta">
+The latest beta is <b>2.1.4</b>
+</TRN>
+<TRN locale="en_US" key="website.can_download_for_platform_beta">
+
+    You can download the 2.1.4 release for the following operating systems:
+  
+</TRN>
+<TRN locale="en_US" key="website.Documentation_in_diff_formats">
+<a href="down2/docs/docs@x@">Documentation</a> in different formats
+</TRN>
