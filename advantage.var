@@ -1,37 +1,31 @@
 
 URI: advantage.html.bg
 Content-language: bg
-Content-type: text/html; charset=iso-8859-5
 
 URI: advantage.html.en
 Content-language: en
-Content-type: text/html; charset=iso-8859-1
+
+URI: advantage.html.fi
+Content-language: fi
 
 URI: advantage.html.fr
 Content-language: fr
-Content-type: text/html; charset=iso-8859-1
 
 URI: advantage.html.id
 Content-language: id
-Content-type: text/html; charset=iso-8859-1
 
 URI: advantage.html.it
 Content-language: it
-Content-type: text/html; charset=iso-8859-1
 
 URI: advantage.html.nl
 Content-language: nl
-Content-type: text/html; charset=iso-8859-1
 
 URI: advantage.html.po
 Content-language: pl
-Content-type: text/html; charset=iso-8859-2
 
 URI: advantage.html.sl
 Content-language: sl
-Content-type: text/html; charset=iso-8859-2
 
 URI: advantage.html.ru
 Content-language: ru
-Content-type: text/html; charset=iso-8859-5
 

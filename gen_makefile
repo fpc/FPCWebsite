@@ -11,11 +11,11 @@ source gen_makefile.conf
 
 #Try to detect the location of the catalog file
 if {[file exists "catalog.en.adp"]} then {
-    set catalog_dir "./"
+    set main_dir "./"
 } elseif {[file exists "../catalog.en.adp"]} then {
-    set catalog_dir "../"
+    set main_dir "../"
 } elseif {[file exists "../../catalog.en.adp"]} then {
-    set catalog_dir "../../"
+    set main_dir "../../"
 }
 
 #Try to detect the location of the master template
@@ -56,6 +56,16 @@ if $subdir then {
     }
 } else {
     set adp2html ./adp2html
+}
+
+#Determine build directory
+if {[string index $build_dir 0] eq "/"} then {
+    set output_dir $build_dir
+} else {
+    set output_dir "${main_dir}${build_dir}"
+}
+if [info exists this_directory] then {
+    append output_dir / $this_directory
 }
 
 #Put some variables in Makefile
@@ -106,30 +116,30 @@ foreach page $pages {
     set rootname [file rootname $page]
     # Generate html files
     foreach language $languages {
-        set catalog "${catalog_dir}catalog.${language}.adp"
+        set catalog "${main_dir}catalog.${language}.adp"
         if [info exists language_fileext($language)] then {
             set fileext $language_fileext($language)
         } else {
             set fileext $language
         }
         set html_file "$rootname.html.$fileext"
-        puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
-        puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
+        puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $output_dir/$html_file -oe $language_encoding($language) $page"
         lappend all_pages $html_file
     }
     
     # Generate rule for English only file.
-    set catalog "${catalog_dir}catalog.en.adp"
+    set catalog "${main_dir}catalog.en.adp"
     set html_file "$rootname.html"
-    puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
-    puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $page"
+    puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+    puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -c $catalog -l en_US -m ${master-template} -o $output_dir/$html_file -oe ISO-8859-1 $page"
     lappend en_only_pages $html_file
 
     puts ""
     # Generate var file
     set var_file "${rootname}.var"
     lappend all_pages $var_file
-    puts "$var_file: gen_makefile.conf"
+    puts "$var_file: gen_makefile.conf ${output_dir}"
     puts "\techo > $var_file"
     foreach language $languages {
         if [info exists language_fileext($language)] then {
@@ -140,7 +150,7 @@ foreach page $pages {
         set html_file "$rootname.html.$fileext"
         puts "\techo 'URI: $html_file' >> $var_file"
         puts "\techo 'Content-language: $language' >> $var_file"
-        puts "\techo 'Content-type: text/html; charset=$language_encoding($language)' >> $var_file"
+        puts "\techo 'Content-type: text/html; charset=$language_encoding($language)' >> ${output_dir}/$var_file"
         puts "\techo >> $var_file"
     }
 }
@@ -154,30 +164,30 @@ foreach mirror $mirrors {
         set rootname [file rootname $page]
         # Generate html files
         foreach language $languages {
-            set catalog "${catalog_dir}catalog.${language}.adp"
+            set catalog "${main_dir}catalog.${language}.adp"
             if [info exists language_fileext($language)] then {
                 set fileext $language_fileext($language)
             } else {
                 set fileext $language
             }
             set html_file "${rootname}-${small_mirror_name}.html.${fileext}"
-            puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
-            puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l $language_locale($language) -m ${master-template} -o $html_file -oe $language_encoding($language) $page"
+            puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+            puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l $language_locale($language) -m ${master-template} -o $output_dir/$html_file -oe $language_encoding($language) $page"
             lappend all_pages $html_file
         }
 
         # Generate rule for English only file.
-        set catalog "${catalog_dir}catalog.en.adp"
+        set catalog "${main_dir}catalog.en.adp"
         set html_file "${rootname}-${small_mirror_name}.html"
-        puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
-        puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $page"
+        puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+        puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l en_US -m ${master-template} -o $output_dir/$html_file -oe ISO-8859-1 $page"
         lappend en_only_pages $html_file
 
         puts ""
         # Generate var file
         set var_file "${rootname}-[string tolower $mirror_name].var"
         lappend all_pages $var_file
-        puts "$var_file: gen_makefile.conf"
+        puts "$var_file: gen_makefile.conf ${output_dir}"
         puts "\techo > $var_file"
         foreach language $languages {
             if [info exists language_fileext($language)] then {
@@ -199,7 +209,7 @@ foreach page $mirror_pages {
     puts ""
     # Generate html mirror selector files
     foreach language $languages {
-        set catalog "${catalog_dir}catalog.${language}.adp"
+        set catalog "${main_dir}catalog.${language}.adp"
         if [info exists language_fileext($language)] then {
             set fileext $language_fileext($language)
         } else {
@@ -211,7 +221,7 @@ foreach page $mirror_pages {
         lappend all_pages $html_file
     }
     # Generate rule for English only file.
-    set catalog "${catalog_dir}catalog.en.adp"
+    set catalog "${main_dir}catalog.en.adp"
     set html_file "${rootname}.html"
     puts "$html_file: ${templatemirror} mirrors.dat ${master-template} ${catalog}"
     puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -p pagename=${rootname} -c $catalog -l en_US -m ${master-template} -o $html_file -oe ISO-8859-1 $templatemirror"
@@ -219,7 +229,7 @@ foreach page $mirror_pages {
     # Generate var file
     set var_file "${rootname}.var"
     lappend all_pages $var_file
-    puts "$var_file: gen_makefile.conf"
+    puts "$var_file: gen_makefile.conf ${output_dir}"
     puts "\techo > $var_file"
     foreach language $languages {
         if [info exists language_fileext($language)] then {
@@ -260,12 +270,20 @@ if $subdir {
 # clean
 clean:
 \trm -f *.html.* *.var mirrors.dat
+
+#output directory
+$output_dir:
+\tmkdir -p $output_dir
 "
 } else {
     puts "
 #adp2html tool
 \$(ADP2HTML): adp2html.pp
 \t\$(PP) \$(OPT) -Xs adp2html.pp
+
+#output directory
+$output_dir:
+\tmkdir -p $output_dir
 
 # down subdir
 down_all:
@@ -308,16 +326,16 @@ clean_tools:
 # archives (unix only)
 tar: all
 \tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
-\ttar -czf htmls.tar.gz -T file_list \$(OTHERFILES)
+\ttar -C $output_dir -czf htmls.tar.gz -T file_list \$(OTHERFILES)
 
 zip: all
-\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tzip ${main_dir}htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 
 english_tar: english
 \tfind -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg' > file_list
-\ttar -czf htmls.tar.gz -T file_list \$(OTHERFILES)
+\ttar -czf ${main_dir}htmls.tar.gz -T file_list \$(OTHERFILES)
 
 english_zip: english
-\tzip htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
+\tzip ${main_dir}htmls.zip `find -name '*.html' -or -name '*.html.*' -or -name '*.var' -or -name '*.gif' -or -name '*.png' -or -name '*.css' -or -name '*.jpg'` \$(OTHERFILES)
 "
 }
