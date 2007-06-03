@@ -97,15 +97,15 @@ ifndef PP
 endif
 "
 if $subdir {
-    puts ".PHONY: all all_pages clean"
+    puts ".PHONY: all all_pages clean output_directory"
     puts "default: all"
-    puts "all: all_pages"
-    puts "english: all_en_pages"
+    puts "all: all_pages output_directory"
+    puts "english: all_en_pages output_directory"
 } else {
-    puts ".PHONY: all all_pages clean zip tar"
+    puts ".PHONY: all all_pages clean zip tar output_directory"
     puts "default: all"
-    puts "all: \$(ADP2HTML) all_pages down_all down2_all fcl_all tools_all"
-    puts "english: \$(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_en"
+    puts "all: \$(ADP2HTML) all_pages down_all down2_all fcl_all tools_all output_directory"
+    puts "english: \$(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_en output_directory"
 }
 
 set all ""
@@ -123,7 +123,7 @@ foreach page $pages {
             set fileext $language
         }
         set html_file "$rootname.html.$fileext"
-        puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+        puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
         puts "\t$adp2html -p x=\$(URL_EXTENSION) -c $catalog -l $language_locale($language) -m ${master-template} -o $output_dir/$html_file -oe $language_encoding($language) $page"
         lappend all_pages $html_file
     }
@@ -131,7 +131,7 @@ foreach page $pages {
     # Generate rule for English only file.
     set catalog "${main_dir}catalog.en.adp"
     set html_file "$rootname.html"
-    puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+    puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
     puts "\t$adp2html -p x=\$(URL_EXTENSION_EN) -c $catalog -l en_US -m ${master-template} -o $output_dir/$html_file -oe ISO-8859-1 $page"
     lappend en_only_pages $html_file
 
@@ -139,7 +139,7 @@ foreach page $pages {
     # Generate var file
     set var_file "${rootname}.var"
     lappend all_pages $var_file
-    puts "$var_file: gen_makefile.conf ${output_dir}"
+    puts "$var_file: gen_makefile.conf"
     puts "\techo > $var_file"
     foreach language $languages {
         if [info exists language_fileext($language)] then {
@@ -171,7 +171,7 @@ foreach mirror $mirrors {
                 set fileext $language
             }
             set html_file "${rootname}-${small_mirror_name}.html.${fileext}"
-            puts "$html_file: $page ${master-template} ${site-template} ${catalog} ${output_dir}"
+            puts "$html_file: $page ${master-template} ${site-template} ${catalog}"
             puts "\t$adp2html -p x=\$(URL_EXTENSION) -p mirror_url=${mirror_url} -p mirrorsuffix=${small_mirror_name} -c $catalog -l $language_locale($language) -m ${master-template} -o $output_dir/$html_file -oe $language_encoding($language) $page"
             lappend all_pages $html_file
         }
@@ -187,7 +187,7 @@ foreach mirror $mirrors {
         # Generate var file
         set var_file "${rootname}-[string tolower $mirror_name].var"
         lappend all_pages $var_file
-        puts "$var_file: gen_makefile.conf ${output_dir}"
+        puts "$var_file: gen_makefile.conf"
         puts "\techo > $var_file"
         foreach language $languages {
             if [info exists language_fileext($language)] then {
@@ -229,7 +229,7 @@ foreach page $mirror_pages {
     # Generate var file
     set var_file "${rootname}.var"
     lappend all_pages $var_file
-    puts "$var_file: gen_makefile.conf ${output_dir}"
+    puts "$var_file: gen_makefile.conf"
     puts "\techo > $var_file"
     foreach language $languages {
         if [info exists language_fileext($language)] then {
@@ -282,7 +282,7 @@ $output_dir:
 \t\$(PP) \$(OPT) -Xs adp2html.pp
 
 #output directory
-$output_dir:
+output_directory:
 \tmkdir -p $output_dir
 
 # down subdir

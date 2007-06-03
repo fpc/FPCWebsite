@@ -25,34 +25,34 @@ ifndef PP
  PP=fpc
 endif
 
-.PHONY: all all_pages clean
+.PHONY: all all_pages clean output_directory
 default: all
-all: all_pages
-english: all_en_pages
-fcl.html.bg: fcl.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp ..//fcl
+all: all_pages output_directory
+english: all_en_pages output_directory
+fcl.html.bg: fcl.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//fcl/fcl.html.bg -oe iso-8859-5 fcl.adp
-fcl.html.en: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp ..//fcl
+fcl.html.en: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//fcl/fcl.html.en -oe iso-8859-1 fcl.adp
-fcl.html.fi: fcl.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp ..//fcl
+fcl.html.fi: fcl.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//fcl/fcl.html.fi -oe iso-8859-1 fcl.adp
-fcl.html.fr: fcl.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp ..//fcl
+fcl.html.fr: fcl.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//fcl/fcl.html.fr -oe iso-8859-1 fcl.adp
-fcl.html.id: fcl.adp ../default-master.adp ../site-master.adp ../catalog.id.adp ..//fcl
+fcl.html.id: fcl.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//fcl/fcl.html.id -oe iso-8859-1 fcl.adp
-fcl.html.it: fcl.adp ../default-master.adp ../site-master.adp ../catalog.it.adp ..//fcl
+fcl.html.it: fcl.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//fcl/fcl.html.it -oe iso-8859-1 fcl.adp
-fcl.html.nl: fcl.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp ..//fcl
+fcl.html.nl: fcl.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//fcl/fcl.html.nl -oe iso-8859-1 fcl.adp
-fcl.html.po: fcl.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp ..//fcl
+fcl.html.po: fcl.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//fcl/fcl.html.po -oe iso-8859-2 fcl.adp
-fcl.html.sl: fcl.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp ..//fcl
+fcl.html.sl: fcl.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//fcl/fcl.html.sl -oe iso-8859-2 fcl.adp
-fcl.html.ru: fcl.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp ..//fcl
+fcl.html.ru: fcl.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//fcl/fcl.html.ru -oe iso-8859-5 fcl.adp
-fcl.html: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp ..//fcl
+fcl.html: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//fcl/fcl.html -oe ISO-8859-1 fcl.adp
 
-fcl.var: gen_makefile.conf ..//fcl
+fcl.var: gen_makefile.conf
 	echo > fcl.var
 	echo 'URI: fcl.html.bg' >> fcl.var
 	echo 'Content-language: bg' >> fcl.var
