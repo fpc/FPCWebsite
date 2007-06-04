@@ -69,6 +69,22 @@ adp2html takes several commandline options
 -o outputfile          Specify the name of the html file
 -oe output_encoding    Specify the character encoding of the output file
 
+
+Adding a page:
+--------------
+
+* Create the page
+* Add it to generate_makefile.conf
+* Regenerate the Makefile using "/path/to/generate_makefile > Makefile"
+
+Adding a directory:
+-------------------
+
+* Create the directory.
+* Create a generate_makefile.conf. Use another directory as example.
+* Modify the generate_makefile script by adding a rule to descent into the
+  subdirectory. Search for "down_all" for an example.
+
 MakeIdx tool:
 -------------
 

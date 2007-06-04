@@ -2,7 +2,7 @@
 # Simply pass on.
 #
 export EXE inlinux PWD MV RM 
-DIRS=arm i386 powerpc sparc m68k x86_64 docs old source
+DIRS=arm i386 powerpc powerpc64 sparc m68k x86_64 docs old source
 .PHONY: $(DIRS) all clean makefiles
 default: all
 
