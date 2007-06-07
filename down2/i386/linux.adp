@@ -25,7 +25,7 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.i386-linux_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/i386-linux/fpc-2.1.4.i386-linux.tar">fpc-2.1.4.i386-linux.tar</a> (30 MB)
+<li><trn key="website.i386-linux_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/i386-linux/fpc-2.1.4a.i386-linux.tar">fpc-2.1.4a.i386-linux.tar</a> (30 MB)
   contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script 
   by issuing the command "<tt>sh install.sh</tt>".
@@ -37,7 +37,7 @@ It is available in different formats:
 <ul>
 <li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
 <li> <trn key="website.i386-linux_rpm_download_descr_beta" locale="en_US">
-       <a href="@mirror_url@beta/2.1.4/i386-linux/rpm/fpc-2.1.4-0.i386.rpm">fpc-2.1.4-0.i386.rpm</a> (21 MB)
+       <a href="@mirror_url@beta/2.1.4/i386-linux/rpm/fpc-2.1.4a-0.i386.rpm">fpc-2.1.4a-0.i386.rpm</a> (21 MB)
        contains the compiler, utils, RTL and all units. <br>
      </trn>
 <li> <trn key="website.i386-linux_rpm_docs_download_descr_beta" locale="en_US">
@@ -54,7 +54,7 @@ It is available in different formats:
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.</trn></em>
 <ul>
 <li><trn key="website.i386-linux_deb_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/i386-linux/deb/">This directory</a> contains
-     the unofficial debian .deb packages.<br>
+     the unofficial debian .deb packages. Unlike the .tar and .rpm releases, the deb packages cannot debug in the IDE.<br>
   </trn>
 </ul>
 
