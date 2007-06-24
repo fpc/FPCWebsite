@@ -50,7 +50,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./aboutus.html.ru: aboutus.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//aboutus.html.ru -oe iso-8859-5 aboutus.adp
 ./aboutus.html.zh: aboutus.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//aboutus.html.zh -oe unicode aboutus.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//aboutus.html.zh -oe utf-16 aboutus.adp
 ./aboutus.html: aboutus.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//aboutus.html -oe ISO-8859-1 aboutus.adp
 
@@ -98,7 +98,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> aboutus.var
 	echo 'URI: aboutus.html.zh' >> aboutus.var
 	echo 'Content-language: zh' >> aboutus.var
-	echo 'Content-type: text/html; charset=unicode' >> .//aboutus.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//aboutus.var
 	echo >> aboutus.var
 ./advantage.html.bg: advantage.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//advantage.html.bg -oe iso-8859-5 advantage.adp
@@ -121,7 +121,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./advantage.html.ru: advantage.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//advantage.html.ru -oe iso-8859-5 advantage.adp
 ./advantage.html.zh: advantage.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//advantage.html.zh -oe unicode advantage.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//advantage.html.zh -oe utf-16 advantage.adp
 ./advantage.html: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//advantage.html -oe ISO-8859-1 advantage.adp
 
@@ -169,7 +169,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> advantage.var
 	echo 'URI: advantage.html.zh' >> advantage.var
 	echo 'Content-language: zh' >> advantage.var
-	echo 'Content-type: text/html; charset=unicode' >> .//advantage.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//advantage.var
 	echo >> advantage.var
 ./credits.html.bg: credits.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//credits.html.bg -oe iso-8859-5 credits.adp
@@ -192,7 +192,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./credits.html.ru: credits.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//credits.html.ru -oe iso-8859-5 credits.adp
 ./credits.html.zh: credits.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//credits.html.zh -oe unicode credits.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//credits.html.zh -oe utf-16 credits.adp
 ./credits.html: credits.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//credits.html -oe ISO-8859-1 credits.adp
 
@@ -240,7 +240,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> credits.var
 	echo 'URI: credits.html.zh' >> credits.var
 	echo 'Content-language: zh' >> credits.var
-	echo 'Content-type: text/html; charset=unicode' >> .//credits.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//credits.var
 	echo >> credits.var
 ./develop.html.bg: develop.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//develop.html.bg -oe iso-8859-5 develop.adp
@@ -263,7 +263,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./develop.html.ru: develop.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//develop.html.ru -oe iso-8859-5 develop.adp
 ./develop.html.zh: develop.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//develop.html.zh -oe unicode develop.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//develop.html.zh -oe utf-16 develop.adp
 ./develop.html: develop.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//develop.html -oe ISO-8859-1 develop.adp
 
@@ -311,7 +311,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> develop.var
 	echo 'URI: develop.html.zh' >> develop.var
 	echo 'Content-language: zh' >> develop.var
-	echo 'Content-type: text/html; charset=unicode' >> .//develop.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//develop.var
 	echo >> develop.var
 ./download.html.bg: download.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//download.html.bg -oe iso-8859-5 download.adp
@@ -334,7 +334,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./download.html.ru: download.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//download.html.ru -oe iso-8859-5 download.adp
 ./download.html.zh: download.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//download.html.zh -oe unicode download.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//download.html.zh -oe utf-16 download.adp
 ./download.html: download.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//download.html -oe ISO-8859-1 download.adp
 
@@ -382,7 +382,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> download.var
 	echo 'URI: download.html.zh' >> download.var
 	echo 'Content-language: zh' >> download.var
-	echo 'Content-type: text/html; charset=unicode' >> .//download.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//download.var
 	echo >> download.var
 ./docs.html.bg: docs.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//docs.html.bg -oe iso-8859-5 docs.adp
@@ -405,7 +405,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./docs.html.ru: docs.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//docs.html.ru -oe iso-8859-5 docs.adp
 ./docs.html.zh: docs.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//docs.html.zh -oe unicode docs.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//docs.html.zh -oe utf-16 docs.adp
 ./docs.html: docs.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//docs.html -oe ISO-8859-1 docs.adp
 
@@ -453,7 +453,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> docs.var
 	echo 'URI: docs.html.zh' >> docs.var
 	echo 'Content-language: zh' >> docs.var
-	echo 'Content-type: text/html; charset=unicode' >> .//docs.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//docs.var
 	echo >> docs.var
 ./faq.html.bg: faq.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//faq.html.bg -oe iso-8859-5 faq.adp
@@ -476,7 +476,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./faq.html.ru: faq.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//faq.html.ru -oe iso-8859-5 faq.adp
 ./faq.html.zh: faq.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//faq.html.zh -oe unicode faq.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//faq.html.zh -oe utf-16 faq.adp
 ./faq.html: faq.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//faq.html -oe ISO-8859-1 faq.adp
 
@@ -524,7 +524,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> faq.var
 	echo 'URI: faq.html.zh' >> faq.var
 	echo 'Content-language: zh' >> faq.var
-	echo 'Content-type: text/html; charset=unicode' >> .//faq.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//faq.var
 	echo >> faq.var
 ./fpc.html.bg: fpc.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//fpc.html.bg -oe iso-8859-5 fpc.adp
@@ -547,7 +547,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./fpc.html.ru: fpc.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//fpc.html.ru -oe iso-8859-5 fpc.adp
 ./fpc.html.zh: fpc.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//fpc.html.zh -oe unicode fpc.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//fpc.html.zh -oe utf-16 fpc.adp
 ./fpc.html: fpc.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//fpc.html -oe ISO-8859-1 fpc.adp
 
@@ -595,7 +595,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> fpc.var
 	echo 'URI: fpc.html.zh' >> fpc.var
 	echo 'Content-language: zh' >> fpc.var
-	echo 'Content-type: text/html; charset=unicode' >> .//fpc.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//fpc.var
 	echo >> fpc.var
 ./fpcmac.html.bg: fpcmac.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//fpcmac.html.bg -oe iso-8859-5 fpcmac.adp
@@ -618,7 +618,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./fpcmac.html.ru: fpcmac.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//fpcmac.html.ru -oe iso-8859-5 fpcmac.adp
 ./fpcmac.html.zh: fpcmac.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//fpcmac.html.zh -oe unicode fpcmac.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//fpcmac.html.zh -oe utf-16 fpcmac.adp
 ./fpcmac.html: fpcmac.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//fpcmac.html -oe ISO-8859-1 fpcmac.adp
 
@@ -666,7 +666,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> fpcmac.var
 	echo 'URI: fpcmac.html.zh' >> fpcmac.var
 	echo 'Content-language: zh' >> fpcmac.var
-	echo 'Content-type: text/html; charset=unicode' >> .//fpcmac.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//fpcmac.var
 	echo >> fpcmac.var
 ./future.html.bg: future.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//future.html.bg -oe iso-8859-5 future.adp
@@ -689,7 +689,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./future.html.ru: future.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//future.html.ru -oe iso-8859-5 future.adp
 ./future.html.zh: future.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//future.html.zh -oe unicode future.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//future.html.zh -oe utf-16 future.adp
 ./future.html: future.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//future.html -oe ISO-8859-1 future.adp
 
@@ -737,7 +737,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> future.var
 	echo 'URI: future.html.zh' >> future.var
 	echo 'Content-language: zh' >> future.var
-	echo 'Content-type: text/html; charset=unicode' >> .//future.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//future.var
 	echo >> future.var
 ./lang_howto.html.bg: lang_howto.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//lang_howto.html.bg -oe iso-8859-5 lang_howto.adp
@@ -760,7 +760,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./lang_howto.html.ru: lang_howto.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//lang_howto.html.ru -oe iso-8859-5 lang_howto.adp
 ./lang_howto.html.zh: lang_howto.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//lang_howto.html.zh -oe unicode lang_howto.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//lang_howto.html.zh -oe utf-16 lang_howto.adp
 ./lang_howto.html: lang_howto.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//lang_howto.html -oe ISO-8859-1 lang_howto.adp
 
@@ -808,7 +808,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> lang_howto.var
 	echo 'URI: lang_howto.html.zh' >> lang_howto.var
 	echo 'Content-language: zh' >> lang_howto.var
-	echo 'Content-type: text/html; charset=unicode' >> .//lang_howto.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//lang_howto.var
 	echo >> lang_howto.var
 ./links.html.bg: links.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//links.html.bg -oe iso-8859-5 links.adp
@@ -831,7 +831,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./links.html.ru: links.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//links.html.ru -oe iso-8859-5 links.adp
 ./links.html.zh: links.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//links.html.zh -oe unicode links.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//links.html.zh -oe utf-16 links.adp
 ./links.html: links.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//links.html -oe ISO-8859-1 links.adp
 
@@ -879,7 +879,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> links.var
 	echo 'URI: links.html.zh' >> links.var
 	echo 'Content-language: zh' >> links.var
-	echo 'Content-type: text/html; charset=unicode' >> .//links.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//links.var
 	echo >> links.var
 ./maillist.html.bg: maillist.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//maillist.html.bg -oe iso-8859-5 maillist.adp
@@ -902,7 +902,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./maillist.html.ru: maillist.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//maillist.html.ru -oe iso-8859-5 maillist.adp
 ./maillist.html.zh: maillist.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//maillist.html.zh -oe unicode maillist.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//maillist.html.zh -oe utf-16 maillist.adp
 ./maillist.html: maillist.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//maillist.html -oe ISO-8859-1 maillist.adp
 
@@ -950,7 +950,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> maillist.var
 	echo 'URI: maillist.html.zh' >> maillist.var
 	echo 'Content-language: zh' >> maillist.var
-	echo 'Content-type: text/html; charset=unicode' >> .//maillist.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//maillist.var
 	echo >> maillist.var
 ./mirrors.html.bg: mirrors.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//mirrors.html.bg -oe iso-8859-5 mirrors.adp
@@ -973,7 +973,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./mirrors.html.ru: mirrors.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//mirrors.html.ru -oe iso-8859-5 mirrors.adp
 ./mirrors.html.zh: mirrors.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//mirrors.html.zh -oe unicode mirrors.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//mirrors.html.zh -oe utf-16 mirrors.adp
 ./mirrors.html: mirrors.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//mirrors.html -oe ISO-8859-1 mirrors.adp
 
@@ -1021,7 +1021,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> mirrors.var
 	echo 'URI: mirrors.html.zh' >> mirrors.var
 	echo 'Content-language: zh' >> mirrors.var
-	echo 'Content-type: text/html; charset=unicode' >> .//mirrors.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//mirrors.var
 	echo >> mirrors.var
 ./moreinfo.html.bg: moreinfo.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//moreinfo.html.bg -oe iso-8859-5 moreinfo.adp
@@ -1044,7 +1044,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./moreinfo.html.ru: moreinfo.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//moreinfo.html.ru -oe iso-8859-5 moreinfo.adp
 ./moreinfo.html.zh: moreinfo.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//moreinfo.html.zh -oe unicode moreinfo.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//moreinfo.html.zh -oe utf-16 moreinfo.adp
 ./moreinfo.html: moreinfo.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//moreinfo.html -oe ISO-8859-1 moreinfo.adp
 
@@ -1092,7 +1092,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> moreinfo.var
 	echo 'URI: moreinfo.html.zh' >> moreinfo.var
 	echo 'Content-language: zh' >> moreinfo.var
-	echo 'Content-type: text/html; charset=unicode' >> .//moreinfo.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//moreinfo.var
 	echo >> moreinfo.var
 ./news.html.bg: news.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//news.html.bg -oe iso-8859-5 news.adp
@@ -1115,7 +1115,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./news.html.ru: news.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//news.html.ru -oe iso-8859-5 news.adp
 ./news.html.zh: news.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//news.html.zh -oe unicode news.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//news.html.zh -oe utf-16 news.adp
 ./news.html: news.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//news.html -oe ISO-8859-1 news.adp
 
@@ -1163,7 +1163,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> news.var
 	echo 'URI: news.html.zh' >> news.var
 	echo 'Content-language: zh' >> news.var
-	echo 'Content-type: text/html; charset=unicode' >> .//news.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//news.var
 	echo >> news.var
 ./port.html.bg: port.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//port.html.bg -oe iso-8859-5 port.adp
@@ -1186,7 +1186,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./port.html.ru: port.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//port.html.ru -oe iso-8859-5 port.adp
 ./port.html.zh: port.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//port.html.zh -oe unicode port.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//port.html.zh -oe utf-16 port.adp
 ./port.html: port.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//port.html -oe ISO-8859-1 port.adp
 
@@ -1234,7 +1234,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> port.var
 	echo 'URI: port.html.zh' >> port.var
 	echo 'Content-language: zh' >> port.var
-	echo 'Content-type: text/html; charset=unicode' >> .//port.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//port.var
 	echo >> port.var
 ./prog.html.bg: prog.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//prog.html.bg -oe iso-8859-5 prog.adp
@@ -1257,7 +1257,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./prog.html.ru: prog.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//prog.html.ru -oe iso-8859-5 prog.adp
 ./prog.html.zh: prog.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//prog.html.zh -oe unicode prog.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//prog.html.zh -oe utf-16 prog.adp
 ./prog.html: prog.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//prog.html -oe ISO-8859-1 prog.adp
 
@@ -1305,7 +1305,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> prog.var
 	echo 'URI: prog.html.zh' >> prog.var
 	echo 'Content-language: zh' >> prog.var
-	echo 'Content-type: text/html; charset=unicode' >> .//prog.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//prog.var
 	echo >> prog.var
 ./probs.html.bg: probs.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//probs.html.bg -oe iso-8859-5 probs.adp
@@ -1328,7 +1328,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./probs.html.ru: probs.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//probs.html.ru -oe iso-8859-5 probs.adp
 ./probs.html.zh: probs.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//probs.html.zh -oe unicode probs.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//probs.html.zh -oe utf-16 probs.adp
 ./probs.html: probs.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//probs.html -oe ISO-8859-1 probs.adp
 
@@ -1376,7 +1376,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> probs.var
 	echo 'URI: probs.html.zh' >> probs.var
 	echo 'Content-language: zh' >> probs.var
-	echo 'Content-type: text/html; charset=unicode' >> .//probs.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//probs.var
 	echo >> probs.var
 ./units.html.bg: units.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//units.html.bg -oe iso-8859-5 units.adp
@@ -1399,7 +1399,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./units.html.ru: units.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//units.html.ru -oe iso-8859-5 units.adp
 ./units.html.zh: units.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//units.html.zh -oe unicode units.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//units.html.zh -oe utf-16 units.adp
 ./units.html: units.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//units.html -oe ISO-8859-1 units.adp
 
@@ -1447,7 +1447,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> units.var
 	echo 'URI: units.html.zh' >> units.var
 	echo 'Content-language: zh' >> units.var
-	echo 'Content-type: text/html; charset=unicode' >> .//units.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//units.var
 	echo >> units.var
 ./unitsrtl.html.bg: unitsrtl.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//unitsrtl.html.bg -oe iso-8859-5 unitsrtl.adp
@@ -1470,7 +1470,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 ./unitsrtl.html.ru: unitsrtl.adp default-master.adp site-master.adp ./catalog.ru.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//unitsrtl.html.ru -oe iso-8859-5 unitsrtl.adp
 ./unitsrtl.html.zh: unitsrtl.adp default-master.adp site-master.adp ./catalog.zh.adp
-	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//unitsrtl.html.zh -oe unicode unitsrtl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh.adp -l zh_CN -m default-master.adp -o .//unitsrtl.html.zh -oe utf-16 unitsrtl.adp
 ./unitsrtl.html: unitsrtl.adp default-master.adp site-master.adp ./catalog.en.adp
 	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//unitsrtl.html -oe ISO-8859-1 unitsrtl.adp
 
@@ -1518,7 +1518,7 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo >> unitsrtl.var
 	echo 'URI: unitsrtl.html.zh' >> unitsrtl.var
 	echo 'Content-language: zh' >> unitsrtl.var
-	echo 'Content-type: text/html; charset=unicode' >> .//unitsrtl.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//unitsrtl.var
 	echo >> unitsrtl.var
 
 mirrors.dat:

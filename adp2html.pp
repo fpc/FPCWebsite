@@ -711,7 +711,7 @@ begin
     {... so the second pass can apply properties.}
     recognize_properties:=true;
     if length(adpwide)>0 then
-      slave_html:=adp_parse(adpwide)
+      slave_html:=adp_parse(slave_html)
     else
       slave_html:='';
     fn:=master_template;
