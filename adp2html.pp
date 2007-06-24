@@ -888,7 +888,8 @@ begin
     begin
       assign(htmlfile,outputfile);
       rewrite(htmlfile);
-      write(htmlfile,page);
+      {Possible widestring bug? Manually convert to ansistring.}
+      write(htmlfile,ansistring(page));
       close(htmlfile);
     end;
 end.
