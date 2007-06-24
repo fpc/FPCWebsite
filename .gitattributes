@@ -4,7 +4,6 @@
 /adp2html.pp svneol=native#text/x-pascal
 /advantage.adp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html
-/advantage.var svneol=native#text/plain
 /bugs.html svneol=native#text/plain
 /catalog.bg.adp svneol=native#text/html
 /catalog.en.adp svneol=native#text/html
@@ -16,7 +15,7 @@
 /catalog.pl.adp svneol=native#text/html
 /catalog.ru.adp svneol=native#text/html
 /catalog.sl.adp svneol=native#text/html
-/catalog.zh.adp svneol=native#text/html
+/catalog.zh-CN.adp svneol=native#text/html
 contrib/Makefile svneol=native#text/plain
 contrib/README -text
 contrib/add.fig svneol=native#text/plain
