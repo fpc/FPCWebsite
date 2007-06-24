@@ -49,8 +49,8 @@ english: output_directory all_en_pages
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//fcl//fcl.html.sl -oe iso-8859-2 fcl.adp
 ..//fcl/fcl.html.ru: fcl.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//fcl//fcl.html.ru -oe iso-8859-5 fcl.adp
-..//fcl/fcl.html.zh: fcl.adp ../default-master.adp ../site-master.adp ../catalog.zh.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh.adp -l zh_CN -m ../default-master.adp -o ..//fcl//fcl.html.zh -oe utf-16 fcl.adp
+..//fcl/fcl.html.zh-CN: fcl.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//fcl//fcl.html.zh-CN -oe utf-16 fcl.adp
 ..//fcl/fcl.html: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//fcl//fcl.html -oe ISO-8859-1 fcl.adp
 
@@ -96,8 +96,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> fcl.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> ..//fcl//fcl.var
 	echo >> fcl.var
-	echo 'URI: fcl.html.zh' >> fcl.var
-	echo 'Content-language: zh' >> fcl.var
+	echo 'URI: fcl.html.zh-CN' >> fcl.var
+	echo 'Content-language: zh-CN' >> fcl.var
 	echo 'Content-type: text/html; charset=utf-16' >> ..//fcl//fcl.var
 	echo >> fcl.var
 
@@ -112,7 +112,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh ..//fcl/fcl.var
+all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh-CN ..//fcl/fcl.var
 all_en_pages: mirrors.dat ..//fcl/fcl.html
 
 

@@ -49,8 +49,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-australia.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-australia.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-australia.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-australia.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-australia.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-australia.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-australia.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-australia.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-australia.html -oe ISO-8859-1 linux.adp
 
@@ -96,8 +96,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-australia.var
 	echo >> linux-australia.var
-	echo 'URI: linux-australia.html.zh' >> linux-australia.var
-	echo 'Content-language: zh' >> linux-australia.var
+	echo 'URI: linux-australia.html.zh-CN' >> linux-australia.var
+	echo 'Content-language: zh-CN' >> linux-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-australia.var
 	echo >> linux-australia.var
 ../..//down/powerpc/macos-australia.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -120,8 +120,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-australia.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-australia.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-australia.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-australia.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-australia.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-australia.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-australia.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-australia.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-australia.html -oe ISO-8859-1 macos.adp
 
@@ -167,8 +167,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-australia.var
 	echo >> macos-australia.var
-	echo 'URI: macos-australia.html.zh' >> macos-australia.var
-	echo 'Content-language: zh' >> macos-australia.var
+	echo 'URI: macos-australia.html.zh-CN' >> macos-australia.var
+	echo 'Content-language: zh-CN' >> macos-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-australia.var
 	echo >> macos-australia.var
 ../..//down/powerpc/macosx-australia.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -191,8 +191,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-australia.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-australia.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-australia.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-australia.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-australia.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-australia.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-australia.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-australia.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-australia.html -oe ISO-8859-1 macosx.adp
 
@@ -238,8 +238,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-australia.var
 	echo >> macosx-australia.var
-	echo 'URI: macosx-australia.html.zh' >> macosx-australia.var
-	echo 'Content-language: zh' >> macosx-australia.var
+	echo 'URI: macosx-australia.html.zh-CN' >> macosx-australia.var
+	echo 'Content-language: zh-CN' >> macosx-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-australia.var
 	echo >> macosx-australia.var
 ../..//down/powerpc/morphos-australia.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -262,8 +262,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-australia.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-australia.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-australia.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-australia.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html -oe ISO-8859-1 morphos.adp
 
@@ -309,8 +309,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-australia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-australia.var
 	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.zh' >> morphos-australia.var
-	echo 'Content-language: zh' >> morphos-australia.var
+	echo 'URI: morphos-australia.html.zh-CN' >> morphos-australia.var
+	echo 'Content-language: zh-CN' >> morphos-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-australia.var
 	echo >> morphos-australia.var
 ../..//down/powerpc/linux-austria.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -333,8 +333,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-austria.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-austria.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-austria.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-austria.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-austria.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-austria.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-austria.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-austria.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-austria.html -oe ISO-8859-1 linux.adp
 
@@ -380,8 +380,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-austria.var
 	echo >> linux-austria.var
-	echo 'URI: linux-austria.html.zh' >> linux-austria.var
-	echo 'Content-language: zh' >> linux-austria.var
+	echo 'URI: linux-austria.html.zh-CN' >> linux-austria.var
+	echo 'Content-language: zh-CN' >> linux-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-austria.var
 	echo >> linux-austria.var
 ../..//down/powerpc/macos-austria.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -404,8 +404,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-austria.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-austria.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-austria.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-austria.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-austria.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-austria.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-austria.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-austria.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-austria.html -oe ISO-8859-1 macos.adp
 
@@ -451,8 +451,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-austria.var
 	echo >> macos-austria.var
-	echo 'URI: macos-austria.html.zh' >> macos-austria.var
-	echo 'Content-language: zh' >> macos-austria.var
+	echo 'URI: macos-austria.html.zh-CN' >> macos-austria.var
+	echo 'Content-language: zh-CN' >> macos-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-austria.var
 	echo >> macos-austria.var
 ../..//down/powerpc/macosx-austria.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -475,8 +475,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-austria.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-austria.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-austria.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-austria.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-austria.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-austria.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-austria.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-austria.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-austria.html -oe ISO-8859-1 macosx.adp
 
@@ -522,8 +522,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-austria.var
 	echo >> macosx-austria.var
-	echo 'URI: macosx-austria.html.zh' >> macosx-austria.var
-	echo 'Content-language: zh' >> macosx-austria.var
+	echo 'URI: macosx-austria.html.zh-CN' >> macosx-austria.var
+	echo 'Content-language: zh-CN' >> macosx-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-austria.var
 	echo >> macosx-austria.var
 ../..//down/powerpc/morphos-austria.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -546,8 +546,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-austria.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-austria.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-austria.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-austria.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html -oe ISO-8859-1 morphos.adp
 
@@ -593,8 +593,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-austria.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-austria.var
 	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.zh' >> morphos-austria.var
-	echo 'Content-language: zh' >> morphos-austria.var
+	echo 'URI: morphos-austria.html.zh-CN' >> morphos-austria.var
+	echo 'Content-language: zh-CN' >> morphos-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-austria.var
 	echo >> morphos-austria.var
 ../..//down/powerpc/linux-hungary.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -617,8 +617,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-hungary.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-hungary.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-hungary.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-hungary.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-hungary.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-hungary.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-hungary.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-hungary.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-hungary.html -oe ISO-8859-1 linux.adp
 
@@ -664,8 +664,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-hungary.var
 	echo >> linux-hungary.var
-	echo 'URI: linux-hungary.html.zh' >> linux-hungary.var
-	echo 'Content-language: zh' >> linux-hungary.var
+	echo 'URI: linux-hungary.html.zh-CN' >> linux-hungary.var
+	echo 'Content-language: zh-CN' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-hungary.var
 	echo >> linux-hungary.var
 ../..//down/powerpc/macos-hungary.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -688,8 +688,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-hungary.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-hungary.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-hungary.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-hungary.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-hungary.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-hungary.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-hungary.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-hungary.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-hungary.html -oe ISO-8859-1 macos.adp
 
@@ -735,8 +735,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-hungary.var
 	echo >> macos-hungary.var
-	echo 'URI: macos-hungary.html.zh' >> macos-hungary.var
-	echo 'Content-language: zh' >> macos-hungary.var
+	echo 'URI: macos-hungary.html.zh-CN' >> macos-hungary.var
+	echo 'Content-language: zh-CN' >> macos-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-hungary.var
 	echo >> macos-hungary.var
 ../..//down/powerpc/macosx-hungary.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -759,8 +759,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-hungary.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-hungary.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-hungary.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-hungary.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-hungary.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-hungary.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-hungary.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-hungary.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-hungary.html -oe ISO-8859-1 macosx.adp
 
@@ -806,8 +806,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-hungary.var
 	echo >> macosx-hungary.var
-	echo 'URI: macosx-hungary.html.zh' >> macosx-hungary.var
-	echo 'Content-language: zh' >> macosx-hungary.var
+	echo 'URI: macosx-hungary.html.zh-CN' >> macosx-hungary.var
+	echo 'Content-language: zh-CN' >> macosx-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-hungary.var
 	echo >> macosx-hungary.var
 ../..//down/powerpc/morphos-hungary.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -830,8 +830,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-hungary.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-hungary.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-hungary.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-hungary.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html -oe ISO-8859-1 morphos.adp
 
@@ -877,8 +877,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-hungary.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-hungary.var
 	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.zh' >> morphos-hungary.var
-	echo 'Content-language: zh' >> morphos-hungary.var
+	echo 'URI: morphos-hungary.html.zh-CN' >> morphos-hungary.var
+	echo 'Content-language: zh-CN' >> morphos-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-hungary.var
 	echo >> morphos-hungary.var
 ../..//down/powerpc/linux-israel.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -901,8 +901,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-israel.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-israel.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-israel.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-israel.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-israel.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-israel.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-israel.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-israel.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-israel.html -oe ISO-8859-1 linux.adp
 
@@ -948,8 +948,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-israel.var
 	echo >> linux-israel.var
-	echo 'URI: linux-israel.html.zh' >> linux-israel.var
-	echo 'Content-language: zh' >> linux-israel.var
+	echo 'URI: linux-israel.html.zh-CN' >> linux-israel.var
+	echo 'Content-language: zh-CN' >> linux-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-israel.var
 	echo >> linux-israel.var
 ../..//down/powerpc/macos-israel.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -972,8 +972,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-israel.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-israel.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-israel.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-israel.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-israel.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-israel.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-israel.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-israel.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-israel.html -oe ISO-8859-1 macos.adp
 
@@ -1019,8 +1019,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-israel.var
 	echo >> macos-israel.var
-	echo 'URI: macos-israel.html.zh' >> macos-israel.var
-	echo 'Content-language: zh' >> macos-israel.var
+	echo 'URI: macos-israel.html.zh-CN' >> macos-israel.var
+	echo 'Content-language: zh-CN' >> macos-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-israel.var
 	echo >> macos-israel.var
 ../..//down/powerpc/macosx-israel.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1043,8 +1043,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-israel.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-israel.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-israel.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-israel.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-israel.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-israel.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-israel.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-israel.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-israel.html -oe ISO-8859-1 macosx.adp
 
@@ -1090,8 +1090,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-israel.var
 	echo >> macosx-israel.var
-	echo 'URI: macosx-israel.html.zh' >> macosx-israel.var
-	echo 'Content-language: zh' >> macosx-israel.var
+	echo 'URI: macosx-israel.html.zh-CN' >> macosx-israel.var
+	echo 'Content-language: zh-CN' >> macosx-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-israel.var
 	echo >> macosx-israel.var
 ../..//down/powerpc/morphos-israel.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1114,8 +1114,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-israel.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-israel.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-israel.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-israel.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html -oe ISO-8859-1 morphos.adp
 
@@ -1161,8 +1161,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-israel.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-israel.var
 	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.zh' >> morphos-israel.var
-	echo 'Content-language: zh' >> morphos-israel.var
+	echo 'URI: morphos-israel.html.zh-CN' >> morphos-israel.var
+	echo 'Content-language: zh-CN' >> morphos-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-israel.var
 	echo >> morphos-israel.var
 ../..//down/powerpc/linux-netherlands.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1185,8 +1185,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-netherlands.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-netherlands.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-netherlands.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-netherlands.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-netherlands.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-netherlands.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-netherlands.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-netherlands.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-netherlands.html -oe ISO-8859-1 linux.adp
 
@@ -1232,8 +1232,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
 	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.zh' >> linux-netherlands.var
-	echo 'Content-language: zh' >> linux-netherlands.var
+	echo 'URI: linux-netherlands.html.zh-CN' >> linux-netherlands.var
+	echo 'Content-language: zh-CN' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-netherlands.var
 	echo >> linux-netherlands.var
 ../..//down/powerpc/macos-netherlands.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1256,8 +1256,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-netherlands.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-netherlands.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-netherlands.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-netherlands.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-netherlands.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-netherlands.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-netherlands.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-netherlands.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-netherlands.html -oe ISO-8859-1 macos.adp
 
@@ -1303,8 +1303,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-netherlands.var
 	echo >> macos-netherlands.var
-	echo 'URI: macos-netherlands.html.zh' >> macos-netherlands.var
-	echo 'Content-language: zh' >> macos-netherlands.var
+	echo 'URI: macos-netherlands.html.zh-CN' >> macos-netherlands.var
+	echo 'Content-language: zh-CN' >> macos-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-netherlands.var
 	echo >> macos-netherlands.var
 ../..//down/powerpc/macosx-netherlands.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1327,8 +1327,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-netherlands.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-netherlands.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-netherlands.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-netherlands.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-netherlands.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-netherlands.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-netherlands.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-netherlands.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-netherlands.html -oe ISO-8859-1 macosx.adp
 
@@ -1374,8 +1374,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-netherlands.var
 	echo >> macosx-netherlands.var
-	echo 'URI: macosx-netherlands.html.zh' >> macosx-netherlands.var
-	echo 'Content-language: zh' >> macosx-netherlands.var
+	echo 'URI: macosx-netherlands.html.zh-CN' >> macosx-netherlands.var
+	echo 'Content-language: zh-CN' >> macosx-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-netherlands.var
 	echo >> macosx-netherlands.var
 ../..//down/powerpc/morphos-netherlands.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1398,8 +1398,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-netherlands.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-netherlands.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-netherlands.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html -oe ISO-8859-1 morphos.adp
 
@@ -1445,8 +1445,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-netherlands.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-netherlands.var
 	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.zh' >> morphos-netherlands.var
-	echo 'Content-language: zh' >> morphos-netherlands.var
+	echo 'URI: morphos-netherlands.html.zh-CN' >> morphos-netherlands.var
+	echo 'Content-language: zh-CN' >> morphos-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-netherlands.var
 	echo >> morphos-netherlands.var
 ../..//down/powerpc/linux-norway.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1469,8 +1469,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-norway.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-norway.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-norway.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-norway.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-norway.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-norway.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-norway.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-norway.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-norway.html -oe ISO-8859-1 linux.adp
 
@@ -1516,8 +1516,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-norway.var
 	echo >> linux-norway.var
-	echo 'URI: linux-norway.html.zh' >> linux-norway.var
-	echo 'Content-language: zh' >> linux-norway.var
+	echo 'URI: linux-norway.html.zh-CN' >> linux-norway.var
+	echo 'Content-language: zh-CN' >> linux-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-norway.var
 	echo >> linux-norway.var
 ../..//down/powerpc/macos-norway.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1540,8 +1540,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-norway.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-norway.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-norway.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-norway.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-norway.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-norway.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-norway.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-norway.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-norway.html -oe ISO-8859-1 macos.adp
 
@@ -1587,8 +1587,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-norway.var
 	echo >> macos-norway.var
-	echo 'URI: macos-norway.html.zh' >> macos-norway.var
-	echo 'Content-language: zh' >> macos-norway.var
+	echo 'URI: macos-norway.html.zh-CN' >> macos-norway.var
+	echo 'Content-language: zh-CN' >> macos-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-norway.var
 	echo >> macos-norway.var
 ../..//down/powerpc/macosx-norway.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1611,8 +1611,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-norway.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-norway.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-norway.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-norway.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-norway.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-norway.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-norway.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-norway.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-norway.html -oe ISO-8859-1 macosx.adp
 
@@ -1658,8 +1658,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-norway.var
 	echo >> macosx-norway.var
-	echo 'URI: macosx-norway.html.zh' >> macosx-norway.var
-	echo 'Content-language: zh' >> macosx-norway.var
+	echo 'URI: macosx-norway.html.zh-CN' >> macosx-norway.var
+	echo 'Content-language: zh-CN' >> macosx-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-norway.var
 	echo >> macosx-norway.var
 ../..//down/powerpc/morphos-norway.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1682,8 +1682,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-norway.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-norway.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-norway.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-norway.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html -oe ISO-8859-1 morphos.adp
 
@@ -1729,8 +1729,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-norway.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-norway.var
 	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.zh' >> morphos-norway.var
-	echo 'Content-language: zh' >> morphos-norway.var
+	echo 'URI: morphos-norway.html.zh-CN' >> morphos-norway.var
+	echo 'Content-language: zh-CN' >> morphos-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-norway.var
 	echo >> morphos-norway.var
 ../..//down/powerpc/linux-russia.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1753,8 +1753,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-russia.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-russia.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-russia.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-russia.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-russia.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-russia.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-russia.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-russia.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-russia.html -oe ISO-8859-1 linux.adp
 
@@ -1800,8 +1800,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-russia.var
 	echo >> linux-russia.var
-	echo 'URI: linux-russia.html.zh' >> linux-russia.var
-	echo 'Content-language: zh' >> linux-russia.var
+	echo 'URI: linux-russia.html.zh-CN' >> linux-russia.var
+	echo 'Content-language: zh-CN' >> linux-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-russia.var
 	echo >> linux-russia.var
 ../..//down/powerpc/macos-russia.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1824,8 +1824,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-russia.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-russia.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-russia.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-russia.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-russia.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-russia.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-russia.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-russia.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-russia.html -oe ISO-8859-1 macos.adp
 
@@ -1871,8 +1871,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-russia.var
 	echo >> macos-russia.var
-	echo 'URI: macos-russia.html.zh' >> macos-russia.var
-	echo 'Content-language: zh' >> macos-russia.var
+	echo 'URI: macos-russia.html.zh-CN' >> macos-russia.var
+	echo 'Content-language: zh-CN' >> macos-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-russia.var
 	echo >> macos-russia.var
 ../..//down/powerpc/macosx-russia.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1895,8 +1895,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-russia.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-russia.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-russia.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-russia.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-russia.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-russia.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-russia.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-russia.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-russia.html -oe ISO-8859-1 macosx.adp
 
@@ -1942,8 +1942,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-russia.var
 	echo >> macosx-russia.var
-	echo 'URI: macosx-russia.html.zh' >> macosx-russia.var
-	echo 'Content-language: zh' >> macosx-russia.var
+	echo 'URI: macosx-russia.html.zh-CN' >> macosx-russia.var
+	echo 'Content-language: zh-CN' >> macosx-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-russia.var
 	echo >> macosx-russia.var
 ../..//down/powerpc/morphos-russia.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -1966,8 +1966,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-russia.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-russia.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-russia.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-russia.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html -oe ISO-8859-1 morphos.adp
 
@@ -2013,8 +2013,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-russia.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-russia.var
 	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.zh' >> morphos-russia.var
-	echo 'Content-language: zh' >> morphos-russia.var
+	echo 'URI: morphos-russia.html.zh-CN' >> morphos-russia.var
+	echo 'Content-language: zh-CN' >> morphos-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-russia.var
 	echo >> morphos-russia.var
 ../..//down/powerpc/linux-ftp.freepascal.org.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -2037,8 +2037,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-ftp.freepascal.org.html.sl -oe iso-8859-2 linux.adp
 ../..//down/powerpc/linux-ftp.freepascal.org.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-ftp.freepascal.org.html.ru -oe iso-8859-5 linux.adp
-../..//down/powerpc/linux-ftp.freepascal.org.html.zh: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-ftp.freepascal.org.html.zh -oe utf-16 linux.adp
+../..//down/powerpc/linux-ftp.freepascal.org.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-ftp.freepascal.org.html.zh-CN -oe utf-16 linux.adp
 ../..//down/powerpc/linux-ftp.freepascal.org.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-ftp.freepascal.org.html -oe ISO-8859-1 linux.adp
 
@@ -2084,8 +2084,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
-	echo 'URI: linux-ftp.freepascal.org.html.zh' >> linux-ftp.freepascal.org.var
-	echo 'Content-language: zh' >> linux-ftp.freepascal.org.var
+	echo 'URI: linux-ftp.freepascal.org.html.zh-CN' >> linux-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
 ../..//down/powerpc/macos-ftp.freepascal.org.html.bg: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -2108,8 +2108,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macos-ftp.freepascal.org.html.sl -oe iso-8859-2 macos.adp
 ../..//down/powerpc/macos-ftp.freepascal.org.html.ru: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macos-ftp.freepascal.org.html.ru -oe iso-8859-5 macos.adp
-../..//down/powerpc/macos-ftp.freepascal.org.html.zh: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-ftp.freepascal.org.html.zh -oe utf-16 macos.adp
+../..//down/powerpc/macos-ftp.freepascal.org.html.zh-CN: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macos-ftp.freepascal.org.html.zh-CN -oe utf-16 macos.adp
 ../..//down/powerpc/macos-ftp.freepascal.org.html: macos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macos-ftp.freepascal.org.html -oe ISO-8859-1 macos.adp
 
@@ -2155,8 +2155,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos-ftp.freepascal.org.var
 	echo >> macos-ftp.freepascal.org.var
-	echo 'URI: macos-ftp.freepascal.org.html.zh' >> macos-ftp.freepascal.org.var
-	echo 'Content-language: zh' >> macos-ftp.freepascal.org.var
+	echo 'URI: macos-ftp.freepascal.org.html.zh-CN' >> macos-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> macos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos-ftp.freepascal.org.var
 	echo >> macos-ftp.freepascal.org.var
 ../..//down/powerpc/macosx-ftp.freepascal.org.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -2179,8 +2179,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-ftp.freepascal.org.html.sl -oe iso-8859-2 macosx.adp
 ../..//down/powerpc/macosx-ftp.freepascal.org.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-ftp.freepascal.org.html.ru -oe iso-8859-5 macosx.adp
-../..//down/powerpc/macosx-ftp.freepascal.org.html.zh: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-ftp.freepascal.org.html.zh -oe utf-16 macosx.adp
+../..//down/powerpc/macosx-ftp.freepascal.org.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-ftp.freepascal.org.html.zh-CN -oe utf-16 macosx.adp
 ../..//down/powerpc/macosx-ftp.freepascal.org.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-ftp.freepascal.org.html -oe ISO-8859-1 macosx.adp
 
@@ -2226,8 +2226,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-ftp.freepascal.org.var
 	echo >> macosx-ftp.freepascal.org.var
-	echo 'URI: macosx-ftp.freepascal.org.html.zh' >> macosx-ftp.freepascal.org.var
-	echo 'Content-language: zh' >> macosx-ftp.freepascal.org.var
+	echo 'URI: macosx-ftp.freepascal.org.html.zh-CN' >> macosx-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> macosx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-ftp.freepascal.org.var
 	echo >> macosx-ftp.freepascal.org.var
 ../..//down/powerpc/morphos-ftp.freepascal.org.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
@@ -2250,8 +2250,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-ftp.freepascal.org.html.sl -oe iso-8859-2 morphos.adp
 ../..//down/powerpc/morphos-ftp.freepascal.org.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-ftp.freepascal.org.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-ftp.freepascal.org.html.zh: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-ftp.freepascal.org.html.zh -oe utf-16 morphos.adp
+../..//down/powerpc/morphos-ftp.freepascal.org.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-ftp.freepascal.org.html.zh-CN -oe utf-16 morphos.adp
 ../..//down/powerpc/morphos-ftp.freepascal.org.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-ftp.freepascal.org.html -oe ISO-8859-1 morphos.adp
 
@@ -2297,8 +2297,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-ftp.freepascal.org.var
 	echo >> morphos-ftp.freepascal.org.var
-	echo 'URI: morphos-ftp.freepascal.org.html.zh' >> morphos-ftp.freepascal.org.var
-	echo 'Content-language: zh' >> morphos-ftp.freepascal.org.var
+	echo 'URI: morphos-ftp.freepascal.org.html.zh-CN' >> morphos-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> morphos-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos-ftp.freepascal.org.var
 	echo >> morphos-ftp.freepascal.org.var
 
@@ -2322,8 +2322,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o linux.html.sl -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc/linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/linux.html.zh: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o linux.html.zh -oe utf-16 ../../templatemirror.adp
+../..//down/powerpc/linux.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o linux.html.zh-CN -oe utf-16 ../../templatemirror.adp
 ../..//down/powerpc/linux.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=linux -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/powerpc/linux.var: gen_makefile.conf
@@ -2368,8 +2368,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> linux.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> linux.var
 	echo >> linux.var
-	echo 'URI: linux.html.zh' >> linux.var
-	echo 'Content-language: zh' >> linux.var
+	echo 'URI: linux.html.zh-CN' >> linux.var
+	echo 'Content-language: zh-CN' >> linux.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux.var
 	echo >> linux.var
 
@@ -2393,8 +2393,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macos.html.sl -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc/macos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macos.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/macos.html.zh: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o macos.html.zh -oe utf-16 ../../templatemirror.adp
+../..//down/powerpc/macos.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macos -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o macos.html.zh-CN -oe utf-16 ../../templatemirror.adp
 ../..//down/powerpc/macos.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=macos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macos.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/powerpc/macos.var: gen_makefile.conf
@@ -2439,8 +2439,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macos.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macos.var
 	echo >> macos.var
-	echo 'URI: macos.html.zh' >> macos.var
-	echo 'Content-language: zh' >> macos.var
+	echo 'URI: macos.html.zh-CN' >> macos.var
+	echo 'Content-language: zh-CN' >> macos.var
 	echo 'Content-type: text/html; charset=utf-16' >> macos.var
 	echo >> macos.var
 
@@ -2464,8 +2464,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o macosx.html.sl -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc/macosx.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o macosx.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/macosx.html.zh: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o macosx.html.zh -oe utf-16 ../../templatemirror.adp
+../..//down/powerpc/macosx.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=macosx -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o macosx.html.zh-CN -oe utf-16 ../../templatemirror.adp
 ../..//down/powerpc/macosx.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=macosx -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o macosx.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/powerpc/macosx.var: gen_makefile.conf
@@ -2510,8 +2510,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> macosx.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx.var
 	echo >> macosx.var
-	echo 'URI: macosx.html.zh' >> macosx.var
-	echo 'Content-language: zh' >> macosx.var
+	echo 'URI: macosx.html.zh-CN' >> macosx.var
+	echo 'Content-language: zh-CN' >> macosx.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx.var
 	echo >> macosx.var
 
@@ -2535,8 +2535,8 @@ english: output_directory all_en_pages
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o morphos.html.sl -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc/morphos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o morphos.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.zh: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.zh.adp -l zh_CN -m ../../default-master.adp -o morphos.html.zh -oe utf-16 ../../templatemirror.adp
+../..//down/powerpc/morphos.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o morphos.html.zh-CN -oe utf-16 ../../templatemirror.adp
 ../..//down/powerpc/morphos.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=morphos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o morphos.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/powerpc/morphos.var: gen_makefile.conf
@@ -2581,8 +2581,8 @@ english: output_directory all_en_pages
 	echo 'Content-language: ru' >> morphos.var
 	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos.var
 	echo >> morphos.var
-	echo 'URI: morphos.html.zh' >> morphos.var
-	echo 'Content-language: zh' >> morphos.var
+	echo 'URI: morphos.html.zh-CN' >> morphos.var
+	echo 'Content-language: zh-CN' >> morphos.var
 	echo 'Content-type: text/html; charset=utf-16' >> morphos.var
 	echo >> morphos.var
 
@@ -2597,7 +2597,7 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/powerpc/linux-australia.html.bg ../..//down/powerpc/linux-australia.html.en ../..//down/powerpc/linux-australia.html.fi ../..//down/powerpc/linux-australia.html.fr ../..//down/powerpc/linux-australia.html.id ../..//down/powerpc/linux-australia.html.it ../..//down/powerpc/linux-australia.html.nl ../..//down/powerpc/linux-australia.html.po ../..//down/powerpc/linux-australia.html.sl ../..//down/powerpc/linux-australia.html.ru ../..//down/powerpc/linux-australia.html.zh ../..//down/powerpc/linux-australia.var ../..//down/powerpc/macos-australia.html.bg ../..//down/powerpc/macos-australia.html.en ../..//down/powerpc/macos-australia.html.fi ../..//down/powerpc/macos-australia.html.fr ../..//down/powerpc/macos-australia.html.id ../..//down/powerpc/macos-australia.html.it ../..//down/powerpc/macos-australia.html.nl ../..//down/powerpc/macos-australia.html.po ../..//down/powerpc/macos-australia.html.sl ../..//down/powerpc/macos-australia.html.ru ../..//down/powerpc/macos-australia.html.zh ../..//down/powerpc/macos-australia.var ../..//down/powerpc/macosx-australia.html.bg ../..//down/powerpc/macosx-australia.html.en ../..//down/powerpc/macosx-australia.html.fi ../..//down/powerpc/macosx-australia.html.fr ../..//down/powerpc/macosx-australia.html.id ../..//down/powerpc/macosx-australia.html.it ../..//down/powerpc/macosx-australia.html.nl ../..//down/powerpc/macosx-australia.html.po ../..//down/powerpc/macosx-australia.html.sl ../..//down/powerpc/macosx-australia.html.ru ../..//down/powerpc/macosx-australia.html.zh ../..//down/powerpc/macosx-australia.var ../..//down/powerpc/morphos-australia.html.bg ../..//down/powerpc/morphos-australia.html.en ../..//down/powerpc/morphos-australia.html.fi ../..//down/powerpc/morphos-australia.html.fr ../..//down/powerpc/morphos-australia.html.id ../..//down/powerpc/morphos-australia.html.it ../..//down/powerpc/morphos-australia.html.nl ../..//down/powerpc/morphos-australia.html.po ../..//down/powerpc/morphos-australia.html.sl ../..//down/powerpc/morphos-australia.html.ru ../..//down/powerpc/morphos-australia.html.zh ../..//down/powerpc/morphos-australia.var ../..//down/powerpc/linux-austria.html.bg ../..//down/powerpc/linux-austria.html.en ../..//down/powerpc/linux-austria.html.fi ../..//down/powerpc/linux-austria.html.fr ../..//down/powerpc/linux-austria.html.id ../..//down/powerpc/linux-austria.html.it ../..//down/powerpc/linux-austria.html.nl ../..//down/powerpc/linux-austria.html.po ../..//down/powerpc/linux-austria.html.sl ../..//down/powerpc/linux-austria.html.ru ../..//down/powerpc/linux-austria.html.zh ../..//down/powerpc/linux-austria.var ../..//down/powerpc/macos-austria.html.bg ../..//down/powerpc/macos-austria.html.en ../..//down/powerpc/macos-austria.html.fi ../..//down/powerpc/macos-austria.html.fr ../..//down/powerpc/macos-austria.html.id ../..//down/powerpc/macos-austria.html.it ../..//down/powerpc/macos-austria.html.nl ../..//down/powerpc/macos-austria.html.po ../..//down/powerpc/macos-austria.html.sl ../..//down/powerpc/macos-austria.html.ru ../..//down/powerpc/macos-austria.html.zh ../..//down/powerpc/macos-austria.var ../..//down/powerpc/macosx-austria.html.bg ../..//down/powerpc/macosx-austria.html.en ../..//down/powerpc/macosx-austria.html.fi ../..//down/powerpc/macosx-austria.html.fr ../..//down/powerpc/macosx-austria.html.id ../..//down/powerpc/macosx-austria.html.it ../..//down/powerpc/macosx-austria.html.nl ../..//down/powerpc/macosx-austria.html.po ../..//down/powerpc/macosx-austria.html.sl ../..//down/powerpc/macosx-austria.html.ru ../..//down/powerpc/macosx-austria.html.zh ../..//down/powerpc/macosx-austria.var ../..//down/powerpc/morphos-austria.html.bg ../..//down/powerpc/morphos-austria.html.en ../..//down/powerpc/morphos-austria.html.fi ../..//down/powerpc/morphos-austria.html.fr ../..//down/powerpc/morphos-austria.html.id ../..//down/powerpc/morphos-austria.html.it ../..//down/powerpc/morphos-austria.html.nl ../..//down/powerpc/morphos-austria.html.po ../..//down/powerpc/morphos-austria.html.sl ../..//down/powerpc/morphos-austria.html.ru ../..//down/powerpc/morphos-austria.html.zh ../..//down/powerpc/morphos-austria.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macos-hungary.html.bg ../..//down/powerpc/macos-hungary.html.en ../..//down/powerpc/macos-hungary.html.fi ../..//down/powerpc/macos-hungary.html.fr ../..//down/powerpc/macos-hungary.html.id ../..//down/powerpc/macos-hungary.html.it ../..//down/powerpc/macos-hungary.html.nl ../..//down/powerpc/macos-hungary.html.po ../..//down/powerpc/macos-hungary.html.sl ../..//down/powerpc/macos-hungary.html.ru ../..//down/powerpc/macos-hungary.html.zh ../..//down/powerpc/macos-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/morphos-hungary.html.bg ../..//down/powerpc/morphos-hungary.html.en ../..//down/powerpc/morphos-hungary.html.fi ../..//down/powerpc/morphos-hungary.html.fr ../..//down/powerpc/morphos-hungary.html.id ../..//down/powerpc/morphos-hungary.html.it ../..//down/powerpc/morphos-hungary.html.nl ../..//down/powerpc/morphos-hungary.html.po ../..//down/powerpc/morphos-hungary.html.sl ../..//down/powerpc/morphos-hungary.html.ru ../..//down/powerpc/morphos-hungary.html.zh ../..//down/powerpc/morphos-hungary.var ../..//down/powerpc/linux-israel.html.bg ../..//down/powerpc/linux-israel.html.en ../..//down/powerpc/linux-israel.html.fi ../..//down/powerpc/linux-israel.html.fr ../..//down/powerpc/linux-israel.html.id ../..//down/powerpc/linux-israel.html.it ../..//down/powerpc/linux-israel.html.nl ../..//down/powerpc/linux-israel.html.po ../..//down/powerpc/linux-israel.html.sl ../..//down/powerpc/linux-israel.html.ru ../..//down/powerpc/linux-israel.html.zh ../..//down/powerpc/linux-israel.var ../..//down/powerpc/macos-israel.html.bg ../..//down/powerpc/macos-israel.html.en ../..//down/powerpc/macos-israel.html.fi ../..//down/powerpc/macos-israel.html.fr ../..//down/powerpc/macos-israel.html.id ../..//down/powerpc/macos-israel.html.it ../..//down/powerpc/macos-israel.html.nl ../..//down/powerpc/macos-israel.html.po ../..//down/powerpc/macos-israel.html.sl ../..//down/powerpc/macos-israel.html.ru ../..//down/powerpc/macos-israel.html.zh ../..//down/powerpc/macos-israel.var ../..//down/powerpc/macosx-israel.html.bg ../..//down/powerpc/macosx-israel.html.en ../..//down/powerpc/macosx-israel.html.fi ../..//down/powerpc/macosx-israel.html.fr ../..//down/powerpc/macosx-israel.html.id ../..//down/powerpc/macosx-israel.html.it ../..//down/powerpc/macosx-israel.html.nl ../..//down/powerpc/macosx-israel.html.po ../..//down/powerpc/macosx-israel.html.sl ../..//down/powerpc/macosx-israel.html.ru ../..//down/powerpc/macosx-israel.html.zh ../..//down/powerpc/macosx-israel.var ../..//down/powerpc/morphos-israel.html.bg ../..//down/powerpc/morphos-israel.html.en ../..//down/powerpc/morphos-israel.html.fi ../..//down/powerpc/morphos-israel.html.fr ../..//down/powerpc/morphos-israel.html.id ../..//down/powerpc/morphos-israel.html.it ../..//down/powerpc/morphos-israel.html.nl ../..//down/powerpc/morphos-israel.html.po ../..//down/powerpc/morphos-israel.html.sl ../..//down/powerpc/morphos-israel.html.ru ../..//down/powerpc/morphos-israel.html.zh ../..//down/powerpc/morphos-israel.var ../..//down/powerpc/linux-netherlands.html.bg ../..//down/powerpc/linux-netherlands.html.en ../..//down/powerpc/linux-netherlands.html.fi ../..//down/powerpc/linux-netherlands.html.fr ../..//down/powerpc/linux-netherlands.html.id ../..//down/powerpc/linux-netherlands.html.it ../..//down/powerpc/linux-netherlands.html.nl ../..//down/powerpc/linux-netherlands.html.po ../..//down/powerpc/linux-netherlands.html.sl ../..//down/powerpc/linux-netherlands.html.ru ../..//down/powerpc/linux-netherlands.html.zh ../..//down/powerpc/linux-netherlands.var ../..//down/powerpc/macos-netherlands.html.bg ../..//down/powerpc/macos-netherlands.html.en ../..//down/powerpc/macos-netherlands.html.fi ../..//down/powerpc/macos-netherlands.html.fr ../..//down/powerpc/macos-netherlands.html.id ../..//down/powerpc/macos-netherlands.html.it ../..//down/powerpc/macos-netherlands.html.nl ../..//down/powerpc/macos-netherlands.html.po ../..//down/powerpc/macos-netherlands.html.sl ../..//down/powerpc/macos-netherlands.html.ru ../..//down/powerpc/macos-netherlands.html.zh ../..//down/powerpc/macos-netherlands.var ../..//down/powerpc/macosx-netherlands.html.bg ../..//down/powerpc/macosx-netherlands.html.en ../..//down/powerpc/macosx-netherlands.html.fi ../..//down/powerpc/macosx-netherlands.html.fr ../..//down/powerpc/macosx-netherlands.html.id ../..//down/powerpc/macosx-netherlands.html.it ../..//down/powerpc/macosx-netherlands.html.nl ../..//down/powerpc/macosx-netherlands.html.po ../..//down/powerpc/macosx-netherlands.html.sl ../..//down/powerpc/macosx-netherlands.html.ru ../..//down/powerpc/macosx-netherlands.html.zh ../..//down/powerpc/macosx-netherlands.var ../..//down/powerpc/morphos-netherlands.html.bg ../..//down/powerpc/morphos-netherlands.html.en ../..//down/powerpc/morphos-netherlands.html.fi ../..//down/powerpc/morphos-netherlands.html.fr ../..//down/powerpc/morphos-netherlands.html.id ../..//down/powerpc/morphos-netherlands.html.it ../..//down/powerpc/morphos-netherlands.html.nl ../..//down/powerpc/morphos-netherlands.html.po ../..//down/powerpc/morphos-netherlands.html.sl ../..//down/powerpc/morphos-netherlands.html.ru ../..//down/powerpc/morphos-netherlands.html.zh ../..//down/powerpc/morphos-netherlands.var ../..//down/powerpc/linux-norway.html.bg ../..//down/powerpc/linux-norway.html.en ../..//down/powerpc/linux-norway.html.fi ../..//down/powerpc/linux-norway.html.fr ../..//down/powerpc/linux-norway.html.id ../..//down/powerpc/linux-norway.html.it ../..//down/powerpc/linux-norway.html.nl ../..//down/powerpc/linux-norway.html.po ../..//down/powerpc/linux-norway.html.sl ../..//down/powerpc/linux-norway.html.ru ../..//down/powerpc/linux-norway.html.zh ../..//down/powerpc/linux-norway.var ../..//down/powerpc/macos-norway.html.bg ../..//down/powerpc/macos-norway.html.en ../..//down/powerpc/macos-norway.html.fi ../..//down/powerpc/macos-norway.html.fr ../..//down/powerpc/macos-norway.html.id ../..//down/powerpc/macos-norway.html.it ../..//down/powerpc/macos-norway.html.nl ../..//down/powerpc/macos-norway.html.po ../..//down/powerpc/macos-norway.html.sl ../..//down/powerpc/macos-norway.html.ru ../..//down/powerpc/macos-norway.html.zh ../..//down/powerpc/macos-norway.var ../..//down/powerpc/macosx-norway.html.bg ../..//down/powerpc/macosx-norway.html.en ../..//down/powerpc/macosx-norway.html.fi ../..//down/powerpc/macosx-norway.html.fr ../..//down/powerpc/macosx-norway.html.id ../..//down/powerpc/macosx-norway.html.it ../..//down/powerpc/macosx-norway.html.nl ../..//down/powerpc/macosx-norway.html.po ../..//down/powerpc/macosx-norway.html.sl ../..//down/powerpc/macosx-norway.html.ru ../..//down/powerpc/macosx-norway.html.zh ../..//down/powerpc/macosx-norway.var ../..//down/powerpc/morphos-norway.html.bg ../..//down/powerpc/morphos-norway.html.en ../..//down/powerpc/morphos-norway.html.fi ../..//down/powerpc/morphos-norway.html.fr ../..//down/powerpc/morphos-norway.html.id ../..//down/powerpc/morphos-norway.html.it ../..//down/powerpc/morphos-norway.html.nl ../..//down/powerpc/morphos-norway.html.po ../..//down/powerpc/morphos-norway.html.sl ../..//down/powerpc/morphos-norway.html.ru ../..//down/powerpc/morphos-norway.html.zh ../..//down/powerpc/morphos-norway.var ../..//down/powerpc/linux-russia.html.bg ../..//down/powerpc/linux-russia.html.en ../..//down/powerpc/linux-russia.html.fi ../..//down/powerpc/linux-russia.html.fr ../..//down/powerpc/linux-russia.html.id ../..//down/powerpc/linux-russia.html.it ../..//down/powerpc/linux-russia.html.nl ../..//down/powerpc/linux-russia.html.po ../..//down/powerpc/linux-russia.html.sl ../..//down/powerpc/linux-russia.html.ru ../..//down/powerpc/linux-russia.html.zh ../..//down/powerpc/linux-russia.var ../..//down/powerpc/macos-russia.html.bg ../..//down/powerpc/macos-russia.html.en ../..//down/powerpc/macos-russia.html.fi ../..//down/powerpc/macos-russia.html.fr ../..//down/powerpc/macos-russia.html.id ../..//down/powerpc/macos-russia.html.it ../..//down/powerpc/macos-russia.html.nl ../..//down/powerpc/macos-russia.html.po ../..//down/powerpc/macos-russia.html.sl ../..//down/powerpc/macos-russia.html.ru ../..//down/powerpc/macos-russia.html.zh ../..//down/powerpc/macos-russia.var ../..//down/powerpc/macosx-russia.html.bg ../..//down/powerpc/macosx-russia.html.en ../..//down/powerpc/macosx-russia.html.fi ../..//down/powerpc/macosx-russia.html.fr ../..//down/powerpc/macosx-russia.html.id ../..//down/powerpc/macosx-russia.html.it ../..//down/powerpc/macosx-russia.html.nl ../..//down/powerpc/macosx-russia.html.po ../..//down/powerpc/macosx-russia.html.sl ../..//down/powerpc/macosx-russia.html.ru ../..//down/powerpc/macosx-russia.html.zh ../..//down/powerpc/macosx-russia.var ../..//down/powerpc/morphos-russia.html.bg ../..//down/powerpc/morphos-russia.html.en ../..//down/powerpc/morphos-russia.html.fi ../..//down/powerpc/morphos-russia.html.fr ../..//down/powerpc/morphos-russia.html.id ../..//down/powerpc/morphos-russia.html.it ../..//down/powerpc/morphos-russia.html.nl ../..//down/powerpc/morphos-russia.html.po ../..//down/powerpc/morphos-russia.html.sl ../..//down/powerpc/morphos-russia.html.ru ../..//down/powerpc/morphos-russia.html.zh ../..//down/powerpc/morphos-russia.var ../..//down/powerpc/linux-ftp.freepascal.org.html.bg ../..//down/powerpc/linux-ftp.freepascal.org.html.en ../..//down/powerpc/linux-ftp.freepascal.org.html.fi ../..//down/powerpc/linux-ftp.freepascal.org.html.fr ../..//down/powerpc/linux-ftp.freepascal.org.html.id ../..//down/powerpc/linux-ftp.freepascal.org.html.it ../..//down/powerpc/linux-ftp.freepascal.org.html.nl ../..//down/powerpc/linux-ftp.freepascal.org.html.po ../..//down/powerpc/linux-ftp.freepascal.org.html.sl ../..//down/powerpc/linux-ftp.freepascal.org.html.ru ../..//down/powerpc/linux-ftp.freepascal.org.html.zh ../..//down/powerpc/linux-ftp.freepascal.org.var ../..//down/powerpc/macos-ftp.freepascal.org.html.bg ../..//down/powerpc/macos-ftp.freepascal.org.html.en ../..//down/powerpc/macos-ftp.freepascal.org.html.fi ../..//down/powerpc/macos-ftp.freepascal.org.html.fr ../..//down/powerpc/macos-ftp.freepascal.org.html.id ../..//down/powerpc/macos-ftp.freepascal.org.html.it ../..//down/powerpc/macos-ftp.freepascal.org.html.nl ../..//down/powerpc/macos-ftp.freepascal.org.html.po ../..//down/powerpc/macos-ftp.freepascal.org.html.sl ../..//down/powerpc/macos-ftp.freepascal.org.html.ru ../..//down/powerpc/macos-ftp.freepascal.org.html.zh ../..//down/powerpc/macos-ftp.freepascal.org.var ../..//down/powerpc/macosx-ftp.freepascal.org.html.bg ../..//down/powerpc/macosx-ftp.freepascal.org.html.en ../..//down/powerpc/macosx-ftp.freepascal.org.html.fi ../..//down/powerpc/macosx-ftp.freepascal.org.html.fr ../..//down/powerpc/macosx-ftp.freepascal.org.html.id ../..//down/powerpc/macosx-ftp.freepascal.org.html.it ../..//down/powerpc/macosx-ftp.freepascal.org.html.nl ../..//down/powerpc/macosx-ftp.freepascal.org.html.po ../..//down/powerpc/macosx-ftp.freepascal.org.html.sl ../..//down/powerpc/macosx-ftp.freepascal.org.html.ru ../..//down/powerpc/macosx-ftp.freepascal.org.html.zh ../..//down/powerpc/macosx-ftp.freepascal.org.var ../..//down/powerpc/morphos-ftp.freepascal.org.html.bg ../..//down/powerpc/morphos-ftp.freepascal.org.html.en ../..//down/powerpc/morphos-ftp.freepascal.org.html.fi ../..//down/powerpc/morphos-ftp.freepascal.org.html.fr ../..//down/powerpc/morphos-ftp.freepascal.org.html.id ../..//down/powerpc/morphos-ftp.freepascal.org.html.it ../..//down/powerpc/morphos-ftp.freepascal.org.html.nl ../..//down/powerpc/morphos-ftp.freepascal.org.html.po ../..//down/powerpc/morphos-ftp.freepascal.org.html.sl ../..//down/powerpc/morphos-ftp.freepascal.org.html.ru ../..//down/powerpc/morphos-ftp.freepascal.org.html.zh ../..//down/powerpc/morphos-ftp.freepascal.org.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh ../..//down/powerpc/linux.var ../..//down/powerpc/macos.html.bg ../..//down/powerpc/macos.html.en ../..//down/powerpc/macos.html.fi ../..//down/powerpc/macos.html.fr ../..//down/powerpc/macos.html.id ../..//down/powerpc/macos.html.it ../..//down/powerpc/macos.html.nl ../..//down/powerpc/macos.html.po ../..//down/powerpc/macos.html.sl ../..//down/powerpc/macos.html.ru ../..//down/powerpc/macos.html.zh ../..//down/powerpc/macos.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh ../..//down/powerpc/macosx.var ../..//down/powerpc/morphos.html.bg ../..//down/powerpc/morphos.html.en ../..//down/powerpc/morphos.html.fi ../..//down/powerpc/morphos.html.fr ../..//down/powerpc/morphos.html.id ../..//down/powerpc/morphos.html.it ../..//down/powerpc/morphos.html.nl ../..//down/powerpc/morphos.html.po ../..//down/powerpc/morphos.html.sl ../..//down/powerpc/morphos.html.ru ../..//down/powerpc/morphos.html.zh ../..//down/powerpc/morphos.var
+all_pages: mirrors.dat ../..//down/powerpc/linux-australia.html.bg ../..//down/powerpc/linux-australia.html.en ../..//down/powerpc/linux-australia.html.fi ../..//down/powerpc/linux-australia.html.fr ../..//down/powerpc/linux-australia.html.id ../..//down/powerpc/linux-australia.html.it ../..//down/powerpc/linux-australia.html.nl ../..//down/powerpc/linux-australia.html.po ../..//down/powerpc/linux-australia.html.sl ../..//down/powerpc/linux-australia.html.ru ../..//down/powerpc/linux-australia.html.zh-CN ../..//down/powerpc/linux-australia.var ../..//down/powerpc/macos-australia.html.bg ../..//down/powerpc/macos-australia.html.en ../..//down/powerpc/macos-australia.html.fi ../..//down/powerpc/macos-australia.html.fr ../..//down/powerpc/macos-australia.html.id ../..//down/powerpc/macos-australia.html.it ../..//down/powerpc/macos-australia.html.nl ../..//down/powerpc/macos-australia.html.po ../..//down/powerpc/macos-australia.html.sl ../..//down/powerpc/macos-australia.html.ru ../..//down/powerpc/macos-australia.html.zh-CN ../..//down/powerpc/macos-australia.var ../..//down/powerpc/macosx-australia.html.bg ../..//down/powerpc/macosx-australia.html.en ../..//down/powerpc/macosx-australia.html.fi ../..//down/powerpc/macosx-australia.html.fr ../..//down/powerpc/macosx-australia.html.id ../..//down/powerpc/macosx-australia.html.it ../..//down/powerpc/macosx-australia.html.nl ../..//down/powerpc/macosx-australia.html.po ../..//down/powerpc/macosx-australia.html.sl ../..//down/powerpc/macosx-australia.html.ru ../..//down/powerpc/macosx-australia.html.zh-CN ../..//down/powerpc/macosx-australia.var ../..//down/powerpc/morphos-australia.html.bg ../..//down/powerpc/morphos-australia.html.en ../..//down/powerpc/morphos-australia.html.fi ../..//down/powerpc/morphos-australia.html.fr ../..//down/powerpc/morphos-australia.html.id ../..//down/powerpc/morphos-australia.html.it ../..//down/powerpc/morphos-australia.html.nl ../..//down/powerpc/morphos-australia.html.po ../..//down/powerpc/morphos-australia.html.sl ../..//down/powerpc/morphos-australia.html.ru ../..//down/powerpc/morphos-australia.html.zh-CN ../..//down/powerpc/morphos-australia.var ../..//down/powerpc/linux-austria.html.bg ../..//down/powerpc/linux-austria.html.en ../..//down/powerpc/linux-austria.html.fi ../..//down/powerpc/linux-austria.html.fr ../..//down/powerpc/linux-austria.html.id ../..//down/powerpc/linux-austria.html.it ../..//down/powerpc/linux-austria.html.nl ../..//down/powerpc/linux-austria.html.po ../..//down/powerpc/linux-austria.html.sl ../..//down/powerpc/linux-austria.html.ru ../..//down/powerpc/linux-austria.html.zh-CN ../..//down/powerpc/linux-austria.var ../..//down/powerpc/macos-austria.html.bg ../..//down/powerpc/macos-austria.html.en ../..//down/powerpc/macos-austria.html.fi ../..//down/powerpc/macos-austria.html.fr ../..//down/powerpc/macos-austria.html.id ../..//down/powerpc/macos-austria.html.it ../..//down/powerpc/macos-austria.html.nl ../..//down/powerpc/macos-austria.html.po ../..//down/powerpc/macos-austria.html.sl ../..//down/powerpc/macos-austria.html.ru ../..//down/powerpc/macos-austria.html.zh-CN ../..//down/powerpc/macos-austria.var ../..//down/powerpc/macosx-austria.html.bg ../..//down/powerpc/macosx-austria.html.en ../..//down/powerpc/macosx-austria.html.fi ../..//down/powerpc/macosx-austria.html.fr ../..//down/powerpc/macosx-austria.html.id ../..//down/powerpc/macosx-austria.html.it ../..//down/powerpc/macosx-austria.html.nl ../..//down/powerpc/macosx-austria.html.po ../..//down/powerpc/macosx-austria.html.sl ../..//down/powerpc/macosx-austria.html.ru ../..//down/powerpc/macosx-austria.html.zh-CN ../..//down/powerpc/macosx-austria.var ../..//down/powerpc/morphos-austria.html.bg ../..//down/powerpc/morphos-austria.html.en ../..//down/powerpc/morphos-austria.html.fi ../..//down/powerpc/morphos-austria.html.fr ../..//down/powerpc/morphos-austria.html.id ../..//down/powerpc/morphos-austria.html.it ../..//down/powerpc/morphos-austria.html.nl ../..//down/powerpc/morphos-austria.html.po ../..//down/powerpc/morphos-austria.html.sl ../..//down/powerpc/morphos-austria.html.ru ../..//down/powerpc/morphos-austria.html.zh-CN ../..//down/powerpc/morphos-austria.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh-CN ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macos-hungary.html.bg ../..//down/powerpc/macos-hungary.html.en ../..//down/powerpc/macos-hungary.html.fi ../..//down/powerpc/macos-hungary.html.fr ../..//down/powerpc/macos-hungary.html.id ../..//down/powerpc/macos-hungary.html.it ../..//down/powerpc/macos-hungary.html.nl ../..//down/powerpc/macos-hungary.html.po ../..//down/powerpc/macos-hungary.html.sl ../..//down/powerpc/macos-hungary.html.ru ../..//down/powerpc/macos-hungary.html.zh-CN ../..//down/powerpc/macos-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh-CN ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/morphos-hungary.html.bg ../..//down/powerpc/morphos-hungary.html.en ../..//down/powerpc/morphos-hungary.html.fi ../..//down/powerpc/morphos-hungary.html.fr ../..//down/powerpc/morphos-hungary.html.id ../..//down/powerpc/morphos-hungary.html.it ../..//down/powerpc/morphos-hungary.html.nl ../..//down/powerpc/morphos-hungary.html.po ../..//down/powerpc/morphos-hungary.html.sl ../..//down/powerpc/morphos-hungary.html.ru ../..//down/powerpc/morphos-hungary.html.zh-CN ../..//down/powerpc/morphos-hungary.var ../..//down/powerpc/linux-israel.html.bg ../..//down/powerpc/linux-israel.html.en ../..//down/powerpc/linux-israel.html.fi ../..//down/powerpc/linux-israel.html.fr ../..//down/powerpc/linux-israel.html.id ../..//down/powerpc/linux-israel.html.it ../..//down/powerpc/linux-israel.html.nl ../..//down/powerpc/linux-israel.html.po ../..//down/powerpc/linux-israel.html.sl ../..//down/powerpc/linux-israel.html.ru ../..//down/powerpc/linux-israel.html.zh-CN ../..//down/powerpc/linux-israel.var ../..//down/powerpc/macos-israel.html.bg ../..//down/powerpc/macos-israel.html.en ../..//down/powerpc/macos-israel.html.fi ../..//down/powerpc/macos-israel.html.fr ../..//down/powerpc/macos-israel.html.id ../..//down/powerpc/macos-israel.html.it ../..//down/powerpc/macos-israel.html.nl ../..//down/powerpc/macos-israel.html.po ../..//down/powerpc/macos-israel.html.sl ../..//down/powerpc/macos-israel.html.ru ../..//down/powerpc/macos-israel.html.zh-CN ../..//down/powerpc/macos-israel.var ../..//down/powerpc/macosx-israel.html.bg ../..//down/powerpc/macosx-israel.html.en ../..//down/powerpc/macosx-israel.html.fi ../..//down/powerpc/macosx-israel.html.fr ../..//down/powerpc/macosx-israel.html.id ../..//down/powerpc/macosx-israel.html.it ../..//down/powerpc/macosx-israel.html.nl ../..//down/powerpc/macosx-israel.html.po ../..//down/powerpc/macosx-israel.html.sl ../..//down/powerpc/macosx-israel.html.ru ../..//down/powerpc/macosx-israel.html.zh-CN ../..//down/powerpc/macosx-israel.var ../..//down/powerpc/morphos-israel.html.bg ../..//down/powerpc/morphos-israel.html.en ../..//down/powerpc/morphos-israel.html.fi ../..//down/powerpc/morphos-israel.html.fr ../..//down/powerpc/morphos-israel.html.id ../..//down/powerpc/morphos-israel.html.it ../..//down/powerpc/morphos-israel.html.nl ../..//down/powerpc/morphos-israel.html.po ../..//down/powerpc/morphos-israel.html.sl ../..//down/powerpc/morphos-israel.html.ru ../..//down/powerpc/morphos-israel.html.zh-CN ../..//down/powerpc/morphos-israel.var ../..//down/powerpc/linux-netherlands.html.bg ../..//down/powerpc/linux-netherlands.html.en ../..//down/powerpc/linux-netherlands.html.fi ../..//down/powerpc/linux-netherlands.html.fr ../..//down/powerpc/linux-netherlands.html.id ../..//down/powerpc/linux-netherlands.html.it ../..//down/powerpc/linux-netherlands.html.nl ../..//down/powerpc/linux-netherlands.html.po ../..//down/powerpc/linux-netherlands.html.sl ../..//down/powerpc/linux-netherlands.html.ru ../..//down/powerpc/linux-netherlands.html.zh-CN ../..//down/powerpc/linux-netherlands.var ../..//down/powerpc/macos-netherlands.html.bg ../..//down/powerpc/macos-netherlands.html.en ../..//down/powerpc/macos-netherlands.html.fi ../..//down/powerpc/macos-netherlands.html.fr ../..//down/powerpc/macos-netherlands.html.id ../..//down/powerpc/macos-netherlands.html.it ../..//down/powerpc/macos-netherlands.html.nl ../..//down/powerpc/macos-netherlands.html.po ../..//down/powerpc/macos-netherlands.html.sl ../..//down/powerpc/macos-netherlands.html.ru ../..//down/powerpc/macos-netherlands.html.zh-CN ../..//down/powerpc/macos-netherlands.var ../..//down/powerpc/macosx-netherlands.html.bg ../..//down/powerpc/macosx-netherlands.html.en ../..//down/powerpc/macosx-netherlands.html.fi ../..//down/powerpc/macosx-netherlands.html.fr ../..//down/powerpc/macosx-netherlands.html.id ../..//down/powerpc/macosx-netherlands.html.it ../..//down/powerpc/macosx-netherlands.html.nl ../..//down/powerpc/macosx-netherlands.html.po ../..//down/powerpc/macosx-netherlands.html.sl ../..//down/powerpc/macosx-netherlands.html.ru ../..//down/powerpc/macosx-netherlands.html.zh-CN ../..//down/powerpc/macosx-netherlands.var ../..//down/powerpc/morphos-netherlands.html.bg ../..//down/powerpc/morphos-netherlands.html.en ../..//down/powerpc/morphos-netherlands.html.fi ../..//down/powerpc/morphos-netherlands.html.fr ../..//down/powerpc/morphos-netherlands.html.id ../..//down/powerpc/morphos-netherlands.html.it ../..//down/powerpc/morphos-netherlands.html.nl ../..//down/powerpc/morphos-netherlands.html.po ../..//down/powerpc/morphos-netherlands.html.sl ../..//down/powerpc/morphos-netherlands.html.ru ../..//down/powerpc/morphos-netherlands.html.zh-CN ../..//down/powerpc/morphos-netherlands.var ../..//down/powerpc/linux-norway.html.bg ../..//down/powerpc/linux-norway.html.en ../..//down/powerpc/linux-norway.html.fi ../..//down/powerpc/linux-norway.html.fr ../..//down/powerpc/linux-norway.html.id ../..//down/powerpc/linux-norway.html.it ../..//down/powerpc/linux-norway.html.nl ../..//down/powerpc/linux-norway.html.po ../..//down/powerpc/linux-norway.html.sl ../..//down/powerpc/linux-norway.html.ru ../..//down/powerpc/linux-norway.html.zh-CN ../..//down/powerpc/linux-norway.var ../..//down/powerpc/macos-norway.html.bg ../..//down/powerpc/macos-norway.html.en ../..//down/powerpc/macos-norway.html.fi ../..//down/powerpc/macos-norway.html.fr ../..//down/powerpc/macos-norway.html.id ../..//down/powerpc/macos-norway.html.it ../..//down/powerpc/macos-norway.html.nl ../..//down/powerpc/macos-norway.html.po ../..//down/powerpc/macos-norway.html.sl ../..//down/powerpc/macos-norway.html.ru ../..//down/powerpc/macos-norway.html.zh-CN ../..//down/powerpc/macos-norway.var ../..//down/powerpc/macosx-norway.html.bg ../..//down/powerpc/macosx-norway.html.en ../..//down/powerpc/macosx-norway.html.fi ../..//down/powerpc/macosx-norway.html.fr ../..//down/powerpc/macosx-norway.html.id ../..//down/powerpc/macosx-norway.html.it ../..//down/powerpc/macosx-norway.html.nl ../..//down/powerpc/macosx-norway.html.po ../..//down/powerpc/macosx-norway.html.sl ../..//down/powerpc/macosx-norway.html.ru ../..//down/powerpc/macosx-norway.html.zh-CN ../..//down/powerpc/macosx-norway.var ../..//down/powerpc/morphos-norway.html.bg ../..//down/powerpc/morphos-norway.html.en ../..//down/powerpc/morphos-norway.html.fi ../..//down/powerpc/morphos-norway.html.fr ../..//down/powerpc/morphos-norway.html.id ../..//down/powerpc/morphos-norway.html.it ../..//down/powerpc/morphos-norway.html.nl ../..//down/powerpc/morphos-norway.html.po ../..//down/powerpc/morphos-norway.html.sl ../..//down/powerpc/morphos-norway.html.ru ../..//down/powerpc/morphos-norway.html.zh-CN ../..//down/powerpc/morphos-norway.var ../..//down/powerpc/linux-russia.html.bg ../..//down/powerpc/linux-russia.html.en ../..//down/powerpc/linux-russia.html.fi ../..//down/powerpc/linux-russia.html.fr ../..//down/powerpc/linux-russia.html.id ../..//down/powerpc/linux-russia.html.it ../..//down/powerpc/linux-russia.html.nl ../..//down/powerpc/linux-russia.html.po ../..//down/powerpc/linux-russia.html.sl ../..//down/powerpc/linux-russia.html.ru ../..//down/powerpc/linux-russia.html.zh-CN ../..//down/powerpc/linux-russia.var ../..//down/powerpc/macos-russia.html.bg ../..//down/powerpc/macos-russia.html.en ../..//down/powerpc/macos-russia.html.fi ../..//down/powerpc/macos-russia.html.fr ../..//down/powerpc/macos-russia.html.id ../..//down/powerpc/macos-russia.html.it ../..//down/powerpc/macos-russia.html.nl ../..//down/powerpc/macos-russia.html.po ../..//down/powerpc/macos-russia.html.sl ../..//down/powerpc/macos-russia.html.ru ../..//down/powerpc/macos-russia.html.zh-CN ../..//down/powerpc/macos-russia.var ../..//down/powerpc/macosx-russia.html.bg ../..//down/powerpc/macosx-russia.html.en ../..//down/powerpc/macosx-russia.html.fi ../..//down/powerpc/macosx-russia.html.fr ../..//down/powerpc/macosx-russia.html.id ../..//down/powerpc/macosx-russia.html.it ../..//down/powerpc/macosx-russia.html.nl ../..//down/powerpc/macosx-russia.html.po ../..//down/powerpc/macosx-russia.html.sl ../..//down/powerpc/macosx-russia.html.ru ../..//down/powerpc/macosx-russia.html.zh-CN ../..//down/powerpc/macosx-russia.var ../..//down/powerpc/morphos-russia.html.bg ../..//down/powerpc/morphos-russia.html.en ../..//down/powerpc/morphos-russia.html.fi ../..//down/powerpc/morphos-russia.html.fr ../..//down/powerpc/morphos-russia.html.id ../..//down/powerpc/morphos-russia.html.it ../..//down/powerpc/morphos-russia.html.nl ../..//down/powerpc/morphos-russia.html.po ../..//down/powerpc/morphos-russia.html.sl ../..//down/powerpc/morphos-russia.html.ru ../..//down/powerpc/morphos-russia.html.zh-CN ../..//down/powerpc/morphos-russia.var ../..//down/powerpc/linux-ftp.freepascal.org.html.bg ../..//down/powerpc/linux-ftp.freepascal.org.html.en ../..//down/powerpc/linux-ftp.freepascal.org.html.fi ../..//down/powerpc/linux-ftp.freepascal.org.html.fr ../..//down/powerpc/linux-ftp.freepascal.org.html.id ../..//down/powerpc/linux-ftp.freepascal.org.html.it ../..//down/powerpc/linux-ftp.freepascal.org.html.nl ../..//down/powerpc/linux-ftp.freepascal.org.html.po ../..//down/powerpc/linux-ftp.freepascal.org.html.sl ../..//down/powerpc/linux-ftp.freepascal.org.html.ru ../..//down/powerpc/linux-ftp.freepascal.org.html.zh-CN ../..//down/powerpc/linux-ftp.freepascal.org.var ../..//down/powerpc/macos-ftp.freepascal.org.html.bg ../..//down/powerpc/macos-ftp.freepascal.org.html.en ../..//down/powerpc/macos-ftp.freepascal.org.html.fi ../..//down/powerpc/macos-ftp.freepascal.org.html.fr ../..//down/powerpc/macos-ftp.freepascal.org.html.id ../..//down/powerpc/macos-ftp.freepascal.org.html.it ../..//down/powerpc/macos-ftp.freepascal.org.html.nl ../..//down/powerpc/macos-ftp.freepascal.org.html.po ../..//down/powerpc/macos-ftp.freepascal.org.html.sl ../..//down/powerpc/macos-ftp.freepascal.org.html.ru ../..//down/powerpc/macos-ftp.freepascal.org.html.zh-CN ../..//down/powerpc/macos-ftp.freepascal.org.var ../..//down/powerpc/macosx-ftp.freepascal.org.html.bg ../..//down/powerpc/macosx-ftp.freepascal.org.html.en ../..//down/powerpc/macosx-ftp.freepascal.org.html.fi ../..//down/powerpc/macosx-ftp.freepascal.org.html.fr ../..//down/powerpc/macosx-ftp.freepascal.org.html.id ../..//down/powerpc/macosx-ftp.freepascal.org.html.it ../..//down/powerpc/macosx-ftp.freepascal.org.html.nl ../..//down/powerpc/macosx-ftp.freepascal.org.html.po ../..//down/powerpc/macosx-ftp.freepascal.org.html.sl ../..//down/powerpc/macosx-ftp.freepascal.org.html.ru ../..//down/powerpc/macosx-ftp.freepascal.org.html.zh-CN ../..//down/powerpc/macosx-ftp.freepascal.org.var ../..//down/powerpc/morphos-ftp.freepascal.org.html.bg ../..//down/powerpc/morphos-ftp.freepascal.org.html.en ../..//down/powerpc/morphos-ftp.freepascal.org.html.fi ../..//down/powerpc/morphos-ftp.freepascal.org.html.fr ../..//down/powerpc/morphos-ftp.freepascal.org.html.id ../..//down/powerpc/morphos-ftp.freepascal.org.html.it ../..//down/powerpc/morphos-ftp.freepascal.org.html.nl ../..//down/powerpc/morphos-ftp.freepascal.org.html.po ../..//down/powerpc/morphos-ftp.freepascal.org.html.sl ../..//down/powerpc/morphos-ftp.freepascal.org.html.ru ../..//down/powerpc/morphos-ftp.freepascal.org.html.zh-CN ../..//down/powerpc/morphos-ftp.freepascal.org.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh-CN ../..//down/powerpc/linux.var ../..//down/powerpc/macos.html.bg ../..//down/powerpc/macos.html.en ../..//down/powerpc/macos.html.fi ../..//down/powerpc/macos.html.fr ../..//down/powerpc/macos.html.id ../..//down/powerpc/macos.html.it ../..//down/powerpc/macos.html.nl ../..//down/powerpc/macos.html.po ../..//down/powerpc/macos.html.sl ../..//down/powerpc/macos.html.ru ../..//down/powerpc/macos.html.zh-CN ../..//down/powerpc/macos.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh-CN ../..//down/powerpc/macosx.var ../..//down/powerpc/morphos.html.bg ../..//down/powerpc/morphos.html.en ../..//down/powerpc/morphos.html.fi ../..//down/powerpc/morphos.html.fr ../..//down/powerpc/morphos.html.id ../..//down/powerpc/morphos.html.it ../..//down/powerpc/morphos.html.nl ../..//down/powerpc/morphos.html.po ../..//down/powerpc/morphos.html.sl ../..//down/powerpc/morphos.html.ru ../..//down/powerpc/morphos.html.zh-CN ../..//down/powerpc/morphos.var
 all_en_pages: mirrors.dat ../..//down/powerpc/linux-australia.html ../..//down/powerpc/macos-australia.html ../..//down/powerpc/macosx-australia.html ../..//down/powerpc/morphos-australia.html ../..//down/powerpc/linux-austria.html ../..//down/powerpc/macos-austria.html ../..//down/powerpc/macosx-austria.html ../..//down/powerpc/morphos-austria.html ../..//down/powerpc/linux-hungary.html ../..//down/powerpc/macos-hungary.html ../..//down/powerpc/macosx-hungary.html ../..//down/powerpc/morphos-hungary.html ../..//down/powerpc/linux-israel.html ../..//down/powerpc/macos-israel.html ../..//down/powerpc/macosx-israel.html ../..//down/powerpc/morphos-israel.html ../..//down/powerpc/linux-netherlands.html ../..//down/powerpc/macos-netherlands.html ../..//down/powerpc/macosx-netherlands.html ../..//down/powerpc/morphos-netherlands.html ../..//down/powerpc/linux-norway.html ../..//down/powerpc/macos-norway.html ../..//down/powerpc/macosx-norway.html ../..//down/powerpc/morphos-norway.html ../..//down/powerpc/linux-russia.html ../..//down/powerpc/macos-russia.html ../..//down/powerpc/macosx-russia.html ../..//down/powerpc/morphos-russia.html ../..//down/powerpc/linux-ftp.freepascal.org.html ../..//down/powerpc/macos-ftp.freepascal.org.html ../..//down/powerpc/macosx-ftp.freepascal.org.html ../..//down/powerpc/morphos-ftp.freepascal.org.html ../..//down/powerpc/linux.html ../..//down/powerpc/macos.html ../..//down/powerpc/macosx.html ../..//down/powerpc/morphos.html
 
 
