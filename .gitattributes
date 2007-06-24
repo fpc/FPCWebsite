@@ -16,6 +16,7 @@
 /catalog.pl.adp svneol=native#text/html
 /catalog.ru.adp svneol=native#text/html
 /catalog.sl.adp svneol=native#text/html
+/catalog.zh.adp svneol=native#text/html
 contrib/Makefile svneol=native#text/plain
 contrib/README -text
 contrib/add.fig svneol=native#text/plain
