@@ -17,7 +17,7 @@ const whitespace=[' ',#13,#10,#8];
 
 var master_template:ansistring;
     slave_html:widestring;
-    inputfile,outputfile,catalogfile:widestring;
+    inputfile,outputfile,catalogfile:ansistring;
     datasource_prefix:ansistring;
     locale,fallback_locale:string;
     mode:(process_catalog,process_page);
@@ -704,10 +704,16 @@ begin
 {    adpwide:=replace_properties(adpwide);}
     {Do two passes. The first pass if/else tags are expanded...}
     recognize_properties:=false;
-    slave_html:=adp_parse(adpwide);
+    if length(adpwide)>0 then
+      slave_html:=adp_parse(adpwide)
+    else
+      slave_html:='';
     {... so the second pass can apply properties.}
     recognize_properties:=true;
-    slave_html:=adp_parse(slave_html);
+    if length(adpwide)>0 then
+      slave_html:=adp_parse(adpwide)
+    else
+      slave_html:='';
     fn:=master_template;
   until master_template='';
   generate_page:=slave_html;
