@@ -22,8 +22,8 @@
 	<li>Better optimizations (static single assignment)</li>
         <li>Improved threading.</li>
 	<li>Internal assembler for non-x86 platforms.</li>
-	<li>Internal linker.</li>
-	<li>Cleanup of unit system and (better) support for dynamic linking and packages.</li>
+	<li>Internal linker for Windows targets.</li>
+	<li>Generics</li>
     </ul>
     <li><b>RTL:</b>:
     <ul>
@@ -46,13 +46,15 @@
   <li>Full DWARF support (debugging format)</li>
   <li>more architectures (m68k?, Alpha?, IA64?)</li>
   <li>Corba support?</li>
-  <li>reworking set handling
+  <li>Cleanup of unit system</li>
+  <li>(better) support for dynamic linking and packages.</li>
+  <li>reworking set handling (partially done in 2.2)
    <ul>
      <li>Allow More than 256 elements</li>
      <li>set of 255..256 uses one byte (lower bound is not automatically ord(0))</li>
      <li>More control about packing of sets. (depending on a packset directive)</li>
      <li>allow sets larger than 32 bytes. (2**32/8=512 MB)</li>
-   </ul>
+   </ul></li>
 <p>
 </ul>
 <p>
