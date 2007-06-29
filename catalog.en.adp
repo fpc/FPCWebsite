@@ -1955,6 +1955,18 @@ manager, please do as following:"
 </ul>
 
 </TRN>
+<TRN locale="en_US" key="website.config_browser_d">
+The Free Pascal web site is available in Bulgarian, Chinese, Dutch, English, Finnish, French, Polish,
+Slovenian and Russian. The method that decides in which language it will show is
+HTTP content negotiation, which means the web page shows in the language your web
+browser requests it.
+
+By default, this means the web site shows its messages in the same language as your
+browser does, which gives usually the desired result. In case you would like the web
+site to be shown in a different language, this can however be overridden. We'll
+describe the methods for a few widely used web browsers.
+
+</TRN>
 <TRN locale="en_US" key="website.q_debugging">
 Debugging
 </TRN>

@@ -1,3 +1,16 @@
+<TRN locale="zh_CN" key="website.a_Access_denies_while_download">
+<p>Free Pascal 的主 FTP 站点在同一时刻只能接受一定数量的连接。如果发生了这个错误，那是因为连接数达到了这个限制。这个问题的解决方案有两个，一是等一会儿再试，二是使用一个 Free Pascal 镜像站。</p>
+   
+</TRN>
+<TRN locale="zh_CN" key="website.a_calling_C_functions">
+<p>Free Pascal 程序可以调用用 GNU C (<tt>GCC</tt>) 编译的 C 语言写的函数。GCC 的 2.7.2 版到 2.95.2 版都通过了测试。下面是一个定义 C 函数 strcmp 的例子：</p>
+<pre>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</pre>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Debugging_DLL">
+<p>目前由 Free Pascal 编译的共享库 (或动态链接库)还不支持调试功能。</p>
+
+</TRN>
 <TRN locale="zh_CN" key="website.Advantages">
 优势
 </TRN>
@@ -16,7 +29,7 @@ Free Pascal 的优势
 
 </TRN>
 <TRN locale="zh_CN" key="website.adv_distribution_indep">
-<STRONG>发行版独立(Linux)</STRONG> 如此的结果，采用 Free Pascal 的 Linux 版编译的软件可以在所有的 Linux 发行版上运行，这样您就可以非常方便地让您的软件支持多种 Linux 发行办。
+<STRONG>发行版独立(Linux)</STRONG> 如此的结果，采用 Free Pascal 的 Linux 版编译的软件可以在所有的 Linux 发行版上运行，这样您就可以非常方便地让您的软件支持多种 Linux 发行版。
 
 </TRN>
 <TRN locale="zh_CN" key="website.adv_Fast_code">
@@ -51,11 +64,96 @@ Free Pascal 的优势
 <p>该平台不支持创建或使用共享库 (也被称为动态连接库)。</p>
 
 </TRN>
+<TRN locale="zh_CN" key="website.a_FPC_vs_GPC">
+<dl>
+<dt><b>目标：</b></dt>
+<dd>Free Pascal 实现一个跨平台的尽可能兼容 Borland Pascal 的编译器。而 GNU Pascal 实现一个 POSIX 格式的 Pascal 编译器。</dd>
+<dt><b>版本：</b></dt>
+<dd>目前，Free Pascal 的版本号为 2.0 (2005 年 5 月)。GNU Pascal 的版本号为 2.1 (2002 年，它可以采用多种 GCC 作为后台；它们的 Mac OS X 版本是个例外，它采用 GCC 的版本号)。</dd>
+<dt><b>跟踪：</b></dt>
+<dd>在发行版本之间，FPC 的开发中版本都有每日更新的快照或 CVS 源代码可用。GPC 则每年发布一些用于最新版的补丁，也有一些用户制作的用于 OS X 和 Windows 的快照。</dd>
+<dt><b>操作系统：</b></dt>
+<dd>Free Pascal 可以在很多平台的操作系统上运行，例如 DOS、Win32(不需要 Unix 接口)、Linux、FreeBSD、NetBSD、OS/2、BeOS、Classic Mac OS、Mac OS X 和 AmigaOS。支持的体系架构有 x86、x86_64 (AMD64)、Sparc、PowerPC、ARM 和 Motorola (Motorola 只在 1.0.x 版中支持)。GNU Pascal 可以在所有能运行 GNU C 的平台上运行，并且编译过程中它会自动检验。</dd>
+<dt><b>捆绑软件：</b></dt>
+<dd>FPC 需要一些适合的二进制工具 (AS,AR,LD)、gmake 和一个命令行编译器。新的架构/操作系统采用交叉编译。GPC 捆绑了一个适合的 GCC，并且需要大量的二进制工具、flex、bison、gmake、一个 POSIX Shell 和 libtool。</dd>
+<dt><b>源代码：</b></dt>
+<dd>Free Pascal 完全采用 Pascal 编写(大约 6 MB 的源代码)，而 GNU Pascal 是用 C 写的 (所以它需要 GNU C 编译器：2.8 MB 的源代码 + 8 MB 的 GNU C 的源代码)。</dd>
+<dt><b>语言：</b></dt>
+<dd>Free Pascal 支持 Borland Pascal 方言，实现了 Delphi Object Pascal 语言和一些 Mac Pascal 扩展。GNU Pascal 支持 ISO 7185、ISO 10206、和(大多数)Borland Pascal 7.0 语法。</dd>
+<dt><b>扩展：</b></dt>
+<dd>Free Pascal 实现了方法、函数和操作符重载(之后的 Delphi 版本也实现了这些功能，所以严格的说这些已经不算是扩展)。GNU Pascal 实现了操作符重载。</dd>
+<dt><b>协议：</b></dt>
+<dd>两个编译器都基于 GNU GPL 协议。</dd>
+<dt><b>作者</b></dt>
+<dd>Free Pascal 项目由德国的 Florian Kl&auml;mpfl (florian&#x040;freepascal.org) 发起，GNU Pascal 由芬兰的 Jukka Virtanen 发起 (jtv&#x040;hut.fi)。</dd>
+</dl><br>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Game_in_FPC">
+<p>是的，您可以使用 Free Pascal 开发游戏。并且如果您有能力您可以开发出类似 Doom 3 的游戏。制作游戏是困难的，您需要先成为一个有经验的程序员。<a href="http://www.pascalgamedevelopment.com">www.pascalgamedevelopment.com</a>网站就是一个用 Free Pascal 和 Delphi 开发游戏的人们建立的一个社区。</p>
+<p>如果您想开始，请先学习 <a href="http://www.delphi-jedi.org/Jedi:TEAM_SDL_HOME">JEDI-SDL</a> 或 <a href="http://ptcpas.sourceforge.net">PTCPas</a>。另外您也可以试一试一些已有的游戏，例如 <a href='http://thesheepkiller.sourceforge.net'>The Sheep Killer</a>，它是一个很简单的游戏，而且它的代码很容易理解。</p>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Getting_the_compiler">
+<p>最新的官方版本全部可以从<a href="download@x@">官方镜像</a>下载。</p>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Homework">
+<p>对不起，请不要向我们寄来关于作业的邮件，我们不是老师。Free Pascal 开发团队一直为 Free Pascal 编译器提供良好的技术支持并且尽量回复所有的邮件。但如果我们总是受到这样的邮件，我们的工作就将变得越来越困难了。</p>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_how_does_proc_overloading_work">
+<p>下面是一个过程重载的例子：</p>
+<pre>
+                    procedure a(i : integer);
+                    begin
+                    end;
+
+                    procedure a(s : string);
+                    begin
+                    end;
+
+                    begin
+                        a('asdfdasf');
+                        a(1234);
+                    end.
+</pre>
+<p>您必须谨慎使用。如果有一个重载的函数被放在 unit 的接口 (interface) 部分，那么所有重载的函数都必须放在这个部分。否则编译器就会报告“This overloaded function can't be local”（此重载的函数不能是局部的）信息。所有重载的函数必须有不同的参数，仅仅返回值不同是不够的。</p>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_OOP">
+<p>Free Pascal 编译器支持 Delphi 类。确定您打开了 -S2 或 -Sd 开关 (关于它们详细的含义请查看用户手册)。与 Delphi 的不兼容性列表也请查看用户手册。</p>
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Real_windows_application">
+最简单的方式是<a href="http://www.lazarus.freepascal.org">下载 Lazarus</a>。它也不仅仅在 Windows 下工作，它还支持 Linux、FreeBSD 和 Mac OS X。
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Runtime_errors">
+<p>当 Free Pascal 编译的程序在运行中出现了致命错误时，将会显示一个类似下面格式的错误信息：</p>
+<pre>
+            Runtime error 201 at $00010F86
+              $00010F86  main,  line 7 of testr.pas
+              $0000206D
+</pre>
+<p>这里的 201 代表错误号。所有错误号的定义可以在 Free Pascal 用户手册的附录 D 找到。十六进制的数码表示错误发生时的函数栈 (call stack)。
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Standard_units">
+<p>关于 Free Pascal 支持的基本 Unit，以及它们所支持的平台，请参考 Free Pascal 用户手册。在用户手册中还有关于每个 Unit 的功能的简单叙述。</p>
+
+</TRN>
 <TRN locale="zh_CN" key="website.Authors">
 作者
 </TRN>
 <TRN locale="zh_CN" key="website.available_limited_platforms">
 由于缺乏开发者和测试者，2.0.4 版只支持有限的平台和外包格式。如果您想改变这个状况以及测试将来的版本，请通过邮件列表联系我们。
+
+</TRN>
+<TRN locale="zh_CN" key="website.a_Wanna_new_version_now">
+<p>在两个官方发行版本之间，您可以看一看开发测试版本 (被称为“快照”)。请注意：这些版本还在开发中，所以它修正了一些 Bug 也新增了一些特性，但它也可能包含一些新的 Bug。</p>
+<p>快照在每天晚上自动生成。有时一些大的更改无法完全实现。如果您的版本不能工作，请在一到两天后再试。建议您不要下载用于 Dos 的 GO32v1 版本，因为它已经不再受支持。</p>
+<p>最新快照一直可以从<a href="develop@x@#snapshot">开发</a>页面下载。</p>
 
 </TRN>
 <TRN locale="zh_CN" key="website.a_What_is_FPC">
@@ -78,6 +176,10 @@ PowerPC 架构。老版本 (1.0 系列) 还支持 m68k。</p>
 <li>2006 年 8 月：2.0.4 版</li>
 </ul>
           
+</TRN>
+<TRN locale="zh_CN" key="website.a_Why_username_password_for_download">
+<p>当您尝试着登录到 FTP 站点时。您必须使用 anonymous 作为您的用户名，并且使用您的 E-mail 作为密码。</p>
+
 </TRN>
 <TRN locale="zh_CN" key="website.Binaries">
 二进制文件
@@ -166,6 +268,10 @@ FreeBSD 4.x 并且 5.x 亦可能
 <TRN locale="zh_CN" key="website.FAQ">
 FAQ
 </TRN>
+<TRN locale="zh_CN" key="website.faq_intro">
+<p>此文档提供关于编译器的最新信息。此外，它还回答了 Free Pascal 的一些常见问题。这里的信息的更新速度要慢于 Free Pascal 文档。</p>
+
+</TRN>
 <TRN locale="zh_CN" key="website.Features">
 特性
 </TRN>
@@ -175,6 +281,10 @@ Free Pascal 的语法和 Turbo Pascal 7.0 有极佳的兼容性，同时也兼�
 </TRN>
 <TRN locale="zh_CN" key="website.Feeling_Lucky">
 手气不错
+</TRN>
+<TRN locale="zh_CN" key="website.for_comprehensive">
+<p>关于 Pascal 语言和 RTL 的更全面的系统，请参考 Free Pascal 用户手册。本文档包含的主题列表：</p>
+
 </TRN>
 <TRN locale="zh_CN" key="website.FPC_on_the_Mac">
 Mac 上的 FPC
@@ -253,32 +363,74 @@ Mac 上的 FPC
 概述
 </TRN>
 <TRN locale="zh_CN" key="website.overview_text">
-Free Pascal (即 FPK Pascal) 是一个支持 32 位和64 位程序设计的专业 Pascal 编译器。 它支持多种处理器：Intel x86、Amd64/x86_64、PowerPC 和 Sparc。已经停止开发的 1.0 版本还支持 Motorola 680x0。当前版本支持下列的操作系统：Linux、FreeBSD、<a href="fpcmac.html">Mac OS X/Darwin</a>、<a href="fpcmac.html">Mac OS classic</a>、DOS、Win32、OS/2、Netware (libc、classic) 和 MorphOS。
+Free Pascal (即 FPK Pascal) 是一个支持 32 位和64 位程序设计的专业 Pascal 编译器。它支持多种处理器：Intel x86、Amd64/x86_64、PowerPC 和 Sparc。已经停止开发的 1.0 版本还支持 Motorola 680x0。当前版本支持下列的操作系统：Linux、FreeBSD、<a href="fpcmac.html">Mac OS X/Darwin</a>、<a href="fpcmac.html">Mac OS classic</a>、DOS、Win32、OS/2、Netware (libc、classic) 和 MorphOS。
 
+</TRN>
+<TRN locale="zh_CN" key="website.Pascal_lang_rel_inf">
+Pascal 语言相关问题
 </TRN>
 <TRN locale="zh_CN" key="website.Porting_from_TP7">
 与 TP7 的接口
 </TRN>
+<TRN locale="zh_CN" key="website.q_Access_denies_while_download">
+当连接到 Free Pascal FTP 站点时拒绝访问
+</TRN>
+<TRN locale="zh_CN" key="website.q_Big_binaries">
+为什么生成的二进制文件这么大？
+</TRN>
+<TRN locale="zh_CN" key="website.q_calling_C_functions">
+调用 C 函数
+</TRN>
+<TRN locale="zh_CN" key="website.q_cfg_problems">
+配置文件问题 (fpc.cfg 或 ppc386.cfg)
+</TRN>
+<TRN locale="zh_CN" key="website.q_Debugging_DLL">
+有时无法调试共享库 (动态链接库)
+</TRN>
 <TRN locale="zh_CN" key="website.q_FPC_vs_GPC">
 Free Pascal 与 GNU Pascal 的比较
+</TRN>
+<TRN locale="zh_CN" key="website.q_Game_in_FPC">
+用 Free Pascal 怎么开发游戏？我能用 Free Pascal 开发出一个类似 Doom 3 的游戏吗？
 </TRN>
 <TRN locale="zh_CN" key="website.q_Getting_the_compiler">
 获取编译器
 </TRN>
+<TRN locale="zh_CN" key="website.q_Homework">
+我要写一个程序作业。你们可以提供帮助吗？
+</TRN>
+<TRN locale="zh_CN" key="website.q_how_does_proc_overloading_work">
+如何使用函数重载？
+</TRN>
 <TRN locale="zh_CN" key="website.q_Installation_hints">
 Free Pascal 安装提示
+</TRN>
+<TRN locale="zh_CN" key="website.q_Installing_snapshot">
+安装一个快照
 </TRN>
 <TRN locale="zh_CN" key="website.q_Licence_copyright_info">
 协议与版权信息
 </TRN>
+<TRN locale="zh_CN" key="website.q_Real_windows_application">
+怎样开发真正的 Windows 应用程序 (带窗口和菜单栏)？
+</TRN>
 <TRN locale="zh_CN" key="website.q_Runtime_errors">
 运行时错误
+</TRN>
+<TRN locale="zh_CN" key="website.q_Standard_units">
+标准 Unit
+</TRN>
+<TRN locale="zh_CN" key="website.q_Wanna_new_version_now">
+我<b>现在</b>就要一个新版本
 </TRN>
 <TRN locale="zh_CN" key="website.q_What_is_FPC">
 什么是 Free Pascal(FPC)？
 </TRN>
 <TRN locale="zh_CN" key="website.q_What_versions_exist">
 有哪些版本，并且我应该使用哪一个版本？
+</TRN>
+<TRN locale="zh_CN" key="website.q_Why_username_password_for_download">
+为什么要获得 Free Pascal 必须提供一个用户名和密码？
 </TRN>
 <TRN locale="zh_CN" key="website.ready_made_packages">
 现在已经有许多制作好的包，它们都包含了一个安装程序以使您在最短的时间内开始使用 Free Pascal。所有的包都包含一个 README 文件，它向您提供安装过程的概述以及最近更新。
@@ -294,7 +446,7 @@ ARM 架构
 PowerPC 架构：
 </TRN>
 <TRN locale="zh_CN" key="website.reqppcb">
-任何 PowerPC 处理器都可以。至少 16 MB 的内存。Mac OS classic 的版本必须是 System 7.5.3 或更高。The Mac OS X 版本需要 Mac OS X 10.1 或更高，且安装了开发者工具。Free Pascal 亦支持其他任何可以运行该操作系统的系统。
+任何 PowerPC 处理器都可以。至少 16 MB 的内存。Mac OS classic 的版本必须是 System 7.5.3 或更高。Mac OS X 版本需要 Mac OS X 10.1 或更高，且安装了开发者工具。Free Pascal 亦支持其他任何可以运行该操作系统的系统。
 
 </TRN>
 <TRN locale="zh_CN" key="website.req_sparca">
@@ -313,6 +465,9 @@ x86 架构：
 <TRN locale="zh_CN" key="website.req_x86b">
 x86 版本要求至少有一个 386 处理器，不过推荐 486 以上的处理器。
 
+</TRN>
+<TRN locale="zh_CN" key="website.RTL_rel_inf">
+RTL 相关问题
 </TRN>
 <TRN locale="zh_CN" key="website.search">
 搜索

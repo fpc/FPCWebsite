@@ -1470,11 +1470,6 @@ Toegang krijgen tot DOS-geheugen / Low-level grafisch programmeren
 <p>Je kunt dit doen zoals in Turbo Pascal, via "absolute" of "mem[]". Voor grotere geheugenblokken kun je de  dosmemput-/dosmemget-routines in de <TT>Go32</TT>-unit gebruiken. 
  
 </TRN>
-<TRN locale="nl_NL" key="website.config_browser_d">
-De Free-Pascal-website is beschikbaar in het Bulgaars, Engels, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in dat de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
-<P>
-Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
-</TRN>
 <TRN locale="nl_NL" key="website.q_accessing_io_ports">
 Toegang krijgen tot I/O-poorten
 </TRN>
@@ -1525,4 +1520,9 @@ De meeste recente beta is <b>2.1.4</b>
 <TRN locale="nl_NL" key="website.can_download_for_platform_beta">
 Je kunt de uitgave 2.1.4 voor de volgende systemen downloaden:
   
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_d">
+De Free-Pascal-website is beschikbaar in het Bulgaars, Chinees, Engels, Fins, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in dat de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
+<P>
+Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
 </TRN>
