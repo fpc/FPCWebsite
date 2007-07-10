@@ -1526,3 +1526,6 @@ De Free-Pascal-website is beschikbaar in het Bulgaars, Chinees, Engels, Fins, Fr
 <P>
 Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
 </TRN>
+<TRN locale="nl_NL" key="website.a_win_debugging">
+<p>De GNU-debugger v4.16 en nieuwer zijn getest en deze werkt over het algemeen zoals hij hoort te werken. Omdat de GNU-debugger C-georienteerd is, kunnen sommige Pascaltypen niet gerepresenteerd worden zoals dit zou moeten. Je kunt gdbpas gebruiken of de tekstmode-IDE, hierin zijn een aantal aanpassingen betreffende dezekwestie gemaakt. Ze zijn beiden beschikbaar voor Windowsplatformen.
+</TRN>
