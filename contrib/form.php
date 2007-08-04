@@ -30,7 +30,7 @@ if ( $row) {echo "VALUE =\"$row->homepage\"";} else
 if ( $row) {echo "VALUE =\"$row->email\"";}
 ?>
 ></TD></TR>
-<TR><TD>Date:</TD><TD><INPUT NAME="date" MAXLENGTH=8 SIZE=8 <?php
+<TR><TD>Date:</TD><TD><INPUT NAME="date" MAXLENGTH=8 SIZE=12 <?php
 if ( $row) {echo "VALUE =\"$row->date\"";} else 
   { echo "VALUE=\"DD/MM/YY\"";}
 ?>
@@ -43,9 +43,8 @@ if ( $row) {echo "VALUE =\"$row->os\"";}
 if ( $row) {echo "$row->descr";}
 ?>
 </TEXTAREA></TD></TR>
-</TABLE>
-<P>
-Select a category under which you would like to store your entry:
+<TR>
+<TD><b>Category:</b></TD><TD>
 <SELECT NAME="category">
 <OPTION <?php if ($row) { if ($row->category=="Database") { echo 'SELECTED';}}?> >Database
 <OPTION <?php if ($row) { if ($row->category=="File Handling") { echo 'SELECTED';}}?> >File Handling
@@ -53,19 +52,32 @@ Select a category under which you would like to store your entry:
 <OPTION <?php if ($row) { if ($row->category=="Internet") { echo 'SELECTED';}}?> >Internet
 <OPTION <?php if ((!$row) || ($row->category=="Miscellaneous")) { echo 'SELECTED';}?> >Miscellaneous
 </SELECT>
+</TD>
+</TR>
+</TABLE>
 <P>
-Please provide a password. 
+Please provide username and password of a valid community user:<BR>
 <?php 
 if (!$row) {
-  echo "This password will be stored in the database.";
-  echo "It will be used to protect your entry against deletion or changes.";
+  echo "Only you will be able to access your entry using this username and password.";
 } else {
-  echo "This password will be checked against the password stored in the database";
-  echo "when the entry was first added, before applying the changes.";
+  echo "After authentication, this username will be checked against the username stored in the database";
+  echo "when the entry was first added, to make sure you own this entry.<P>";
+  if ($row->auth_method==0) {
+    echo 'This entry was created prior to the use of the Mantis/Community authentication, using a password';
+    echo 'Please also provide the password that was used when this entry was created.<P>';
+  }
 }
 ?>
-<P>
-Password: <INPUT TYPE="password" NAME="pwd" MAXLENGTH=30>
+<TABLE>
+<TR><TD>Username:</TD><TD><INPUT NAME="username" MAXLENGTH=30></TD></TR>
+<TR><TD>Password:</TD><TD><INPUT TYPE="password" NAME="pwd" MAXLENGTH=30></TD></TR>
+<?php
+  if (($row) && ($row->auth_method==0)) {
+    echo '<TR><TD>Old entry Password:</TD><TD><INPUT TYPE="password" NAME="oldpwd" MAXLENGTH=30></TD></TR>';
+  }
+?>
+</TABLE>
 <P>
 <INPUT NAME="NotifyMe" TYPE="checkbox" VALUE="1" checked="checked">Send me a mail with confirmation.<p>
 <INPUT NAME="NotifyList" TYPE="checkbox" VALUE="1" checked="checked">Send a mail to the announcement mailing list.<p>
