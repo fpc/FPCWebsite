@@ -52,6 +52,71 @@ function GetCommunityUser($AUserName,$APassword) {
   };
 }
 /*
+ * Check username of an entry. 
+ * Input: DB connection, username for entry (name returned by authentication method) and ID
+ * Returns FALSE if no match, authentication method otherwise.
+ */
+function VerifyEntryUser($db,$user,$ID) {
+  $query="select auth_method from contribs where (ID=$ID) and (user=\"$user\")";
+  /* echo "Query : $query"; */
+  $res = mysql_query($query,$db);
+  
+  CheckMySQLError($foot);
+  $row = mysql_fetch_object($res);
+  if ($row) {
+    return $row->auth_method;
+  } else {
+    echo 'No user match';
+    return 0;
+  }
+}
+/*
+ * Check authentication method of an entry.
+ * Input: DB connection, ID of entry
+ * Returns -1 if no match, authentication method otherwise.
+*/
+    
+function GetEntryAuthMeth ($db, $ID) {
+  $query="select auth_method from contribs where ID=$ID";
+  $res = mysql_query($query,$db);
+  CheckMySQLError($foot);
+  $row = mysql_fetch_object($res);
+  if ($row) {
+    return $row->auth_method;
+  } else {
+    return -1;
+  }
+}
+/*
+ * Check if a username/password/oldpassword has the right to modify an entry. 
+ * Input: db connection, ID of entry, username password for login, 
+ *        Oldpassword is only used for older entries.
+ * Output: FALSE if no rights, authentication method if user has right to modify.
+ */
+function VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd='') {
+  /* Get authentication method of entry */
+  if (($EntryAuthMeth=GetEntryAuthMeth($db,$ID))==-1) {
+    exit('Could not verify entry authentication method');
+  }
+  /* Check username  */
+  if (!($user=GetCommunityUser($username,$pwd))) {
+    exit('Username not known in community system, please create an account first, or verify password');
+  } else {
+    $newauth_meth = 1;
+  }
+  if ($EntryAuthMeth==0) {
+    return VerifyPassword($db,$pwd,$ID);
+  } else if ($EntryAuthMeth==1) {
+    if (VerifyEntryUser($db,$user,$ID)) {
+      return $newauth_meth;
+    } else {
+      return FALSE;
+    }
+  } else {
+    return FALSE;
+  }
+}
+/*
  * Dump one record of the Contribs database in a table.
  */
 function DumpRecord ($row) {

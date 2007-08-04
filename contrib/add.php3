@@ -88,7 +88,7 @@ if ( $confirm == "yes") {
   $query .= "," . EscapeSQL ($descr);
   $query .= "," . EscapeSQL ($version);
   $query .= ",  $auth_meth ";
-  $query .= "," . EscapeSQL ($username) . ")";
+  $query .= "," . EscapeSQL ($user) . ")";
   $res = mysql_query ($query,$db);
   CheckMySQLError ($foot);
   Header1("Entry \"$name\" successfully Added :");

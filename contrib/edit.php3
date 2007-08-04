@@ -24,13 +24,13 @@ EmitContribsMenu ();
 /* Connect to database */
 $db = ConnectToFPC();
 /*
- * is this confirmed with password ? See if we can delete...
+ * is this confirmed with password ? See if we can update...
  */ 
 if ( $confirm == "yes") {
   /* 
    * Verify password first
    */
-  if (VerifyPassword($db,$pwd,$ID)) {
+  if ($AuthMeth=VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd)) {
     /* Change the entry */
     $query = "UPDATE contribs SET ";
     $query .= "name=" . EscapeSQL ($name);
@@ -43,6 +43,7 @@ if ( $confirm == "yes") {
     $query .= ", category=" . EscapeSQL ($category);
     $query .= ", descr=" . EscapeSQL ($descr);
     $query .= ", version=" . EscapeSQL ($version);
+    $query .= ", auth_method = $AuthMeth " ; /* Update authentication method */
     $query .= " WHERE ID=$ID ";
     $res = mysql_query ($query,$db);
     CheckMySQLError ($foot);

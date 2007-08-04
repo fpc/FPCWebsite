@@ -11,12 +11,25 @@ function EmitConfirmForm ( $db, $ID ) {
   CheckMySQLError($foot);
   $row = mysql_fetch_object($res);
   echo "Please confirm that you would like to delete the following record by ";
-  echo "providing the password that was stored in the database together with the entry.<P>";
+  echo "providing a community username and password used to create this entry";
+  if ($row->auth_method==0) {
+     echo "Additionally, specify the password that was stored in the database together with the entry.<P>";
+     echo "This is needed to be able to delete an entry created before user authentication was performed.</P>";
+  }
   StartForm("delete.php3");
   HiddenVar("ID",$ID);
   HiddenVar("confirm","yes");
+  echo "<TABLE><TR><TD>Username</TD><TD>";
+  echo '<INPUT NAME="username" SIZE=30 MAXLENGTH=30/>';
+  echo "</TD></TR><TR><TD>Password:</TD><TD>";
   EmitPasswordInput ('pwd',30,30);
-  echo "<P>";
+  echo "</TD></TR>";
+  if ($row->auth_method==0) {
+    echo "<TR><TD>Entry password:</TD><TD>";
+    EmitPasswordInput ('oldpwd',30,30);
+    echo "</TD></TR>";
+  }
+  echo "</TABLE><P>";
   SubmitButton ("Delete");
   ResetButton ("Clear Password");
   echo "<P>";
@@ -36,7 +49,7 @@ $db = ConnectToFPC();
  * is this confirmed with password ? See if we can delete...
  */ 
 if ( $confirm == "yes") {
-  if (VerifyPassword($db,$pwd,$ID)) {
+  if (VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd)) {
     $query = "delete from contribs where ID = $ID";
     $res=mysql_query($query,$db);
     CheckMySQLError;
