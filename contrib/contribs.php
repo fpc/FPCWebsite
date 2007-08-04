@@ -15,6 +15,42 @@ function ConnectToFPC () {
   CheckMySQLError($foot);
   return $db;
 }
+
+/*
+ * Verify a community user account. 
+ * Input: username, password.
+ * Output: username as ASCII, or empty if verification failed.
+ */
+
+function GetCommunityUser($AUserName,$APassword) { 
+  include('contribpwd.php');
+  $ch = curl_init("http://community.freepascal.org:10000/freepascal/auth_mantis");
+  # Encryption. Not really secure, but much better than plain text.
+  $encrypted = strtr($APassword, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.@_", $OpenACSKey);
+
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+
+  curl_setopt($ch, CURLOPT_POSTFIELDS, "u=$AUserName&p=$encrypted");
+
+
+  $result = curl_exec($ch);
+  if (curl_errno($ch) != 0 || $result == "") {
+      curl_close($ch);
+      return "";
+  }
+  $result_array = explode (":", $result);
+  curl_close($ch);
+
+
+  if ($result_array[0] == "ok") {
+    return mb_convert_encoding($result_array[1], 'ISO-8859-1', 'ASCII');
+  } else {
+    return "";
+  };
+}
 /*
  * Dump one record of the Contribs database in a table.
  */

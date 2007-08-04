@@ -8,8 +8,10 @@
 function EmitAddForm ( ) {
   StartForm("add.php3");
   echo "Enter the required values below, and press 'submit' to enter your unit in the database.<P>";
+  echo 'The username and password must be the ones from a valid community account, so you may have';
+  echo 'to create one there first.<P>';
   $row = 0;
-  include ('form.php');
+  include ('form2.php');
   EndForm ();
 }
 
@@ -45,6 +47,7 @@ function Spam($ATitle,$ADescr) {
   return FALSE;
 */
 }
+
 /*
  * Start of program
  */
@@ -67,7 +70,13 @@ if ( $confirm == "yes") {
     exit('No category specified');
   }
 
-  $query = "INSERT INTO contribs (Name,Author,Email,ftpFile,homepage,date,os,category,descr,version,pwd) VALUES (";
+  if (!($user=GetCommunityUser($username,$pwd))) {
+    exit('Username not known in community system, please create an account first, or verify password');
+  } else {
+    $auth_meth = 1;
+  }
+
+  $query = "INSERT INTO contribs (Name,Author,Email,ftpFile,homepage,date,os,category,descr,version,auth_method,user) VALUES (";
   $query .= EscapeSQL ($name);
   $query .= "," . EscapeSQL ($author);
   $query .= "," . EscapeSQL ($email);
@@ -78,7 +87,8 @@ if ( $confirm == "yes") {
   $query .= "," . EscapeSQL ($category);
   $query .= "," . EscapeSQL ($descr);
   $query .= "," . EscapeSQL ($version);
-  $query .= "," . EscapeSQL ($pwd) . ")";
+  $query .= ",  $auth_meth ";
+  $query .= "," . EscapeSQL ($username) . ")";
   $res = mysql_query ($query,$db);
   CheckMySQLError ($foot);
   Header1("Entry \"$name\" successfully Added :");
