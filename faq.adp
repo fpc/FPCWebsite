@@ -277,7 +277,7 @@
 
             GNU Pascal runs basically on any system that can run GNU C, and for which the buildprocess was verified.
             <DT><b>Bootstrapping:</b>
-            <DD>FPC requires a suitable set of binutils (AS,AR,LD), gmake and a commandline compiler. New architectures/OSes are crosscompiled.
+            <DD>FPC requires a suitable set of binutils (AS,AR,LD) on some platforms, gmake and a commandline compiler. New architectures/OSes are crosscompiled.
 	        GPC bootstraps via a suitable version of GCC, and requires a full set of binutils, flex, bison, gmake, a POSIX shell and libtool 
             <DT><b>Sources:</b>
             <DD>Free Pascal is entirely written in Pascal (about 6 MB of source
@@ -732,7 +732,8 @@
 	   Mainly the users are either interested because of .NET's
 	   portability aspects (Mono is quoted over and over again), or
 	   because it is supposed to be the next big thing in Windows
-	   programming.<p>
+	   programming, and they think windows programming won't be possible
+	   in the future.<p>
 
            While the FPC core developpers are somewhat interested out of
 	   academic curiousity (mainly because it could be a pilot for
@@ -740,20 +741,30 @@
 	   in combination with FPC:
 	   	
         <OL> 
-        <li>Pascal is a language that uses pointers, and so can only be
-	   unmanaged. Unmanaged code is not portable under .NET, so that
-	   already kills all possible benefits. This also means that
-	   existing FPC and Delphi code won't run on .NET.
+        <li>
+           Pascal is a language that uses pointers, and existing codebases
+	   can only be unmanaged. Unmanaged code is not portable under .NET,
+	   so that already kills most possible benefits. This also means that
+	   existing FPC and Delphi code won't run on .NET. There are more
+	   such little language problems.</li>
 
 	<li>FPC's libraries don't base on .NET classes and datamodels (and
  	   can't be changed to do so without effectively rewriting them),
  	   moreover the libraries could only be unmanaged too, or they
-	   would be incompatible
+	   would be incompatible</li>
 
- 	<li>There is nothing <em>practical</em> known yet about how
-	    portable an average .NET code will be. Little experiments with
-	    hello world level code mean nothing, that kind of code works
-	    with plain C too. 
+ 	<li>There is nothing <em>practical</em> known yet about how portable
+	    an average .NET program will be. Little experiments with hello
+	    world level code mean nothing, that kind of code works with
+	    plain C too. A good test would be to see existing non trivial
+	    codebases run unmodified under mono. Just like we try to do for
+	    Delphi</li>
+
+        <li> The fact that on Windows 80% of the .NET code seems to be
+ 	    ASP.NET doesn't help either. This makes porting existing code
+ 	    less useful (since ASP.NET is tied to IIS), and new codebases of
+ 	    portable code can be set in nearly every language </li>
+	   
  	<li>Operating System dependant code wouldn't work anymore, since
 	     the win32 interface is unmanaged. 
 	</OL> <p>
