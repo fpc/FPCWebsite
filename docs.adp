@@ -8,7 +8,7 @@
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpchelp.pdf">Documentation table of contents</a>
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf">User's guide</a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/prog.pdf">Programmer's guide</a>.
-  <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/ref.pdf">Reference guide</a> for the system unit, and supported Pascal constructs.
+  <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/ref.pdf">Language reference guide</a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/rtl.pdf">Run-Time Library (RTL) units reference manual</a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fcl.pdf">Free Component Library (FCL) units reference manual</a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpdoc.pdf">fpdoc documentation tool reference manual</a>.
@@ -28,7 +28,7 @@ to view these pages correctly.
 <li> Documentation table of contents (<a href="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</a>/<a href="docs-html/fpctoc.html">without</a> comments).
   <li>User's guide (<a href="http://community.freepascal.org:10000/docs-html/user/user.html">with</a>/<a href="docs-html/user/user.html">without</a> comments).
   <li>Programmer's guide (<a href="http://community.freepascal.org:10000/docs-html/prog/prog.html">with</a>/<a href="docs-html/prog/prog.html">without</a> comments).
-  <li>Reference guide for the system unit, and supported Pascal constructs (<a href="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</a>/<a href="docs-html/ref/ref.html">without</a> comments).
+  <li>Language Reference Guide (<a href="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</a>/<a href="docs-html/ref/ref.html">without</a> comments).
   <li>Run-Time Library (RTL) units reference manual (<a href="http://community.freepascal.org:10000/docs-html/rtl/index.html">with</a>/<a href="docs-html/rtl/index.html">without</a> comments).
   <li>Free Component Library (FCL) units reference manual (<a href="http://community.freepascal.org:10000/docs-html/fcl/index.html">with</a>/<a href="docs-html/fcl/index.html">without</a> comments).
   <li>fpdoc documentation tool reference manual (<a href="http://community.freepascal.org:10000/docs-html/fpdoc/fpdoc.html">with</a>/<a href="docs-html/fpdoc/fpdoc.html">without</a> comments).
