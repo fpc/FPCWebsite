@@ -149,6 +149,7 @@ down2/x86_64/win64.adp svneol=native#text/plain
 /ecfin48.gif -text svneol=unset#image/gif
 /education.fp svneol=native#text/plain
 /esplit.fp svneol=native#text/plain
+/external-master.adp svneol=native#text/plain
 /faq.adp svneol=native#text/plain
 /favicon.ico -text svneol=unset#image/ico
 fcl/Makefile svneol=native#text/plain
