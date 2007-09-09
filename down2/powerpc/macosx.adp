@@ -17,6 +17,12 @@
 contains an installation package (only supports creating PowerPC programs; you need the Intel/i386 version of the compiler to create universal binaries)<br>
 </ul>
 
+<h3><a name="XcodeIntegration"></a>Xcode Integration Toolkit:</h3>
+<ul>
+<li> <a href="@mirror_url@beta/2.1.4/powerpc-macosx/fpc-xcode-2.1.4.dmg">Xcode Integration Toolkit</a> (150 kb)
+
+</ul>
+
 <hr>
 <p>
 <a href="macosx@x@">Back to mirror list</a><BR/>
