@@ -447,15 +447,16 @@ var last_expr_result:boolean;
           message_set(message_locale,message_key,content);
       end
     else
-      begin
-        value:='';
-        if (locale<>'') and (message_key<>'') then
-          value:=message_get(locale,message_key);
-        if (fallback_locale<>'') and (message_key<>'') then
-          value:=message_get(fallback_locale,message_key);
-        if value<>'' then
-          do_trn_tag:=value;
-      end;
+      if message_locale<>locale then
+        begin
+          value:='';
+          if (locale<>'') and (message_key<>'') then
+            value:=message_get(locale,message_key);
+          if (fallback_locale<>'') and (message_key<>'') then
+            value:=message_get(fallback_locale,message_key);
+          if value<>'' then
+            do_trn_tag:=value;
+        end;
   end;
 
   function do_master_tag(const tag,params,content,closetag:widestring):widestring;
