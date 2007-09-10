@@ -17,7 +17,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-  <em>September 20, 2007</em>
+  <em>September 10, 2007</em>
   <trn locale="en_US" key="website.news_headline_20070910">
     The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
     <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
