@@ -4,10 +4,6 @@ Prednosti
 <TRN locale="sl_SI" key="website.Authors">
 Moštvo
 </TRN>
-<TRN locale="sl_SI" key="website.available_limited_platforms">
-  Ker ni dovolj moštva za pripravo izdaj in testerjev, 2.0.4 je na razpolago samo za omejeno stevilo arhitektur in ne v vseh paketnih formatih. Če želiš izboljšati trenutno stanje in pomagati pri gradnji izdaj in pri testiranju te prosimo da se javiš na dopisnih seznamih.
-
-</TRN>
 <TRN locale="sl_SI" key="website.Binaries">
 Binarne izdaje
 </TRN>
@@ -35,13 +31,6 @@ Credits
 </TRN>
 <TRN locale="sl_SI" key="website.Current_Version">
 Trenutna Verzija
-</TRN>
-<TRN locale="sl_SI" key="website.Current_Version_text">
-    Verzija <em>2.0.4</em> je zadnja stabilna verzija Free Pascala.
-    Kliknite na <a href="download.html">Prenos</a> povezavo  in izberite najbližji strežnik za prenos vaše kopije.
-    Verzije v razvoju imajo verzijske številke <EM>2.1.x</EM>.
-    Poglejte stran <a href="develop.html">razvoj</a> za informacije o prenosu najnovejše kode in podporo razvijanju.
-  
 </TRN>
 <TRN locale="sl_SI" key="website.Development">
 Razvijanje
@@ -107,9 +96,6 @@ Domov
 </TRN>
 <TRN locale="sl_SI" key="website.latest_news">
 Zadnje novice
-</TRN>
-<TRN locale="sl_SI" key="website.latest_release">
-Zadnja izdaja je <b>2.0.4</b>
 </TRN>
 <TRN locale="sl_SI" key="website.License">
 Licenca
@@ -182,13 +168,6 @@ Stare izdaje
 </TRN>
 <TRN locale="sl_SI" key="website.overview">
 Pregled
-</TRN>
-<TRN locale="sl_SI" key="website.overview_text">
-Free Pascal (aka FPK Pascal) je 32 in 64 bitni profesionalni prevajalnik za Pascal.
-Je na razpolago za različne procesorje: Intel x86, Amd64/x86_64, PowerPC,    Sparc. Stara verzija 1.0 podpira tudi procesor Motorola 680x0.
-Podprti so naslednji operativni sistemi: Linux, FreeBSD, <a ref="fpcmac.html">Mac OS X/Darwin</a>, 
-<a ref="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,Netware (libc and classic) and MorphOS.
-  
 </TRN>
 <TRN locale="sl_SI" key="website.Porting_from_TP7">
 Prenos iz TP7

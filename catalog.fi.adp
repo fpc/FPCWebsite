@@ -32,10 +32,6 @@ Kiitokset
 <TRN locale="fi_FI" key="website.Current_Version">
 Uusin versio
 </TRN>
-<TRN locale="fi_FI" key="website.Current_Version_text">
-<em>2.0.4</em> on tuorein vakaa versio Free Pascalista. Klikkaa <a href="download@x@">tästä</a> ja valitse lähinnä sinua sijaitseva peilipalvelin hakeaksesi oman kopiosi. Kehitysversioiden versionumerot noudattavat muotoa <EM>2.1.x</EM>.
-Katso <a href="develop.html">kehitystyö</a>sivulta  ohjeet hakeaksesi tuorein lähdekoodipaketti ja kuinka voit auttaa kääntäjän kehittämisessä.
-</TRN>
 <TRN locale="fi_FI" key="website.Development">
 Kehitystyö
 </TRN>
@@ -113,10 +109,6 @@ Viralliset julkaisut
 </TRN>
 <TRN locale="fi_FI" key="website.overview">
 Yleistä
-</TRN>
-<TRN locale="fi_FI" key="website.overview_text">
-Free Pascal (myös FPK Pascal) on 32 ja 64 bittinen ammattimainen Pascal-kääntäjä Intel x86, Amd64/x86_64, PowerPC, sekä Sparc-prosessoreille. Vanha 1.0 versio tukee myös Motorola 680x0:a. Kääntäjä tukee sekä Linuxia, FreeBSDtä, <a href="fpcmac.html">Mac OS X/Darwinia</a>, <a href="fpcmac.html">Mac OS classicia</a>, DOSia, Win32:a, OS/2:ta,
-Netwarea (libc sekä classic) että MorphOSia.
 </TRN>
 <TRN locale="fi_FI" key="website.Porting_from_TP7">
 TP7 porttaus

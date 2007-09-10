@@ -151,9 +151,6 @@ Pakiety oraz biblioteka wykonawcza opierają się na zmodyfikowanej Licencji Pub
 <TRN locale="pl_PL" key="website.news_headline_20061204">
 <em>14 grudnia 2006</em> Ido Kanner poprowadzi wykład na temat FPC w <a href="http://haifux.org/future.html">HAIFUX</a>, Klubie Linuksa na Instytucie Technologii Technion w Hajfie, w poniedziałek, 15 stycznia 2007. Wykład zostanie powtórzony w <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, [uniwersyteckim] Klubie Linuksa w Tel Aviv.
 </TRN>
-<TRN locale="pl_PL" key="website.overview_text">
-Free Pascal (dawniej FPK Pascal) jest 32- i 64-bitowym profesjonalnym kompilatorem Pascala. Dostępny jest na różne architektury: Intel x86, Amd64/x86_64, PowerPC, Sparc. Nie rozwijana już wersja 1.0 była również dostępna na Motorole 680x0. Obsługiwane są następujące systemy operacyjne: Linux, FreeBSD, <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2, Netware (libc i classic) oraz MorphOS.
-</TRN>
 <TRN locale="pl_PL" key="website.req_armb">
 Obecnie możliwa jest tylko kompilacja kodu na ARM z innej architektury (tzw. cross-compiling).
 </TRN>
@@ -177,9 +174,6 @@ Możesz pobrać instalator
 </TRN>
 <TRN locale="pl_PL" key="website.Documentation_av_several_formats">
 Dokumentacja jest dostępna w różnych formatach (jeżeli chcesz jej użyć w tekstowym IDE, potrzebujesz formatu HTML):
-</TRN>
-<TRN locale="pl_PL" key="website.Get_the_sources_here">
-Źródła pobierzesz <a href="@mirror_url@/dist/source-2.0.4">tutaj</a>
 </TRN>
 <TRN locale="pl_PL" key="website.Coding">
 Programowanie
@@ -211,14 +205,8 @@ Możliwości
 <TRN locale="pl_PL" key="website.Official_releases">
 Oficjalne wydania
 </TRN>
-<TRN locale="pl_PL" key="website.latest_release">
-Najnowsze wydanie to <b>2.0.4</b>
-</TRN>
 <TRN locale="pl_PL" key="website.down_i386_freebsd_note">
 FreeBSD 4.x i prawdopodobnie 5.x również
-</TRN>
-<TRN locale="pl_PL" key="website.latest_version_is">
-Najnowsze wydanie jest w wersji <b>2.0.4</b>.
 </TRN>
 <TRN locale="pl_PL" key="website.supported_windows_versions">
 Obsługiwane są następujące wersje systemu Windows: 95, 98, ME, NT, 2000, XP oraz 2003
@@ -262,9 +250,6 @@ Wskazówki dotyczące instalacji Free Pascala
 <TRN locale="pl_PL" key="website.Mailinglists">
 Listy Dyskusyjne
 </TRN>
-<TRN locale="pl_PL" key="website.available_limited_platforms">
-Z powodu braku osób przygotowujących i testujących wydania, 2.0.4 jest dostępna tylko na pewną liczbę platform i nie we wszystkich rodzajach pakietów. Jeżeli chcesz to zmienić i czujesz się na siłach przygotować oraz przetestować przyszłe wydania, skontaktuj się z nami poprzez listy dyskusyjne.
-</TRN>
 <TRN locale="pl_PL" key="website.q_Standard_units">
 Podstawowe moduły
 </TRN>
@@ -288,9 +273,6 @@ Problemy z plikiem konfiguracyjnym (fpc.cfg lub ppc386.cfg)
 </TRN>
 <TRN locale="pl_PL" key="website.General_Information">
 Podstawowe informacje
-</TRN>
-<TRN locale="pl_PL" key="website.Current_Version_text">
-Wersja <em>2.0.4</em> jest najnowszym stabilnym wydaniem Free Pascala. Aby uzyskać swoją kopię, przejdź do strony <a href="download@x@">pobrania</a> i wybierz najbliższy Ciebie mirror. Wydania rozwojowe mają numery wersji <em>2.1.x</em>. Zaglądnij na stronę <a href="develop.html">rozwoju</a> projektu, by dowiedzieć się, jak pozyskać najnowsze kody źródłowe i jak wspomóc dalszy rozwój.
 </TRN>
 <TRN locale="pl_PL" key="website.General_information">
 Podstawowe informacje

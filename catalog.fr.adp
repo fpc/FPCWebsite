@@ -4,10 +4,6 @@ Chercher
 <TRN locale="fr_FR" key="website.Feeling_Lucky">
 J'ai de la chance
 </TRN>
-<TRN locale="fr_FR" key="website.overview_text">
-Free Pascal (aussi connu comme FPK Pascal) est un compilateur Pascal 32/64 bits professionel en OpenSource, libre et gratuit. Il est disponible pour différents processeurs : Intel x86, Amd64/x86_64, PowerPC, Sparc. L' ancienne version 1.0 (désormais non maintenue) est également compatible Motorola 680x0. FreePascal est utilisable sur : Linux, FreeBSD, <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Windows (Win32), OS/2,Netware (libc et classique) et MorphOS.
-
-</TRN>
 <TRN locale="fr_FR" key="website.news_headline_20060927">
 <em>27 Septembre 2006</em>Lazarus et FPC seront présents au salon "Systems 2006" à Munich en Octobre, hall A3 booth 542.
 Nous tacherons d'etre présents les 5 jours. Vous pouvez trouver plus d'informations sur Systems 2006 
@@ -24,12 +20,6 @@ Vous les trouverez sur la <a href="download.html"> section téléchargements</a>
 <em>28 Aout 2006</em>Vous l'attendiez...elle est enfin la ! La version 2.0.4 est disponible <a href="download.html"> en téléchargement</a>.
 Elle apporte pas mal de corrections de bugs et quelques améliorations (le gros des améliorations et nouveautées est concentré sur la branche 2.1.x)
 Vous trouverez les modifications <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_0_4/install/doc/whatsnew.txt">ici (en anglais)</a>
-</TRN>
-<TRN locale="fr_FR" key="website.Current_Version_text">
- La <em>2.0.4</em> est la dernière version stable disponible.
-  Cliquez sur <a href="download.html">ce lien </a> et choisissez un mirroir proche de chez vous pour la télécharger.
-  Les versions en developpement sont dans la branche <EM>2.1.x</EM>.
-  Vous pouvez consulter <a href="develop.html">la page de développement </a> pour trouver comment obtenir les dernières sources et nous aider dans l'avancement.
 </TRN>
 <TRN locale="fr_FR" key="website.req_sparcb">
 16 Mo  de RAM minimum, et Linux pour Sparc (toute version).

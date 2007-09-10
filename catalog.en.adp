@@ -107,16 +107,6 @@ Sparc architecture
 <TRN locale="en_US" key="website.overview">
 Overview
 </TRN>
-<TRN locale="en_US" key="website.overview_text">
-
-    Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
-    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
-    Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
-    The following operating systems are supported: Linux, FreeBSD,
-    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
-    Netware (libc and classic) and MorphOS.
-  
-</TRN>
 <TRN locale="en_US" key="website.latest_news">
 Latest News
 </TRN>
@@ -308,16 +298,6 @@ Advantages of Free Pascal
     which you should read for installation instructions and latest news.
   
 </TRN>
-<TRN locale="en_US" key="website.latest_release">
-The latest release is <b>2.0.4</b>
-</TRN>
-<TRN locale="en_US" key="website.available_limited_platforms">
-
-  Because of a lack of release builders and testers, 2.0.4 is only available for a limited
-  number of platforms and not in all package formats. If you want to change this and build and test future
-  releases, contact us via the mailing lists.
-
-</TRN>
 <TRN locale="en_US" key="website.Binaries">
 Binaries
 </TRN>
@@ -425,11 +405,6 @@ Amiga related information
 <TRN locale="en_US" key="website.PalmOS_rel_inf">
 PalmOS related information
 </TRN>
-<TRN locale="en_US" key="website.latest_version_is">
-
-  The latest release version is <b>2.0.4</b>.
-
-</TRN>
 <TRN locale="en_US" key="website.cross_compiler_i386-linux_arm-linux">
 
   This is a cross compiler package from i386-linux to arm-linux. Before you can use it, you need to install
@@ -467,9 +442,6 @@ You can download the installer
 <TRN locale="en_US" key="website.Sources">
 Sources
 </TRN>
-<TRN locale="en_US" key="website.Get_the_sources_here">
-Get the sources <a href="@mirror_url@/dist/source-2.0.4">here</a>
-</TRN>
 <TRN locale="en_US" key="website.already_included_installer">
 already included in the installer listed above
 </TRN>
@@ -478,13 +450,6 @@ plain text
 </TRN>
 <TRN locale="en_US" key="website.to_be_used_from_IDE">
 to be used from IDE among others
-</TRN>
-<TRN locale="en_US" key="website.arm-linux_1_file_download_descr">
-<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
-  contains a standard tar archive, with an install script<br>
-  After untarring the archive, you can run the install script in the created
-  directory by issuing the command "<tt>sh install.sh</tt>".
-
 </TRN>
 <TRN locale="en_US" key="website.Documentation_av_several_formats">
 
@@ -496,28 +461,6 @@ to be used from IDE among others
 
 It is available in different formats:
 
-</TRN>
-<TRN locale="en_US" key="website.i386-linux_rpm_download_descr">
-
-       <a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB)
-       contains the compiler, utils, RTL and all units. <br>
-     
-</TRN>
-<TRN locale="en_US" key="website.i386-linux_rpm_docs_download_descr">
-
-       <a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 MB)
-       contains the documentation.<br>
-     
-</TRN>
-<TRN locale="en_US" key="website.i386-linux_rpm_src_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 MB)
-       contains the sources.<br>
-     
-</TRN>
-<TRN locale="en_US" key="website.i386-linux_deb_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">This directory</a> contains
-     the unofficial debian .deb packages.<br>
-  
 </TRN>
 <TRN locale="en_US" key="website.RPM_compatibility">
 Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.
@@ -537,25 +480,11 @@ RPM (Redhat Package Manager) Packages
 <TRN locale="en_US" key="website.DEB_packages">
 Debian Packages
 </TRN>
-<TRN locale="en_US" key="website.i386-linux_1_file_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB)
-  contains a standard tar archive, with an install script<br>
-  After untarring the archive into a temporary location, you can run the install script 
-  by issuing the command "<tt>sh install.sh</tt>".
-
-</TRN>
 <TRN locale="en_US" key="website.RPM_packages_1">
 RedHat Packages (.rpm)
 </TRN>
 <TRN locale="en_US" key="website.DEB_packages_1">
 Debian Packages (.deb)
-</TRN>
-<TRN locale="en_US" key="website.i386-freebsd_1_file_download_descr">
-<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 MB)
-  contains a standard tar archive, with an install script<br>
-  After untarring the archive, you can run the install script in the created
-  directory by issuing the command "<TT>sh install.sh</TT>".
-
 </TRN>
 <TRN locale="en_US" key="website.Feeling_Lucky">
 Feeling Lucky
@@ -579,14 +508,6 @@ You can download one archive containing individual source packages:
 </TRN>
 <TRN locale="en_US" key="website.already_included_zip">
 already included in the big zipped file listed above
-</TRN>
-<TRN locale="en_US" key="website.Current_Version_text">
-    Version <em>2.0.4</em> is the latest stable version the Free Pascal.
-    Hit the <a href="download@x@">download</a> link and select a mirror close
-    to you to download your copy.
-    The development releases have version numbers <EM>2.1.x</EM>.
-    See the <a href="develop.html">development</a> page how to obtain the latest sources and support development.
-  
 </TRN>
 <TRN locale="en_US" key="website.i386-os2_1_file_download_descr">
 

@@ -46,17 +46,11 @@
 <TRN locale="bg_BG" key="website.Amiga_tel_inf">
 Информация отнасяща се до Amiga
 </TRN>
-<TRN locale="bg_BG" key="website.arm-linux_1_file_download_descr">
-<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 МБ) съдържа стандартен тар архив, с инсталационен скрипт<br> След разопаковането на архива, можете да стартирате инсталиращия скрипт в създадената директория като изпълните командата "<tt>sh install.sh</tt>".
-</TRN>
 <TRN locale="bg_BG" key="website.arm-linux_available_in">
 ФПК пакета е наличен за arm-linux в лесен за избор формат:
 </TRN>
 <TRN locale="bg_BG" key="website.Authors">
 Автори
-</TRN>
-<TRN locale="bg_BG" key="website.available_limited_platforms">
-Поради липсата на издатели и проверяващи, 2.0.4 е наличен само за ограничен брой платформи и не във всички форми на пакетиране. Ако искате да промените това и да правите и проверявате издания, свържете се с нас чрез пощенските списъци.
 </TRN>
 <TRN locale="bg_BG" key="website.Back_to_general_download_page">
 Обратно към общата страницата за изтегляне
@@ -99,13 +93,6 @@
 </TRN>
 <TRN locale="bg_BG" key="website.Current_Version">
 Текуща версия
-</TRN>
-<TRN locale="bg_BG" key="website.Current_Version_text">
-    Версия <em>2.0.4</em> е най-новата стабилна версия на Свободен Паскал.
-    Изберете връзката <a href="download.html">'сваляне'</a> и изберете огледало близо до вас за да свалите копие.
-    Разработваните издания имат номера на версии <EM>2.1.x</EM>.
-    Вижте страницата <a href="develop.html">разработка</a> за информация как да получите най-новите сорсове и как да помогнете за разработката.
-  
 </TRN>
 <TRN locale="bg_BG" key="website.DEB_compatibility">
 Нашите DEB пакети са съвместими с всички DEB базирани дистрибуции, включително Debian, Linspire, Ubuntu.
@@ -194,29 +181,8 @@ FreeBSD 4.x и вероятно също 5.x
 <TRN locale="bg_BG" key="website.General_information">
 Обща информация
 </TRN>
-<TRN locale="bg_BG" key="website.Get_the_sources_here">
-Изтеглете сорсовете от <a href="@mirror_url@/dist/source-2.0.4">тук</a>
-</TRN>
 <TRN locale="bg_BG" key="website.Home">
 Начало
-</TRN>
-<TRN locale="bg_BG" key="website.i386-freebsd_1_file_download_descr">
-<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 МБ) съдържа стандартен тар архив, с инсталационен скрипт<br> След разопаковането на архива, можете да стартирате инсталиращия скрипт в създадената директория като изпълните командата "<tt>sh install.sh</tt>".
-</TRN>
-<TRN locale="bg_BG" key="website.i386-linux_1_file_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 МБ) съдържа стандартен тар архив, с инсталационен скрипт<br> След разопаковането на архива, можете да стартирате инсталиращия скрипт в създадената директория като изпълните командата "<tt>sh install.sh</tt>".
-</TRN>
-<TRN locale="bg_BG" key="website.i386-linux_deb_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">Тази директория</a> съдържа неофициалния debian .deb пакети.<br>
-</TRN>
-<TRN locale="bg_BG" key="website.i386-linux_rpm_docs_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 МБ) съдържа документацията.<br>
-</TRN>
-<TRN locale="bg_BG" key="website.i386-linux_rpm_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 МБ) съдържа компилатора, инструменти, RTL и всички юнити. <br>
-</TRN>
-<TRN locale="bg_BG" key="website.i386-linux_rpm_src_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 МБ) съдържа сорс-кодовете.<br>
 </TRN>
 <TRN locale="bg_BG" key="website.Introduction">
 Въведение
@@ -226,12 +192,6 @@ FreeBSD 4.x и вероятно също 5.x
 </TRN>
 <TRN locale="bg_BG" key="website.latest_news">
 Последни новини
-</TRN>
-<TRN locale="bg_BG" key="website.latest_release">
-Най-новото издание е <b>2.0.4</b>
-</TRN>
-<TRN locale="bg_BG" key="website.latest_version_is">
-Най-новото издание е с версия <b>2.0.4</b>
 </TRN>
 <TRN locale="bg_BG" key="website.License">
 Лиценз
@@ -287,15 +247,6 @@ FreeBSD 4.x и вероятно също 5.x
 </TRN>
 <TRN locale="bg_BG" key="website.overview">
 Преглед
-</TRN>
-<TRN locale="bg_BG" key="website.overview_text">
-    Свободен Паскал (или СПК Паскал) е 32 и 64 битов професионален Паскал компилатор.
-    Наличен е за различни процесори: Intel x86, Amd64/x86_64, PowerPC,
-    Sparc. Прекъснатата 1.0 версия поддържа също Motorola 680x0.
-    Следните операционни системи се поддържат: Линукс, FreeBSD,
-    <a href="fpcmac.html">Мак ОС X/Дарвин</a>, <a href="fpcmac.html">Мак ОС класик</a>, ДОС, Win32, OS/2,
-    Netware (libc и класически) и MorphOS.
-  
 </TRN>
 <TRN locale="bg_BG" key="website.PalmOS_rel_inf">
 Информация свързана с PalmOS

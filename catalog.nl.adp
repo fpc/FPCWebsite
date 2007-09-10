@@ -37,9 +37,6 @@ Documentatie
 <TRN locale="nl_NL" key="website.Bugtracker">
 Bugs
 </TRN>
-<TRN locale="nl_NL" key="website.overview_text">
-Free Pascal (ook bekend als FPK-Pascal) is een professionele 32- en 64-bit Pascalcompiler. Het is beschikbaar voor verscheidene processoren: Intel x86, AMD64/x86_64, PowerPC, Sparc. De niet langer ondersteunde 1.0-versie ondersteunt ook de Motorola 680x0. De volgende besturingssystemen worden ondersteund: Linux, FreeBSD, <A href='fpcmac@x@'>Mac OS X/Darwin</A>, <A href='fpcmac@x@'>Mac OS classic</A>, DOS, Win32, OS/2, Netware (libc en klassiek) en MorphOS.
-</TRN>
 <TRN locale="nl_NL" key="website.news_headline_20060925">
 <em>25 september 2006</em>
 Francesco Lombardi is bezig een <a href='http://itaprogaming.free.fr/tutorial.html'>een uitgebreide handleiding te schrijven </a> hoe je spellen voor de Game Boy Advance in Free Pascal kan maken.
@@ -195,14 +192,8 @@ Oude uitgaven
 <TRN locale="nl_NL" key="website.Binaries">
 Voorgecompileerde, klaar om te installeren pakketten:
 </TRN>
-<TRN locale="nl_NL" key="website.available_limited_platforms">
-Omdat er niet altijd voor ieder platform iemand is die een installatiebestand kan bouwen en testen, kan het zijn dat uitgave 2.0.4 niet voor je gewenste platform , of niet in de pakketindeling van jouw distributie beschikbaar is. Als je hier verandering in wilt brengen door een pakketje te bouwen en te testen, neem dan gerust contact met ons op via de e-maillijsten.
-</TRN>
 <TRN locale="nl_NL" key="website.Official_releases">
 Officiële uitgaven
-</TRN>
-<TRN locale="nl_NL" key="website.latest_release">
-De meest recente versie is <b>2.0.4</b>
 </TRN>
 <TRN locale="nl_NL" key="website.ready_made_packages">
 Dit zijn klaar om te installeren pakketten, met een installatieprogramma, die je in een mum van tijd aan de gang helpen. Alle pakketten bevatten een README-bestand, hetwelk je dient te lezen voor installatieinstructies en het laatste nieuws.  
@@ -243,9 +234,6 @@ Naast de officiële uitgaven, bieden we ook zogenaamde "momentopnamen" aan van d
 <TRN locale="nl_NL" key="website.Features_text">
 De taalsyntaxis heeft een uitstekende compatibiliteit met TP 7.0 evenals met de meeste versies van Delphi (klassen, rtti, uitzonderingen, ansistrings, widestrings, interfaces). Een Mac-Pascal compatibiliteitsmode is ook aanwezig om Applegebruikers van dienst te zijn. Verder ondersteunt Free Pascal procedure-overroeping, operator-overroeping, globale eigenschappen en meer van dergelijke functionaliteit.  
 </TRN>
-<TRN locale="nl_NL" key="website.Current_Version_text">
-Versie <em>2.0.4</em> is de meest recente stabiele versie van Free Pascal. Klik op <a href="download@x@">download</a> en kies een mirror bij je in de buurt om jouw exemplaar te downloaden. De ontwikkelversies hebben versienummer <EM>2.1.x</EM>. Zie de <a href="develop@x@">ontwikkelpagina</a> hoe je aan de meest recente broncode kunt komen en de ontwikkeling kunt steunen.
-</TRN>
 <TRN locale="nl_NL" key="website.to_be_used_from_IDE">
 voor gebruik in de IDE en andere doeleinden
 </TRN>
@@ -258,9 +246,6 @@ Terug naar de mirrorlijst
 <TRN locale="nl_NL" key="website.Back_to_general_download_page">
 Terug naar algemene downloadpagina
 </TRN>
-<TRN locale="nl_NL" key="website.latest_version_is">
-De meest recente versie is <b>2.0.4</b>
-</TRN>
 <TRN locale="nl_NL" key="website.supported_windows_versions">
 De volgende versies van Windows worden ondersteund: 95, 98, ME, NT, 2000, XP en 2003
 
@@ -270,9 +255,6 @@ Installatieprogramma downloaden:
 </TRN>
 <TRN locale="nl_NL" key="website.Sources">
 Broncode
-</TRN>
-<TRN locale="nl_NL" key="website.Get_the_sources_here">
-Download de broncode <a href="@mirror_url@/dist/source-2.0.4">hier</a>
 </TRN>
 <TRN locale="nl_NL" key="website.already_included_installer">
 is reeds aanwezig in het installatieprogramma hierboven
@@ -289,12 +271,6 @@ Alles in één groot bestand
 </TRN>
 <TRN locale="nl_NL" key="website.download_in_1_file">
 Download één groot bestand
-</TRN>
-<TRN locale="nl_NL" key="website.arm-linux_1_file_download_descr">
-<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
-bevat een standaard tar-archief met installatiescript.<br>
-Nadat het archief uitgepakt is, kan je het installatiescript in de aangemaakte map starten met het commando "<tt>sh install.sh</tt>".
-
 </TRN>
 <TRN locale="nl_NL" key="website.Documentation_av_several_formats">
 Documentatie is beschikbaar in verschillende bestandsindelingen (als je de documentatie in de tekstmode-IDE wilt gebruiken, dan heb je de HTML-indeling nodig):
@@ -322,21 +298,6 @@ Onze DEB-pakketten zijn compatibel met alle DEB-gebaseerde distributies, onder m
 <TRN locale="nl_NL" key="website.Binary_packages">
 Voorgecompileerde pakketten:
 </TRN>
-<TRN locale="nl_NL" key="website.i386-linux_rpm_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 MB) bevat de compiler, hulpprogramma's, runtime-bibliotheek en alle units.<br>     
-</TRN>
-<TRN locale="nl_NL" key="website.i386-linux_1_file_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 MB) bevat een standaard tar-archief, met een installatiescript<br> Nadat het archief uitgepakt is op een tijdelijke locatie, kan je het installatiescript 
-starten met behulp van het commando "<tt>sh install.sh</tt>".
-
-</TRN>
-<TRN locale="nl_NL" key="website.i386-linux_deb_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">Deze downloadmap</a> bevat de onofficiële .deb-pakketten.<br>
-  
-</TRN>
-<TRN locale="nl_NL" key="website.i386-linux_rpm_docs_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 MB) bevat de documentatie.
-</TRN>
 <TRN locale="nl_NL" key="website.RPM_packages_1">
 RedHat-pakketten (.rpm)
 </TRN>
@@ -346,17 +307,8 @@ Debian-pakketten (.deb)
 <TRN locale="nl_NL" key="website.Source_packages">
 Broncodepakket:
 </TRN>
-<TRN locale="nl_NL" key="website.i386-linux_rpm_src_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 MB) bevat de broncode.<br>
-     
-</TRN>
 <TRN locale="nl_NL" key="website.It_is_available_in">
 Deze is beschikbaar in verschillende pakketindelingen:
-
-</TRN>
-<TRN locale="nl_NL" key="website.i386-freebsd_1_file_download_descr">
-<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 MB)
-bevat een standaard tar-archief met installatiescript. Nadat het archief in een tijdelijke map uitgepakt is kunt je het installatiescript starten met het commando "<TT>sh install.sh</TT>".
 
 </TRN>
 <TRN locale="nl_NL" key="website.Feeling_Lucky">

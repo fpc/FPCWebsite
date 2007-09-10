@@ -188,11 +188,6 @@ Informazioni relative all'Amiga
 <TRN locale="it_IT" key="website.a_Real_windows_application">
             Il modo più semplice è di procurarsi e installare <a href='http://www.lazarus.freepascal.org'>Lazarus</a>, che permette di realizzare non solo applicazioni su Windows, ma anche su Linux e MacOS X.           
 </TRN>
-<TRN locale="it_IT" key="website.arm-linux_1_file_download_descr">
-<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
-  è un archivio tar standard, contenente uno script di installazione.<br>
-  Dopo aver estratto l'archivio in una directory temporanea, impartire il comando "<tt>sh install.sh</tt>" per l'installazione. 
-</TRN>
 <TRN locale="it_IT" key="website.arm-linux_available_in">
 Il package FPC per arm-linux è disponibile in un unico formato:
 
@@ -215,10 +210,6 @@ Il package FPC per arm-linux è disponibile in un unico formato:
 </TRN>
 <TRN locale="it_IT" key="website.Authors">
 Autori
-</TRN>
-<TRN locale="it_IT" key="website.available_limited_platforms">
-  Data la mancanza di persone che si occupano di confezionare e testare i packages di distribuzione, la versione 2.0.4 è disponibile per un limitato numero di piattaforme e formato. Chi volesse contribuire nella preparazione e nella messa a punto delle nuove distribuzioni può contattarci con un messaggio sulle mailing lists.
-
 </TRN>
 <TRN locale="it_IT" key="website.a_Wanna_new_version_now">
             <p>Prima del rilascio di una nuova versione ufficiale, è possibile dare un'occhiata e provare le versioni di sviluppo (i cosiddetti "snapshots"). Si avverte però che questi sono lavori in corso, cos', oltre a trovare rimedi ad errori conosciuti e nuove funzionalità si possono anche incontrare nuovi errori. 
@@ -334,12 +325,6 @@ Riconoscimenti
 <TRN locale="it_IT" key="website.Current_Version">
 Versione corrente
 </TRN>
-<TRN locale="it_IT" key="website.Current_Version_text">
- La <em>2.0.4</em> è la versione più aggiornata di Free Pascal. Seleziona questo collegamento <a href="download@x@">download</a> per accedere al mirror più vicino da cui scaricare la tua copia.
-    Le versioni in fase di sviluppo hanno numeri di versione di tipo <EM>2.1.x</EM>.
-    Consultare la pagina <a href="develop.html">development</a> per accedere ai sorgenti e contribuire cosí allo sviluppo della versione stessa. 
-  
-</TRN>
 <TRN locale="it_IT" key="website.Development">
 Sviluppo
 </TRN>
@@ -429,9 +414,6 @@ Informazioni generali
 <TRN locale="it_IT" key="website.General_Information">
 Informazioni generali
 </TRN>
-<TRN locale="it_IT" key="website.Get_the_sources_here">
-Scarica i sorgenti da <a href="@mirror_url@/dist/source-2.0.4">qui</a>
-</TRN>
 <TRN locale="it_IT" key="website.Home">
 Pagina principale
 </TRN>
@@ -443,13 +425,6 @@ Known Problems
 </TRN>
 <TRN locale="it_IT" key="website.latest_news">
 Ultime notizie
-</TRN>
-<TRN locale="it_IT" key="website.latest_release">
-La distribuzione più recente è la <b>2.0.4</b>
-</TRN>
-<TRN locale="it_IT" key="website.latest_version_is">
-  La versione più recente è la <b>2.0.4</b>.
-
 </TRN>
 <TRN locale="it_IT" key="website.License">
 Licenza
@@ -505,14 +480,6 @@ Versioni vecchie
 </TRN>
 <TRN locale="it_IT" key="website.overview">
 Panoramica
-</TRN>
-<TRN locale="it_IT" key="website.overview_text">
-Il Free Pascal (aka FPK Pascal) è un compilatore Pascal professionale a 32 e a 64 bit.
-    E' disponibile per diversi processori: Intel x86, Amd64/x86_64, PowerPC,Sparc. La vecchia versione 1.0 supporta anche il Motorola 680x0.
-    Sono supportati i seguenti sistemi operativi: Linux, FreeBSD,
-    <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2,
-    Netware (libc e classic) e MorphOS.
-  
 </TRN>
 <TRN locale="it_IT" key="website.plain_text">
 puro testo

@@ -2,14 +2,28 @@
 <p>Free Pascal 的主 FTP 站点在同一时刻只能接受一定数量的连接。如果发生了这个错误，那是因为连接数达到了这个限制。这个问题的解决方案有两个，一是等一会儿再试，二是使用一个 Free Pascal 镜像站。</p>
    
 </TRN>
+<TRN locale="zh_CN" key="website.a_build_unit">
+<p>如同 Turbo Pascal 一样。Unit 文件的第一个关键字必须是 UNIT (不区分大小写)。编译后会生成两个文件 <TT>XXX.PPU</TT> 和 <TT>XXX.O</TT>。PPU 文件包含 Unit 的接口 (interface) 信息，O 文件包含编译后的机器码 (一种目标 (object) 文件，其格式取决于您使用哪一种汇编。要在其他的单元或程序中使用这个 Unit，您必须在 USES 块中加入它的名字。</p>
+
+</TRN>
 <TRN locale="zh_CN" key="website.a_calling_C_functions">
 <p>Free Pascal 程序可以调用用 GNU C (<tt>GCC</tt>) 编译的 C 语言写的函数。GCC 的 2.7.2 版到 2.95.2 版都通过了测试。下面是一个定义 C 函数 strcmp 的例子：</p>
 <pre>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</pre>
 
 </TRN>
+<TRN locale="zh_CN" key="website.a_compiling_systemunit">
+<p>要编译 System Unit，推荐您安装 GNU make 工具。在 RTL 源代码目录中输入“make”将编译所有 RTL Unit (包含 System Unit)。您也可以进入您所需的 OS 目录(例如 rtl/go32v2)并在那里运行“make”。 </p>
+<p>您也可以手动编译，但您必须对 RTL 的目录结构有深入的了解。</p>
+
+</TRN>
 <TRN locale="zh_CN" key="website.a_Debugging_DLL">
 <p>目前由 Free Pascal 编译的共享库 (或动态链接库)还不支持调试功能。</p>
 
+</TRN>
+<TRN locale="zh_CN" key="website.a_Debug_smartlinked">
+<p>调试智能链接的代码有时可能无法正常工作。这是因为智能链接后的代码中没有包含类型信息。但如果要包含这些信息，编译后的文件就会变得很大。</p>
+<p>当调试程序时，我们建议不要使用智能链接选项。</p>
+      
 </TRN>
 <TRN locale="zh_CN" key="website.Advantages">
 优势
@@ -146,10 +160,6 @@ Free Pascal 的优势
 <TRN locale="zh_CN" key="website.Authors">
 作者
 </TRN>
-<TRN locale="zh_CN" key="website.available_limited_platforms">
-由于缺乏开发者和测试者，2.0.4 版只支持有限的平台和外包格式。如果您想改变这个状况以及测试将来的版本，请通过邮件列表联系我们。
-
-</TRN>
 <TRN locale="zh_CN" key="website.a_Wanna_new_version_now">
 <p>在两个官方发行版本之间，您可以看一看开发测试版本 (被称为“快照”)。请注意：这些版本还在开发中，所以它修正了一些 Bug 也新增了一些特性，但它也可能包含一些新的 Bug。</p>
 <p>快照在每天晚上自动生成。有时一些大的更改无法完全实现。如果您的版本不能工作，请在一到两天后再试。建议您不要下载用于 Dos 的 GO32v1 版本，因为它已经不再受支持。</p>
@@ -217,10 +227,6 @@ Bug 跟踪器
 </TRN>
 <TRN locale="zh_CN" key="website.Current_Version">
 当前版本
-</TRN>
-<TRN locale="zh_CN" key="website.Current_Version_text">
-<em>2.0.4</em> 版是 Free Pascal 最新的稳定版本。点击<a href="download@x@">下载</a>链接并选择一个离您较近的镜像站点来下载一个副本。开发中的版本为 <EM>2.1.x</EM>。查看<a href="develop.html">开发</a>页面来了解如何获得最新的源代码与开发支持。
-
 </TRN>
 <TRN locale="zh_CN" key="website.DEB_compatibility">
 我们的 DEB 包兼容所有基于 DEB 的发行版，包括 Debian。
@@ -320,9 +326,6 @@ Mac 上的 FPC
 <TRN locale="zh_CN" key="website.latest_news">
 最近新闻
 </TRN>
-<TRN locale="zh_CN" key="website.latest_release">
-最新的版本是 <b>2.0.4</b>
-</TRN>
 <TRN locale="zh_CN" key="website.License">
 协议
 </TRN>
@@ -362,10 +365,6 @@ Mac 上的 FPC
 <TRN locale="zh_CN" key="website.overview">
 概述
 </TRN>
-<TRN locale="zh_CN" key="website.overview_text">
-Free Pascal (即 FPK Pascal) 是一个支持 32 位和64 位程序设计的专业 Pascal 编译器。它支持多种处理器：Intel x86、Amd64/x86_64、PowerPC 和 Sparc。已经停止开发的 1.0 版本还支持 Motorola 680x0。当前版本支持下列的操作系统：Linux、FreeBSD、<a href="fpcmac.html">Mac OS X/Darwin</a>、<a href="fpcmac.html">Mac OS classic</a>、DOS、Win32、OS/2、Netware (libc、classic) 和 MorphOS。
-
-</TRN>
 <TRN locale="zh_CN" key="website.Pascal_lang_rel_inf">
 Pascal 语言相关问题
 </TRN>
@@ -378,14 +377,23 @@ Pascal 语言相关问题
 <TRN locale="zh_CN" key="website.q_Big_binaries">
 为什么生成的二进制文件这么大？
 </TRN>
+<TRN locale="zh_CN" key="website.q_build_unit">
+编译一个 Unit
+</TRN>
 <TRN locale="zh_CN" key="website.q_calling_C_functions">
 调用 C 函数
 </TRN>
 <TRN locale="zh_CN" key="website.q_cfg_problems">
 配置文件问题 (fpc.cfg 或 ppc386.cfg)
 </TRN>
+<TRN locale="zh_CN" key="website.q_compiling_systemunit">
+编译 System Unit
+</TRN>
 <TRN locale="zh_CN" key="website.q_Debugging_DLL">
 有时无法调试共享库 (动态链接库)
+</TRN>
+<TRN locale="zh_CN" key="website.q_Debug_smartlinked">
+有时不能调试智能链接的代码
 </TRN>
 <TRN locale="zh_CN" key="website.q_FPC_vs_GPC">
 Free Pascal 与 GNU Pascal 的比较
@@ -410,6 +418,9 @@ Free Pascal 安装提示
 </TRN>
 <TRN locale="zh_CN" key="website.q_Licence_copyright_info">
 协议与版权信息
+</TRN>
+<TRN locale="zh_CN" key="website.q_OOP">
+使用 Free Pascal 编译 Delphi 代码
 </TRN>
 <TRN locale="zh_CN" key="website.q_Real_windows_application">
 怎样开发真正的 Windows 应用程序 (带窗口和菜单栏)？

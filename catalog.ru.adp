@@ -32,6 +32,12 @@
 <TRN locale="ru_RU" key="website.adv_Fast">
 <STRONG>Компиляторы паскаля работают очень быстро, и Free Pascal не исключение</STRONG> Да, у Вас не успеет вырасти корневая система, пока Вы ожидаете конца компиляции Ваших программ. Просто нажмите кнопку, и дело сделано, даже для больших программ.
 </TRN>
+<TRN locale="ru_RU" key="website.adv_Fast_code">
+<STRONG>Высокая скорость, не требует много памяти</STRONG>
+Так как Free Pascal &mdash; язык, компилируемый в быстрый машинный код современным компилятором, язык Паскаль становится одним из быстрейших доступных языков.
+Более того: программы на Free Pascal склонны использовать меньше памяти.
+Для сравнения с другими языками мы предлагаем посмотреть <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark (Разговор начистоту о производительности)</A> и советуем Вам изменять веса тестов согласно Вашим вкусам.
+</TRN>
 <TRN locale="ru_RU" key="website.adv_IDE">
 <STRONG>Интегрированная среда разработки</STRONG> К Free Pascal прилагается ИСР, которая работает на нескольких платформах, в которой Вы можете писать, компилировать и отлаживать Ваши программы. Вы сэкономите огромное количество времени, используя ИСР, лучшего друга программиста
 </TRN>
@@ -68,17 +74,11 @@
 <TRN locale="ru_RU" key="website.Amiga_tel_inf">
 Относящееся к Amiga
 </TRN>
-<TRN locale="ru_RU" key="website.arm-linux_1_file_download_descr">
-<a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 Мб) содержит обычный архив .tar, содержащий сценарий установки<br> После распаковки архива Вы можете запустить сценарий установки с помощью команды "<tt>sh install.sh</tt>".
-</TRN>
 <TRN locale="ru_RU" key="website.arm-linux_available_in">
 Пакет FPC для arm-linux доступен в единственном формате:
 </TRN>
 <TRN locale="ru_RU" key="website.Authors">
 Авторы
-</TRN>
-<TRN locale="ru_RU" key="website.available_limited_platforms">
-Из-за недостатка в людях, которые готовят или проверяют выпуски, версия 2.0.4 доступна только для некоторых платформ и не во всех вариантах пакетов. Если Вы хотите изменить это и собирать или проверять выпуски этой и следующих версий, свяжитесь с нами через рассылки по электронной почте.
 </TRN>
 <TRN locale="ru_RU" key="website.a_What_is_FPC">
 <p>Изначально называвшийся "FPK-Pascal", компилятор Free Pascal &mdash; это 32-х и 64-хбитный компилятор Паскаля, совместимый с Turbo Pascal и Delphi, для DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic и ещё нескольких платформ (количество поддерживаемых платформ всё время растёт, хотя не все они поддерживаются на том же уровне, что и основные).
@@ -101,8 +101,8 @@
 <p>Позднейшей официальной версией является 2.0.4, выпущенная в качестве исправления ошибок в предыдущих версиях вида 2.0.x. Новые разработки внедряются в версиях вида 2.1.x, которые постепенно будут выпущены в виде 2.2.0 или 3.0.0 (в зависимости от объёма изменений, скопившихся к моменту выпуска).
 <h4>Старые версии</h4>
 <p>Система нумерации версий FPC несколько раз изменялась в течении прошедших лет. Версии до 0.99.5 считаются устаревшими. После выпуска 0.99.5 была принята новая система нумерации версий, эта система слегка изменилась с выпуском версии 1.0. 
-<p><b>Versioning for versions 0.99.5 - 1.0</b><p>
-<p>Компиляторы, в номерах версиа которых последнее число <b>чётное</b> являются <b>выпущенными</b> (например, 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0).
+<p><b>Нумерация версий 0.99.5 - 1.0</b><p>
+<p>Компиляторы, в номерах версий которых последнее число <b>чётное</b> являются <b>выпущенными</b> (например, 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0).
 <br>Компиляторы и пакеты с <b>нечётным</b> последним числом в номере версии находятся <b>в стадии разработки</b> (например, 0.99.9, 0.99.11, 0.99.13, 0.99.15). 
 <p>0.99.5 является исключением из этого правила, так как <b>0.99.5 ЯВЛЯЕТСЯ выпуском</b> (выпуском, сделанным до введения этой системы нечётный/чётный).
 <p>Буквы после последнего числа в номере версии (0.99.12b, 0.99.5d) означают, что были ранее выпущены версии с какими-то ошибками (соответственно, 0.99.12 и 0.99.5), которые теперь исправлены.
@@ -163,9 +163,6 @@ Base files (program and units):
 </TRN>
 <TRN locale="ru_RU" key="website.Current_Version">
 Текущая версия
-</TRN>
-<TRN locale="ru_RU" key="website.Current_Version_text">
-Версия <em>2.0.4</em> является позднейшей стабильной версией Free Pascal. Нажмите ссылку <a href="download.html">скачать</a> и выберите зеркальный сайт поближе к Вам, чтобы скачать себе копию. У того, что находится в разработке, стоят номера версий <EM>2.1.x</EM>. Читайте страницу <a href="develop.html">разработки</a>, чтобы узнать, как получить позднейшие исходные тексты или поддержать разработчиков.
 </TRN>
 <TRN locale="ru_RU" key="website.DEB_compatibility">
 Наши пакеты типа DEB совместимы со всеми дистрибутивами, основанными на DEB, включая Debian, Linspire, Ubuntu.
@@ -257,29 +254,8 @@ FPC на Mac
 <TRN locale="ru_RU" key="website.General_Information">
 Общая информация
 </TRN>
-<TRN locale="ru_RU" key="website.Get_the_sources_here">
-Получить исходные тексты <a href="@mirror_url@/dist/source-2.0.4">здесь</a>
-</TRN>
 <TRN locale="ru_RU" key="website.Home">
 Главная
-</TRN>
-<TRN locale="ru_RU" key="website.i386-freebsd_1_file_download_descr">
-<a href="@mirror_url@dist/i386-freebsd-2.0.4/fpc-2.0.4.i386-freebsd.tar">fpc-2.0.4.i386-freebsd.tar</a> (24 Мб) содержит стандартный архив .tar, включающий сценарий установки<br> После распаковки архива Вы можете запустить сценарий установки в созданном каталоге с помощью команды "<TT>sh install.sh</TT>".
-</TRN>
-<TRN locale="ru_RU" key="website.i386-linux_1_file_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/fpc-2.0.4.i386-linux.tar">fpc-2.0.4.i386-linux.tar</a> (24 Мб) содержит стандартный архив .tar, включающий сценарий установки<br> После распаковывания архива во временный каталог Вы можете запустить сценарий установки с помощью команды "<tt>sh install.sh</tt>".
-</TRN>
-<TRN locale="ru_RU" key="website.i386-linux_deb_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/deb/">Этот каталог</a> содержит неофициальные пакеты .DEB для Debian.<br>
-</TRN>
-<TRN locale="ru_RU" key="website.i386-linux_rpm_docs_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-docs-2.0.4-0.i586.rpm">fpc-docs-2.0.4-0.i586.rpm</a> (6.5 Мб) содержит документацию.<br>
-</TRN>
-<TRN locale="ru_RU" key="website.i386-linux_rpm_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.i586.rpm">fpc-2.0.4-0.i586.rpm</a> (13 Мб) содержит компилятор, вспомогательные программы, библиотеку этапа исполнения и все модули. <br>
-</TRN>
-<TRN locale="ru_RU" key="website.i386-linux_rpm_src_download_descr">
-<a href="@mirror_url@dist/i386-linux-2.0.4/rpm/fpc-2.0.4-0.src.rpm">fpc-2.0.4-0.src.rpm</a> (19 Мб) содержит исходные тексты.<br>
 </TRN>
 <TRN locale="ru_RU" key="website.Introduction">
 Введение
@@ -292,12 +268,6 @@ FPC на Mac
 </TRN>
 <TRN locale="ru_RU" key="website.latest_news">
 Последние новости
-</TRN>
-<TRN locale="ru_RU" key="website.latest_release">
-Позднейший выпуск &mdash; <b>2.0.4</b>
-</TRN>
-<TRN locale="ru_RU" key="website.latest_version_is">
-Номер версии позднейшего выпуска &mdash; <b>2.0.4</b>
 </TRN>
 <TRN locale="ru_RU" key="website.License">
 Лицензия
@@ -370,9 +340,6 @@ Ido Kanner будет читать лекцию о FPC в <a href="http://haifux
 </TRN>
 <TRN locale="ru_RU" key="website.overview">
 Обзор
-</TRN>
-<TRN locale="ru_RU" key="website.overview_text">
-Free Pascal (известный и как FPK Pascal) &mdash; это 32-х и 64-хбитный профессиональный компилятор языка паскаль. Он доступен для разных процессоров: Intel x86, Amd64/x86_64, PowerPC, Sparc. Прерванная версия 1.0 также поддерживала Motorola 680x0. Поддерживаются следующие операционные системы: Linux, FreeBSD, <a href="fpcmac.html">Mac OS X/Darwin</a>, <a href="fpcmac.html">Mac OS classic</a>, DOS, Win32, OS/2, Netware (libc и classic) и MorphOS.
 </TRN>
 <TRN locale="ru_RU" key="website.PalmOS_rel_inf">
 Относящееся к PalmOS
