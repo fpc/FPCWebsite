@@ -139,6 +139,10 @@ Base files (program and units):
 <TRN locale="ru_RU" key="website.Bugtracker">
 Поиск ошибок
 </TRN>
+<TRN locale="ru_RU" key="website.can_download_for_platform">
+Вы можете скачать выпуск версии 2.2.x для следующих процессоров и операционных систем:
+  
+</TRN>
 <TRN locale="ru_RU" key="website.Coding">
 Программистам
 </TRN>

@@ -198,6 +198,12 @@ Officiële uitgaven
 <TRN locale="nl_NL" key="website.ready_made_packages">
 Dit zijn klaar om te installeren pakketten, met een installatieprogramma, die je in een mum van tijd aan de gang helpen. Alle pakketten bevatten een README-bestand, hetwelk je dient te lezen voor installatieinstructies en het laatste nieuws.  
 </TRN>
+<TRN locale="nl_NL" key="website.latest_release">
+De meest recente versie is <b>2.2.0</b>
+</TRN>
+<TRN locale="nl_NL" key="website.can_download_for_platform">
+Je kunt de uitgaven 2.2.x downloaden voor de volgende processoren en besturingssystemen:
+</TRN>
 <TRN locale="nl_NL" key="website.Source">
 Broncode
 </TRN>
@@ -1510,4 +1516,8 @@ bevat een installatieprogramma voor kruiscompilatie van Win32 naar arm-wince.
 </TRN>
 <TRN locale="nl_NL" key="website.Download_win32_win64_cross_installer">
 bevat een installatieprogramma met daarin de Win32-naar-Win64-kruiscompiler.
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070910b">
+Op OS-News <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0"> is een artikel geplaatst</a> over de nieuwe FPC-compiler en het multi-platform ontwikkelen. Een Nederlandstalige versie is beschikbaar op onze <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+  
 </TRN>

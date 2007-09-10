@@ -2362,3 +2362,8 @@ Download cross-compilers as installers
 <TRN locale="en_US" key="website.Download_win32_win64_cross_installer">
  contains the installer containing the win32 to win64 cross-compiler only. 
 </TRN>
+<TRN locale="en_US" key="website.news_headline_20070910b">
+
+    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+  
+</TRN>
