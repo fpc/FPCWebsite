@@ -18,6 +18,11 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
   <em>September 10, 2007</em>
+  <trn locale="en_US" key="website.news_headline_20070910b">
+    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+  </trn>
+<p>
+  <em>September 10, 2007</em>
   <trn locale="en_US" key="website.news_headline_20070910">
     The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
     <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
@@ -32,23 +37,6 @@
   <p> The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
   <p>
   Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
-  </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20070520">
-    <em>May 20, 2007</em>
-    After years of development the new fpc version 2.2.0, version <em>2.1.4</em>
-    aka <em>2.2.0-beta</em> is <a href="download@x@#beta">released</a>.
-    The beta will be available for about two months whereafter 2.2.0 will be released. We ask all
-    our users to test this release, and report bugs on <a href="mantis/set_project.php?project_id=6">
-    the bug-tracker</a>. If you want to know if your bug is already solved, you can look it up in 
-    <a href="mantis/set_project.php?project_id=6">mantis</a>, or
-    try one of the daily snapshots, based on the fixes_2_2 branch. So please help us make version
-    2.2.0 the most stable version of freepascal, until now. List of changes can be found 
-    <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">here</a>.
-    The <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">
-    releasenotes</a> are also available. Please note that there are some intentional incompatibilities 
-    with previous versions, for an overview click <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
-    here</a>.
   </trn>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>

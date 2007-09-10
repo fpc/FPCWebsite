@@ -10,7 +10,12 @@
 <h3>Latest changes:</h3>
 
 <li>September 10, 2007
-<ul><li>
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20070910b">
+    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+  </trn>
+  <li>
   <trn locale="en_US" key="website.news_headline_20070910">
     The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
     <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
