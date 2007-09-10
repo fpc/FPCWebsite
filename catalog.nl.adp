@@ -198,9 +198,6 @@ Officiële uitgaven
 <TRN locale="nl_NL" key="website.ready_made_packages">
 Dit zijn klaar om te installeren pakketten, met een installatieprogramma, die je in een mum van tijd aan de gang helpen. Alle pakketten bevatten een README-bestand, hetwelk je dient te lezen voor installatieinstructies en het laatste nieuws.  
 </TRN>
-<TRN locale="nl_NL" key="website.can_download_for_platform">
-Je kunt de uitgaven 2.0.x downloaden voor de volgende processoren en besturingssystemen:
-</TRN>
 <TRN locale="nl_NL" key="website.Source">
 Broncode
 </TRN>
@@ -245,13 +242,6 @@ Terug naar de mirrorlijst
 </TRN>
 <TRN locale="nl_NL" key="website.Back_to_general_download_page">
 Terug naar algemene downloadpagina
-</TRN>
-<TRN locale="nl_NL" key="website.supported_windows_versions">
-De volgende versies van Windows worden ondersteund: 95, 98, ME, NT, 2000, XP en 2003
-
-</TRN>
-<TRN locale="nl_NL" key="website.Download_as_installer">
-Installatieprogramma downloaden:
 </TRN>
 <TRN locale="nl_NL" key="website.Sources">
 Broncode
@@ -1480,4 +1470,44 @@ Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als d
 </TRN>
 <TRN locale="nl_NL" key="website.a_win_debugging">
 <p>De GNU-debugger v4.16 en nieuwer zijn getest en deze werkt over het algemeen zoals hij hoort te werken. Omdat de GNU-debugger C-georienteerd is, kunnen sommige Pascaltypen niet gerepresenteerd worden zoals dit zou moeten. Je kunt gdbpas gebruiken of de tekstmode-IDE, hierin zijn een aantal aanpassingen betreffende dezekwestie gemaakt. Ze zijn beiden beschikbaar voor Windowsplatformen.
+</TRN>
+<TRN locale="nl_NL" key="website.down_204_only_note">
+alleen 2.0.4
+</TRN>
+<TRN locale="nl_NL" key="website.Download_as_installer">
+Installatieprogramma voor Windows 32-bit downloaden:
+</TRN>
+<TRN locale="nl_NL" key="website.Download_cross_as_installer">
+Optioneel: Download kruiscompilers voor Windows 64-bit of Windows CE (als installatieprogramma)
+</TRN>
+<TRN locale="nl_NL" key="website.news_headline_20070910">
+Het Free Pascal-compilerteam kondigt met grote tevredenheid de beschikbaarheid van FPC 2.2.0 aan!
+    <p>Een overzicht van nieuwe functionaliteit en wijzigingen is <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">hier</a>, beschikbaar. Enkele hoogtepunten zijn:
+    <ul>
+      <li>Architecturen: PowerPC/64- en ARM-ondersteuning
+      <li>Nieuwe platformen: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance en Game Boy DS
+      <li>Linker: sneller en slanke  interne linker voor Windowsplatformen
+      <li>Debuggen: Ondersteuning voor Dwarf en mogelijkheden om variabelen automatisch met waarden te vullen ten einde ongeïntialiseerd gebruik gemakkelijk te detecteren
+      <li>Taal: ondersteuning voor interfacedelegatie, bitpacking in records en arrays en ondersteuning voor COM-/OLE-varianten en dispinterfaces
+      <li>Infrastructuur: betere ondersteuning van het type variant, ondersteuning voor meerdere resourcebestanden, widestrings zijn COM-/OLE-compatibel onder Windows, verbeterde databaseondersteuning
+</ul>
+<p>Notities betreffende deze uitgave zijn <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">hier</a> te vinden.
+  <p>
+  Downloads zijn beschikbaar op <a href="download.var">http://www.freepascal.org/download.var</a>
+  
+</TRN>
+<TRN locale="nl_NL" key="website.latest_version_is">
+De meest recente versie is <b>2.2.0</b>
+</TRN>
+<TRN locale="nl_NL" key="website.overview_text">
+Free Pascal (ook bekend als FPK-Pascal) is een professionele 32- en 64-bit Pascalcompiler. Het is beschikbaar voor verscheidene processoren: Intel x86, AMD64/x86_64, PowerPC, Sparc. De niet langer ondersteunde 1.0-versie ondersteunt ook de Motorola 680x0. De volgende besturingssystemen worden ondersteund: Linux, FreeBSD, <A href='fpcmac@x@'>Mac OS X/Darwin</A>, <A href='fpcmac@x@'>Mac OS classic</A>, DOS, Win32, Win64, Win CE, OS/2, Netware (libc en klassiek) en MorphOS.
+</TRN>
+<TRN locale="nl_NL" key="website.Download_win32_installer">
+bevat het installatieprogramma met de compiler en hulpmiddelen voor win32
+</TRN>
+<TRN locale="nl_NL" key="website.Download_win32_wince_cross_installer">
+bevat een installatieprogramma voor kruiscompilatie van Win32 naar arm-wince. 
+</TRN>
+<TRN locale="nl_NL" key="website.Download_win32_win64_cross_installer">
+bevat een installatieprogramma met daarin de Win32-naar-Win64-kruiscompiler.
 </TRN>

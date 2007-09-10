@@ -299,10 +299,6 @@ Binari
 <TRN locale="it_IT" key="website.Bugtracker">
 Registro errori
 </TRN>
-<TRN locale="it_IT" key="website.can_download_for_platform">
-    Sono disponibili i download della versione 2.0.x per le seguenti piattaforme:
-  
-</TRN>
 <TRN locale="it_IT" key="website.Coding">
 In dettaglio
 </TRN>
@@ -606,10 +602,6 @@ Sorgenti
 </TRN>
 <TRN locale="it_IT" key="website.Sources">
 Sorgenti
-</TRN>
-<TRN locale="it_IT" key="website.supported_windows_versions">
-  Versioni di Windows supportate: 95, 98, ME, NT, 2000, XP e 2003
-
 </TRN>
 <TRN locale="it_IT" key="website.to_be_used_from_IDE">
 da utilizzare con l'IDE oltre agli altri 

@@ -301,11 +301,6 @@ Advantages of Free Pascal
 <TRN locale="en_US" key="website.Binaries">
 Binaries
 </TRN>
-<TRN locale="en_US" key="website.can_download_for_platform">
-
-    You can download the 2.0.x release for the following cpu and operating systems:
-  
-</TRN>
 <TRN locale="en_US" key="website.down_i386_freebsd_note">
 FreeBSD 4.x and probably 5.x too
 </TRN>
@@ -427,11 +422,6 @@ Back to mirror list
 </TRN>
 <TRN locale="en_US" key="website.Back_to_general_download_page">
 Back to general download page
-</TRN>
-<TRN locale="en_US" key="website.supported_windows_versions">
-
-  Supported Windows versions are 95, 98, ME, NT, 2000, XP and 2003
-
 </TRN>
 <TRN locale="en_US" key="website.Download_as_installer">
 Download as installer
@@ -2339,4 +2329,36 @@ The latest beta is <b>2.1.4</b>
 </TRN>
 <TRN locale="en_US" key="website.Documentation_in_diff_formats">
 <a href="down2/docs/docs@x@">Documentation</a> in different formats
+</TRN>
+<TRN locale="en_US" key="website.down_204_only_note">
+2.0.4 only
+</TRN>
+<TRN locale="en_US" key="website.news_headline_20070910">
+
+    The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
+    <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
+    <ul>
+      <li> Architectures: PowerPC/64 and ARM support
+      <li> Platforms: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance, and Game Boy DS support
+      <li> Linker: fast and lean internal linker for Windows platforms
+      <li> Debugging: Dwarf support and the ability to automatically fill variables with several values to more easily detect uninitialised uses
+      <li> Language: support for interface delegation, bit packed records and arrays and support for COM/OLE variants and dispinterfaces
+      <li> Infrastructure: better variants support, multiple resource files support, widestrings are COM/OLE compatible on Windows, improved database support
+    </ul>
+  <p> The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
+  <p>
+  Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
+  
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_installer">
+ contains the installer containing the compiler and tools for win32
+</TRN>
+<TRN locale="en_US" key="website.Download_cross_as_installer">
+Download cross-compilers as installers
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_wince_cross_installer">
+ contains the installer containing the win32 to arm-wince cross-compiler only. 
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_win64_cross_installer">
+ contains the installer containing the win32 to win64 cross-compiler only. 
 </TRN>

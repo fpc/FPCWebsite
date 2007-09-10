@@ -160,9 +160,6 @@ Wymagany jest dowolny procesor PowerPC i 16 MB pamięci RAM. Wersja Mac OS class
 <TRN locale="pl_PL" key="website.Features_text">
 Składnia języka jest w pełni kompatybilna z TP 7.0, jak i z większością wersji Delphi (klasy, rtti, wyjątki, ansistrings, widestrings, interfejsy). Z myślą o użytkownikach Apple'a, dostępny jest również tryb kompatybilności z Mac Pascalem. Ponadto Free Pascal pozwala na przeciążanie funkcji (ang. function overloading) i operatorów (ang. operator overloading), globalne właściwości i wiele innych.
 </TRN>
-<TRN locale="pl_PL" key="website.can_download_for_platform">
-Możesz ściągnąć wydanie 2.0.x dla następujących procesorów i systemów operacyjnych:
-</TRN>
 <TRN locale="pl_PL" key="website.download_documentation">
 Dokumentację można pobrać w różnych formatach z jednej z naszych <a href="down/docs/docs@x@">pobieralni</a>.
 </TRN>
@@ -207,9 +204,6 @@ Oficjalne wydania
 </TRN>
 <TRN locale="pl_PL" key="website.down_i386_freebsd_note">
 FreeBSD 4.x i prawdopodobnie 5.x również
-</TRN>
-<TRN locale="pl_PL" key="website.supported_windows_versions">
-Obsługiwane są następujące wersje systemu Windows: 95, 98, ME, NT, 2000, XP oraz 2003
 </TRN>
 <TRN locale="pl_PL" key="website.already_included_installer">
 domyślnie dołączona do instalatora

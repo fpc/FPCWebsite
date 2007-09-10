@@ -10,10 +10,6 @@ Binarne izdaje
 <TRN locale="sl_SI" key="website.Bugtracker">
 Prijava napak
 </TRN>
-<TRN locale="sl_SI" key="website.can_download_for_platform">
-    Lahko preneseš izdaje 2.0.x za naslednje cpu in operativne sisteme:
-  
-</TRN>
 <TRN locale="sl_SI" key="website.Coding">
 Kodiranje
 </TRN>

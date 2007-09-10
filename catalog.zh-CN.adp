@@ -200,10 +200,6 @@ PowerPC 架构。老版本 (1.0 系列) 还支持 m68k。</p>
 <TRN locale="zh_CN" key="website.Bugtracker">
 Bug 跟踪器
 </TRN>
-<TRN locale="zh_CN" key="website.can_download_for_platform">
-您可以下载支持下列 CPU 和操作系统的 2.0.x 版本：
-
-</TRN>
 <TRN locale="zh_CN" key="website.can_download_for_platform_beta">
 您可以下载支持下列操作系统的 2.1.4 版本：
 </TRN>

@@ -70,9 +70,6 @@
 <TRN locale="bg_BG" key="website.Bugtracker">
 Следене на грешки
 </TRN>
-<TRN locale="bg_BG" key="website.can_download_for_platform">
-Можете да изтеглите 2.0.х изданията за следните ЦПУ и операционни системи:
-</TRN>
 <TRN locale="bg_BG" key="website.Coding">
 Програмиране
 </TRN>
@@ -324,9 +321,6 @@ RedHat пакети (.rpm)
 </TRN>
 <TRN locale="bg_BG" key="website.Sources">
 Сорс-кодове
-</TRN>
-<TRN locale="bg_BG" key="website.supported_windows_versions">
-Поддържани Windows версии са 95, 98, ME, NT, 2000, XP и 2003
 </TRN>
 <TRN locale="bg_BG" key="website.to_be_used_from_IDE">
 да се използва от ИСР освен с другите

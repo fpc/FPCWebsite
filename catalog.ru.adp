@@ -139,10 +139,6 @@ Base files (program and units):
 <TRN locale="ru_RU" key="website.Bugtracker">
 Поиск ошибок
 </TRN>
-<TRN locale="ru_RU" key="website.can_download_for_platform">
-Вы можете скачать выпуск версии 2.0.x для следующих процессоров и операционных систем:
-  
-</TRN>
 <TRN locale="ru_RU" key="website.Coding">
 Программистам
 </TRN>
@@ -418,9 +414,6 @@ RPM (Redhat Package Manager &mdash; управление пакетами Redhat
 </TRN>
 <TRN locale="ru_RU" key="website.Sources">
 Исходные тексты
-</TRN>
-<TRN locale="ru_RU" key="website.supported_windows_versions">
-Поддерживаемые версии Windows: 95, 98, ME, NT, 2000, XP и 2003
 </TRN>
 <TRN locale="ru_RU" key="website.to_be_used_from_IDE">
 для использования из ИСР, кроме прочего
