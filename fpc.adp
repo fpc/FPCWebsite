@@ -10,12 +10,29 @@
     It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
     Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
     The following operating systems are supported: Linux, FreeBSD,
-    <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, OS/2,
+    <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, Win64, WinCE, OS/2,
     Netware (libc and classic) and MorphOS.
   </trn>
 </p>
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
+<p>
+  <em>September 20, 2007</em>
+  <trn locale="en_US" key="website.news_headline_20070910">
+    The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
+    <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
+    <ul>
+      <li> Architectures: PowerPC/64 and ARM support
+      <li> Platforms: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance, and Game Boy DS support
+      <li> Linker: fast and lean internal linker for Windows platforms
+      <li> Debugging: Dwarf support and the ability to automatically fill variables with several values to more easily detect uninitialised uses
+      <li> Language: support for interface delegation, bit packed records and arrays and support for COM/OLE variants and dispinterfaces
+      <li> Infrastructure: better variants support, multiple resource files support, widestrings are COM/OLE compatible on Windows, improved database support
+    </ul>
+  <p> The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
+  <p>
+  Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
+  </trn>
 <p>
   <trn locale="en_US" key="website.news_headline_20070520">
     <em>May 20, 2007</em>
@@ -33,20 +50,14 @@
     with previous versions, for an overview click <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
     here</a>.
   </trn>
-<p>
-  <trn locale="en_US" key="website.news_headline_20070328">
-    <em>March 28, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> has released
-    version 1.0.0.7 of its WebOS AppsBuilder. It is the first version of AppsBuilder that uses FPC
-    to create the backend.
-  </trn>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
-    Version <em>2.0.4</em> is the latest stable version the Free Pascal.
+    Version <em>2.2.0</em> is the latest stable version the Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
-    The development releases have version numbers <EM>2.1.x</EM>.
+    The development releases have version numbers <EM>2.3.x</EM>.
     See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
   </trn>
 </p>

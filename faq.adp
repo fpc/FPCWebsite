@@ -64,7 +64,6 @@
     <li><a href="#HowToUseGraph"><trn key="website.q_using_graph" locale="en_US">Using the graph unit with Free Pascal</trn></a>
     <li><a href="#WrongColors"><trn key="website.q_wrong_colours_using_graph" locale="en_US">Why do I get wrong colors when using the graph unit?</trn></a>
     <li><a href="#fileshare"><trn key="website.q_filesharing" locale="en_US">File sharing and file locks</trn></a>
-    <li><a href="#filebig"><trn key="website.q_Huge_files" locale="en_US">Accessing huge files using standard I/O routines</trn></a>
     <li><a href="#filemode"><trn key="website.q_File_denied_errors" locale="en_US">File denied errors when opening files with reset</trn></a>
    </OL>
    <li><trn key="website.DOS_rel_inf" locale="en_US">DOS related information</trn>
@@ -182,9 +181,9 @@
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 2.0.4, released as a bug fix release for
-            2.0.x series. New development is performed in 2.1.x series, which eventually
-            gets released as either 2.2.0, or 3.0.0 (depending on amount of accumulated
+            <p>The latest official version is 2.2.0, the first release of the 2.2.x 
+            series. New development is performed in 2.3.x series, which eventually
+            gets released as either 2.4.0, or 3.0.0 (depending on amount of accumulated
             changes at the time of release).
 
             <h4>Historic versions</h4>
@@ -245,7 +244,7 @@
             you're not sure.
 
             <p>We advise all users to upgrade to the newest version for their
-            target (Preferably the new stable 2.0.x series).
+            target (Preferably the new stable 2.2.x series).
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
@@ -261,7 +260,7 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 2.0 (may 2005). GNU Pascal is at
+            <DD>Currently, Free Pascal is at version 2.2 (august 2007). GNU Pascal is at
             version 2.1 (from 2002, which can be built with several different GCC's as backend; 
             their Mac OS X version is an exception though, as it follows the GCC version number).
             <DT><b>Tracking:</b>
@@ -346,7 +345,7 @@
           <h3><trn key="website.q_Getting_the_compiler" locale="en_US">Getting the compiler</trn></h3>
           <trn key="website.a_Getting_the_compiler" locale="en_US">
             <p>The latest official stable Free Pascal release is available for download
-            from all <a href="download@x@">official mirrors</a>
+            from all <a href="@maindir@download@x@">official mirrors</a>
           </trn>
 
         <li><a name='general-install'></a>
@@ -395,7 +394,7 @@
             Dos, since it's not supported any more. 
 
             <p>The latest snapshot can always be downloaded from the <A
-            href="develop@x@#snapshot">development</a>
+            href="@maindir@develop@x@#snapshot">development</a>
             web page. 
           </trn>
         
@@ -1152,19 +1151,6 @@
                     to simulate, as much as possible, file sharing mechanisms. 
              </ul>
            </trn>
-
-        
-        <li><a name=filebig></a>
-          <h3><trn key="website.q_Huge_files" locale="en_US">Accessing huge files using standard I/O routines</trn></h3>
-          <trn key="website.a_Huge_files" locale="en_US">
-             <p>The runtime library currently limits access to files which have
-             file sizes which fit into a 32-bit signed integer (<TT>longint</TT>).
-
-             <p> Therefore accessing files which have file sizes greater than
-                 2 Gigabytes will produce unpredictable behavior. Application
-                 accessing such files will have to use direct operating systems
-                 calls (if the OS supports such files) to workaround the problem.
-          </trn>   
         
         <li><a name='filemode'></a>
           <h3><trn key="website.q_File_denied_errors" locale="en_US">File denied errors when opening files with reset</trn></h3>

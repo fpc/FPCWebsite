@@ -11,10 +11,10 @@
     which you should read for installation instructions and latest news.
   </trn>
 <p>
-  <trn key="website.latest_release" locale="en_US">The latest release is <b>2.0.4</b></trn>.
+  <trn key="website.latest_release" locale="en_US">The latest release is <b>2.2.0</b></trn>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
-  Because of a lack of release builders and testers, 2.0.4 is only available for a limited
+  Because of a lack of release builders and testers, 2.2.0 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 </trn>
@@ -23,7 +23,7 @@
 <a name="binary"></a><h3><trn key="website.Binaries" locale="en_US">Binaries</trn></h3>
 <p>
   <trn key="website.can_download_for_platform" locale="en_US">
-    You can download the 2.0.x release for the following cpu and operating systems:
+    You can download the 2.2.0 release for the following cpu and operating systems:
   </trn>
 <p>  
 <ul>
@@ -33,7 +33,7 @@
     </ul>
   <li>intel/i386
     <ul>
-      <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
+      <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender) (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
@@ -43,9 +43,9 @@
   <li>powerpc
     <ul>
       <li><a href="down/powerpc/linux@x@">Linux</a>
-      <li><a href="down/powerpc/macos@x@">Mac OS</a>
+      <li><a href="down/powerpc/macos@x@">Mac OS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
-      <li><a href="down/powerpc/morphos@x@">MorphOS</a>
+      <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
     </ul>  
   <li>sparc
     <ul>
@@ -83,7 +83,7 @@
 </ul>
 -->
 
-
+<!--
 <a name="beta"></a><h2>Official beta releases</h2>
 
 <p>
@@ -129,6 +129,7 @@
   <li><trn key="website.Documentation_in_diff_formats" locale="en_US"><a href="down2/docs/docs@x@">Documentation</a> in different formats</trn>
   <li><a href="down2/source/sources@x@"><trn key="website.Sources" locale="en_US">Sources</trn></a>
 </ul>
+-->
 
 
 <h2><trn key="website.snapshots" locale="en_US">Snapshots</trn></h2>
