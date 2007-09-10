@@ -1482,7 +1482,7 @@ Optioneel: Download kruiscompilers voor Windows 64-bit of Windows CE (als instal
 </TRN>
 <TRN locale="nl_NL" key="website.news_headline_20070910">
 Het Free Pascal-compilerteam kondigt met grote tevredenheid de beschikbaarheid van FPC 2.2.0 aan!
-    <p>Een overzicht van nieuwe functionaliteit en wijzigingen is <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">hier</a>, beschikbaar. Enkele hoogtepunten zijn:
+    <p>Een overzicht van nieuwe functionaliteit en wijzigingen is <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">hier</a> beschikbaar. Enkele hoogtepunten zijn:
     <ul>
       <li>Architecturen: PowerPC/64- en ARM-ondersteuning
       <li>Nieuwe platformen: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance en Game Boy DS

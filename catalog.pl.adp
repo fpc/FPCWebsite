@@ -181,6 +181,9 @@ Kody źródłowe
 <TRN locale="pl_PL" key="website.Sources">
 Kody źródłowe
 </TRN>
+<TRN locale="pl_PL" key="website.can_download_for_platform">
+Możesz ściągnąć wydanie 2.2.x dla następujących procesorów i systemów operacyjnych:
+</TRN>
 <TRN locale="pl_PL" key="website.req_sparcb">
 Wymagane jest 16 MB pamięci RAM. Działa na każdej instalacji Sparc Linuksa.
 </TRN>
@@ -207,6 +210,12 @@ FreeBSD 4.x i prawdopodobnie 5.x również
 </TRN>
 <TRN locale="pl_PL" key="website.already_included_installer">
 domyślnie dołączona do instalatora
+</TRN>
+<TRN locale="pl_PL" key="website.latest_version_is">
+Najnowsze wydanie jest w wersji <b>2.2.0</b>.
+</TRN>
+<TRN locale="pl_PL" key="website.latest_release">
+Najnowsze wydanie to <b>2.2.0</b>
 </TRN>
 <TRN locale="pl_PL" key="website.q_FPC_vs_GPC">
 Free Pascal i GNU Pascal - porównanie
@@ -249,6 +258,9 @@ Podstawowe moduły
 </TRN>
 <TRN locale="pl_PL" key="website.Pascal_lang_rel_inf">
 Informacje dotyczące języka Pascal
+</TRN>
+<TRN locale="pl_PL" key="website.available_limited_platforms">
+Z powodu braku osób przygotowujących i testujących wydania, 2.2.0 jest dostępna tylko na pewną liczbę platform i nie we wszystkich rodzajach pakietów. Jeżeli chcesz to zmienić i czujesz się na siłach przygotować oraz przetestować przyszłe wydania, skontaktuj się z nami poprzez listy dyskusyjne.
 </TRN>
 <TRN locale="pl_PL" key="website.download_old_releases">
 Odnośniki do paru starych wydań (już bez naszego wsparcia) FPC dla platform, dla których w danym momencie nie istnieje lepsza alternatywa, znajdują się <a href="down/old/down@x@">tutaj</a>. Nie kłopocz się zgłaszaniem błędów odnośnie tych wydań - nie poprawimy ich. Głównym powodem, dla których te platformy nie są już wspierane, jest brak osób, które mogłyby zająć się ich rozwojem - jeżeli jesteś zainteresowany uaktualnieniem obsługi tych platform, odezwij się do nas (np. poprzez listę dyskusyjną fpc-devel).

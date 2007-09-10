@@ -265,6 +265,12 @@ FPC на Mac
 <TRN locale="ru_RU" key="website.latest_news">
 Последние новости
 </TRN>
+<TRN locale="ru_RU" key="website.latest_release">
+Позднейший выпуск &mdash; <b>2.2.0</b>
+</TRN>
+<TRN locale="ru_RU" key="website.latest_version_is">
+Номер версии позднейшего выпуска &mdash; <b>2.2.0</b>
+</TRN>
 <TRN locale="ru_RU" key="website.License">
 Лицензия
 </TRN>

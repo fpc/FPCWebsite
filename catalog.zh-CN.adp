@@ -322,6 +322,9 @@ Mac 上的 FPC
 <TRN locale="zh_CN" key="website.latest_news">
 最近新闻
 </TRN>
+<TRN locale="zh_CN" key="website.latest_release">
+最新的版本是 <b>2.2.0</b>
+</TRN>
 <TRN locale="zh_CN" key="website.License">
 协议
 </TRN>
