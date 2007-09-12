@@ -29,7 +29,9 @@
 <ul>
     <li>arm
     <ul>
+      <li><a href="down/arm/gba@x@">Game Boy Advance</a>
       <li><a href="down/arm/linux@x@">Linux</a>
+      <li><a href="down/arm/nds@x@">Nintendo DS</a>
     </ul>
   <li>intel/i386
     <ul>
@@ -47,6 +49,10 @@
       <li><a href="down/powerpc/macos@x@">Mac OS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
       <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
+    </ul>  
+  <li>powerpc64
+    <ul>
+      <li><a href="down/powerpc64/linux@x@">Linux</a>
     </ul>  
   <li>sparc
     <ul>
