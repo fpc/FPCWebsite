@@ -5,15 +5,15 @@
 set -e
 
 # Checkout dir
-CHECKOUTDIR=$HOME/snapshot/fpc-trunk
-STARTPP=/home/fpchome/fpc/bin/ppcx64_start
+CHECKOUTDIR=$HOME/snapshot/trunk
+STARTPP=$HOME/bin/ppc220
 INSTALLCOMPILER=$HOME/bin/ppc231
 MAILFILE=$HOME/logs/snapshot-trunk.mail
 LOGFILE=$HOME/logs/snapshot-trunk.log
-FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/trunk/x86_64-linux
+FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/trunk/i386-linux
 TESTSUITEOPT=-O2
-# FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/trunk/i386-linux
+# FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/v21/i386-linux
 # LIBGDBZIP=$HOME/snapshotlibgdb/libgdb-6.2.1-i386-linux.zip
 
 # Include common makesnapshot script
-. $HOME/scripts/makesnapshot
+. $HOME/snapshot/makesnapshot

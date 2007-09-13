@@ -5,6 +5,7 @@
 
 TESTSUITEDIR=$HOME/testsuite
 INCOMINGDIR=$TESTSUITEDIR/incoming
+FAILEDDIR=$TESTSUITEDIR/failed
 WORKDIR=$TESTSUITEDIR/work
 LOGFILE=$HOME/logs/updatetestsuite.log
 TESTSOURCEDIR=$TESTSUITEDIR/tests
@@ -15,6 +16,8 @@ processfile() {
   echo "Found file $1"
   echo
 
+  basefn=`basename $1`
+  
   rm -rf $WORKDIR
   mkdir -p $WORKDIR
 
@@ -22,19 +25,33 @@ processfile() {
   tar xfvz $1
   
   if [ -f dbdigest.cfg ]; then
+    # remove unit paths from testsuite parameters
+    sed -e 's/-Fu[^ ]*//' < dbdigest.cfg > dbdigest.cfg.new
+    mv dbdigest.cfg.new dbdigest.cfg
     echo "DatabaseName=TESTSUITE" >> dbdigest.cfg
     echo "UserName=FPCUser" >> dbdigest.cfg
     echo "PassWord=Shimrod" >> dbdigest.cfg
-    date=`echo $1 | sed 's/[^0-9]*\([0-9]*\)[^0-9]*/\1/'`
+#    doesn't work if hostname contains number
+#    date=`echo $1 | sed 's/[^0-9]*\([0-9]*\)[^0-9]*/\1/'`
+#   next won't work if hostname contains 12 consecutive numbers, better (jonas)
+    date=`echo $1 | sed 's/.*\([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]\).*/\1/'`
     echo "Date=$date" >> dbdigest.cfg
     echo "TestSrcDir=$TESTSOURCEDIR" >> dbdigest.cfg
 
-    $HOME/bin/dbdigest || true
+    $HOME/bin/dbdigest
+    err=$?
   else
     echo "ERROR: No dbdigest.cfg found!"
+    err=1
   fi
-      
-  rm -f $1
+
+  if [ $err -eq 0 ]; then
+    rm -f $1
+  else
+    echo "ERROR: dbdigest failed, moving file $basefn to $FAILEDDIR"
+    mv $1 $FAILEDDIR/$basefn
+  fi
+  
   echo "Done"
 }
 

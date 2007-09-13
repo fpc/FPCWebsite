@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+REPOS="fpc fpcdocs fpcbuild lazarus" 
+
+LOGSDIR=$HOME/snapshot/logs
+
+SVNROOT=/FPC/svn
+SVNURL=file://$SVNROOT
+LOGFILE=$HOME/logs/updatesvnstats.log
+HTMLPATH=/FPC/html/svnstats
+
+(
+date
+
+export PATH=/usr/local/bin:$PATH
+
+cd $LOGSDIR
+svn up
+
+for r in $REPOS; do
+   echo
+   echo "Creating stats for $r/trunk"
+   echo
+
+   [ -d $HTMLPATH/$r ] || mkdir -p $HTMLPATH/$r
+   /home/fpc/bin/msvnstats.py -o $HTMLPATH/$r $SVNURL/$r/trunk
+done
+
+date
+) > $LOGFILE 2>&1 </dev/null

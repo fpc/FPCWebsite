@@ -2,13 +2,16 @@
 # Generic snapshot building
 #
 
+# set correct locale for widestring tests
+export LANG=en_US.utf8
+
 if [ "$CHECKOUTDIR" == "" ]; then
     echo "No CHECKOUTDIR set"
     exit 1
 fi
 
-# Limit resources (64mb data, 8mb stack)
-ulimit -d 65536 -s 8192
+# Limit resources (64mb data, 8mb stack, 40 minutes)
+ulimit -d 65536 -s 8192 -t 2400
 
 #errormailaddr=core@freepascal.org
 #errormailaddr=peter@freepascal.org
@@ -46,29 +49,29 @@ cd $CHECKOUTDIR
 make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP
 
 # copy current compiler to bin dir
-PPNAME=`fpc -PB`
-PPNAME=`basename $PPNAME`
-cp $CHECKOUTDIR/compiler/$PPNAME $INSTALLCOMPILER
+cp $CHECKOUTDIR/compiler/ppc386 $INSTALLCOMPILER
+
+# move snapshot
+if [ "$FTPDIR" != "" ]; then
+  cd $CHECKOUTDIR
+  if [ $? = 0 ]; then
+     #  FTP machine must trust this account. Copy public key to that machine
+     # if needed Everything is set
+     scp *.tar.gz ${FTPDIR}
+     if [ $? = 0 ]; then   
+       set errormailaddr = ""
+     fi
+  fi
+fi
 
 # run testsuite and store results in database
 cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-make clean all digest uploadrun FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest
+make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=-O-
 if [ "$TESTSUITEOPT" != "" ]; then
-    make clean all digest uploadrun FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
-fi
-
-# move snapshot
-cd $CHECKOUTDIR
-if [ $? = 0 ]; then
-   #  FTP machine must trust this account. Copy public key to that machine
-   # if needed Everything is set
-   scp *.tar.gz ${FTPDIR}
-   if [ $? = 0 ]; then   
-     set errormailaddr = ""
-   fi
+    make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
 fi
 
 # clean up, ignore errors... Makefile can be broken
@@ -85,8 +88,8 @@ if [ "${errormailaddr}" != "" ]; then
         # Create email
         echo "To: ${errormailaddr}" > $MAILFILE
         echo "From: fpc@freepascal.org" >> $MAILFILE
-        echo "Subject: Daily compile routine on `hostname`" >> $MAILFILE
-        echo "Reply-to: bugs@freepascal.org" >> $MAILFILE
+        echo "Subject: Daily compile routine on idefix" >> $MAILFILE
+        echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
         /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
         /usr/sbin/sendmail -f fpc@freepascal.org ${errormailaddr} < $MAILFILE >/dev/null 2>&1
