@@ -69,10 +69,7 @@ cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=-O-
-if [ "$TESTSUITEOPT" != "" ]; then
-    make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT=$TESTSUITEOPT
-fi
+make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT="$TESTSUITEOPT"
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
