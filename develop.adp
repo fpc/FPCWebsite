@@ -12,28 +12,28 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <hr>
 
-<a name="sourcesv21"></a><h3>Download Daily Source Snapshot of Development Tree (version 2.1.x)</h3>
+<a name="sourcesv21"></a><h3>Download Daily Source Snapshot of Development Tree (version 2.3.x)</h3>
 <p>
-You can download todays development (v2.1.x) sources in form of a packed
+You can download todays development (v2.3.x) sources in form of a packed
 snapshot from the SVN source repository: these snapshots are updated on
 a daily basis, and reflect the state of the source repository.
 The files are kept at the site which has the SVN archive.
 </p>
 <p>
-Entire public sources archive of v2.1.x:
+Entire public sources archive of v2.3.x:
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/source/fpc.zip">fpc.zip</a> (24 MB)
 </p>
 
-<a name="sourcesv20"></a><h3>Download Daily Source Snapshot of Release Tree (version 2.0.x)</h3>
+<a name="sourcesv20"></a><h3>Download Daily Source Snapshot of Release Tree (version 2.2.x)</h3>
 <p>
-You can download todays development (v2.0.x) sources that will lead to the next
+You can download todays development (v2.2.x) sources that will lead to the next
 stable release in form of a packed
 snapshot from the SVN source repository: these snapshots are updated on
 a daily basis, and reflect the state of the source repository.
 The files are kept at the site which has the SVN archive.
 </p>
 <p>
-Entire public sources archive of v2.0.x:
+Entire public sources archive of v2.2.x:
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/source/fpc.zip">fpc.zip</a> (24 MB)
 </p>
 
@@ -42,7 +42,7 @@ Entire public sources archive of v2.0.x:
 
 <hr>
 
-<a name="snapshotsv21"></a><h3>Download Daily Update of Development Tree (version 2.1.x)</h3>
+<a name="snapshotsv21"></a><h3>Download Daily Update of Development Tree (version 2.3.x)</h3>
 <p>
 These snapshots contain the latest development updates and bug fixes. There is no
 guarantee that the new development updates are fully working and that the snapshot
@@ -51,7 +51,7 @@ is bugfree.
 <p> The files are available from the <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/">Freepascal ftp site</a>.
 </p>
 
-<h3><a name="snapshotsv20">Download Daily Update of Release Tree (version 2.0.x)</a></h3>
+<h3><a name="snapshotsv20">Download Daily Update of Release Tree (version 2.2.x)</a></h3>
 <p>
 These snapshots contain the latest bug fixes, without any major new
 feature. This should be more stable than the development snapshots (and even
@@ -143,15 +143,15 @@ far the most economic in terms of bandwidth.
 
 </OL>
 <p>
-<b>Fixes to 2.0.x </b>
+<b>Fixes to 2.2.x </b>
 </p>
 <p>
 The fixes need a separate directory, create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;0:
+the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;2:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;0 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;2 fpc
 </pre>
 
 and to update:
@@ -162,7 +162,7 @@ svn update fpc
 
 <p>
 To checkout release, you've to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tags/release&undersc;2&undersc;0&undersc;2 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/tags/release&undersc;2&undersc;2&undersc;0 fpc
 </p>
 
 <p>
