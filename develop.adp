@@ -147,11 +147,11 @@ far the most economic in terms of bandwidth.
 </p>
 <p>
 The fixes need a separate directory, create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;2:
+the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes_2_2:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes&undersc;2&undersc;2 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes_2_2 fpc
 </pre>
 
 and to update:
@@ -162,7 +162,7 @@ svn update fpc
 
 <p>
 To checkout release, you've to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tags/release&undersc;2&undersc;2&undersc;0 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/tags/release_2_2_0 fpc
 </p>
 
 <p>
