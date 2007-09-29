@@ -12,29 +12,37 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <hr>
 
-<a name="sourcesv21"></a><h3>Download Daily Source Snapshot of Development Tree (version 2.3.x)</h3>
+<a name="sourcesv21"></a><a name="sourcestrunk"></a><h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download todays development (v2.3.x) sources in form of a packed
-snapshot from the SVN source repository: these snapshots are updated on
-a daily basis, and reflect the state of the source repository.
-The files are kept at the site which has the SVN archive.
+You can download todays development (trunk - currently v2.3.x) sources in form
+of a packed snapshot from our FTP server (and its mirrors). These snapshots are
+updated on a daily basis, and reflect the state of the source repository.
 </p>
 <p>
-Entire public sources archive of v2.3.x:
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/source/fpc.zip">fpc.zip</a> (24 MB)
+Entire fpc sources archive of trunk:
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpc.zip">fpc.zip</a> (24 MB).
+</p>
+<p>
+Furthermore, there is an even larger archive including the fpc sources together
+with docs sources and release building related files in the same directory -
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpcbuild.zip">fpcbuild.zip</a>.
 </p>
 
-<a name="sourcesv20"></a><h3>Download Daily Source Snapshot of Release Tree (version 2.2.x)</h3>
+<a name="sourcesv20"><a name="sourcesfixes"></a><h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download todays development (v2.2.x) sources that will lead to the next
-stable release in form of a packed
-snapshot from the SVN source repository: these snapshots are updated on
+You can download todays fixes branch (currently v2.2.x) sources which will lead
+to the next stable (fixes) release in form of a packed
+snapshot from our FTP server (and its mirrors). These snapshots are updated on
 a daily basis, and reflect the state of the source repository.
-The files are kept at the site which has the SVN archive.
 </p>
 <p>
-Entire public sources archive of v2.2.x:
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/source/fpc.zip">fpc.zip</a> (24 MB)
+Entire fpc sources archive of the fixes branch:
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/source/fpc.zip">fpc.zip</a> (24 MB)
+</p>
+<p>
+Furthermore, there is an even larger archive including the fpc sources together
+with docs sources and release building related files in the same directory -
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/source/fpcbuild.zip">fpcbuild.zip</a>.
 </p>
 
 <br>
@@ -42,23 +50,23 @@ Entire public sources archive of v2.2.x:
 
 <hr>
 
-<a name="snapshotsv21"></a><h3>Download Daily Update of Development Tree (version 2.3.x)</h3>
+<a name="snapshotsv21"></a><a name="snapshotstrunk"></a><h3>Download Daily Update of Development Tree (trunk)</h3>
 <p>
 These snapshots contain the latest development updates and bug fixes. There is no
 guarantee that the new development updates are fully working and that the snapshot
 is bugfree.
 </p>
-<p> The files are available from the <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/">Freepascal ftp site</a>.
+<p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/">ftp site</a> and mirrors.
 </p>
 
-<h3><a name="snapshotsv20">Download Daily Update of Release Tree (version 2.2.x)</a></h3>
+<h3><a name="snapshotsv20"><h3><a name="snapshotsfixes">Download Daily Update of the Fixes Tree</a></h3>
 <p>
-These snapshots contain the latest bug fixes, without any major new
-feature. This should be more stable than the development snapshots (and even
+These snapshots contain the latest bug fixes, without major new
+features. This should be more stable than the development snapshots (and even
 the last official release), but there is still no guarantee that these
 snapshots are bugfree.
 </p>
-<p> The files are available from the <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v20/">Freepascal ftp site</a>.
+<p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/">ftp site</a> and mirrors.
 </p>
 
 <br>
