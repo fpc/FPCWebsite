@@ -1,18 +1,56 @@
-<TRN locale="ru_RU" key="website.a_Access_denies_while_download">
-<p>У главного FTP сайта Free Pascal есть ограничение сверху на количество одновременных соединений. Если произошла эта ошибка, то потому, что был достигнут предел. В качестве решения можно подождать и попробовать позже, а ещё лучше &mdash; использовать один из зеркальных сайтов Free Pascal.
+<TRN locale="ru_RU" key="website.Mailinglists">
+Рассылки
 </TRN>
-<TRN locale="ru_RU" key="website.a_cfg_problems">
-<p>Начиная с версии Free Pascal 1.0.6, конфигурационный файл называется <TT>fpc.cfg</TT> вместо <TT>ppc386.cfg</TT>. Для обратной совместимости наличие <TT>ppc386.cfg</TT> и сейчас проверяется первым и, если он найден, то используется вместо <TT>fpc.cfg</TT>
-<p>Версии Free Pascal до 1.0.6 не обрабатывают <TT>fpc.cfg</TT>, так что если Вы хотите использовать более ранние версии компилятора с тем же конфигурационным файлом, что и FPC 1.0.6 (или более поздним), то конфигурационный файл должен быть переименован в <TT>ppc386.cfg</TT>.
+<TRN locale="ru_RU" key="website.Porting_from_TP7">
+Миграция с TP7
 </TRN>
-<TRN locale="ru_RU" key="website.a_Debugging_DLL">
-<p>Отладка разделяемых библиотек (или динамически подключаемых библиотек) созданных компилятором Free Pascal не поддерживается официально.
+<TRN locale="ru_RU" key="website.Documentation">
+Документация
 </TRN>
-<TRN locale="ru_RU" key="website.a_Debug_smartlinked">
-<p>Отладка собранного "по умному" кода может происходить неправильно. Это вызвано отсутствием информации о типах в таком коде: иначе файлы стали бы огромными. <p>Для отладки не рекомендуется использовать опцию сборки "по умному".
+<TRN locale="ru_RU" key="website.Community">
+Сообщество
+</TRN>
+<TRN locale="ru_RU" key="website.Download">
+Скачать
 </TRN>
 <TRN locale="ru_RU" key="website.Advantages">
 Преимущества
+</TRN>
+<TRN locale="ru_RU" key="website.Development">
+Разработка
+</TRN>
+<TRN locale="ru_RU" key="website.FPC_on_the_Mac">
+FPC на Mac
+</TRN>
+<TRN locale="ru_RU" key="website.FAQ">
+ЧаВо
+</TRN>
+<TRN locale="ru_RU" key="website.Contribute">
+Внести свой вклад
+</TRN>
+<TRN locale="ru_RU" key="website.Coding">
+Программистам
+</TRN>
+<TRN locale="ru_RU" key="website.Feeling_Lucky">
+Повезёт?
+</TRN>
+<TRN locale="ru_RU" key="website.req_arma">
+Архитектура ARM
+</TRN>
+<TRN locale="ru_RU" key="website.reqppca">
+Архитектура PowerPC
+</TRN>
+<TRN locale="ru_RU" key="website.Current_Version">
+Текущая версия
+</TRN>
+<TRN locale="ru_RU" key="website.Features">
+Особые возможности
+</TRN>
+<TRN locale="ru_RU" key="website.Features_text">
+Синтаксис языка отлично совместим с TP 7.0, также как и с большинством версий Delphi (классы, rtti, исключения, ansistrings, widestrings, интерфейсы). Режим совместимости с Mac Pascal может помочь пользователям Apple. Более того: Free Pascal поддерживает перегрузку функций и операторов, глобальные свойства и некоторые другие возможности в таком духе.
+</TRN>
+<TRN locale="ru_RU" key="website.latest_news">
+Последние новости
 </TRN>
 <TRN locale="ru_RU" key="website.Advantages_of">
 Преимущества программирования на паскале и Free Pascal
@@ -32,12 +70,6 @@
 <TRN locale="ru_RU" key="website.adv_Fast">
 <STRONG>Компиляторы паскаля работают очень быстро, и Free Pascal не исключение</STRONG> Да, у Вас не успеет вырасти корневая система, пока Вы ожидаете конца компиляции Ваших программ. Просто нажмите кнопку, и дело сделано, даже для больших программ.
 </TRN>
-<TRN locale="ru_RU" key="website.adv_Fast_code">
-<STRONG>Высокая скорость, не требует много памяти</STRONG>
-Так как Free Pascal &mdash; язык, компилируемый в быстрый машинный код современным компилятором, язык Паскаль становится одним из быстрейших доступных языков.
-Более того: программы на Free Pascal склонны использовать меньше памяти.
-Для сравнения с другими языками мы предлагаем посмотреть <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark (Разговор начистоту о производительности)</A> и советуем Вам изменять веса тестов согласно Вашим вкусам.
-</TRN>
 <TRN locale="ru_RU" key="website.adv_IDE">
 <STRONG>Интегрированная среда разработки</STRONG> К Free Pascal прилагается ИСР, которая работает на нескольких платформах, в которой Вы можете писать, компилировать и отлаживать Ваши программы. Вы сэкономите огромное количество времени, используя ИСР, лучшего друга программиста
 </TRN>
@@ -46,6 +78,138 @@
 </TRN>
 <TRN locale="ru_RU" key="website.adv_namespace">
 <STRONG>В каждом модуле своё пространство имён</STRONG> В паскале Вам не придётся волноваться о загрязнении пространства имён так, как в Си, где каждый идентификатор должен быть уникальным для всей программы. Нет, в паскале у каждого модуля своё пространство имён, и ситуация гораздо менее напряжённая.
+</TRN>
+<TRN locale="ru_RU" key="website.download_snapshots">
+Кроме официальных выпусков мы предлагаем так называемые "моментальные снимки" компилятора, RTL (основных библиотек), IDE (интегрированной среды разработки) и пары других пакетов на <a href="develop@x@">странице разработки</a>. Это откомпилированные версии текущих исходных текстов со всеми исправлениями и усовершенствованиями, внесёнными после позднейшего официального выпуска, так что если у Вас с ним проблемы, Вы можете попытаться использовать эти "снимки". Конечно, в них могут быть новые ошибки.
+</TRN>
+<TRN locale="ru_RU" key="website.snapshots">
+Моментальные снимки
+</TRN>
+<TRN locale="ru_RU" key="website.Contributed_Units">
+Сторонние модули
+</TRN>
+<TRN locale="ru_RU" key="website.Credits">
+Заслуги
+</TRN>
+<TRN locale="ru_RU" key="website.General">
+Основное
+</TRN>
+<TRN locale="ru_RU" key="website.Home">
+Главная
+</TRN>
+<TRN locale="ru_RU" key="website.down_i386_freebsd_note">
+для FreeBSD 4.x и возможно 5.x
+</TRN>
+<TRN locale="ru_RU" key="website.down_i386_netware_note">
+только 2.0.0
+</TRN>
+<TRN locale="ru_RU" key="website.down_sparc_linux_note">
+только 2.0.0
+</TRN>
+<TRN locale="ru_RU" key="website.Binaries">
+Собранные пакеты
+</TRN>
+<TRN locale="ru_RU" key="website.download_source">
+Исходные тексты можно скачать в отдельном файле в формате <b>zip</b> или <b>tar.gz</b> с одного из следующих <a href="down/source/sources@x@">сайтов для скачивания</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.download_documentation">
+Документацию можно скачать в нескольких форматах с одного из наших <a href="down/docs/docs@x@">сайтов для скачивания</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.download_old_releases">
+Ссылки на некоторые старые (более не поддерживаемые) выпуски FPC для платформ, к которым на данный момент не было выпущено новых версий достаточно хорошего качества, можно найти <a href="down/old/down@x@">здесь</a>. Не присылайте сообщений об ошибках в этих выпусках: мы их уже не будем исправлять. Основная причина нынешнего отсутствия поддержки этих платформ &mdash; это отсутствие людей, готовых этим заниматься. Если Вам интересно довести выпуски для этих платформ до современного уровня, свяжитесь с нами (например, через список рассылки fpc-devel).
+
+</TRN>
+<TRN locale="ru_RU" key="website.Old_releases">
+Старые выпуски
+</TRN>
+<TRN locale="ru_RU" key="website.BeOS_related_information">
+Относящееся к BeOS
+</TRN>
+<TRN locale="ru_RU" key="website.DOS_rel_inf">
+Относящееся к DOS
+</TRN>
+<TRN locale="ru_RU" key="website.faq_intro">
+<p>В этом документе представлена позднейшая информация о компиляторе. Более того, он отвечает на часто задаваемые вопросы и предлагает решения популярных проблем с Free Pascal-ем. Информация, представленная здесь, всегда имеет более высокий приоритет, чем написанная в документации к Free Pascal-ю.</p>
+</TRN>
+<TRN locale="ru_RU" key="website.Amiga_tel_inf">
+Относящееся к Amiga
+</TRN>
+<TRN locale="ru_RU" key="website.for_comprehensive">
+<p>Чтобы получить более подробную информацию о языке Паскаль и использованию стандартных библиотек, обратитесь к документации по Free Pascal-ю. Темы, раскрытые в документации:</p>
+</TRN>
+<TRN locale="ru_RU" key="website.Back_to_general_download_page">
+Назад к общей странице загрузки
+</TRN>
+<TRN locale="ru_RU" key="website.Back_to_mirrorlist">
+Назад к списку зеркальных сайтов
+</TRN>
+<TRN locale="ru_RU" key="website.Binary_packages">
+Собранные пакеты
+</TRN>
+<TRN locale="ru_RU" key="website.cross_compiler_i386-linux_arm-linux">
+Это пакет для перекрёстной компиляции под i386-linux для arm-linux. Прежде, чем Вы сможете его использовать, Вы должны установить <a href="../i386/linux-@mirrorsuffix@@x@">FPC для i386-linux</a>.
+</TRN>
+<TRN locale="ru_RU" key="website.DEB_compatibility">
+Наши пакеты типа DEB совместимы со всеми дистрибутивами, основанными на DEB, включая Debian, Linspire, Ubuntu.
+</TRN>
+<TRN locale="ru_RU" key="website.DEB_packages">
+Пакеты для Debian
+</TRN>
+<TRN locale="ru_RU" key="website.already_included_installer">
+уже включена в указанный выше установочный пакет
+</TRN>
+<TRN locale="ru_RU" key="website.arm-linux_available_in">
+Пакет FPC для arm-linux доступен в единственном формате:
+</TRN>
+<TRN locale="ru_RU" key="website.DEB_packages_1">
+Пакеты для Debian (.deb)
+</TRN>
+<TRN locale="ru_RU" key="website.Documentation_av_several_formats">
+Документация доступна в нескольких форматах (если Вы хотите просматривать документацию из ИСР в текстовом режиме, то Вам нужен HTML формат):
+</TRN>
+<TRN locale="ru_RU" key="website.Download_as_installer">
+Скачать установщик
+</TRN>
+<TRN locale="ru_RU" key="website.download_in_1_file">
+Скачать в одном большом файле
+</TRN>
+<TRN locale="ru_RU" key="website.everything_in_1">
+Всё в одном большом пакете
+</TRN>
+<TRN locale="ru_RU" key="website.search">
+Поиск
+</TRN>
+<TRN locale="ru_RU" key="website.searchwhat">
+Искать в документации, форумах и рассылках.
+</TRN>
+<TRN locale="ru_RU" key="website.Source">
+Исходные тексты
+</TRN>
+<TRN locale="ru_RU" key="website.Source_packages">
+Пакеты исходных текстов
+</TRN>
+<TRN locale="ru_RU" key="website.Sources">
+Исходные тексты
+</TRN>
+<TRN locale="ru_RU" key="website.to_be_used_from_IDE">
+для использования из ИСР, кроме прочего
+</TRN>
+<TRN locale="ru_RU" key="website.Tools">
+Инструменты
+</TRN>
+<TRN locale="ru_RU" key="website.Units">
+Модули
+</TRN>
+<TRN locale="ru_RU" key="website.UNIX_rel_inf">
+Относящееся к UNIX
+</TRN>
+<TRN locale="ru_RU" key="website.Windows_rel_inf">
+Относящееся к Windows
+</TRN>
+<TRN locale="ru_RU" key="website.You_can_download_installer">
+Вы можете скачать установщик
 </TRN>
 <TRN locale="ru_RU" key="website.adv_No_Makefiles">
 <STRONG>Нет Makefile-ов</STRONG> В отличие от большинства языков программирования, паскаль не нуждается в Makefile-ах. Вы сэкономите огромное количество времени: компилятор сам разберётся, какие файлы требуется перекомпилировать.
@@ -59,221 +223,20 @@
 <TRN locale="ru_RU" key="website.adv_very_clean_lang">
 <STRONG>Очень ясный язык</STRONG> Паскаль является очень приятным языком, Ваши программы будут более читаемыми и легко поддерживаемыми, чем, например, на Си, не говоря уже о Си++. И Вам не придётся для этого жертвовать мощностью программ: паскаль достаточно мощен.
 </TRN>
-<TRN locale="ru_RU" key="website.a_Getting_the_compiler">
-<p>Позднейший официальный стабильный выпуск Free Pascal доступен для скачивания с <a href="download@x@">официальных зеркальных сайтов</a>
-</TRN>
-<TRN locale="ru_RU" key="website.a_Homework">
-<p>Нет. Пожалуйста, не присылайте нам электронных писем о домашних заданиях: мы не учителя. Команда разработчиков Free Pascal пытается предоставлять хорошую поддержку компилятора Free Pascal, поэтому мы стараемся всё время отвечать на электронные письма. Но когда мы получаем такие письма, наша работа становится всё труднее и труднее.
-</TRN>
-<TRN locale="ru_RU" key="website.a_Installation_hints">
-<ul> <li>Не устанавливайте компилятор в каталог, название которого содержит пробелы, так как некоторые инструментальные средства компилятора этого не любят.</ul>
-</TRN>
-<TRN locale="ru_RU" key="website.already_included_installer">
-уже включена в указанный выше установочный пакет
-</TRN>
-<TRN locale="ru_RU" key="website.Amiga_tel_inf">
-Относящееся к Amiga
-</TRN>
-<TRN locale="ru_RU" key="website.arm-linux_available_in">
-Пакет FPC для arm-linux доступен в единственном формате:
-</TRN>
 <TRN locale="ru_RU" key="website.Authors">
 Авторы
-</TRN>
-<TRN locale="ru_RU" key="website.a_What_is_FPC">
-<p>Изначально называвшийся "FPK-Pascal", компилятор Free Pascal &mdash; это 32-х и 64-хбитный компилятор Паскаля, совместимый с Turbo Pascal и Delphi, для DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic и ещё нескольких платформ (количество поддерживаемых платформ всё время растёт, хотя не все они поддерживаются на том же уровне, что и основные).
-<p>Компилятор Free Pascal доступен на нескольких архитектурах: x86, Sparc(v8 и v9), ARM, x86_64 (AMD64/Opteron) и PowerPC. Более старые версии (из ряда 1.0) также поддерживают m68k.
-<p>Компилятор написан на Паскале и способен откомпилировать собственные исходные тексты. Исходные тексты находятся под действием GPL и прилагаются.
-<p>Краткая история: <ul>
-<li>06/1993: проект начался
-<li>10/1993: первые маленькие программы работают
-<li>03/1995: компилятор компилирует собственные исходные тексты
-<li>03/1996: выход в интернет
-<li>07/2000: версия 1.0
-<li>12/2000: версия 1.0.4
-<li>04/2002: версия 1.0.6
-<li>07/2003: версия 1.0.10
-<li>05/2005: версия 2.0.0
-<li>12/2005: версия 2.0.2
-<li>08/2006: версия 2.0.4 </ul>
-</TRN>
-<TRN locale="ru_RU" key="website.a_What_versions_exist">
-<p>Позднейшей официальной версией является 2.0.4, выпущенная в качестве исправления ошибок в предыдущих версиях вида 2.0.x. Новые разработки внедряются в версиях вида 2.1.x, которые постепенно будут выпущены в виде 2.2.0 или 3.0.0 (в зависимости от объёма изменений, скопившихся к моменту выпуска).
-<h4>Старые версии</h4>
-<p>Система нумерации версий FPC несколько раз изменялась в течении прошедших лет. Версии до 0.99.5 считаются устаревшими. После выпуска 0.99.5 была принята новая система нумерации версий, эта система слегка изменилась с выпуском версии 1.0. 
-<p><b>Нумерация версий 0.99.5 - 1.0</b><p>
-<p>Компиляторы, в номерах версий которых последнее число <b>чётное</b> являются <b>выпущенными</b> (например, 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0).
-<br>Компиляторы и пакеты с <b>нечётным</b> последним числом в номере версии находятся <b>в стадии разработки</b> (например, 0.99.9, 0.99.11, 0.99.13, 0.99.15). 
-<p>0.99.5 является исключением из этого правила, так как <b>0.99.5 ЯВЛЯЕТСЯ выпуском</b> (выпуском, сделанным до введения этой системы нечётный/чётный).
-<p>Буквы после последнего числа в номере версии (0.99.12b, 0.99.5d) означают, что были ранее выпущены версии с какими-то ошибками (соответственно, 0.99.12 и 0.99.5), которые теперь исправлены.
-<p><b>Нумерация версий начиная с 1.0</b>
-<p>Одновременно с выпуском версии 1.0 система нумерации версий слегка изменилась. Была введена система нумерации схожая с системой нумерации версий ядра Linux. Главным отличием является то, что разница между близкими версиями, одна из которых выпущена, а другая находится в разработке, определяется по чётности второго числа в номере (как стало: 1.0.x и 1.1.x) вместо третьего числа (как было: 0.99.14 и 0.99.15), и третье число теперь показывает уровень исправлений, заменяя приписывание буков в старой системе.
-<p><ul><li>Выпуски, в которых только исправлялись ошибки версии 1.0, были пронумерованы как 1.0.x.
-<li>Новые разработки (так называемые "снимки") начались в версиях вида 1.1.x.
-<li>Постепенно версии с номерами 1.1.x по мере становления надёжными превратились в 2.x. Исправления в выпуске 2.0 нумеруются как 2.0.x.
-<li>Новые разработки после выпуска 2.0 имеют номера 2.1.x и т.д.</ul>
-<p><p>В обычных случаях Вам следует пользоваться выпусками. Выпуски считаются надёжными, а их поддержка является более лёгкой (ошибки, странности и непредумышленные "особенности" становятся хорошо известными через некоторое время, а обходные пути к ним находятся).
-<p>Снимки разработки (которые создаются ежедневно) отражают текущее состояние компилятора. Версии в разработке вероятно обладают новыми возможностями и более глубокими исправлениями ошибок со времён последнего выпуска, но могут иметь временные недостатки в отношении надёжности (которые обычно могут оказаться исправленными на следующий день).
-<p>Снимки разработок могут быть весьма полезными для некоторых категорий пользователей. Спросите в электронных почтовых рассылках, стоит ли Вам возиться с ними, описав свой случай.
-<p>Мы советуем всем пользователям переходить на самые новые выпущенные версии для их платформы (предпочтительно в серии 2.0.x).
-<p> Графическим представлением (с пометками на английском языке) истории разработки проекта FPC в номерах версий, включая ближайшее будущее, может быть эта картинка: <img src="pic/timeline.png"></a>
-</TRN>
-<TRN locale="ru_RU" key="website.Back_to_general_download_page">
-Назад к общей странице загрузки
-</TRN>
-<TRN locale="ru_RU" key="website.Back_to_mirrorlist">
-Назад к списку зеркальных сайтов
-</TRN>
-<TRN locale="ru_RU" key="website.Base_files">
-Base files (program and units):
-</TRN>
-<TRN locale="ru_RU" key="website.BeOS_related_information">
-Относящееся к BeOS
-</TRN>
-<TRN locale="ru_RU" key="website.Binaries">
-Собранные пакеты
-</TRN>
-<TRN locale="ru_RU" key="website.Binary_packages">
-Собранные пакеты
-</TRN>
-<TRN locale="ru_RU" key="website.Bugtracker">
-Поиск ошибок
-</TRN>
-<TRN locale="ru_RU" key="website.can_download_for_platform">
-Вы можете скачать выпуск версии 2.2.x для следующих процессоров и операционных систем:
-  
-</TRN>
-<TRN locale="ru_RU" key="website.Coding">
-Программистам
-</TRN>
-<TRN locale="ru_RU" key="website.Community">
-Сообщество
-</TRN>
-<TRN locale="ru_RU" key="website.Contribute">
-Внести свой вклад
-</TRN>
-<TRN locale="ru_RU" key="website.Contributed_Units">
-Сторонние модули
-</TRN>
-<TRN locale="ru_RU" key="website.Credits">
-Заслуги
-</TRN>
-<TRN locale="ru_RU" key="website.cross_compiler_i386-linux_arm-linux">
-Это пакет для перекрёстной компиляции под i386-linux для arm-linux. Прежде, чем Вы сможете его использовать, Вы должны установить <a href="../i386/linux-@mirrorsuffix@@x@">FPC для i386-linux</a>.
-</TRN>
-<TRN locale="ru_RU" key="website.Current_Version">
-Текущая версия
-</TRN>
-<TRN locale="ru_RU" key="website.DEB_compatibility">
-Наши пакеты типа DEB совместимы со всеми дистрибутивами, основанными на DEB, включая Debian, Linspire, Ubuntu.
-</TRN>
-<TRN locale="ru_RU" key="website.DEB_packages">
-Пакеты для Debian
-</TRN>
-<TRN locale="ru_RU" key="website.DEB_packages_1">
-Пакеты для Debian (.deb)
-</TRN>
-<TRN locale="ru_RU" key="website.Development">
-Разработка
-</TRN>
-<TRN locale="ru_RU" key="website.Documentation">
-Документация
-</TRN>
-<TRN locale="ru_RU" key="website.Documentation_av_several_formats">
-Документация доступна в нескольких форматах (если Вы хотите просматривать документацию из ИСР в текстовом режиме, то Вам нужен HTML формат):
-</TRN>
-<TRN locale="ru_RU" key="website.DOS_rel_inf">
-Относящееся к DOS
-</TRN>
-<TRN locale="ru_RU" key="website.down_i386_freebsd_note">
-для FreeBSD 4.x и возможно 5.x
-</TRN>
-<TRN locale="ru_RU" key="website.down_i386_netware_note">
-только 2.0.0
-</TRN>
-<TRN locale="ru_RU" key="website.Download">
-Скачать
-</TRN>
-<TRN locale="ru_RU" key="website.Download_as_installer">
-Скачать установщик
-</TRN>
-<TRN locale="ru_RU" key="website.download_documentation">
-Документацию можно скачать в нескольких форматах с одного из наших <a href="down/docs/docs@x@">сайтов для скачивания</a>.
-  
-</TRN>
-<TRN locale="ru_RU" key="website.download_in_1_file">
-Скачать в одном большом файле
-</TRN>
-<TRN locale="ru_RU" key="website.download_old_releases">
-Ссылки на некоторые старые (более не поддерживаемые) выпуски FPC для платформ, к которым на данный момент не было выпущено новых версий достаточно хорошего качества, можно найти <a href="down/old/down@x@">здесь</a>. Не присылайте сообщений об ошибках в этих выпусках: мы их уже не будем исправлять. Основная причина нынешнего отсутствия поддержки этих платформ &mdash; это отсутствие людей, готовых этим заниматься. Если Вам интересно довести выпуски для этих платформ до современного уровня, свяжитесь с нами (например, через список рассылки fpc-devel).
-
-</TRN>
-<TRN locale="ru_RU" key="website.download_snapshots">
-Кроме официальных выпусков мы предлагаем так называемые "моментальные снимки" компилятора, RTL (основных библиотек), IDE (интегрированной среды разработки) и пары других пакетов на <a href="develop@x@">странице разработки</a>. Это откомпилированные версии текущих исходных текстов со всеми исправлениями и усовершенствованиями, внесёнными после позднейшего официального выпуска, так что если у Вас с ним проблемы, Вы можете попытаться использовать эти "снимки". Конечно, в них могут быть новые ошибки.
-</TRN>
-<TRN locale="ru_RU" key="website.download_source">
-Исходные тексты можно скачать в отдельном файле в формате <b>zip</b> или <b>tar.gz</b> с одного из следующих <a href="down/source/sources@x@">сайтов для скачивания</a>.
-  
-</TRN>
-<TRN locale="ru_RU" key="website.down_sparc_linux_note">
-только 2.0.0
-</TRN>
-<TRN locale="ru_RU" key="website.everything_in_1">
-Всё в одном большом пакете
-</TRN>
-<TRN locale="ru_RU" key="website.FAQ">
-ЧаВо
-</TRN>
-<TRN locale="ru_RU" key="website.faq_intro">
-<p>В этом документе представлена позднейшая информация о компиляторе. Более того, он отвечает на часто задаваемые вопросы и предлагает решения популярных проблем с Free Pascal-ем. Информация, представленная здесь, всегда имеет более высокий приоритет, чем написанная в документации к Free Pascal-ю.</p>
-</TRN>
-<TRN locale="ru_RU" key="website.Features">
-Особые возможности
-</TRN>
-<TRN locale="ru_RU" key="website.Features_text">
-Синтаксис языка отлично совместим с TP 7.0, также как и с большинством версий Delphi (классы, rtti, исключения, ansistrings, widestrings, интерфейсы). Режим совместимости с Mac Pascal может помочь пользователям Apple. Более того: Free Pascal поддерживает перегрузку функций и операторов, глобальные свойства и некоторые другие возможности в таком духе.
-</TRN>
-<TRN locale="ru_RU" key="website.Feeling_Lucky">
-Повезёт?
-</TRN>
-<TRN locale="ru_RU" key="website.for_comprehensive">
-<p>Чтобы получить более подробную информацию о языке Паскаль и использованию стандартных библиотек, обратитесь к документации по Free Pascal-ю. Темы, раскрытые в документации:</p>
-</TRN>
-<TRN locale="ru_RU" key="website.FPC_on_the_Mac">
-FPC на Mac
 </TRN>
 <TRN locale="ru_RU" key="website.Future_Plans">
 Планы на будущее
 </TRN>
-<TRN locale="ru_RU" key="website.General">
-Основное
-</TRN>
 <TRN locale="ru_RU" key="website.General_information">
 Общая информация
-</TRN>
-<TRN locale="ru_RU" key="website.General_Information">
-Общая информация
-</TRN>
-<TRN locale="ru_RU" key="website.Home">
-Главная
 </TRN>
 <TRN locale="ru_RU" key="website.Introduction">
 Введение
 </TRN>
 <TRN locale="ru_RU" key="website.It_is_available_in">
 Доступен в различных форматах:
-</TRN>
-<TRN locale="ru_RU" key="website.Known_Problems">
-Известные сложности
-</TRN>
-<TRN locale="ru_RU" key="website.latest_news">
-Последние новости
-</TRN>
-<TRN locale="ru_RU" key="website.latest_release">
-Позднейший выпуск &mdash; <b>2.2.0</b>
-</TRN>
-<TRN locale="ru_RU" key="website.latest_version_is">
-Номер версии позднейшего выпуска &mdash; <b>2.2.0</b>
 </TRN>
 <TRN locale="ru_RU" key="website.License">
 Лицензия
@@ -283,9 +246,6 @@ The packages and runtime library come under a modified Library GNU Public Licens
 </TRN>
 <TRN locale="ru_RU" key="website.Links_mirrors">
 Ссылки/Зеркальные сайты
-</TRN>
-<TRN locale="ru_RU" key="website.Mailinglists">
-Рассылки
 </TRN>
 <TRN locale="ru_RU" key="website.More_information">
 Дополнительная информация
@@ -308,38 +268,8 @@ The packages and runtime library come under a modified Library GNU Public Licens
 <TRN locale="ru_RU" key="website.news_headline_20061125">
 <em>25-26 ноября 2006</em> Lazarus и FPC будут на HCC в Нидерландах в городе Утрехт в секции паскаля на HCC.
 </TRN>
-<TRN locale="ru_RU" key="website.news_headline_20061204">
-<em>14 декабря, 2006</em>
-Ido Kanner будет читать лекцию о FPC в <a href="http://haifux.org/future.html">HAIFUX</a> &mdash; клубе любителей Linux при Technion University в Хайфе, в понедельник, 15 января, 2007. Эта лекция будет повторно прочитана в <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a> &mdash; (университетский) клуб любителей Linux в Тель-Авиве.
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20061224">
-<em>24 декабря, 2006</em>
-<A href='http://www.computerbooks.hu/FreePascal'>Книга о Free Pascal</a> издана в Венгрии. На 270-и страницах преподаётся Паскаль с самого начала, а также раскрываются продвинутые возможности языка.
-  
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20070101">
-<em>1 января, 2007</em> Команда FPC желает всем пользователям счастливого празднования Нового года и плодотворного 2007-го!
-  
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20070127">
-<em>27 января, 2007</em> <a href='http://mypage.bluewin.ch/msegui'>MSEGUI и MSEIDE</a> &mdash; выпущена версия 1.0. MSEIDE &mdash; это средство быстрой разработки приложений (RAD) для создания графических программ под Windows и Linux на основе графического интерфейса MSEGUI. Команда Free Pascal желает разработчикам MSEGUI/MSEIDE всего наилучшего и передаёт поздравления с достижением этой важной вехи.
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20070201">
-<em>1 февраля, 2007</em> Начинается ежегодный конкурс по разработке игр на Паскале (The Pascal Game Development). Тема этого года &mdash; "Мультиплексирование": напишите игру, сочетающую много жанров. Вы же можете написать игру на Free Pascal? Тогда <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>включайтесь!</a>
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20070328">
-<em>28 Марта, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> выпустил версию 1.0.0.7 своего WebOS AppsBuilder. Это первая версия AppsBuilder, которая использует FPC.
-</TRN>
-<TRN locale="ru_RU" key="website.news_headline_20070520">
-<em>20 Мая, 2007</em> После долгих лет разработки следующей FPC версии 2.2.0, версия <em>2.1.4</em>, известная как <em>2.2.0-beta</em> <a href="download@x@#beta">выпущена</a>.
-Бета-версия будет доступна около двух месяцев, после чего будет выпущена 2.2.0. Просим всех наших пользователей тестировать этот выпуск, сообщая об ошибках на <a href="mantis/set_project.php?project_id=6">поиск ошибок</a>. Если Вы хотите знать, не исправлена ли уже найденная Вами ошибка, Вы можете поискать информацию в <a href="mantis/set_project.php?project_id=6">mantis</a> или проверить её наличие в ежедневном выпуске, основанном на ветке fixes_2_2. Так что, пожалуйста, помогите нам сделать из версии 2.2.0 самую стабильную версию FreePascal на сегодняшний день. Список изменений можно найти <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">здесь</a>. <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">Замечания о выпуске</a> также доступны. Пожалуйста, обратите внимание на наличие некоторых сознательных несовместимостей с предыдущими версиями, обзор их можно увидеть <a href="http://wiki.freepascal.org/User_Changes_2.2.0">здесь</a>.
-  
-</TRN>
 <TRN locale="ru_RU" key="website.Official_releases">
 Официальные выпуски
-</TRN>
-<TRN locale="ru_RU" key="website.Old_releases">
-Старые выпуски
 </TRN>
 <TRN locale="ru_RU" key="website.OS2_rel_inf">
 Относящееся к OS/2
@@ -356,26 +286,11 @@ Ido Kanner будет читать лекцию о FPC в <a href="http://haifux
 <TRN locale="ru_RU" key="website.plain_text">
 просто текст
 </TRN>
-<TRN locale="ru_RU" key="website.Porting_from_TP7">
-Миграция с TP7
-</TRN>
-<TRN locale="ru_RU" key="website.q_What_is_FPC">
-Что такое Free Pascal (FPC)?
-</TRN>
-<TRN locale="ru_RU" key="website.q_What_versions_exist">
-Какие существуют версии, и которой из них мне пользоваться?
-</TRN>
 <TRN locale="ru_RU" key="website.ready_made_packages">
 Это подготовленные пакеты с программой установки, позволяющие Вам установить компилятор и начать работать почти сразу. Во всех пакетах есть файл README (скорее всего на английском языке), который Вы должны прочитать, чтобы получить инструкции по установке и узнать последние новости.
 </TRN>
-<TRN locale="ru_RU" key="website.req_arma">
-Архитектура ARM
-</TRN>
 <TRN locale="ru_RU" key="website.req_armb">
 На данный момент для ARM поддерживается только перекрёстная компиляция.
-</TRN>
-<TRN locale="ru_RU" key="website.reqppca">
-Архитектура PowerPC
 </TRN>
 <TRN locale="ru_RU" key="website.reqppcb">
 Подойдёт любой процессор PowerPC. Требуется 16 Мб оперативной памяти. Версия для Mac OS classic должна работать на System 7.5.3 более поздних. Версия для Mac OS X требует Mac OS X 10.1 или более поздние, с установленными средствами разработки. Под другими операционными системами Free Pascal запускается на любой машине, которая может  запустить саму операционную систему.
@@ -407,42 +322,127 @@ RPM (Redhat Package Manager &mdash; управление пакетами Redhat
 <TRN locale="ru_RU" key="website.RTL_rel_inf">
 Информация о стандартных библиотеках
 </TRN>
-<TRN locale="ru_RU" key="website.search">
-Поиск
+<TRN locale="ru_RU" key="website.news_headline_20070101">
+<em>1 января, 2007</em> Команда FPC желает всем пользователям счастливого празднования Нового года и плодотворного 2007-го!
+  
 </TRN>
-<TRN locale="ru_RU" key="website.searchwhat">
-Искать в документации, форумах и рассылках.
+<TRN locale="ru_RU" key="website.news_headline_20061224">
+<em>24 декабря, 2006</em>
+<A href='http://www.computerbooks.hu/FreePascal'>Книга о Free Pascal</a> издана в Венгрии. На 270-и страницах преподаётся Паскаль с самого начала, а также раскрываются продвинутые возможности языка.
+  
 </TRN>
-<TRN locale="ru_RU" key="website.snapshots">
-Моментальные снимки
+<TRN locale="ru_RU" key="website.news_headline_20061204">
+<em>14 декабря, 2006</em>
+Ido Kanner будет читать лекцию о FPC в <a href="http://haifux.org/future.html">HAIFUX</a> &mdash; клубе любителей Linux при Technion University в Хайфе, в понедельник, 15 января, 2007. Эта лекция будет повторно прочитана в <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a> &mdash; (университетский) клуб любителей Linux в Тель-Авиве.
 </TRN>
-<TRN locale="ru_RU" key="website.Source">
-Исходные тексты
+<TRN locale="ru_RU" key="website.a_Debugging_DLL">
+<p>Отладка разделяемых библиотек (или динамически подключаемых библиотек) созданных компилятором Free Pascal не поддерживается официально.
 </TRN>
-<TRN locale="ru_RU" key="website.Source_packages">
-Пакеты исходных текстов
+<TRN locale="ru_RU" key="website.a_Debug_smartlinked">
+<p>Отладка собранного "по умному" кода может происходить неправильно. Это вызвано отсутствием информации о типах в таком коде: иначе файлы стали бы огромными. <p>Для отладки не рекомендуется использовать опцию сборки "по умному".
 </TRN>
-<TRN locale="ru_RU" key="website.Sources">
-Исходные тексты
+<TRN locale="ru_RU" key="website.a_Getting_the_compiler">
+<p>Позднейший официальный стабильный выпуск Free Pascal доступен для скачивания с <a href="download@x@">официальных зеркальных сайтов</a>
 </TRN>
-<TRN locale="ru_RU" key="website.to_be_used_from_IDE">
-для использования из ИСР, кроме прочего
+<TRN locale="ru_RU" key="website.a_Access_denies_while_download">
+<p>У главного FTP сайта Free Pascal есть ограничение сверху на количество одновременных соединений. Если произошла эта ошибка, то потому, что был достигнут предел. В качестве решения можно подождать и попробовать позже, а ещё лучше &mdash; использовать один из зеркальных сайтов Free Pascal.
 </TRN>
-<TRN locale="ru_RU" key="website.Tools">
-Инструменты
+<TRN locale="ru_RU" key="website.a_Homework">
+<p>Нет. Пожалуйста, не присылайте нам электронных писем о домашних заданиях: мы не учителя. Команда разработчиков Free Pascal пытается предоставлять хорошую поддержку компилятора Free Pascal, поэтому мы стараемся всё время отвечать на электронные письма. Но когда мы получаем такие письма, наша работа становится всё труднее и труднее.
 </TRN>
-<TRN locale="ru_RU" key="website.Units">
-Модули
+<TRN locale="ru_RU" key="website.a_Installation_hints">
+<ul> <li>Не устанавливайте компилятор в каталог, название которого содержит пробелы, так как некоторые инструментальные средства компилятора этого не любят.</ul>
 </TRN>
-<TRN locale="ru_RU" key="website.UNIX_rel_inf">
-Относящееся к UNIX
+<TRN locale="ru_RU" key="website.General_Information">
+Общая информация
+</TRN>
+<TRN locale="ru_RU" key="website.q_What_is_FPC">
+Что такое Free Pascal (FPC)?
+</TRN>
+<TRN locale="ru_RU" key="website.a_What_is_FPC">
+<p>Изначально называвшийся "FPK-Pascal", компилятор Free Pascal &mdash; это 32-х и 64-хбитный компилятор Паскаля, совместимый с Turbo Pascal и Delphi, для DOS, Linux, Win32, OS/2, FreeBSD, AmigaOS, MacOSX, MacOS classic и ещё нескольких платформ (количество поддерживаемых платформ всё время растёт, хотя не все они поддерживаются на том же уровне, что и основные).
+<p>Компилятор Free Pascal доступен на нескольких архитектурах: x86, Sparc(v8 и v9), ARM, x86_64 (AMD64/Opteron) и PowerPC. Более старые версии (из ряда 1.0) также поддерживают m68k.
+<p>Компилятор написан на Паскале и способен откомпилировать собственные исходные тексты. Исходные тексты находятся под действием GPL и прилагаются.
+<p>Краткая история: <ul>
+<li>06/1993: проект начался
+<li>10/1993: первые маленькие программы работают
+<li>03/1995: компилятор компилирует собственные исходные тексты
+<li>03/1996: выход в интернет
+<li>07/2000: версия 1.0
+<li>12/2000: версия 1.0.4
+<li>04/2002: версия 1.0.6
+<li>07/2003: версия 1.0.10
+<li>05/2005: версия 2.0.0
+<li>12/2005: версия 2.0.2
+<li>08/2006: версия 2.0.4 </ul>
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070201">
+<em>1 февраля, 2007</em> Начинается ежегодный конкурс по разработке игр на Паскале (The Pascal Game Development). Тема этого года &mdash; "Мультиплексирование": напишите игру, сочетающую много жанров. Вы же можете написать игру на Free Pascal? Тогда <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>включайтесь!</a>
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070127">
+<em>27 января, 2007</em> <a href='http://mypage.bluewin.ch/msegui'>MSEGUI и MSEIDE</a> &mdash; выпущена версия 1.0. MSEIDE &mdash; это средство быстрой разработки приложений (RAD) для создания графических программ под Windows и Linux на основе графического интерфейса MSEGUI. Команда Free Pascal желает разработчикам MSEGUI/MSEIDE всего наилучшего и передаёт поздравления с достижением этой важной вехи.
+</TRN>
+<TRN locale="ru_RU" key="website.a_What_versions_exist">
+<p>Позднейшей официальной версией является 2.0.4, выпущенная в качестве исправления ошибок в предыдущих версиях вида 2.0.x. Новые разработки внедряются в версиях вида 2.1.x, которые постепенно будут выпущены в виде 2.2.0 или 3.0.0 (в зависимости от объёма изменений, скопившихся к моменту выпуска).
+<h4>Старые версии</h4>
+<p>Система нумерации версий FPC несколько раз изменялась в течении прошедших лет. Версии до 0.99.5 считаются устаревшими. После выпуска 0.99.5 была принята новая система нумерации версий, эта система слегка изменилась с выпуском версии 1.0. 
+<p><b>Нумерация версий 0.99.5 - 1.0</b><p>
+<p>Компиляторы, в номерах версий которых последнее число <b>чётное</b> являются <b>выпущенными</b> (например, 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0).
+<br>Компиляторы и пакеты с <b>нечётным</b> последним числом в номере версии находятся <b>в стадии разработки</b> (например, 0.99.9, 0.99.11, 0.99.13, 0.99.15). 
+<p>0.99.5 является исключением из этого правила, так как <b>0.99.5 ЯВЛЯЕТСЯ выпуском</b> (выпуском, сделанным до введения этой системы нечётный/чётный).
+<p>Буквы после последнего числа в номере версии (0.99.12b, 0.99.5d) означают, что были ранее выпущены версии с какими-то ошибками (соответственно, 0.99.12 и 0.99.5), которые теперь исправлены.
+<p><b>Нумерация версий начиная с 1.0</b>
+<p>Одновременно с выпуском версии 1.0 система нумерации версий слегка изменилась. Была введена система нумерации схожая с системой нумерации версий ядра Linux. Главным отличием является то, что разница между близкими версиями, одна из которых выпущена, а другая находится в разработке, определяется по чётности второго числа в номере (как стало: 1.0.x и 1.1.x) вместо третьего числа (как было: 0.99.14 и 0.99.15), и третье число теперь показывает уровень исправлений, заменяя приписывание буков в старой системе.
+<p><ul><li>Выпуски, в которых только исправлялись ошибки версии 1.0, были пронумерованы как 1.0.x.
+<li>Новые разработки (так называемые "снимки") начались в версиях вида 1.1.x.
+<li>Постепенно версии с номерами 1.1.x по мере становления надёжными превратились в 2.x. Исправления в выпуске 2.0 нумеруются как 2.0.x.
+<li>Новые разработки после выпуска 2.0 имеют номера 2.1.x и т.д.</ul>
+<p><p>В обычных случаях Вам следует пользоваться выпусками. Выпуски считаются надёжными, а их поддержка является более лёгкой (ошибки, странности и непредумышленные "особенности" становятся хорошо известными через некоторое время, а обходные пути к ним находятся).
+<p>Снимки разработки (которые создаются ежедневно) отражают текущее состояние компилятора. Версии в разработке вероятно обладают новыми возможностями и более глубокими исправлениями ошибок со времён последнего выпуска, но могут иметь временные недостатки в отношении надёжности (которые обычно могут оказаться исправленными на следующий день).
+<p>Снимки разработок могут быть весьма полезными для некоторых категорий пользователей. Спросите в электронных почтовых рассылках, стоит ли Вам возиться с ними, описав свой случай.
+<p>Мы советуем всем пользователям переходить на самые новые выпущенные версии для их платформы (предпочтительно в серии 2.0.x).
+<p> Графическим представлением (с пометками на английском языке) истории разработки проекта FPC в номерах версий, включая ближайшее будущее, может быть эта картинка: <img src="pic/timeline.png"></a>
+</TRN>
+<TRN locale="ru_RU" key="website.q_What_versions_exist">
+Какие существуют версии, и которой из них мне пользоваться?
+</TRN>
+<TRN locale="ru_RU" key="website.Base_files">
+Base files (program and units):
+</TRN>
+<TRN locale="ru_RU" key="website.a_cfg_problems">
+<p>Начиная с версии Free Pascal 1.0.6, конфигурационный файл называется <TT>fpc.cfg</TT> вместо <TT>ppc386.cfg</TT>. Для обратной совместимости наличие <TT>ppc386.cfg</TT> и сейчас проверяется первым и, если он найден, то используется вместо <TT>fpc.cfg</TT>
+<p>Версии Free Pascal до 1.0.6 не обрабатывают <TT>fpc.cfg</TT>, так что если Вы хотите использовать более ранние версии компилятора с тем же конфигурационным файлом, что и FPC 1.0.6 (или более поздним), то конфигурационный файл должен быть переименован в <TT>ppc386.cfg</TT>.
 </TRN>
 <TRN locale="ru_RU" key="website.Wiki">
 Вики
 </TRN>
-<TRN locale="ru_RU" key="website.Windows_rel_inf">
-Относящееся к Windows
+<TRN locale="ru_RU" key="website.Known_Problems">
+Известные сложности
 </TRN>
-<TRN locale="ru_RU" key="website.You_can_download_installer">
-Вы можете скачать установщик
+<TRN locale="ru_RU" key="website.Bugtracker">
+Поиск ошибок
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070328">
+<em>28 Марта, 2007</em> <a href='http://www.morfik.com'>MORFIK</A> выпустил версию 1.0.0.7 своего WebOS AppsBuilder. Это первая версия AppsBuilder, которая использует FPC.
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070520">
+<em>20 Мая, 2007</em> После долгих лет разработки следующей FPC версии 2.2.0, версия <em>2.1.4</em>, известная как <em>2.2.0-beta</em> <a href="download@x@#beta">выпущена</a>.
+Бета-версия будет доступна около двух месяцев, после чего будет выпущена 2.2.0. Просим всех наших пользователей тестировать этот выпуск, сообщая об ошибках на <a href="mantis/set_project.php?project_id=6">поиск ошибок</a>. Если Вы хотите знать, не исправлена ли уже найденная Вами ошибка, Вы можете поискать информацию в <a href="mantis/set_project.php?project_id=6">mantis</a> или проверить её наличие в ежедневном выпуске, основанном на ветке fixes_2_2. Так что, пожалуйста, помогите нам сделать из версии 2.2.0 самую стабильную версию FreePascal на сегодняшний день. Список изменений можно найти <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">здесь</a>. <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">Замечания о выпуске</a> также доступны. Пожалуйста, обратите внимание на наличие некоторых сознательных несовместимостей с предыдущими версиями, обзор их можно увидеть <a href="http://wiki.freepascal.org/User_Changes_2.2.0">здесь</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.adv_Fast_code">
+<STRONG>Высокая скорость, не требует много памяти</STRONG>
+Так как Free Pascal &mdash; язык, компилируемый в быстрый машинный код современным компилятором, язык Паскаль становится одним из быстрейших доступных языков.
+Более того: программы на Free Pascal склонны использовать меньше памяти.
+Для сравнения с другими языками мы предлагаем посмотреть <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark (Разговор начистоту о производительности)</A> и советуем Вам изменять веса тестов согласно Вашим вкусам.
+</TRN>
+<TRN locale="ru_RU" key="website.latest_release">
+Позднейший выпуск &mdash; <b>2.2.0</b>
+</TRN>
+<TRN locale="ru_RU" key="website.latest_version_is">
+Номер версии позднейшего выпуска &mdash; <b>2.2.0</b>
+</TRN>
+<TRN locale="ru_RU" key="website.can_download_for_platform">
+Вы можете скачать выпуск версии 2.2.x для следующих процессоров и операционных систем:
+  
 </TRN>
