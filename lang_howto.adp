@@ -6,7 +6,7 @@
 <h2><trn key="website.config_browser_t" locale="en_US">Configuring your browser</trn></h2>
 <trn key="website.config_browser_d" locale="en_US">
 The Free Pascal web site is available in Bulgarian, Chinese, Dutch, English, Finnish,
-French, Italian, Polish, Slovenian and Russian. The method that decides in which
+French, Indonesian, Italian, Polish, Slovenian and Russian. The method that decides in which
 language it will show is HTTP content negotiation, which means the web page shows in the
 language your web browser requests it.
 
