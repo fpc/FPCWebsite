@@ -2367,3 +2367,12 @@ Download cross-compilers as installers
     <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
   
 </TRN>
+<TRN locale="en_US" key="website.Current_Version_text">
+
+    Version <em>2.2.0</em> is the latest stable version the Free Pascal.
+    Hit the <a href="download@x@">download</a> link and select a mirror close
+    to you to download your copy.
+    The development releases have version numbers <EM>2.3.x</EM>.
+    See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
+  
+</TRN>

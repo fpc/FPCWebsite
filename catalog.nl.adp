@@ -1469,11 +1469,6 @@ De meeste recente beta is <b>2.1.4</b>
 Je kunt de uitgave 2.1.4 voor de volgende systemen downloaden:
   
 </TRN>
-<TRN locale="nl_NL" key="website.config_browser_d">
-De Free-Pascal-website is beschikbaar in het Bulgaars, Chinees, Engels, Fins, Frans, Italiaans, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in dat de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
-<P>
-Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
-</TRN>
 <TRN locale="nl_NL" key="website.a_win_debugging">
 <p>De GNU-debugger v4.16 en nieuwer zijn getest en deze werkt over het algemeen zoals hij hoort te werken. Omdat de GNU-debugger C-georienteerd is, kunnen sommige Pascaltypen niet gerepresenteerd worden zoals dit zou moeten. Je kunt gdbpas gebruiken of de tekstmode-IDE, hierin zijn een aantal aanpassingen betreffende dezekwestie gemaakt. Ze zijn beiden beschikbaar voor Windowsplatformen.
 </TRN>
@@ -1520,4 +1515,12 @@ bevat een installatieprogramma met daarin de Win32-naar-Win64-kruiscompiler.
 <TRN locale="nl_NL" key="website.news_headline_20070910b">
 Op OS-News <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0"> is een artikel geplaatst</a> over de nieuwe FPC-compiler en het multi-platform ontwikkelen. Een Nederlandstalige versie is beschikbaar op onze <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
   
+</TRN>
+<TRN locale="nl_NL" key="website.config_browser_d">
+De Free-Pascal-website is beschikbaar in het Bulgaars, Chinees, Engels, Fins, Frans, Italiaans, Indonesisch, Nederlands, Pools, Sloveens en Russisch. De methode die bepaalt in welke taal de website getoond wordt is "HTTP Content Negotiation", dat houdt in dat de webpagina getoond wordt in de taal waarin je webbrowser deze opvraagt.
+<P>
+Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als die van je browser zelf, en dat is veelal het gewenste resultaat. Als je de website in een andere taal wilt zien, dan kan je dat meestal aanpassen. We beschrijven de procedure voor enkele veel gebruikte webbrowsers.
+</TRN>
+<TRN locale="nl_NL" key="website.Current_Version_text">
+Versie <em>2.2.0</em> is de meeste recente stabiele versie van Free Pascal. Klik op de <a href="download@x@">downloadlink</a> en kies een mirror dicht bij je in de buurt om jouw exemplaar te downloaden. De ontwikkelversies hebben de versienummers <EM>2.3.x</EM>. Zie <a href="develop@x@">ontwikkelpagina</a> hoe je de meest recente broncode kunt verkrijgen en kunt helpen met de ontwikkeling.  
 </TRN>

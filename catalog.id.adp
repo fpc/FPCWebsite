@@ -736,9 +736,6 @@ Tipe kurs memiliki beberapa masalah dengan nilai pada batas tinggi dan rendah (k
 <TRN locale="id_ID" key="website.Current_Version">
 Versi Saat Ini
 </TRN>
-<TRN locale="id_ID" key="website.Current_Version_text">
-Versi <em>2.0.4</em> adalah versi stabil terbaru Free Pascal. Tekan link <a href="download@x@">download</a> dan pilih mirror terdekat dengan anda untuk mendownload copy. anda. Rilis pengembangan memiliki nomor versi <EM>2.1.x</EM>. Lihat halaman <a href="develop.html">pengembangan</a> untuk bagaimana memperoleh sumber terbaru dan dukungan pengembangan.
-</TRN>
 <TRN locale="id_ID" key="website.DEB_compatibility">
 Paket DEB kami kompatibel dengan semua distribusi berbasis DEB, termasuk Debian, Linspire, Ubuntu
 </TRN>

@@ -46,9 +46,6 @@ FPC на Mac
 <TRN locale="ru_RU" key="website.Features">
 Особые возможности
 </TRN>
-<TRN locale="ru_RU" key="website.Features_text">
-Синтаксис языка отлично совместим с TP 7.0, также как и с большинством версий Delphi (классы, rtti, исключения, ansistrings, widestrings, интерфейсы). Режим совместимости с Mac Pascal может помочь пользователям Apple. Более того: Free Pascal поддерживает перегрузку функций и операторов, глобальные свойства и некоторые другие возможности в таком духе.
-</TRN>
 <TRN locale="ru_RU" key="website.latest_news">
 Последние новости
 </TRN>
@@ -444,5 +441,41 @@ Base files (program and units):
 </TRN>
 <TRN locale="ru_RU" key="website.can_download_for_platform">
 Вы можете скачать выпуск версии 2.2.x для следующих процессоров и операционных систем:
+  
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070910b">
+<a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> опубликовали статью о новом компиляторе FPC и кроссплатформной разработке. Голландская версия доступна в нашей <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+  
+</TRN>
+<TRN locale="ru_RU" key="website.Multilingual_website">
+Multilingual website
+</TRN>
+<TRN locale="ru_RU" key="website.Current_Version_text">
+Версия <em>2.2.0</em> является новейшей стабильной версией Free Pascal.
+Чтобы скачать ее, перейдите по ссылке <a href="download">download</a> и выберите ближайшее к себе зеркало.
+Development-версии нумеруются как <EM>2.3.x</EM>.
+Последние исходные коды вы можете загрузить на странице <a href="develop">development</a>.
+
+</TRN>
+<TRN locale="ru_RU" key="website.overview_text">
+Free Pascal (также известный как FPK Pascal) &mdash; это 32-х и 64-хбитный профессиональный компилятор языка паскаль. Он доступен для различных процессоров: Intel x86, Amd64/x86_64, PowerPC, Sparc. Прерванная версия 1.0 также поддерживала Motorola 680x0. Поддерживаются следующие операционные системы: Linux, FreeBSD, <a href="fpcmac">Mac OS X/Darwin</a>, <a href="fpcmac">Mac OS classic</a>, DOS, Win32, OS/2, Netware (libc и classic) и MorphOS.
+</TRN>
+<TRN locale="ru_RU" key="website.Features_text">
+Синтаксис языка отлично совместим с TP 7.0, также как и с большинством версий Delphi (классы, rtti, исключения, ansistrings, widestrings, интерфейсы). Режим совместимости с Mac Pascal может быть полезен пользователям Apple. Более того, Free Pascal поддерживает перегрузку функций и операторов, глобальные свойства и некоторые другие аналогичные возможности.
+</TRN>
+<TRN locale="ru_RU" key="website.news_headline_20070910">
+Команда разработчиков компилятора Free Pascal рада объявить о выходе FPC версии 2.2.0!
+<p>Обзор большинства изменений доступен <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">здесь</a>, но вот основные из них:
+<ul>
+<li> Архитектуры: поддержка PowerPC/64 и ARM
+<li> Платформы: поддержка Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance и Game Boy DS
+<li> Линкер: быстрый и компактный встроенный линкер для платформ Windows.
+<li> Отладка: поддержка Dwarf и возможность автоматически заполнять переменные произвольными значениями чтобы упростить поиск использования неинициализированных переменных.
+<li> Язык: поддержка interface delegation, bitpacked-записей и массивов, COM/OLE variants, dispinterfaces.
+<li> Инфраструктура: улучшена поддержка типа variant, поддержка нескольких файлов ресурсов, widestrings теперь COM/OLE-совместимы в Windows, улучшена поддержка баз данных.
+</ul>
+<p>Примечания к релизу можно найти <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">здесь</a>.
+<p>
+Загрузки доступны на <a href="download">http://www.freepascal.org/download.var</a>
   
 </TRN>
