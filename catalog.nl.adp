@@ -1524,3 +1524,62 @@ Dit heeft tot gevolg dat de website normaal getoond wordt in dezelfde taal als d
 <TRN locale="nl_NL" key="website.Current_Version_text">
 Versie <em>2.2.0</em> is de meeste recente stabiele versie van Free Pascal. Klik op de <a href="download@x@">downloadlink</a> en kies een mirror dicht bij je in de buurt om jouw exemplaar te downloaden. De ontwikkelversies hebben de versienummers <EM>2.3.x</EM>. Zie <a href="develop@x@">ontwikkelpagina</a> hoe je de meest recente broncode kunt verkrijgen en kunt helpen met de ontwikkeling.  
 </TRN>
+<TRN locale="nl_NL" key="website.alternative_doc_formats">
+De documentatie is ook in enkele alternatieve documentformaten beschikbaar. Zie hiervoor de <a href="download@x@">downloadpagina</a>.
+
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_toc">
+Inhoudsopgave documentatie
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_ug">
+Gebruikershandleiding
+</TRN>
+<TRN locale="nl_NL" key="website.PDFs_available">
+De volgende Engelstalige PDF-documenten zijn online beschikbaar:
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_pg">
+Programeurshandleiding
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_lrg">
+Taalnaslaggids
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_rtlurm">
+Naslaggids voor units in de runtimebibliotheek (RTL)
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_fclurm">
+Naslaggids voor units in de Free Component Library (FCL)
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_fpcdocdtrm">
+Naslaggids voor het documentatiegereedschap fpdoc
+</TRN>
+<TRN locale="nl_NL" key="website.Doc_refchart">
+Naslagtabel met alle schakel- en commandoregelopties
+</TRN>
+<TRN locale="nl_NL" key="website.User_contributed_documents">
+De volgende door onze gebruikers bijgedragen documenten zijn beschikbaar:
+</TRN>
+<TRN locale="nl_NL" key="website.javascript_required">
+<EM>Opmerking:</EM> je dient Javascript en stijlbladen ingeschakeld te hebben om deze pagina's goed te kunnen bekijken.
+
+</TRN>
+<TRN locale="nl_NL" key="website.HTMLs_available">
+De volgende Engelstalige HTML-documenten zijn online beschikbaar
+</TRN>
+<TRN locale="nl_NL" key="website.german_manuals">
+De Free Pascal-handleidingen zijn in het Duits vertaald door <b>C&amp;L</b> en kunnen aangeschaft worden op de website van <a href="http://www.cul.de/freepascal.html">C&amp;L website</a>.
+
+</TRN>
+<TRN locale="nl_NL" key="website.windows_unit_docs">
+De <b>windows</b>-unit wordt niet beschreven in onze documentatie. De reden daaracher is dat dit een ENORME unit is, welke de volledige Win32-API zou beschrijven, en dat is niet het doel van deze documentatie.<p>
+Desondanks kan een helpbestand worden gedownload van
+  <a href="ftp://ftp.borland.com/pub/delphi/techpubs/delphi2/win32.zip">Borlands ftp-site</a>. Dit helpbestand geeft een overzicht van alle Win32-API-aanroepen en beschrijft daardoor alle procedures en functies in de windows-unit. Het helpbestand is georiënteerd naar C-programmeurs toe, maar het toepassen ervan op Pascal is rechttoe rechtaan.
+<p>
+De volledige en geactualiseerde documentatie van de Windows-API is ook online beschikbaar op <a href="http://msdn.microsoft.com/library/default.asp">Microsofts website</a>.
+
+</TRN>
+<TRN locale="nl_NL" key="website.new_to_programming">
+<h3>Nieuwkomer bij het programmeren?</h3>
+Onze handleidingen zijn bedoeld voor mensen die al in Pascal kunnen programmeren. Als je documenten zoekt hoe je Pascal kunt leren, dan is de
+<a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a> van Tao Yue een goede keus (Engelstalig).
+
+</TRN>

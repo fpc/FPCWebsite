@@ -41,7 +41,7 @@
   You can also download the documentation in some alternative formats.
   See the <a href="download.html">Download</a> page.
 </trn>
-
+<p>
 <trn locale="en_US" key="website.windows_unit_docs">
   The <b>windows</b> unit is not documented in Free Pascal. The reason for
   this is that this is a HUGE unit, which would describe the complete win32
@@ -65,6 +65,6 @@
   <h3>New to programming?</h3>
   Our manuals are written for people who already know how to program in Pascal.
   If you are looking for information how you can learn Pascal,
-  Toa Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a>
+  Tao Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a>
   is a good choice.
 </trn>

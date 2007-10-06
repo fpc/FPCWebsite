@@ -2376,3 +2376,78 @@ Download cross-compilers as installers
     See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
   
 </TRN>
+<TRN locale="en_US" key="website.PDFs_available">
+The following PDF documents are online available:
+</TRN>
+<TRN locale="en_US" key="website.Doc_toc">
+Documentation table of contents
+</TRN>
+<TRN locale="en_US" key="website.Doc_ug">
+User's guide
+</TRN>
+<TRN locale="en_US" key="website.Doc_pg">
+Programmer's guide
+</TRN>
+<TRN locale="en_US" key="website.Doc_lrg">
+Language reference guide
+</TRN>
+<TRN locale="en_US" key="website.Doc_rtlurm">
+Run-Time Library (RTL) units reference manual
+</TRN>
+<TRN locale="en_US" key="website.Doc_fclurm">
+Free Component Library (FCL) units reference manual
+</TRN>
+<TRN locale="en_US" key="website.Doc_fpcdocdtrm">
+fpdoc documentation tool reference manual
+</TRN>
+<TRN locale="en_US" key="website.Doc_refchart">
+Reference chart with all compiler options and switches
+</TRN>
+<TRN locale="en_US" key="website.User_contributed_documents">
+The following user contributed documents are available
+</TRN>
+<TRN locale="en_US" key="website.HTMLs_available">
+The following HTML documents are online available
+</TRN>
+<TRN locale="en_US" key="website.javascript_required">
+
+  <EM>Remark:</EM>you must have javascript and style sheets enabled in order
+  to view these pages correctly.
+
+</TRN>
+<TRN locale="en_US" key="website.alternative_doc_formats">
+
+  You can also download the documentation in some alternative formats.
+  See the <a href="download.html">Download</a> page.
+
+</TRN>
+<TRN locale="en_US" key="website.windows_unit_docs">
+
+  The <b>windows</b> unit is not documented in Free Pascal. The reason for
+  this is that this is a HUGE unit, which would describe the complete win32
+  API, and that is not the purpose of this documentation.<p>
+  However, the Win32 api help can be downloaded for free from 
+  <a href="ftp://ftp.borland.com/pub/delphi/techpubs/delphi2/win32.zip">Borland's web
+  site</a>. This will give an overview of all win32 API calls, and as such
+  it describes all functions in the windows unit. The help file is oriented
+  towards C programmers, but transposing to pascal should be straightforward.
+  <p>
+  The complete and up-to-date documentation of the Windows API is also on-line
+  available on <a href="http://msdn.microsoft.com/library/default.asp">Microsofts website</a>.
+
+</TRN>
+<TRN locale="en_US" key="website.german_manuals">
+
+  The Free pascal manuals have been translated to German by <b>C&amp;L</b>, and can be purchased
+  from the <a href="http://www.cul.de/freepascal.html">C&amp;L website</a>.
+
+</TRN>
+<TRN locale="en_US" key="website.new_to_programming">
+
+  <h3>New to programming?</h3>
+  Our manuals are written for people who already know how to program in Pascal.
+  If you are looking for information how you can learn Pascal,
+  Toa Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a>
+  is a good choice.
+
+</TRN>
