@@ -21,7 +21,7 @@
     <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
     <ul>
       <li> Architectures: PowerPC/64 and ARM support
-      <li> Platforms: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance, and Game Boy DS support
+      <li> Platforms: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance, and Nintendo DS support
       <li> Linker: fast and lean internal linker for Windows platforms
       <li> Debugging: Dwarf support and the ability to automatically fill variables with several values to more easily detect uninitialised uses
       <li> Language: support for interface delegation, bit packed records and arrays and support for COM/OLE variants and dispinterfaces
