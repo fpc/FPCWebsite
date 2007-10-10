@@ -1487,7 +1487,7 @@ Het Free Pascal-compilerteam kondigt met grote tevredenheid de beschikbaarheid v
     <ul>
       <li>Architecturen: PowerPC/64- en ARM-ondersteuning
       <li>Nieuwe platformen: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance en Game Boy DS
-      <li>Linker: sneller en slanke  interne linker voor Windowsplatformen
+      <li>Linker: snelle en slanke  interne linker voor Windowsplatformen
       <li>Debuggen: Ondersteuning voor Dwarf en mogelijkheden om variabelen automatisch met waarden te vullen ten einde ongeïntialiseerd gebruik gemakkelijk te detecteren
       <li>Taal: ondersteuning voor interfacedelegatie, bitpacking in records en arrays en ondersteuning voor COM-/OLE-varianten en dispinterfaces
       <li>Infrastructuur: betere ondersteuning van het type variant, ondersteuning voor meerdere resourcebestanden, widestrings zijn COM-/OLE-compatibel onder Windows, verbeterde databaseondersteuning
