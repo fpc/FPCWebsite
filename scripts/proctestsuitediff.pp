@@ -77,7 +77,7 @@ end;
 
 type
   ttestrun = record
-    line, date, fail, data, runid: string;
+    line, date, fail, data, runid, failset: string;
     hour: integer;
   end;
 
@@ -103,7 +103,7 @@ begin
     begin
       prev.fail := getfail(prev.line);
       curr.fail := getfail(curr.line);
-      if prev.fail = curr.fail then
+      if prev.failset = curr.failset then
       begin
         failstr := curr.fail;
         addlist(nochangelist, failstr, curr.data, construct_results_url(curr.runid));
@@ -120,15 +120,22 @@ begin
   end;
 end;
 
+function findseparator(aoffset, aindex: integer): integer;
+var
+  I: integer;
+begin
+  for I := 1 to aindex do
+  begin
+    inc(aoffset);
+    while header[1][aoffset] <> '|' do
+      inc(aoffset);
+  end;
+  result := aoffset;
+end;
+  
 const
-  { cut fails and date (first two fields, '| FAILS | DATE       ', 21 characters) 
-    cut time (last 2 fields, ' HH:MM:SS |  XXXX |', 19 characters) }
-  datastart = 21;
-  datacutlen = 39;
-  { position of hour counted from end }
-  houroffset = 17;
-  { position of testrun id counted from end }
-  runidoffset = 6;
+  { cut fails and date (first two fields, '| FAILS | DATE       ', 21 characters) }
+  datastart = 22;
 
 var
   twodaysago, yesterday, today: string;
@@ -137,6 +144,9 @@ var
   prevnewlist, disappearlist, nochangelist, changelist, newlist: tstringlist;
   blinkerchangelist, blinkernochangelist: tstringlist;
   todaydate: TDateTime;
+  dataend, datalen, houroffset: integer;
+  runidoffset, runidend, runidlen: integer;
+  failoffset, failend, faillen: integer;
 begin
   blinkernochangelist := tstringlist.create;
   blinkerchangelist := tstringlist.create;
@@ -164,14 +174,25 @@ begin
   yesterday := FormatDateTime('YYYY-mm-dd', todaydate-1);
   today := FormatDateTime('YYYY-mm-dd', todaydate);
   lenfailstr := 5;  { Length('FAILS') = column header }
+  dataend := findseparator(datastart, 6);
+  datalen := dataend - datastart + 1;
+  { cut time (last 2 fields, ' HH:MM:SS |  XXXX |') }
+  houroffset := dataend + 2;
+  runidoffset := houroffset + 11;
+  runidend := findseparator(runidoffset, 1);
+  runidlen := runidend - 1 - runidoffset;
+  failoffset := runidend + 2;
+  failend := findseparator(failoffset, 1);
+  faillen := failend - failoffset - 1;
   repeat
     if (length(curr.line) = 0) or (curr.line[1] <> '+') then
     begin
       readln(curr.line);
       curr.date := getdate(curr.line);
-      curr.data := copy(curr.line, datastart, length(curr.line)-datacutlen);
-      curr.hour := strtointdef(copy(curr.line, length(curr.line)-houroffset, 2), 0);
-      curr.runid := trim(copy(curr.line, length(curr.line)-runidoffset, 5));
+      curr.data := copy(curr.line, datastart, datalen);
+      curr.hour := strtointdef(copy(curr.line, houroffset, 2), 0);
+      curr.runid := trim(copy(curr.line, runidoffset, runidlen));
+      curr.failset := copy(curr.line, failoffset, faillen);
     end else 
     if length(footer) = 0 then
       footer := curr.line;
@@ -211,13 +232,13 @@ begin
   until (length(old.line) > 0) and (old.line[1] = '+');
   
   header[0] := '+-----' + copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[0], datastart, length(header[0])-datacutlen);
+    copy(header[0], datastart, datalen);
   header[1] := '| URL ' + copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) + 
-    copy(header[1], datastart, length(header[1])-datacutlen);
+    copy(header[1], datastart, datalen);
   header[2] := '+-----' + copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[2], datastart, length(header[2])-datacutlen);
+    copy(header[2], datastart, datalen);
   footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(footer,    datastart, length(footer)-datacutlen);
+    copy(footer,    datastart, datalen);
   
   printtable(disappearlist, 'DISAPPEARED:');
   printtable(prevdisappearlist, 'DISAPPEARED YESTERDAY:');
