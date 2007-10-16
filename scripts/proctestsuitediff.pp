@@ -3,6 +3,9 @@
 uses
   sysutils, classes, strutils;
 
+const
+  runhour = 8;      { cut-off hour that distinguishes yesterday and today }
+
 function getdate(line: string): string;
 begin
   result := copy(line, posex('|', line, Pos('|', line)+1)+2, 10);
@@ -206,7 +209,7 @@ begin
       old.line := '';
     { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
     { only detect equal testruns yesterday if submitted late for diff mail yesterday }
-    if prev.hour >= 7 then
+    if prev.hour >= runhour then
       checkchange(old, prev, twodaysago, yesterday, prevchangelist, prevnochangelist);
     { still some unprocessed line? }
     if length(old.line) > 0 then
@@ -214,11 +217,11 @@ begin
       list := nil;
       if old.date = twodaysago then
       begin
-        if old.hour >= 7 then
+        if old.hour >= runhour then
           list := prevdisappearlist
         { else we already had it disappear yesterday }
       end else if old.date = yesterday then
-        if old.hour < 7 then
+        if old.hour < runhour then
           list := disappearlist
         else
           list := prevnewlist
