@@ -40,7 +40,7 @@
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a>
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
-      <li><a href="down/i386/os2@x@">OS/2</a>
+      <li><a href="down/i386/os2@x@">OS/2</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
       <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (Windows 95, 98, ME, NT, 2000, XP, Vista)
     </ul>  
   <li>powerpc
