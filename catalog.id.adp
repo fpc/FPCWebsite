@@ -7,27 +7,6 @@ Mencari dokumentasi, forum &amp; daftar surat.
 <TRN locale="id_ID" key="website.Feeling_Lucky">
 Merasa Beruntung
 </TRN>
-<TRN locale="id_ID" key="website.a_Access_denies_while_download">
-<p>Situs ftp utama Free Pascal hanya dapat menerima maksimum jumlah koneksi simultan. Jika kesalahan ini terjadi, itu dikarenakan batas ini telah tercapai. Solusinya dengan menunggu dan mencobanya lagi nanti, atau lebih baik menggunakan salah satu situs mirror Free Pascal.
-</TRN>
-<TRN locale="id_ID" key="website.a_accessing_dosmem">
-<p>Anda dapat melakukannya seperti dalam Turbo Pascal, via absolute atau mem[]. Untuk blok memori lebih besar gunakan rutin dosmemput/dosmemget dalam unit <TT>Go32</TT>.
-</TRN>
-<TRN locale="id_ID" key="website.a_accessing_io_ports">
-<p>Dengan versi sebelum 0.99.10: jika anda di bawah DOS anda bisa menggunakan prosedur <TT>outport*</TT> dan <TT>inport*</TT> dari unit go32. <p>Sejak versi 0.99.8, array Port didukung seperti dalam TP, sepanjang anda menggunakan unit ports dalam program anda (tidak tersedia dalam Win32). <p>Akses I/O port dimungkinkan di bawah Linux, tetapi memerlukan hak root. Periksa manual untuk prosedur IOPerm, ReadPort dan WritePort. (Unit Linux)
-</TRN>
-<TRN locale="id_ID" key="website.a_app_crash_on_386">
-ul>  <li>  <p>Mencoba untuk menjalankan aplikasi yang mengerjakan operasi floating point pada sistem 386 tanpa ko-prosesor matematika akan rusak kecuali unit <TT>emu387</TT> dipakai, karena unit ini mengambil emulator ko-prosesor matematika (disebut <TT>wmemu387.dxe</TT>). Anda dapat menambah unit seperti berikut: <p><PRE>  program myprog; uses emu387, ... </PRE>  <p>Ketika aplikasi dirilis, paket software juga harus menyertakan file distribusi wmemu387.dxe untuk menghindari masalah. . <li>  <p>Beberapa sistem 80386 memiliki hardware bug yang merusak register akumulator <TT>EAX</TT> jika ia dipakai dalam instruksi <TT>MOV</TT> setelah instruksi <TT>POPAL</TT>. Sebelum versi 1.0.5, kompilator dan librari runtime dapat membuat urutan kode tersebut. Sekarang sudah dibetulkan dan seharusnya tidak lagi menyebabkan masalah </ul>
-</TRN>
-<TRN locale="id_ID" key="website.a_build_unit">
-<p>Ia bekerja seperti dalam Turbo Pascal. Kata kunci pertama dalam file harus UNIT (tidak sensitif huruf). Kompilator akan membuat dua file: <TT>XXX.PPU</TT> dan <TT>XXX.O</TT>. File PPU berisi informasi antarmuka untuk kompilator dan kode mesin file-O (file obyek, yang struktur persisnya tergantung pada assembler yang anda pakai). Untuk menggunakan unit ini dalam unit atau program lain, anda harus menyertakan namanya dalam klausul USES pada program anda.
-</TRN>
-<TRN locale="id_ID" key="website.a_calling_C_functions">
-<p>  Ini dimungkinkan untuk memanggil fungsi yang dikodekan dalam C, yang telah dikompilasi dengan kompilator GNU C (<TT>GCC</TT>). Versi yang telah diuji adalah versi 2.7.2 sampai 2.95.2 dari GCC. Untuk memanggil fungsi C strcmp deklarasikan berikut: <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
-</TRN>
-<TRN locale="id_ID" key="website.a_change_dos_stacksize">
-<p>Di bawah target DOS (GO32V2), ukuran stack standar sampai 256 bKbytes. Ini dapat diubah dengan utilitas khusus DJGPP yang disebut <TT>stubedit</TT>. Perlu diperhatikan bahwa stack juga dapat diubah dengan beberapa saklar kompilator, ukuran stack ini, jika lebih besar dari ukuran stack standar akan dipakai, sebaliknya ukuran stack sandar yang dipakai.
-</TRN>
 <TRN locale="id_ID" key="website.a_Compiler_skips_files">
 <p>Ini kadang-kadang terjadi dengan naskah instalasi/kompilasi jika meng-copy perintah tidak menyediakan tanggal. File obyek lebih lama dari file PPU, dan kompilator mencoba untuk mengkompilasi ulang. <TT>touch</TT>  akan memecahkan masalah ini. <p>  Juga dicatat bahwa FPC, kebalikan dengan Turbo Pascal memelihara jejak includefiles. includefiles yang dimodifikasi atau duplikasi nama yang dapat memicu percobaan rekompilasi
 </TRN>
@@ -736,33 +715,6 @@ Tipe kurs memiliki beberapa masalah dengan nilai pada batas tinggi dan rendah (k
 <TRN locale="id_ID" key="website.Current_Version">
 Versi Saat Ini
 </TRN>
-<TRN locale="id_ID" key="website.DEB_compatibility">
-Paket DEB kami kompatibel dengan semua distribusi berbasis DEB, termasuk Debian, Linspire, Ubuntu
-</TRN>
-<TRN locale="id_ID" key="website.Debian_bug_412927">
-Paket gpm dikirimkan dengan Debian menggunakan sebuah patch yang  menjadikan protokol wire tidak kompatibel dengan gpm standar. Kebetulan, itu tidak mungkin bagi kami untuk mendeteksi apakah server gpm yang kami bicarakan adalah server gpm Debian yang di-patch. Ini berarti program yang dibuat menggunakan Free Pascal, termasuk Free Pascal sendiri, tidak akan bisa menggunakan mouse secara benar pada konsol Linux. Masalah ini sudah dilaporkan ke Debian sebagai A href='http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=412927'>bug 412927</A>. 
-</TRN>
-<TRN locale="id_ID" key="website.Debian_known_incompat">
-Inkompatibilitas dikenal dengan Debian dan Ubuntu
-</TRN>
-<TRN locale="id_ID" key="website.DEB_packages">
-Paket Debian
-</TRN>
-<TRN locale="id_ID" key="website.DEB_packages_1">
-Paket Debian (.deb)
-</TRN>
-<TRN locale="id_ID" key="website.Debugger">
-Debugger:
-</TRN>
-<TRN locale="id_ID" key="website.Delphi_extern_implementation">
-Karena penggunakan linker eksternal dan kepentingan multi platform, tidak mungkin mendeklarasikan fungsi dalam interface pada sebuah unit, dan mendeklarasikan ulang sebagai eksternal dalam implementation. Fungsi eksternal harus didefinisikan lengkap oleh interface, dan hanya interface.
-</TRN>
-<TRN locale="id_ID" key="website.Delphi_known_incompat">
-Inkompatibilitas diketahui dengan Delphi
-</TRN>
-<TRN locale="id_ID" key="website.Delphi_unimplemented">
-Fungsionalitas Delphi berikut belum diimplementasikan
-</TRN>
 <TRN locale="id_ID" key="website.Delphi_unimplemented_delegation">
 delegasi dengan kata kunci <b>implements</b>
 </TRN>
@@ -840,6 +792,12 @@ GNU assembler dan linker:
 </TRN>
 <TRN locale="id_ID" key="website.GNU_ld_lfn">
 Masalah saat kompilator diinstalasi dalam direktori yang memerlukan nama file panjang
+</TRN>
+<TRN locale="id_ID" key="website.DEB_compatibility">
+Paket DEB kami kompatibel dengan semua distribusi berbasis DEB, termasuk Debian, Linspire, Ubuntu
+</TRN>
+<TRN locale="id_ID" key="website.Debian_known_incompat">
+Inkompatibilitas dikenal dengan Debian dan Ubuntu
 </TRN>
 <TRN locale="id_ID" key="website.GNU_ld_lfn_2">
 GNU Linker (yang digunakan oleh FPC) untuk DOS dan WIndows tidak mendukung nama file panjang maka jangan instalasi kompilator dalam direktori yang memerlukan nama file panjang mapupun mencoba untuk mengompilasi sumber dalam direktori dengan nama file panjang. Meskipun demikian FPC librari runtime mendukung nama file panjang maka program anda yang dikompilasi oleh FPC akan mendukung nama file panjang. Masalah ini hanya untuk versi DOS dan Windows.
@@ -964,53 +922,6 @@ Adna dapat men-download rilis 2.1.4 untuk sistem operasi berikut:
 <TRN locale="id_ID" key="website.adv_Fast_code">
 <STRONG>Kecepatan tinggi, memori rendah</STRONG> Menjadi bahasa yang dikompilasi ke dalam kode mesin cepat oleh kompilator modern, Free Pascal telah mampu untuk membuat Pascal menjadi salah satu bahasa tercepat yang ada. Selanjutnya, program Free Pascal programs cenderung untuk menggunakan memori kecil. Untuk perbandingan dengan bahasa lain kami sarankan <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Pengukuran Shootout</A> dan merekomendasikan anda mengubah bobot sesuai selera anda sendiri.
 </TRN>
-<TRN locale="id_ID" key="website.a_Big_binaries">
-            Ada beberapa alasan dan obat untuk ini: 
-
-            <OL>
-                <li>
-                    <p>Anda bisa membuat aplikasi di-smartlink. Untuk menghidupkan
-                    pembuatan unit yang bisa di-smartlink, pakai opsi baris perintah -Cx
-                    saat mengkompilasi unit anda. Untuk menghidupkan link dari unit
-                    yang dibuat bisa di-smartlink sebelumnya, gunakan opsi baris perintah -XX
-                    (-XS dalam 0.99.12 dan sebelumnya) ketika mengkompilasi program. 
-                <li>Biasanya, semua informasi simbol disertakan dalam program hasil 
-                    (untuk lebih memudahkan debbug). Anda bisa menghapus ini dengan 
-                    opsi baris perintah -Xs ketika mengkompilasi program anda (ia tidak
-                    akan mengerjakan apapun saat mengkompilasi unit)
-                <li>Anda bisa menggunakan UPX untuk memadatkan .EXEs (sama seperti misalnya pklite) pada Dos
-                    (GO32v2) dan target Windows. Lihat <A
-                        href="http://upx.sourceforge.net/">di sini</a> unfuk info lebih jauh.
-                <li>ANda bisa menggunakan pemadatan LXLITE untuk memadatkan biner EMX, 
-                    tapi anda tidak akan bisa untuk menjalankannya di bawah DOS (dengan
-                    extender) lagi nantinya. Masalah ini tidak terkait untuk biner
-                    alami OS/2 yang dikompilasi untuk target OS2 dengan versi 1.9.x dan
-                    di atasnya, karena ini tetap saja tidak akan berjalan di bawah DOS.
-                    Sebagai tambahan, tidak mungkin untuk menggunakan biner yang dikompresi
-                    pada versi OS/2 lebih rendah (seperti 2.x) tergantung pada tipe yang dipilih dari kompresinya. LXLITE bisa ditemukan di
-                    <a href="http://hobbes.nmsu.edu/">Hobbes</a>, cari LXLITE.
-                <li>Hidupkan optimasi, keduanya untuk paket yang disediakan (RTL, FV, FCL)
-                    dan kode anda sendiri, ini juga akan mengurangi ukuran kode. 
-                <li>Harap diingat bahwa di bawah NT,2000,XP, biner terkompresi berawal 
-		    relatif lambat. Uji di bawah kondisi berbeda (OS, kecepatan CPU, memori)
-                    apakah perilaku dapat diterima sebelum kompresi
-           </OL>
-
-            Secara umum Free Pascal membuat biner lebih kecil daripada kompilator modern saingan,
-            akan tetapi, ini tidak menyembunyikan kode dalam librari dinamis besar. Free Pascal membuat
-            biner lebih besar daripada kompilator dari sejak lama. Librari kerangka kerja besar berefek pada
-            eksecutabel lebih besar.
-          
-</TRN>
-<TRN locale="id_ID" key="website.a_cfg_problems">
-            <p> Mulai dari versi 1.0.6 Free Pascal, file konfigurasi sekarang disebut <TT>fpc.cfg</TT> daripada <TT>ppc386.cfg</TT>.
-            Untuk kompatibilitas mundur, <TT>ppc386.cfg</TT> masih dicari lebih dulu dan, jika ditemukan akan dipakai daripada memakai <TT>fpc.cfg</TT>
-
-            <p> Versi sebelum Free Pascal 1.0.6 tidak mengenal <TT>fpc.cfg</TT>,
-            maka jika anda ingin menggunakan versi sebelum kompilator memakai file konfigurasi yang sama yang digunakan FPC versi 1.0.6 (atau lebih baru),
-            file konfigurasi harus diganti nama ke <TT>ppc386.cfg</TT>.
-          
-</TRN>
 <TRN locale="id_ID" key="website.a_Debugging_DLL">
             <p>Debugging shared libraries (or dynamic linked libraries) produced
               by the Free Pascal compiler is not officially supported.
@@ -1037,9 +948,6 @@ And its data file
   
             <p>Profiling with <TT>gprof</TT> is supported for this platform. 
           
-</TRN>
-<TRN locale="id_ID" key="website.a_Cannot_compile_with_bin_unit">
-<p>  Kadang-kadang, meskipun ada modul versi biner (file unit dan file obyek) tersedia, kompilator masih memberikan kesalahan kompilasi. Ini bisa disebabkan baik oleh inkompatibilitas dalam format file PPU (yang hanya berubah antara versi utama kompilator), ataupun dengan mengubah salah satu unit RTL yang berubah sejak dirilis. <p>  Untuk mendapatkan informasi lebih lengkap, kompilasi kode menggunakan saklar kompilator -va (tampilkan semua informasi), dan tahap pengambilan unit akan ditampilkan. Anda dapat menemukan bahwa unit yang diambil perlu dikompilasi ulang karena salah satu unit yang dipakai sudah berubah. <p>Maka jika anda merencanakan mendistribusikan modul tanpa kode sumber, biner harus dikompilasi dan dibuat tersedia bagi seluruh versi yang ingin anda dukung, sebaliknya kesalahan kompilasi akan terjadi. <p>Dengan kata lain, format file unit (PPU) tidak berubah secara signifikan dalam rilis minor kompilator (sebagai contoh : dari 1.0.4 dan 1.0.6) yang berarti bahwa biner masih kompatibel, tetapi karena antarmuka unit RTL tentunya berubah diantara versi, rekompilasi tetap akan diperlukan untuk setiap versi.
 </TRN>
 <TRN locale="id_ID" key="website.a_compiling_systemunit">
 <p>Untuk merekompilasi unit system, direkomendasikan telah memiliki GNU make terinstalasi. mengetik 'make' dalam direktori sumber rtl akan merekompilasi semua unit RTL termasuk unit system. Anda dapat memilih untuk menurunkan ke dalam direktori pada OS anda (misalnya rtl/go32v2) dan melakukan 'make' di sana. <p>Dimungkinkan untuk melakukan semua ini secara manual, tapi anda perlu pengetahuan rinci atas struktur susunan RTL untuk itu.
@@ -1191,4 +1099,147 @@ Pada suatu kesempatan, para pengguna bertanya mengenai FPC yang mendukung .NET, 
 </TRN>
 <TRN locale="id_ID" key="website.a_What_versions_exist">
 <p>Versi resmi terbaru adalah 2.0.4, dirilis sebagai rilis pembetulan bug untuk seri 2.0.x. Pengembangan baru dilakukan dalam seri 2.1.x, yang kebetulan dirilis sebagai 2.2.0, atau 3.0.0 (tergantung pada jumlah perubahan terakumulasi pada waktu rilis). <h4>Histori versi</h4>  <p>Penomoran versi FPC berubah beberapa kali selama bertahun-tahun. Versi sebelum 0.99.5 dipertimbangkan sebagai kuno. Setelah rilis 0.99.5 sistem dalam penomoran versi diperkenalkan, dan sistem itu diubah setelah rilis 1.0. <p><b>Pembuatan versi untuk versi 0.99.5 - 1.0</b><p>  <p>Kompilator dengan nomor terakhir <b>genap</b> adalah versi <b>rilis</b> (misalnya 0.99.8, 0.99.10, 0.99.12, 0.99.14 1.0.0)<br>Kompilator dan paket dengan nomor terakhir <b>ganjil</b> adalah versi <b>pengembangan</b> (misalnya 0.99.9, 0.99.11, 0.99.13, 0.99.15) <p>0.99.5 adalah kekecualian pada aturan ini, karena <b>0.99.5 ADALAH rilis</b>  (rilis sebelum pengenalan sistem ganjil/genap ini). <p>Huruf di belakang nomor versi (0.99.12b, 0.99.5d) menunjukan versi rilis dengan beberapa bugs dan masalah dalam rilis asli (masing-masing 0.99.12 dan 0.99.5) sudah dibetulkan. <p><b>Penomoran versi setelah 1.0</b>  <p>Bersama dengan rilis 1.0 penomoran versi diubah, dan sistem dalam penomoran versi mengikuti Linux kernel yang telah diperkenalkan. Perbedaan utama adalah bahwa antara versi rilis sekarang dalam nomor kedua (1.0.x vs 1.1.x) daripada nomor ketiga (0.99.14 vs 0.99.15), dan nomor ketiga sekarang menjadi tingkat patch, mengganti huruf postfixed dalam sistem lama. <p>  <ul>  <li>Rilis yang hanya membetulkan bugs dalam versi 1.0 dinomori 1.0.x. <li>Pengembangan baru (apa yang disebut snapshots) dimulai dengan nomor versi 1.1.x. <li>Kebetulan versi 1.1.x, saat distabilkan ke 2.x. Pembetulan pada rilis 2.0 dinomori 2.0.x. <li>Pengembangan baru setelah rilis 2.0 dinomori 2.1.x dan seterusnya. </ul>  <p>  <p>Normalnya anda ingin menggunakan sebuah rilis. Rilis dipertimbangkan sebagai stabil, dan lebih mudah untuk didukung (bugs, quirks dan "fitur" tidak dimaksud juga dikenal setelah beberapa periode waktu, dan ada pemecahannya). <p>Pengembangan snapshots (biasanya dibuat harian) menunjukan status saat ini dari kompilator. Versi pengembangan mungkin mempunyai fitur baru dan bugs lebih banyak dibetulkan sejak rilis terakhir, tapi mungkin memiliki beberapa kerugian stabilitas sementara (yang biasanya dibetulkan esok harinya). <p>Pengembangan snapshots sering berguna untuk kategori tertentu dari pengguna. Diminta dalam milis jika ia berharga dalam kasus anda jika anda tidak yakin. <p>Kami menyarankan semua pengguna untuk memutakhirkan ke versi terbaru untuk targetnya (Lebih disukai seri stabil baru 2.0.x). <p> Timeline grafis dari proyek FPC ditambah waktu mendatangnya akan menjadi: <img src="pic/timeline.png"></a>
+</TRN>
+<TRN locale="id_ID" key="website.alternative_doc_formats">
+Anda juga dapat men-download dokumentasi dalam beberapa format alternatif. Lihat halaman <a href="download.html">Download</a>.
+</TRN>
+<TRN locale="id_ID" key="website.Doc_fclurm">
+Manual referensi unit Free Component Library (FCL)
+</TRN>
+<TRN locale="id_ID" key="website.Doc_fpcdocdtrm">
+Manual referensi piranti dokumentasi fpdoc
+</TRN>
+<TRN locale="id_ID" key="website.Doc_lrg">
+Bimbingan referensi bahasa
+</TRN>
+<TRN locale="id_ID" key="website.Doc_pg">
+Bimbingan pemrogram
+</TRN>
+<TRN locale="id_ID" key="website.Doc_refchart">
+Diagram referensi dengan semua opsi dan saklar kompilator
+</TRN>
+<TRN locale="id_ID" key="website.Doc_rtlurm">
+Manual referensi unit Run-Time Library (RTL)
+</TRN>
+<TRN locale="id_ID" key="website.Doc_toc">
+Daftar isi dokumentasi
+</TRN>
+<TRN locale="id_ID" key="website.Doc_ug">
+Bimbingan pengguna
+</TRN>
+<TRN locale="id_ID" key="website.german_manuals">
+Manual Free pascal sudah diterjemahkan ke bahasa Jerman oleh <b>C&amp;L</b>, dan bisa dibeli dari <a href="http://www.cul.de/freepascal.html">C&amp;L website</a>.
+</TRN>
+<TRN locale="id_ID" key="website.HTMLs_available">
+Dokumen HTML berikut tersedia secara online
+</TRN>
+<TRN locale="id_ID" key="website.javascript_required">
+<EM>Catatan:</EM>anda harus menghidupkan javascript dan style sheet untuk melihat halaman ini dengan benar.
+</TRN>
+<TRN locale="id_ID" key="website.new_to_programming">
+<h3>Baru terhadap pemrograman?</h3>  Manual kami ditulis untuk orang yang sudah mengetahui bagaimana untuk memrogram dalam Pascal. Jika anda mencari informasi bagaimana anda bisa mempelajari Pascal, Toa Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a>  adalah pilihan yang baik.
+</TRN>
+<TRN locale="id_ID" key="website.PDFs_available">
+Dokumen PDF berikut tersedia secara online:
+</TRN>
+<TRN locale="id_ID" key="website.User_contributed_documents">
+Tersedia dokumen yang disumbangkan oleh pengguna
+</TRN>
+<TRN locale="id_ID" key="website.windows_unit_docs">
+Unir <b>windows</b> tidak didokumentasikan dalam Free Pascal. Alasannya adalah bahwa ini adalah unit BESAR yang akan menjelaskan Win32 API secara lengkap, dan itu bukan tujuan dari dokumentasi ini.<p>  Akan tetapi, bantuan Win32 api dapat di-download secara bebas dari <a href="ftp://ftp.borland.com/pub/delphi/techpubs/delphi2/win32.zip">Borland's web site</a>. Ini akan memberikan tinjauan atas semua panggilan win32 API, dan menjelaskan semua fungsi dalam unit windows. File bantuan adalah terorientasi untuk pemrogram C, tapi perubahan ke pascal bisa secara langsung. <p>  Dokumentasi Windows API lengkap dan mutakhir juga tersedia secara online di <a href="http://msdn.microsoft.com/library/default.asp">Microsofts website</a>.
+</TRN>
+<TRN locale="id_ID" key="website.a_Access_denies_while_download">
+<p>Situs ftp utama Free Pascal hanya dapat menerima maksimum jumlah koneksi simultan. Jika kesalahan ini terjadi, itu dikarenakan batas ini telah tercapai. Solusinya dengan menunggu dan mencobanya lagi nanti, atau lebih baik menggunakan salah satu situs mirror Free Pascal.
+</TRN>
+<TRN locale="id_ID" key="website.a_accessing_dosmem">
+<p>Anda dapat melakukannya seperti dalam Turbo Pascal, via absolute atau mem[]. Untuk blok memori lebih besar gunakan rutin dosmemput/dosmemget dalam unit <TT>Go32</TT>.
+</TRN>
+<TRN locale="id_ID" key="website.a_accessing_io_ports">
+<p>Dengan versi sebelum 0.99.10: jika anda di bawah DOS anda bisa menggunakan prosedur <TT>outport*</TT> dan <TT>inport*</TT> dari unit go32. <p>Sejak versi 0.99.8, array Port didukung seperti dalam TP, sepanjang anda menggunakan unit ports dalam program anda (tidak tersedia dalam Win32). <p>Akses I/O port dimungkinkan di bawah Linux, tetapi memerlukan hak root. Periksa manual untuk prosedur IOPerm, ReadPort dan WritePort. (Unit Linux)
+</TRN>
+<TRN locale="id_ID" key="website.a_app_crash_on_386">
+ul>  <li>  <p>Mencoba untuk menjalankan aplikasi yang mengerjakan operasi floating point pada sistem 386 tanpa ko-prosesor matematika akan rusak kecuali unit <TT>emu387</TT> dipakai, karena unit ini mengambil emulator ko-prosesor matematika (disebut <TT>wmemu387.dxe</TT>). Anda dapat menambah unit seperti berikut: <p><PRE>  program myprog; uses emu387, ... </PRE>  <p>Ketika aplikasi dirilis, paket software juga harus menyertakan file distribusi wmemu387.dxe untuk menghindari masalah. . <li>  <p>Beberapa sistem 80386 memiliki hardware bug yang merusak register akumulator <TT>EAX</TT> jika ia dipakai dalam instruksi <TT>MOV</TT> setelah instruksi <TT>POPAL</TT>. Sebelum versi 1.0.5, kompilator dan librari runtime dapat membuat urutan kode tersebut. Sekarang sudah dibetulkan dan seharusnya tidak lagi menyebabkan masalah </ul>
+</TRN>
+<TRN locale="id_ID" key="website.a_Big_binaries">
+            Ada beberapa alasan dan obat untuk ini: 
+
+            <OL>
+                <li>
+                    <p>Anda bisa membuat aplikasi di-smartlink. Untuk menghidupkan
+                    pembuatan unit yang bisa di-smartlink, pakai opsi baris perintah -Cx
+                    saat mengkompilasi unit anda. Untuk menghidupkan link dari unit
+                    yang dibuat bisa di-smartlink sebelumnya, gunakan opsi baris perintah -XX
+                    (-XS dalam 0.99.12 dan sebelumnya) ketika mengkompilasi program. 
+                <li>Biasanya, semua informasi simbol disertakan dalam program hasil 
+                    (untuk lebih memudahkan debbug). Anda bisa menghapus ini dengan 
+                    opsi baris perintah -Xs ketika mengkompilasi program anda (ia tidak
+                    akan mengerjakan apapun saat mengkompilasi unit)
+                <li>Anda bisa menggunakan UPX untuk memadatkan .EXEs (sama seperti misalnya pklite) pada Dos
+                    (GO32v2) dan target Windows. Lihat <A
+                        href="http://upx.sourceforge.net/">di sini</a> unfuk info lebih jauh.
+                <li>Anda bisa menggunakan kompresi LXLITE untuk memadatkan biner EMX, 
+                    tapi anda tidak akan bisa untuk menjalankannya di bawah DOS (dengan
+                    extender) lagi nantinya. Masalah ini tidak terkait untuk biner
+                    alami OS/2 yang dikompilasi untuk target OS2 dengan versi 1.9.x dan
+                    di atasnya, karena ini tetap saja tidak akan berjalan di bawah DOS.
+                    Sebagai tambahan, tidak mungkin untuk menggunakan biner yang dikompresi
+                    pada versi OS/2 lebih rendah (seperti 2.x) tergantung pada tipe yang dipilih dari kompresinya. LXLITE bisa ditemukan di
+                    <a href="http://hobbes.nmsu.edu/">Hobbes</a>, cari LXLITE.
+                <li>Hidupkan optimasi, keduanya untuk paket yang disediakan (RTL, FV, FCL)
+                    dan kode anda sendiri, ini juga akan mengurangi ukuran kode. 
+                <li>Harap diingat bahwa di bawah NT,2000,XP, biner terkompresi berawal 
+		    relatif lambat. Uji di bawah kondisi berbeda (OS, kecepatan CPU, memori)
+                    apakah perilaku dapat diterima sebelum kompresi
+           </OL>
+
+            Secara umum Free Pascal membuat biner lebih kecil daripada kompilator modern saingan,
+            akan tetapi, ini tidak menyembunyikan kode dalam librari dinamis besar. Free Pascal membuat
+            biner lebih besar daripada kompilator dari sejak lama. Librari kerangka kerja besar berefek pada
+            eksecutabel lebih besar.
+          
+</TRN>
+<TRN locale="id_ID" key="website.a_build_unit">
+<p>Ia bekerja seperti dalam Turbo Pascal. Kata kunci pertama dalam file harus UNIT (tidak sensitif huruf). Kompilator akan membuat dua file: <TT>XXX.PPU</TT> dan <TT>XXX.O</TT>. File PPU berisi informasi antarmuka untuk kompilator dan kode mesin file-O (file obyek, yang struktur persisnya tergantung pada assembler yang anda pakai). Untuk menggunakan unit ini dalam unit atau program lain, anda harus menyertakan namanya dalam klausul USES pada program anda.
+</TRN>
+<TRN locale="id_ID" key="website.a_calling_C_functions">
+<p>  Ini dimungkinkan untuk memanggil fungsi yang dikodekan dalam C, yang telah dikompilasi dengan kompilator GNU C (<TT>GCC</TT>). Versi yang telah diuji adalah versi 2.7.2 sampai 2.95.2 dari GCC. Untuk memanggil fungsi C strcmp deklarasikan berikut: <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
+</TRN>
+<TRN locale="id_ID" key="website.a_Cannot_compile_with_bin_unit">
+<p>  Kadang-kadang, meskipun ada modul versi biner (file unit dan file obyek) tersedia, kompilator masih memberikan kesalahan kompilasi. Ini bisa disebabkan baik oleh inkompatibilitas dalam format file PPU (yang hanya berubah antara versi utama kompilator), ataupun dengan mengubah salah satu unit RTL yang berubah sejak dirilis. <p>  Untuk mendapatkan informasi lebih lengkap, kompilasi kode menggunakan saklar kompilator -va (tampilkan semua informasi), dan tahap pengambilan unit akan ditampilkan. Anda dapat menemukan bahwa unit yang diambil perlu dikompilasi ulang karena salah satu unit yang dipakai sudah berubah. <p>Maka jika anda merencanakan mendistribusikan modul tanpa kode sumber, biner harus dikompilasi dan dibuat tersedia bagi seluruh versi yang ingin anda dukung, sebaliknya kesalahan kompilasi akan terjadi. <p>Dengan kata lain, format file unit (PPU) tidak berubah secara signifikan dalam rilis minor kompilator (sebagai contoh : dari 1.0.4 dan 1.0.6) yang berarti bahwa biner masih kompatibel, tetapi karena antarmuka unit RTL tentunya berubah diantara versi, rekompilasi tetap akan diperlukan untuk setiap versi.
+</TRN>
+<TRN locale="id_ID" key="website.a_cfg_problems">
+            <p> Mulai dari versi 1.0.6 Free Pascal, file konfigurasi sekarang disebut <TT>fpc.cfg</TT> daripada <TT>ppc386.cfg</TT>.
+            Untuk kompatibilitas mundur, <TT>ppc386.cfg</TT> masih dicari lebih dulu dan, jika ditemukan akan dipakai daripada memakai <TT>fpc.cfg</TT>
+
+            <p> Versi sebelum Free Pascal 1.0.6 tidak mengenal <TT>fpc.cfg</TT>,
+            maka jika anda ingin menggunakan versi sebelum kompilator memakai file konfigurasi yang sama yang digunakan FPC versi 1.0.6 (atau lebih baru),
+            file konfigurasi harus diganti nama ke <TT>ppc386.cfg</TT>.
+          
+</TRN>
+<TRN locale="id_ID" key="website.a_change_dos_stacksize">
+<p>Di bawah target DOS (GO32V2), ukuran stack standar sampai 256 bKbytes. Ini dapat diubah dengan utilitas khusus DJGPP yang disebut <TT>stubedit</TT>. Perlu diperhatikan bahwa stack juga dapat diubah dengan beberapa saklar kompilator, ukuran stack ini, jika lebih besar dari ukuran stack standar akan dipakai, sebaliknya ukuran stack sandar yang dipakai.
+</TRN>
+<TRN locale="id_ID" key="website.Current_Version_text">
+Versi <em>2.2.0</em> adalah versi stabil terbaru Free Pascal. Tekan link <a href="download@x@">download</a> dan pilih mirror terdekat dengan anda untuk men-download. Rilis pengembangan mempunyai nomor versi <EM>2.3.x</EM>. Lihat halaman <a href="develop@x@">pengembangan</a> bagaimana untuk mendapatkan sumber terbaru dan dukungan pengembangan.
+</TRN>
+<TRN locale="id_ID" key="website.Debian_bug_412927">
+Paket gpm dikirimkan dengan Debian menggunakan sebuah patch yang  menjadikan protokol wire tidak kompatibel dengan gpm standar. Kebetulan, itu tidak mungkin bagi kami untuk mendeteksi apakah server gpm yang kami bicarakan adalah server gpm Debian yang di-patch. Ini berarti program yang dibuat menggunakan Free Pascal, termasuk Free Pascal sendiri, tidak akan bisa menggunakan mouse secara benar pada konsol Linux. Masalah ini sudah dilaporkan ke Debian sebagai A href='http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=412927'>bug 412927</A>. 
+</TRN>
+<TRN locale="id_ID" key="website.DEB_packages">
+Paket Debian
+</TRN>
+<TRN locale="id_ID" key="website.DEB_packages_1">
+Paket Debian (.deb)
+</TRN>
+<TRN locale="id_ID" key="website.Debugger">
+Debugger:
+</TRN>
+<TRN locale="id_ID" key="website.Delphi_extern_implementation">
+Karena penggunaan linker eksternal dan kepentingan multi platform, tidak mungkin mendeklarasikan fungsi dalam interface pada sebuah unit, dan mendeklarasikan ulang sebagai eksternal dalam implementation. Fungsi eksternal harus didefinisikan lengkap oleh interface, dan hanya interface.
+</TRN>
+<TRN locale="id_ID" key="website.Delphi_known_incompat">
+Inkompatibilitas diketahui dengan Delphi
+</TRN>
+<TRN locale="id_ID" key="website.Delphi_unimplemented">
+Fungsionalitas Delphi berikut belum diimplementasikan
 </TRN>
