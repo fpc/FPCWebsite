@@ -7,8 +7,8 @@
 <p>
   <trn locale="en_US" key="website.overview_text">
     Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
-    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC,
-    Sparc. The discontinued 1.0 version also supports the Motorola 680x0.
+    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64
+    Sparc, ARM. The discontinued 1.0 version also supports the Motorola 680x0.
     The following operating systems are supported: Linux, FreeBSD,
     <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, Win64, WinCE, OS/2,
     Netware (libc and classic) and MorphOS.
@@ -76,7 +76,7 @@
 </trn></blockquote>
 <b><trn locale="en_US" key="website.req_arma">ARM architecture</trn></b>
 <blockquote><trn locale="en_US" key="website.req_armb">
-  Only cross-compiling to ARM is supported at this time.
+  16 MB of RAM is required. Runs on any ARM Linux installation.
 </trn></blockquote>
 <b><trn locale="en_US" key="website.req_sparca">Sparc architecture</trn></b>
 <blockquote><trn locale="en_US" key="website.req_sparcb">
