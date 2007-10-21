@@ -7,7 +7,7 @@
 <p>
   <trn locale="en_US" key="website.overview_text">
     Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
-    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64
+    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64,
     Sparc, ARM. The discontinued 1.0 version also supports the Motorola 680x0.
     The following operating systems are supported: Linux, FreeBSD,
     <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, Win64, WinCE, OS/2,
@@ -19,7 +19,7 @@
 <p>
   <em>September 10, 2007</em>
   <trn locale="en_US" key="website.news_headline_20070910b">
-    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A Dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
   </trn>
 <p>
   <em>September 10, 2007</em>
