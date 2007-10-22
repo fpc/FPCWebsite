@@ -16,7 +16,7 @@
   The latest cross compiler release version is <b>2.0.4</b>.
 </trn>
 
-
+<h1>2.2.0</h1>
 The FPC 2.2.0 package for arm-linux is available in one easy to choose format:
 <ul>
   <li> <a href="#linuxbig220">Everything in 1 big package</a>
@@ -31,6 +31,7 @@ After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
 
+<h1>2.0.4</h1>
 <p>
 <trn key="website.cross_compiler_i386-linux_arm-linux" locale="en_US">
   This is a cross compiler package from i386-linux to arm-linux. Before you can use it, you need to install
