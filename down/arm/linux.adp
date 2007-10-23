@@ -25,7 +25,7 @@ The FPC 2.2.0 package for arm-linux is available in one easy to choose format:
 <h3><a name="linuxbig220"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/arm-linux-2.2.0/fpc-2.2.0.arm-linux.tar">fpc-2.2.0.powerpc-linux.tar</a> (28 MB)
+href="@mirror_url@dist/arm-linux-2.2.0/fpc-2.2.0.arm-linux.tar">fpc-2.2.0.arm-linux.tar</a> (28 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
