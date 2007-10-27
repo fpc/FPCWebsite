@@ -9,21 +9,21 @@
 <li><h3>Planned for next versions</h3></li>
 <p>
 <ul>
- <li><b>Next major Version (2.2)</b></li>
+ <li><b>Next major Version (2.4)</b></li>
   <ul>
    <li><b>Language:</b></li>
     <ul>
       <li>Support for DispInterface and dispid (OLE binding on Windows).</li>
-      <li>Support for dynamic libararies</li>
-      <li>Support for delegation to interface</li>
+      <li>Support for dynamic libararies/package</li>
     </ul>
    <li><b>Compiler:</b></li>
     <ul>
 	<li>Better optimizations (static single assignment)</li>
         <li>Improved threading.</li>
 	<li>Internal assembler for non-x86 platforms.</li>
-	<li>Internal linker for Windows targets.</li>
-	<li>Generics</li>
+	<li>ELF Internal linker.</li>
+	<li>Formal Generics support (in 2.2 it is undoced)</li>
+	<li>Full DWARF support (debugging format)</li>
     </ul>
     <li><b>RTL:</b>:
     <ul>
@@ -43,7 +43,6 @@
 <ul>
   <li>Linking with C++ code (Objective C?)</li>
   <li>Higher level optimizer including liveliness analysis</li>
-  <li>Full DWARF support (debugging format)</li>
   <li>more architectures (m68k?, Alpha?, IA64?)</li>
   <li>Corba support?</li>
   <li>Cleanup of unit system</li>
