@@ -5,7 +5,6 @@
 
 <h3><trn locale="en_US" key="website.PDFs_available">The following PDF documents are online available:</trn></h3>
 <ul>
-  <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpchelp.pdf"><trn locale="en_US" key="website.Doc_toc">Documentation table of contents</trn></a>
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf"><trn locale="en_US" key="website.Doc_ug">User's guide</trn></a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/prog.pdf"><trn locale="en_US" key="website.Doc_pg">Programmer's guide</trn></a>.
   <li><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/ref.pdf"><trn locale="en_US" key="website.Doc_lrg">Language reference guide</trn></a>.
