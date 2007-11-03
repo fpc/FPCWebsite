@@ -116,6 +116,7 @@ down/sparc/linux.adp svneol=native#text/plain
 down/x86_64/Makefile svneol=native#text/plain
 down/x86_64/gen_makefile.conf -text svneol=unset#application/x-tcl
 down/x86_64/linux.adp svneol=native#text/plain
+down/x86_64/win64.adp svneol=native#text/plain
 down2/Makefile svneol=native#text/plain
 down2/Makefile.dir svneol=native#text/plain
 down2/arm/Makefile svneol=native#text/plain
