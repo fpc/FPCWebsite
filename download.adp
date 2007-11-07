@@ -33,14 +33,8 @@
       <li><a href="down/arm/linux@x@">Linux</a>
       <li><a href="down/arm/nds@x@">Nintendo DS</a>
       <li><a href="down/arm/wince@x@">Windows CE</a>
-      <lI><a href="@mirror_url@dist/i386-win32-2.2.0/fpc-2.2.0.arm-wince.exe">fpc-2.2.0.arm-wince.exe</a> (6.5 MB)
-<trn key="website.Download_win32_wince_cross_installer" locale="en_US"> contains the installer containing the win32 to arm-wince cross-compiler only. </trn>:
-<li>
-<a href="@mirror_url@dist/i386-win32-2.2.0/fpc-2.2.0.x86_64-win64.exe">fpc-2.2.0.x86_64-win64.exe</a> (12 MB)
-<trn key="website.Download_win32_win64_cross_installer" locale="en_US"> contains the installer containing the win32 to win64 cross-compiler only. </trn>:
-</ul>
+   </ul>
 
-    </ul>
   <li>intel/i386
     <ul>
       <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender) (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
