@@ -36,6 +36,9 @@ contains an installation package<br>
 <p>
 The main size difference between the 2.2.0 release and the 2.2.1 is caused by the latter not containining the pdf documentation, Xcode Integration Toolkit, and some Terminal &quot;man&quot; pages.  You can download the Xcode Integration Toolkit separately above, and the 2.2.0 pdf documentation from <a href="http://www.freepascal.org/down/docs/docs.var">its own download page</a> if you do not want to download both 2.2.0 and the 2.2.1 update.
 </p>
+<p>
+It is also advisable to switch from Stabs to Dwarf debugging information due to some bugs in the new linker on Mac OS X 10.5. See the <a href="../../fpcmac@x@">FPC Mac</a> page for more information.
+</p>
 
 <hr>
 <p>
