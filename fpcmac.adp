@@ -9,6 +9,15 @@ especially for you who want to write a program for the Macintosh.
 </p>
 
 <h2>News:</h2>
+<b>2007-11-14:</b>
+<br>
+<br>
+<p>
+There are some errors in the new linker shipped with Xcode 3.0/Mac OS X 10.5. A detailed overview was posted to the <a href="http://lists.freepascal.org/lists/fpc-pascal/2007-October/015365.html">fpc-pascal mailing list</a>. We have worked around most of those issues and created (stable) development snapshots for both <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v22/powerpc-macosx/fpc-2.2.1-r8950.powerpc-macosx.dmg">PowerPC</a> and <a href ="ftp://ftpmaster.freepascal.org/pub/fpc/snapshot/v22/i386-macosx/fpc-2.2.1-r8950.intel-macosx.dmg">Intel</A>. These are intended to be installed on top of the 2.2.0 release version. Future releases will have these fixes incorporated.
+</p>
+<p>
+One linker bug cannot be completely worked around in the compiler, which is related to the Stabs debugging format. For this reason, we recommend to switch to the Dwarf debugging format on Mac OS X 10.5. On the command line, you can do this by using -gw instead of -g to generate debugging information. In the Xcode projects, add -gw at the end of the <b>FPC_SPECIFIC_OPTIONS</b> project setting for the <i>Debug</i> configuration.
+</p>
 <b>2006-08-27:</b>
 <br>
 <br>
