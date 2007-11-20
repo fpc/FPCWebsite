@@ -11,7 +11,7 @@ function EmitAddForm ( ) {
   echo 'The username and password must be the ones from a valid community account, so you may have';
   echo 'to create one there first.<P>';
   $row = 0;
-  include ('form2.php');
+  include ('form.php');
   EndForm ();
 }
 
