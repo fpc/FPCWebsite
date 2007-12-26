@@ -60,7 +60,7 @@ processfile() {
 # First check if there are new files to process
 #
 FILES=`ls $INCOMINGDIR/*.tar.gz 2> /dev/null`
-if [ "$FILES" == "" ]; then
+if [ "$FILES" = "" ]; then
   exit 0
 fi
 
@@ -69,9 +69,8 @@ PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
 date
 
 # Update sources
-pushd $TESTSOURCEDIR 
+cd $TESTSOURCEDIR 
 svn up
-popd
 
 for f in $FILES; do
     processfile $f
