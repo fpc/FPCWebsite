@@ -130,7 +130,7 @@ begin
   for I := 1 to aindex do
   begin
     inc(aoffset);
-    while header[1][aoffset] <> '|' do
+    while (aoffset<length(header[1])) and (header[1][aoffset] <> '|') do
       inc(aoffset);
   end;
   result := aoffset;
@@ -164,6 +164,8 @@ begin
   urllist := tstringlist.create;
   readln;
   repeat
+    if eof then
+      halt(1);
     readln(header[0]);
   until (length(header[0]) > 0) and (header[0][1] = '+');
   readln(header[1]);
@@ -187,7 +189,10 @@ begin
   failoffset := runidend + 2;
   failend := findseparator(failoffset, 1);
   faillen := failend - failoffset - 1;
+  fillchar(curr,sizeof(curr),0);
   repeat
+    if eof then
+      break;
     if (length(curr.line) = 0) or (curr.line[1] <> '+') then
     begin
       readln(curr.line);
