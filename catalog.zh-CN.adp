@@ -352,7 +352,7 @@ Mac 上的 FPC
 
 </TRN>
 <TRN locale="zh_CN" key="website.news_headline_20070520">
-<em>2007 年 5 月 20 日</em> 在几年的新 fpc 2.2.0 版的开发之后，<em>2.1.4</em> 版（即 <em>2.2.0-beta</em> 版）已经<a href="download@x@#beta">发布</a>。这个 beta 版本发布之后的两个月左右将发布 2.2.0 版。我们邀请我们所有的用户来测试这个版本，并且在<a href="mantis/set_project.php?project_id=6"> Bug 跟踪器</a>上汇报错误。如果您想了解您发现的 Bug 是否已经解决了，您可以看一看 <a href="mantis/set_project.php?project_id=6">mantis</a>，或者尝试我们基于 fixes_2_2 branch 的每日快照。所以请帮助我们把 2.2.0 制作成为到目前为止 Free Pascal 最稳定的版本。更改列表可以在<a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">这里</a>找到。<a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">版本日志</a>亦可用。请注意该版本与以前版本有一些不兼容，可以点击<a href="http://wiki.freepascal.org/User_Changes_2.2.0">这里</a>查看对不兼容性的概述。
+<em>2007 年 5 月 20 日</em> 在几年的新 fpc 2.2.0 版的开发之后，<em>2.1.4</em> 版（即 <em>2.2.0-beta</em> 版）已经<a href="download@x@#beta">发布</a>。这个 beta 版本发布之后的两个月左右将发布 2.2.0 版。我们邀请我们所有的用户来测试这个版本，并且在<a href="http://bugs.freepascal.org/set_project.php?project_id=6"> Bug 跟踪器</a>上汇报错误。如果您想了解您发现的 Bug 是否已经解决了，您可以看一看 <a href="http://bugs.freepascal.org/set_project.php?project_id=6">mantis</a>，或者尝试我们基于 fixes_2_2 branch 的每日快照。所以请帮助我们把 2.2.0 制作成为到目前为止 Free Pascal 最稳定的版本。更改列表可以在<a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">这里</a>找到。<a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">版本日志</a>亦可用。请注意该版本与以前版本有一些不兼容，可以点击<a href="http://wiki.freepascal.org/User_Changes_2.2.0">这里</a>查看对不兼容性的概述。
 
 </TRN>
 <TRN locale="zh_CN" key="website.Official_releases">

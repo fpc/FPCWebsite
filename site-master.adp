@@ -18,7 +18,7 @@
   <a href="http://wiki.freepascal.org/"><trn locale="en_US" key="website.Wiki">Wiki</trn></a>
   <a href="http://community.freepascal.org:10000"><trn locale="en_US" key="website.Community">Community</trn></a>
   <a href="@maindir@docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a>
-  <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a>
+  <a href="http://bugs.freepascal.org/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a>
  </div>
  <img src="@maindir@pic/logo.gif" alt="FPC Logo" width="133" height="63" />
  <div class="spacer"></div>
@@ -36,7 +36,7 @@
    <a href="http://wiki.freepascal.org/"><trn locale="en_US" key="website.Wiki">Wiki</trn></a>
    <a href="http://community.freepascal.org:10000"><trn locale="en_US" key="website.Community">Community</trn></a> 
    <a href="@maindir@docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a> 
-   <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a> 
+   <a href="http://bugs.freepascal.org/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a> 
   </div>
 			
   <h1><trn locale="en_US" key="website.Coding">Coding</trn></h1>

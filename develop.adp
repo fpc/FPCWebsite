@@ -212,7 +212,7 @@ through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">v
 
 <a name="future"></a><h3>Bugs and the Future</h3>
 <p>
-A list of known bugs is available <a href="http://www.freepascal.org/mantis/set_project.php?project_id=6">here</a>.<br>
+A list of known bugs is available <a href="http://bugs.freepascal.org/set_project.php?project_id=6">here</a>.<br>
 And the future plans of Free Pascal can be viewed <a href="future@x@">here</a>.<br>
 If you're interested in FPC development, you might be also interested in the
 <a href="http://www.freepascal.org/wiki">wiki</a>.

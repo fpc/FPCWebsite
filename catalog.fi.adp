@@ -98,8 +98,8 @@ Uutiset
 </TRN>
 <TRN locale="fi_FI" key="website.news_headline_20070520">
 <em>20. toukokuuta, 2007</em> - Vuosien mittaisessa kehitystyössä kohti versiota 2.2.0 on <a href="download@x@#beta">nyt saavutettu</a> versio <em>2.1.4</em> (<em>2.2.0-beta</em>).
-Tämä beta on saatavilla noin 2 kuukauden ajan ennen varsinaisen 2.2.0. julkaisemista. Pyydämme kaikkia käyttäjiä testaamaan 2.1.4 julkaisua ja raportoimaan bugeista <a href="mantis/set_project.php?project_id=6">
-bugiseurantaan</a>. Jos haluat tietää onko raportoimasi bugi on jo korjattu, voit tarkistaa sen <a href="mantis/set_project.php?project_id=6">täältä</a>,  tai hakea jonkin päivittäisistä snapshot-julkaisuista jotka pohjautuvat fixes_2_2 haaraan. Auta meitä tekemään tulevasta 2.2.0 -versiosta kaikista vakain Free Pascal tähän mennessä! Muutoslistan voit tarkistaa <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">täältä</a>.
+Tämä beta on saatavilla noin 2 kuukauden ajan ennen varsinaisen 2.2.0. julkaisemista. Pyydämme kaikkia käyttäjiä testaamaan 2.1.4 julkaisua ja raportoimaan bugeista <a href="http://bugs.freepascal.org/set_project.php?project_id=6">
+bugiseurantaan</a>. Jos haluat tietää onko raportoimasi bugi on jo korjattu, voit tarkistaa sen <a href="http://bugs.freepascal.org/set_project.php?project_id=6">täältä</a>,  tai hakea jonkin päivittäisistä snapshot-julkaisuista jotka pohjautuvat fixes_2_2 haaraan. Auta meitä tekemään tulevasta 2.2.0 -versiosta kaikista vakain Free Pascal tähän mennessä! Muutoslistan voit tarkistaa <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">täältä</a>.
 Huomiot <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">
 julkaisusta</a> ovat myös saatavilla. Huomaa, että tässä versiossa on tietoisesti rajoitettu yhteensopivuutta aiempiin versioihin, lukeaksesi asiasta tarkemmin, klikkaa <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
 tästä</a>.
