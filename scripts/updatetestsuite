@@ -3,12 +3,13 @@
 # Don't stop on errors
 #set -e
 
-TESTSUITEDIR=$HOME/testsuite
+TESTSUITEDIR=/FPC/testsuite
+LOGFILE=$HOME/logs/updatetestsuite.log
 INCOMINGDIR=$TESTSUITEDIR/incoming
 FAILEDDIR=$TESTSUITEDIR/failed
 WORKDIR=$TESTSUITEDIR/work
-LOGFILE=$HOME/logs/updatetestsuite.log
 TESTSOURCEDIR=$TESTSUITEDIR/tests
+TESTSUITEBINDIR=$TESTSUITEDIR/bin
 
 # processfile <file>
 processfile() {
@@ -38,7 +39,7 @@ processfile() {
     echo "Date=$date" >> dbdigest.cfg
     echo "TestSrcDir=$TESTSOURCEDIR" >> dbdigest.cfg
 
-    $HOME/bin/dbdigest
+    $TESTSUITEBINDIR/dbdigest
     err=$?
   else
     echo "ERROR: No dbdigest.cfg found!"
@@ -64,7 +65,7 @@ if [ "$FILES" = "" ]; then
   exit 0
 fi
 
-PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
+PATH=".:/bin:/usr/bin"
 (
 date
 

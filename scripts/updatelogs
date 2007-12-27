@@ -2,9 +2,23 @@
 
 set -e
 
-REPOS="fpc html fpc/trunk fpc/branches/fixes_2_0 fpc/branches/fixes_2_2 fpcdocs/trunk fpcbuild fpcbuild/branches/fixes_2_2 fpcbuild/branches/fixes_2_0 fpcprojects lazarus" 
+REPOS="
+fpc
+fpcbuild
+html
+fpc/trunk:6711
+fpc/branches/fixes_2_2:6711
+fpcdocs/trunk
+fpcbuild/trunk:392
+fpcbuild/branches/fixes_2_2:392
+fpcprojects
+lazarus
+lazarus/branches/fixes_0_9_24:12768
+" 
 
-LOGSDIR=$HOME/snapshot/logs
+SNAPSHOTDIR=/FPC/snapshot
+LOGSDIR=$SNAPSHOTDIR/logs
+SVN2CL=$SNAPSHOTDIR/bin/svn2cl
 
 SVNROOT=/FPC/svn
 SVNURL=file://$SVNROOT
@@ -13,16 +27,21 @@ LOGFILE=$HOME/logs/updatelogs.log
 (
 date
 
-export PATH=/usr/local/bin:$PATH
-
 cd $LOGSDIR
 svn up
 
 for r in $REPOS; do
    repos=`echo $r | sed 's+\([^/]*\)/.*+\1+'`
-   branch=`echo $r | sed 's+.*/\(.*\)$+\1+'`
+   branchandrev=`echo $r | sed 's+.*/\(.*\)$+\1+'`
+   startrev=`echo $branchandrev | sed 's+^.*:++'`
+   branch=`echo $branchandrev | sed 's+:.*$++'`
+   svnpath=`echo $r | sed 's+:.*$++'`
 
-   if [  "$branch" == "$r" ]; then
+   if [ "$startrev" = "$branchandrev" ]; then
+     startrev="2"
+   fi
+
+   if [  "$branch" = "$r" ]; then
      changes=$repos-"all.log"
    else
      changes=$repos-$branch.log
@@ -32,6 +51,7 @@ for r in $REPOS; do
    echo "Creating log $changes"
    echo "  repository=$repos"
    echo "  branch=$branch"
+   echo "  startrev=$startrev"
    echo
    
    # Add non existing files
@@ -42,8 +62,8 @@ for r in $REPOS; do
    
    # Don't include the first import in the log and write the log reverted
    # so the new entries come first
-   svn log -r HEAD:2 --xml --verbose $SVNURL/$r > $changes.xml && \
-     $HOME/bin/svn2cl $changes.xml > $changes || true
+   svn log -r HEAD:$startrev --xml --verbose $SVNURL/$svnpath > $changes.xml && \
+     $SVN2CL $changes.xml > $changes || true
    rm -f $changes.xml
 done
 

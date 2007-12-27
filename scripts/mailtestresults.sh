@@ -1,21 +1,19 @@
 #!/bin/sh
 
-PATH=${PATH}:/FPC/html/scripts
-WORKDIR=~/testsuite_wrk
-PROCTESTSUITEDIFF=/FPC/html/scripts/proctestsuitediff
+PROCTESTSUITEDIFF=/FPC/testsuite/bin/proctestsuitediff
+MAILDIR=/FPC/testsuite/mail
+CFGFILE=$MAILDIR/mailtestresults.cfg
 
-cd ${WORKDIR}
+cd $MAILDIR
 
-. readcfg.sh
-
-readcfg .`basename $0 .sh`.cfg
+. $CFGFILE
 
 datename=`date +%Y-%m-%d`
 
 cat > tests_mail << EOF
 Subject: Daily test suite diffs ($datename)
-From: FPC Testsuite Diff Cron <fpc@freepascal.org>
-To: FPC Core HQ <core@freepascal.org>
+From: "FPC Testsuite Diff Cron" <fpc@freepascal.org>
+To: "FPC Core Developer List" <core@freepascal.org>
 
 EOF
 mysql -vvv -u ${USERNAME} --password=${PASSWORD} TESTSUITE -e '
