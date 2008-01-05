@@ -163,6 +163,8 @@ begin
   changelist := tstringlist.create;
   newlist := tstringlist.create;
   urllist := tstringlist.create;
+  footer := '';
+  old.data := '';
   readln;
   repeat
     if eof then
