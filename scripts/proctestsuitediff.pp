@@ -5,7 +5,7 @@ uses
 
 const
   runhour = 8;      { cut-off hour that distinguishes yesterday and today }
-  urlprefix = 'http://www.freepascal.org/testsuite/cgi-bin/';
+  urlprefix = 'http://www.freepascal.org/tests.cgi?';
 
 function getdate(line: string): string;
 begin
@@ -87,12 +87,12 @@ type
 
 function construct_results_url(const runid: string): string;
 begin
-  result := urlprefix+'testsuite.cgi?action=1&failedonly=1&run1id='+runid;
+  result := urlprefix+'action=1&failedonly=1&run1id='+runid;
 end;
 
 function construct_compare_url(const run1id, run2id: string): string;
 begin
-  result := urlprefix+'testsuite.cgi?action=1&run1id='+run1id+'&run2id='+run2id+'&noskipped=1';
+  result := urlprefix+'action=1&run1id='+run1id+'&run2id='+run2id+'&noskipped=1';
 end;
 
 function checkchange(var prev, curr: ttestrun; const prevdate, currdate: string;
