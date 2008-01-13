@@ -17,12 +17,12 @@ LOGFILE=$HOME/logs/snapshot-trunk-extra.log
 # Include common makesnapshot script
 TESTSUITEOPTS=(
   "-O- -g"
-#  "-O- -Cfsse2"
-#  "-O-2 -Cfsse2 -CX -XX"
-#  "-O-2ppentium4 -Cfsse2 -Cppentium4"
+  "-O- -Cfsse2"
+  "-O-2 -Cfsse2 -CX -XX"
+  "-O-2ppentium4 -Cfsse2 -Cppentium4"
   "-O- -gw2"
   "-O-3"
-#  "-O-3ppentium4 -Cfsse2 -Cppentium4"
+  "-O-3ppentium4 -Cfsse2 -Cppentium4"
   "-O- -Cg"
   "-O-2 -Cg"
 )
