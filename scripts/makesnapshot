@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Generic snapshot building
 #
 
@@ -12,9 +12,6 @@ fi
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 ulimit -d 65536 -s 8192 -t 2400
-
-#errormailaddr=core@freepascal.org
-#errormailaddr=peter@freepascal.org
 
 PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
 (
@@ -46,10 +43,14 @@ fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
-make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP
+make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
+
+if ["$PPCCPU" == "" ]; then
+  PPCCPU=ppc386
+fi
 
 # copy current compiler to bin dir
-cp $CHECKOUTDIR/compiler/ppc386 $INSTALLCOMPILER
+cp $CHECKOUTDIR/compiler/$PPCCPU $INSTALLCOMPILER
 
 # move snapshot
 if [ "$FTPDIR" != "" ]; then
@@ -59,7 +60,7 @@ if [ "$FTPDIR" != "" ]; then
      # if needed Everything is set
      scp *.tar.gz ${FTPDIR}
      if [ $? = 0 ]; then   
-       set errormailaddr = ""
+       set ERRORMAILADDR = ""
      fi
   fi
 fi
@@ -69,7 +70,9 @@ cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DBDIGEST=$HOME/bin/dbdigest DOTEST=$HOME/bin/dotest TEST_OPT="$TESTSUITEOPT"
+for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
+  make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}"
+done
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
@@ -81,15 +84,15 @@ date
 ) > $LOGFILE 2>&1 </dev/null
 
 # send result to webmaster
-if [ "${errormailaddr}" != "" ]; then
+if [ "${ERRORMAILADDR}" != "" ]; then
         # Create email
-        echo "To: ${errormailaddr}" > $MAILFILE
+        echo "To: ${ERRORMAILADDR}" > $MAILFILE
         echo "From: fpc@freepascal.org" >> $MAILFILE
-        echo "Subject: Daily compile routine on idefix" >> $MAILFILE
+        echo "Subject: Daily compile routine" >> $MAILFILE
         echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
         /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
-        /usr/sbin/sendmail -f fpc@freepascal.org ${errormailaddr} < $MAILFILE >/dev/null 2>&1
+        sendmail -f fpc@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
 fi
 
 # End of script.

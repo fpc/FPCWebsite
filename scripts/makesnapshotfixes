@@ -6,14 +6,17 @@ set -e
 
 # Checkout dir
 CHECKOUTDIR=$HOME/snapshot/fixes
-STARTPP=$HOME/bin/ppc204
+STARTPP=fpc
 INSTALLCOMPILER=$HOME/bin/ppc221
 MAILFILE=$HOME/logs/snapshot-fixes.mail
 LOGFILE=$HOME/logs/snapshot-fixes.log
 FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/fixes/i386-linux
-TESTSUITEOPT=-O2
+TESTSUITEOPTS=(
+"-O2"
+)
+
 # FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/v20/i386-linux
 # LIBGDBZIP=$HOME/snapshot/libgdb/libgdb-6.2.1-i386-linux.zip
 
 # Include common makesnapshot script
-. $HOME/snapshot/makesnapshot
+. $HOME/scripts/makesnapshot

@@ -360,7 +360,7 @@ pic/unitsrtl.gif -text svneol=unset#image/gif
 /prog.adp svneol=native#text/plain
 /resources.html svneol=native#text/plain
 rtl/rtl.fp svneol=native#text/plain
-scripts/allsourcezips -text
+scripts/allsourcezips svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/dailymsgdiff svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
@@ -370,11 +370,14 @@ scripts/makesnapshot svneol=native#text/plain
 scripts/makesnapshot_trunk svneol=native#text/plain
 scripts/makesnapshot_trunk-sse2 svneol=native#text/plain
 scripts/makesnapshotfixes svneol=native#text/plain
+scripts/makesnapshotfixes-extra svneol=native#text/plain
 scripts/makesnapshots svneol=native#text/plain
 scripts/makesnapshottrunk svneol=native#text/plain
+scripts/makesnapshottrunk-arm svneol=native#text/plain
+scripts/makesnapshottrunk-extra svneol=native#text/plain
 scripts/makesnapshottrunk-sse2 svneol=native#text/plain
 scripts/proctestsuitediff.pp svneol=native#text/plain
-scripts/readcfg.sh -text
+scripts/readcfg.sh svneol=native#text/plain
 scripts/updatearchive svneol=native#text/plain
 scripts/updatehtml svneol=native#text/plain
 scripts/updatelists svneol=native#text/plain

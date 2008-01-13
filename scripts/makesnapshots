@@ -1,4 +1,4 @@
-/home/fpc/snapshot/makesnapshotfixes michael@freepascal.org
-/home/fpc/snapshot/makesnapshottrunk michael@freepascal.org
-/home/fpc/snapshot/makesnapshottrunk-sse2 jonas@freepascal.org
-/home/fpc/snapshot/makesnapshot.tpidp daniel@freepascal.org
+/home/fpc/scripts/makesnapshotfixes ERRORMAILADDR=core@freepascal.org
+/home/fpc/scripts/makesnapshottrunk ERRORMAILADDR=core@freepascal.org
+/home/fpc/scripts/makesnapshottrunk-extra ERRORMAILADDR=core@freepascal.org
+/home/fpc/scripts/makesnapshotfixes-extra ERRORMAILADDR=core@freepascal.org
