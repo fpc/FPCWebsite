@@ -12,7 +12,8 @@ MAILFILE=$HOME/logs/snapshot-trunk-arm.mail
 LOGFILE=$HOME/logs/snapshot-trunk-arm.log
 PPCCPU=ppcrossarm
 EXTRAOPT="CPU_TARGET=arm CROSSOPT=-Cfsoft"
-EMULATOR=qemu-arm
+TEST_BINUTILSPREFIX="arm-linux-"
+EMULATOR="qemu-arm"
 # FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/trunk/i386-linux
 # FTPDIR=ftpmaster.freepascal.org:ftp/snapshot/v23/i386-linux
 # LIBGDBZIP=$HOME/snapshotlibgdb/libgdb-6.2.1-i386-linux.zip
