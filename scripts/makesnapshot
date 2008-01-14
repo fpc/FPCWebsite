@@ -45,7 +45,7 @@ fi
 cd $CHECKOUTDIR
 make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
 
-if ["$PPCCPU" == "" ]; then
+if [ "$PPCCPU" == "" ]; then
   PPCCPU=ppc386
 fi
 
