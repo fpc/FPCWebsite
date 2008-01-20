@@ -370,6 +370,7 @@ scripts/makesnapshot svneol=native#text/plain
 scripts/makesnapshot_trunk svneol=native#text/plain
 scripts/makesnapshot_trunk-sse2 svneol=native#text/plain
 scripts/makesnapshotfixes svneol=native#text/plain
+scripts/makesnapshotfixes-arm svneol=native#text/plain
 scripts/makesnapshotfixes-extra svneol=native#text/plain
 scripts/makesnapshots svneol=native#text/plain
 scripts/makesnapshottrunk svneol=native#text/plain
