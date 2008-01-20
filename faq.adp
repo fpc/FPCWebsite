@@ -116,6 +116,7 @@
     <br>or<br>
     <a href="#instal106os2">INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</a>
     <li><a href="#os2-fp">OS/2 compiler not working after upgrading to 1.9.6 or newer</a>
+    <li><a href="#os2-as-failing">Compilation under OS/2 fails with error "Can't call the assembler"</a>
    </OL>
    <li><trn key="website.BeOS_related_information" locale="en_US">BeOS related information</trn>
    <OL>
@@ -1790,6 +1791,16 @@
             This issue isn't valid for WarpServer for e-Business, MCP and eComStation - these already have
             the correct version.
             
+        <li><a name="os2-as-failing"></a><h3>Compilation under OS/2 fails with error "Can't call the assembler"</h3>
+            <p>Apart from the point mentioned <a href="#os2-fp">above</a>,
+            there is at least one more potential reason for issues with
+            executing the assembler and resulting in error message "Can't call
+            the assembler, error 2 switching to external assembling". This
+            error may be result of the OS/2 system not being able to find DLLs
+            required for the assembler. Make sure that you installed FPC
+            completely (these DLLs are part of file asldos2.zip) and that you
+            have set LIBPATH according to instructions in README.TXT (and
+            restarted afterwards).
         
    </OL>
 
