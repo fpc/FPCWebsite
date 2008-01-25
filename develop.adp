@@ -176,6 +176,12 @@ svn checkout http://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
 </pre>
 
 <p>
+In case you have trouble with the default server, you can use http://svn2.freepascal.org as alternative svn
+server. Furthermore, this server listens also at port 8080, so if you can not access svn on the default port 80,
+you might use http://svn2.freepascal.org:8080 instead.
+</p>
+
+<p>
 If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a>
 which is also available online in different formats for free.
 </p>
@@ -193,11 +199,6 @@ svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt;
 <b>fpcbuild</b> Everything needed to build fpc releases. This links
 to several other repositories, so this checkout is really big.<br>
 <b>logs</b> Log files of the repositories mentioned above.<br>
-</p>
-<p>
-In case you have trouble with the default server, you can use http://svn2.freepascal.org as alternative svn
-server. Furthermore, this server listens also at port 8080, so if you can not access svn on the default port 80,
-you might use http://svn2.freepascal.org:8080 instead.
 </p>
 
 <hr>
