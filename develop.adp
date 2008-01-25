@@ -82,10 +82,6 @@ you will have really the last-minute sources available. It is also a method
 which requires less bandwidth once you have done the first download (checkout in SVN lingo).
 </p>
 <p>
-Together with the release of version 2.0, FPC has migrated to SVN. For now,
-there is no CVS mirror yet, so you've to use SVN to get the FPC sources.
-</p>
-<p>
 <b>Development snapshots</b>
 </p>
 <p>
@@ -197,6 +193,11 @@ svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt;
 <b>fpcbuild</b> Everything needed to build fpc releases. This links
 to several other repositories, so this checkout is really big.<br>
 <b>logs</b> Log files of the repositories mentioned above.<br>
+</p>
+<p>
+In case you have trouble with the default server, you can use http://svn2.freepascal.org as alternative svn
+server. Furthermore, this server listens also at port 8080, so if you can not access svn on the default port 80,
+you might use http://svn2.freepascal.org:8080 instead.
 </p>
 
 <hr>
