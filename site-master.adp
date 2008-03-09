@@ -41,7 +41,6 @@
 			
   <h1><trn locale="en_US" key="website.Coding">Coding</trn></h1>
    <div class="submenu">
-    <a href="@maindir@advantage@x@"><trn locale="en_US" key="website.Advantages">Advantages</trn></a>
     <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
     <a href="@maindir@future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
     <a href="@maindir@probs@x@"><trn locale="en_US" key="website.Known_Problems">Known Problems</trn></a>
