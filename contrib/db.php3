@@ -9,6 +9,7 @@ readfile ($head);
 EmitContribsMenu ();
 include('contribpwd.php');
 $db = mysql_connect($DBHost,$DBUser,$DBPassword);
+$category=$_REQUEST['category'];
 CheckMySQLError($foot);
 mysql_select_db('FPC');
 if (strpos($category,'"')) {

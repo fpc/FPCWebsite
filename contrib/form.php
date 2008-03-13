@@ -30,9 +30,9 @@ if ( $row) {echo "VALUE =\"$row->homepage\"";} else
 if ( $row) {echo "VALUE =\"$row->email\"";}
 ?>
 ></TD></TR>
-<TR><TD>Date:</TD><TD><INPUT NAME="date" MAXLENGTH=8 SIZE=12 <?php
+<TR><TD>Date:</TD><TD><INPUT NAME="date" MAXLENGTH=10 SIZE=12 <?php
 if ( $row) {echo "VALUE =\"$row->date\"";} else 
-  { echo "VALUE=\"DD/MM/YY\"";}
+  { echo "VALUE=\"DD/MM/YYYY\"";}
 ?>
 ></TD></TR>
 <TR><TD>Supported OSes:</TD><TD><INPUT NAME="os" MAXLENGTH=30 SIZE=30 <?php

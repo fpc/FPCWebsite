@@ -2,6 +2,10 @@
  /* input some needed stuff */
  require "html.php";
  require "contribs.php";
+
+$confirm=$_REQUEST['confirm'];
+$ID=$_REQUEST['ID'];
+
 /*
  * Emit form to confirm password.
  */ 
@@ -30,26 +34,26 @@ if ( $confirm == "yes") {
   /* 
    * Verify password first
    */
-  if ($AuthMeth=VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd)) {
+  if ($AuthMeth=VerifyAuthenticated($db,$ID,$_REQUEST['username'],$_REQUEST['pwd'],$_REQUEST['oldpwd'])) {
     /* Change the entry */
     $query = "UPDATE contribs SET ";
-    $query .= "name=" . EscapeSQL ($name);
-    $query .= ", author=" . EscapeSQL ($author);
-    $query .= ", email=" . EscapeSQL ($email);
-    $query .= ", ftpfile=" . EscapeSQL ($ftpfile);
-    $query .= ", homepage=" . EscapeSQL ($homepage);
+    $query .= "name=" . EscapeSQL ($_REQUEST['name']);
+    $query .= ", author=" . EscapeSQL ($_REQUEST['$author']);
+    $query .= ", email=" . EscapeSQL ($_REQUEST['email']);
+    $query .= ", ftpfile=" . EscapeSQL ($_REQUEST['ftpfile']);
+    $query .= ", homepage=" . EscapeSQL ($_REQUEST['homepage']);
     $query .= ", date=" . EscapeSQL (date("Y\-m\-d"));
-    $query .= ", os=" . EscapeSQL ($os);
-    $query .= ", category=" . EscapeSQL ($category);
-    $query .= ", descr=" . EscapeSQL ($descr);
-    $query .= ", version=" . EscapeSQL ($version);
-    $query .= ", auth_method = $AuthMeth " ; /* Update authentication method */
-    $query .= " WHERE ID=$ID ";
+    $query .= ", os=" . EscapeSQL ($_REQUEST['os']);
+    $query .= ", category=" . EscapeSQL ($_REQUEST['category']);
+    $query .= ", descr=" . EscapeSQL ($_REQUEST['descr']);
+    $query .= ", version=" . EscapeSQL ($_REQUEST['version']);
+    $query .= " ,auth_method = " . $_REQUEST['AuthMeth'] ; /* Update authentication method */
+    $query .= " WHERE ID=".$_REQUEST['ID'];
     $res = mysql_query ($query,$db);
     CheckMySQLError ($foot);
     Header1("Entry \"$name\" successfully updated :");
     echo "Your entry has been successfully updated with the following data:<P>\n";
-    $res = mysql_query ("select * from contribs where ID=$ID",$db);
+    $res = mysql_query ("select * from contribs where ID=" . $_REQUEST['ID'],$db);
     CheckMySQLError ($foot);
     $row = mysql_fetch_object($res);
     DumpRecord ($row);
@@ -75,7 +79,7 @@ if ( $confirm == "yes") {
    * We need to emit a confirmation form.
    */
   Header1("Update entry:");
-  EmitEditForm($db,$ID);
+  EmitEditForm($db,$_REQUEST['ID']);
 }
 EmitContribsMenu ();
 readfile($foot);
