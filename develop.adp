@@ -59,7 +59,7 @@ is bugfree.
 <p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/">ftp site</a> and mirrors.
 </p>
 
-<h3><a name="snapshotsv20"><h3><a name="snapshotsfixes">Download Daily Update of the Fixes Tree</a></h3>
+<h3><a name="snapshotsv20"></a><a name="snapshotsfixes"></a><h3>Download Daily Update of the Fixes Tree</h3>
 <p>
 These snapshots contain the latest bug fixes, without major new
 features. This should be more stable than the development snapshots (and even
