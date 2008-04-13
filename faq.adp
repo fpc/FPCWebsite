@@ -1587,13 +1587,14 @@
                 <li> Under Solaris and QNX, stack checking is simulated. 
                 <li> Minimal operating system versions :
                   <ul>
-                    <li> Linux : Kernel v1.1.x or later. 
+                    <li> Linux : Kernel v2.4.x or later. 
                     <li> FreeBSD : version 4.x or later.   
                     <li> NetBSD : version 1.5 or later. 
                     <li> Solaris : version 5.7 of SunOS or later
                          (should work with earlier versions, but untested). 
                     <li> Qnx : version 6.1.0 or later
-			(should work with earlier versions, but untested).                     
+			(should work with earlier versions, but untested).
+                    <li> Mac OS X : version 10.3.9 or later    
                   </ul>
                 
             </ul>
