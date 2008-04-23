@@ -17,6 +17,14 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <em>April 23, 2008</em>
+  <trn locale="en_US" key="website.news_headline_20080423M">
+    <a href="http://www.morfik.com">Morfik</a> has unveiled version 2 of their web-development platform, named
+    simply M2. The Morfik IDE uses Free Pascal as the back-end compiler to compile the server-side of the web 
+    applications.
+  </trn>
+
+<p>
   <em>September 10, 2007</em>
   <trn locale="en_US" key="website.news_headline_20070910b">
     <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A Dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
