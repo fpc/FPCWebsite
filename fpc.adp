@@ -15,6 +15,17 @@
   </trn>
 </p>
 
+
+<h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
+<p>
+  <em>May 5, 2008</em>
+  <trn locale="en_US" key="website.news_headline_20080505">
+    Currently, one of the machines hosting part of the FPC and Lazarus project is down/broken. 
+    This affects the wiki, snapshots, partly ftp
+    and the mailing lists. Due to the long weekend the restoration takes longer than expected but this
+    is nothing to worry about and we are working on getting it back.
+  </trn>
+
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
   <em>April 23, 2008</em>
