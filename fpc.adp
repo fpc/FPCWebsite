@@ -26,7 +26,6 @@
     is nothing to worry about and we are working on getting it back.
   </trn>
 
-<h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
   <em>April 23, 2008</em>
   <trn locale="en_US" key="website.news_headline_20080423M">
