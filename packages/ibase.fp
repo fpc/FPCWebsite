@@ -26,8 +26,8 @@ for Interbase versions 4 and 6, or Firebird 1.0.
 
 <h2>Installation</h2>
 The ibase unit is distributed as part of the Free Pascal packages, and is
-distributed with the compiler. However, You can download the units
-<a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>. <p>
+distributed with the compiler.
+<p>
 
 This file contains a directory base/ibase with the units, a test program and
 a make file. The following units exist:

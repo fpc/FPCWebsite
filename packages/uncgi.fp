@@ -17,8 +17,7 @@ Free Pascal. It allows you to:
 <li> It supports POST and GET methods.
 </ul>
 <p>
-This unit is part of the Free Pascal packages. You can get the source of the unit
-<a href="ftp://ftp.freepascal.org/pub/source/packages.zip">here</a>.
+This unit is part of the Free Pascal packages.
 <p>
 (<a href="http://www.freepascal.org/docs-html/packages/uncgi">view interface</a>)
 

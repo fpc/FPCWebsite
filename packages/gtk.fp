@@ -25,8 +25,7 @@ reason, both the Lazarus and KCL projects use GTK as a GUI toolkit.
 <h2>Downloading</h2>
 
 The gtk units are part of the Free Pascal packages, and are shipped with
-the official distrubution. You can download the sources separately 
-<a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>. 
+the official distrubution. 
 <p>
 The GTK libraries must be downloaded from the original 
 <a href="http://www.gtk.org/">GTK</a> site.

@@ -52,8 +52,7 @@ First of all, you need the following files.
        <a href="http://world.std.com/~xforms/">here</a>.<br>
        There are binary distributions available. The files you download contain instructions for installing.<br>
        Don't forget to install the shared libraries. (They have an extension .so)</li>
-  <li> The Free Pascal units and demo programs are part of the Free Pascal packages.
-   The sources can be found <a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>.</li>
+  <li> The Free Pascal units and demo programs are part of the Free Pascal.</li>
 </ul>
 </p>
 

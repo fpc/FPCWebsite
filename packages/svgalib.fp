@@ -32,8 +32,7 @@ To use this unit, you need at least:
 </ul>
 
 <h2> Installation:</h2>
-The svga lib unit comes with the packages of free pascal. You can, however, download the units
-<a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>.
+The svga lib unit comes with the packages of Free Pascal.
 This contains a subdirectory <TT>svgalib</TT>.
 
 Change to this directory.<p>

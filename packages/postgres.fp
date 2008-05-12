@@ -30,8 +30,7 @@ from PostGreSQL version 6.3.1. Using an earlier version may not work.
 
 <h2>Installation</h2>
 The prostgres unit comes with the Free Pascal packages, and is distributed together
-with the compiler. However, you can download the packages also here
-<a href="ftp://ftp.freepascal.org/pub/fpc/source/packages.zip">here</a>.
+with the compiler.
 
 This contains a directory <TT>postgres</TT> with the units, a test program and
 a makefile. cd to the directory and edit the <TT>Makefile</TT> to set the
