@@ -77,11 +77,13 @@ begin
   outputline.data := data;
   outputline.url := url;
   list.addobject(failstr, outputline);
+  if length(failstr) > lenfailstr then
+    lenfailstr := length(failstr);
 end;
 
 type
   ttestrun = record
-    line, date, fail, data, runid, failset: string;
+    line, date, fail, data, runid, dbfail, failset: string;
     hour: integer;
   end;
 
@@ -105,8 +107,6 @@ begin
   begin
     if (length(curr.line) <> 0) and (length(prev.line) <> 0) then
     begin
-      prev.fail := getfail(prev.line);
-      curr.fail := getfail(curr.line);
       if prev.failset = curr.failset then
       begin
         failstr := curr.fail;
@@ -115,8 +115,6 @@ begin
         failstr := prev.fail + ' -> ' + curr.fail;
         addlist(changelist, failstr, curr.data, construct_compare_url(prev.runid, curr.runid));
       end;
-      if length(failstr) > lenfailstr then
-        lenfailstr := length(failstr);
     end;
     { both these lines have been processed }
     curr.line := '';
@@ -150,7 +148,7 @@ var
   todaydate: TDateTime;
   dataend, datalen, houroffset: integer;
   runidoffset, runidend, runidlen: integer;
-  failoffset, failend, faillen: integer;
+  dbfailsep, failoffset, failend: integer;
 begin
   blinkernochangelist := tstringlist.create;
   blinkerchangelist := tstringlist.create;
@@ -191,7 +189,6 @@ begin
   runidlen := runidend - 1 - runidoffset;
   failoffset := runidend + 2;
   failend := findseparator(failoffset, 1);
-  faillen := failend - failoffset - 1;
   fillchar(curr,sizeof(curr),0);
   repeat
     if eof then
@@ -199,11 +196,16 @@ begin
     if (length(curr.line) = 0) or (curr.line[1] <> '+') then
     begin
       readln(curr.line);
+      curr.fail := getfail(curr.line);
       curr.date := getdate(curr.line);
       curr.data := copy(curr.line, datastart, datalen);
       curr.hour := strtointdef(copy(curr.line, houroffset, 2), 0);
       curr.runid := trim(copy(curr.line, runidoffset, runidlen));
-      curr.failset := copy(curr.line, failoffset, faillen);
+      dbfailsep := posex('|', curr.line, failoffset);
+      curr.dbfail := copy(curr.line, failoffset, dbfailsep-failoffset);
+      curr.failset := trim(copy(curr.line, dbfailsep+1, failend-2-dbfailsep));
+      if curr.dbfail <> curr.fail then
+        curr.fail := curr.fail + ' (' + curr.dbfail + ')';
     end else 
     if length(footer) = 0 then
       footer := curr.line;
@@ -236,7 +238,7 @@ begin
       else if old.date = today then
         list := newlist;
       if list <> nil then
-        addlist(list, getfail(old.line), old.data, construct_results_url(old.runid));
+        addlist(list, old.fail, old.data, construct_results_url(old.runid));
     end;
     old := prev;
     prev := curr;
