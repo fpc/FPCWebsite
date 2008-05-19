@@ -372,8 +372,7 @@
             <p>Snapshots are generated automatically each night from the current
             source at that moment. Sometimes this may fail due to bigger changes not
             yet fully implemented. If your version doesn't work, try again one or
-            two days later. You're advised not to download the GO32v1 version for
-            Dos, since it's not supported any more. 
+            two days later. 
 
             <p>The latest snapshot can always be downloaded from the <A
             href="@maindir@develop@x@#snapshot">development</a>
