@@ -23,7 +23,7 @@ The FPC 2.2.0 package for x86_64-win64 is available in one easy to choose format
 
 <p>
 <trn key="website.cross_compiler_i386-win32_x86_64-win64" locale="en_US">
-  This is a cross compiler package from i386-win32 to arm-wince. Before you can use it, you need to install
+  This is a cross compiler package from i386-win32 to x86_64-win64. Before you can use it, you need to install
   <a href="../i386/win32-@mirrorsuffix@@x@">fpc for i386-win32</a>.
 </trn>
 <p>
