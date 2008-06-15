@@ -137,7 +137,7 @@ Contributes the following work to the project:
 <IMG SRC="pic/marco1.jpg" ALT="picture of Marco" HEIGHT=163 WIDTH=162>
 <p>
 Year of birth: 1973<br>
-Job: Studying Chemical Engineering at the Eindhoven University of Technology.<br>
+Job: Working for a small machine vision company.<br>
 Hobbies: computers, movies, reading.<br>
 <p>
 Contributes the following work to the project:
