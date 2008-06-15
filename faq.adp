@@ -174,15 +174,16 @@
               <li>05/2005: 2.0.0 version
               <li>12/2005: 2.0.2 version
               <li>08/2006: 2.0.4 version
-			  <li>09/2007: 2.2.0 version
+              <li>09/2007: 2.2.0 version
+              <li>08/2008: 2.2.2 version
             </ul>
           </trn>  
 
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 2.2.0, the first release of the 2.2.x 
-            series. New development is performed in 2.3.x series, which eventually
+            <p>The latest official version is 2.2.2, bugfix release for 2.2.0.
+            New development is performed in 2.3.x series, which eventually
             gets released as either 2.4.0, or 3.0.0 (depending on amount of accumulated
             changes at the time of release).
 
@@ -195,16 +196,17 @@
 
             <p>Together with the release of 1.0 the version numbering was
             slightly changed, and a system in versioning resembling the Linux
-            kernel's has been introduced. 
+            kernels has been introduced. 
 
             <p>
             <ul>
              <li>Releases that only fix bugs in version 1.0 are numbered 1.0.x.
              <li>Post 1.0 development (the so called snapshots) have version number
               1.1.x.
-             <li>Eventually the 1.1.x versions, when stabilized were releases as the 2.0.x series. Fixes on
-              2.0 release are numbered 2.0.x. Beta's for 2.0 were named "1.9.x". Note that 1.1.x/1.9.x/2.0.x is the same branch.
-             <li>The new development after the 2.0 release is numbered 2.1.x
+             <li>Eventually the 1.1.x versions, when stabilized were released
+              as the 2.0.x series, preceded by betas marked as 1.9.x. Fixes on
+              2.0 release were numbered 2.0.x, fixes on 2.2 release 2.2.x.</li>
+             <li>The new development after the 2.2.0 release is numbered 2.3.x
               and so on.
 			  <li>Repackagings that affect sources are indicated with a single letter as 
 			      suffix (e.g. 2.0.4a), this is usually the case for platforms that weren't part of the original release round.
@@ -242,7 +244,7 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 2.2 (august 2007). GNU Pascal is at
+            <DD>Currently, Free Pascal is at version 2.2.2 (August 2008). GNU Pascal is at
             version 2.1 (from 2002, which can be built with several different GCC's as backend; 
             their Mac OS X version is an exception though, as it follows the GCC version number).
             <DT><b>Tracking:</b>
@@ -392,7 +394,8 @@
 
             <p> Make sure that you extract the ZIP archive such that the included
             directory structure remains intact. For example if you use PKUNZIP,
-            use "pkunzip -d" instead of just "pkunzip". Note that snapshots also
+            use "pkunzip -d" instead of just "pkunzip" (InfoZIP unzip doesn't
+            require any special parameters). Note that snapshots also
             contain a new RTL which most likely can't be used with the previous
             release version, so backup your old RTL as well. 
           </trn>
@@ -530,7 +533,7 @@
                         href="http://upx.sourceforge.net/">here</a> for
                     more info.
                 <li>You can use LXLITE for packing EMX binaries, but you won't be able
-                    to run them under DOS (with extender) any more then. This issues is
+                    to run them under DOS (with extender) any more then. This issue is
                     not relevant for native OS/2 binaries compiled for target OS2 with
                     version 1.9.x and above, because these don't run under DOS anyway.
                     In addition, it might not be possible to use compressed binaries
@@ -539,7 +542,7 @@
                     <a href="http://hobbes.nmsu.edu/">Hobbes</a>, search for LXLITE.
                 <li>Turn on optimalisations, both for supplied packages (RTL, FV, FCL)
                     and for your own code, this will also decrease the code size. 
-                <li>Keep in mind that under NT,2000,XP, compressed binaries startup	
+                <li>Keep in mind that under Windows NT/2k/XP/Vista, compressed binaries startup	
 		            relatively slow. Test under various conditions (OS, CPU speed, memory)
                     if the behaviour is acceptable before compressing			   
            </OL>
@@ -758,7 +761,7 @@
     would have to significantly adapt the language (thus compiler) and
     libraries, and be incompatible with the existing native sourcecode.
     This is not adding support for .NET in FPC, but reimplementing FPC
-    on .NET from near scratch without backwards compability. Moreover
+    on .NET from near scratch without backwards compatibility. Moreover
     that also means that existing apps would have to be rewritten for
     .NET, since it would take more than a simple recompile with a
     FPC/.NET compiler.<p>
@@ -852,6 +855,7 @@
                            of the path
                     <li> <TT>PathSeparator</TT> : The character which separates directories in the search path environment
                     <li> <TT>FileNameCaseSensitive</TT> : Boolean indicating if the filenames for this system are case-sensitive or not
+                    <li> <TT>AllFilesMask</TT> : String containing a wildcard expression for all files
                   </ul>
                It is also possible to use the <TT>PathDelim</TT>, <TT>PathSep</TT> and <TT>DriveDelim</TT> constants
                defined in <TT>sysutils</TT>.
@@ -867,7 +871,7 @@
 
             <p>The compiler supports the Delphi classes. Make sure you use the -S2 or
             -Sd switches (see the manuals for the meaning of these switches). For a
-            list of Delphi incompabilities also check the manual. 
+            list of Delphi incompatibilities also check the manual. 
           </trn>        
 
         <li><a name='HowcanIbuildaunit'></a>
@@ -1008,7 +1012,7 @@
 	    some criteria that are used to select if an extension is
 	    &quot;worth&quot; the trouble. The most important pre-selection criteria are:
  	    <OL>
-		<li>Compability must not be compromised in any way. Existing
+		<li>Compatibility must not be compromised in any way. Existing
 			codebases on at least the Pascal level must keep 
 			running. This is often more difficult than most people
 		        think.
@@ -1016,7 +1020,7 @@
 			a shorter notation does not apply, unless it is 
 			out of compatibility with an existing Pascal/Delphi
 			codebase. Practically it means it must make something
-			possible that can't be done otherwise or be a compability
+			possible that can't be done otherwise or be a compatibility
 			item 
 		<li>The change must fit in with the scope of the project, 
 			implementing a Pascal compiler which can have a RAD
@@ -1895,4 +1899,3 @@
 
 
 </OL>
-</html>
