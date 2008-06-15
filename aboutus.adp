@@ -17,7 +17,7 @@ Contributed the following work to the project (now a sleeping member):
   <li>runtime library development</li>
   <li>680x0/RISC porter.maintainer</li>
 </ul>
-<address>EMail: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
+<address>Email: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
 
 
 <hr>
@@ -36,7 +36,7 @@ Contributes the following work to the project:
   <li>compiler development</li>
   <li>i386 compiler development</li>
 </ul>
-<address>EMail: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
+<address>Email: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
 
 
 <hr>
@@ -57,7 +57,7 @@ Contributes the following work to the project:
   <li>compiler coordination</li>
   <li>i386 compiler coordination</li>
 </ul>
-<address>EMail: <a href="mailto:florian&#x040;freepascal.org">florian&#x040;freepascal.org</a></address>
+<address>Email: <a href="mailto:florian&#x040;freepascal.org">florian&#x040;freepascal.org</a></address>
 
 
 <hr>
@@ -65,17 +65,18 @@ Contributes the following work to the project:
 <IMG SRC="pic/jm.jpg" ALT="picture of Jonas" HEIGHT=175 WIDTH=150>
 <p>
 Year of birth: 1979<br>
-Job: Ph.D student at the Ghent University (Belgium)<br>
-Hobbies: girlfriend, computers (programming, fps, strategy games, <a href="http://elis.rug.ac.be/~ronsse/diota/">DIOTA</a>), listening to music (<a href="http://www.levellers.co.uk">Levellers</a>!)<br>
+Job: Postdoctoral researcher in computer science at Ghent University, Belgium<br>
+Hobbies: computers (programming, fps, strategy games), reading, activism concerning misguided law proposals (privacy, immaterial rights)<br>
 <p>
 Contributes the following work to the project:
 <ul>
+  <li>PowerPC port</li>
+  <li>Mac OS X support</li>
+  <li>processor independent optimizations</li>
   <li>optimizations on the i386 assembler code</li>
-  <li>powerpc port of the new code generator</li>
-  <li>processor independent optimizer for the new code generator</li>
   <li>compiler and rtl development</li>
 </ul>
-<address>EMail: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a></address>
+<address>Email: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a></address>
 
 
 <hr>
@@ -94,7 +95,7 @@ Contributes the following work to the project:
   <li>CVS Server maintainance</li>
   <li>Some general Run-Time-Library maintainance/coordination</li>
 </ul>
-<address>EMail: <a href="mailto:michael&#x040;freepascal.org">michael&#x040;freepascal.org</a></address>
+<address>Email: <a href="mailto:michael&#x040;freepascal.org">michael&#x040;freepascal.org</a></address>
 
 
 <hr>
@@ -110,7 +111,7 @@ Contributes the following work to the project:
   <li>compiler development</li>
   <li>runtime library development</li>
 </ul>
-<address>EMail: <a href="mailto:peter&#x040;freepascal.org">peter&#x040;freepascal.org</a></address>
+<address>Email: <a href="mailto:peter&#x040;freepascal.org">peter&#x040;freepascal.org</a></address>
 
 
 <hr>
@@ -129,7 +130,7 @@ Contributes the following work to the project:
   <li>i386 compiler development</li>
   <li>runtime library coordination</li>
 </ul>
-<address>EMail: <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
+<address>Email: <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
 
 <hr>
 <h4>Marco van de Voort</h4>
@@ -145,7 +146,7 @@ Contributes the following work to the project:
   <li>runtime library coordination</li>
   <li>Developping BSD port</li>
 </ul>
-<address>EMail: <a href="mailto:marcov&#x040;stack.nl">marcov&#x040;stack.nl</a></address>
+<address>Email: <a href="mailto:marcov&#x040;stack.nl">marcov&#x040;stack.nl</a></address>
 </ul>
 
 <hr>
