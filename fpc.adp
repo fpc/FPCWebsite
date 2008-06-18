@@ -18,6 +18,13 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <em>June 18, 2008</em>
+  <trn locale="en_US" key="website.news_headline_20080618">
+    RC1 for version 2.2.2 is available for testing. Downloads are available from 
+   <A HREF="ftp://ftp.freepascal.org/fpc/beta/2.2.2rc1">Here</A> (mirrors should follow soon).
+   A complete list of changes is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">Here</A>.
+  </trn>
+<p>
   <em>May 5, 2008</em>
   <trn locale="en_US" key="website.news_headline_20080505">
     Currently, one of the machines hosting part of the FPC and Lazarus project is down/broken. 
