@@ -1220,8 +1220,8 @@
           <trn key="website.a_debugging" locale="en_US">
             <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
-            represented as they should. It is suggested to use gdbpas or the text mode
-            IDE instead of GDB, which are both available for the DOS target.
+            represented as they should. It is suggested to use the text mode IDE instead of GDB,
+            which is available for the DOS target.
           </trn>
         
         <p>
@@ -1379,8 +1379,8 @@
           <trn key="website.a_win_debugging" locale="en_US">
             <p>The GNU debugger v4.16 and later have been tested, and generally work as
             they should. Because the GNU debugger is C oriented, some pascal types might not be
-            represented as they should. It is suggested to use gdbpas or the text mode
-            IDE instead of GDB, which are both available for windows targets.
+            represented as they should. It is suggested to use the text mode IDE instead of GDB,
+            which is available for windows targets.
           </trn>
         
         <p>
