@@ -138,10 +138,10 @@ Java, COBOL, C, etc.
     <TD width=50%>
       <FONT size=-1><a href='gallery/hedgewars.png'>
       <IMG src='gallery/hedgewars.thumb.png' alt='' align='left'></a>
-      <a href='http://www.hedgewars.org'>ModWorm</a> is a
-      worms/liero-like game engine which is very moddable. You can easilly
-      create your own worm "mod" with own levels, missions, graphics, weapons
-      and sounds.
+      <a href='http://www.hedgewars.org'>Hedgewars</a> is a
+      worms-like game with very nice graphics and good AI. The game features
+      typical worms gameplay including net play. The game itself is written in FPC
+      while the config application is C++/Qt.
       </FONT>
     </td>
   </tr>
