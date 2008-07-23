@@ -124,7 +124,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
 
        <b>install</b>
               Contains  instructions  for  installation  of  your
-              units and programs. The following keywods are  rec-
+              units and programs. The following keywords are  rec-
               ognized:
 
               <I>dirprefix</I>
@@ -135,7 +135,7 @@ fpcmake(5)       Free Pascal Makefile.fpc format       fpcmake(5)
                      default,  this is on linux, and on all other
                      platforms.
 
-              <I>dirbase</I>
+              <I>basedir</I>
                      The directory  that  is  used  as  the  base
                      directory  for  the  installation  of units.
                      Default  this  is  <I>dirprefix  </I>appended  with
