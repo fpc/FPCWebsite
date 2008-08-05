@@ -4,19 +4,9 @@
 <property name="header"><trn key="website.Known_Problems" locale="en_US">Known problems</trn></property>
 <ol>
 
-<li><h3><trn key="website.known_probs_204" locale="en_US">Known bugs specific to version 2.0.4</trn></h3>
-<ul>
-  <li><trn key="website.known_probs_204_2" locale="en_US">A bug was encountered in the unit handling that can cause an IE200306067.
-  The bug was fixed in the 2.1.x branch. A workaround for 2.0.4 is to delete the projects .ppu's and .o's and rebuild.
-  </trn>
-  <li><trn key="website.known_probs_204_3" locale="en_US">A bug was encountered that can crash the IDE during debugging. Users
-  experiencing a crashing IDE are recommended to install a 2.0.5 snapshot</trn>
-</ul>
-
-
 <li><h3><trn key="website.Delphi_unimplemented" locale="en_US">The following Delphi functionality is as of yet not implemented</trn>:</h3>
   <ul>
-    <li><trn key="website.Delphi_unimplemented_dispinterface" locale="en_US">Display interfaces (dispinterface) and the dispip index modifier</trn>
+    <li><trn key="website.Delphi_unimplemented_dispinterface" locale="en_US">Dispatch interfaces (dispinterface) and the dispip index modifier</trn>
     <li><trn key="website.Delphi_unimplemented_packages" locale="en_US">Packages and sharemem, and related DLL functionality</trn>
     <li><trn key="website.Delphi_unimplemented_delegation" locale="en_US">delegation with the <b>implements</b> keyword</trn>
     <li><trn key="website.Delphi_unimplemented_regcall" locale="en_US">The register calling convention pushes the arguments in the wrong order on the stack
@@ -52,17 +42,6 @@
          which is where the compiler should search according to the x86_64 ABI.
          </trn>
 </ul>
-
-<li><h3><trn key="website.Macos_known_bugs" locale="en_US">Known bugs specific to Darwin/Mac OS X and Classic Mac OS</trn></h3>
-<ul>
-  <li><trn key="website.Elipsis_AIX_ABI" locale="en_US">Passing floating point parameters to C routines with elipsis parameters (such as printf) does not yet work for the AIX ABI (which is used by all of the above OS'es).</trn>
-  <li><trn key="website.Records_by_value_to_C" locale="en_US">Passing records by value to C routines does not yet work for records whose size is different from 1, 2 and 4 bytes.</trn>
-  <li><trn key="website.Shared_libraries_not_yet_supported" locale="en_US">Generating shared libraries is not yet supported</trn>
-  <li><trn key="website.Currency_limits" locale="en_US">The currency type has some problems with values close to the upper and lower limits (because the double type is used for some conversions, whose precision is too small in those cases).</trn>
-</ul>
-
-<li><h3><trn key="website.Set_sizes" locale="en_US">In Turbo Pascal and Delphi mode, sets don't match the size of the real TP/Delphi.</trn></h3>
-<trn key="website.Set_sizes2" locale="en_US">Sets are always 4 (0..32 elements) or 32 bytes (33..256 elements).</trn>
 
 <li><h3><trn key="website.Doc_line_length" locale="en_US">Line length of the documentation in plain text format
 is &gt; 80 characters.</trn></h3>
