@@ -26,11 +26,11 @@ contrib/all.gif -text svneol=unset#image/gif
 contrib/config.pp svneol=native#text/plain
 contrib/contfp.dat -text
 contrib/contrib.pp svneol=native#text/plain
+contrib/contribdb.pp svneol=native#text/plain
 contrib/contribs.php svneol=native#text/plain
 contrib/database.fig svneol=native#text/plain
 contrib/database.gif -text svneol=unset#image/gif
 contrib/db.php3 svneol=native#text/plain
-contrib/db.pp svneol=native#text/plain
 contrib/delete.fig svneol=native#text/plain
 contrib/delete.gif -text svneol=unset#image/gif
 contrib/delete.php3 svneol=native#text/plain
@@ -243,9 +243,9 @@ oldbugs/README -text
 oldbugs/add.php3 svneol=native#text/plain
 oldbugs/bugrep.pp svneol=native#text/plain
 oldbugs/bugs.php svneol=native#text/plain
+oldbugs/bugsdb.pp svneol=native#text/plain
 oldbugs/config.pp svneol=native#text/plain
 oldbugs/db.php3 svneol=native#text/plain
-oldbugs/db.pp svneol=native#text/plain
 oldbugs/delete.php3 svneol=native#text/plain
 oldbugs/dotest -text
 oldbugs/edit.php3 svneol=native#text/plain
