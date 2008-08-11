@@ -39,7 +39,7 @@
 
   <li>intel/i386
     <ul>
-      <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender) (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
+      <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a>
