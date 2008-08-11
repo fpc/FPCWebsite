@@ -12,17 +12,17 @@
 -->
 
 <p>
-The latest release version is <b>2.2.0</b>, but there is also a 2.2.1-r8950 update for Mac OS X 10.5 (Leopard) available.
+The latest release version is <b>2.2.2</b>, but there is also a 2.2.1-r8950 update for Mac OS X 10.5 (Leopard) available.
 </p>
 
-<h3><a name="macosxdmg"></a>Download the 2.2.0 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 2.2.2 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/powerpc-macosx-2.2.0/fpc-2.2.0.powerpc-macosx.dmg">fpc-2.2.0.powerpc-macosx.dmg</a> (30 MB)
+<li> <a href="@mirror_url@dist/powerpc-macosx-2.2.2/fpc-2.2.2.powerpc-macosx.dmg">fpc-2.2.2.powerpc-macosx.dmg</a> (30 MB)
 contains an installation package<br>
 </ul>
 <h3><a name="XCodeIntegration"></a>XCode Integration Toolkit:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/powerpc-macosx-2.2.0/fpc-xcode-2.2.0.dmg">XCode Integration Toolkit</a> (144 kB)
+<li> <a href="@mirror_url@dist/powerpc-macosx-2.2.2/fpc-xcode-2.2.2.dmg">XCode Integration Toolkit</a> (144 kB)
 </ul>
 
 <h3><a name="macosx221dmg"></a>Download the FPC update for Mac OS X 10.5 in 1 big file (also works on previous Mac OS X versions):</h3>
@@ -32,7 +32,7 @@ contains an installation package<br>
 </ul>
 
 <p>
-The main size difference between the 2.2.0 release and the 2.2.1 is caused by the latter not containining the pdf documentation, Xcode Integration Toolkit, and some Terminal &quot;man&quot; pages.  You can download the Xcode Integration Toolkit separately above, and the 2.2.0 pdf documentation from <a href="http://www.freepascal.org/down/docs/docs.var">its own download page</a> if you do not want to download both 2.2.0 and the 2.2.1 update.
+The main size difference between the 2.2.2 release and the 2.2.1 is caused by the latter not containining the pdf documentation, Xcode Integration Toolkit, and some Terminal &quot;man&quot; pages.  You can download the Xcode Integration Toolkit separately above, and the 2.2.2 pdf documentation from <a href="http://www.freepascal.org/down/docs/docs.var">its own download page</a> if you do not want to download both 2.2.2 and the 2.2.1 update.
 </p>
 <p>
 It is also advisable to switch from Stabs to Dwarf debugging information due to some bugs in the new linker on Mac OS X 10.5. See the <a href="../../fpcmac@x@">FPC Mac</a> page for more information.

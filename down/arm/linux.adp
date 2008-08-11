@@ -12,12 +12,12 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.2.0</b>.
+  The latest release version is <b>2.2.2</b>.
   The latest cross compiler release version is <b>2.0.4</b>.
 </trn>
 
-<h1>2.2.0</h1>
-The FPC 2.2.0 package for arm-linux is available in one easy to choose format:
+<h1>2.2.2</h1>
+The FPC 2.2.2 package for arm-linux is available in one easy to choose format:
 <ul>
   <li> <a href="#linuxbig220">Everything in 1 big package</a>
 </ul>
@@ -25,7 +25,7 @@ The FPC 2.2.0 package for arm-linux is available in one easy to choose format:
 <h3><a name="linuxbig220"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/arm-linux-2.2.0/fpc-2.2.0.arm-linux.tar">fpc-2.2.0.arm-linux.tar</a> (28 MB)
+href="@mirror_url@dist/arm-linux-2.2.2/fpc-2.2.2.arm-linux.tar">fpc-2.2.2.arm-linux.tar</a> (28 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".

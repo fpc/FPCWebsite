@@ -11,10 +11,10 @@
     which you should read for installation instructions and latest news.
   </trn>
 <p>
-  <trn key="website.latest_release" locale="en_US">The latest release is <b>2.2.0</b></trn>.
+  <trn key="website.latest_release" locale="en_US">The latest release is <b>2.2.2</b></trn>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
-  Because of a lack of release builders and testers, 2.2.0 is only available for a limited
+  Because of a lack of release builders and testers, 2.2.2 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 </trn>
@@ -23,15 +23,17 @@
 <a name="binary"></a><h3><trn key="website.Binaries" locale="en_US">Binaries</trn></h3>
 <p>
   <trn key="website.can_download_for_platform" locale="en_US">
-    You can download the 2.2.0 release for the following cpu and operating systems:
+    You can download the 2.2.2 release for the following cpu and operating systems:
   </trn>
 <p>  
 <ul>
     <li>arm
     <ul>
+<!--
       <li><a href="down/arm/gba@x@">Game Boy Advance</a>
-      <li><a href="down/arm/linux@x@">Linux</a>
       <li><a href="down/arm/nds@x@">Nintendo DS</a>
+  -->
+      <li><a href="down/arm/linux@x@">Linux</a>
       <li><a href="down/arm/wince@x@">Windows CE</a>
    </ul>
 
@@ -41,16 +43,20 @@
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a>
+<!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
-      <li><a href="down/i386/os2@x@">OS/2</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
+-->
+      <li><a href="down/i386/os2@x@">OS/2</a>
       <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (Windows 95, 98, ME, NT, 2000, XP, Vista)
     </ul>  
   <li>powerpc
     <ul>
       <li><a href="down/powerpc/linux@x@">Linux</a>
+<!--
       <li><a href="down/powerpc/macos@x@">Mac OS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
-      <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
       <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
+-->
+      <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>  
   <li>powerpc64
     <ul>
@@ -58,7 +64,7 @@
     </ul>  
   <li>sparc
     <ul>
-      <li><a href="down/sparc/linux@x@">Linux</a> (<trn key="website.down_sparc_linux_note" locale="en_US">2.0.0 only</trn>)
+      <li><a href="down/sparc/linux@x@">Linux</a>
     </ul>  
   <li>amd64/x86_64
     <ul>

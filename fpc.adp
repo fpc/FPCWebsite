@@ -18,63 +18,18 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-  <em>July 16, 2008</em>
-  <trn locale="en_US" key="website.news_headline_20080716">
-    RC2 for version 2.2.2 is available for testing. Downloads are available from 
-   <A HREF="ftp://ftp.freepascal.org/fpc/beta/2.2.2rc2">Here</A> (mirrors should follow soon).
-   A list of major changes is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">Here</A>.
-  </trn>
-<p>
-  <em>June 18, 2008</em>
-  <trn locale="en_US" key="website.news_headline_20080618">
-    RC1 for version 2.2.2 is available for testing. Downloads are available from 
-   <A HREF="ftp://ftp.freepascal.org/fpc/beta/2.2.2rc1">Here</A> (mirrors should follow soon).
-   A complete list of changes is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">Here</A>.
-  </trn>
-<p>
-  <em>May 5, 2008</em>
-  <trn locale="en_US" key="website.news_headline_20080505">
-    Currently, one of the machines hosting part of the FPC and Lazarus project is down/broken. 
-    This affects the wiki, snapshots, partly ftp
-    and the mailing lists. Due to the long weekend the restoration takes longer than expected but this
-    is nothing to worry about and we are working on getting it back.
-  </trn>
-
-<p>
-  <em>April 23, 2008</em>
-  <trn locale="en_US" key="website.news_headline_20080423M">
-    <a href="http://www.morfik.com">Morfik</a> has unveiled version 2 of their web-development platform, named
-    simply M2. The Morfik IDE uses Free Pascal as the back-end compiler to compile the server-side of the web 
-    applications.
-  </trn>
-
-<p>
-  <em>September 10, 2007</em>
-  <trn locale="en_US" key="website.news_headline_20070910b">
-    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A Dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
-  </trn>
-<p>
-  <em>September 10, 2007</em>
-  <trn locale="en_US" key="website.news_headline_20070910">
-    The Free Pascal Compiler team is pleased to announce the release of FPC 2.2.0!
-    <p>An overview of most changes is available <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>, but some highlights are:
-    <ul>
-      <li> Architectures: PowerPC/64 and ARM support
-      <li> Platforms: Windows x64, Windows CE, Mac OS X/Intel, Game Boy Advance, and Game Boy DS support
-      <li> Linker: fast and lean internal linker for Windows platforms
-      <li> Debugging: Dwarf support and the ability to automatically fill variables with several values to more easily detect uninitialised uses
-      <li> Language: support for interface delegation, bit packed records and arrays and support for COM/OLE variants and dispinterfaces
-      <li> Infrastructure: better variants support, multiple resource files support, widestrings are COM/OLE compatible on Windows, improved database support
-    </ul>
-  <p> The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
-  <p>
-  Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
+  <em>August 11, 2008</em>
+  <trn locale="en_US" key="website.news_headline_20080811">
+    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon).
+    This is mostly a bugfix version, although some new features have been backported as well.
+    Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation.
+    A list of major changes is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">Here</A>.
   </trn>
 
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
-    Version <em>2.2.0</em> is the latest stable version the Free Pascal.
+    Version <em>2.2.2</em> is the latest stable version the Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
     The development releases have version numbers <EM>2.3.x</EM>.
@@ -112,7 +67,7 @@
 </trn></blockquote>
 <b><trn locale="en_US" key="website.req_sparca">Sparc architecture</trn></b>
 <blockquote><trn locale="en_US" key="website.req_sparcb">
-  16 MB of RAM is required. Runs on any Sparc Linux installation.
+  16 MB of RAM is required. Runs on any Sparc Linux installation (solaris is experimental).
 </trn></blockquote>
 
 <h2><trn locale="en_US" key="website.License">License</trn></h2>
