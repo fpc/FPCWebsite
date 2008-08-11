@@ -36,10 +36,10 @@ You can download one archive containing the whole source tree: <a href="@mirror_
 <h3>Documentation</h3>
 <p>Documentation is available in several formats:
 <ul>
-<li><a href="@mirror_url@dist/doc-2.2.2/doc-pdf.zip">PDF</a> (5.9 MB)</li>
-<li><a href="@mirror_url@dist/doc-2.2.2/doc-html.zip">HTML</a> (14.2 MB; to be used from IDE among others)</li>
-<li><a href="@mirror_url@dist/doc-2.2.2/doc-ps.zip">PostScript</a> (4.3 MB)</li>
-<li><a href="@mirror_url@dist/doc-2.2.2/doc-txt.zip">plain text</a> (1 MB)</li>
+<li><a href="@mirror_url@dist/docs-2.2.2/doc-pdf.zip">PDF</a> (5.9 MB)</li>
+<li><a href="@mirror_url@dist/docs-2.2.2/doc-html.zip">HTML</a> (14.2 MB; to be used from IDE among others)</li>
+<li><a href="@mirror_url@dist/docs-2.2.2/doc-ps.zip">PostScript</a> (4.3 MB)</li>
+<li><a href="@mirror_url@dist/docs-2.2.2/doc-txt.zip">plain text</a> (1 MB)</li>
 </ul>
 
 <h3> <a name="dossep"></a>Download as separate files</h3>
