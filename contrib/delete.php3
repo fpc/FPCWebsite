@@ -5,6 +5,9 @@
 /*
  * Emit form to confirm password.
  */ 
+$confirm=$_REQUEST['confirm'];
+$ID=$_REQUEST['ID'];
+
 function EmitConfirmForm ( $db, $ID ) {
   $query="select * from contribs where ID=$ID";  
   $res = mysql_query($query,$db);
@@ -49,7 +52,7 @@ $db = ConnectToFPC();
  * is this confirmed with password ? See if we can delete...
  */ 
 if ( $confirm == "yes") {
-  if (VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd)) {
+  if (VerifyAuthenticated($db,$ID,$_REQUEST['username'],$_REQUEST['pwd'],$_REQUEST['oldpwd'])) {
     $query = "delete from contribs where ID = $ID";
     $res=mysql_query($query,$db);
     CheckMySQLError;

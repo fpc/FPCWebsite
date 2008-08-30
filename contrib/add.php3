@@ -2,6 +2,10 @@
  /* input some needed stuff */
  require "html.php";
  require "contribs.php";
+
+$confirm=$_REQUEST['confirm'];
+$ID=$_REQUEST['ID'];
+
 /*
  * Emit form to confirm password.
  */ 
@@ -60,35 +64,35 @@ $db = ConnectToFPC();
  */ 
 if ( $confirm == "yes") {
   /* Add the entry */
-  if (Spam($name,$descr)) {
+  if (Spam($_REQUEST['name'],$_REQUEST['descr'])) {
     exit('Spam entry not allowed');
   }
-  if (Spam($homepage,$email)) {
+  if (Spam($_REQUEST['homepage'],$_REQUEST['email'])) {
     exit('Spam entry not allowed');
   }
-  if (!$category) {
+  if (!$_REQUEST['category']) {
     exit('No category specified');
   }
 
-  if (!($user=GetCommunityUser($username,$pwd))) {
+  if (!($user=GetCommunityUser($_REQUEST['username'],$_REQUEST['pwd']))) {
     exit('Username not known in community system, please create an account first, or verify password');
   } else {
     $auth_meth = 1;
   }
 
   $query = "INSERT INTO contribs (Name,Author,Email,ftpFile,homepage,date,os,category,descr,version,auth_method,user) VALUES (";
-  $query .= EscapeSQL ($name);
-  $query .= "," . EscapeSQL ($author);
-  $query .= "," . EscapeSQL ($email);
-  $query .= "," . EscapeSQL ($ftpfile);
-  $query .= "," . EscapeSQL ($homepage);
+  $query .= EscapeSQL ($_REQUEST['name']);
+  $query .= "," . EscapeSQL ($_REQUEST['author']);
+  $query .= "," . EscapeSQL ($_REQUEST['email']);
+  $query .= "," . EscapeSQL ($_REQUEST['ftpfile']);
+  $query .= "," . EscapeSQL ($_REQUEST['homepage']);
   $query .= ", CURRENT_DATE()";
-  $query .= "," . EscapeSQL ($os);
-  $query .= "," . EscapeSQL ($category);
-  $query .= "," . EscapeSQL ($descr);
-  $query .= "," . EscapeSQL ($version);
+  $query .= "," . EscapeSQL ($_REQUEST['os']);
+  $query .= "," . EscapeSQL ($_REQUEST['category']);
+  $query .= "," . EscapeSQL ($_REQUEST['descr']);
+  $query .= "," . EscapeSQL ($_REQUEST['version']);
   $query .= ",  $auth_meth ";
-  $query .= "," . EscapeSQL ($user) . ")";
+  $query .= "," . EscapeSQL ($_REQUEST['username']) . ")";
   $res = mysql_query ($query,$db);
   CheckMySQLError ($foot);
   Header1("Entry \"$name\" successfully Added :");
