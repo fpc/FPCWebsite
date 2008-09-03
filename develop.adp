@@ -212,6 +212,12 @@ through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">v
 
 <hr>
 
+<a name="mercurial"></a><h3>Mercurial mirror</h3>
+For developement without subversion write access or without any internet, an Mercurial (a distributed VCS) mirror of the svn trunk is available at:
+http://florianklaempfl.de:8000/fpctrunk
+
+<hr>
+
 <a name="future"></a><h3>Bugs and the Future</h3>
 <p>
 A list of known bugs is available <a href="http://bugs.freepascal.org/set_project.php?project_id=6">here</a>.<br>
