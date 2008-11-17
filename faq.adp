@@ -677,37 +677,15 @@
         <li><a name='isoxpascal'></a>
           <h3><trn key="website.q_isoxpascal" locale="en_US">Will you support ISO Extended Pascal?</trn></h3>
           <trn key="website.a_isoxpascal" locale="en_US">
-       We are open for support for ISO Extended Pascal, but the Free Pascal
-       development team does not consider extended Pascal compatibility important,
-       and therefore will not spend time on it. The reason is that the
-       ISO Extended Pascal must be considered a failed standard.
+       FPC's primary goal is to be a Turbo Pascal and Delphi-compatible compiler, and it also
+       supports a subset of the Mac-Pascal dialect.  All of these are incompatible to some extent
+       with the ISO Standard and Extended Pascal languages.  While in theory it would be possible
+       to add a separate ISO Standard or Extended Pascal mode, until now no people interested in
+       such functionality have stepped up to work on such features.
        <p>
-       To explain the reasons for this, we need to go back to the 1970's. At
-       that time a specific Pascal compiler got popular, UCSD-Pascal, its
-       ability to allow programs written on one architecture to run on another
-       played an important factor in this. All major Pascal compilers derive their
-       language from the UCSD-Pascal compiler, including the well known Borland
-       and Mac-Pascal dialects.
-       <p>
-       UCSD-Pascal introduced the unit system and the string variables we all know
-       very well. The ISO Extended Pascal language is mutually exclusive with both
-       of these features; ISO Extended Pascal both has a completely different system
-       for modular programming, as that its string system is totally different from
-       the UCSD model. In short it is not possible to support both dialects at the
-       same time.
-       <p>
-       Because of this, the software industry could not switch to ISO Extended Pascal
-       without breaking compatibility with all source code. Because of this,
-       very few compilers did implement ISO Extended Pascal. Compilers that did
-       were mostly unpopular.
-       <p>
-       Nowadays, there exists very little code written in ISO Extended Pascal. While
-       Free Pascal could support it using another compiler mode, there is little point
-       spending time making a compiler for which no source exists that it can compile.
-       <p>
-       GNU-Pascal is a modern compiler that can compile ISO Extended Pascal. If you have
-       any need for the ISO Extended Pascal dialect, we recommend to take a look at this
-       compiler.
+       <a href="http://www.gnu-pascal.de/">GNU-Pascal</a> is however a modern compiler that can
+       compile ISO Extended Pascal. If you have any need for the ISO Extended Pascal dialect, we
+       recommend you to take a look at this compiler.
          </trn>
 
 
