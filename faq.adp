@@ -38,7 +38,6 @@
     <li><a href="#cfgfiles"><trn key="website.q_cfg_problems" locale="en_US">Configuration file problems (fpc.cfg or ppc386.cfg)</trn></a>
     <li><a href="#runerror"><trn key="website.q_Runtime_errors" locale="en_US">Runtime errors</trn></a>
     <li><a href="#stdunits"><trn key="website.q_Standard_units" locale="en_US">Standard units</trn></a>
-    <li><a href="#internaldocs">How does the compiler work internally?</a>
     <li><a href="#debugsmart"><trn key="website.q_Debug_smartlinked" locale="en_US">Debugging smartlinked code does not fully work</trn></a>
     <li><a href="#debugshared"><trn key="website.q_Debugging_DLL" locale="en_US">Debugging shared library (dynamic linked library) code does not fully work</trn></a>
     <li><a href="#cantfindunit"><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></a>
