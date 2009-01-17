@@ -18,14 +18,14 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-  <em>August 11, 2008</em>
-  <trn locale="en_US" key="website.news_headline_20080811">
-    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon).
-    This is mostly a bugfix version, although some new features have been backported as well.
-    Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation.
-    A list of major changes is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">Here</A>.
+  <em>January 17, 2009 -- </em>
+  <trn locale="en_US" key="website.news_headline_20080117">
+    The FPC team is happy to announce the first widely distributed beta of the <em>FPC iPhone SDK Integration Kit</em>, which allows you to compile Pascal code for the iPhone and iPod Touch. It supports both the Simulator and the real devices, and includes an Xcode template with an OpenGL ES demo. It requires an Intel Mac with FPC 2.2.2 (or a later FPC 2.2.x) and the iPhone SDK 2.x installed. Please visit the <a href="http://wiki.freepascal.org/iPhone/iPod_development">wiki page</a> for more information and the download link.
   </trn>
-
+</p>
+<p>
+<a href="news@x@">Older news...</a>
+</p>
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">

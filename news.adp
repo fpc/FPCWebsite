@@ -9,6 +9,14 @@
 
 <h3>Latest changes:</h3>
 
+<li>August 11, 2008
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20080811">
+    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">here</A>.
+</trn>
+</ul>
+
 <li>September 10, 2007
 <ul>
   <li>
