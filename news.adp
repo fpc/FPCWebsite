@@ -21,7 +21,7 @@
 <ul>
   <li>
   <trn locale="en_US" key="website.news_headline_20070910b">
-    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> placed an article about the new FPC compiler and cross-platform development. A dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
+    <a href="http://www.osnews.com/story.php/18592/Cross-Platform-Development-with-Free-Pascal-2.2.0">OS-News</a> has published an article about the new FPC compiler and cross-platform development. A Dutch version is available on our <a href="http://wiki.freepascal.org/Article_OSNews_fpc_2.2.0">Wiki</a>.
   </trn>
   <li>
   <trn locale="en_US" key="website.news_headline_20070910">
@@ -51,7 +51,7 @@
     the bug-tracker</a>. If you want to know if your bug is already solved, you can look it up in 
     <a href="http://bugs.freepascal.org/set_project.php?project_id=6">mantis</a>, or
     try one of the daily snapshots, based on the fixes_2_2 branch. So please help us make version
-    2.2.0 the most stable version of freepascal, until now. List of changes can be found 
+    2.2.0 the most stable version of Free Pascal to date. List of changes can be found 
     <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">here</a>.
     The <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">
     releasenotes</a> are also available. Please note that there are some intentional incompatibilities 
