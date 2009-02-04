@@ -41,9 +41,9 @@
   <trn locale="en_US" key="website.Features_text">
     The language syntax has excellent compatibility with TP 7.0 as well as
     with most versions of Delphi (classes, rtti, exceptions, ansistrings, widestrings, interfaces).
-    A Mac Pascal compatibility mode is also provided to assist Apple users. Furthermore
-    Free Pascal supports function overloading, operator overloading, global properties and
-    other such features.
+    A Mac Pascal mode, largely compatible with Think Pascal and MetroWerks Pascal, is also available.
+    Furthermore Free Pascal supports function overloading, operator overloading, global properties and
+    several other extra features.
   </trn>
 </p>
 
