@@ -51,13 +51,14 @@
 <b><trn locale="en_US" key="website.req_x86a">x86 architecture:</trn></b>
 <blockquote><trn locale="en_US" key="website.req_x86b">
   For the 80x86 version at least a 386 processor is required, but a 486
-  is recommended.
+  is recommended. The Mac OS X version requires Mac OS X 10.4 or later,
+  with the developer tools installed.
 </trn></blockquote>
 <b><trn locale="en_US" key="website.reqppca">PowerPC architecture:</trn></b>
 <blockquote><trn locale="en_US" key="website.reqppcb">
   Any PowerPC processor will do. 16 MB of RAM is required. The Mac OS
   classic version is expected to work System 7.5.3 and later. The Mac OS X version
-  requires Mac OS X 10.1 or later, with the developer tools installed.
+  requires Mac OS X 10.3 or later (can compile for 10.2.8 or later), with the developer tools installed.
   On other operating systems Free Pascal runs on any system that can run the operating
   system.
 </trn></blockquote>
