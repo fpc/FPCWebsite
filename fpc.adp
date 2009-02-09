@@ -10,7 +10,7 @@
     It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64,
     Sparc, ARM. The discontinued 1.0 version also supports the Motorola 680x0.
     The following operating systems are supported: Linux, FreeBSD,
-    <a href="fpcmac@x@">Mac OS X/Darwin</a>, <a href="fpcmac@x@">Mac OS classic</a>, DOS, Win32, Win64, WinCE, OS/2,
+    Mac OS X/Darwin, DOS, Win32, Win64, WinCE, OS/2,
     Netware (libc and classic) and MorphOS.
   </trn>
 </p>
