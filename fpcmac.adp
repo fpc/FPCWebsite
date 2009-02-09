@@ -9,6 +9,12 @@ especially for you who want to write a program for the Macintosh.
 </p>
 
 <h2>News:</h2>
+<b>2009-02-09:</b>
+<br>
+<br>
+<p>
+The download statistics indicate that the snapshots below are still downloaded a lot. Note that all fixes from those snapshots are also in the official release of FPC 2.2.2 (and will be also in later versions, when they become available), which was released in August 2008. Since FPC 2.2.2 also contains many additional fixes, we recommend you to use that version. It is available from the regular download pages.
+</p>
 <b>2007-11-14:</b>
 <br>
 <br>
