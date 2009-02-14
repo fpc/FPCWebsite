@@ -105,10 +105,10 @@ function VerifyAuthenticated($db,$ID,$username,$pwd,$oldpwd='') {
     $newauth_meth = 1;
   }
   if ($EntryAuthMeth==0) {
-    return VerifyPassword($db,$pwd,$ID);
+    return VerifyPassword($db,$oldpwd,$ID);
   } else if ($EntryAuthMeth==1) {
-    if (VerifyEntryUser($db,$user,$ID)) {
-      return $newauth_meth;
+    if (VerifyEntryUser($db,$username,$ID)) {
+      return 1;
     } else {
       return FALSE;
     }

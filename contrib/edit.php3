@@ -47,7 +47,8 @@ if ( $confirm == "yes") {
     $query .= ", category=" . EscapeSQL ($_REQUEST['category']);
     $query .= ", descr=" . EscapeSQL ($_REQUEST['descr']);
     $query .= ", version=" . EscapeSQL ($_REQUEST['version']);
-    $query .= " ,auth_method = " . $_REQUEST['AuthMeth'] ; /* Update authentication method */
+    $query .= ", user=" . EscapeSQL ($_REQUEST['username']);
+    $query .= ", auth_method = $AuthMeth" ; /* Update authentication method */
     $query .= " WHERE ID=".$_REQUEST['ID'];
     $res = mysql_query ($query,$db);
     CheckMySQLError ($foot);
