@@ -56,8 +56,8 @@
 </trn>
 <p>
 <trn locale="en_US" key="website.german_manuals">
-  The Free pascal manuals have been translated to German by <b>C&amp;L</b>, and can be purchased
-  from the <a href="http://www.cul.de/freepascal.html">C&amp;L website</a>.
+  The Free pascal 2.2 manuals have been translated to German by <b>C&amp;L</b>, and can be purchased
+  from the <a href="http://www.cul.de/freepascal2.html">C&amp;L website</a>. <b> Updated!</b>
 </trn>
 
 <trn locale="en_US" key="website.new_to_programming">
