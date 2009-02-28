@@ -17,7 +17,7 @@
 /catalog.sl.adp svneol=native#text/html
 /catalog.zh-CN.adp svneol=native#text/html
 contrib/Makefile svneol=native#text/plain
-contrib/README -text
+contrib/README.txt svneol=native#text/plain
 contrib/add.fig svneol=native#text/plain
 contrib/add.gif -text svneol=unset#image/gif
 contrib/add.php3 svneol=native#text/plain
@@ -239,7 +239,7 @@ html_d/unitsrtl.fp svneol=native#text/plain
 /moreinfo.adp svneol=native#text/plain
 /news.adp svneol=native#text/plain
 oldbugs/Makefile svneol=native#text/plain
-oldbugs/README -text
+oldbugs/README.txt svneol=native#text/plain
 oldbugs/add.php3 svneol=native#text/plain
 oldbugs/bugrep.pp svneol=native#text/plain
 oldbugs/bugs.php svneol=native#text/plain
