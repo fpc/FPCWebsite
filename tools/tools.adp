@@ -5,7 +5,7 @@
 <property name="maindir">../</property>
 <property name="header">Tools that come with FPC</property>
 
-<h1><a href="tools.html">Tools that come with Free Pascal</a></h2>
+<h1><a href="tools.html">Tools that come with Free Pascal</a></h1>
 Free Pascal comes with several command-line tools that you can use to ease
 your programming. The following tools are available:
 <OL>
