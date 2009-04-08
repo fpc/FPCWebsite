@@ -9,8 +9,6 @@
     <li><trn key="website.Delphi_unimplemented_dispinterface" locale="en_US">Dispatch interfaces (dispinterface) and the dispip index modifier</trn>
     <li><trn key="website.Delphi_unimplemented_packages" locale="en_US">Packages and sharemem, and related DLL functionality</trn>
     <li><trn key="website.Delphi_unimplemented_delegation" locale="en_US">delegation with the <b>implements</b> keyword</trn>
-    <li><trn key="website.Delphi_unimplemented_regcall" locale="en_US">The register calling convention pushes the arguments in the wrong order on the stack
-        (the params left after the registers are filled)</trn>
   </ul>
 
 
