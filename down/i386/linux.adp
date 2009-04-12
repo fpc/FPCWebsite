@@ -12,8 +12,7 @@
 *****************************************************************************
 -->
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.2.2</b>.
-</trn>
+  The latest release version is</trn> <b>2.2.4</b>.
 
 <P>
 
@@ -29,7 +28,7 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><a href="@mirror_url@dist/i386-linux-2.2.2/fpc-2.2.2.i386-linux.tar">fpc-2.2.2.i386-linux.tar</a> (30 MB)
+<li><a href="@mirror_url@dist/2.2.4/i386-linux/fpc-2.2.4.i386-linux.tar">fpc-2.2.4.i386-linux.tar</a> (34 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script 
@@ -41,16 +40,16 @@ It is available in different formats:
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
 <ul>
 <li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
-<li> <a href="@mirror_url@dist/i386-linux-2.2.2/rpm/fpc-2.2.2-0.i386.rpm">fpc-2.2.2-0.i386.rpm</a> (22 MB)
+<li> <a href="@mirror_url@dist/2.2.4/i386-linux/rpm/fpc-2.2.4-1.i386.rpm">fpc-2.2.2-1.i386.rpm</a> (26 MB)
      <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        contains the compiler, utils, RTL and all units. <br>
      </trn>
-<li> <a href="@mirror_url@dist/i386-linux-2.2.2/rpm/fpc-docs-2.2.2-0.i386.rpm">fpc-docs-2.2.2-0.i386.rpm</a> (6.5 MB)
+<li> <a href="@mirror_url@dist/2.2.4/i386-linux/rpm/fpc-docs-2.2.4-1.i386.rpm">fpc-docs-2.2.4-1.i386.rpm</a> (6.7 MB)
      <trn key="website.i386-linux_rpm_docs_download_descr" locale="en_US">
        contains the documentation.<br>
      </trn>
 <li> <b><trn key="website.Source_packages" locale="en_US">Source Packages</trn></b>
-<li> <a href="@mirror_url@dist/i386-linux-2.2.2/rpm/fpc-2.2.2-0.src.rpm">fpc-2.2.2-0.src.rpm</a> (23 MB)
+<li> <a href="@mirror_url@dist/2.2.4/i386-linux/rpm/fpc-2.2.4-1.src.rpm">fpc-2.2.4-1.src.rpm</a> (25 MB)
      <trn key="website.i386-linux_rpm_src_download_descr" locale="en_US">
        contains the sources.<br>
      </trn>

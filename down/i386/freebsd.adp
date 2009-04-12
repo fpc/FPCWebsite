@@ -12,17 +12,19 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.2.2</b>.
-</trn>
+  The latest release version is</trn> <b>2.2.4</b>.
+
 
 <h3><a name="freebsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <trn key="website.i386-freebsd_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/i386-freebsd-2.2.2/fpc-2.2.2.i386-freebsd.tar">fpc-2.2.2.i386-freebsd.tar</a> (29 MB)
-  contains a standard tar archive, with an install script<br>
+<li> <a href="@mirror_url@dist/2.2.4/i386-freebsd/fpc-2.2.4.i386-freebsd5.tar">fpc-2.2.4.i386-freebsd5.tar</a> (33 MB)
+<li> <a href="@mirror_url@dist/2.2.4/i386-freebsd/fpc-2.2.4.i386-freebsd6.tar">fpc-2.2.4.i386-freebsd6.tar</a> (33 MB)
+</ul>
+<trn key="website.i386-freebsd_1_file_download_descr" locale="en_US">
+  Contains a standard tar archive, with an install script.<br>
   After untarring the archive, you can run the install script in the created
   directory by issuing the command "<TT>sh install.sh</TT>".
 </trn>
-</ul>
 
 <hr>
 <p>

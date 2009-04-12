@@ -9,6 +9,25 @@
 
 <h3>Latest changes:</h3>
 
+<li>February 14, 2009
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20090114">
+    Computer &amp; Literatur Verlag has translated the Free Pascal manuals to German and bound them
+    in a <a href="http://www.cul.de/prog.html">book</a>. The book also contains the reference guide 
+    for the 17 most important units distributed with Free Pascal. It should be available in 
+    book shops in the German-speaking countries in Europe.
+  </trn>
+</ul>
+
+<li>January 17, 2009
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20080117">
+    The FPC team is happy to announce the first widely distributed beta of the <em>FPC iPhone SDK Integration Kit</em>, which allows you to compile Pascal code for the iPhone and iPod Touch. It supports both the Simulator and the real devices, and includes an Xcode template with an OpenGL ES demo. It requires an Intel Mac with FPC 2.2.2 (or a later FPC 2.2.x) and the iPhone SDK 2.x installed. Please visit the <a href="http://wiki.freepascal.org/iPhone/iPod_development">wiki page</a> for more information and the download link.
+  </trn>
+</ul>
+
 <li>August 11, 2008
 <ul>
   <li>

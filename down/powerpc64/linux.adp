@@ -13,7 +13,7 @@
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.powerpc64-linux_tar_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/powerpc64-linux-2.2.0/fpc-2.2.0.powerpc64-linux.tar">This file</a>
+<li><trn key="website.powerpc64-linux_tar_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/2.2.4/powerpc64-linux/fpc-2.2.4.powerpc64-linux.tar">This file</a> (36 MB)
   contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".

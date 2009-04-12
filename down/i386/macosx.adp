@@ -12,11 +12,11 @@
 -->
 
 <p>
-The latest release version is <b>2.2.2</b></p>
+The latest release version is <b>2.2.4</b></p>
 
-<h3><a name="macosxdmg"></a>Download the 2.2.2 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 2.2.4 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/i386-macosx-2.2.2/fpc-2.2.2.intel-macosx.dmg">fpc-2.2.2.intel-macosx.dmg</a> (45 MB)
+<li> <a href="@mirror_url@dist/2.2.4/i386-macosx/fpc-2.2.4.intel-macosx.dmg">fpc-2.2.4.intel-macosx.dmg</a> (47 MB)
 contains an installation package for compiling both Intel and PowerPC programs (can be used to create universal binaries), as well as the Xcode Integration Toolkit<br>
 </ul>
 
