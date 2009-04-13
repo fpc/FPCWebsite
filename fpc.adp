@@ -20,7 +20,7 @@
 <p>
   <em>April 12, 2009 -- </em>
   <trn locale="en_US" key="website.news_headline_20090322">
-    The new stable version 2.2.4 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.2">here</A>. With this release we also want to test our new package system. More information about this test can be found <A HREF="http://wiki.freepascal.org/fppkg_field_test">here</A>
+    The new stable version 2.2.4 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <A HREF="http://wiki.freepascal.org/fppkg_field_test">here</A>
   </trn>
 </p>
 <p>
