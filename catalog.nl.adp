@@ -199,7 +199,7 @@ Officiële uitgaven
 Dit zijn klaar om te installeren pakketten, met een installatieprogramma, die je in een mum van tijd aan de gang helpen. Alle pakketten bevatten een README-bestand, hetwelk je dient te lezen voor installatieinstructies en het laatste nieuws.  
 </TRN>
 <TRN locale="nl_NL" key="website.latest_release">
-De meest recente versie is <b>2.2.0</b>
+De meest recente versie is 
 </TRN>
 <TRN locale="nl_NL" key="website.can_download_for_platform">
 Je kunt de uitgaven 2.2.x downloaden voor de volgende processoren en besturingssystemen:
