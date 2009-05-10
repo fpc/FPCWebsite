@@ -35,7 +35,7 @@
   (maintained by <a href="mailto:stian&#x040;nixia.no">Linux Solutions, Norway (Linux L&oslash;sninger)</a>)
 <li>
   <a href="http://www.ru.freepascal.org/">Russia (Webpages only)</a>
-  (maintained by <a href="mailto:russian&#x040;freepascal.org">Michail A.Baikov</a>).
+  (maintained by <a href="mailto:rusxakep&#x040;gmail.com">Michail A.Baikov</a>).
 <li>
   <a href="http://www.us.freepascal.org/">United States</a>
   (maintained by <a href="mailto:mhess&#x040;miraclec.com">Michael Hess</a>).
