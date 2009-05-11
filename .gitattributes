@@ -16,6 +16,16 @@
 /catalog.ru.adp svneol=native#text/html
 /catalog.sl.adp svneol=native#text/html
 /catalog.zh-CN.adp svneol=native#text/html
+catalogs-disabled/catalog.bg.adp svneol=native#text/html
+catalogs-disabled/catalog.fi.adp svneol=native#text/html
+catalogs-disabled/catalog.fr.adp svneol=native#text/html
+catalogs-disabled/catalog.id.adp svneol=native#text/html
+catalogs-disabled/catalog.it.adp svneol=native#text/html
+catalogs-disabled/catalog.nl.adp svneol=native#text/html
+catalogs-disabled/catalog.pl.adp svneol=native#text/html
+catalogs-disabled/catalog.ru.adp svneol=native#text/html
+catalogs-disabled/catalog.sl.adp svneol=native#text/html
+catalogs-disabled/catalog.zh-CN.adp svneol=native#text/html
 contrib/Makefile svneol=native#text/plain
 contrib/README.txt svneol=native#text/plain
 contrib/add.fig svneol=native#text/plain
