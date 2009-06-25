@@ -18,7 +18,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
-  <em>June 25, 2009 -- </em>
+  <em>June 25, 2009</em>
   <trn locale="en_US" key="website.news_headline_20090625">
   During the last months a lot of work on the embedded support of Free Pascal has been done. 
   So FPC can be used now to program microcontrollers without any operating system.
@@ -27,7 +27,7 @@
   </trn>
 </p>
 <p>
-  <em>April 12, 2009 -- </em>
+  <em>April 12, 2009</em>
   <trn locale="en_US" key="website.news_headline_20090322">
     The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <A HREF="http://wiki.freepascal.org/fppkg_field_test">here</A>
   </trn>
