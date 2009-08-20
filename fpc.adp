@@ -18,18 +18,22 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <em>August 20, 2009</em>
+  <trn locale="en_US" key="website.news_headline_20090820">
+    The <a href="http://www.ioi2009.org/">2009 International Olympiad in Informatics</a>
+    has been won by the 14 years old Henadi Karatkevich using Free Pascal. For this 
+    contest only the gcc and Free Pascal compilers were allowed. Lazarus was
+    available as editor.
+  </trn>
+</p>
+
+<p>
   <em>June 25, 2009</em>
   <trn locale="en_US" key="website.news_headline_20090625">
   During the last months a lot of work on the embedded support of Free Pascal has been done. 
   So FPC can be used now to program microcontrollers without any operating system.
   The current status, an explanation how to use it and the supported controllers (only a few so far)
   can be found in the <a href="http://wiki.freepascal.org/Embedded">FPC Wiki</a>.
-  </trn>
-</p>
-<p>
-  <em>April 12, 2009</em>
-  <trn locale="en_US" key="website.news_headline_20090322">
-    The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <A HREF="http://wiki.freepascal.org/fppkg_field_test">here</A>
   </trn>
 </p>
 <p>
