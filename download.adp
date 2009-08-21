@@ -27,7 +27,7 @@
   </trn>
 <p>  
 <ul>
-    <li>arm
+    <li>ARM
     <ul>
 <!--
       <li><a href="down/arm/gba@x@">Game Boy Advance</a>
@@ -37,7 +37,7 @@
       <li><a href="down/arm/wince@x@">Windows CE</a>
    </ul>
 
-  <li>intel/i386
+  <li>Intel/i386
     <ul>
       <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 6.x and 7.x</trn>)
@@ -49,7 +49,7 @@
       <li><a href="down/i386/os2@x@">OS/2</a>
       <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (Windows 95, 98, ME, NT, 2000, XP, Vista)
     </ul>  
-  <li>powerpc
+  <li>PowerPC
     <ul>
       <li><a href="down/powerpc/linux@x@">Linux</a>
 <!--
@@ -58,15 +58,15 @@
 -->
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>  
-  <li>powerpc64
+  <li>PowerPC64
     <ul>
       <li><a href="down/powerpc64/linux@x@">Linux</a>
     </ul>  
-  <li>sparc
+  <li>SPARC
     <ul>
       <li><a href="down/sparc/linux@x@">Linux</a>
     </ul>  
-  <li>amd64/x86_64
+  <li>AMD64/x86_64
     <ul>
       <li><a href="down/x86_64/linux@x@">Linux</a>
       <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
