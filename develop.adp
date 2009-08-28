@@ -14,13 +14,13 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <a name="sourcesv21"></a><a name="sourcestrunk"></a><h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download today's development (trunk - currently v2.3.x) sources in the form
+You can download today's development (trunk - currently v2.5.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
 updated on a daily basis, and reflect the state of the source repository.
 </p>
 <p>
 Entire fpc sources archive of trunk:
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpc.zip">fpc.zip</a> (24 MB).
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpc.zip">fpc.zip</a> (31 MB).
 </p>
 <p>
 Furthermore, there is an even larger archive including the fpc sources together
@@ -37,7 +37,7 @@ a daily basis, and reflect the state of the source repository.
 </p>
 <p>
 Entire fpc sources archive of the fixes branch:
-<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/source/fpc.zip">fpc.zip</a> (24 MB)
+<a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/source/fpc.zip">fpc.zip</a> (31 MB)
 </p>
 <p>
 Furthermore, there is an even larger archive including the fpc sources together
@@ -165,7 +165,7 @@ svn update fpc
 
 <p>
 To checkout a release, you have to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tags/release_2_2_0 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/tags/release_2_2_4 fpc
 </p>
 
 <p>
