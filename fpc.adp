@@ -21,7 +21,7 @@
   <em>August 20, 2009</em>
   <trn locale="en_US" key="website.news_headline_20090820">
     The <a href="http://www.ioi2009.org/">2009 International Olympiad in Informatics</a>
-    has been won by the 14 years old Henadi Karatkevich using Free Pascal. For this 
+    has been won by the 14 years old Henadzi Karatkevich using Free Pascal. For this 
     contest only the gcc and Free Pascal compilers were allowed. Lazarus was
     available as editor.
   </trn>
