@@ -18,6 +18,17 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
+  <em>August 31, 2009</em>
+  <trn locale="en_US" key="website.news_headline_20090831">
+    FPC 2.2.4 has been tested with Mac OS X 10.6 (Snow Leopard) and generally works fine.
+    There is however an issue when compiling dynamic libraries with FPC under Mac OS X
+    10.6 (libraries compiled under earlier OS versions work fine under Mac OS X 10.6).
+    The issue and the workaround are explained in
+    <a href="http://lists.freepascal.org/lists/fpc-pascal/2009-August/022030.html">this post</a>
+    to the fpc-pascal mailing list.
+   </trn>
+</p>
+<p>
   <em>August 20, 2009</em>
   <trn locale="en_US" key="website.news_headline_20090820">
     The <a href="http://www.ioi2009.org/">2009 International Olympiad in Informatics</a>
@@ -27,15 +38,6 @@
   </trn>
 </p>
 
-<p>
-  <em>June 25, 2009</em>
-  <trn locale="en_US" key="website.news_headline_20090625">
-  During the last months a lot of work on the embedded support of Free Pascal has been done. 
-  So FPC can be used now to program microcontrollers without any operating system.
-  The current status, an explanation how to use it and the supported controllers (only a few so far)
-  can be found in the <a href="http://wiki.freepascal.org/Embedded">FPC Wiki</a>.
-  </trn>
-</p>
 <p>
 <a href="news@x@">Older news...</a>
 </p>
