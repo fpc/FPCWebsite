@@ -12,13 +12,14 @@
 <li>August 31, 2009
 <ul>
   <li>
-  <trn locale="en_US" key="website.news_headline_20090831">
+  <trn locale="en_US" key="website.news_headline_20090917">
+    <i>(The previously posted information about Mac OS X 10.6 compatibility was unfortunately
+    incorrect, which is why it was removed).</i>
     FPC 2.2.4 has been tested with Mac OS X 10.6 (Snow Leopard) and generally works fine.
     There is however an issue when compiling dynamic libraries with FPC under Mac OS X
-    10.6 (libraries compiled under earlier OS versions work fine under Mac OS X 10.6).
-    The issue and the workaround are explained in
-    <a href="http://lists.freepascal.org/lists/fpc-pascal/2009-August/022030.html">this post</a>
-    to the fpc-pascal mailing list.
+    10.6 due to a bug in the Xcode 3.2 linker. Unforuntately, there is no easy fix when using
+    FPC 2.2.4. The full discussion can be found in <a href="http://bugs.freepascal.org/view.php?id=14471">
+    this bug report</a>, with a summary in the last comment.
    </trn>
 </ul>
 
