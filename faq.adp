@@ -185,8 +185,7 @@
           <trn key="website.a_What_versions_exist" locale="en_US">
             <p>The latest official version is 2.2.4, bugfix release for 2.2.0.
             New development is performed in 2.3.x series, which eventually
-            gets released as either 2.4.0, or 3.0.0 (depending on amount of accumulated
-            changes at the time of release).
+            gets released as 2.4.0. Post 2.4.0 development is done in trunk (2.5.1)
 
             <h4>Historic versions</h4>
 
@@ -519,7 +518,7 @@
 
             <OL>
                 <li>
-                    <p>You can create smartlinked applications. To turn on
+                    You can create smartlinked applications. To turn on
                     the generation of smartlinkable units, use the -Cx command
                     line option when compiling your units. To turn on
                     the linking of previously generated smarlinkable units, use the -XX
@@ -703,9 +702,9 @@
 	   in the future.<p>
 
            While the FPC core developpers are somewhat interested out of
-	   academic curiousity (mainly because it could be a pilot for
-	   creating bytecode) there are however several problems with .NET
-	   in combination with FPC:
+	   academic curiousity (mainly because it could be a pilot for a
+	   generalized backend creating bytecode) there are however several
+	   problems with .NET in combination with FPC:
 	   	
         <OL> 
         <li>
@@ -723,8 +722,9 @@
  	<li>There is nothing <em>practical</em> known yet about how portable
 	    an average .NET program will be. Little experiments with hello
 	    world level code mean nothing, that kind of code works with
-	    plain C too. A good test would be to see existing non trivial
-	    codebases run unmodified under mono. Just like we try to do for
+	    nearly any language. A good test would be to see existing non trivial
+	    codebases run unmodified under mono, that were not designed with mono
+            in mind. Just like we try to do for
 	    Delphi</li>
 
         <li> The fact that on Windows 80% of the .NET code seems to be
@@ -913,8 +913,7 @@
           <trn key="website.a_calling_C_functions" locale="en_US">
             <p>
             It is possible to call functions coded in C, which were compiled
-            with the GNU C compiler (<TT>GCC</TT>). Versions which have been
-            tested are version 2.7.2 through 2.95.2 of GCC. For calling the
+            with the GNU C compiler (<TT>GCC</TT>). For calling the
             C function strcmp declare the following:
             
             <PRE>function strcmp(s1 : pchar;s2 : pchar) : integer;cdecl;external;</PRE>
@@ -935,6 +934,9 @@
             <p>Since version 1.9.2, the compiler also uses the register calling
             convention, which means the compiler can assemble assembler routines
             in Delphi source code without modification.
+
+            <p>Since version 1.9.8, the register calling convention is default
+	    for Delphi mode.
 
             <p>A description of the AT&amp;T syntax can be found in the GNU
             Assembler documentation. 
