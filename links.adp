@@ -100,10 +100,10 @@ your chances to contact them ;-).
 <ul>
   <li><a href='http://www.pascalgamedevelopment.com'>Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
-  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a>
+<!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a> -->
   <li><a href='http://www.friends-of-fpc.org'>Friends-of-fpc: Lots of good articles</a>
   <li><a href='http://www.freepascal.ru'>FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
-  <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a>
+<!--    <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a> -->
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</a>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
   Win32 platforms, as well as general information on FPC. </li>
@@ -120,12 +120,8 @@ your chances to contact them ;-).
     you can find a nice pascal tutorial. It covers basic pascal, but does not
     treat Object Oriented Programming.
   <li><a href="http://dmoz.org/Computers/Programming/Languages/Pascal/Tutorials/">More</a> links to Pascal tutorials.
-  <li><a href="http://www.geocities.com/agleight/hispascal/hispascal.html">Spanish pascal</a>
-    is an attempt to translate the Pascal language to Spanish. It is based on
-    the 1.0.4 freepascal source code. Later it will be translated in other
-    languages. This is still in a development stage.
-  <li><a href="http://www.fp.sdl.de.vu">Free Pascal meets SDL</a> contains lots of information how to
-    develop Simple Direct Media Layer applications using Free Pascal
+  <li><a href="http://www.Freepascal-meets-SDL.net/">Free Pascal meets SDL</a> contains lots of information on how to
+    develop Simple Direct Media Layer applications using Free Pascal.
   </ul>
 
 <a name="otherpascal"></a>
@@ -136,8 +132,8 @@ your chances to contact them ;-).
     for FPC is being developed.
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>, where you can find a lot of info on Pascal
     programming on the Mac, but also quite a few general Pascal links.
-  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
-    the MacOS/PowerPC platform.
+<!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
+    the MacOS/PowerPC platform. -->
   <li><a href="http://ftp.sunet.se/EFLIB/">EFLIB</a> is a free class library for
     pascal.
   <li><a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
