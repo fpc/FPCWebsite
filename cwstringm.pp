@@ -339,7 +339,7 @@ function StrCompAnsi(s1,s2 : PChar): PtrInt;
 
 Procedure SetCWideStringManager;
 Var
-  CWideStringManager : TWideStringManager;
+  CWideStringManager : {$if FPC_FULLVERSION> 20300 }TUnicodeStringManager{$else}TWideStringManager{$ifend};
 begin
   CWideStringManager:=widestringmanager;
   With CWideStringManager do
