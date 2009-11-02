@@ -336,10 +336,16 @@ function StrCompAnsi(s1,s2 : PChar): PtrInt;
     result:=strcoll(s1,s2);
   end;
 
+{$define oldwidestring}
+{$ifndef ver2_2}
+{$if FPC_FULLVERSION> 20300 }
+ {$undef oldwidestring}
+{$ifend}
+{$endif}
 
 Procedure SetCWideStringManager;
 Var
-  CWideStringManager : {$if FPC_FULLVERSION> 20300 }TUnicodeStringManager{$else}TWideStringManager{$ifend};
+  CWideStringManager : {$ifndef oldwidestring}TUnicodeStringManager{$else}TWideStringManager{$endif};
 begin
   CWideStringManager:=widestringmanager;
   With CWideStringManager do
