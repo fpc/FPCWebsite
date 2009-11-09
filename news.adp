@@ -9,7 +9,28 @@
 
 <h3>Latest changes:</h3>
 
-<li>August 31, 2009
+<li>November 9, 2009</em>
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20091109">
+    The <a href="http://lists.freepascal.org/lists/fpc-devel/2009-November/018272.html">first FPC 2.4.0 release candidate</a> has been posted, please give your feedback! While FPC 2.4.0 will
+    primarily offer under-the-hood changes and bug fixes, the current svn trunk has seen
+    quite some work recently on the new features front:
+    <ul>
+      <li><a href="http://wiki.freepascal.org/for-in_loop">For..in-loops</a>
+        are now supported (including some FPC-specific extensions).</li>
+      <li>The compiler now understands sealed and abstract classes, and final methods.</li>
+      <li>Together with the Mac Pascal community, we have designed and implemented a basic
+        <a href="http://wiki.freepascal.org/FPC_PasCocoa#Objectice-C_FPC_Compiler">Objective-Pascal</a>
+        dialect for directly interfacing with Objective-C on Mac OS X (including header
+        translations of several Cocoa frameworks).</li>
+      <li>The Mac OS X interfaces have been updated to their Mac OS X 10.6 state
+        (including 64 bit and iPhoneOS support).</li>
+    </ul>
+  </trn>
+</ul>
+
+<li>September 17, 2009
 <ul>
   <li>
   <trn locale="en_US" key="website.news_headline_20090917">
@@ -20,7 +41,7 @@
     10.6 due to a bug in the Xcode 3.2 linker. Unforuntately, there is no easy fix when using
     FPC 2.2.4. The full discussion can be found in <a href="http://bugs.freepascal.org/view.php?id=14471">
     this bug report</a>, with a summary in the last comment.
-   </trn>
+  </trn>
 </ul>
 
 <li>August 20, 2009
