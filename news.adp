@@ -21,7 +21,7 @@
         are now supported (including some FPC-specific extensions).</li>
       <li>The compiler now understands sealed and abstract classes, and final methods.</li>
       <li>Together with the Mac Pascal community, we have designed and implemented a basic
-        <a href="http://wiki.freepascal.org/FPC_PasCocoa#Objectice-C_FPC_Compiler">Objective-Pascal</a>
+        <a href="http://wiki.freepascal.org/FPC_PasCocoa#Objective-C_FPC_Compiler">Objective-Pascal</a>
         dialect for directly interfacing with Objective-C on Mac OS X (including header
         translations of several Cocoa frameworks).</li>
       <li>The Mac OS X interfaces have been updated to their Mac OS X 10.6 state
