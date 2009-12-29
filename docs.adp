@@ -45,14 +45,8 @@
   The <b>windows</b> unit is not documented in Free Pascal. The reason for
   this is that this is a HUGE unit, which would describe the complete win32
   API, and that is not the purpose of this documentation.<p>
-  However, the Win32 api help can be downloaded for free from 
-  <a href="ftp://ftp.borland.com/pub/delphi/techpubs/delphi2/win32.zip">Borland's web
-  site</a>. This will give an overview of all win32 API calls, and as such
-  it describes all functions in the windows unit. The help file is oriented
-  towards C programmers, but transposing to pascal should be straightforward.
-  <p>
   The complete and up-to-date documentation of the Windows API is also on-line
-  available on <a href="http://msdn.microsoft.com/library/default.asp">Microsofts website</a>.
+  available on <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts website</a>.
 </trn>
 <p>
 <trn locale="en_US" key="website.german_manuals">
