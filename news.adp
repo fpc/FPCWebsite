@@ -13,7 +13,7 @@
 <ul>
   <li>
   <trn locale="en_US" key="website.news_headline_20100101">
-    The new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
+    Happy New Year! A new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
      <ul>
       <li>Delphi like resources for all platforms,</li>
       <li>Dwarf debug information improvements, </li>
