@@ -11,10 +11,10 @@
     which you should read for installation instructions and latest news.
   </trn>
 <p>
-  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>2.2.4</b>.
+  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>2.4.0</b>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
-  Because of a lack of release builders and testers, 2.2.4 is only available for a limited
+  Because of a lack of release builders and testers, 2.4.0 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 </trn>
@@ -23,7 +23,7 @@
 <a name="binary"></a><h3><trn key="website.Binaries" locale="en_US">Binaries</trn></h3>
 <p>
   <trn key="website.can_download_for_platform" locale="en_US">
-    You can download the 2.2.4 release for the following cpu and operating systems:
+    You can download the 2.4.0 release for the following cpu and operating systems:
   </trn>
 <p>  
 <ul>
@@ -42,7 +42,8 @@
       <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 6.x and 7.x</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
-      <li><a href="down/i386/macosx@x@">Mac OS X</a>
+      <li><a href="down/i386/macosx@x@">Mac OS X</a> and several crosscompilers.
+      <li><a href="down/i386/haiku@x@">Haiku</a>	
 <!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
 -->
@@ -61,6 +62,7 @@
   <li>PowerPC64
     <ul>
       <li><a href="down/powerpc64/linux@x@">Linux</a>
+      <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>  
   <li>SPARC
     <ul>

@@ -305,6 +305,7 @@ procedure Ansi2UCS4Move(source:pchar;var dest:UCS4String;len:SizeInt);
           else
             begin
               leavecriticalsection(iconv_lock);
+              writeln(fpgetcerrno);
               runerror(225);
             end;
         end;
@@ -340,6 +341,7 @@ function StrCompAnsi(s1,s2 : PChar): PtrInt;
 {$ifndef ver2_2}
 {$if FPC_FULLVERSION> 20300 }
  {$undef oldwidestring}
+  {$info newstring}
 {$ifend}
 {$endif}
 
@@ -376,6 +378,7 @@ begin
       }
     end;
   SetWideStringManager(CWideStringManager);
+  SetUnicodeStringManager(CWideStringManager);
 end;
 
 

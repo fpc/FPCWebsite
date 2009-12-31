@@ -9,14 +9,37 @@
     Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
     It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64,
     Sparc, ARM. The discontinued 1.0 version also supports the Motorola 680x0.
-    The following operating systems are supported: Linux, FreeBSD,
+    The following operating systems are supported: Linux, FreeBSD, Haiku
     Mac OS X/Darwin, DOS, Win32, Win64, WinCE, OS/2,
     Netware (libc and classic) and MorphOS.
   </trn>
 </p>
 
-
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
+
+<em>January 1st, 2010</em>
+  <trn locale="en_US" key="website.news_headline_20100101">
+    The new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
+     <ul>
+      <li>Delphi like resources for all platforms,</li>
+      <li>Dwarf debug information improvements, </li>
+      <li>Several new targets
+           <ul>
+              <li>  64-bit Mac OS X (x86_64/ppc64)</li>
+              <li>  iPhone (Mac OS X/Arm)</li>
+              <li>  Haiku (from the BeOS family)</li>
+              <li>  Improved ARM EABI support</li>
+          </ul>
+      <li>Whole program optimization</li>
+      <li>Many compiler bugfixes and half an year of library updates (since 2.2.4)</li>
+     </ul>
+
+    Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
+    A list of changes that may require
+    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.0">here</A>.
+  </trn>
+</p>
+
 <p>
   <em>November 9, 2009</em>
   <trn locale="en_US" key="website.news_headline_20091109">
