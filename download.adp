@@ -29,10 +29,8 @@
 <ul>
     <li>ARM
     <ul>
-<!--
       <li><a href="down/arm/gba@x@">Game Boy Advance</a>
       <li><a href="down/arm/nds@x@">Nintendo DS</a>
-  -->
       <li><a href="down/arm/linux@x@">Linux</a>
       <li><a href="down/arm/wince@x@">Windows CE</a>
    </ul>
