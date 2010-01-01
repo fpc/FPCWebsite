@@ -339,9 +339,11 @@ function StrCompAnsi(s1,s2 : PChar): PtrInt;
 
 {$define oldwidestring}
 {$ifndef ver2_0}
+{$ifndef ver2_1} // scenergy also has a 2.1.4.
 {$ifndef ver2_2}
  {$undef oldwidestring}
  {$info newstring}
+{$endif}
 {$endif}
 {$endif}
 
@@ -383,13 +385,10 @@ begin
       }
     end;
   SetWideStringManager(CWideStringManager);
-  {$ifndef ver2_0}
-  {$ifndef ver2_2}
+  {$ifndef oldwidestring}
   SetUnicodeStringManager(CWideStringManager);
   {$endif}
-  {$endif}
 end;
-
 
 initialization
   SetCWideStringManager;
