@@ -359,7 +359,12 @@ begin
 
       UpperWideStringProc:=@UpperWideString;
       LowerWideStringProc:=@LowerWideString;
+      {$ifndef oldwidestring}
+      UpperUnicodeStringProc:=@UpperWidestring;
+      LowerUnicodeStringProc:=@lowerwidestring;
 
+      {$endif}
+      
       CompareWideStringProc:=@CompareWideString;
       CompareTextWideStringProc:=@CompareTextWideString;
       {
