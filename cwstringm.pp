@@ -378,7 +378,11 @@ begin
       }
     end;
   SetWideStringManager(CWideStringManager);
+  {$ifndef ver2_0}
+  {$ifndef ver2_2}
   SetUnicodeStringManager(CWideStringManager);
+  {$endif}
+  {$endif}
 end;
 
 
