@@ -340,10 +340,8 @@ function StrCompAnsi(s1,s2 : PChar): PtrInt;
 {$define oldwidestring}
 {$ifndef ver2_0}
 {$ifndef ver2_2}
-{$if FPC_FULLVERSION> 20300 }
  {$undef oldwidestring}
-  {$info newstring}
-{$ifend}
+ {$info newstring}
 {$endif}
 {$endif}
 
