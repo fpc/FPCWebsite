@@ -526,6 +526,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-australia.var
 	echo >> macosx-australia.var
+../..//down/i386/haiku-australia.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-australia.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-australia.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-australia.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-australia.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-australia.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-australia.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-australia.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-australia.var: gen_makefile.conf
+	echo > haiku-australia.var
+	echo 'URI: haiku-australia.html.bg' >> haiku-australia.var
+	echo 'Content-language: bg' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.en' >> haiku-australia.var
+	echo 'Content-language: en' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.fi' >> haiku-australia.var
+	echo 'Content-language: fi' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.fr' >> haiku-australia.var
+	echo 'Content-language: fr' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.id' >> haiku-australia.var
+	echo 'Content-language: id' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.it' >> haiku-australia.var
+	echo 'Content-language: it' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.nl' >> haiku-australia.var
+	echo 'Content-language: nl' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.po' >> haiku-australia.var
+	echo 'Content-language: pl' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.sl' >> haiku-australia.var
+	echo 'Content-language: sl' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.ru' >> haiku-australia.var
+	echo 'Content-language: ru' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-australia.var
+	echo >> haiku-australia.var
+	echo 'URI: haiku-australia.html.zh-CN' >> haiku-australia.var
+	echo 'Content-language: zh-CN' >> haiku-australia.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-australia.var
+	echo >> haiku-australia.var
 ../..//down/i386/freebsd-austria.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-austria.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-austria.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1023,6 +1094,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-austria.var
 	echo >> macosx-austria.var
+../..//down/i386/haiku-austria.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-austria.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-austria.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-austria.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-austria.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-austria.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-austria.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-austria.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-austria.var: gen_makefile.conf
+	echo > haiku-austria.var
+	echo 'URI: haiku-austria.html.bg' >> haiku-austria.var
+	echo 'Content-language: bg' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.en' >> haiku-austria.var
+	echo 'Content-language: en' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.fi' >> haiku-austria.var
+	echo 'Content-language: fi' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.fr' >> haiku-austria.var
+	echo 'Content-language: fr' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.id' >> haiku-austria.var
+	echo 'Content-language: id' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.it' >> haiku-austria.var
+	echo 'Content-language: it' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.nl' >> haiku-austria.var
+	echo 'Content-language: nl' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.po' >> haiku-austria.var
+	echo 'Content-language: pl' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.sl' >> haiku-austria.var
+	echo 'Content-language: sl' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.ru' >> haiku-austria.var
+	echo 'Content-language: ru' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-austria.var
+	echo >> haiku-austria.var
+	echo 'URI: haiku-austria.html.zh-CN' >> haiku-austria.var
+	echo 'Content-language: zh-CN' >> haiku-austria.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-austria.var
+	echo >> haiku-austria.var
 ../..//down/i386/freebsd-hungary.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-hungary.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-hungary.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1520,6 +1662,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-hungary.var
 	echo >> macosx-hungary.var
+../..//down/i386/haiku-hungary.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-hungary.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-hungary.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-hungary.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-hungary.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-hungary.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-hungary.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-hungary.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-hungary.var: gen_makefile.conf
+	echo > haiku-hungary.var
+	echo 'URI: haiku-hungary.html.bg' >> haiku-hungary.var
+	echo 'Content-language: bg' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.en' >> haiku-hungary.var
+	echo 'Content-language: en' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.fi' >> haiku-hungary.var
+	echo 'Content-language: fi' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.fr' >> haiku-hungary.var
+	echo 'Content-language: fr' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.id' >> haiku-hungary.var
+	echo 'Content-language: id' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.it' >> haiku-hungary.var
+	echo 'Content-language: it' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.nl' >> haiku-hungary.var
+	echo 'Content-language: nl' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.po' >> haiku-hungary.var
+	echo 'Content-language: pl' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.sl' >> haiku-hungary.var
+	echo 'Content-language: sl' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.ru' >> haiku-hungary.var
+	echo 'Content-language: ru' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-hungary.var
+	echo >> haiku-hungary.var
+	echo 'URI: haiku-hungary.html.zh-CN' >> haiku-hungary.var
+	echo 'Content-language: zh-CN' >> haiku-hungary.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-hungary.var
+	echo >> haiku-hungary.var
 ../..//down/i386/freebsd-israel.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-israel.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-israel.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -2017,6 +2230,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-israel.var
 	echo >> macosx-israel.var
+../..//down/i386/haiku-israel.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-israel.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-israel.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-israel.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-israel.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-israel.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-israel.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-israel.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-israel.var: gen_makefile.conf
+	echo > haiku-israel.var
+	echo 'URI: haiku-israel.html.bg' >> haiku-israel.var
+	echo 'Content-language: bg' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.en' >> haiku-israel.var
+	echo 'Content-language: en' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.fi' >> haiku-israel.var
+	echo 'Content-language: fi' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.fr' >> haiku-israel.var
+	echo 'Content-language: fr' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.id' >> haiku-israel.var
+	echo 'Content-language: id' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.it' >> haiku-israel.var
+	echo 'Content-language: it' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.nl' >> haiku-israel.var
+	echo 'Content-language: nl' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.po' >> haiku-israel.var
+	echo 'Content-language: pl' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.sl' >> haiku-israel.var
+	echo 'Content-language: sl' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.ru' >> haiku-israel.var
+	echo 'Content-language: ru' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-israel.var
+	echo >> haiku-israel.var
+	echo 'URI: haiku-israel.html.zh-CN' >> haiku-israel.var
+	echo 'Content-language: zh-CN' >> haiku-israel.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-israel.var
+	echo >> haiku-israel.var
 ../..//down/i386/freebsd-netherlands.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-netherlands.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-netherlands.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -2514,6 +2798,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-netherlands.var
 	echo >> macosx-netherlands.var
+../..//down/i386/haiku-netherlands.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-netherlands.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-netherlands.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-netherlands.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-netherlands.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-netherlands.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-netherlands.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-netherlands.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-netherlands.var: gen_makefile.conf
+	echo > haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.bg' >> haiku-netherlands.var
+	echo 'Content-language: bg' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.en' >> haiku-netherlands.var
+	echo 'Content-language: en' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.fi' >> haiku-netherlands.var
+	echo 'Content-language: fi' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.fr' >> haiku-netherlands.var
+	echo 'Content-language: fr' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.id' >> haiku-netherlands.var
+	echo 'Content-language: id' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.it' >> haiku-netherlands.var
+	echo 'Content-language: it' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.nl' >> haiku-netherlands.var
+	echo 'Content-language: nl' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.po' >> haiku-netherlands.var
+	echo 'Content-language: pl' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.sl' >> haiku-netherlands.var
+	echo 'Content-language: sl' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.ru' >> haiku-netherlands.var
+	echo 'Content-language: ru' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
+	echo 'URI: haiku-netherlands.html.zh-CN' >> haiku-netherlands.var
+	echo 'Content-language: zh-CN' >> haiku-netherlands.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-netherlands.var
+	echo >> haiku-netherlands.var
 ../..//down/i386/freebsd-norway.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-norway.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-norway.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -3011,6 +3366,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-norway.var
 	echo >> macosx-norway.var
+../..//down/i386/haiku-norway.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-norway.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-norway.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-norway.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-norway.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-norway.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-norway.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-norway.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-norway.var: gen_makefile.conf
+	echo > haiku-norway.var
+	echo 'URI: haiku-norway.html.bg' >> haiku-norway.var
+	echo 'Content-language: bg' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.en' >> haiku-norway.var
+	echo 'Content-language: en' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.fi' >> haiku-norway.var
+	echo 'Content-language: fi' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.fr' >> haiku-norway.var
+	echo 'Content-language: fr' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.id' >> haiku-norway.var
+	echo 'Content-language: id' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.it' >> haiku-norway.var
+	echo 'Content-language: it' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.nl' >> haiku-norway.var
+	echo 'Content-language: nl' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.po' >> haiku-norway.var
+	echo 'Content-language: pl' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.sl' >> haiku-norway.var
+	echo 'Content-language: sl' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.ru' >> haiku-norway.var
+	echo 'Content-language: ru' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-norway.var
+	echo >> haiku-norway.var
+	echo 'URI: haiku-norway.html.zh-CN' >> haiku-norway.var
+	echo 'Content-language: zh-CN' >> haiku-norway.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-norway.var
+	echo >> haiku-norway.var
 ../..//down/i386/freebsd-russia.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-russia.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-russia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -3508,6 +3934,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-russia.var
 	echo >> macosx-russia.var
+../..//down/i386/haiku-russia.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-russia.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-russia.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-russia.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-russia.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-russia.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-russia.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-russia.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-russia.var: gen_makefile.conf
+	echo > haiku-russia.var
+	echo 'URI: haiku-russia.html.bg' >> haiku-russia.var
+	echo 'Content-language: bg' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.en' >> haiku-russia.var
+	echo 'Content-language: en' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.fi' >> haiku-russia.var
+	echo 'Content-language: fi' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.fr' >> haiku-russia.var
+	echo 'Content-language: fr' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.id' >> haiku-russia.var
+	echo 'Content-language: id' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.it' >> haiku-russia.var
+	echo 'Content-language: it' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.nl' >> haiku-russia.var
+	echo 'Content-language: nl' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.po' >> haiku-russia.var
+	echo 'Content-language: pl' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.sl' >> haiku-russia.var
+	echo 'Content-language: sl' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.ru' >> haiku-russia.var
+	echo 'Content-language: ru' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-russia.var
+	echo >> haiku-russia.var
+	echo 'URI: haiku-russia.html.zh-CN' >> haiku-russia.var
+	echo 'Content-language: zh-CN' >> haiku-russia.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-russia.var
+	echo >> haiku-russia.var
 ../..//down/i386/freebsd-ftp.freepascal.org.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//freebsd-ftp.freepascal.org.html.bg -oe iso-8859-5 freebsd.adp
 ../..//down/i386/freebsd-ftp.freepascal.org.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -4005,6 +4502,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-ftp.freepascal.org.var
 	echo >> macosx-ftp.freepascal.org.var
+../..//down/i386/haiku-ftp.freepascal.org.html.bg: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.bg -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.en: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.en -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.fi: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.fi -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.fr: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.fr -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.id: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.id -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.it: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.it -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.nl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.nl -oe iso-8859-1 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.po: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.po -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.sl: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.sl -oe iso-8859-2 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.ru: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.ru -oe iso-8859-5 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html.zh-CN: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html.zh-CN -oe utf-16 haiku.adp
+../..//down/i386/haiku-ftp.freepascal.org.html: haiku.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i386/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i386//haiku-ftp.freepascal.org.html -oe ISO-8859-1 haiku.adp
+
+../..//down/i386/haiku-ftp.freepascal.org.var: gen_makefile.conf
+	echo > haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.bg' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.en' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: en' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.fi' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: fi' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.fr' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: fr' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.id' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: id' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.it' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: it' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.nl' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: nl' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.po' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: pl' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.sl' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: sl' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.ru' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: ru' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
+	echo 'URI: haiku-ftp.freepascal.org.html.zh-CN' >> haiku-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> haiku-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku-ftp.freepascal.org.var
+	echo >> haiku-ftp.freepascal.org.var
 
 ../..//down/i386/freebsd.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o freebsd.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -4503,6 +5071,77 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> macosx.var
 	echo >> macosx.var
 
+../..//down/i386/haiku.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o haiku.html.bg -oe iso-8859-5 ../../templatemirror.adp
+../..//down/i386/haiku.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o haiku.html.en -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o haiku.html.fi -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o haiku.html.fr -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o haiku.html.id -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o haiku.html.it -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o haiku.html.nl -oe iso-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o haiku.html.po -oe iso-8859-2 ../../templatemirror.adp
+../..//down/i386/haiku.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o haiku.html.sl -oe iso-8859-2 ../../templatemirror.adp
+../..//down/i386/haiku.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o haiku.html.ru -oe iso-8859-5 ../../templatemirror.adp
+../..//down/i386/haiku.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=haiku -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o haiku.html.zh-CN -oe utf-16 ../../templatemirror.adp
+../..//down/i386/haiku.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=haiku -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o haiku.html -oe ISO-8859-1 ../../templatemirror.adp
+../..//down/i386/haiku.var: gen_makefile.conf
+	echo > haiku.var
+	echo 'URI: haiku.html.bg' >> haiku.var
+	echo 'Content-language: bg' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.en' >> haiku.var
+	echo 'Content-language: en' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.fi' >> haiku.var
+	echo 'Content-language: fi' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.fr' >> haiku.var
+	echo 'Content-language: fr' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.id' >> haiku.var
+	echo 'Content-language: id' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.it' >> haiku.var
+	echo 'Content-language: it' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.nl' >> haiku.var
+	echo 'Content-language: nl' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.po' >> haiku.var
+	echo 'Content-language: pl' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.sl' >> haiku.var
+	echo 'Content-language: sl' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.ru' >> haiku.var
+	echo 'Content-language: ru' >> haiku.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> haiku.var
+	echo >> haiku.var
+	echo 'URI: haiku.html.zh-CN' >> haiku.var
+	echo 'Content-language: zh-CN' >> haiku.var
+	echo 'Content-type: text/html; charset=utf-16' >> haiku.var
+	echo >> haiku.var
+
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
 	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
@@ -4514,8 +5153,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/i386/freebsd-australia.html.bg ../..//down/i386/freebsd-australia.html.en ../..//down/i386/freebsd-australia.html.fi ../..//down/i386/freebsd-australia.html.fr ../..//down/i386/freebsd-australia.html.id ../..//down/i386/freebsd-australia.html.it ../..//down/i386/freebsd-australia.html.nl ../..//down/i386/freebsd-australia.html.po ../..//down/i386/freebsd-australia.html.sl ../..//down/i386/freebsd-australia.html.ru ../..//down/i386/freebsd-australia.html.zh-CN ../..//down/i386/freebsd-australia.var ../..//down/i386/go32v2-australia.html.bg ../..//down/i386/go32v2-australia.html.en ../..//down/i386/go32v2-australia.html.fi ../..//down/i386/go32v2-australia.html.fr ../..//down/i386/go32v2-australia.html.id ../..//down/i386/go32v2-australia.html.it ../..//down/i386/go32v2-australia.html.nl ../..//down/i386/go32v2-australia.html.po ../..//down/i386/go32v2-australia.html.sl ../..//down/i386/go32v2-australia.html.ru ../..//down/i386/go32v2-australia.html.zh-CN ../..//down/i386/go32v2-australia.var ../..//down/i386/linux-australia.html.bg ../..//down/i386/linux-australia.html.en ../..//down/i386/linux-australia.html.fi ../..//down/i386/linux-australia.html.fr ../..//down/i386/linux-australia.html.id ../..//down/i386/linux-australia.html.it ../..//down/i386/linux-australia.html.nl ../..//down/i386/linux-australia.html.po ../..//down/i386/linux-australia.html.sl ../..//down/i386/linux-australia.html.ru ../..//down/i386/linux-australia.html.zh-CN ../..//down/i386/linux-australia.var ../..//down/i386/netware-australia.html.bg ../..//down/i386/netware-australia.html.en ../..//down/i386/netware-australia.html.fi ../..//down/i386/netware-australia.html.fr ../..//down/i386/netware-australia.html.id ../..//down/i386/netware-australia.html.it ../..//down/i386/netware-australia.html.nl ../..//down/i386/netware-australia.html.po ../..//down/i386/netware-australia.html.sl ../..//down/i386/netware-australia.html.ru ../..//down/i386/netware-australia.html.zh-CN ../..//down/i386/netware-australia.var ../..//down/i386/os2-australia.html.bg ../..//down/i386/os2-australia.html.en ../..//down/i386/os2-australia.html.fi ../..//down/i386/os2-australia.html.fr ../..//down/i386/os2-australia.html.id ../..//down/i386/os2-australia.html.it ../..//down/i386/os2-australia.html.nl ../..//down/i386/os2-australia.html.po ../..//down/i386/os2-australia.html.sl ../..//down/i386/os2-australia.html.ru ../..//down/i386/os2-australia.html.zh-CN ../..//down/i386/os2-australia.var ../..//down/i386/win32-australia.html.bg ../..//down/i386/win32-australia.html.en ../..//down/i386/win32-australia.html.fi ../..//down/i386/win32-australia.html.fr ../..//down/i386/win32-australia.html.id ../..//down/i386/win32-australia.html.it ../..//down/i386/win32-australia.html.nl ../..//down/i386/win32-australia.html.po ../..//down/i386/win32-australia.html.sl ../..//down/i386/win32-australia.html.ru ../..//down/i386/win32-australia.html.zh-CN ../..//down/i386/win32-australia.var ../..//down/i386/macosx-australia.html.bg ../..//down/i386/macosx-australia.html.en ../..//down/i386/macosx-australia.html.fi ../..//down/i386/macosx-australia.html.fr ../..//down/i386/macosx-australia.html.id ../..//down/i386/macosx-australia.html.it ../..//down/i386/macosx-australia.html.nl ../..//down/i386/macosx-australia.html.po ../..//down/i386/macosx-australia.html.sl ../..//down/i386/macosx-australia.html.ru ../..//down/i386/macosx-australia.html.zh-CN ../..//down/i386/macosx-australia.var ../..//down/i386/freebsd-austria.html.bg ../..//down/i386/freebsd-austria.html.en ../..//down/i386/freebsd-austria.html.fi ../..//down/i386/freebsd-austria.html.fr ../..//down/i386/freebsd-austria.html.id ../..//down/i386/freebsd-austria.html.it ../..//down/i386/freebsd-austria.html.nl ../..//down/i386/freebsd-austria.html.po ../..//down/i386/freebsd-austria.html.sl ../..//down/i386/freebsd-austria.html.ru ../..//down/i386/freebsd-austria.html.zh-CN ../..//down/i386/freebsd-austria.var ../..//down/i386/go32v2-austria.html.bg ../..//down/i386/go32v2-austria.html.en ../..//down/i386/go32v2-austria.html.fi ../..//down/i386/go32v2-austria.html.fr ../..//down/i386/go32v2-austria.html.id ../..//down/i386/go32v2-austria.html.it ../..//down/i386/go32v2-austria.html.nl ../..//down/i386/go32v2-austria.html.po ../..//down/i386/go32v2-austria.html.sl ../..//down/i386/go32v2-austria.html.ru ../..//down/i386/go32v2-austria.html.zh-CN ../..//down/i386/go32v2-austria.var ../..//down/i386/linux-austria.html.bg ../..//down/i386/linux-austria.html.en ../..//down/i386/linux-austria.html.fi ../..//down/i386/linux-austria.html.fr ../..//down/i386/linux-austria.html.id ../..//down/i386/linux-austria.html.it ../..//down/i386/linux-austria.html.nl ../..//down/i386/linux-austria.html.po ../..//down/i386/linux-austria.html.sl ../..//down/i386/linux-austria.html.ru ../..//down/i386/linux-austria.html.zh-CN ../..//down/i386/linux-austria.var ../..//down/i386/netware-austria.html.bg ../..//down/i386/netware-austria.html.en ../..//down/i386/netware-austria.html.fi ../..//down/i386/netware-austria.html.fr ../..//down/i386/netware-austria.html.id ../..//down/i386/netware-austria.html.it ../..//down/i386/netware-austria.html.nl ../..//down/i386/netware-austria.html.po ../..//down/i386/netware-austria.html.sl ../..//down/i386/netware-austria.html.ru ../..//down/i386/netware-austria.html.zh-CN ../..//down/i386/netware-austria.var ../..//down/i386/os2-austria.html.bg ../..//down/i386/os2-austria.html.en ../..//down/i386/os2-austria.html.fi ../..//down/i386/os2-austria.html.fr ../..//down/i386/os2-austria.html.id ../..//down/i386/os2-austria.html.it ../..//down/i386/os2-austria.html.nl ../..//down/i386/os2-austria.html.po ../..//down/i386/os2-austria.html.sl ../..//down/i386/os2-austria.html.ru ../..//down/i386/os2-austria.html.zh-CN ../..//down/i386/os2-austria.var ../..//down/i386/win32-austria.html.bg ../..//down/i386/win32-austria.html.en ../..//down/i386/win32-austria.html.fi ../..//down/i386/win32-austria.html.fr ../..//down/i386/win32-austria.html.id ../..//down/i386/win32-austria.html.it ../..//down/i386/win32-austria.html.nl ../..//down/i386/win32-austria.html.po ../..//down/i386/win32-austria.html.sl ../..//down/i386/win32-austria.html.ru ../..//down/i386/win32-austria.html.zh-CN ../..//down/i386/win32-austria.var ../..//down/i386/macosx-austria.html.bg ../..//down/i386/macosx-austria.html.en ../..//down/i386/macosx-austria.html.fi ../..//down/i386/macosx-austria.html.fr ../..//down/i386/macosx-austria.html.id ../..//down/i386/macosx-austria.html.it ../..//down/i386/macosx-austria.html.nl ../..//down/i386/macosx-austria.html.po ../..//down/i386/macosx-austria.html.sl ../..//down/i386/macosx-austria.html.ru ../..//down/i386/macosx-austria.html.zh-CN ../..//down/i386/macosx-austria.var ../..//down/i386/freebsd-hungary.html.bg ../..//down/i386/freebsd-hungary.html.en ../..//down/i386/freebsd-hungary.html.fi ../..//down/i386/freebsd-hungary.html.fr ../..//down/i386/freebsd-hungary.html.id ../..//down/i386/freebsd-hungary.html.it ../..//down/i386/freebsd-hungary.html.nl ../..//down/i386/freebsd-hungary.html.po ../..//down/i386/freebsd-hungary.html.sl ../..//down/i386/freebsd-hungary.html.ru ../..//down/i386/freebsd-hungary.html.zh-CN ../..//down/i386/freebsd-hungary.var ../..//down/i386/go32v2-hungary.html.bg ../..//down/i386/go32v2-hungary.html.en ../..//down/i386/go32v2-hungary.html.fi ../..//down/i386/go32v2-hungary.html.fr ../..//down/i386/go32v2-hungary.html.id ../..//down/i386/go32v2-hungary.html.it ../..//down/i386/go32v2-hungary.html.nl ../..//down/i386/go32v2-hungary.html.po ../..//down/i386/go32v2-hungary.html.sl ../..//down/i386/go32v2-hungary.html.ru ../..//down/i386/go32v2-hungary.html.zh-CN ../..//down/i386/go32v2-hungary.var ../..//down/i386/linux-hungary.html.bg ../..//down/i386/linux-hungary.html.en ../..//down/i386/linux-hungary.html.fi ../..//down/i386/linux-hungary.html.fr ../..//down/i386/linux-hungary.html.id ../..//down/i386/linux-hungary.html.it ../..//down/i386/linux-hungary.html.nl ../..//down/i386/linux-hungary.html.po ../..//down/i386/linux-hungary.html.sl ../..//down/i386/linux-hungary.html.ru ../..//down/i386/linux-hungary.html.zh-CN ../..//down/i386/linux-hungary.var ../..//down/i386/netware-hungary.html.bg ../..//down/i386/netware-hungary.html.en ../..//down/i386/netware-hungary.html.fi ../..//down/i386/netware-hungary.html.fr ../..//down/i386/netware-hungary.html.id ../..//down/i386/netware-hungary.html.it ../..//down/i386/netware-hungary.html.nl ../..//down/i386/netware-hungary.html.po ../..//down/i386/netware-hungary.html.sl ../..//down/i386/netware-hungary.html.ru ../..//down/i386/netware-hungary.html.zh-CN ../..//down/i386/netware-hungary.var ../..//down/i386/os2-hungary.html.bg ../..//down/i386/os2-hungary.html.en ../..//down/i386/os2-hungary.html.fi ../..//down/i386/os2-hungary.html.fr ../..//down/i386/os2-hungary.html.id ../..//down/i386/os2-hungary.html.it ../..//down/i386/os2-hungary.html.nl ../..//down/i386/os2-hungary.html.po ../..//down/i386/os2-hungary.html.sl ../..//down/i386/os2-hungary.html.ru ../..//down/i386/os2-hungary.html.zh-CN ../..//down/i386/os2-hungary.var ../..//down/i386/win32-hungary.html.bg ../..//down/i386/win32-hungary.html.en ../..//down/i386/win32-hungary.html.fi ../..//down/i386/win32-hungary.html.fr ../..//down/i386/win32-hungary.html.id ../..//down/i386/win32-hungary.html.it ../..//down/i386/win32-hungary.html.nl ../..//down/i386/win32-hungary.html.po ../..//down/i386/win32-hungary.html.sl ../..//down/i386/win32-hungary.html.ru ../..//down/i386/win32-hungary.html.zh-CN ../..//down/i386/win32-hungary.var ../..//down/i386/macosx-hungary.html.bg ../..//down/i386/macosx-hungary.html.en ../..//down/i386/macosx-hungary.html.fi ../..//down/i386/macosx-hungary.html.fr ../..//down/i386/macosx-hungary.html.id ../..//down/i386/macosx-hungary.html.it ../..//down/i386/macosx-hungary.html.nl ../..//down/i386/macosx-hungary.html.po ../..//down/i386/macosx-hungary.html.sl ../..//down/i386/macosx-hungary.html.ru ../..//down/i386/macosx-hungary.html.zh-CN ../..//down/i386/macosx-hungary.var ../..//down/i386/freebsd-israel.html.bg ../..//down/i386/freebsd-israel.html.en ../..//down/i386/freebsd-israel.html.fi ../..//down/i386/freebsd-israel.html.fr ../..//down/i386/freebsd-israel.html.id ../..//down/i386/freebsd-israel.html.it ../..//down/i386/freebsd-israel.html.nl ../..//down/i386/freebsd-israel.html.po ../..//down/i386/freebsd-israel.html.sl ../..//down/i386/freebsd-israel.html.ru ../..//down/i386/freebsd-israel.html.zh-CN ../..//down/i386/freebsd-israel.var ../..//down/i386/go32v2-israel.html.bg ../..//down/i386/go32v2-israel.html.en ../..//down/i386/go32v2-israel.html.fi ../..//down/i386/go32v2-israel.html.fr ../..//down/i386/go32v2-israel.html.id ../..//down/i386/go32v2-israel.html.it ../..//down/i386/go32v2-israel.html.nl ../..//down/i386/go32v2-israel.html.po ../..//down/i386/go32v2-israel.html.sl ../..//down/i386/go32v2-israel.html.ru ../..//down/i386/go32v2-israel.html.zh-CN ../..//down/i386/go32v2-israel.var ../..//down/i386/linux-israel.html.bg ../..//down/i386/linux-israel.html.en ../..//down/i386/linux-israel.html.fi ../..//down/i386/linux-israel.html.fr ../..//down/i386/linux-israel.html.id ../..//down/i386/linux-israel.html.it ../..//down/i386/linux-israel.html.nl ../..//down/i386/linux-israel.html.po ../..//down/i386/linux-israel.html.sl ../..//down/i386/linux-israel.html.ru ../..//down/i386/linux-israel.html.zh-CN ../..//down/i386/linux-israel.var ../..//down/i386/netware-israel.html.bg ../..//down/i386/netware-israel.html.en ../..//down/i386/netware-israel.html.fi ../..//down/i386/netware-israel.html.fr ../..//down/i386/netware-israel.html.id ../..//down/i386/netware-israel.html.it ../..//down/i386/netware-israel.html.nl ../..//down/i386/netware-israel.html.po ../..//down/i386/netware-israel.html.sl ../..//down/i386/netware-israel.html.ru ../..//down/i386/netware-israel.html.zh-CN ../..//down/i386/netware-israel.var ../..//down/i386/os2-israel.html.bg ../..//down/i386/os2-israel.html.en ../..//down/i386/os2-israel.html.fi ../..//down/i386/os2-israel.html.fr ../..//down/i386/os2-israel.html.id ../..//down/i386/os2-israel.html.it ../..//down/i386/os2-israel.html.nl ../..//down/i386/os2-israel.html.po ../..//down/i386/os2-israel.html.sl ../..//down/i386/os2-israel.html.ru ../..//down/i386/os2-israel.html.zh-CN ../..//down/i386/os2-israel.var ../..//down/i386/win32-israel.html.bg ../..//down/i386/win32-israel.html.en ../..//down/i386/win32-israel.html.fi ../..//down/i386/win32-israel.html.fr ../..//down/i386/win32-israel.html.id ../..//down/i386/win32-israel.html.it ../..//down/i386/win32-israel.html.nl ../..//down/i386/win32-israel.html.po ../..//down/i386/win32-israel.html.sl ../..//down/i386/win32-israel.html.ru ../..//down/i386/win32-israel.html.zh-CN ../..//down/i386/win32-israel.var ../..//down/i386/macosx-israel.html.bg ../..//down/i386/macosx-israel.html.en ../..//down/i386/macosx-israel.html.fi ../..//down/i386/macosx-israel.html.fr ../..//down/i386/macosx-israel.html.id ../..//down/i386/macosx-israel.html.it ../..//down/i386/macosx-israel.html.nl ../..//down/i386/macosx-israel.html.po ../..//down/i386/macosx-israel.html.sl ../..//down/i386/macosx-israel.html.ru ../..//down/i386/macosx-israel.html.zh-CN ../..//down/i386/macosx-israel.var ../..//down/i386/freebsd-netherlands.html.bg ../..//down/i386/freebsd-netherlands.html.en ../..//down/i386/freebsd-netherlands.html.fi ../..//down/i386/freebsd-netherlands.html.fr ../..//down/i386/freebsd-netherlands.html.id ../..//down/i386/freebsd-netherlands.html.it ../..//down/i386/freebsd-netherlands.html.nl ../..//down/i386/freebsd-netherlands.html.po ../..//down/i386/freebsd-netherlands.html.sl ../..//down/i386/freebsd-netherlands.html.ru ../..//down/i386/freebsd-netherlands.html.zh-CN ../..//down/i386/freebsd-netherlands.var ../..//down/i386/go32v2-netherlands.html.bg ../..//down/i386/go32v2-netherlands.html.en ../..//down/i386/go32v2-netherlands.html.fi ../..//down/i386/go32v2-netherlands.html.fr ../..//down/i386/go32v2-netherlands.html.id ../..//down/i386/go32v2-netherlands.html.it ../..//down/i386/go32v2-netherlands.html.nl ../..//down/i386/go32v2-netherlands.html.po ../..//down/i386/go32v2-netherlands.html.sl ../..//down/i386/go32v2-netherlands.html.ru ../..//down/i386/go32v2-netherlands.html.zh-CN ../..//down/i386/go32v2-netherlands.var ../..//down/i386/linux-netherlands.html.bg ../..//down/i386/linux-netherlands.html.en ../..//down/i386/linux-netherlands.html.fi ../..//down/i386/linux-netherlands.html.fr ../..//down/i386/linux-netherlands.html.id ../..//down/i386/linux-netherlands.html.it ../..//down/i386/linux-netherlands.html.nl ../..//down/i386/linux-netherlands.html.po ../..//down/i386/linux-netherlands.html.sl ../..//down/i386/linux-netherlands.html.ru ../..//down/i386/linux-netherlands.html.zh-CN ../..//down/i386/linux-netherlands.var ../..//down/i386/netware-netherlands.html.bg ../..//down/i386/netware-netherlands.html.en ../..//down/i386/netware-netherlands.html.fi ../..//down/i386/netware-netherlands.html.fr ../..//down/i386/netware-netherlands.html.id ../..//down/i386/netware-netherlands.html.it ../..//down/i386/netware-netherlands.html.nl ../..//down/i386/netware-netherlands.html.po ../..//down/i386/netware-netherlands.html.sl ../..//down/i386/netware-netherlands.html.ru ../..//down/i386/netware-netherlands.html.zh-CN ../..//down/i386/netware-netherlands.var ../..//down/i386/os2-netherlands.html.bg ../..//down/i386/os2-netherlands.html.en ../..//down/i386/os2-netherlands.html.fi ../..//down/i386/os2-netherlands.html.fr ../..//down/i386/os2-netherlands.html.id ../..//down/i386/os2-netherlands.html.it ../..//down/i386/os2-netherlands.html.nl ../..//down/i386/os2-netherlands.html.po ../..//down/i386/os2-netherlands.html.sl ../..//down/i386/os2-netherlands.html.ru ../..//down/i386/os2-netherlands.html.zh-CN ../..//down/i386/os2-netherlands.var ../..//down/i386/win32-netherlands.html.bg ../..//down/i386/win32-netherlands.html.en ../..//down/i386/win32-netherlands.html.fi ../..//down/i386/win32-netherlands.html.fr ../..//down/i386/win32-netherlands.html.id ../..//down/i386/win32-netherlands.html.it ../..//down/i386/win32-netherlands.html.nl ../..//down/i386/win32-netherlands.html.po ../..//down/i386/win32-netherlands.html.sl ../..//down/i386/win32-netherlands.html.ru ../..//down/i386/win32-netherlands.html.zh-CN ../..//down/i386/win32-netherlands.var ../..//down/i386/macosx-netherlands.html.bg ../..//down/i386/macosx-netherlands.html.en ../..//down/i386/macosx-netherlands.html.fi ../..//down/i386/macosx-netherlands.html.fr ../..//down/i386/macosx-netherlands.html.id ../..//down/i386/macosx-netherlands.html.it ../..//down/i386/macosx-netherlands.html.nl ../..//down/i386/macosx-netherlands.html.po ../..//down/i386/macosx-netherlands.html.sl ../..//down/i386/macosx-netherlands.html.ru ../..//down/i386/macosx-netherlands.html.zh-CN ../..//down/i386/macosx-netherlands.var ../..//down/i386/freebsd-norway.html.bg ../..//down/i386/freebsd-norway.html.en ../..//down/i386/freebsd-norway.html.fi ../..//down/i386/freebsd-norway.html.fr ../..//down/i386/freebsd-norway.html.id ../..//down/i386/freebsd-norway.html.it ../..//down/i386/freebsd-norway.html.nl ../..//down/i386/freebsd-norway.html.po ../..//down/i386/freebsd-norway.html.sl ../..//down/i386/freebsd-norway.html.ru ../..//down/i386/freebsd-norway.html.zh-CN ../..//down/i386/freebsd-norway.var ../..//down/i386/go32v2-norway.html.bg ../..//down/i386/go32v2-norway.html.en ../..//down/i386/go32v2-norway.html.fi ../..//down/i386/go32v2-norway.html.fr ../..//down/i386/go32v2-norway.html.id ../..//down/i386/go32v2-norway.html.it ../..//down/i386/go32v2-norway.html.nl ../..//down/i386/go32v2-norway.html.po ../..//down/i386/go32v2-norway.html.sl ../..//down/i386/go32v2-norway.html.ru ../..//down/i386/go32v2-norway.html.zh-CN ../..//down/i386/go32v2-norway.var ../..//down/i386/linux-norway.html.bg ../..//down/i386/linux-norway.html.en ../..//down/i386/linux-norway.html.fi ../..//down/i386/linux-norway.html.fr ../..//down/i386/linux-norway.html.id ../..//down/i386/linux-norway.html.it ../..//down/i386/linux-norway.html.nl ../..//down/i386/linux-norway.html.po ../..//down/i386/linux-norway.html.sl ../..//down/i386/linux-norway.html.ru ../..//down/i386/linux-norway.html.zh-CN ../..//down/i386/linux-norway.var ../..//down/i386/netware-norway.html.bg ../..//down/i386/netware-norway.html.en ../..//down/i386/netware-norway.html.fi ../..//down/i386/netware-norway.html.fr ../..//down/i386/netware-norway.html.id ../..//down/i386/netware-norway.html.it ../..//down/i386/netware-norway.html.nl ../..//down/i386/netware-norway.html.po ../..//down/i386/netware-norway.html.sl ../..//down/i386/netware-norway.html.ru ../..//down/i386/netware-norway.html.zh-CN ../..//down/i386/netware-norway.var ../..//down/i386/os2-norway.html.bg ../..//down/i386/os2-norway.html.en ../..//down/i386/os2-norway.html.fi ../..//down/i386/os2-norway.html.fr ../..//down/i386/os2-norway.html.id ../..//down/i386/os2-norway.html.it ../..//down/i386/os2-norway.html.nl ../..//down/i386/os2-norway.html.po ../..//down/i386/os2-norway.html.sl ../..//down/i386/os2-norway.html.ru ../..//down/i386/os2-norway.html.zh-CN ../..//down/i386/os2-norway.var ../..//down/i386/win32-norway.html.bg ../..//down/i386/win32-norway.html.en ../..//down/i386/win32-norway.html.fi ../..//down/i386/win32-norway.html.fr ../..//down/i386/win32-norway.html.id ../..//down/i386/win32-norway.html.it ../..//down/i386/win32-norway.html.nl ../..//down/i386/win32-norway.html.po ../..//down/i386/win32-norway.html.sl ../..//down/i386/win32-norway.html.ru ../..//down/i386/win32-norway.html.zh-CN ../..//down/i386/win32-norway.var ../..//down/i386/macosx-norway.html.bg ../..//down/i386/macosx-norway.html.en ../..//down/i386/macosx-norway.html.fi ../..//down/i386/macosx-norway.html.fr ../..//down/i386/macosx-norway.html.id ../..//down/i386/macosx-norway.html.it ../..//down/i386/macosx-norway.html.nl ../..//down/i386/macosx-norway.html.po ../..//down/i386/macosx-norway.html.sl ../..//down/i386/macosx-norway.html.ru ../..//down/i386/macosx-norway.html.zh-CN ../..//down/i386/macosx-norway.var ../..//down/i386/freebsd-russia.html.bg ../..//down/i386/freebsd-russia.html.en ../..//down/i386/freebsd-russia.html.fi ../..//down/i386/freebsd-russia.html.fr ../..//down/i386/freebsd-russia.html.id ../..//down/i386/freebsd-russia.html.it ../..//down/i386/freebsd-russia.html.nl ../..//down/i386/freebsd-russia.html.po ../..//down/i386/freebsd-russia.html.sl ../..//down/i386/freebsd-russia.html.ru ../..//down/i386/freebsd-russia.html.zh-CN ../..//down/i386/freebsd-russia.var ../..//down/i386/go32v2-russia.html.bg ../..//down/i386/go32v2-russia.html.en ../..//down/i386/go32v2-russia.html.fi ../..//down/i386/go32v2-russia.html.fr ../..//down/i386/go32v2-russia.html.id ../..//down/i386/go32v2-russia.html.it ../..//down/i386/go32v2-russia.html.nl ../..//down/i386/go32v2-russia.html.po ../..//down/i386/go32v2-russia.html.sl ../..//down/i386/go32v2-russia.html.ru ../..//down/i386/go32v2-russia.html.zh-CN ../..//down/i386/go32v2-russia.var ../..//down/i386/linux-russia.html.bg ../..//down/i386/linux-russia.html.en ../..//down/i386/linux-russia.html.fi ../..//down/i386/linux-russia.html.fr ../..//down/i386/linux-russia.html.id ../..//down/i386/linux-russia.html.it ../..//down/i386/linux-russia.html.nl ../..//down/i386/linux-russia.html.po ../..//down/i386/linux-russia.html.sl ../..//down/i386/linux-russia.html.ru ../..//down/i386/linux-russia.html.zh-CN ../..//down/i386/linux-russia.var ../..//down/i386/netware-russia.html.bg ../..//down/i386/netware-russia.html.en ../..//down/i386/netware-russia.html.fi ../..//down/i386/netware-russia.html.fr ../..//down/i386/netware-russia.html.id ../..//down/i386/netware-russia.html.it ../..//down/i386/netware-russia.html.nl ../..//down/i386/netware-russia.html.po ../..//down/i386/netware-russia.html.sl ../..//down/i386/netware-russia.html.ru ../..//down/i386/netware-russia.html.zh-CN ../..//down/i386/netware-russia.var ../..//down/i386/os2-russia.html.bg ../..//down/i386/os2-russia.html.en ../..//down/i386/os2-russia.html.fi ../..//down/i386/os2-russia.html.fr ../..//down/i386/os2-russia.html.id ../..//down/i386/os2-russia.html.it ../..//down/i386/os2-russia.html.nl ../..//down/i386/os2-russia.html.po ../..//down/i386/os2-russia.html.sl ../..//down/i386/os2-russia.html.ru ../..//down/i386/os2-russia.html.zh-CN ../..//down/i386/os2-russia.var ../..//down/i386/win32-russia.html.bg ../..//down/i386/win32-russia.html.en ../..//down/i386/win32-russia.html.fi ../..//down/i386/win32-russia.html.fr ../..//down/i386/win32-russia.html.id ../..//down/i386/win32-russia.html.it ../..//down/i386/win32-russia.html.nl ../..//down/i386/win32-russia.html.po ../..//down/i386/win32-russia.html.sl ../..//down/i386/win32-russia.html.ru ../..//down/i386/win32-russia.html.zh-CN ../..//down/i386/win32-russia.var ../..//down/i386/macosx-russia.html.bg ../..//down/i386/macosx-russia.html.en ../..//down/i386/macosx-russia.html.fi ../..//down/i386/macosx-russia.html.fr ../..//down/i386/macosx-russia.html.id ../..//down/i386/macosx-russia.html.it ../..//down/i386/macosx-russia.html.nl ../..//down/i386/macosx-russia.html.po ../..//down/i386/macosx-russia.html.sl ../..//down/i386/macosx-russia.html.ru ../..//down/i386/macosx-russia.html.zh-CN ../..//down/i386/macosx-russia.var ../..//down/i386/freebsd-ftp.freepascal.org.html.bg ../..//down/i386/freebsd-ftp.freepascal.org.html.en ../..//down/i386/freebsd-ftp.freepascal.org.html.fi ../..//down/i386/freebsd-ftp.freepascal.org.html.fr ../..//down/i386/freebsd-ftp.freepascal.org.html.id ../..//down/i386/freebsd-ftp.freepascal.org.html.it ../..//down/i386/freebsd-ftp.freepascal.org.html.nl ../..//down/i386/freebsd-ftp.freepascal.org.html.po ../..//down/i386/freebsd-ftp.freepascal.org.html.sl ../..//down/i386/freebsd-ftp.freepascal.org.html.ru ../..//down/i386/freebsd-ftp.freepascal.org.html.zh-CN ../..//down/i386/freebsd-ftp.freepascal.org.var ../..//down/i386/go32v2-ftp.freepascal.org.html.bg ../..//down/i386/go32v2-ftp.freepascal.org.html.en ../..//down/i386/go32v2-ftp.freepascal.org.html.fi ../..//down/i386/go32v2-ftp.freepascal.org.html.fr ../..//down/i386/go32v2-ftp.freepascal.org.html.id ../..//down/i386/go32v2-ftp.freepascal.org.html.it ../..//down/i386/go32v2-ftp.freepascal.org.html.nl ../..//down/i386/go32v2-ftp.freepascal.org.html.po ../..//down/i386/go32v2-ftp.freepascal.org.html.sl ../..//down/i386/go32v2-ftp.freepascal.org.html.ru ../..//down/i386/go32v2-ftp.freepascal.org.html.zh-CN ../..//down/i386/go32v2-ftp.freepascal.org.var ../..//down/i386/linux-ftp.freepascal.org.html.bg ../..//down/i386/linux-ftp.freepascal.org.html.en ../..//down/i386/linux-ftp.freepascal.org.html.fi ../..//down/i386/linux-ftp.freepascal.org.html.fr ../..//down/i386/linux-ftp.freepascal.org.html.id ../..//down/i386/linux-ftp.freepascal.org.html.it ../..//down/i386/linux-ftp.freepascal.org.html.nl ../..//down/i386/linux-ftp.freepascal.org.html.po ../..//down/i386/linux-ftp.freepascal.org.html.sl ../..//down/i386/linux-ftp.freepascal.org.html.ru ../..//down/i386/linux-ftp.freepascal.org.html.zh-CN ../..//down/i386/linux-ftp.freepascal.org.var ../..//down/i386/netware-ftp.freepascal.org.html.bg ../..//down/i386/netware-ftp.freepascal.org.html.en ../..//down/i386/netware-ftp.freepascal.org.html.fi ../..//down/i386/netware-ftp.freepascal.org.html.fr ../..//down/i386/netware-ftp.freepascal.org.html.id ../..//down/i386/netware-ftp.freepascal.org.html.it ../..//down/i386/netware-ftp.freepascal.org.html.nl ../..//down/i386/netware-ftp.freepascal.org.html.po ../..//down/i386/netware-ftp.freepascal.org.html.sl ../..//down/i386/netware-ftp.freepascal.org.html.ru ../..//down/i386/netware-ftp.freepascal.org.html.zh-CN ../..//down/i386/netware-ftp.freepascal.org.var ../..//down/i386/os2-ftp.freepascal.org.html.bg ../..//down/i386/os2-ftp.freepascal.org.html.en ../..//down/i386/os2-ftp.freepascal.org.html.fi ../..//down/i386/os2-ftp.freepascal.org.html.fr ../..//down/i386/os2-ftp.freepascal.org.html.id ../..//down/i386/os2-ftp.freepascal.org.html.it ../..//down/i386/os2-ftp.freepascal.org.html.nl ../..//down/i386/os2-ftp.freepascal.org.html.po ../..//down/i386/os2-ftp.freepascal.org.html.sl ../..//down/i386/os2-ftp.freepascal.org.html.ru ../..//down/i386/os2-ftp.freepascal.org.html.zh-CN ../..//down/i386/os2-ftp.freepascal.org.var ../..//down/i386/win32-ftp.freepascal.org.html.bg ../..//down/i386/win32-ftp.freepascal.org.html.en ../..//down/i386/win32-ftp.freepascal.org.html.fi ../..//down/i386/win32-ftp.freepascal.org.html.fr ../..//down/i386/win32-ftp.freepascal.org.html.id ../..//down/i386/win32-ftp.freepascal.org.html.it ../..//down/i386/win32-ftp.freepascal.org.html.nl ../..//down/i386/win32-ftp.freepascal.org.html.po ../..//down/i386/win32-ftp.freepascal.org.html.sl ../..//down/i386/win32-ftp.freepascal.org.html.ru ../..//down/i386/win32-ftp.freepascal.org.html.zh-CN ../..//down/i386/win32-ftp.freepascal.org.var ../..//down/i386/macosx-ftp.freepascal.org.html.bg ../..//down/i386/macosx-ftp.freepascal.org.html.en ../..//down/i386/macosx-ftp.freepascal.org.html.fi ../..//down/i386/macosx-ftp.freepascal.org.html.fr ../..//down/i386/macosx-ftp.freepascal.org.html.id ../..//down/i386/macosx-ftp.freepascal.org.html.it ../..//down/i386/macosx-ftp.freepascal.org.html.nl ../..//down/i386/macosx-ftp.freepascal.org.html.po ../..//down/i386/macosx-ftp.freepascal.org.html.sl ../..//down/i386/macosx-ftp.freepascal.org.html.ru ../..//down/i386/macosx-ftp.freepascal.org.html.zh-CN ../..//down/i386/macosx-ftp.freepascal.org.var ../..//down/i386/freebsd.html.bg ../..//down/i386/freebsd.html.en ../..//down/i386/freebsd.html.fi ../..//down/i386/freebsd.html.fr ../..//down/i386/freebsd.html.id ../..//down/i386/freebsd.html.it ../..//down/i386/freebsd.html.nl ../..//down/i386/freebsd.html.po ../..//down/i386/freebsd.html.sl ../..//down/i386/freebsd.html.ru ../..//down/i386/freebsd.html.zh-CN ../..//down/i386/freebsd.var ../..//down/i386/go32v2.html.bg ../..//down/i386/go32v2.html.en ../..//down/i386/go32v2.html.fi ../..//down/i386/go32v2.html.fr ../..//down/i386/go32v2.html.id ../..//down/i386/go32v2.html.it ../..//down/i386/go32v2.html.nl ../..//down/i386/go32v2.html.po ../..//down/i386/go32v2.html.sl ../..//down/i386/go32v2.html.ru ../..//down/i386/go32v2.html.zh-CN ../..//down/i386/go32v2.var ../..//down/i386/linux.html.bg ../..//down/i386/linux.html.en ../..//down/i386/linux.html.fi ../..//down/i386/linux.html.fr ../..//down/i386/linux.html.id ../..//down/i386/linux.html.it ../..//down/i386/linux.html.nl ../..//down/i386/linux.html.po ../..//down/i386/linux.html.sl ../..//down/i386/linux.html.ru ../..//down/i386/linux.html.zh-CN ../..//down/i386/linux.var ../..//down/i386/netware.html.bg ../..//down/i386/netware.html.en ../..//down/i386/netware.html.fi ../..//down/i386/netware.html.fr ../..//down/i386/netware.html.id ../..//down/i386/netware.html.it ../..//down/i386/netware.html.nl ../..//down/i386/netware.html.po ../..//down/i386/netware.html.sl ../..//down/i386/netware.html.ru ../..//down/i386/netware.html.zh-CN ../..//down/i386/netware.var ../..//down/i386/os2.html.bg ../..//down/i386/os2.html.en ../..//down/i386/os2.html.fi ../..//down/i386/os2.html.fr ../..//down/i386/os2.html.id ../..//down/i386/os2.html.it ../..//down/i386/os2.html.nl ../..//down/i386/os2.html.po ../..//down/i386/os2.html.sl ../..//down/i386/os2.html.ru ../..//down/i386/os2.html.zh-CN ../..//down/i386/os2.var ../..//down/i386/win32.html.bg ../..//down/i386/win32.html.en ../..//down/i386/win32.html.fi ../..//down/i386/win32.html.fr ../..//down/i386/win32.html.id ../..//down/i386/win32.html.it ../..//down/i386/win32.html.nl ../..//down/i386/win32.html.po ../..//down/i386/win32.html.sl ../..//down/i386/win32.html.ru ../..//down/i386/win32.html.zh-CN ../..//down/i386/win32.var ../..//down/i386/macosx.html.bg ../..//down/i386/macosx.html.en ../..//down/i386/macosx.html.fi ../..//down/i386/macosx.html.fr ../..//down/i386/macosx.html.id ../..//down/i386/macosx.html.it ../..//down/i386/macosx.html.nl ../..//down/i386/macosx.html.po ../..//down/i386/macosx.html.sl ../..//down/i386/macosx.html.ru ../..//down/i386/macosx.html.zh-CN ../..//down/i386/macosx.var
-all_en_pages: mirrors.dat ../..//down/i386/freebsd-australia.html ../..//down/i386/go32v2-australia.html ../..//down/i386/linux-australia.html ../..//down/i386/netware-australia.html ../..//down/i386/os2-australia.html ../..//down/i386/win32-australia.html ../..//down/i386/macosx-australia.html ../..//down/i386/freebsd-austria.html ../..//down/i386/go32v2-austria.html ../..//down/i386/linux-austria.html ../..//down/i386/netware-austria.html ../..//down/i386/os2-austria.html ../..//down/i386/win32-austria.html ../..//down/i386/macosx-austria.html ../..//down/i386/freebsd-hungary.html ../..//down/i386/go32v2-hungary.html ../..//down/i386/linux-hungary.html ../..//down/i386/netware-hungary.html ../..//down/i386/os2-hungary.html ../..//down/i386/win32-hungary.html ../..//down/i386/macosx-hungary.html ../..//down/i386/freebsd-israel.html ../..//down/i386/go32v2-israel.html ../..//down/i386/linux-israel.html ../..//down/i386/netware-israel.html ../..//down/i386/os2-israel.html ../..//down/i386/win32-israel.html ../..//down/i386/macosx-israel.html ../..//down/i386/freebsd-netherlands.html ../..//down/i386/go32v2-netherlands.html ../..//down/i386/linux-netherlands.html ../..//down/i386/netware-netherlands.html ../..//down/i386/os2-netherlands.html ../..//down/i386/win32-netherlands.html ../..//down/i386/macosx-netherlands.html ../..//down/i386/freebsd-norway.html ../..//down/i386/go32v2-norway.html ../..//down/i386/linux-norway.html ../..//down/i386/netware-norway.html ../..//down/i386/os2-norway.html ../..//down/i386/win32-norway.html ../..//down/i386/macosx-norway.html ../..//down/i386/freebsd-russia.html ../..//down/i386/go32v2-russia.html ../..//down/i386/linux-russia.html ../..//down/i386/netware-russia.html ../..//down/i386/os2-russia.html ../..//down/i386/win32-russia.html ../..//down/i386/macosx-russia.html ../..//down/i386/freebsd-ftp.freepascal.org.html ../..//down/i386/go32v2-ftp.freepascal.org.html ../..//down/i386/linux-ftp.freepascal.org.html ../..//down/i386/netware-ftp.freepascal.org.html ../..//down/i386/os2-ftp.freepascal.org.html ../..//down/i386/win32-ftp.freepascal.org.html ../..//down/i386/macosx-ftp.freepascal.org.html ../..//down/i386/freebsd.html ../..//down/i386/go32v2.html ../..//down/i386/linux.html ../..//down/i386/netware.html ../..//down/i386/os2.html ../..//down/i386/win32.html ../..//down/i386/macosx.html
+all_pages: mirrors.dat ../..//down/i386/freebsd-australia.html.bg ../..//down/i386/freebsd-australia.html.en ../..//down/i386/freebsd-australia.html.fi ../..//down/i386/freebsd-australia.html.fr ../..//down/i386/freebsd-australia.html.id ../..//down/i386/freebsd-australia.html.it ../..//down/i386/freebsd-australia.html.nl ../..//down/i386/freebsd-australia.html.po ../..//down/i386/freebsd-australia.html.sl ../..//down/i386/freebsd-australia.html.ru ../..//down/i386/freebsd-australia.html.zh-CN ../..//down/i386/freebsd-australia.var ../..//down/i386/go32v2-australia.html.bg ../..//down/i386/go32v2-australia.html.en ../..//down/i386/go32v2-australia.html.fi ../..//down/i386/go32v2-australia.html.fr ../..//down/i386/go32v2-australia.html.id ../..//down/i386/go32v2-australia.html.it ../..//down/i386/go32v2-australia.html.nl ../..//down/i386/go32v2-australia.html.po ../..//down/i386/go32v2-australia.html.sl ../..//down/i386/go32v2-australia.html.ru ../..//down/i386/go32v2-australia.html.zh-CN ../..//down/i386/go32v2-australia.var ../..//down/i386/linux-australia.html.bg ../..//down/i386/linux-australia.html.en ../..//down/i386/linux-australia.html.fi ../..//down/i386/linux-australia.html.fr ../..//down/i386/linux-australia.html.id ../..//down/i386/linux-australia.html.it ../..//down/i386/linux-australia.html.nl ../..//down/i386/linux-australia.html.po ../..//down/i386/linux-australia.html.sl ../..//down/i386/linux-australia.html.ru ../..//down/i386/linux-australia.html.zh-CN ../..//down/i386/linux-australia.var ../..//down/i386/netware-australia.html.bg ../..//down/i386/netware-australia.html.en ../..//down/i386/netware-australia.html.fi ../..//down/i386/netware-australia.html.fr ../..//down/i386/netware-australia.html.id ../..//down/i386/netware-australia.html.it ../..//down/i386/netware-australia.html.nl ../..//down/i386/netware-australia.html.po ../..//down/i386/netware-australia.html.sl ../..//down/i386/netware-australia.html.ru ../..//down/i386/netware-australia.html.zh-CN ../..//down/i386/netware-australia.var ../..//down/i386/os2-australia.html.bg ../..//down/i386/os2-australia.html.en ../..//down/i386/os2-australia.html.fi ../..//down/i386/os2-australia.html.fr ../..//down/i386/os2-australia.html.id ../..//down/i386/os2-australia.html.it ../..//down/i386/os2-australia.html.nl ../..//down/i386/os2-australia.html.po ../..//down/i386/os2-australia.html.sl ../..//down/i386/os2-australia.html.ru ../..//down/i386/os2-australia.html.zh-CN ../..//down/i386/os2-australia.var ../..//down/i386/win32-australia.html.bg ../..//down/i386/win32-australia.html.en ../..//down/i386/win32-australia.html.fi ../..//down/i386/win32-australia.html.fr ../..//down/i386/win32-australia.html.id ../..//down/i386/win32-australia.html.it ../..//down/i386/win32-australia.html.nl ../..//down/i386/win32-australia.html.po ../..//down/i386/win32-australia.html.sl ../..//down/i386/win32-australia.html.ru ../..//down/i386/win32-australia.html.zh-CN ../..//down/i386/win32-australia.var ../..//down/i386/macosx-australia.html.bg ../..//down/i386/macosx-australia.html.en ../..//down/i386/macosx-australia.html.fi ../..//down/i386/macosx-australia.html.fr ../..//down/i386/macosx-australia.html.id ../..//down/i386/macosx-australia.html.it ../..//down/i386/macosx-australia.html.nl ../..//down/i386/macosx-australia.html.po ../..//down/i386/macosx-australia.html.sl ../..//down/i386/macosx-australia.html.ru ../..//down/i386/macosx-australia.html.zh-CN ../..//down/i386/macosx-australia.var ../..//down/i386/haiku-australia.html.bg ../..//down/i386/haiku-australia.html.en ../..//down/i386/haiku-australia.html.fi ../..//down/i386/haiku-australia.html.fr ../..//down/i386/haiku-australia.html.id ../..//down/i386/haiku-australia.html.it ../..//down/i386/haiku-australia.html.nl ../..//down/i386/haiku-australia.html.po ../..//down/i386/haiku-australia.html.sl ../..//down/i386/haiku-australia.html.ru ../..//down/i386/haiku-australia.html.zh-CN ../..//down/i386/haiku-australia.var ../..//down/i386/freebsd-austria.html.bg ../..//down/i386/freebsd-austria.html.en ../..//down/i386/freebsd-austria.html.fi ../..//down/i386/freebsd-austria.html.fr ../..//down/i386/freebsd-austria.html.id ../..//down/i386/freebsd-austria.html.it ../..//down/i386/freebsd-austria.html.nl ../..//down/i386/freebsd-austria.html.po ../..//down/i386/freebsd-austria.html.sl ../..//down/i386/freebsd-austria.html.ru ../..//down/i386/freebsd-austria.html.zh-CN ../..//down/i386/freebsd-austria.var ../..//down/i386/go32v2-austria.html.bg ../..//down/i386/go32v2-austria.html.en ../..//down/i386/go32v2-austria.html.fi ../..//down/i386/go32v2-austria.html.fr ../..//down/i386/go32v2-austria.html.id ../..//down/i386/go32v2-austria.html.it ../..//down/i386/go32v2-austria.html.nl ../..//down/i386/go32v2-austria.html.po ../..//down/i386/go32v2-austria.html.sl ../..//down/i386/go32v2-austria.html.ru ../..//down/i386/go32v2-austria.html.zh-CN ../..//down/i386/go32v2-austria.var ../..//down/i386/linux-austria.html.bg ../..//down/i386/linux-austria.html.en ../..//down/i386/linux-austria.html.fi ../..//down/i386/linux-austria.html.fr ../..//down/i386/linux-austria.html.id ../..//down/i386/linux-austria.html.it ../..//down/i386/linux-austria.html.nl ../..//down/i386/linux-austria.html.po ../..//down/i386/linux-austria.html.sl ../..//down/i386/linux-austria.html.ru ../..//down/i386/linux-austria.html.zh-CN ../..//down/i386/linux-austria.var ../..//down/i386/netware-austria.html.bg ../..//down/i386/netware-austria.html.en ../..//down/i386/netware-austria.html.fi ../..//down/i386/netware-austria.html.fr ../..//down/i386/netware-austria.html.id ../..//down/i386/netware-austria.html.it ../..//down/i386/netware-austria.html.nl ../..//down/i386/netware-austria.html.po ../..//down/i386/netware-austria.html.sl ../..//down/i386/netware-austria.html.ru ../..//down/i386/netware-austria.html.zh-CN ../..//down/i386/netware-austria.var ../..//down/i386/os2-austria.html.bg ../..//down/i386/os2-austria.html.en ../..//down/i386/os2-austria.html.fi ../..//down/i386/os2-austria.html.fr ../..//down/i386/os2-austria.html.id ../..//down/i386/os2-austria.html.it ../..//down/i386/os2-austria.html.nl ../..//down/i386/os2-austria.html.po ../..//down/i386/os2-austria.html.sl ../..//down/i386/os2-austria.html.ru ../..//down/i386/os2-austria.html.zh-CN ../..//down/i386/os2-austria.var ../..//down/i386/win32-austria.html.bg ../..//down/i386/win32-austria.html.en ../..//down/i386/win32-austria.html.fi ../..//down/i386/win32-austria.html.fr ../..//down/i386/win32-austria.html.id ../..//down/i386/win32-austria.html.it ../..//down/i386/win32-austria.html.nl ../..//down/i386/win32-austria.html.po ../..//down/i386/win32-austria.html.sl ../..//down/i386/win32-austria.html.ru ../..//down/i386/win32-austria.html.zh-CN ../..//down/i386/win32-austria.var ../..//down/i386/macosx-austria.html.bg ../..//down/i386/macosx-austria.html.en ../..//down/i386/macosx-austria.html.fi ../..//down/i386/macosx-austria.html.fr ../..//down/i386/macosx-austria.html.id ../..//down/i386/macosx-austria.html.it ../..//down/i386/macosx-austria.html.nl ../..//down/i386/macosx-austria.html.po ../..//down/i386/macosx-austria.html.sl ../..//down/i386/macosx-austria.html.ru ../..//down/i386/macosx-austria.html.zh-CN ../..//down/i386/macosx-austria.var ../..//down/i386/haiku-austria.html.bg ../..//down/i386/haiku-austria.html.en ../..//down/i386/haiku-austria.html.fi ../..//down/i386/haiku-austria.html.fr ../..//down/i386/haiku-austria.html.id ../..//down/i386/haiku-austria.html.it ../..//down/i386/haiku-austria.html.nl ../..//down/i386/haiku-austria.html.po ../..//down/i386/haiku-austria.html.sl ../..//down/i386/haiku-austria.html.ru ../..//down/i386/haiku-austria.html.zh-CN ../..//down/i386/haiku-austria.var ../..//down/i386/freebsd-hungary.html.bg ../..//down/i386/freebsd-hungary.html.en ../..//down/i386/freebsd-hungary.html.fi ../..//down/i386/freebsd-hungary.html.fr ../..//down/i386/freebsd-hungary.html.id ../..//down/i386/freebsd-hungary.html.it ../..//down/i386/freebsd-hungary.html.nl ../..//down/i386/freebsd-hungary.html.po ../..//down/i386/freebsd-hungary.html.sl ../..//down/i386/freebsd-hungary.html.ru ../..//down/i386/freebsd-hungary.html.zh-CN ../..//down/i386/freebsd-hungary.var ../..//down/i386/go32v2-hungary.html.bg ../..//down/i386/go32v2-hungary.html.en ../..//down/i386/go32v2-hungary.html.fi ../..//down/i386/go32v2-hungary.html.fr ../..//down/i386/go32v2-hungary.html.id ../..//down/i386/go32v2-hungary.html.it ../..//down/i386/go32v2-hungary.html.nl ../..//down/i386/go32v2-hungary.html.po ../..//down/i386/go32v2-hungary.html.sl ../..//down/i386/go32v2-hungary.html.ru ../..//down/i386/go32v2-hungary.html.zh-CN ../..//down/i386/go32v2-hungary.var ../..//down/i386/linux-hungary.html.bg ../..//down/i386/linux-hungary.html.en ../..//down/i386/linux-hungary.html.fi ../..//down/i386/linux-hungary.html.fr ../..//down/i386/linux-hungary.html.id ../..//down/i386/linux-hungary.html.it ../..//down/i386/linux-hungary.html.nl ../..//down/i386/linux-hungary.html.po ../..//down/i386/linux-hungary.html.sl ../..//down/i386/linux-hungary.html.ru ../..//down/i386/linux-hungary.html.zh-CN ../..//down/i386/linux-hungary.var ../..//down/i386/netware-hungary.html.bg ../..//down/i386/netware-hungary.html.en ../..//down/i386/netware-hungary.html.fi ../..//down/i386/netware-hungary.html.fr ../..//down/i386/netware-hungary.html.id ../..//down/i386/netware-hungary.html.it ../..//down/i386/netware-hungary.html.nl ../..//down/i386/netware-hungary.html.po ../..//down/i386/netware-hungary.html.sl ../..//down/i386/netware-hungary.html.ru ../..//down/i386/netware-hungary.html.zh-CN ../..//down/i386/netware-hungary.var ../..//down/i386/os2-hungary.html.bg ../..//down/i386/os2-hungary.html.en ../..//down/i386/os2-hungary.html.fi ../..//down/i386/os2-hungary.html.fr ../..//down/i386/os2-hungary.html.id ../..//down/i386/os2-hungary.html.it ../..//down/i386/os2-hungary.html.nl ../..//down/i386/os2-hungary.html.po ../..//down/i386/os2-hungary.html.sl ../..//down/i386/os2-hungary.html.ru ../..//down/i386/os2-hungary.html.zh-CN ../..//down/i386/os2-hungary.var ../..//down/i386/win32-hungary.html.bg ../..//down/i386/win32-hungary.html.en ../..//down/i386/win32-hungary.html.fi ../..//down/i386/win32-hungary.html.fr ../..//down/i386/win32-hungary.html.id ../..//down/i386/win32-hungary.html.it ../..//down/i386/win32-hungary.html.nl ../..//down/i386/win32-hungary.html.po ../..//down/i386/win32-hungary.html.sl ../..//down/i386/win32-hungary.html.ru ../..//down/i386/win32-hungary.html.zh-CN ../..//down/i386/win32-hungary.var ../..//down/i386/macosx-hungary.html.bg ../..//down/i386/macosx-hungary.html.en ../..//down/i386/macosx-hungary.html.fi ../..//down/i386/macosx-hungary.html.fr ../..//down/i386/macosx-hungary.html.id ../..//down/i386/macosx-hungary.html.it ../..//down/i386/macosx-hungary.html.nl ../..//down/i386/macosx-hungary.html.po ../..//down/i386/macosx-hungary.html.sl ../..//down/i386/macosx-hungary.html.ru ../..//down/i386/macosx-hungary.html.zh-CN ../..//down/i386/macosx-hungary.var ../..//down/i386/haiku-hungary.html.bg ../..//down/i386/haiku-hungary.html.en ../..//down/i386/haiku-hungary.html.fi ../..//down/i386/haiku-hungary.html.fr ../..//down/i386/haiku-hungary.html.id ../..//down/i386/haiku-hungary.html.it ../..//down/i386/haiku-hungary.html.nl ../..//down/i386/haiku-hungary.html.po ../..//down/i386/haiku-hungary.html.sl ../..//down/i386/haiku-hungary.html.ru ../..//down/i386/haiku-hungary.html.zh-CN ../..//down/i386/haiku-hungary.var ../..//down/i386/freebsd-israel.html.bg ../..//down/i386/freebsd-israel.html.en ../..//down/i386/freebsd-israel.html.fi ../..//down/i386/freebsd-israel.html.fr ../..//down/i386/freebsd-israel.html.id ../..//down/i386/freebsd-israel.html.it ../..//down/i386/freebsd-israel.html.nl ../..//down/i386/freebsd-israel.html.po ../..//down/i386/freebsd-israel.html.sl ../..//down/i386/freebsd-israel.html.ru ../..//down/i386/freebsd-israel.html.zh-CN ../..//down/i386/freebsd-israel.var ../..//down/i386/go32v2-israel.html.bg ../..//down/i386/go32v2-israel.html.en ../..//down/i386/go32v2-israel.html.fi ../..//down/i386/go32v2-israel.html.fr ../..//down/i386/go32v2-israel.html.id ../..//down/i386/go32v2-israel.html.it ../..//down/i386/go32v2-israel.html.nl ../..//down/i386/go32v2-israel.html.po ../..//down/i386/go32v2-israel.html.sl ../..//down/i386/go32v2-israel.html.ru ../..//down/i386/go32v2-israel.html.zh-CN ../..//down/i386/go32v2-israel.var ../..//down/i386/linux-israel.html.bg ../..//down/i386/linux-israel.html.en ../..//down/i386/linux-israel.html.fi ../..//down/i386/linux-israel.html.fr ../..//down/i386/linux-israel.html.id ../..//down/i386/linux-israel.html.it ../..//down/i386/linux-israel.html.nl ../..//down/i386/linux-israel.html.po ../..//down/i386/linux-israel.html.sl ../..//down/i386/linux-israel.html.ru ../..//down/i386/linux-israel.html.zh-CN ../..//down/i386/linux-israel.var ../..//down/i386/netware-israel.html.bg ../..//down/i386/netware-israel.html.en ../..//down/i386/netware-israel.html.fi ../..//down/i386/netware-israel.html.fr ../..//down/i386/netware-israel.html.id ../..//down/i386/netware-israel.html.it ../..//down/i386/netware-israel.html.nl ../..//down/i386/netware-israel.html.po ../..//down/i386/netware-israel.html.sl ../..//down/i386/netware-israel.html.ru ../..//down/i386/netware-israel.html.zh-CN ../..//down/i386/netware-israel.var ../..//down/i386/os2-israel.html.bg ../..//down/i386/os2-israel.html.en ../..//down/i386/os2-israel.html.fi ../..//down/i386/os2-israel.html.fr ../..//down/i386/os2-israel.html.id ../..//down/i386/os2-israel.html.it ../..//down/i386/os2-israel.html.nl ../..//down/i386/os2-israel.html.po ../..//down/i386/os2-israel.html.sl ../..//down/i386/os2-israel.html.ru ../..//down/i386/os2-israel.html.zh-CN ../..//down/i386/os2-israel.var ../..//down/i386/win32-israel.html.bg ../..//down/i386/win32-israel.html.en ../..//down/i386/win32-israel.html.fi ../..//down/i386/win32-israel.html.fr ../..//down/i386/win32-israel.html.id ../..//down/i386/win32-israel.html.it ../..//down/i386/win32-israel.html.nl ../..//down/i386/win32-israel.html.po ../..//down/i386/win32-israel.html.sl ../..//down/i386/win32-israel.html.ru ../..//down/i386/win32-israel.html.zh-CN ../..//down/i386/win32-israel.var ../..//down/i386/macosx-israel.html.bg ../..//down/i386/macosx-israel.html.en ../..//down/i386/macosx-israel.html.fi ../..//down/i386/macosx-israel.html.fr ../..//down/i386/macosx-israel.html.id ../..//down/i386/macosx-israel.html.it ../..//down/i386/macosx-israel.html.nl ../..//down/i386/macosx-israel.html.po ../..//down/i386/macosx-israel.html.sl ../..//down/i386/macosx-israel.html.ru ../..//down/i386/macosx-israel.html.zh-CN ../..//down/i386/macosx-israel.var ../..//down/i386/haiku-israel.html.bg ../..//down/i386/haiku-israel.html.en ../..//down/i386/haiku-israel.html.fi ../..//down/i386/haiku-israel.html.fr ../..//down/i386/haiku-israel.html.id ../..//down/i386/haiku-israel.html.it ../..//down/i386/haiku-israel.html.nl ../..//down/i386/haiku-israel.html.po ../..//down/i386/haiku-israel.html.sl ../..//down/i386/haiku-israel.html.ru ../..//down/i386/haiku-israel.html.zh-CN ../..//down/i386/haiku-israel.var ../..//down/i386/freebsd-netherlands.html.bg ../..//down/i386/freebsd-netherlands.html.en ../..//down/i386/freebsd-netherlands.html.fi ../..//down/i386/freebsd-netherlands.html.fr ../..//down/i386/freebsd-netherlands.html.id ../..//down/i386/freebsd-netherlands.html.it ../..//down/i386/freebsd-netherlands.html.nl ../..//down/i386/freebsd-netherlands.html.po ../..//down/i386/freebsd-netherlands.html.sl ../..//down/i386/freebsd-netherlands.html.ru ../..//down/i386/freebsd-netherlands.html.zh-CN ../..//down/i386/freebsd-netherlands.var ../..//down/i386/go32v2-netherlands.html.bg ../..//down/i386/go32v2-netherlands.html.en ../..//down/i386/go32v2-netherlands.html.fi ../..//down/i386/go32v2-netherlands.html.fr ../..//down/i386/go32v2-netherlands.html.id ../..//down/i386/go32v2-netherlands.html.it ../..//down/i386/go32v2-netherlands.html.nl ../..//down/i386/go32v2-netherlands.html.po ../..//down/i386/go32v2-netherlands.html.sl ../..//down/i386/go32v2-netherlands.html.ru ../..//down/i386/go32v2-netherlands.html.zh-CN ../..//down/i386/go32v2-netherlands.var ../..//down/i386/linux-netherlands.html.bg ../..//down/i386/linux-netherlands.html.en ../..//down/i386/linux-netherlands.html.fi ../..//down/i386/linux-netherlands.html.fr ../..//down/i386/linux-netherlands.html.id ../..//down/i386/linux-netherlands.html.it ../..//down/i386/linux-netherlands.html.nl ../..//down/i386/linux-netherlands.html.po ../..//down/i386/linux-netherlands.html.sl ../..//down/i386/linux-netherlands.html.ru ../..//down/i386/linux-netherlands.html.zh-CN ../..//down/i386/linux-netherlands.var ../..//down/i386/netware-netherlands.html.bg ../..//down/i386/netware-netherlands.html.en ../..//down/i386/netware-netherlands.html.fi ../..//down/i386/netware-netherlands.html.fr ../..//down/i386/netware-netherlands.html.id ../..//down/i386/netware-netherlands.html.it ../..//down/i386/netware-netherlands.html.nl ../..//down/i386/netware-netherlands.html.po ../..//down/i386/netware-netherlands.html.sl ../..//down/i386/netware-netherlands.html.ru ../..//down/i386/netware-netherlands.html.zh-CN ../..//down/i386/netware-netherlands.var ../..//down/i386/os2-netherlands.html.bg ../..//down/i386/os2-netherlands.html.en ../..//down/i386/os2-netherlands.html.fi ../..//down/i386/os2-netherlands.html.fr ../..//down/i386/os2-netherlands.html.id ../..//down/i386/os2-netherlands.html.it ../..//down/i386/os2-netherlands.html.nl ../..//down/i386/os2-netherlands.html.po ../..//down/i386/os2-netherlands.html.sl ../..//down/i386/os2-netherlands.html.ru ../..//down/i386/os2-netherlands.html.zh-CN ../..//down/i386/os2-netherlands.var ../..//down/i386/win32-netherlands.html.bg ../..//down/i386/win32-netherlands.html.en ../..//down/i386/win32-netherlands.html.fi ../..//down/i386/win32-netherlands.html.fr ../..//down/i386/win32-netherlands.html.id ../..//down/i386/win32-netherlands.html.it ../..//down/i386/win32-netherlands.html.nl ../..//down/i386/win32-netherlands.html.po ../..//down/i386/win32-netherlands.html.sl ../..//down/i386/win32-netherlands.html.ru ../..//down/i386/win32-netherlands.html.zh-CN ../..//down/i386/win32-netherlands.var ../..//down/i386/macosx-netherlands.html.bg ../..//down/i386/macosx-netherlands.html.en ../..//down/i386/macosx-netherlands.html.fi ../..//down/i386/macosx-netherlands.html.fr ../..//down/i386/macosx-netherlands.html.id ../..//down/i386/macosx-netherlands.html.it ../..//down/i386/macosx-netherlands.html.nl ../..//down/i386/macosx-netherlands.html.po ../..//down/i386/macosx-netherlands.html.sl ../..//down/i386/macosx-netherlands.html.ru ../..//down/i386/macosx-netherlands.html.zh-CN ../..//down/i386/macosx-netherlands.var ../..//down/i386/haiku-netherlands.html.bg ../..//down/i386/haiku-netherlands.html.en ../..//down/i386/haiku-netherlands.html.fi ../..//down/i386/haiku-netherlands.html.fr ../..//down/i386/haiku-netherlands.html.id ../..//down/i386/haiku-netherlands.html.it ../..//down/i386/haiku-netherlands.html.nl ../..//down/i386/haiku-netherlands.html.po ../..//down/i386/haiku-netherlands.html.sl ../..//down/i386/haiku-netherlands.html.ru ../..//down/i386/haiku-netherlands.html.zh-CN ../..//down/i386/haiku-netherlands.var ../..//down/i386/freebsd-norway.html.bg ../..//down/i386/freebsd-norway.html.en ../..//down/i386/freebsd-norway.html.fi ../..//down/i386/freebsd-norway.html.fr ../..//down/i386/freebsd-norway.html.id ../..//down/i386/freebsd-norway.html.it ../..//down/i386/freebsd-norway.html.nl ../..//down/i386/freebsd-norway.html.po ../..//down/i386/freebsd-norway.html.sl ../..//down/i386/freebsd-norway.html.ru ../..//down/i386/freebsd-norway.html.zh-CN ../..//down/i386/freebsd-norway.var ../..//down/i386/go32v2-norway.html.bg ../..//down/i386/go32v2-norway.html.en ../..//down/i386/go32v2-norway.html.fi ../..//down/i386/go32v2-norway.html.fr ../..//down/i386/go32v2-norway.html.id ../..//down/i386/go32v2-norway.html.it ../..//down/i386/go32v2-norway.html.nl ../..//down/i386/go32v2-norway.html.po ../..//down/i386/go32v2-norway.html.sl ../..//down/i386/go32v2-norway.html.ru ../..//down/i386/go32v2-norway.html.zh-CN ../..//down/i386/go32v2-norway.var ../..//down/i386/linux-norway.html.bg ../..//down/i386/linux-norway.html.en ../..//down/i386/linux-norway.html.fi ../..//down/i386/linux-norway.html.fr ../..//down/i386/linux-norway.html.id ../..//down/i386/linux-norway.html.it ../..//down/i386/linux-norway.html.nl ../..//down/i386/linux-norway.html.po ../..//down/i386/linux-norway.html.sl ../..//down/i386/linux-norway.html.ru ../..//down/i386/linux-norway.html.zh-CN ../..//down/i386/linux-norway.var ../..//down/i386/netware-norway.html.bg ../..//down/i386/netware-norway.html.en ../..//down/i386/netware-norway.html.fi ../..//down/i386/netware-norway.html.fr ../..//down/i386/netware-norway.html.id ../..//down/i386/netware-norway.html.it ../..//down/i386/netware-norway.html.nl ../..//down/i386/netware-norway.html.po ../..//down/i386/netware-norway.html.sl ../..//down/i386/netware-norway.html.ru ../..//down/i386/netware-norway.html.zh-CN ../..//down/i386/netware-norway.var ../..//down/i386/os2-norway.html.bg ../..//down/i386/os2-norway.html.en ../..//down/i386/os2-norway.html.fi ../..//down/i386/os2-norway.html.fr ../..//down/i386/os2-norway.html.id ../..//down/i386/os2-norway.html.it ../..//down/i386/os2-norway.html.nl ../..//down/i386/os2-norway.html.po ../..//down/i386/os2-norway.html.sl ../..//down/i386/os2-norway.html.ru ../..//down/i386/os2-norway.html.zh-CN ../..//down/i386/os2-norway.var ../..//down/i386/win32-norway.html.bg ../..//down/i386/win32-norway.html.en ../..//down/i386/win32-norway.html.fi ../..//down/i386/win32-norway.html.fr ../..//down/i386/win32-norway.html.id ../..//down/i386/win32-norway.html.it ../..//down/i386/win32-norway.html.nl ../..//down/i386/win32-norway.html.po ../..//down/i386/win32-norway.html.sl ../..//down/i386/win32-norway.html.ru ../..//down/i386/win32-norway.html.zh-CN ../..//down/i386/win32-norway.var ../..//down/i386/macosx-norway.html.bg ../..//down/i386/macosx-norway.html.en ../..//down/i386/macosx-norway.html.fi ../..//down/i386/macosx-norway.html.fr ../..//down/i386/macosx-norway.html.id ../..//down/i386/macosx-norway.html.it ../..//down/i386/macosx-norway.html.nl ../..//down/i386/macosx-norway.html.po ../..//down/i386/macosx-norway.html.sl ../..//down/i386/macosx-norway.html.ru ../..//down/i386/macosx-norway.html.zh-CN ../..//down/i386/macosx-norway.var ../..//down/i386/haiku-norway.html.bg ../..//down/i386/haiku-norway.html.en ../..//down/i386/haiku-norway.html.fi ../..//down/i386/haiku-norway.html.fr ../..//down/i386/haiku-norway.html.id ../..//down/i386/haiku-norway.html.it ../..//down/i386/haiku-norway.html.nl ../..//down/i386/haiku-norway.html.po ../..//down/i386/haiku-norway.html.sl ../..//down/i386/haiku-norway.html.ru ../..//down/i386/haiku-norway.html.zh-CN ../..//down/i386/haiku-norway.var ../..//down/i386/freebsd-russia.html.bg ../..//down/i386/freebsd-russia.html.en ../..//down/i386/freebsd-russia.html.fi ../..//down/i386/freebsd-russia.html.fr ../..//down/i386/freebsd-russia.html.id ../..//down/i386/freebsd-russia.html.it ../..//down/i386/freebsd-russia.html.nl ../..//down/i386/freebsd-russia.html.po ../..//down/i386/freebsd-russia.html.sl ../..//down/i386/freebsd-russia.html.ru ../..//down/i386/freebsd-russia.html.zh-CN ../..//down/i386/freebsd-russia.var ../..//down/i386/go32v2-russia.html.bg ../..//down/i386/go32v2-russia.html.en ../..//down/i386/go32v2-russia.html.fi ../..//down/i386/go32v2-russia.html.fr ../..//down/i386/go32v2-russia.html.id ../..//down/i386/go32v2-russia.html.it ../..//down/i386/go32v2-russia.html.nl ../..//down/i386/go32v2-russia.html.po ../..//down/i386/go32v2-russia.html.sl ../..//down/i386/go32v2-russia.html.ru ../..//down/i386/go32v2-russia.html.zh-CN ../..//down/i386/go32v2-russia.var ../..//down/i386/linux-russia.html.bg ../..//down/i386/linux-russia.html.en ../..//down/i386/linux-russia.html.fi ../..//down/i386/linux-russia.html.fr ../..//down/i386/linux-russia.html.id ../..//down/i386/linux-russia.html.it ../..//down/i386/linux-russia.html.nl ../..//down/i386/linux-russia.html.po ../..//down/i386/linux-russia.html.sl ../..//down/i386/linux-russia.html.ru ../..//down/i386/linux-russia.html.zh-CN ../..//down/i386/linux-russia.var ../..//down/i386/netware-russia.html.bg ../..//down/i386/netware-russia.html.en ../..//down/i386/netware-russia.html.fi ../..//down/i386/netware-russia.html.fr ../..//down/i386/netware-russia.html.id ../..//down/i386/netware-russia.html.it ../..//down/i386/netware-russia.html.nl ../..//down/i386/netware-russia.html.po ../..//down/i386/netware-russia.html.sl ../..//down/i386/netware-russia.html.ru ../..//down/i386/netware-russia.html.zh-CN ../..//down/i386/netware-russia.var ../..//down/i386/os2-russia.html.bg ../..//down/i386/os2-russia.html.en ../..//down/i386/os2-russia.html.fi ../..//down/i386/os2-russia.html.fr ../..//down/i386/os2-russia.html.id ../..//down/i386/os2-russia.html.it ../..//down/i386/os2-russia.html.nl ../..//down/i386/os2-russia.html.po ../..//down/i386/os2-russia.html.sl ../..//down/i386/os2-russia.html.ru ../..//down/i386/os2-russia.html.zh-CN ../..//down/i386/os2-russia.var ../..//down/i386/win32-russia.html.bg ../..//down/i386/win32-russia.html.en ../..//down/i386/win32-russia.html.fi ../..//down/i386/win32-russia.html.fr ../..//down/i386/win32-russia.html.id ../..//down/i386/win32-russia.html.it ../..//down/i386/win32-russia.html.nl ../..//down/i386/win32-russia.html.po ../..//down/i386/win32-russia.html.sl ../..//down/i386/win32-russia.html.ru ../..//down/i386/win32-russia.html.zh-CN ../..//down/i386/win32-russia.var ../..//down/i386/macosx-russia.html.bg ../..//down/i386/macosx-russia.html.en ../..//down/i386/macosx-russia.html.fi ../..//down/i386/macosx-russia.html.fr ../..//down/i386/macosx-russia.html.id ../..//down/i386/macosx-russia.html.it ../..//down/i386/macosx-russia.html.nl ../..//down/i386/macosx-russia.html.po ../..//down/i386/macosx-russia.html.sl ../..//down/i386/macosx-russia.html.ru ../..//down/i386/macosx-russia.html.zh-CN ../..//down/i386/macosx-russia.var ../..//down/i386/haiku-russia.html.bg ../..//down/i386/haiku-russia.html.en ../..//down/i386/haiku-russia.html.fi ../..//down/i386/haiku-russia.html.fr ../..//down/i386/haiku-russia.html.id ../..//down/i386/haiku-russia.html.it ../..//down/i386/haiku-russia.html.nl ../..//down/i386/haiku-russia.html.po ../..//down/i386/haiku-russia.html.sl ../..//down/i386/haiku-russia.html.ru ../..//down/i386/haiku-russia.html.zh-CN ../..//down/i386/haiku-russia.var ../..//down/i386/freebsd-ftp.freepascal.org.html.bg ../..//down/i386/freebsd-ftp.freepascal.org.html.en ../..//down/i386/freebsd-ftp.freepascal.org.html.fi ../..//down/i386/freebsd-ftp.freepascal.org.html.fr ../..//down/i386/freebsd-ftp.freepascal.org.html.id ../..//down/i386/freebsd-ftp.freepascal.org.html.it ../..//down/i386/freebsd-ftp.freepascal.org.html.nl ../..//down/i386/freebsd-ftp.freepascal.org.html.po ../..//down/i386/freebsd-ftp.freepascal.org.html.sl ../..//down/i386/freebsd-ftp.freepascal.org.html.ru ../..//down/i386/freebsd-ftp.freepascal.org.html.zh-CN ../..//down/i386/freebsd-ftp.freepascal.org.var ../..//down/i386/go32v2-ftp.freepascal.org.html.bg ../..//down/i386/go32v2-ftp.freepascal.org.html.en ../..//down/i386/go32v2-ftp.freepascal.org.html.fi ../..//down/i386/go32v2-ftp.freepascal.org.html.fr ../..//down/i386/go32v2-ftp.freepascal.org.html.id ../..//down/i386/go32v2-ftp.freepascal.org.html.it ../..//down/i386/go32v2-ftp.freepascal.org.html.nl ../..//down/i386/go32v2-ftp.freepascal.org.html.po ../..//down/i386/go32v2-ftp.freepascal.org.html.sl ../..//down/i386/go32v2-ftp.freepascal.org.html.ru ../..//down/i386/go32v2-ftp.freepascal.org.html.zh-CN ../..//down/i386/go32v2-ftp.freepascal.org.var ../..//down/i386/linux-ftp.freepascal.org.html.bg ../..//down/i386/linux-ftp.freepascal.org.html.en ../..//down/i386/linux-ftp.freepascal.org.html.fi ../..//down/i386/linux-ftp.freepascal.org.html.fr ../..//down/i386/linux-ftp.freepascal.org.html.id ../..//down/i386/linux-ftp.freepascal.org.html.it ../..//down/i386/linux-ftp.freepascal.org.html.nl ../..//down/i386/linux-ftp.freepascal.org.html.po ../..//down/i386/linux-ftp.freepascal.org.html.sl ../..//down/i386/linux-ftp.freepascal.org.html.ru ../..//down/i386/linux-ftp.freepascal.org.html.zh-CN ../..//down/i386/linux-ftp.freepascal.org.var ../..//down/i386/netware-ftp.freepascal.org.html.bg ../..//down/i386/netware-ftp.freepascal.org.html.en ../..//down/i386/netware-ftp.freepascal.org.html.fi ../..//down/i386/netware-ftp.freepascal.org.html.fr ../..//down/i386/netware-ftp.freepascal.org.html.id ../..//down/i386/netware-ftp.freepascal.org.html.it ../..//down/i386/netware-ftp.freepascal.org.html.nl ../..//down/i386/netware-ftp.freepascal.org.html.po ../..//down/i386/netware-ftp.freepascal.org.html.sl ../..//down/i386/netware-ftp.freepascal.org.html.ru ../..//down/i386/netware-ftp.freepascal.org.html.zh-CN ../..//down/i386/netware-ftp.freepascal.org.var ../..//down/i386/os2-ftp.freepascal.org.html.bg ../..//down/i386/os2-ftp.freepascal.org.html.en ../..//down/i386/os2-ftp.freepascal.org.html.fi ../..//down/i386/os2-ftp.freepascal.org.html.fr ../..//down/i386/os2-ftp.freepascal.org.html.id ../..//down/i386/os2-ftp.freepascal.org.html.it ../..//down/i386/os2-ftp.freepascal.org.html.nl ../..//down/i386/os2-ftp.freepascal.org.html.po ../..//down/i386/os2-ftp.freepascal.org.html.sl ../..//down/i386/os2-ftp.freepascal.org.html.ru ../..//down/i386/os2-ftp.freepascal.org.html.zh-CN ../..//down/i386/os2-ftp.freepascal.org.var ../..//down/i386/win32-ftp.freepascal.org.html.bg ../..//down/i386/win32-ftp.freepascal.org.html.en ../..//down/i386/win32-ftp.freepascal.org.html.fi ../..//down/i386/win32-ftp.freepascal.org.html.fr ../..//down/i386/win32-ftp.freepascal.org.html.id ../..//down/i386/win32-ftp.freepascal.org.html.it ../..//down/i386/win32-ftp.freepascal.org.html.nl ../..//down/i386/win32-ftp.freepascal.org.html.po ../..//down/i386/win32-ftp.freepascal.org.html.sl ../..//down/i386/win32-ftp.freepascal.org.html.ru ../..//down/i386/win32-ftp.freepascal.org.html.zh-CN ../..//down/i386/win32-ftp.freepascal.org.var ../..//down/i386/macosx-ftp.freepascal.org.html.bg ../..//down/i386/macosx-ftp.freepascal.org.html.en ../..//down/i386/macosx-ftp.freepascal.org.html.fi ../..//down/i386/macosx-ftp.freepascal.org.html.fr ../..//down/i386/macosx-ftp.freepascal.org.html.id ../..//down/i386/macosx-ftp.freepascal.org.html.it ../..//down/i386/macosx-ftp.freepascal.org.html.nl ../..//down/i386/macosx-ftp.freepascal.org.html.po ../..//down/i386/macosx-ftp.freepascal.org.html.sl ../..//down/i386/macosx-ftp.freepascal.org.html.ru ../..//down/i386/macosx-ftp.freepascal.org.html.zh-CN ../..//down/i386/macosx-ftp.freepascal.org.var ../..//down/i386/haiku-ftp.freepascal.org.html.bg ../..//down/i386/haiku-ftp.freepascal.org.html.en ../..//down/i386/haiku-ftp.freepascal.org.html.fi ../..//down/i386/haiku-ftp.freepascal.org.html.fr ../..//down/i386/haiku-ftp.freepascal.org.html.id ../..//down/i386/haiku-ftp.freepascal.org.html.it ../..//down/i386/haiku-ftp.freepascal.org.html.nl ../..//down/i386/haiku-ftp.freepascal.org.html.po ../..//down/i386/haiku-ftp.freepascal.org.html.sl ../..//down/i386/haiku-ftp.freepascal.org.html.ru ../..//down/i386/haiku-ftp.freepascal.org.html.zh-CN ../..//down/i386/haiku-ftp.freepascal.org.var ../..//down/i386/freebsd.html.bg ../..//down/i386/freebsd.html.en ../..//down/i386/freebsd.html.fi ../..//down/i386/freebsd.html.fr ../..//down/i386/freebsd.html.id ../..//down/i386/freebsd.html.it ../..//down/i386/freebsd.html.nl ../..//down/i386/freebsd.html.po ../..//down/i386/freebsd.html.sl ../..//down/i386/freebsd.html.ru ../..//down/i386/freebsd.html.zh-CN ../..//down/i386/freebsd.var ../..//down/i386/go32v2.html.bg ../..//down/i386/go32v2.html.en ../..//down/i386/go32v2.html.fi ../..//down/i386/go32v2.html.fr ../..//down/i386/go32v2.html.id ../..//down/i386/go32v2.html.it ../..//down/i386/go32v2.html.nl ../..//down/i386/go32v2.html.po ../..//down/i386/go32v2.html.sl ../..//down/i386/go32v2.html.ru ../..//down/i386/go32v2.html.zh-CN ../..//down/i386/go32v2.var ../..//down/i386/linux.html.bg ../..//down/i386/linux.html.en ../..//down/i386/linux.html.fi ../..//down/i386/linux.html.fr ../..//down/i386/linux.html.id ../..//down/i386/linux.html.it ../..//down/i386/linux.html.nl ../..//down/i386/linux.html.po ../..//down/i386/linux.html.sl ../..//down/i386/linux.html.ru ../..//down/i386/linux.html.zh-CN ../..//down/i386/linux.var ../..//down/i386/netware.html.bg ../..//down/i386/netware.html.en ../..//down/i386/netware.html.fi ../..//down/i386/netware.html.fr ../..//down/i386/netware.html.id ../..//down/i386/netware.html.it ../..//down/i386/netware.html.nl ../..//down/i386/netware.html.po ../..//down/i386/netware.html.sl ../..//down/i386/netware.html.ru ../..//down/i386/netware.html.zh-CN ../..//down/i386/netware.var ../..//down/i386/os2.html.bg ../..//down/i386/os2.html.en ../..//down/i386/os2.html.fi ../..//down/i386/os2.html.fr ../..//down/i386/os2.html.id ../..//down/i386/os2.html.it ../..//down/i386/os2.html.nl ../..//down/i386/os2.html.po ../..//down/i386/os2.html.sl ../..//down/i386/os2.html.ru ../..//down/i386/os2.html.zh-CN ../..//down/i386/os2.var ../..//down/i386/win32.html.bg ../..//down/i386/win32.html.en ../..//down/i386/win32.html.fi ../..//down/i386/win32.html.fr ../..//down/i386/win32.html.id ../..//down/i386/win32.html.it ../..//down/i386/win32.html.nl ../..//down/i386/win32.html.po ../..//down/i386/win32.html.sl ../..//down/i386/win32.html.ru ../..//down/i386/win32.html.zh-CN ../..//down/i386/win32.var ../..//down/i386/macosx.html.bg ../..//down/i386/macosx.html.en ../..//down/i386/macosx.html.fi ../..//down/i386/macosx.html.fr ../..//down/i386/macosx.html.id ../..//down/i386/macosx.html.it ../..//down/i386/macosx.html.nl ../..//down/i386/macosx.html.po ../..//down/i386/macosx.html.sl ../..//down/i386/macosx.html.ru ../..//down/i386/macosx.html.zh-CN ../..//down/i386/macosx.var ../..//down/i386/haiku.html.bg ../..//down/i386/haiku.html.en ../..//down/i386/haiku.html.fi ../..//down/i386/haiku.html.fr ../..//down/i386/haiku.html.id ../..//down/i386/haiku.html.it ../..//down/i386/haiku.html.nl ../..//down/i386/haiku.html.po ../..//down/i386/haiku.html.sl ../..//down/i386/haiku.html.ru ../..//down/i386/haiku.html.zh-CN ../..//down/i386/haiku.var
+all_en_pages: mirrors.dat ../..//down/i386/freebsd-australia.html ../..//down/i386/go32v2-australia.html ../..//down/i386/linux-australia.html ../..//down/i386/netware-australia.html ../..//down/i386/os2-australia.html ../..//down/i386/win32-australia.html ../..//down/i386/macosx-australia.html ../..//down/i386/haiku-australia.html ../..//down/i386/freebsd-austria.html ../..//down/i386/go32v2-austria.html ../..//down/i386/linux-austria.html ../..//down/i386/netware-austria.html ../..//down/i386/os2-austria.html ../..//down/i386/win32-austria.html ../..//down/i386/macosx-austria.html ../..//down/i386/haiku-austria.html ../..//down/i386/freebsd-hungary.html ../..//down/i386/go32v2-hungary.html ../..//down/i386/linux-hungary.html ../..//down/i386/netware-hungary.html ../..//down/i386/os2-hungary.html ../..//down/i386/win32-hungary.html ../..//down/i386/macosx-hungary.html ../..//down/i386/haiku-hungary.html ../..//down/i386/freebsd-israel.html ../..//down/i386/go32v2-israel.html ../..//down/i386/linux-israel.html ../..//down/i386/netware-israel.html ../..//down/i386/os2-israel.html ../..//down/i386/win32-israel.html ../..//down/i386/macosx-israel.html ../..//down/i386/haiku-israel.html ../..//down/i386/freebsd-netherlands.html ../..//down/i386/go32v2-netherlands.html ../..//down/i386/linux-netherlands.html ../..//down/i386/netware-netherlands.html ../..//down/i386/os2-netherlands.html ../..//down/i386/win32-netherlands.html ../..//down/i386/macosx-netherlands.html ../..//down/i386/haiku-netherlands.html ../..//down/i386/freebsd-norway.html ../..//down/i386/go32v2-norway.html ../..//down/i386/linux-norway.html ../..//down/i386/netware-norway.html ../..//down/i386/os2-norway.html ../..//down/i386/win32-norway.html ../..//down/i386/macosx-norway.html ../..//down/i386/haiku-norway.html ../..//down/i386/freebsd-russia.html ../..//down/i386/go32v2-russia.html ../..//down/i386/linux-russia.html ../..//down/i386/netware-russia.html ../..//down/i386/os2-russia.html ../..//down/i386/win32-russia.html ../..//down/i386/macosx-russia.html ../..//down/i386/haiku-russia.html ../..//down/i386/freebsd-ftp.freepascal.org.html ../..//down/i386/go32v2-ftp.freepascal.org.html ../..//down/i386/linux-ftp.freepascal.org.html ../..//down/i386/netware-ftp.freepascal.org.html ../..//down/i386/os2-ftp.freepascal.org.html ../..//down/i386/win32-ftp.freepascal.org.html ../..//down/i386/macosx-ftp.freepascal.org.html ../..//down/i386/haiku-ftp.freepascal.org.html ../..//down/i386/freebsd.html ../..//down/i386/go32v2.html ../..//down/i386/linux.html ../..//down/i386/netware.html ../..//down/i386/os2.html ../..//down/i386/win32.html ../..//down/i386/macosx.html ../..//down/i386/haiku.html
 
 
 # clean
