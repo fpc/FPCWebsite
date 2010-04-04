@@ -26,14 +26,39 @@
   to view these pages correctly.
 </trn>
 <ul>
-<li><trn locale="en_US" key="website.Doc_toc">Documentation table of contents</trn> (<a href="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</a>/<a href="docs-html/fpctoc.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_ug">User's guide</trn> (<a href="http://community.freepascal.org:10000/docs-html/user/user.html">with</a>/<a href="docs-html/user/user.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_pg">Programmer's guide</trn> (<a href="http://community.freepascal.org:10000/docs-html/prog/prog.html">with</a>/<a href="docs-html/prog/prog.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_lrg">Language Reference Guide</trn> (<a href="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</a>/<a href="docs-html/ref/ref.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_rtlurm">Run-Time Library (RTL) units reference manual</trn> (<a href="http://community.freepascal.org:10000/docs-html/rtl/index.html">with</a>/<a href="docs-html/rtl/index.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_fclurm">Free Component Library (FCL) units reference manual</trn> (<a href="http://community.freepascal.org:10000/docs-html/fcl/index.html">with</a>/<a href="docs-html/fcl/index.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_fpcdocdtrm">fpdoc documentation tool reference manual</trn> (<a href="http://community.freepascal.org:10000/docs-html/fpdoc/fpdoc.html">with</a>/<a href="docs-html/fpdoc/fpdoc.html">without</a> comments).
-  <li><trn locale="en_US" key="website.Doc_refchart">Reference chart with all compiler options</trn> (<a href="http://community.freepascal.org:10000/docs-html/chart/chart.html">with</a>/<a href="docs-html/chart/chart.html">without</a> comments).
+<li><trn locale="en_US" key="website.Doc_toc"><a href="docs-html/fpctoc.html">Documentation table of contents</a></trn> 
+<!--
+(<a href="http://community.freepascal.org:10000/docs-html/fpctoc.html">with</a>/<a href="docs-html/fpctoc.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_ug"><a href="docs-html/user/user.html">User's guide</a></trn> 
+<!--
+(<a href="http://community.freepascal.org:10000/docs-html/user/user.html">with</a>/<a href="docs-html/user/user.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_pg"><a href="docs-html/prog/prog.html">Programmer's guide</a></trn> 
+<!--
+(<a href="http://community.freepascal.org:10000/docs-html/prog/prog.html">with</a>/<a href="docs-html/prog/prog.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_lrg"><a href="docs-html/ref/ref.html">Language Reference Guide</a></trn>
+<!--
+ (<a href="http://community.freepascal.org:10000/docs-html/ref/ref.html">with</a>/<a href="docs-html/ref/ref.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_rtlurm"><a HREF="docs-html/rtl/index.html">Run-Time Library (RTL) units reference manual</a></trn>
+<!--
+ (<a href="http://community.freepascal.org:10000/docs-html/rtl/index.html">with</a>/<a href="docs-html/rtl/index.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_fclurm"><a HREF="docs-html/fcl/index.html">Free Component Library (FCL) units reference manual</a></trn>
+<!--
+
+ (<a href="http://community.freepascal.org:10000/docs-html/fcl/index.html">with</a>/<a href="docs-html/fcl/index.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_fpcdocdtrm"><a href="docs-html/fpdoc/fpdoc.html">fpdoc documentation tool reference manual</a></trn>
+<!--
+ (<a href="http://community.freepascal.org:10000/docs-html/fpdoc/fpdoc.html">with</a>/<a href="docs-html/fpdoc/fpdoc.html">without</a> comments).
+-->
+  <li><trn locale="en_US" key="website.Doc_refchart"><a HREF="docs-html/chart/chart.html">Reference chart with all compiler options</a></trn> 
+<!--
+  (<a href="http://community.freepascal.org:10000/docs-html/chart/chart.html">with</a>/<a href="docs-html/chart/chart.html">without</a> comments).
+-->
 </ul>
 
 <trn locale="en_US" key="website.alternative_doc_formats">
