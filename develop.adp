@@ -214,7 +214,9 @@ through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">v
 <a name="mercurial"></a><h3>Mercurial mirror</h3>
 For developement without subversion write access or without any internet, a Mercurial (a distributed VCS) mirror of the svn trunk is available at:
 <a href="http://florianklaempfl.de:8000/fpctrunk">http://florianklaempfl.de:8000/fpctrunk</a>.
-
+<p>
+A Mercurial mirror of the fpcdocs repository is available at <a href="http://florianklaempfl.de:8000/fpcdocs">http://florianklaempfl.de:8000/fpcdocs</a>.
+</p>
 <hr>
 
 <a name="future"></a><h3>Bugs and the Future</h3>
