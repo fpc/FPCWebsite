@@ -5,25 +5,29 @@
 <property name="header">Porting Turbo Pascal to Free Pascal</property>
 <p>
 This document contains some information about differences between Free Pascal
-and Turbo Pascal 7.0. This list is not complete.
+and Turbo Pascal 7.0 (and to some extent Delphi). This list is not complete.
 </p>
 
 <h3>Assembler</h3>
 <ul>
-  <li>The default assembler uses an other syntax, but you can turn on the
+  <li>The default assembler uses another syntax, but you can turn on the
       Intel styled assembler reader (which is what Turbo Pascal uses) using the -Rintel
       command line option or by adding <TT>{$asmmode intel}</TT> in your source.</li>
-  <li>The 32 bit memory model requires a complete recoding of your assembler blocks.</li>
+  <li>The 32 bit memory model requires a complete recoding of your assembler blocks in case you come from TP.</li>
 </ul>
 
 <h3>Run time library</h3>
 <ul>
+  <li>The <TT>swap()</TT>, <TT>lo()</TT> and <TT>hi()</TT> intrinsics are overloaded
+      for all integer types, rather than that they always assume a 16 bit operand.
+      So for a 32 bit type, <TT>swap</TT> will swap the lower and upper 16 bits,
+      and similarly <TT>lo()</TT> resp. <TT>hi()</TT> will also return the lower resp. upper 16 bits rather than 8 bits</li>
   <li>To use the <TT>PORT</TT> array, add the Ports unit to you uses clause
       (only available under Dos/Go32v2 and Linux) </li>
-  <li>You can access the realmode memory using <TT>MEM[seg:ofs]</TT> (as well
-       as MemW and MemL) under Go32v2 only
+  <li>You can access the realmode memory using <TT>MEM[seg:ofs]</TT>, as well
+       as MemW and MemL (only available under Dos/Go32v2)
       </li>
-  <li>Ofs() returns a longint instead of a word</li>
+  <li>Ofs() returns a ptrint instead of a word</li>
   <li>The <TT>OVERLAY</TT> unit isn't available </li>
   <li>Turbo Vision support is provided by Free Vision; a clone because the original
 	Turbo Vision is still not freely available (copyright not released by Borland)</li>
@@ -32,17 +36,17 @@ and Turbo Pascal 7.0. This list is not complete.
 <h3>Preprocessor/Syntax</h3>
 <ul>
   <li>If you use the -So command line switch (or add <TT>{$mode TP}</TT>in your source),
-      the compiler will be put in Turbo Pascal compatibility mode, which will
-      disable several of FPC's advanced features (like procedure overloading) to
-      allow better compatibility with Turbo Pascal.
-  <li>Nested comments are allowed, but give a Note when found (disabled in TP mode)</li>
+      the compiler use its Turbo Pascal compatibility mode, which will
+      disable several of FPC's advanced features (such as procedure overloading) to
+      enable better compatibility with Turbo Pascal.
+  <li>Nested comments are allowed, but give a Warning when found (disabled in TP mode)</li>
 </ul>
 
 <h3>Syntax</h3>
 <ul>
   <li><TT>FAR</TT> and <TT>NEAR</TT> are ignored</li>
   <li>To get the address of a procedure to assign it to a procedure variable
-      you must use the &#x040;-operator (in TP mode, procedure variables work like in TP)</li>
+      you must use the &#x040;-operator (in TP and Delphi mode, procedure variables work like in TP)</li>
       <PRE>
       procedure p;
         begin
@@ -54,25 +58,23 @@ and Turbo Pascal 7.0. This list is not complete.
         proc:=&#x040;p;
       end;
       </PRE>
-  <li><TT>INLINE</TT> is supported by the compiler, but is used to inline pascal code 
-      not bytecode. </li>
+  <li><TT>INLINE</TT> is supported by the compiler, but is used to inline Pascal code 
+      rather than machine code. </li>
   <li>The headers of forward declared functions/procedures always have to be completely
       rewritten in the definition, otherwise the compiler thinks that they are
-      overloaded (not required if you use -So).
-  <li>There are some more reserved words</li>
-  <li>Some Delphi extensions are partially supported</li>
+      overloaded (not required if you use TP or Delphi mode).
+  <li>There are some extra reserved words</li>
+  <li>Most Delphi extensions up to Delphi 7 are supported (and also some from later Delphi versions)</li>
  </ul>
 
 
 <h3>Semantics</h3>
 <ul>
-  <li>Maximum parameter size which can be passed to a
-subroutine is 64K for the Intel version and 32K for the Motorola versions.
 </li>
-  <li>Records are always aligned on word; use 'packed record' or {$PACKRECORDS 1}
+  <li>Records are by default aligned to the size of a cpu word; use 'packed record' or {$PACKRECORDS 1}
       to get TP7 compatible records. A word of warning: use packed
 only if you absolutely need to, as non-alignment of fields may not
-work on non-Intel processors (and will slow down data access severly in all cases).</li>
+work on non-Intel processors (and will slow down data access in all cases).</li>
       <PRE>
       type
         r1=record
@@ -89,13 +91,9 @@ work on non-Intel processors (and will slow down data access severly in all case
         writeln(sizeof(r2));  { outputs 3 }
       end.
       </PRE>
-  <li> Warning: currently all sets in FPC are either longint or 32 byte sized, whereas TP sets               usually are byte or word sized. A current work around for this is declaring your sets
-       as a byte/word and then use the bit manipulation unit available on the
-       contributions page to manually include/exclude items. Of course, this is only
-       necessary if you need TP compatible records, otherwise you can use the standard
-       FPC sets</li>
+  <li>To get TP/Delphi-compatible set layouts, use the {$packset 1}Êdirective (in FPC 2.5.1 and later, this is the default in TP/Delphi modes)</li>
   <li>Function results can also be complex types like arrays or records (not in TP mode)</li>
-  <li>It's possible to handle the function result in a function like a variable (not in TP mode):</li>
+  <li>It is possible to handle the function result in a function like a variable (not in TP/Delphi mode):</li>
       <PRE>
       function a : longint;
         begin
@@ -106,9 +104,9 @@ work on non-Intel processors (and will slow down data access severly in all case
            end;
          end;
      </PRE>
-  <li>The above example would work with TP, but the compiler would assume
-      that the <TT>a&gt;4 </TT>is a recursive call. To do a recursive call in
-      FPC you must append <TT>() </TT>behind the function name (not in TP mode):</li>
+  <li>The above example would work with TP/Delphi, but they would assume
+      that the <TT>a&gt;4 </TT>is a recursive call. To perform a recursive call in
+      FPC you must append <TT>()</TT> to the function name (not required in TP/Delphi mode):</li>
       <PRE>
       function a : longint;
         begin
@@ -129,7 +127,7 @@ work on non-Intel processors (and will slow down data access severly in all case
            exit(a*67);
         end;
       </PRE>
-   <li>Forward defined functions always have to be defined with the full header (not in TP mode):</li>
+   <li>Forward defined functions always have to be defined with the full header (not in TP/Delphi mode):</li>
        <PRE>
        procedure x(v : longint);forward;
 
@@ -145,7 +143,6 @@ work on non-Intel processors (and will slow down data access severly in all case
            { ... }
          end;
        </PRE>
-  <li>Always short boolean evalution (also in TP mode!!)</li>
 </ul>
 
 
@@ -153,5 +150,5 @@ work on non-Intel processors (and will slow down data access severly in all case
 <ul>
   <li>The command line parameters are different</li>
   <li>Not all compiler switches are fully implemented</li>
-  <li>The units aren't binary compatible</li>
+  <li>The units are not binary compatible</li>
 </ul>
