@@ -91,7 +91,7 @@ work on non-Intel processors (and will slow down data access in all cases).</li>
         writeln(sizeof(r2));  { outputs 3 }
       end.
       </PRE>
-  <li>To get TP/Delphi-compatible set layouts, use the {$packset 1}Êdirective (in FPC 2.5.1 and later, this is the default in TP/Delphi modes)</li>
+  <li>To get TP/Delphi-compatible set layouts, use the {$packset 1} directive (in FPC 2.5.1 and later, this is the default in TP/Delphi modes)</li>
   <li>Function results can also be complex types like arrays or records (not in TP mode)</li>
   <li>It is possible to handle the function result in a function like a variable (not in TP/Delphi mode):</li>
       <PRE>
