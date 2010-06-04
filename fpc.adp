@@ -19,7 +19,7 @@
 
 <em>June 4, 2010</em>
   <trn locale="en_US" key="website.news_headline_20100604">
-    The Dutch Pascal Users Group is organizing a <a href="http://www.hcc-pgg.nl/index.php?actie=bijeenkomsten/volgende_bijeenkomst">Lazarus Day</a>. 
+    The Dutch Pascal Users Group is organizing a <a href="http://www.hcc-pgg.nl/index.php?actie=bijeenkomsten/volgende_bijeenkomst">Lazarus Day</a> on June 26. 
     Sessions will be in Dutch. Many Lazarus and Free Pascal developers will attend the meeting.
   </trn>
 </p>
