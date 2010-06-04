@@ -17,6 +17,13 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<em>June 4, 2010</em>
+  <trn locale="en_US" key="website.news_headline_20100604">
+    The Dutch Pascal Users Group is organizing a <a href="http://www.hcc-pgg.nl/index.php?actie=bijeenkomsten/volgende_bijeenkomst">Lazarus Day</a>. 
+    Sessions will be in Dutch. Many Lazarus and Free Pascal developers will attend the meeting.
+  </trn>
+</p>
+
 <em>January 1st, 2010</em>
   <trn locale="en_US" key="website.news_headline_20100101">
     Happy New Year!, a new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
