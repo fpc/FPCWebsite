@@ -17,7 +17,6 @@
 <trn locale="en_US" key="website.User_contributed_documents">The following user contributed documents are available</trn>:
 <ul>
   <li>A <a href="http://www.freepascal.org/docs/ClassChart3.pdf">class chart in PDF format</a>. Thanks to Tiziano!
-  <li>A guide how to <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">make code written in C or C++ accessible in Pascal</a>. Thanks to Gilles Marcou!
 </ul>
 
 <h3><trn locale="en_US" key="website.HTMLs_available">The following HTML documents are online available</trn>:</h3>
@@ -66,23 +65,13 @@
   See the <a href="download.html">Download</a> page.
 </trn>
 <p>
-<trn locale="en_US" key="website.windows_unit_docs">
-  The <b>windows</b> unit is not documented in Free Pascal. The reason for
-  this is that this is a HUGE unit, which would describe the complete win32
-  API, and that is not the purpose of this documentation.<p>
-  The complete and up-to-date documentation of the Windows API is also on-line
-  available on <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts website</a>.
-</trn>
-<p>
 <trn locale="en_US" key="website.german_manuals">
   The Free pascal 2.2 manuals have been translated to German by <b>C&amp;L</b>, and can be purchased
   from the <a href="http://www.cul.de/freepascal2.html">C&amp;L website</a>. <b> Updated!</b>
 </trn>
 
-<trn locale="en_US" key="website.new_to_programming">
-  <h3>New to programming?</h3>
-  Our manuals are written for people who already know how to program in Pascal.
-  If you are looking for information how you can learn Pascal,
-  Tao Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutorial</a>
-  is a good choice.
+<h3>More information</h3>
+<trn locale="en_US" key="website.moreinfo">
+  Additional information, user contributed documentation and links can be found on the <a href="moreinfo@x@">More Information</a> page.
 </trn>
+

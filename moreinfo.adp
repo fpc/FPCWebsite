@@ -32,4 +32,16 @@
     <a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a><br>
     <a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a><br>
   </ul>
+  <li>A guide how to <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">make code written in C or C++ accessible in Pascal</a>. Thanks to Gilles Marcou!</li>
+  <li>Our manuals are written for people who already know how to program in Pascal. <br>
+  If you are looking for information how you can learn Pascal,<br>
+  Tao Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutor</a>  is a good choice.</li>
+  <li>
+  The <b>windows</b> unit is not documented in Free Pascal. The reason for
+  this is that this is a HUGE unit, which would describe the complete win32
+  API, and that is not the purpose of this documentation.<p>
+  The complete and up-to-date documentation of the Windows API is also on-line
+  available on <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts website</a>.
+  </li>
+
 </ul>
