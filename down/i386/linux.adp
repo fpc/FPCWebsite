@@ -40,11 +40,11 @@ It is available in different formats:
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
 <ul>
 <li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
-<li> <a href="@mirror_url@dist/2.4.2/i386-linux/rpm/fpc-2.4.2-1.i386.rpm">fpc-2.4.2-1.i386.rpm</a> (26 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-linux/rpm/fpc-2.4.2-1.i686.rpm">fpc-2.4.2-1.i686.rpm</a> (26 MB)
      <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        contains the compiler, utils, RTL and all units. <br>
      </trn>
-<li> <a href="@mirror_url@dist/2.4.2/i386-linux/rpm/fpc-docs-2.4.2-1.i386.rpm">fpc-docs-2.4.2-1.i386.rpm</a> (6.7 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-linux/rpm/fpc-docs-2.4.2-1.i686.rpm">fpc-docs-2.4.2-1.i686.rpm</a> (6.7 MB)
      <trn key="website.i386-linux_rpm_docs_download_descr" locale="en_US">
        contains the documentation.<br>
      </trn>
