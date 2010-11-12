@@ -1,13 +1,13 @@
 <master>
-<property name="title">Free Pascal - Download Haiku</property>
+<property name="title">Free Pascal - Download FreeBSD</property>
 <property name="entry">download</property>
-<property name="header">Download Haiku Intel x86</property>
+<property name="header">Download FreeBSD AMD64/x86_64</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
 <!--
 *****************************************************************************
-                                 Haiku
+                                 FreeBSD
 *****************************************************************************
 -->
 
@@ -15,11 +15,11 @@
   The latest release version is</trn> <b>2.4.2</b>.
 
 
-<h3><a name="Haikubig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
+<h3><a name="freebsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.4.2/i386-haiku/fpc-2.4.2.i386-haiku.tar">fpc-2.4.2.i386-haiku.tar</a> (35 MB)
+<li> <a href="@mirror_url@dist/2.4.2/x86_64-freebsd/fpc-2.4.2.x86_64-freebsd8.tar">fpc-2.4.2.x86_64-freebsd8.tar</a> (38 MB)
 </ul>
-<trn key="website.i386-haiku_1_file_download_descr" locale="en_US">
+<trn key="website.x86_64-freebsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
   After untarring the archive, you can run the install script in the created
   directory by issuing the command "<TT>sh install.sh</TT>".

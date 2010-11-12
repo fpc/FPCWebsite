@@ -17,6 +17,29 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+
+<p>
+<em>November 12th, 2010</em>
+  <trn locale="en_US" key="website.news_headline_20101101">
+    We have uploaded a new release 2.4.2. 2.4.2 is a fixes release from the 2.4 series.
+    Improvements, amongst others:
+     <ul>
+      <li>Delphi 2006 like for..in support</li>
+      <li>Support for sealed and abstract class modifiers, </li>
+      <li>new targets
+           <ul>
+              <li>  64-bit FreeBSD (x86_64)</li>
+          </ul>
+      <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
+     </ul>
+
+    Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
+    A list of changes that may require
+    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.2">here</A>.
+  </trn>
+</p>
+
+<p>
 <em>June 4, 2010</em>
   <trn locale="en_US" key="website.news_headline_20100604">
     The Dutch Pascal Users Group is organizing a <a href="http://www.hcc-pgg.nl/index.php?actie=bijeenkomsten/volgende_bijeenkomst">Lazarus Day</a> on June 26. 
@@ -24,6 +47,7 @@
   </trn>
 </p>
 
+<p>
 <em>January 1st, 2010</em>
   <trn locale="en_US" key="website.news_headline_20100101">
     Happy New Year!, a new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>

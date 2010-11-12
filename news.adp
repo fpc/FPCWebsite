@@ -9,6 +9,28 @@
 
 <h3>Latest changes:</h3>
 
+<li>November 12th, 2010
+<ul> 
+  <li>
+  <trn locale="en_US" key="website.news_headline_20101101">
+    We have uploaded a new release 2.4.2. 2.4.2 is a fixes release from the 2.4 series.
+    Improvements, amongst others:
+     <ul>
+      <li>Delphi 2006 like for..in support</li>
+      <li>Support for sealed and abstract class modifiers, </li>
+      <li>new targets
+           <ul>
+              <li>  64-bit FreeBSD (x86_64)</li>
+          </ul>
+      <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
+     </ul>
+
+    Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
+    A list of changes that may require
+    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.2">here</A>.
+  </trn></li>
+</ul>
+
 <li>January 1st, 2010
 <ul>
   <li>
