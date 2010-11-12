@@ -171,6 +171,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-australia.var
 	echo >> win64-australia.var
+../..//down/x86_64/freebsd-australia.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-australia.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-australia.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-australia.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-australia.var: gen_makefile.conf
+	echo > freebsd-australia.var
+	echo 'URI: freebsd-australia.html.bg' >> freebsd-australia.var
+	echo 'Content-language: bg' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.en' >> freebsd-australia.var
+	echo 'Content-language: en' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.fi' >> freebsd-australia.var
+	echo 'Content-language: fi' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.fr' >> freebsd-australia.var
+	echo 'Content-language: fr' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.id' >> freebsd-australia.var
+	echo 'Content-language: id' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.it' >> freebsd-australia.var
+	echo 'Content-language: it' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.nl' >> freebsd-australia.var
+	echo 'Content-language: nl' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.po' >> freebsd-australia.var
+	echo 'Content-language: pl' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.sl' >> freebsd-australia.var
+	echo 'Content-language: sl' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.ru' >> freebsd-australia.var
+	echo 'Content-language: ru' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-australia.var
+	echo >> freebsd-australia.var
+	echo 'URI: freebsd-australia.html.zh-CN' >> freebsd-australia.var
+	echo 'Content-language: zh-CN' >> freebsd-australia.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-australia.var
+	echo >> freebsd-australia.var
 ../..//down/x86_64/linux-austria.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-austria.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-austria.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -313,6 +384,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-austria.var
 	echo >> win64-austria.var
+../..//down/x86_64/freebsd-austria.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-austria.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-austria.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-austria.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-austria.var: gen_makefile.conf
+	echo > freebsd-austria.var
+	echo 'URI: freebsd-austria.html.bg' >> freebsd-austria.var
+	echo 'Content-language: bg' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.en' >> freebsd-austria.var
+	echo 'Content-language: en' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.fi' >> freebsd-austria.var
+	echo 'Content-language: fi' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.fr' >> freebsd-austria.var
+	echo 'Content-language: fr' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.id' >> freebsd-austria.var
+	echo 'Content-language: id' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.it' >> freebsd-austria.var
+	echo 'Content-language: it' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.nl' >> freebsd-austria.var
+	echo 'Content-language: nl' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.po' >> freebsd-austria.var
+	echo 'Content-language: pl' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.sl' >> freebsd-austria.var
+	echo 'Content-language: sl' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.ru' >> freebsd-austria.var
+	echo 'Content-language: ru' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-austria.var
+	echo >> freebsd-austria.var
+	echo 'URI: freebsd-austria.html.zh-CN' >> freebsd-austria.var
+	echo 'Content-language: zh-CN' >> freebsd-austria.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-austria.var
+	echo >> freebsd-austria.var
 ../..//down/x86_64/linux-hungary.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-hungary.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-hungary.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -455,6 +597,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-hungary.var
 	echo >> win64-hungary.var
+../..//down/x86_64/freebsd-hungary.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-hungary.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-hungary.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-hungary.var: gen_makefile.conf
+	echo > freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.bg' >> freebsd-hungary.var
+	echo 'Content-language: bg' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.en' >> freebsd-hungary.var
+	echo 'Content-language: en' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.fi' >> freebsd-hungary.var
+	echo 'Content-language: fi' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.fr' >> freebsd-hungary.var
+	echo 'Content-language: fr' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.id' >> freebsd-hungary.var
+	echo 'Content-language: id' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.it' >> freebsd-hungary.var
+	echo 'Content-language: it' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.nl' >> freebsd-hungary.var
+	echo 'Content-language: nl' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.po' >> freebsd-hungary.var
+	echo 'Content-language: pl' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.sl' >> freebsd-hungary.var
+	echo 'Content-language: sl' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.ru' >> freebsd-hungary.var
+	echo 'Content-language: ru' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
+	echo 'URI: freebsd-hungary.html.zh-CN' >> freebsd-hungary.var
+	echo 'Content-language: zh-CN' >> freebsd-hungary.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-hungary.var
+	echo >> freebsd-hungary.var
 ../..//down/x86_64/linux-israel.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-israel.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-israel.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -597,6 +810,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-israel.var
 	echo >> win64-israel.var
+../..//down/x86_64/freebsd-israel.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-israel.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-israel.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-israel.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-israel.var: gen_makefile.conf
+	echo > freebsd-israel.var
+	echo 'URI: freebsd-israel.html.bg' >> freebsd-israel.var
+	echo 'Content-language: bg' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.en' >> freebsd-israel.var
+	echo 'Content-language: en' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.fi' >> freebsd-israel.var
+	echo 'Content-language: fi' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.fr' >> freebsd-israel.var
+	echo 'Content-language: fr' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.id' >> freebsd-israel.var
+	echo 'Content-language: id' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.it' >> freebsd-israel.var
+	echo 'Content-language: it' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.nl' >> freebsd-israel.var
+	echo 'Content-language: nl' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.po' >> freebsd-israel.var
+	echo 'Content-language: pl' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.sl' >> freebsd-israel.var
+	echo 'Content-language: sl' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.ru' >> freebsd-israel.var
+	echo 'Content-language: ru' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-israel.var
+	echo >> freebsd-israel.var
+	echo 'URI: freebsd-israel.html.zh-CN' >> freebsd-israel.var
+	echo 'Content-language: zh-CN' >> freebsd-israel.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-israel.var
+	echo >> freebsd-israel.var
 ../..//down/x86_64/linux-netherlands.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-netherlands.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -739,6 +1023,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-netherlands.var
 	echo >> win64-netherlands.var
+../..//down/x86_64/freebsd-netherlands.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-netherlands.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-netherlands.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-netherlands.var: gen_makefile.conf
+	echo > freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.bg' >> freebsd-netherlands.var
+	echo 'Content-language: bg' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.en' >> freebsd-netherlands.var
+	echo 'Content-language: en' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.fi' >> freebsd-netherlands.var
+	echo 'Content-language: fi' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.fr' >> freebsd-netherlands.var
+	echo 'Content-language: fr' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.id' >> freebsd-netherlands.var
+	echo 'Content-language: id' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.it' >> freebsd-netherlands.var
+	echo 'Content-language: it' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.nl' >> freebsd-netherlands.var
+	echo 'Content-language: nl' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.po' >> freebsd-netherlands.var
+	echo 'Content-language: pl' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.sl' >> freebsd-netherlands.var
+	echo 'Content-language: sl' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.ru' >> freebsd-netherlands.var
+	echo 'Content-language: ru' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
+	echo 'URI: freebsd-netherlands.html.zh-CN' >> freebsd-netherlands.var
+	echo 'Content-language: zh-CN' >> freebsd-netherlands.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-netherlands.var
+	echo >> freebsd-netherlands.var
 ../..//down/x86_64/linux-norway.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-norway.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-norway.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -881,6 +1236,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-norway.var
 	echo >> win64-norway.var
+../..//down/x86_64/freebsd-norway.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-norway.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-norway.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-norway.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-norway.var: gen_makefile.conf
+	echo > freebsd-norway.var
+	echo 'URI: freebsd-norway.html.bg' >> freebsd-norway.var
+	echo 'Content-language: bg' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.en' >> freebsd-norway.var
+	echo 'Content-language: en' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.fi' >> freebsd-norway.var
+	echo 'Content-language: fi' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.fr' >> freebsd-norway.var
+	echo 'Content-language: fr' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.id' >> freebsd-norway.var
+	echo 'Content-language: id' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.it' >> freebsd-norway.var
+	echo 'Content-language: it' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.nl' >> freebsd-norway.var
+	echo 'Content-language: nl' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.po' >> freebsd-norway.var
+	echo 'Content-language: pl' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.sl' >> freebsd-norway.var
+	echo 'Content-language: sl' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.ru' >> freebsd-norway.var
+	echo 'Content-language: ru' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-norway.var
+	echo >> freebsd-norway.var
+	echo 'URI: freebsd-norway.html.zh-CN' >> freebsd-norway.var
+	echo 'Content-language: zh-CN' >> freebsd-norway.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-norway.var
+	echo >> freebsd-norway.var
 ../..//down/x86_64/linux-russia.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-russia.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-russia.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1023,6 +1449,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-russia.var
 	echo >> win64-russia.var
+../..//down/x86_64/freebsd-russia.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-russia.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-russia.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-russia.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-russia.var: gen_makefile.conf
+	echo > freebsd-russia.var
+	echo 'URI: freebsd-russia.html.bg' >> freebsd-russia.var
+	echo 'Content-language: bg' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.en' >> freebsd-russia.var
+	echo 'Content-language: en' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.fi' >> freebsd-russia.var
+	echo 'Content-language: fi' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.fr' >> freebsd-russia.var
+	echo 'Content-language: fr' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.id' >> freebsd-russia.var
+	echo 'Content-language: id' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.it' >> freebsd-russia.var
+	echo 'Content-language: it' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.nl' >> freebsd-russia.var
+	echo 'Content-language: nl' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.po' >> freebsd-russia.var
+	echo 'Content-language: pl' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.sl' >> freebsd-russia.var
+	echo 'Content-language: sl' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.ru' >> freebsd-russia.var
+	echo 'Content-language: ru' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-russia.var
+	echo >> freebsd-russia.var
+	echo 'URI: freebsd-russia.html.zh-CN' >> freebsd-russia.var
+	echo 'Content-language: zh-CN' >> freebsd-russia.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-russia.var
+	echo >> freebsd-russia.var
 ../..//down/x86_64/linux-ftp.freepascal.org.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-ftp.freepascal.org.html.bg -oe iso-8859-5 linux.adp
 ../..//down/x86_64/linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1165,6 +1662,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> win64-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> win64-ftp.freepascal.org.var
 	echo >> win64-ftp.freepascal.org.var
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html.zh-CN -oe utf-16 freebsd.adp
+../..//down/x86_64/freebsd-ftp.freepascal.org.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-ftp.freepascal.org.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-ftp.freepascal.org.var: gen_makefile.conf
+	echo > freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.bg' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.en' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: en' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.fi' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: fi' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.fr' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: fr' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.id' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: id' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.it' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: it' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.nl' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: nl' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.po' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: pl' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.sl' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: sl' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.ru' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: ru' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
+	echo 'URI: freebsd-ftp.freepascal.org.html.zh-CN' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> freebsd-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd-ftp.freepascal.org.var
+	echo >> freebsd-ftp.freepascal.org.var
 
 ../..//down/x86_64/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -1308,6 +1876,77 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> win64.var
 	echo >> win64.var
 
+../..//down/x86_64/freebsd.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o freebsd.html.bg -oe iso-8859-5 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o freebsd.html.en -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o freebsd.html.fi -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o freebsd.html.fr -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o freebsd.html.id -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o freebsd.html.it -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o freebsd.html.nl -oe iso-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o freebsd.html.po -oe iso-8859-2 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o freebsd.html.sl -oe iso-8859-2 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o freebsd.html.ru -oe iso-8859-5 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=freebsd -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o freebsd.html.zh-CN -oe utf-16 ../../templatemirror.adp
+../..//down/x86_64/freebsd.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=freebsd -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o freebsd.html -oe ISO-8859-1 ../../templatemirror.adp
+../..//down/x86_64/freebsd.var: gen_makefile.conf
+	echo > freebsd.var
+	echo 'URI: freebsd.html.bg' >> freebsd.var
+	echo 'Content-language: bg' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.en' >> freebsd.var
+	echo 'Content-language: en' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.fi' >> freebsd.var
+	echo 'Content-language: fi' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.fr' >> freebsd.var
+	echo 'Content-language: fr' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.id' >> freebsd.var
+	echo 'Content-language: id' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.it' >> freebsd.var
+	echo 'Content-language: it' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.nl' >> freebsd.var
+	echo 'Content-language: nl' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.po' >> freebsd.var
+	echo 'Content-language: pl' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.sl' >> freebsd.var
+	echo 'Content-language: sl' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.ru' >> freebsd.var
+	echo 'Content-language: ru' >> freebsd.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd.var
+	echo >> freebsd.var
+	echo 'URI: freebsd.html.zh-CN' >> freebsd.var
+	echo 'Content-language: zh-CN' >> freebsd.var
+	echo 'Content-type: text/html; charset=utf-16' >> freebsd.var
+	echo >> freebsd.var
+
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
 	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
@@ -1319,8 +1958,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/x86_64/linux-australia.html.bg ../..//down/x86_64/linux-australia.html.en ../..//down/x86_64/linux-australia.html.fi ../..//down/x86_64/linux-australia.html.fr ../..//down/x86_64/linux-australia.html.id ../..//down/x86_64/linux-australia.html.it ../..//down/x86_64/linux-australia.html.nl ../..//down/x86_64/linux-australia.html.po ../..//down/x86_64/linux-australia.html.sl ../..//down/x86_64/linux-australia.html.ru ../..//down/x86_64/linux-australia.html.zh-CN ../..//down/x86_64/linux-australia.var ../..//down/x86_64/win64-australia.html.bg ../..//down/x86_64/win64-australia.html.en ../..//down/x86_64/win64-australia.html.fi ../..//down/x86_64/win64-australia.html.fr ../..//down/x86_64/win64-australia.html.id ../..//down/x86_64/win64-australia.html.it ../..//down/x86_64/win64-australia.html.nl ../..//down/x86_64/win64-australia.html.po ../..//down/x86_64/win64-australia.html.sl ../..//down/x86_64/win64-australia.html.ru ../..//down/x86_64/win64-australia.html.zh-CN ../..//down/x86_64/win64-australia.var ../..//down/x86_64/linux-austria.html.bg ../..//down/x86_64/linux-austria.html.en ../..//down/x86_64/linux-austria.html.fi ../..//down/x86_64/linux-austria.html.fr ../..//down/x86_64/linux-austria.html.id ../..//down/x86_64/linux-austria.html.it ../..//down/x86_64/linux-austria.html.nl ../..//down/x86_64/linux-austria.html.po ../..//down/x86_64/linux-austria.html.sl ../..//down/x86_64/linux-austria.html.ru ../..//down/x86_64/linux-austria.html.zh-CN ../..//down/x86_64/linux-austria.var ../..//down/x86_64/win64-austria.html.bg ../..//down/x86_64/win64-austria.html.en ../..//down/x86_64/win64-austria.html.fi ../..//down/x86_64/win64-austria.html.fr ../..//down/x86_64/win64-austria.html.id ../..//down/x86_64/win64-austria.html.it ../..//down/x86_64/win64-austria.html.nl ../..//down/x86_64/win64-austria.html.po ../..//down/x86_64/win64-austria.html.sl ../..//down/x86_64/win64-austria.html.ru ../..//down/x86_64/win64-austria.html.zh-CN ../..//down/x86_64/win64-austria.var ../..//down/x86_64/linux-hungary.html.bg ../..//down/x86_64/linux-hungary.html.en ../..//down/x86_64/linux-hungary.html.fi ../..//down/x86_64/linux-hungary.html.fr ../..//down/x86_64/linux-hungary.html.id ../..//down/x86_64/linux-hungary.html.it ../..//down/x86_64/linux-hungary.html.nl ../..//down/x86_64/linux-hungary.html.po ../..//down/x86_64/linux-hungary.html.sl ../..//down/x86_64/linux-hungary.html.ru ../..//down/x86_64/linux-hungary.html.zh-CN ../..//down/x86_64/linux-hungary.var ../..//down/x86_64/win64-hungary.html.bg ../..//down/x86_64/win64-hungary.html.en ../..//down/x86_64/win64-hungary.html.fi ../..//down/x86_64/win64-hungary.html.fr ../..//down/x86_64/win64-hungary.html.id ../..//down/x86_64/win64-hungary.html.it ../..//down/x86_64/win64-hungary.html.nl ../..//down/x86_64/win64-hungary.html.po ../..//down/x86_64/win64-hungary.html.sl ../..//down/x86_64/win64-hungary.html.ru ../..//down/x86_64/win64-hungary.html.zh-CN ../..//down/x86_64/win64-hungary.var ../..//down/x86_64/linux-israel.html.bg ../..//down/x86_64/linux-israel.html.en ../..//down/x86_64/linux-israel.html.fi ../..//down/x86_64/linux-israel.html.fr ../..//down/x86_64/linux-israel.html.id ../..//down/x86_64/linux-israel.html.it ../..//down/x86_64/linux-israel.html.nl ../..//down/x86_64/linux-israel.html.po ../..//down/x86_64/linux-israel.html.sl ../..//down/x86_64/linux-israel.html.ru ../..//down/x86_64/linux-israel.html.zh-CN ../..//down/x86_64/linux-israel.var ../..//down/x86_64/win64-israel.html.bg ../..//down/x86_64/win64-israel.html.en ../..//down/x86_64/win64-israel.html.fi ../..//down/x86_64/win64-israel.html.fr ../..//down/x86_64/win64-israel.html.id ../..//down/x86_64/win64-israel.html.it ../..//down/x86_64/win64-israel.html.nl ../..//down/x86_64/win64-israel.html.po ../..//down/x86_64/win64-israel.html.sl ../..//down/x86_64/win64-israel.html.ru ../..//down/x86_64/win64-israel.html.zh-CN ../..//down/x86_64/win64-israel.var ../..//down/x86_64/linux-netherlands.html.bg ../..//down/x86_64/linux-netherlands.html.en ../..//down/x86_64/linux-netherlands.html.fi ../..//down/x86_64/linux-netherlands.html.fr ../..//down/x86_64/linux-netherlands.html.id ../..//down/x86_64/linux-netherlands.html.it ../..//down/x86_64/linux-netherlands.html.nl ../..//down/x86_64/linux-netherlands.html.po ../..//down/x86_64/linux-netherlands.html.sl ../..//down/x86_64/linux-netherlands.html.ru ../..//down/x86_64/linux-netherlands.html.zh-CN ../..//down/x86_64/linux-netherlands.var ../..//down/x86_64/win64-netherlands.html.bg ../..//down/x86_64/win64-netherlands.html.en ../..//down/x86_64/win64-netherlands.html.fi ../..//down/x86_64/win64-netherlands.html.fr ../..//down/x86_64/win64-netherlands.html.id ../..//down/x86_64/win64-netherlands.html.it ../..//down/x86_64/win64-netherlands.html.nl ../..//down/x86_64/win64-netherlands.html.po ../..//down/x86_64/win64-netherlands.html.sl ../..//down/x86_64/win64-netherlands.html.ru ../..//down/x86_64/win64-netherlands.html.zh-CN ../..//down/x86_64/win64-netherlands.var ../..//down/x86_64/linux-norway.html.bg ../..//down/x86_64/linux-norway.html.en ../..//down/x86_64/linux-norway.html.fi ../..//down/x86_64/linux-norway.html.fr ../..//down/x86_64/linux-norway.html.id ../..//down/x86_64/linux-norway.html.it ../..//down/x86_64/linux-norway.html.nl ../..//down/x86_64/linux-norway.html.po ../..//down/x86_64/linux-norway.html.sl ../..//down/x86_64/linux-norway.html.ru ../..//down/x86_64/linux-norway.html.zh-CN ../..//down/x86_64/linux-norway.var ../..//down/x86_64/win64-norway.html.bg ../..//down/x86_64/win64-norway.html.en ../..//down/x86_64/win64-norway.html.fi ../..//down/x86_64/win64-norway.html.fr ../..//down/x86_64/win64-norway.html.id ../..//down/x86_64/win64-norway.html.it ../..//down/x86_64/win64-norway.html.nl ../..//down/x86_64/win64-norway.html.po ../..//down/x86_64/win64-norway.html.sl ../..//down/x86_64/win64-norway.html.ru ../..//down/x86_64/win64-norway.html.zh-CN ../..//down/x86_64/win64-norway.var ../..//down/x86_64/linux-russia.html.bg ../..//down/x86_64/linux-russia.html.en ../..//down/x86_64/linux-russia.html.fi ../..//down/x86_64/linux-russia.html.fr ../..//down/x86_64/linux-russia.html.id ../..//down/x86_64/linux-russia.html.it ../..//down/x86_64/linux-russia.html.nl ../..//down/x86_64/linux-russia.html.po ../..//down/x86_64/linux-russia.html.sl ../..//down/x86_64/linux-russia.html.ru ../..//down/x86_64/linux-russia.html.zh-CN ../..//down/x86_64/linux-russia.var ../..//down/x86_64/win64-russia.html.bg ../..//down/x86_64/win64-russia.html.en ../..//down/x86_64/win64-russia.html.fi ../..//down/x86_64/win64-russia.html.fr ../..//down/x86_64/win64-russia.html.id ../..//down/x86_64/win64-russia.html.it ../..//down/x86_64/win64-russia.html.nl ../..//down/x86_64/win64-russia.html.po ../..//down/x86_64/win64-russia.html.sl ../..//down/x86_64/win64-russia.html.ru ../..//down/x86_64/win64-russia.html.zh-CN ../..//down/x86_64/win64-russia.var ../..//down/x86_64/linux-ftp.freepascal.org.html.bg ../..//down/x86_64/linux-ftp.freepascal.org.html.en ../..//down/x86_64/linux-ftp.freepascal.org.html.fi ../..//down/x86_64/linux-ftp.freepascal.org.html.fr ../..//down/x86_64/linux-ftp.freepascal.org.html.id ../..//down/x86_64/linux-ftp.freepascal.org.html.it ../..//down/x86_64/linux-ftp.freepascal.org.html.nl ../..//down/x86_64/linux-ftp.freepascal.org.html.po ../..//down/x86_64/linux-ftp.freepascal.org.html.sl ../..//down/x86_64/linux-ftp.freepascal.org.html.ru ../..//down/x86_64/linux-ftp.freepascal.org.html.zh-CN ../..//down/x86_64/linux-ftp.freepascal.org.var ../..//down/x86_64/win64-ftp.freepascal.org.html.bg ../..//down/x86_64/win64-ftp.freepascal.org.html.en ../..//down/x86_64/win64-ftp.freepascal.org.html.fi ../..//down/x86_64/win64-ftp.freepascal.org.html.fr ../..//down/x86_64/win64-ftp.freepascal.org.html.id ../..//down/x86_64/win64-ftp.freepascal.org.html.it ../..//down/x86_64/win64-ftp.freepascal.org.html.nl ../..//down/x86_64/win64-ftp.freepascal.org.html.po ../..//down/x86_64/win64-ftp.freepascal.org.html.sl ../..//down/x86_64/win64-ftp.freepascal.org.html.ru ../..//down/x86_64/win64-ftp.freepascal.org.html.zh-CN ../..//down/x86_64/win64-ftp.freepascal.org.var ../..//down/x86_64/linux.html.bg ../..//down/x86_64/linux.html.en ../..//down/x86_64/linux.html.fi ../..//down/x86_64/linux.html.fr ../..//down/x86_64/linux.html.id ../..//down/x86_64/linux.html.it ../..//down/x86_64/linux.html.nl ../..//down/x86_64/linux.html.po ../..//down/x86_64/linux.html.sl ../..//down/x86_64/linux.html.ru ../..//down/x86_64/linux.html.zh-CN ../..//down/x86_64/linux.var ../..//down/x86_64/win64.html.bg ../..//down/x86_64/win64.html.en ../..//down/x86_64/win64.html.fi ../..//down/x86_64/win64.html.fr ../..//down/x86_64/win64.html.id ../..//down/x86_64/win64.html.it ../..//down/x86_64/win64.html.nl ../..//down/x86_64/win64.html.po ../..//down/x86_64/win64.html.sl ../..//down/x86_64/win64.html.ru ../..//down/x86_64/win64.html.zh-CN ../..//down/x86_64/win64.var
-all_en_pages: mirrors.dat ../..//down/x86_64/linux-australia.html ../..//down/x86_64/win64-australia.html ../..//down/x86_64/linux-austria.html ../..//down/x86_64/win64-austria.html ../..//down/x86_64/linux-hungary.html ../..//down/x86_64/win64-hungary.html ../..//down/x86_64/linux-israel.html ../..//down/x86_64/win64-israel.html ../..//down/x86_64/linux-netherlands.html ../..//down/x86_64/win64-netherlands.html ../..//down/x86_64/linux-norway.html ../..//down/x86_64/win64-norway.html ../..//down/x86_64/linux-russia.html ../..//down/x86_64/win64-russia.html ../..//down/x86_64/linux-ftp.freepascal.org.html ../..//down/x86_64/win64-ftp.freepascal.org.html ../..//down/x86_64/linux.html ../..//down/x86_64/win64.html
+all_pages: mirrors.dat ../..//down/x86_64/linux-australia.html.bg ../..//down/x86_64/linux-australia.html.en ../..//down/x86_64/linux-australia.html.fi ../..//down/x86_64/linux-australia.html.fr ../..//down/x86_64/linux-australia.html.id ../..//down/x86_64/linux-australia.html.it ../..//down/x86_64/linux-australia.html.nl ../..//down/x86_64/linux-australia.html.po ../..//down/x86_64/linux-australia.html.sl ../..//down/x86_64/linux-australia.html.ru ../..//down/x86_64/linux-australia.html.zh-CN ../..//down/x86_64/linux-australia.var ../..//down/x86_64/win64-australia.html.bg ../..//down/x86_64/win64-australia.html.en ../..//down/x86_64/win64-australia.html.fi ../..//down/x86_64/win64-australia.html.fr ../..//down/x86_64/win64-australia.html.id ../..//down/x86_64/win64-australia.html.it ../..//down/x86_64/win64-australia.html.nl ../..//down/x86_64/win64-australia.html.po ../..//down/x86_64/win64-australia.html.sl ../..//down/x86_64/win64-australia.html.ru ../..//down/x86_64/win64-australia.html.zh-CN ../..//down/x86_64/win64-australia.var ../..//down/x86_64/freebsd-australia.html.bg ../..//down/x86_64/freebsd-australia.html.en ../..//down/x86_64/freebsd-australia.html.fi ../..//down/x86_64/freebsd-australia.html.fr ../..//down/x86_64/freebsd-australia.html.id ../..//down/x86_64/freebsd-australia.html.it ../..//down/x86_64/freebsd-australia.html.nl ../..//down/x86_64/freebsd-australia.html.po ../..//down/x86_64/freebsd-australia.html.sl ../..//down/x86_64/freebsd-australia.html.ru ../..//down/x86_64/freebsd-australia.html.zh-CN ../..//down/x86_64/freebsd-australia.var ../..//down/x86_64/linux-austria.html.bg ../..//down/x86_64/linux-austria.html.en ../..//down/x86_64/linux-austria.html.fi ../..//down/x86_64/linux-austria.html.fr ../..//down/x86_64/linux-austria.html.id ../..//down/x86_64/linux-austria.html.it ../..//down/x86_64/linux-austria.html.nl ../..//down/x86_64/linux-austria.html.po ../..//down/x86_64/linux-austria.html.sl ../..//down/x86_64/linux-austria.html.ru ../..//down/x86_64/linux-austria.html.zh-CN ../..//down/x86_64/linux-austria.var ../..//down/x86_64/win64-austria.html.bg ../..//down/x86_64/win64-austria.html.en ../..//down/x86_64/win64-austria.html.fi ../..//down/x86_64/win64-austria.html.fr ../..//down/x86_64/win64-austria.html.id ../..//down/x86_64/win64-austria.html.it ../..//down/x86_64/win64-austria.html.nl ../..//down/x86_64/win64-austria.html.po ../..//down/x86_64/win64-austria.html.sl ../..//down/x86_64/win64-austria.html.ru ../..//down/x86_64/win64-austria.html.zh-CN ../..//down/x86_64/win64-austria.var ../..//down/x86_64/freebsd-austria.html.bg ../..//down/x86_64/freebsd-austria.html.en ../..//down/x86_64/freebsd-austria.html.fi ../..//down/x86_64/freebsd-austria.html.fr ../..//down/x86_64/freebsd-austria.html.id ../..//down/x86_64/freebsd-austria.html.it ../..//down/x86_64/freebsd-austria.html.nl ../..//down/x86_64/freebsd-austria.html.po ../..//down/x86_64/freebsd-austria.html.sl ../..//down/x86_64/freebsd-austria.html.ru ../..//down/x86_64/freebsd-austria.html.zh-CN ../..//down/x86_64/freebsd-austria.var ../..//down/x86_64/linux-hungary.html.bg ../..//down/x86_64/linux-hungary.html.en ../..//down/x86_64/linux-hungary.html.fi ../..//down/x86_64/linux-hungary.html.fr ../..//down/x86_64/linux-hungary.html.id ../..//down/x86_64/linux-hungary.html.it ../..//down/x86_64/linux-hungary.html.nl ../..//down/x86_64/linux-hungary.html.po ../..//down/x86_64/linux-hungary.html.sl ../..//down/x86_64/linux-hungary.html.ru ../..//down/x86_64/linux-hungary.html.zh-CN ../..//down/x86_64/linux-hungary.var ../..//down/x86_64/win64-hungary.html.bg ../..//down/x86_64/win64-hungary.html.en ../..//down/x86_64/win64-hungary.html.fi ../..//down/x86_64/win64-hungary.html.fr ../..//down/x86_64/win64-hungary.html.id ../..//down/x86_64/win64-hungary.html.it ../..//down/x86_64/win64-hungary.html.nl ../..//down/x86_64/win64-hungary.html.po ../..//down/x86_64/win64-hungary.html.sl ../..//down/x86_64/win64-hungary.html.ru ../..//down/x86_64/win64-hungary.html.zh-CN ../..//down/x86_64/win64-hungary.var ../..//down/x86_64/freebsd-hungary.html.bg ../..//down/x86_64/freebsd-hungary.html.en ../..//down/x86_64/freebsd-hungary.html.fi ../..//down/x86_64/freebsd-hungary.html.fr ../..//down/x86_64/freebsd-hungary.html.id ../..//down/x86_64/freebsd-hungary.html.it ../..//down/x86_64/freebsd-hungary.html.nl ../..//down/x86_64/freebsd-hungary.html.po ../..//down/x86_64/freebsd-hungary.html.sl ../..//down/x86_64/freebsd-hungary.html.ru ../..//down/x86_64/freebsd-hungary.html.zh-CN ../..//down/x86_64/freebsd-hungary.var ../..//down/x86_64/linux-israel.html.bg ../..//down/x86_64/linux-israel.html.en ../..//down/x86_64/linux-israel.html.fi ../..//down/x86_64/linux-israel.html.fr ../..//down/x86_64/linux-israel.html.id ../..//down/x86_64/linux-israel.html.it ../..//down/x86_64/linux-israel.html.nl ../..//down/x86_64/linux-israel.html.po ../..//down/x86_64/linux-israel.html.sl ../..//down/x86_64/linux-israel.html.ru ../..//down/x86_64/linux-israel.html.zh-CN ../..//down/x86_64/linux-israel.var ../..//down/x86_64/win64-israel.html.bg ../..//down/x86_64/win64-israel.html.en ../..//down/x86_64/win64-israel.html.fi ../..//down/x86_64/win64-israel.html.fr ../..//down/x86_64/win64-israel.html.id ../..//down/x86_64/win64-israel.html.it ../..//down/x86_64/win64-israel.html.nl ../..//down/x86_64/win64-israel.html.po ../..//down/x86_64/win64-israel.html.sl ../..//down/x86_64/win64-israel.html.ru ../..//down/x86_64/win64-israel.html.zh-CN ../..//down/x86_64/win64-israel.var ../..//down/x86_64/freebsd-israel.html.bg ../..//down/x86_64/freebsd-israel.html.en ../..//down/x86_64/freebsd-israel.html.fi ../..//down/x86_64/freebsd-israel.html.fr ../..//down/x86_64/freebsd-israel.html.id ../..//down/x86_64/freebsd-israel.html.it ../..//down/x86_64/freebsd-israel.html.nl ../..//down/x86_64/freebsd-israel.html.po ../..//down/x86_64/freebsd-israel.html.sl ../..//down/x86_64/freebsd-israel.html.ru ../..//down/x86_64/freebsd-israel.html.zh-CN ../..//down/x86_64/freebsd-israel.var ../..//down/x86_64/linux-netherlands.html.bg ../..//down/x86_64/linux-netherlands.html.en ../..//down/x86_64/linux-netherlands.html.fi ../..//down/x86_64/linux-netherlands.html.fr ../..//down/x86_64/linux-netherlands.html.id ../..//down/x86_64/linux-netherlands.html.it ../..//down/x86_64/linux-netherlands.html.nl ../..//down/x86_64/linux-netherlands.html.po ../..//down/x86_64/linux-netherlands.html.sl ../..//down/x86_64/linux-netherlands.html.ru ../..//down/x86_64/linux-netherlands.html.zh-CN ../..//down/x86_64/linux-netherlands.var ../..//down/x86_64/win64-netherlands.html.bg ../..//down/x86_64/win64-netherlands.html.en ../..//down/x86_64/win64-netherlands.html.fi ../..//down/x86_64/win64-netherlands.html.fr ../..//down/x86_64/win64-netherlands.html.id ../..//down/x86_64/win64-netherlands.html.it ../..//down/x86_64/win64-netherlands.html.nl ../..//down/x86_64/win64-netherlands.html.po ../..//down/x86_64/win64-netherlands.html.sl ../..//down/x86_64/win64-netherlands.html.ru ../..//down/x86_64/win64-netherlands.html.zh-CN ../..//down/x86_64/win64-netherlands.var ../..//down/x86_64/freebsd-netherlands.html.bg ../..//down/x86_64/freebsd-netherlands.html.en ../..//down/x86_64/freebsd-netherlands.html.fi ../..//down/x86_64/freebsd-netherlands.html.fr ../..//down/x86_64/freebsd-netherlands.html.id ../..//down/x86_64/freebsd-netherlands.html.it ../..//down/x86_64/freebsd-netherlands.html.nl ../..//down/x86_64/freebsd-netherlands.html.po ../..//down/x86_64/freebsd-netherlands.html.sl ../..//down/x86_64/freebsd-netherlands.html.ru ../..//down/x86_64/freebsd-netherlands.html.zh-CN ../..//down/x86_64/freebsd-netherlands.var ../..//down/x86_64/linux-norway.html.bg ../..//down/x86_64/linux-norway.html.en ../..//down/x86_64/linux-norway.html.fi ../..//down/x86_64/linux-norway.html.fr ../..//down/x86_64/linux-norway.html.id ../..//down/x86_64/linux-norway.html.it ../..//down/x86_64/linux-norway.html.nl ../..//down/x86_64/linux-norway.html.po ../..//down/x86_64/linux-norway.html.sl ../..//down/x86_64/linux-norway.html.ru ../..//down/x86_64/linux-norway.html.zh-CN ../..//down/x86_64/linux-norway.var ../..//down/x86_64/win64-norway.html.bg ../..//down/x86_64/win64-norway.html.en ../..//down/x86_64/win64-norway.html.fi ../..//down/x86_64/win64-norway.html.fr ../..//down/x86_64/win64-norway.html.id ../..//down/x86_64/win64-norway.html.it ../..//down/x86_64/win64-norway.html.nl ../..//down/x86_64/win64-norway.html.po ../..//down/x86_64/win64-norway.html.sl ../..//down/x86_64/win64-norway.html.ru ../..//down/x86_64/win64-norway.html.zh-CN ../..//down/x86_64/win64-norway.var ../..//down/x86_64/freebsd-norway.html.bg ../..//down/x86_64/freebsd-norway.html.en ../..//down/x86_64/freebsd-norway.html.fi ../..//down/x86_64/freebsd-norway.html.fr ../..//down/x86_64/freebsd-norway.html.id ../..//down/x86_64/freebsd-norway.html.it ../..//down/x86_64/freebsd-norway.html.nl ../..//down/x86_64/freebsd-norway.html.po ../..//down/x86_64/freebsd-norway.html.sl ../..//down/x86_64/freebsd-norway.html.ru ../..//down/x86_64/freebsd-norway.html.zh-CN ../..//down/x86_64/freebsd-norway.var ../..//down/x86_64/linux-russia.html.bg ../..//down/x86_64/linux-russia.html.en ../..//down/x86_64/linux-russia.html.fi ../..//down/x86_64/linux-russia.html.fr ../..//down/x86_64/linux-russia.html.id ../..//down/x86_64/linux-russia.html.it ../..//down/x86_64/linux-russia.html.nl ../..//down/x86_64/linux-russia.html.po ../..//down/x86_64/linux-russia.html.sl ../..//down/x86_64/linux-russia.html.ru ../..//down/x86_64/linux-russia.html.zh-CN ../..//down/x86_64/linux-russia.var ../..//down/x86_64/win64-russia.html.bg ../..//down/x86_64/win64-russia.html.en ../..//down/x86_64/win64-russia.html.fi ../..//down/x86_64/win64-russia.html.fr ../..//down/x86_64/win64-russia.html.id ../..//down/x86_64/win64-russia.html.it ../..//down/x86_64/win64-russia.html.nl ../..//down/x86_64/win64-russia.html.po ../..//down/x86_64/win64-russia.html.sl ../..//down/x86_64/win64-russia.html.ru ../..//down/x86_64/win64-russia.html.zh-CN ../..//down/x86_64/win64-russia.var ../..//down/x86_64/freebsd-russia.html.bg ../..//down/x86_64/freebsd-russia.html.en ../..//down/x86_64/freebsd-russia.html.fi ../..//down/x86_64/freebsd-russia.html.fr ../..//down/x86_64/freebsd-russia.html.id ../..//down/x86_64/freebsd-russia.html.it ../..//down/x86_64/freebsd-russia.html.nl ../..//down/x86_64/freebsd-russia.html.po ../..//down/x86_64/freebsd-russia.html.sl ../..//down/x86_64/freebsd-russia.html.ru ../..//down/x86_64/freebsd-russia.html.zh-CN ../..//down/x86_64/freebsd-russia.var ../..//down/x86_64/linux-ftp.freepascal.org.html.bg ../..//down/x86_64/linux-ftp.freepascal.org.html.en ../..//down/x86_64/linux-ftp.freepascal.org.html.fi ../..//down/x86_64/linux-ftp.freepascal.org.html.fr ../..//down/x86_64/linux-ftp.freepascal.org.html.id ../..//down/x86_64/linux-ftp.freepascal.org.html.it ../..//down/x86_64/linux-ftp.freepascal.org.html.nl ../..//down/x86_64/linux-ftp.freepascal.org.html.po ../..//down/x86_64/linux-ftp.freepascal.org.html.sl ../..//down/x86_64/linux-ftp.freepascal.org.html.ru ../..//down/x86_64/linux-ftp.freepascal.org.html.zh-CN ../..//down/x86_64/linux-ftp.freepascal.org.var ../..//down/x86_64/win64-ftp.freepascal.org.html.bg ../..//down/x86_64/win64-ftp.freepascal.org.html.en ../..//down/x86_64/win64-ftp.freepascal.org.html.fi ../..//down/x86_64/win64-ftp.freepascal.org.html.fr ../..//down/x86_64/win64-ftp.freepascal.org.html.id ../..//down/x86_64/win64-ftp.freepascal.org.html.it ../..//down/x86_64/win64-ftp.freepascal.org.html.nl ../..//down/x86_64/win64-ftp.freepascal.org.html.po ../..//down/x86_64/win64-ftp.freepascal.org.html.sl ../..//down/x86_64/win64-ftp.freepascal.org.html.ru ../..//down/x86_64/win64-ftp.freepascal.org.html.zh-CN ../..//down/x86_64/win64-ftp.freepascal.org.var ../..//down/x86_64/freebsd-ftp.freepascal.org.html.bg ../..//down/x86_64/freebsd-ftp.freepascal.org.html.en ../..//down/x86_64/freebsd-ftp.freepascal.org.html.fi ../..//down/x86_64/freebsd-ftp.freepascal.org.html.fr ../..//down/x86_64/freebsd-ftp.freepascal.org.html.id ../..//down/x86_64/freebsd-ftp.freepascal.org.html.it ../..//down/x86_64/freebsd-ftp.freepascal.org.html.nl ../..//down/x86_64/freebsd-ftp.freepascal.org.html.po ../..//down/x86_64/freebsd-ftp.freepascal.org.html.sl ../..//down/x86_64/freebsd-ftp.freepascal.org.html.ru ../..//down/x86_64/freebsd-ftp.freepascal.org.html.zh-CN ../..//down/x86_64/freebsd-ftp.freepascal.org.var ../..//down/x86_64/linux.html.bg ../..//down/x86_64/linux.html.en ../..//down/x86_64/linux.html.fi ../..//down/x86_64/linux.html.fr ../..//down/x86_64/linux.html.id ../..//down/x86_64/linux.html.it ../..//down/x86_64/linux.html.nl ../..//down/x86_64/linux.html.po ../..//down/x86_64/linux.html.sl ../..//down/x86_64/linux.html.ru ../..//down/x86_64/linux.html.zh-CN ../..//down/x86_64/linux.var ../..//down/x86_64/win64.html.bg ../..//down/x86_64/win64.html.en ../..//down/x86_64/win64.html.fi ../..//down/x86_64/win64.html.fr ../..//down/x86_64/win64.html.id ../..//down/x86_64/win64.html.it ../..//down/x86_64/win64.html.nl ../..//down/x86_64/win64.html.po ../..//down/x86_64/win64.html.sl ../..//down/x86_64/win64.html.ru ../..//down/x86_64/win64.html.zh-CN ../..//down/x86_64/win64.var ../..//down/x86_64/freebsd.html.bg ../..//down/x86_64/freebsd.html.en ../..//down/x86_64/freebsd.html.fi ../..//down/x86_64/freebsd.html.fr ../..//down/x86_64/freebsd.html.id ../..//down/x86_64/freebsd.html.it ../..//down/x86_64/freebsd.html.nl ../..//down/x86_64/freebsd.html.po ../..//down/x86_64/freebsd.html.sl ../..//down/x86_64/freebsd.html.ru ../..//down/x86_64/freebsd.html.zh-CN ../..//down/x86_64/freebsd.var
+all_en_pages: mirrors.dat ../..//down/x86_64/linux-australia.html ../..//down/x86_64/win64-australia.html ../..//down/x86_64/freebsd-australia.html ../..//down/x86_64/linux-austria.html ../..//down/x86_64/win64-austria.html ../..//down/x86_64/freebsd-austria.html ../..//down/x86_64/linux-hungary.html ../..//down/x86_64/win64-hungary.html ../..//down/x86_64/freebsd-hungary.html ../..//down/x86_64/linux-israel.html ../..//down/x86_64/win64-israel.html ../..//down/x86_64/freebsd-israel.html ../..//down/x86_64/linux-netherlands.html ../..//down/x86_64/win64-netherlands.html ../..//down/x86_64/freebsd-netherlands.html ../..//down/x86_64/linux-norway.html ../..//down/x86_64/win64-norway.html ../..//down/x86_64/freebsd-norway.html ../..//down/x86_64/linux-russia.html ../..//down/x86_64/win64-russia.html ../..//down/x86_64/freebsd-russia.html ../..//down/x86_64/linux-ftp.freepascal.org.html ../..//down/x86_64/win64-ftp.freepascal.org.html ../..//down/x86_64/freebsd-ftp.freepascal.org.html ../..//down/x86_64/linux.html ../..//down/x86_64/win64.html ../..//down/x86_64/freebsd.html
 
 
 # clean
