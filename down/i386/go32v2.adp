@@ -39,6 +39,7 @@ You can download one archive containing the whole source tree: <a href="@mirror_
 <li><a href="@mirror_url@dist/2.4.2/docs/doc-pdf.zip">PDF</a> (6.1 MB)</li>
 <li><a href="@mirror_url@dist/2.4.2/docs/doc-html.zip">HTML</a> (11 MB; to be used from IDE among others)</li>
 <li><a href="@mirror_url@dist/2.4.2/docs/doc-ps.zip">PostScript</a> (4.4 MB)</li>
+<li><a href="@mirror_url@dist/2.4.2/docs/doc-chm.zip">CHM</a> (6 MB)</li>
 <li><a href="@mirror_url@dist/2.4.2/docs/doc-txt.zip">plain text</a> (1.1 MB)</li>
 </ul>
 
