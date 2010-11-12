@@ -17,11 +17,10 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
-
 <p>
 <em>November 12th, 2010</em>
   <trn locale="en_US" key="website.news_headline_20101101">
-    We have uploaded a new release 2.4.2. 2.4.2 is a fixes release from the 2.4 series.
+    A new release 2.4.2 is available from our sites. 2.4.2 is the first fixes release from the 2.4 series.
     Improvements, amongst others:
      <ul>
       <li>Delphi 2006 like for..in support</li>
@@ -30,14 +29,17 @@
            <ul>
               <li>  64-bit FreeBSD (x86_64)</li>
           </ul>
+      <li>Many improvements and fixes to the XML, database and CHM packages</li>
+      <li>Long term bug in OS/2 implementation of unit Video finally fixed which
+          among others allows inclusion of the text-mode IDE (without debugger)
+          for this platform as part of the distribution again.</li>
       <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
      </ul>
 
     Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
     A list of changes that may require
     changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.2">here</A>.
-  </trn>
-</p>
+  </trn></p>
 
 <p>
 <em>June 4, 2010</em>
@@ -47,7 +49,6 @@
   </trn>
 </p>
 
-<p>
 <em>January 1st, 2010</em>
   <trn locale="en_US" key="website.news_headline_20100101">
     Happy New Year!, a new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
@@ -69,19 +70,6 @@
     A list of changes that may require
     changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.0">here</A>.
   </trn>
-</p>
-
-<p>
-  <em>September 17, 2009</em>
-  <trn locale="en_US" key="website.news_headline_20090917">
-    <i>(The previously posted information about Mac OS X 10.6 compatibility was unfortunately
-    incorrect, which is why it was removed).</i>
-    FPC 2.2.4 has been tested with Mac OS X 10.6 (Snow Leopard) and generally works fine.
-    There is however an issue when compiling dynamic libraries with FPC under Mac OS X
-    10.6 due to a bug in the Xcode 3.2 linker. Unforuntately, there is no easy fix when using
-    FPC 2.2.4. The full discussion can be found in <a href="http://bugs.freepascal.org/view.php?id=14471">
-    this bug report</a>, with a summary in the last comment.
-   </trn>
 </p>
 
 <p>

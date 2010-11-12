@@ -13,7 +13,7 @@
 <ul> 
   <li>
   <trn locale="en_US" key="website.news_headline_20101101">
-    We have uploaded a new release 2.4.2. 2.4.2 is a fixes release from the 2.4 series.
+    A new release 2.4.2 is available from our sites. 2.4.2 is the first fixes release from the 2.4 series.
     Improvements, amongst others:
      <ul>
       <li>Delphi 2006 like for..in support</li>
@@ -22,6 +22,10 @@
            <ul>
               <li>  64-bit FreeBSD (x86_64)</li>
           </ul>
+      <li>Many improvements and fixes to the XML, database and CHM packages</li>
+      <li>Long term bug in OS/2 implementation of unit Video finally fixed which
+          among others allows inclusion of the text-mode IDE (without debugger)
+          for this platform as part of the distribution again.</li>
       <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
      </ul>
 

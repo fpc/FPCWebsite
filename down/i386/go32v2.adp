@@ -14,7 +14,6 @@
 <trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>2.4.2</b>. <trn key="website.old_windows_only" locale="en_US"> Please keep in mind that this package
 isn't supposed to work in Windows NT/2000/XP.</trn>
 
-<!--
 <h3>Download as one file</h3>
 <ul>
 <li>
@@ -24,7 +23,6 @@ or you can download a file that contains the same, only without sources and docu
 <a href="@mirror_url@dist/2.4.2/i386-go32v2/dos242.zip">dos242.zip</a> (20 MB).
 <!-- <li>Alternatively, you can download individual packages from <a href="@mirror_url@dist/2.4.2/i386-go32v2/separate">here</a>. -->
 </ul>
--->
 
 <p>
 <p>
