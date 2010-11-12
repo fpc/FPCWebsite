@@ -28,10 +28,10 @@ The latest release version is <b>2.4.2</b></p>
 <li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.intel-macosx.dmg">fpc-2.4.2.intel-macosx.dmg</a> (63 MB)
 contains an installation package for compiling both Intel (32 bit and 64 bit) and PowerPC (32 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.arm-iphone.dmg">fpc-2.4.2.arm-iphone.dmg</a> (23 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
 contains an installation package for compiling iPhone/iPod Touch programs, as well as the iPhone SDK Integration Kit.
 <br>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.powerpc64-macosx.dmg">fpc-2.4.2.powerpc64-macosx.dmg</a> (13 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.intel.powerpc64-macosx.dmg">fpc-2.4.2.intel.powerpc64-macosx.dmg</a> (13 MB)
  contains an installation package for compiling PowerPC (64 bit) programs.
 <br>
 
