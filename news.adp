@@ -29,7 +29,7 @@
       <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
      </ul>
 
-    Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
     A list of changes that may require
     changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.2">here</A>.
   </trn></li>
@@ -54,7 +54,7 @@
       <li>Many compiler bugfixes and half an year of library updates (since 2.2.4)</li>
      </ul>
 
-    Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). <br>
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
     A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.0">here</A>.
   </trn>
 </ul>
