@@ -38,7 +38,7 @@
   <li>Intel/i386
     <ul>
       <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
-      <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 6.x and 7.x</trn>)
+      <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 7.x and 8.x</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a> and several crosscompilers.
       <li><a href="down/i386/haiku@x@">Haiku</a>	
