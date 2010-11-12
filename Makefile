@@ -100,77 +100,77 @@ english: $(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_
 	echo 'Content-language: zh-CN' >> aboutus.var
 	echo 'Content-type: text/html; charset=utf-16' >> .//aboutus.var
 	echo >> aboutus.var
-# ./advantage.html.bg: advantage.adp default-master.adp site-master.adp ./catalog.bg.adp
-# 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//advantage.html.bg -oe iso-8859-5 advantage.adp
-# ./advantage.html.en: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//advantage.html.en -oe iso-8859-1 advantage.adp
-# ./advantage.html.fi: advantage.adp default-master.adp site-master.adp ./catalog.fi.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fi.adp -l fi_FI -m default-master.adp -o .//advantage.html.fi -oe iso-8859-1 advantage.adp
-# ./advantage.html.fr: advantage.adp default-master.adp site-master.adp ./catalog.fr.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o .//advantage.html.fr -oe iso-8859-1 advantage.adp
-# ./advantage.html.id: advantage.adp default-master.adp site-master.adp ./catalog.id.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o .//advantage.html.id -oe iso-8859-1 advantage.adp
-# ./advantage.html.it: advantage.adp default-master.adp site-master.adp ./catalog.it.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o .//advantage.html.it -oe iso-8859-1 advantage.adp
-# ./advantage.html.nl: advantage.adp default-master.adp site-master.adp ./catalog.nl.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o .//advantage.html.nl -oe iso-8859-1 advantage.adp
-# ./advantage.html.po: advantage.adp default-master.adp site-master.adp ./catalog.pl.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o .//advantage.html.po -oe iso-8859-2 advantage.adp
-# ./advantage.html.sl: advantage.adp default-master.adp site-master.adp ./catalog.sl.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o .//advantage.html.sl -oe iso-8859-2 advantage.adp
-# ./advantage.html.ru: advantage.adp default-master.adp site-master.adp ./catalog.ru.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//advantage.html.ru -oe iso-8859-5 advantage.adp
-# ./advantage.html.zh-CN: advantage.adp default-master.adp site-master.adp ./catalog.zh-CN.adp
-#	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh-CN.adp -l zh_CN -m default-master.adp -o .//advantage.html.zh-CN -oe utf-16 advantage.adp
-# ./advantage.html: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
-#	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//advantage.html -oe ISO-8859-1 advantage.adp
+./advantage.html.bg: advantage.adp default-master.adp site-master.adp ./catalog.bg.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//advantage.html.bg -oe iso-8859-5 advantage.adp
+./advantage.html.en: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//advantage.html.en -oe iso-8859-1 advantage.adp
+./advantage.html.fi: advantage.adp default-master.adp site-master.adp ./catalog.fi.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fi.adp -l fi_FI -m default-master.adp -o .//advantage.html.fi -oe iso-8859-1 advantage.adp
+./advantage.html.fr: advantage.adp default-master.adp site-master.adp ./catalog.fr.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.fr.adp -l fr_FR -m default-master.adp -o .//advantage.html.fr -oe iso-8859-1 advantage.adp
+./advantage.html.id: advantage.adp default-master.adp site-master.adp ./catalog.id.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.id.adp -l id_ID -m default-master.adp -o .//advantage.html.id -oe iso-8859-1 advantage.adp
+./advantage.html.it: advantage.adp default-master.adp site-master.adp ./catalog.it.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.it.adp -l it_IT -m default-master.adp -o .//advantage.html.it -oe iso-8859-1 advantage.adp
+./advantage.html.nl: advantage.adp default-master.adp site-master.adp ./catalog.nl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.nl.adp -l nl_NL -m default-master.adp -o .//advantage.html.nl -oe iso-8859-1 advantage.adp
+./advantage.html.po: advantage.adp default-master.adp site-master.adp ./catalog.pl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.pl.adp -l pl_PL -m default-master.adp -o .//advantage.html.po -oe iso-8859-2 advantage.adp
+./advantage.html.sl: advantage.adp default-master.adp site-master.adp ./catalog.sl.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.sl.adp -l sl_SI -m default-master.adp -o .//advantage.html.sl -oe iso-8859-2 advantage.adp
+./advantage.html.ru: advantage.adp default-master.adp site-master.adp ./catalog.ru.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.ru.adp -l ru_RU -m default-master.adp -o .//advantage.html.ru -oe iso-8859-5 advantage.adp
+./advantage.html.zh-CN: advantage.adp default-master.adp site-master.adp ./catalog.zh-CN.adp
+	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.zh-CN.adp -l zh_CN -m default-master.adp -o .//advantage.html.zh-CN -oe utf-16 advantage.adp
+./advantage.html: advantage.adp default-master.adp site-master.adp ./catalog.en.adp
+	./adp2html -p x=$(URL_EXTENSION_EN) -c ./catalog.en.adp -l en_US -m default-master.adp -o .//advantage.html -oe ISO-8859-1 advantage.adp
 
-# ./advantage.var: gen_makefile.conf
-#	echo > advantage.var
-#	echo 'URI: advantage.html.bg' >> advantage.var
-#	echo 'Content-language: bg' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-5' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.en' >> advantage.var
-#	echo 'Content-language: en' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.fi' >> advantage.var
-#	echo 'Content-language: fi' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.fr' >> advantage.var
-#	echo 'Content-language: fr' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.id' >> advantage.var
-#	echo 'Content-language: id' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.it' >> advantage.var
-#	echo 'Content-language: it' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.nl' >> advantage.var
-#	echo 'Content-language: nl' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.po' >> advantage.var
-#	echo 'Content-language: pl' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-2' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.sl' >> advantage.var
-#	echo 'Content-language: sl' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-2' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.ru' >> advantage.var
-#	echo 'Content-language: ru' >> advantage.var
-#	echo 'Content-type: text/html; charset=iso-8859-5' >> .//advantage.var
-#	echo >> advantage.var
-#	echo 'URI: advantage.html.zh-CN' >> advantage.var
-#	echo 'Content-language: zh-CN' >> advantage.var
-#	echo 'Content-type: text/html; charset=utf-16' >> .//advantage.var
-#	echo >> advantage.var
+./advantage.var: gen_makefile.conf
+	echo > advantage.var
+	echo 'URI: advantage.html.bg' >> advantage.var
+	echo 'Content-language: bg' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.en' >> advantage.var
+	echo 'Content-language: en' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.fi' >> advantage.var
+	echo 'Content-language: fi' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.fr' >> advantage.var
+	echo 'Content-language: fr' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.id' >> advantage.var
+	echo 'Content-language: id' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.it' >> advantage.var
+	echo 'Content-language: it' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.nl' >> advantage.var
+	echo 'Content-language: nl' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.po' >> advantage.var
+	echo 'Content-language: pl' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.sl' >> advantage.var
+	echo 'Content-language: sl' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.ru' >> advantage.var
+	echo 'Content-language: ru' >> advantage.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> .//advantage.var
+	echo >> advantage.var
+	echo 'URI: advantage.html.zh-CN' >> advantage.var
+	echo 'Content-language: zh-CN' >> advantage.var
+	echo 'Content-type: text/html; charset=utf-16' >> .//advantage.var
+	echo >> advantage.var
 ./credits.html.bg: credits.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -p x=$(URL_EXTENSION) -c ./catalog.bg.adp -l bg_BG -m default-master.adp -o .//credits.html.bg -oe iso-8859-5 credits.adp
 ./credits.html.en: credits.adp default-master.adp site-master.adp ./catalog.en.adp
@@ -1532,10 +1532,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ./aboutus.html.bg ./aboutus.html.en ./aboutus.html.fi ./aboutus.html.fr ./aboutus.html.id ./aboutus.html.it ./aboutus.html.nl ./aboutus.html.po ./aboutus.html.sl ./aboutus.html.ru ./aboutus.html.zh-CN ./aboutus.var ./credits.html.bg ./credits.html.en ./credits.html.fi ./credits.html.fr ./credits.html.id ./credits.html.it ./credits.html.nl ./credits.html.po ./credits.html.sl ./credits.html.ru ./credits.html.zh-CN ./credits.var ./develop.html.bg ./develop.html.en ./develop.html.fi ./develop.html.fr ./develop.html.id ./develop.html.it ./develop.html.nl ./develop.html.po ./develop.html.sl ./develop.html.ru ./develop.html.zh-CN ./develop.var ./download.html.bg ./download.html.en ./download.html.fi ./download.html.fr ./download.html.id ./download.html.it ./download.html.nl ./download.html.po ./download.html.sl ./download.html.ru ./download.html.zh-CN ./download.var ./docs.html.bg ./docs.html.en ./docs.html.fi ./docs.html.fr ./docs.html.id ./docs.html.it ./docs.html.nl ./docs.html.po ./docs.html.sl ./docs.html.ru ./docs.html.zh-CN ./docs.var ./faq.html.bg ./faq.html.en ./faq.html.fi ./faq.html.fr ./faq.html.id ./faq.html.it ./faq.html.nl ./faq.html.po ./faq.html.sl ./faq.html.ru ./faq.html.zh-CN ./faq.var ./fpc.html.bg ./fpc.html.en ./fpc.html.fi ./fpc.html.fr ./fpc.html.id ./fpc.html.it ./fpc.html.nl ./fpc.html.po ./fpc.html.sl ./fpc.html.ru ./fpc.html.zh-CN ./fpc.var ./fpcmac.html.bg ./fpcmac.html.en ./fpcmac.html.fi ./fpcmac.html.fr ./fpcmac.html.id ./fpcmac.html.it ./fpcmac.html.nl ./fpcmac.html.po ./fpcmac.html.sl ./fpcmac.html.ru ./fpcmac.html.zh-CN ./fpcmac.var ./future.html.bg ./future.html.en ./future.html.fi ./future.html.fr ./future.html.id ./future.html.it ./future.html.nl ./future.html.po ./future.html.sl ./future.html.ru ./future.html.zh-CN ./future.var ./lang_howto.html.bg ./lang_howto.html.en ./lang_howto.html.fi ./lang_howto.html.fr ./lang_howto.html.id ./lang_howto.html.it ./lang_howto.html.nl ./lang_howto.html.po ./lang_howto.html.sl ./lang_howto.html.ru ./lang_howto.html.zh-CN ./lang_howto.var ./links.html.bg ./links.html.en ./links.html.fi ./links.html.fr ./links.html.id ./links.html.it ./links.html.nl ./links.html.po ./links.html.sl ./links.html.ru ./links.html.zh-CN ./links.var ./maillist.html.bg ./maillist.html.en ./maillist.html.fi ./maillist.html.fr ./maillist.html.id ./maillist.html.it ./maillist.html.nl ./maillist.html.po ./maillist.html.sl ./maillist.html.ru ./maillist.html.zh-CN ./maillist.var ./mirrors.html.bg ./mirrors.html.en ./mirrors.html.fi ./mirrors.html.fr ./mirrors.html.id ./mirrors.html.it ./mirrors.html.nl ./mirrors.html.po ./mirrors.html.sl ./mirrors.html.ru ./mirrors.html.zh-CN ./mirrors.var ./moreinfo.html.bg ./moreinfo.html.en ./moreinfo.html.fi ./moreinfo.html.fr ./moreinfo.html.id ./moreinfo.html.it ./moreinfo.html.nl ./moreinfo.html.po ./moreinfo.html.sl ./moreinfo.html.ru ./moreinfo.html.zh-CN ./moreinfo.var ./news.html.bg ./news.html.en ./news.html.fi ./news.html.fr ./news.html.id ./news.html.it ./news.html.nl ./news.html.po ./news.html.sl ./news.html.ru ./news.html.zh-CN ./news.var ./port.html.bg ./port.html.en ./port.html.fi ./port.html.fr ./port.html.id ./port.html.it ./port.html.nl ./port.html.po ./port.html.sl ./port.html.ru ./port.html.zh-CN ./port.var ./prog.html.bg ./prog.html.en ./prog.html.fi ./prog.html.fr ./prog.html.id ./prog.html.it ./prog.html.nl ./prog.html.po ./prog.html.sl ./prog.html.ru ./prog.html.zh-CN ./prog.var ./probs.html.bg ./probs.html.en ./probs.html.fi ./probs.html.fr ./probs.html.id ./probs.html.it ./probs.html.nl ./probs.html.po ./probs.html.sl ./probs.html.ru ./probs.html.zh-CN ./probs.var ./units.html.bg ./units.html.en ./units.html.fi ./units.html.fr ./units.html.id ./units.html.it ./units.html.nl ./units.html.po ./units.html.sl ./units.html.ru ./units.html.zh-CN ./units.var ./unitsrtl.html.bg ./unitsrtl.html.en ./unitsrtl.html.fi ./unitsrtl.html.fr ./unitsrtl.html.id ./unitsrtl.html.it ./unitsrtl.html.nl ./unitsrtl.html.po ./unitsrtl.html.sl ./unitsrtl.html.ru ./unitsrtl.html.zh-CN ./unitsrtl.var
-# ./advantage.html.bg ./advantage.html.en ./advantage.html.fi ./advantage.html.fr ./advantage.html.id ./advantage.html.it ./advantage.html.nl ./advantage.html.po ./advantage.html.sl ./advantage.html.ru ./advantage.html.zh-CN ./advantage.var
-all_en_pages: mirrors.dat ./aboutus.html ./credits.html ./develop.html ./download.html ./docs.html ./faq.html ./fpc.html ./fpcmac.html ./future.html ./lang_howto.html ./links.html ./maillist.html ./mirrors.html ./moreinfo.html ./news.html ./port.html ./prog.html ./probs.html ./units.html ./unitsrtl.html
-# ./advantage.html
+all_pages: mirrors.dat ./aboutus.html.bg ./aboutus.html.en ./aboutus.html.fi ./aboutus.html.fr ./aboutus.html.id ./aboutus.html.it ./aboutus.html.nl ./aboutus.html.po ./aboutus.html.sl ./aboutus.html.ru ./aboutus.html.zh-CN ./aboutus.var ./advantage.html.bg ./advantage.html.en ./advantage.html.fi ./advantage.html.fr ./advantage.html.id ./advantage.html.it ./advantage.html.nl ./advantage.html.po ./advantage.html.sl ./advantage.html.ru ./advantage.html.zh-CN ./advantage.var ./credits.html.bg ./credits.html.en ./credits.html.fi ./credits.html.fr ./credits.html.id ./credits.html.it ./credits.html.nl ./credits.html.po ./credits.html.sl ./credits.html.ru ./credits.html.zh-CN ./credits.var ./develop.html.bg ./develop.html.en ./develop.html.fi ./develop.html.fr ./develop.html.id ./develop.html.it ./develop.html.nl ./develop.html.po ./develop.html.sl ./develop.html.ru ./develop.html.zh-CN ./develop.var ./download.html.bg ./download.html.en ./download.html.fi ./download.html.fr ./download.html.id ./download.html.it ./download.html.nl ./download.html.po ./download.html.sl ./download.html.ru ./download.html.zh-CN ./download.var ./docs.html.bg ./docs.html.en ./docs.html.fi ./docs.html.fr ./docs.html.id ./docs.html.it ./docs.html.nl ./docs.html.po ./docs.html.sl ./docs.html.ru ./docs.html.zh-CN ./docs.var ./faq.html.bg ./faq.html.en ./faq.html.fi ./faq.html.fr ./faq.html.id ./faq.html.it ./faq.html.nl ./faq.html.po ./faq.html.sl ./faq.html.ru ./faq.html.zh-CN ./faq.var ./fpc.html.bg ./fpc.html.en ./fpc.html.fi ./fpc.html.fr ./fpc.html.id ./fpc.html.it ./fpc.html.nl ./fpc.html.po ./fpc.html.sl ./fpc.html.ru ./fpc.html.zh-CN ./fpc.var ./fpcmac.html.bg ./fpcmac.html.en ./fpcmac.html.fi ./fpcmac.html.fr ./fpcmac.html.id ./fpcmac.html.it ./fpcmac.html.nl ./fpcmac.html.po ./fpcmac.html.sl ./fpcmac.html.ru ./fpcmac.html.zh-CN ./fpcmac.var ./future.html.bg ./future.html.en ./future.html.fi ./future.html.fr ./future.html.id ./future.html.it ./future.html.nl ./future.html.po ./future.html.sl ./future.html.ru ./future.html.zh-CN ./future.var ./lang_howto.html.bg ./lang_howto.html.en ./lang_howto.html.fi ./lang_howto.html.fr ./lang_howto.html.id ./lang_howto.html.it ./lang_howto.html.nl ./lang_howto.html.po ./lang_howto.html.sl ./lang_howto.html.ru ./lang_howto.html.zh-CN ./lang_howto.var ./links.html.bg ./links.html.en ./links.html.fi ./links.html.fr ./links.html.id ./links.html.it ./links.html.nl ./links.html.po ./links.html.sl ./links.html.ru ./links.html.zh-CN ./links.var ./maillist.html.bg ./maillist.html.en ./maillist.html.fi ./maillist.html.fr ./maillist.html.id ./maillist.html.it ./maillist.html.nl ./maillist.html.po ./maillist.html.sl ./maillist.html.ru ./maillist.html.zh-CN ./maillist.var ./mirrors.html.bg ./mirrors.html.en ./mirrors.html.fi ./mirrors.html.fr ./mirrors.html.id ./mirrors.html.it ./mirrors.html.nl ./mirrors.html.po ./mirrors.html.sl ./mirrors.html.ru ./mirrors.html.zh-CN ./mirrors.var ./moreinfo.html.bg ./moreinfo.html.en ./moreinfo.html.fi ./moreinfo.html.fr ./moreinfo.html.id ./moreinfo.html.it ./moreinfo.html.nl ./moreinfo.html.po ./moreinfo.html.sl ./moreinfo.html.ru ./moreinfo.html.zh-CN ./moreinfo.var ./news.html.bg ./news.html.en ./news.html.fi ./news.html.fr ./news.html.id ./news.html.it ./news.html.nl ./news.html.po ./news.html.sl ./news.html.ru ./news.html.zh-CN ./news.var ./port.html.bg ./port.html.en ./port.html.fi ./port.html.fr ./port.html.id ./port.html.it ./port.html.nl ./port.html.po ./port.html.sl ./port.html.ru ./port.html.zh-CN ./port.var ./prog.html.bg ./prog.html.en ./prog.html.fi ./prog.html.fr ./prog.html.id ./prog.html.it ./prog.html.nl ./prog.html.po ./prog.html.sl ./prog.html.ru ./prog.html.zh-CN ./prog.var ./probs.html.bg ./probs.html.en ./probs.html.fi ./probs.html.fr ./probs.html.id ./probs.html.it ./probs.html.nl ./probs.html.po ./probs.html.sl ./probs.html.ru ./probs.html.zh-CN ./probs.var ./units.html.bg ./units.html.en ./units.html.fi ./units.html.fr ./units.html.id ./units.html.it ./units.html.nl ./units.html.po ./units.html.sl ./units.html.ru ./units.html.zh-CN ./units.var ./unitsrtl.html.bg ./unitsrtl.html.en ./unitsrtl.html.fi ./unitsrtl.html.fr ./unitsrtl.html.id ./unitsrtl.html.it ./unitsrtl.html.nl ./unitsrtl.html.po ./unitsrtl.html.sl ./unitsrtl.html.ru ./unitsrtl.html.zh-CN ./unitsrtl.var
+all_en_pages: mirrors.dat ./aboutus.html ./advantage.html ./credits.html ./develop.html ./download.html ./docs.html ./faq.html ./fpc.html ./fpcmac.html ./future.html ./lang_howto.html ./links.html ./maillist.html ./mirrors.html ./moreinfo.html ./news.html ./port.html ./prog.html ./probs.html ./units.html ./unitsrtl.html
 
 
 #adp2html tool
