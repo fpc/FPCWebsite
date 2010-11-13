@@ -49,10 +49,10 @@
   HTML ones):
 </trn>
 <ul>
-<li><a href="@mirror_url@dist/docs-2.2.2/doc-pdf.zip">PDF</a> (<trn key="website.already_included_zip" locale="en_US">already included in the big zipped file listed above</trn>)</li>
-<li><a href="@mirror_url@dist/docs-2.2.2/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">to be used from IDE among others</trn>)</li>
-<li><a href="@mirror_url@dist/docs-2.2.2/doc-ps.zip">PostScript</a></li>
-<li><a href="@mirror_url@dist/docs-2.2.2/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
+<li><a href="@mirror_url@dist/2.4.2/docs/doc-pdf.zip">PDF</a> (<trn key="website.already_included_zip" locale="en_US">already included in the big zipped file listed above</trn>)</li>
+<li><a href="@mirror_url@dist/2.4.2/docs/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">to be used from IDE among others</trn>)</li>
+<li><a href="@mirror_url@dist/2.4.2/docs/doc-ps.zip">PostScript</a></li>
+<li><a href="@mirror_url@dist/2.4.2/docs/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
 </ul>
 
 <h3> <a name="os2sep"></a><trn key="website.Download_as_separate_files" locale="en_US">Download as separate files</trn></h3>
