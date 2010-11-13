@@ -16,7 +16,7 @@
 
 <p>
 <trn key="website.i386-os2_available_in" locale="en_US">
-  The FPC package for OS/2 and EComStation is available in the following formats:
+  The FPC package for OS/2 and eComStation is available in the following formats:
 </trn>
 <ul>
   <li> <a href="#os2big"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
