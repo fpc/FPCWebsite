@@ -17,7 +17,7 @@
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.4.2/sparc-solaris/fpc-2.4.2.sparc-solaris.tar">fpc-2.4.2.sparc-solaris.tar</a> (17 MB)
+<li> <a href="@mirror_url@dist/2.4.2/sparc-solaris/fpc-2.4.2.sparc-solaris.tar.gz">fpc-2.4.2.sparc-solaris.tar.gz</a> (17 MB)
 <li> <a href="@mirror_url@dist/2.4.2/sparc-solaris/install.sh">installer script for the above with post 2.4.2 fixes</a> (1 kB)
 </ul>
 <trn key="website.sparc-solaris_1_file_download_descr" locale="en_US">

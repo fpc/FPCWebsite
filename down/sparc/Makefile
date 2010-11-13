@@ -100,77 +100,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-australia.var
 	echo >> linux-australia.var
-../..//down/sparc/sparc-australia.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-australia.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-australia.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-australia.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-australia.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-australia.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-australia.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-australia.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-australia.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-australia.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-australia.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-australia.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-australia.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-australia.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-australia.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-australia.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-australia.var: gen_makefile.conf
-	echo > sparc-australia.var
-	echo 'URI: sparc-australia.html.bg' >> sparc-australia.var
-	echo 'Content-language: bg' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.en' >> sparc-australia.var
-	echo 'Content-language: en' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.fi' >> sparc-australia.var
-	echo 'Content-language: fi' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.fr' >> sparc-australia.var
-	echo 'Content-language: fr' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.id' >> sparc-australia.var
-	echo 'Content-language: id' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.it' >> sparc-australia.var
-	echo 'Content-language: it' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.nl' >> sparc-australia.var
-	echo 'Content-language: nl' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.po' >> sparc-australia.var
-	echo 'Content-language: pl' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.sl' >> sparc-australia.var
-	echo 'Content-language: sl' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.ru' >> sparc-australia.var
-	echo 'Content-language: ru' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-australia.var
-	echo >> sparc-australia.var
-	echo 'URI: sparc-australia.html.zh-CN' >> sparc-australia.var
-	echo 'Content-language: zh-CN' >> sparc-australia.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-australia.var
-	echo >> sparc-australia.var
+../..//down/sparc/solaris-australia.var: gen_makefile.conf
+	echo > solaris-australia.var
+	echo 'URI: solaris-australia.html.bg' >> solaris-australia.var
+	echo 'Content-language: bg' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.en' >> solaris-australia.var
+	echo 'Content-language: en' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.fi' >> solaris-australia.var
+	echo 'Content-language: fi' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.fr' >> solaris-australia.var
+	echo 'Content-language: fr' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.id' >> solaris-australia.var
+	echo 'Content-language: id' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.it' >> solaris-australia.var
+	echo 'Content-language: it' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.nl' >> solaris-australia.var
+	echo 'Content-language: nl' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.po' >> solaris-australia.var
+	echo 'Content-language: pl' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.sl' >> solaris-australia.var
+	echo 'Content-language: sl' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.ru' >> solaris-australia.var
+	echo 'Content-language: ru' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-australia.var
+	echo >> solaris-australia.var
+	echo 'URI: solaris-australia.html.zh-CN' >> solaris-australia.var
+	echo 'Content-language: zh-CN' >> solaris-australia.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-australia.var
+	echo >> solaris-australia.var
 ../..//down/sparc/linux-austria.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-austria.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-austria.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -242,77 +242,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-austria.var
 	echo >> linux-austria.var
-../..//down/sparc/sparc-austria.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-austria.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-austria.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-austria.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-austria.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-austria.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-austria.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-austria.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-austria.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-austria.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-austria.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-austria.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-austria.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-austria.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-austria.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-austria.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-austria.var: gen_makefile.conf
-	echo > sparc-austria.var
-	echo 'URI: sparc-austria.html.bg' >> sparc-austria.var
-	echo 'Content-language: bg' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.en' >> sparc-austria.var
-	echo 'Content-language: en' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.fi' >> sparc-austria.var
-	echo 'Content-language: fi' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.fr' >> sparc-austria.var
-	echo 'Content-language: fr' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.id' >> sparc-austria.var
-	echo 'Content-language: id' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.it' >> sparc-austria.var
-	echo 'Content-language: it' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.nl' >> sparc-austria.var
-	echo 'Content-language: nl' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.po' >> sparc-austria.var
-	echo 'Content-language: pl' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.sl' >> sparc-austria.var
-	echo 'Content-language: sl' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.ru' >> sparc-austria.var
-	echo 'Content-language: ru' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-austria.var
-	echo >> sparc-austria.var
-	echo 'URI: sparc-austria.html.zh-CN' >> sparc-austria.var
-	echo 'Content-language: zh-CN' >> sparc-austria.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-austria.var
-	echo >> sparc-austria.var
+../..//down/sparc/solaris-austria.var: gen_makefile.conf
+	echo > solaris-austria.var
+	echo 'URI: solaris-austria.html.bg' >> solaris-austria.var
+	echo 'Content-language: bg' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.en' >> solaris-austria.var
+	echo 'Content-language: en' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.fi' >> solaris-austria.var
+	echo 'Content-language: fi' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.fr' >> solaris-austria.var
+	echo 'Content-language: fr' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.id' >> solaris-austria.var
+	echo 'Content-language: id' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.it' >> solaris-austria.var
+	echo 'Content-language: it' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.nl' >> solaris-austria.var
+	echo 'Content-language: nl' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.po' >> solaris-austria.var
+	echo 'Content-language: pl' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.sl' >> solaris-austria.var
+	echo 'Content-language: sl' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.ru' >> solaris-austria.var
+	echo 'Content-language: ru' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-austria.var
+	echo >> solaris-austria.var
+	echo 'URI: solaris-austria.html.zh-CN' >> solaris-austria.var
+	echo 'Content-language: zh-CN' >> solaris-austria.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-austria.var
+	echo >> solaris-austria.var
 ../..//down/sparc/linux-hungary.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-hungary.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-hungary.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -384,77 +384,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-hungary.var
 	echo >> linux-hungary.var
-../..//down/sparc/sparc-hungary.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-hungary.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-hungary.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-hungary.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-hungary.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-hungary.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-hungary.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-hungary.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-hungary.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-hungary.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-hungary.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-hungary.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-hungary.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-hungary.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-hungary.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-hungary.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-hungary.var: gen_makefile.conf
-	echo > sparc-hungary.var
-	echo 'URI: sparc-hungary.html.bg' >> sparc-hungary.var
-	echo 'Content-language: bg' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.en' >> sparc-hungary.var
-	echo 'Content-language: en' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.fi' >> sparc-hungary.var
-	echo 'Content-language: fi' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.fr' >> sparc-hungary.var
-	echo 'Content-language: fr' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.id' >> sparc-hungary.var
-	echo 'Content-language: id' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.it' >> sparc-hungary.var
-	echo 'Content-language: it' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.nl' >> sparc-hungary.var
-	echo 'Content-language: nl' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.po' >> sparc-hungary.var
-	echo 'Content-language: pl' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.sl' >> sparc-hungary.var
-	echo 'Content-language: sl' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.ru' >> sparc-hungary.var
-	echo 'Content-language: ru' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-hungary.var
-	echo >> sparc-hungary.var
-	echo 'URI: sparc-hungary.html.zh-CN' >> sparc-hungary.var
-	echo 'Content-language: zh-CN' >> sparc-hungary.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-hungary.var
-	echo >> sparc-hungary.var
+../..//down/sparc/solaris-hungary.var: gen_makefile.conf
+	echo > solaris-hungary.var
+	echo 'URI: solaris-hungary.html.bg' >> solaris-hungary.var
+	echo 'Content-language: bg' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.en' >> solaris-hungary.var
+	echo 'Content-language: en' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.fi' >> solaris-hungary.var
+	echo 'Content-language: fi' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.fr' >> solaris-hungary.var
+	echo 'Content-language: fr' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.id' >> solaris-hungary.var
+	echo 'Content-language: id' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.it' >> solaris-hungary.var
+	echo 'Content-language: it' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.nl' >> solaris-hungary.var
+	echo 'Content-language: nl' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.po' >> solaris-hungary.var
+	echo 'Content-language: pl' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.sl' >> solaris-hungary.var
+	echo 'Content-language: sl' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.ru' >> solaris-hungary.var
+	echo 'Content-language: ru' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-hungary.var
+	echo >> solaris-hungary.var
+	echo 'URI: solaris-hungary.html.zh-CN' >> solaris-hungary.var
+	echo 'Content-language: zh-CN' >> solaris-hungary.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-hungary.var
+	echo >> solaris-hungary.var
 ../..//down/sparc/linux-israel.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-israel.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-israel.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -526,77 +526,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-israel.var
 	echo >> linux-israel.var
-../..//down/sparc/sparc-israel.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-israel.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-israel.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-israel.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-israel.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-israel.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-israel.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-israel.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-israel.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-israel.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-israel.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-israel.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-israel.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-israel.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-israel.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-israel.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-israel.var: gen_makefile.conf
-	echo > sparc-israel.var
-	echo 'URI: sparc-israel.html.bg' >> sparc-israel.var
-	echo 'Content-language: bg' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.en' >> sparc-israel.var
-	echo 'Content-language: en' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.fi' >> sparc-israel.var
-	echo 'Content-language: fi' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.fr' >> sparc-israel.var
-	echo 'Content-language: fr' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.id' >> sparc-israel.var
-	echo 'Content-language: id' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.it' >> sparc-israel.var
-	echo 'Content-language: it' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.nl' >> sparc-israel.var
-	echo 'Content-language: nl' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.po' >> sparc-israel.var
-	echo 'Content-language: pl' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.sl' >> sparc-israel.var
-	echo 'Content-language: sl' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.ru' >> sparc-israel.var
-	echo 'Content-language: ru' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-israel.var
-	echo >> sparc-israel.var
-	echo 'URI: sparc-israel.html.zh-CN' >> sparc-israel.var
-	echo 'Content-language: zh-CN' >> sparc-israel.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-israel.var
-	echo >> sparc-israel.var
+../..//down/sparc/solaris-israel.var: gen_makefile.conf
+	echo > solaris-israel.var
+	echo 'URI: solaris-israel.html.bg' >> solaris-israel.var
+	echo 'Content-language: bg' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.en' >> solaris-israel.var
+	echo 'Content-language: en' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.fi' >> solaris-israel.var
+	echo 'Content-language: fi' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.fr' >> solaris-israel.var
+	echo 'Content-language: fr' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.id' >> solaris-israel.var
+	echo 'Content-language: id' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.it' >> solaris-israel.var
+	echo 'Content-language: it' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.nl' >> solaris-israel.var
+	echo 'Content-language: nl' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.po' >> solaris-israel.var
+	echo 'Content-language: pl' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.sl' >> solaris-israel.var
+	echo 'Content-language: sl' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.ru' >> solaris-israel.var
+	echo 'Content-language: ru' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-israel.var
+	echo >> solaris-israel.var
+	echo 'URI: solaris-israel.html.zh-CN' >> solaris-israel.var
+	echo 'Content-language: zh-CN' >> solaris-israel.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-israel.var
+	echo >> solaris-israel.var
 ../..//down/sparc/linux-netherlands.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-netherlands.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -668,77 +668,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-netherlands.var
 	echo >> linux-netherlands.var
-../..//down/sparc/sparc-netherlands.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-netherlands.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-netherlands.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-netherlands.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-netherlands.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-netherlands.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-netherlands.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-netherlands.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-netherlands.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-netherlands.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-netherlands.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-netherlands.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-netherlands.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-netherlands.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-netherlands.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-netherlands.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-netherlands.var: gen_makefile.conf
-	echo > sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.bg' >> sparc-netherlands.var
-	echo 'Content-language: bg' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.en' >> sparc-netherlands.var
-	echo 'Content-language: en' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.fi' >> sparc-netherlands.var
-	echo 'Content-language: fi' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.fr' >> sparc-netherlands.var
-	echo 'Content-language: fr' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.id' >> sparc-netherlands.var
-	echo 'Content-language: id' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.it' >> sparc-netherlands.var
-	echo 'Content-language: it' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.nl' >> sparc-netherlands.var
-	echo 'Content-language: nl' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.po' >> sparc-netherlands.var
-	echo 'Content-language: pl' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.sl' >> sparc-netherlands.var
-	echo 'Content-language: sl' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.ru' >> sparc-netherlands.var
-	echo 'Content-language: ru' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
-	echo 'URI: sparc-netherlands.html.zh-CN' >> sparc-netherlands.var
-	echo 'Content-language: zh-CN' >> sparc-netherlands.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-netherlands.var
-	echo >> sparc-netherlands.var
+../..//down/sparc/solaris-netherlands.var: gen_makefile.conf
+	echo > solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.bg' >> solaris-netherlands.var
+	echo 'Content-language: bg' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.en' >> solaris-netherlands.var
+	echo 'Content-language: en' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.fi' >> solaris-netherlands.var
+	echo 'Content-language: fi' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.fr' >> solaris-netherlands.var
+	echo 'Content-language: fr' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.id' >> solaris-netherlands.var
+	echo 'Content-language: id' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.it' >> solaris-netherlands.var
+	echo 'Content-language: it' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.nl' >> solaris-netherlands.var
+	echo 'Content-language: nl' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.po' >> solaris-netherlands.var
+	echo 'Content-language: pl' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.sl' >> solaris-netherlands.var
+	echo 'Content-language: sl' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.ru' >> solaris-netherlands.var
+	echo 'Content-language: ru' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
+	echo 'URI: solaris-netherlands.html.zh-CN' >> solaris-netherlands.var
+	echo 'Content-language: zh-CN' >> solaris-netherlands.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-netherlands.var
+	echo >> solaris-netherlands.var
 ../..//down/sparc/linux-norway.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-norway.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-norway.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -810,77 +810,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-norway.var
 	echo >> linux-norway.var
-../..//down/sparc/sparc-norway.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-norway.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-norway.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-norway.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-norway.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-norway.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-norway.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-norway.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-norway.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-norway.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-norway.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-norway.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-norway.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-norway.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-norway.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-norway.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-norway.var: gen_makefile.conf
-	echo > sparc-norway.var
-	echo 'URI: sparc-norway.html.bg' >> sparc-norway.var
-	echo 'Content-language: bg' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.en' >> sparc-norway.var
-	echo 'Content-language: en' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.fi' >> sparc-norway.var
-	echo 'Content-language: fi' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.fr' >> sparc-norway.var
-	echo 'Content-language: fr' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.id' >> sparc-norway.var
-	echo 'Content-language: id' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.it' >> sparc-norway.var
-	echo 'Content-language: it' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.nl' >> sparc-norway.var
-	echo 'Content-language: nl' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.po' >> sparc-norway.var
-	echo 'Content-language: pl' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.sl' >> sparc-norway.var
-	echo 'Content-language: sl' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.ru' >> sparc-norway.var
-	echo 'Content-language: ru' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-norway.var
-	echo >> sparc-norway.var
-	echo 'URI: sparc-norway.html.zh-CN' >> sparc-norway.var
-	echo 'Content-language: zh-CN' >> sparc-norway.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-norway.var
-	echo >> sparc-norway.var
+../..//down/sparc/solaris-norway.var: gen_makefile.conf
+	echo > solaris-norway.var
+	echo 'URI: solaris-norway.html.bg' >> solaris-norway.var
+	echo 'Content-language: bg' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.en' >> solaris-norway.var
+	echo 'Content-language: en' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.fi' >> solaris-norway.var
+	echo 'Content-language: fi' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.fr' >> solaris-norway.var
+	echo 'Content-language: fr' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.id' >> solaris-norway.var
+	echo 'Content-language: id' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.it' >> solaris-norway.var
+	echo 'Content-language: it' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.nl' >> solaris-norway.var
+	echo 'Content-language: nl' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.po' >> solaris-norway.var
+	echo 'Content-language: pl' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.sl' >> solaris-norway.var
+	echo 'Content-language: sl' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.ru' >> solaris-norway.var
+	echo 'Content-language: ru' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-norway.var
+	echo >> solaris-norway.var
+	echo 'URI: solaris-norway.html.zh-CN' >> solaris-norway.var
+	echo 'Content-language: zh-CN' >> solaris-norway.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-norway.var
+	echo >> solaris-norway.var
 ../..//down/sparc/linux-russia.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-russia.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-russia.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -952,77 +952,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-russia.var
 	echo >> linux-russia.var
-../..//down/sparc/sparc-russia.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-russia.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-russia.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-russia.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-russia.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-russia.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-russia.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-russia.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-russia.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-russia.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-russia.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-russia.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-russia.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-russia.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-russia.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-russia.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-russia.var: gen_makefile.conf
-	echo > sparc-russia.var
-	echo 'URI: sparc-russia.html.bg' >> sparc-russia.var
-	echo 'Content-language: bg' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.en' >> sparc-russia.var
-	echo 'Content-language: en' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.fi' >> sparc-russia.var
-	echo 'Content-language: fi' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.fr' >> sparc-russia.var
-	echo 'Content-language: fr' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.id' >> sparc-russia.var
-	echo 'Content-language: id' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.it' >> sparc-russia.var
-	echo 'Content-language: it' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.nl' >> sparc-russia.var
-	echo 'Content-language: nl' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.po' >> sparc-russia.var
-	echo 'Content-language: pl' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.sl' >> sparc-russia.var
-	echo 'Content-language: sl' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.ru' >> sparc-russia.var
-	echo 'Content-language: ru' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-russia.var
-	echo >> sparc-russia.var
-	echo 'URI: sparc-russia.html.zh-CN' >> sparc-russia.var
-	echo 'Content-language: zh-CN' >> sparc-russia.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-russia.var
-	echo >> sparc-russia.var
+../..//down/sparc/solaris-russia.var: gen_makefile.conf
+	echo > solaris-russia.var
+	echo 'URI: solaris-russia.html.bg' >> solaris-russia.var
+	echo 'Content-language: bg' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.en' >> solaris-russia.var
+	echo 'Content-language: en' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.fi' >> solaris-russia.var
+	echo 'Content-language: fi' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.fr' >> solaris-russia.var
+	echo 'Content-language: fr' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.id' >> solaris-russia.var
+	echo 'Content-language: id' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.it' >> solaris-russia.var
+	echo 'Content-language: it' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.nl' >> solaris-russia.var
+	echo 'Content-language: nl' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.po' >> solaris-russia.var
+	echo 'Content-language: pl' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.sl' >> solaris-russia.var
+	echo 'Content-language: sl' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.ru' >> solaris-russia.var
+	echo 'Content-language: ru' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-russia.var
+	echo >> solaris-russia.var
+	echo 'URI: solaris-russia.html.zh-CN' >> solaris-russia.var
+	echo 'Content-language: zh-CN' >> solaris-russia.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-russia.var
+	echo >> solaris-russia.var
 ../..//down/sparc/linux-ftp.freepascal.org.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//linux-ftp.freepascal.org.html.bg -oe iso-8859-5 linux.adp
 ../..//down/sparc/linux-ftp.freepascal.org.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1094,77 +1094,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-ftp.freepascal.org.var
 	echo 'Content-type: text/html; charset=utf-16' >> linux-ftp.freepascal.org.var
 	echo >> linux-ftp.freepascal.org.var
-../..//down/sparc/sparc-ftp.freepascal.org.html.bg: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.bg -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.en: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.en -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.fi: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.fi -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.fr: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.fr -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.id: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.id -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.it: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.it -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.nl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.nl -oe iso-8859-1 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.po: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.po -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.sl: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.sl -oe iso-8859-2 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.ru: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.ru -oe iso-8859-5 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html.zh-CN: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html.zh-CN -oe utf-16 sparc.adp
-../..//down/sparc/sparc-ftp.freepascal.org.html: sparc.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//sparc-ftp.freepascal.org.html -oe ISO-8859-1 sparc.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.bg -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.en -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.fi -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.fr -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.id -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.it -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.nl -oe iso-8859-1 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.po -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.sl -oe iso-8859-2 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.ru -oe iso-8859-5 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html.zh-CN -oe utf-16 solaris.adp
+../..//down/sparc/solaris-ftp.freepascal.org.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/sparc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.freepascal.org/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/sparc//solaris-ftp.freepascal.org.html -oe ISO-8859-1 solaris.adp
 
-../..//down/sparc/sparc-ftp.freepascal.org.var: gen_makefile.conf
-	echo > sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.bg' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: bg' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.en' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: en' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.fi' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: fi' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.fr' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: fr' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.id' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: id' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.it' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: it' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.nl' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: nl' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.po' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: pl' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.sl' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: sl' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.ru' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: ru' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
-	echo 'URI: sparc-ftp.freepascal.org.html.zh-CN' >> sparc-ftp.freepascal.org.var
-	echo 'Content-language: zh-CN' >> sparc-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc-ftp.freepascal.org.var
-	echo >> sparc-ftp.freepascal.org.var
+../..//down/sparc/solaris-ftp.freepascal.org.var: gen_makefile.conf
+	echo > solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.bg' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: bg' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.en' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: en' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.fi' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: fi' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.fr' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: fr' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.id' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: id' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.it' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: it' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.nl' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: nl' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.po' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: pl' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.sl' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: sl' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.ru' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: ru' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
+	echo 'URI: solaris-ftp.freepascal.org.html.zh-CN' >> solaris-ftp.freepascal.org.var
+	echo 'Content-language: zh-CN' >> solaris-ftp.freepascal.org.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris-ftp.freepascal.org.var
+	echo >> solaris-ftp.freepascal.org.var
 
 ../..//down/sparc/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -1237,76 +1237,76 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> linux.var
 	echo >> linux.var
 
-../..//down/sparc/sparc.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sparc.html.bg -oe iso-8859-5 ../../templatemirror.adp
-../..//down/sparc/sparc.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sparc.html.en -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o sparc.html.fi -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o sparc.html.fr -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o sparc.html.id -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o sparc.html.it -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o sparc.html.nl -oe iso-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o sparc.html.po -oe iso-8859-2 ../../templatemirror.adp
-../..//down/sparc/sparc.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o sparc.html.sl -oe iso-8859-2 ../../templatemirror.adp
-../..//down/sparc/sparc.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o sparc.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/sparc/sparc.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sparc -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o sparc.html.zh-CN -oe utf-16 ../../templatemirror.adp
-../..//down/sparc/sparc.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=sparc -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o sparc.html -oe ISO-8859-1 ../../templatemirror.adp
-../..//down/sparc/sparc.var: gen_makefile.conf
-	echo > sparc.var
-	echo 'URI: sparc.html.bg' >> sparc.var
-	echo 'Content-language: bg' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.en' >> sparc.var
-	echo 'Content-language: en' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.fi' >> sparc.var
-	echo 'Content-language: fi' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.fr' >> sparc.var
-	echo 'Content-language: fr' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.id' >> sparc.var
-	echo 'Content-language: id' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.it' >> sparc.var
-	echo 'Content-language: it' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.nl' >> sparc.var
-	echo 'Content-language: nl' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.po' >> sparc.var
-	echo 'Content-language: pl' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.sl' >> sparc.var
-	echo 'Content-language: sl' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.ru' >> sparc.var
-	echo 'Content-language: ru' >> sparc.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sparc.var
-	echo >> sparc.var
-	echo 'URI: sparc.html.zh-CN' >> sparc.var
-	echo 'Content-language: zh-CN' >> sparc.var
-	echo 'Content-type: text/html; charset=utf-16' >> sparc.var
-	echo >> sparc.var
+../..//down/sparc/solaris.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o solaris.html.bg -oe iso-8859-5 ../../templatemirror.adp
+../..//down/sparc/solaris.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o solaris.html.en -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o solaris.html.fi -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o solaris.html.fr -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o solaris.html.id -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o solaris.html.it -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o solaris.html.nl -oe iso-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o solaris.html.po -oe iso-8859-2 ../../templatemirror.adp
+../..//down/sparc/solaris.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o solaris.html.sl -oe iso-8859-2 ../../templatemirror.adp
+../..//down/sparc/solaris.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o solaris.html.ru -oe iso-8859-5 ../../templatemirror.adp
+../..//down/sparc/solaris.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=solaris -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o solaris.html.zh-CN -oe utf-16 ../../templatemirror.adp
+../..//down/sparc/solaris.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=solaris -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o solaris.html -oe ISO-8859-1 ../../templatemirror.adp
+../..//down/sparc/solaris.var: gen_makefile.conf
+	echo > solaris.var
+	echo 'URI: solaris.html.bg' >> solaris.var
+	echo 'Content-language: bg' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.en' >> solaris.var
+	echo 'Content-language: en' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.fi' >> solaris.var
+	echo 'Content-language: fi' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.fr' >> solaris.var
+	echo 'Content-language: fr' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.id' >> solaris.var
+	echo 'Content-language: id' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.it' >> solaris.var
+	echo 'Content-language: it' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.nl' >> solaris.var
+	echo 'Content-language: nl' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.po' >> solaris.var
+	echo 'Content-language: pl' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.sl' >> solaris.var
+	echo 'Content-language: sl' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.ru' >> solaris.var
+	echo 'Content-language: ru' >> solaris.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris.var
+	echo >> solaris.var
+	echo 'URI: solaris.html.zh-CN' >> solaris.var
+	echo 'Content-language: zh-CN' >> solaris.var
+	echo 'Content-type: text/html; charset=utf-16' >> solaris.var
+	echo >> solaris.var
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
@@ -1319,8 +1319,8 @@ mirrors.dat:
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://ftp.freepascal.org/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/sparc/linux-australia.html.bg ../..//down/sparc/linux-australia.html.en ../..//down/sparc/linux-australia.html.fi ../..//down/sparc/linux-australia.html.fr ../..//down/sparc/linux-australia.html.id ../..//down/sparc/linux-australia.html.it ../..//down/sparc/linux-australia.html.nl ../..//down/sparc/linux-australia.html.po ../..//down/sparc/linux-australia.html.sl ../..//down/sparc/linux-australia.html.ru ../..//down/sparc/linux-australia.html.zh-CN ../..//down/sparc/linux-australia.var ../..//down/sparc/sparc-australia.html.bg ../..//down/sparc/sparc-australia.html.en ../..//down/sparc/sparc-australia.html.fi ../..//down/sparc/sparc-australia.html.fr ../..//down/sparc/sparc-australia.html.id ../..//down/sparc/sparc-australia.html.it ../..//down/sparc/sparc-australia.html.nl ../..//down/sparc/sparc-australia.html.po ../..//down/sparc/sparc-australia.html.sl ../..//down/sparc/sparc-australia.html.ru ../..//down/sparc/sparc-australia.html.zh-CN ../..//down/sparc/sparc-australia.var ../..//down/sparc/linux-austria.html.bg ../..//down/sparc/linux-austria.html.en ../..//down/sparc/linux-austria.html.fi ../..//down/sparc/linux-austria.html.fr ../..//down/sparc/linux-austria.html.id ../..//down/sparc/linux-austria.html.it ../..//down/sparc/linux-austria.html.nl ../..//down/sparc/linux-austria.html.po ../..//down/sparc/linux-austria.html.sl ../..//down/sparc/linux-austria.html.ru ../..//down/sparc/linux-austria.html.zh-CN ../..//down/sparc/linux-austria.var ../..//down/sparc/sparc-austria.html.bg ../..//down/sparc/sparc-austria.html.en ../..//down/sparc/sparc-austria.html.fi ../..//down/sparc/sparc-austria.html.fr ../..//down/sparc/sparc-austria.html.id ../..//down/sparc/sparc-austria.html.it ../..//down/sparc/sparc-austria.html.nl ../..//down/sparc/sparc-austria.html.po ../..//down/sparc/sparc-austria.html.sl ../..//down/sparc/sparc-austria.html.ru ../..//down/sparc/sparc-austria.html.zh-CN ../..//down/sparc/sparc-austria.var ../..//down/sparc/linux-hungary.html.bg ../..//down/sparc/linux-hungary.html.en ../..//down/sparc/linux-hungary.html.fi ../..//down/sparc/linux-hungary.html.fr ../..//down/sparc/linux-hungary.html.id ../..//down/sparc/linux-hungary.html.it ../..//down/sparc/linux-hungary.html.nl ../..//down/sparc/linux-hungary.html.po ../..//down/sparc/linux-hungary.html.sl ../..//down/sparc/linux-hungary.html.ru ../..//down/sparc/linux-hungary.html.zh-CN ../..//down/sparc/linux-hungary.var ../..//down/sparc/sparc-hungary.html.bg ../..//down/sparc/sparc-hungary.html.en ../..//down/sparc/sparc-hungary.html.fi ../..//down/sparc/sparc-hungary.html.fr ../..//down/sparc/sparc-hungary.html.id ../..//down/sparc/sparc-hungary.html.it ../..//down/sparc/sparc-hungary.html.nl ../..//down/sparc/sparc-hungary.html.po ../..//down/sparc/sparc-hungary.html.sl ../..//down/sparc/sparc-hungary.html.ru ../..//down/sparc/sparc-hungary.html.zh-CN ../..//down/sparc/sparc-hungary.var ../..//down/sparc/linux-israel.html.bg ../..//down/sparc/linux-israel.html.en ../..//down/sparc/linux-israel.html.fi ../..//down/sparc/linux-israel.html.fr ../..//down/sparc/linux-israel.html.id ../..//down/sparc/linux-israel.html.it ../..//down/sparc/linux-israel.html.nl ../..//down/sparc/linux-israel.html.po ../..//down/sparc/linux-israel.html.sl ../..//down/sparc/linux-israel.html.ru ../..//down/sparc/linux-israel.html.zh-CN ../..//down/sparc/linux-israel.var ../..//down/sparc/sparc-israel.html.bg ../..//down/sparc/sparc-israel.html.en ../..//down/sparc/sparc-israel.html.fi ../..//down/sparc/sparc-israel.html.fr ../..//down/sparc/sparc-israel.html.id ../..//down/sparc/sparc-israel.html.it ../..//down/sparc/sparc-israel.html.nl ../..//down/sparc/sparc-israel.html.po ../..//down/sparc/sparc-israel.html.sl ../..//down/sparc/sparc-israel.html.ru ../..//down/sparc/sparc-israel.html.zh-CN ../..//down/sparc/sparc-israel.var ../..//down/sparc/linux-netherlands.html.bg ../..//down/sparc/linux-netherlands.html.en ../..//down/sparc/linux-netherlands.html.fi ../..//down/sparc/linux-netherlands.html.fr ../..//down/sparc/linux-netherlands.html.id ../..//down/sparc/linux-netherlands.html.it ../..//down/sparc/linux-netherlands.html.nl ../..//down/sparc/linux-netherlands.html.po ../..//down/sparc/linux-netherlands.html.sl ../..//down/sparc/linux-netherlands.html.ru ../..//down/sparc/linux-netherlands.html.zh-CN ../..//down/sparc/linux-netherlands.var ../..//down/sparc/sparc-netherlands.html.bg ../..//down/sparc/sparc-netherlands.html.en ../..//down/sparc/sparc-netherlands.html.fi ../..//down/sparc/sparc-netherlands.html.fr ../..//down/sparc/sparc-netherlands.html.id ../..//down/sparc/sparc-netherlands.html.it ../..//down/sparc/sparc-netherlands.html.nl ../..//down/sparc/sparc-netherlands.html.po ../..//down/sparc/sparc-netherlands.html.sl ../..//down/sparc/sparc-netherlands.html.ru ../..//down/sparc/sparc-netherlands.html.zh-CN ../..//down/sparc/sparc-netherlands.var ../..//down/sparc/linux-norway.html.bg ../..//down/sparc/linux-norway.html.en ../..//down/sparc/linux-norway.html.fi ../..//down/sparc/linux-norway.html.fr ../..//down/sparc/linux-norway.html.id ../..//down/sparc/linux-norway.html.it ../..//down/sparc/linux-norway.html.nl ../..//down/sparc/linux-norway.html.po ../..//down/sparc/linux-norway.html.sl ../..//down/sparc/linux-norway.html.ru ../..//down/sparc/linux-norway.html.zh-CN ../..//down/sparc/linux-norway.var ../..//down/sparc/sparc-norway.html.bg ../..//down/sparc/sparc-norway.html.en ../..//down/sparc/sparc-norway.html.fi ../..//down/sparc/sparc-norway.html.fr ../..//down/sparc/sparc-norway.html.id ../..//down/sparc/sparc-norway.html.it ../..//down/sparc/sparc-norway.html.nl ../..//down/sparc/sparc-norway.html.po ../..//down/sparc/sparc-norway.html.sl ../..//down/sparc/sparc-norway.html.ru ../..//down/sparc/sparc-norway.html.zh-CN ../..//down/sparc/sparc-norway.var ../..//down/sparc/linux-russia.html.bg ../..//down/sparc/linux-russia.html.en ../..//down/sparc/linux-russia.html.fi ../..//down/sparc/linux-russia.html.fr ../..//down/sparc/linux-russia.html.id ../..//down/sparc/linux-russia.html.it ../..//down/sparc/linux-russia.html.nl ../..//down/sparc/linux-russia.html.po ../..//down/sparc/linux-russia.html.sl ../..//down/sparc/linux-russia.html.ru ../..//down/sparc/linux-russia.html.zh-CN ../..//down/sparc/linux-russia.var ../..//down/sparc/sparc-russia.html.bg ../..//down/sparc/sparc-russia.html.en ../..//down/sparc/sparc-russia.html.fi ../..//down/sparc/sparc-russia.html.fr ../..//down/sparc/sparc-russia.html.id ../..//down/sparc/sparc-russia.html.it ../..//down/sparc/sparc-russia.html.nl ../..//down/sparc/sparc-russia.html.po ../..//down/sparc/sparc-russia.html.sl ../..//down/sparc/sparc-russia.html.ru ../..//down/sparc/sparc-russia.html.zh-CN ../..//down/sparc/sparc-russia.var ../..//down/sparc/linux-ftp.freepascal.org.html.bg ../..//down/sparc/linux-ftp.freepascal.org.html.en ../..//down/sparc/linux-ftp.freepascal.org.html.fi ../..//down/sparc/linux-ftp.freepascal.org.html.fr ../..//down/sparc/linux-ftp.freepascal.org.html.id ../..//down/sparc/linux-ftp.freepascal.org.html.it ../..//down/sparc/linux-ftp.freepascal.org.html.nl ../..//down/sparc/linux-ftp.freepascal.org.html.po ../..//down/sparc/linux-ftp.freepascal.org.html.sl ../..//down/sparc/linux-ftp.freepascal.org.html.ru ../..//down/sparc/linux-ftp.freepascal.org.html.zh-CN ../..//down/sparc/linux-ftp.freepascal.org.var ../..//down/sparc/sparc-ftp.freepascal.org.html.bg ../..//down/sparc/sparc-ftp.freepascal.org.html.en ../..//down/sparc/sparc-ftp.freepascal.org.html.fi ../..//down/sparc/sparc-ftp.freepascal.org.html.fr ../..//down/sparc/sparc-ftp.freepascal.org.html.id ../..//down/sparc/sparc-ftp.freepascal.org.html.it ../..//down/sparc/sparc-ftp.freepascal.org.html.nl ../..//down/sparc/sparc-ftp.freepascal.org.html.po ../..//down/sparc/sparc-ftp.freepascal.org.html.sl ../..//down/sparc/sparc-ftp.freepascal.org.html.ru ../..//down/sparc/sparc-ftp.freepascal.org.html.zh-CN ../..//down/sparc/sparc-ftp.freepascal.org.var ../..//down/sparc/linux.html.bg ../..//down/sparc/linux.html.en ../..//down/sparc/linux.html.fi ../..//down/sparc/linux.html.fr ../..//down/sparc/linux.html.id ../..//down/sparc/linux.html.it ../..//down/sparc/linux.html.nl ../..//down/sparc/linux.html.po ../..//down/sparc/linux.html.sl ../..//down/sparc/linux.html.ru ../..//down/sparc/linux.html.zh-CN ../..//down/sparc/linux.var ../..//down/sparc/sparc.html.bg ../..//down/sparc/sparc.html.en ../..//down/sparc/sparc.html.fi ../..//down/sparc/sparc.html.fr ../..//down/sparc/sparc.html.id ../..//down/sparc/sparc.html.it ../..//down/sparc/sparc.html.nl ../..//down/sparc/sparc.html.po ../..//down/sparc/sparc.html.sl ../..//down/sparc/sparc.html.ru ../..//down/sparc/sparc.html.zh-CN ../..//down/sparc/sparc.var
-all_en_pages: mirrors.dat ../..//down/sparc/linux-australia.html ../..//down/sparc/sparc-australia.html ../..//down/sparc/linux-austria.html ../..//down/sparc/sparc-austria.html ../..//down/sparc/linux-hungary.html ../..//down/sparc/sparc-hungary.html ../..//down/sparc/linux-israel.html ../..//down/sparc/sparc-israel.html ../..//down/sparc/linux-netherlands.html ../..//down/sparc/sparc-netherlands.html ../..//down/sparc/linux-norway.html ../..//down/sparc/sparc-norway.html ../..//down/sparc/linux-russia.html ../..//down/sparc/sparc-russia.html ../..//down/sparc/linux-ftp.freepascal.org.html ../..//down/sparc/sparc-ftp.freepascal.org.html ../..//down/sparc/linux.html ../..//down/sparc/sparc.html
+all_pages: mirrors.dat ../..//down/sparc/linux-australia.html.bg ../..//down/sparc/linux-australia.html.en ../..//down/sparc/linux-australia.html.fi ../..//down/sparc/linux-australia.html.fr ../..//down/sparc/linux-australia.html.id ../..//down/sparc/linux-australia.html.it ../..//down/sparc/linux-australia.html.nl ../..//down/sparc/linux-australia.html.po ../..//down/sparc/linux-australia.html.sl ../..//down/sparc/linux-australia.html.ru ../..//down/sparc/linux-australia.html.zh-CN ../..//down/sparc/linux-australia.var ../..//down/sparc/solaris-australia.html.bg ../..//down/sparc/solaris-australia.html.en ../..//down/sparc/solaris-australia.html.fi ../..//down/sparc/solaris-australia.html.fr ../..//down/sparc/solaris-australia.html.id ../..//down/sparc/solaris-australia.html.it ../..//down/sparc/solaris-australia.html.nl ../..//down/sparc/solaris-australia.html.po ../..//down/sparc/solaris-australia.html.sl ../..//down/sparc/solaris-australia.html.ru ../..//down/sparc/solaris-australia.html.zh-CN ../..//down/sparc/solaris-australia.var ../..//down/sparc/linux-austria.html.bg ../..//down/sparc/linux-austria.html.en ../..//down/sparc/linux-austria.html.fi ../..//down/sparc/linux-austria.html.fr ../..//down/sparc/linux-austria.html.id ../..//down/sparc/linux-austria.html.it ../..//down/sparc/linux-austria.html.nl ../..//down/sparc/linux-austria.html.po ../..//down/sparc/linux-austria.html.sl ../..//down/sparc/linux-austria.html.ru ../..//down/sparc/linux-austria.html.zh-CN ../..//down/sparc/linux-austria.var ../..//down/sparc/solaris-austria.html.bg ../..//down/sparc/solaris-austria.html.en ../..//down/sparc/solaris-austria.html.fi ../..//down/sparc/solaris-austria.html.fr ../..//down/sparc/solaris-austria.html.id ../..//down/sparc/solaris-austria.html.it ../..//down/sparc/solaris-austria.html.nl ../..//down/sparc/solaris-austria.html.po ../..//down/sparc/solaris-austria.html.sl ../..//down/sparc/solaris-austria.html.ru ../..//down/sparc/solaris-austria.html.zh-CN ../..//down/sparc/solaris-austria.var ../..//down/sparc/linux-hungary.html.bg ../..//down/sparc/linux-hungary.html.en ../..//down/sparc/linux-hungary.html.fi ../..//down/sparc/linux-hungary.html.fr ../..//down/sparc/linux-hungary.html.id ../..//down/sparc/linux-hungary.html.it ../..//down/sparc/linux-hungary.html.nl ../..//down/sparc/linux-hungary.html.po ../..//down/sparc/linux-hungary.html.sl ../..//down/sparc/linux-hungary.html.ru ../..//down/sparc/linux-hungary.html.zh-CN ../..//down/sparc/linux-hungary.var ../..//down/sparc/solaris-hungary.html.bg ../..//down/sparc/solaris-hungary.html.en ../..//down/sparc/solaris-hungary.html.fi ../..//down/sparc/solaris-hungary.html.fr ../..//down/sparc/solaris-hungary.html.id ../..//down/sparc/solaris-hungary.html.it ../..//down/sparc/solaris-hungary.html.nl ../..//down/sparc/solaris-hungary.html.po ../..//down/sparc/solaris-hungary.html.sl ../..//down/sparc/solaris-hungary.html.ru ../..//down/sparc/solaris-hungary.html.zh-CN ../..//down/sparc/solaris-hungary.var ../..//down/sparc/linux-israel.html.bg ../..//down/sparc/linux-israel.html.en ../..//down/sparc/linux-israel.html.fi ../..//down/sparc/linux-israel.html.fr ../..//down/sparc/linux-israel.html.id ../..//down/sparc/linux-israel.html.it ../..//down/sparc/linux-israel.html.nl ../..//down/sparc/linux-israel.html.po ../..//down/sparc/linux-israel.html.sl ../..//down/sparc/linux-israel.html.ru ../..//down/sparc/linux-israel.html.zh-CN ../..//down/sparc/linux-israel.var ../..//down/sparc/solaris-israel.html.bg ../..//down/sparc/solaris-israel.html.en ../..//down/sparc/solaris-israel.html.fi ../..//down/sparc/solaris-israel.html.fr ../..//down/sparc/solaris-israel.html.id ../..//down/sparc/solaris-israel.html.it ../..//down/sparc/solaris-israel.html.nl ../..//down/sparc/solaris-israel.html.po ../..//down/sparc/solaris-israel.html.sl ../..//down/sparc/solaris-israel.html.ru ../..//down/sparc/solaris-israel.html.zh-CN ../..//down/sparc/solaris-israel.var ../..//down/sparc/linux-netherlands.html.bg ../..//down/sparc/linux-netherlands.html.en ../..//down/sparc/linux-netherlands.html.fi ../..//down/sparc/linux-netherlands.html.fr ../..//down/sparc/linux-netherlands.html.id ../..//down/sparc/linux-netherlands.html.it ../..//down/sparc/linux-netherlands.html.nl ../..//down/sparc/linux-netherlands.html.po ../..//down/sparc/linux-netherlands.html.sl ../..//down/sparc/linux-netherlands.html.ru ../..//down/sparc/linux-netherlands.html.zh-CN ../..//down/sparc/linux-netherlands.var ../..//down/sparc/solaris-netherlands.html.bg ../..//down/sparc/solaris-netherlands.html.en ../..//down/sparc/solaris-netherlands.html.fi ../..//down/sparc/solaris-netherlands.html.fr ../..//down/sparc/solaris-netherlands.html.id ../..//down/sparc/solaris-netherlands.html.it ../..//down/sparc/solaris-netherlands.html.nl ../..//down/sparc/solaris-netherlands.html.po ../..//down/sparc/solaris-netherlands.html.sl ../..//down/sparc/solaris-netherlands.html.ru ../..//down/sparc/solaris-netherlands.html.zh-CN ../..//down/sparc/solaris-netherlands.var ../..//down/sparc/linux-norway.html.bg ../..//down/sparc/linux-norway.html.en ../..//down/sparc/linux-norway.html.fi ../..//down/sparc/linux-norway.html.fr ../..//down/sparc/linux-norway.html.id ../..//down/sparc/linux-norway.html.it ../..//down/sparc/linux-norway.html.nl ../..//down/sparc/linux-norway.html.po ../..//down/sparc/linux-norway.html.sl ../..//down/sparc/linux-norway.html.ru ../..//down/sparc/linux-norway.html.zh-CN ../..//down/sparc/linux-norway.var ../..//down/sparc/solaris-norway.html.bg ../..//down/sparc/solaris-norway.html.en ../..//down/sparc/solaris-norway.html.fi ../..//down/sparc/solaris-norway.html.fr ../..//down/sparc/solaris-norway.html.id ../..//down/sparc/solaris-norway.html.it ../..//down/sparc/solaris-norway.html.nl ../..//down/sparc/solaris-norway.html.po ../..//down/sparc/solaris-norway.html.sl ../..//down/sparc/solaris-norway.html.ru ../..//down/sparc/solaris-norway.html.zh-CN ../..//down/sparc/solaris-norway.var ../..//down/sparc/linux-russia.html.bg ../..//down/sparc/linux-russia.html.en ../..//down/sparc/linux-russia.html.fi ../..//down/sparc/linux-russia.html.fr ../..//down/sparc/linux-russia.html.id ../..//down/sparc/linux-russia.html.it ../..//down/sparc/linux-russia.html.nl ../..//down/sparc/linux-russia.html.po ../..//down/sparc/linux-russia.html.sl ../..//down/sparc/linux-russia.html.ru ../..//down/sparc/linux-russia.html.zh-CN ../..//down/sparc/linux-russia.var ../..//down/sparc/solaris-russia.html.bg ../..//down/sparc/solaris-russia.html.en ../..//down/sparc/solaris-russia.html.fi ../..//down/sparc/solaris-russia.html.fr ../..//down/sparc/solaris-russia.html.id ../..//down/sparc/solaris-russia.html.it ../..//down/sparc/solaris-russia.html.nl ../..//down/sparc/solaris-russia.html.po ../..//down/sparc/solaris-russia.html.sl ../..//down/sparc/solaris-russia.html.ru ../..//down/sparc/solaris-russia.html.zh-CN ../..//down/sparc/solaris-russia.var ../..//down/sparc/linux-ftp.freepascal.org.html.bg ../..//down/sparc/linux-ftp.freepascal.org.html.en ../..//down/sparc/linux-ftp.freepascal.org.html.fi ../..//down/sparc/linux-ftp.freepascal.org.html.fr ../..//down/sparc/linux-ftp.freepascal.org.html.id ../..//down/sparc/linux-ftp.freepascal.org.html.it ../..//down/sparc/linux-ftp.freepascal.org.html.nl ../..//down/sparc/linux-ftp.freepascal.org.html.po ../..//down/sparc/linux-ftp.freepascal.org.html.sl ../..//down/sparc/linux-ftp.freepascal.org.html.ru ../..//down/sparc/linux-ftp.freepascal.org.html.zh-CN ../..//down/sparc/linux-ftp.freepascal.org.var ../..//down/sparc/solaris-ftp.freepascal.org.html.bg ../..//down/sparc/solaris-ftp.freepascal.org.html.en ../..//down/sparc/solaris-ftp.freepascal.org.html.fi ../..//down/sparc/solaris-ftp.freepascal.org.html.fr ../..//down/sparc/solaris-ftp.freepascal.org.html.id ../..//down/sparc/solaris-ftp.freepascal.org.html.it ../..//down/sparc/solaris-ftp.freepascal.org.html.nl ../..//down/sparc/solaris-ftp.freepascal.org.html.po ../..//down/sparc/solaris-ftp.freepascal.org.html.sl ../..//down/sparc/solaris-ftp.freepascal.org.html.ru ../..//down/sparc/solaris-ftp.freepascal.org.html.zh-CN ../..//down/sparc/solaris-ftp.freepascal.org.var ../..//down/sparc/linux.html.bg ../..//down/sparc/linux.html.en ../..//down/sparc/linux.html.fi ../..//down/sparc/linux.html.fr ../..//down/sparc/linux.html.id ../..//down/sparc/linux.html.it ../..//down/sparc/linux.html.nl ../..//down/sparc/linux.html.po ../..//down/sparc/linux.html.sl ../..//down/sparc/linux.html.ru ../..//down/sparc/linux.html.zh-CN ../..//down/sparc/linux.var ../..//down/sparc/solaris.html.bg ../..//down/sparc/solaris.html.en ../..//down/sparc/solaris.html.fi ../..//down/sparc/solaris.html.fr ../..//down/sparc/solaris.html.id ../..//down/sparc/solaris.html.it ../..//down/sparc/solaris.html.nl ../..//down/sparc/solaris.html.po ../..//down/sparc/solaris.html.sl ../..//down/sparc/solaris.html.ru ../..//down/sparc/solaris.html.zh-CN ../..//down/sparc/solaris.var
+all_en_pages: mirrors.dat ../..//down/sparc/linux-australia.html ../..//down/sparc/solaris-australia.html ../..//down/sparc/linux-austria.html ../..//down/sparc/solaris-austria.html ../..//down/sparc/linux-hungary.html ../..//down/sparc/solaris-hungary.html ../..//down/sparc/linux-israel.html ../..//down/sparc/solaris-israel.html ../..//down/sparc/linux-netherlands.html ../..//down/sparc/solaris-netherlands.html ../..//down/sparc/linux-norway.html ../..//down/sparc/solaris-norway.html ../..//down/sparc/linux-russia.html ../..//down/sparc/solaris-russia.html ../..//down/sparc/linux-ftp.freepascal.org.html ../..//down/sparc/solaris-ftp.freepascal.org.html ../..//down/sparc/linux.html ../..//down/sparc/solaris.html
 
 
 # clean
