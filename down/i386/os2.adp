@@ -45,8 +45,8 @@
 <p>
 <h3><trn key="website.Documentation" locale="en_US">Documentation</trn></h3>
 <trn key="website.Documentation_av_several_formats" locale="en_US">
-  Documentation is available in several formats<!-- (if you want to use the docs inside the text mode IDE, you need the
-  HTML ones)-->:
+  Documentation is available in several formats (if you want to use the docs inside the text mode IDE, you need the
+  HTML ones):
 </trn>
 <ul>
 <li><a href="@mirror_url@dist/docs-2.2.2/doc-pdf.zip">PDF</a> (<trn key="website.already_included_zip" locale="en_US">already included in the big zipped file listed above</trn>)</li>
@@ -77,9 +77,7 @@
 <ul>
 <li> <trn key="website.The_readme_file" locale="en_US">The readme file</trn>: <a href="@mirror_url@dist/2.4.2/i386-os2/separate/readme.txt">readme.txt</a> (14 kB)
 <li> <trn key="website.The_whatsnew_file" locale="en_US">The "what's new?" file</trn>: <a href="@mirror_url@dist/2.4.2/i386-os2/separate/whatsnew.txt">whatsnew.txt</a> (13 kB)
-<!--
 <li> IDE (without debugger): <a href="@mirror_url@dist/2.4.2/i386-os2/separate/ideos2.zip">ideos2.zip</a> (890 kB)
--->
 <!--
 <li> <trn key="website.FCL_units" locale="en_US">FCL units</trn>: <a href="@mirror_url@dist/2.4.2/i386-os2/separate/ufclos2.zip">ufclos2.zip</a> (1.2 MB)
 -->
@@ -153,11 +151,11 @@
 <li> <trn key="website.OS2_units_sources" locale="en_US">Additional OS/2 API interface units sources (multimedia, FTP API, LVM, ClkDll, etc.)</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/uos2src.zip">uos2src.zip</a> (230 kB)
 <!--
 <li> <trn key="website.NetDB_sources" locale="en_US">NetDB sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/undbsrc.zip">undbsrc.zip</a> (27 kB)
--->
 <li> <trn key="website.ODBC_interface_sources" locale="en_US">ODBC interface sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/uodbcsrc.zip">uodbcsrc.zip</a> (29 kB)
 <li> <trn key="website.MySQL_interface_sources" locale="en_US">MySQL interface sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/umysqsrc.zip">umysqsrc.zip</a> (85 kB)
 <li> <trn key="website.PgSQL_interface_sources" locale="en_US">PostgreSQL interface sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/upgrssrc.zip">upgrssrc.zip</a> (27 kB)
 <li> <trn key="website.OpenGL_interface_sources" locale="en_US">OpenGL interface sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/uoglsrc.zip">uoglsrc.zip</a> (250 kB)
+-->
 <li> <trn key="website.PasJPEG_sources" locale="en_US">PasJPEG sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/upjpsrc.zip">upjpsrc.zip</a> (410 kB)
 <li> <trn key="website.regexp_sources" locale="en_US">Regular expressions unit sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/uregsrc.zip">uregsrc.zip</a> (13 kB)
 <li> <trn key="website.REXX_SAA_sources" locale="en_US">REXX SAA interface sources</trn>: <a href="@mirror_url@dist/2.4.2/source/short/separate/urexxsrc.zip">urexxsrc.zip</a> (27 kB)
