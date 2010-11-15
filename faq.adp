@@ -207,11 +207,16 @@
               1.1.x.
              <li>Eventually the 1.1.x versions, when stabilized were released
               as the 2.0.x series, preceded by betas marked as 1.9.x. Fixes on
-              2.0 release were numbered 2.0.x, fixes on 2.2 release 2.2.x.</li>
-             <li>The new development after the 2.2.0 release is numbered 2.3.x
+              2.0 release were numbered 2.0.x, fixes on 2.2 release 2.2.x, fixes on the 2.4 release as 2.4.x etc</li>
+             <li>The new development after the 2.4.0 release is numbered 2.5.x
               and so on.
-			  <li>Repackagings that affect sources are indicated with a single letter as 
-			      suffix (e.g. 2.0.4a), this is usually the case for platforms that weren't part of the original release round.
+		<li>Repackagings that affect sources are indicated with a single letter as 
+			suffix (e.g. 2.0.4a), this is usually the case for platforms that weren't part of the original release round.
+             <li>The stable branch (fixes_2_4) always has an odd last number (2.4.1, 2.4.3). 
+                  Compilers with such versions are snapshots, and e.g. a snapshot with 2.4.1 can
+ 		  be anywhere between 2.4.0 and the moment 2.4.2 branched off (may 2010). Likewise
+		 the fixes_2_4 branch will hold version 2.4.3 till 2.4.4 is branched off (typically
+ 		 two months before its release).
             </ul>
             <p>
 
@@ -229,8 +234,12 @@
             users. Ask in the maillists if it is worth the trouble in your case if
             you're not sure.
 
+            <p>Snapshots of the stable branch (fixes_2_4) are meant to test release engineering. They are
+		mainly interesting in the months before a release to extensively
+		test the branch from which the release is created.
+
             <p>We advise all users to upgrade to the newest version for their
-            target (Preferably the new stable 2.2.x series).
+            target (Preferably the new stable 2.4.x series).
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
