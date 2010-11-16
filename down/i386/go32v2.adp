@@ -83,7 +83,7 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Symbolic (unit for parsing and evaluating expressions): <a href="@mirror_url@dist/2.4.2/i386-go32v2/separate/usymbdos.zip">usymbdos.zip</a> (62 kB)
 <li> Demo files: <a href="@mirror_url@dist/2.4.2/i386-go32v2/separate/demo.zip">demo.zip</a> (245 kB)
 </ul>
-<li> 
+<li>
 <b>Optional source files:</b>
 <ul>
 <li> Sources base: <a href="@mirror_url@dist/2.4.2/source/short/separate/basesrc.zip">basesrc.zip</a> (45 kB)
@@ -127,7 +127,7 @@ change the name of the files!
 <li>CWSDPMI (necessary for running the installer unless some DPMI runtime already present):
 <a href="@mirror_url@dist/2.4.2/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (20 kB)
 <li>Floating point processor emulator:
-<a href="@mirror_url@dist/2.4.2/i386-go32v2/separate/wemu386.dxe">wemu386.dxe</a> (60 kB)
+<a href="@mirror_url@dist/2.4.2/i386-go32v2/separate/wemu387.dxe">wemu387.dxe</a> (60 kB)
 </ul>
 </OL>
 
