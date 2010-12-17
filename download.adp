@@ -47,7 +47,7 @@
 -->
       <li><a href="down/i386/os2@x@">OS/2</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (Windows 95, 98, ME, NT, 2000, XP, Vista)
+      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-242-fix.html"> this fix for 2.4.2 RTL.</a>
     </ul>  
   <li>PowerPC
     <ul>
