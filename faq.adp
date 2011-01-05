@@ -1737,7 +1737,7 @@
             for information about OS/2 fixpaks and links for downloading them.
             This issue isn't valid for WarpServer for e-Business, MCP and eComStation - these already have
             the correct version.
-            
+
         <li><a name="os2-as-failing"></a><h3>Compilation under OS/2 fails with error "Can't call the assembler"</h3>
             <p>Apart from the point mentioned <a href="#os2-fp">above</a>,
             there is at least one more potential reason for issues with
@@ -1747,8 +1747,11 @@
             required for the assembler. Make sure that you installed FPC
             completely (these DLLs are part of file asldos2.zip) and that you
             have set LIBPATH according to instructions in README.TXT (and
-            restarted afterwards).
-        
+            restarted afterwards). If in doubts, running the assembler directly
+            from the command line (e.g. "as --version" to show the installed
+            as.exe version) may be helpful to see name of the missing dynamic
+            library or other details about the problem.
+
    </OL>
 
    <LI><h2>BeOS related information </h2>
