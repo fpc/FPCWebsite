@@ -20,7 +20,7 @@
   <a href="@maindir@docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a>
   <a href="http://bugs.freepascal.org/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a>
  </div>
- <img src="@maindir@pic/logo.gif" alt="FPC Logo" width="133" height="63" />
+ <img src="@maindir@pic/logo.gif" alt="FPC Logo" width="133" height="63" >
  <div class="spacer"></div>
  <h1>free pascal</h1>
  <h2>Open source compiler for Pascal and Object Pascal</h2>
@@ -76,17 +76,17 @@
   <h1><trn locale="en_US" key="freepascal.search">Search</trn></h1>
   <trn locale="en_US" key="freepascal.searchwhat">Search documentation, forums &amp; mailing lists.</trn>
   <form action="http://community.freepascal.org:10000/search/search" method="get">
-   <p><input type="text" name="q" size="20" maxlength="256"/></p>
-   <p><input type="submit" value="Search" name="t"/>
-    <input type="submit" value="Feeling Lucky" name="t"/>
+   <p><input type="text" name="q" size="20" maxlength="256"></p>
+   <p><input type="submit" value="Search" name="t">
+    <input type="submit" value="Feeling Lucky" name="t">
    </p>
   </form>
 
   <div class="logos">
-   <p><a href="http://www.lazarus.freepascal.org"><img src="@maindir@pic/lazarus_produced_logo.gif" alt="Lazarus Logo" height="57" width="125" /></a></p>
-   <p><a href="http://www.ffii.org"><img src="http://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" height="31" width="88" /></a></p>
-   <p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" alt="SourceForge.net Logo" /></a></p>
-   <p><a href="http://www.toolbox-mag.de/"><img src="@maindir@pic/txlogo.gif" width="128" height="48" alt="Toolbox Logo" /></a></p>
+   <p><a href="http://www.lazarus.freepascal.org"><img src="@maindir@pic/lazarus_produced_logo.gif" alt="Lazarus Logo" height="57" width="125" ></a></p>
+   <p><a href="http://www.ffii.org"><img src="http://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" height="31" width="88" ></a></p>
+   <p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" alt="SourceForge.net Logo" ></a></p>
+   <p><a href="http://www.toolbox-mag.de/"><img src="@maindir@pic/txlogo.gif" width="128" height="48" alt="Toolbox Logo" ></a></p>
   </div>
  </div>
 				
@@ -101,13 +101,15 @@
 <div id="site-footer">
   <div class="action-list">
     <ul>
+    <li>
      <font color="#199b02">&#x2713;</font> <a href='@maindir@lang_howto@x@'><trn key="website.Multilingual_website" locale="en_US">Multilingual website</trn></a>
+    </li>
     </ul>
   </div>
 </div>
 
 <div id="footer">
-  Copyright Free Pascal team 1993-2010.<br />
+  Copyright Free Pascal team 1993-2010.<br>
   Page design by <a href="http://www.sixshootermedia.com">6ix Shooter Media</a>, additional modifications by <a href="mailto:mcposeidon@mcville.net">Pos3idon</a>.
 </div>
 </body></html>
