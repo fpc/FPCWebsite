@@ -12,7 +12,9 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <hr>
 
-<a name="sourcesv21"></a><a name="sourcestrunk"></a><h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
+<a name="sourcesv21"></a>
+<a name="sourcestrunk"></a>
+<h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
 You can download today's development (trunk - currently v2.5.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
@@ -28,7 +30,9 @@ with documentation sources and release-building-related files in the same direct
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpcbuild.zip">fpcbuild.zip</a>.
 </p>
 
-<a name="sourcesv20"><a name="sourcesfixes"></a><h3>Download Daily Source Snapshot of the Fixes Tree</h3>
+<a name="sourcesv20"></a>
+<a name="sourcesfixes"></a>
+<h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
 You can download today's fixes branch (currently v2.2.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
@@ -50,7 +54,9 @@ with docs sources and release building related files in the same directory -
 
 <hr>
 
-<a name="snapshotsv21"></a><a name="snapshotstrunk"></a><h3>Download Daily Update of Development Tree (trunk)</h3>
+<a name="snapshotsv21"></a>
+<a name="snapshotstrunk"></a>
+<h3>Download Daily Update of Development Tree (trunk)</h3>
 <p>
 These compiled snapshots contain the latest development updates and bug fixes. There is no
 guarantee that the new development updates are fully working and that the snapshot
@@ -59,7 +65,9 @@ is bugfree.
 <p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/">ftp site</a> and mirrors.
 </p>
 
-<h3><a name="snapshotsv20"></a><a name="snapshotsfixes"></a><h3>Download Daily Update of the Fixes Tree</h3>
+<a name="snapshotsv20"></a>
+<a name="snapshotsfixes"></a>
+<h3>Download Daily Update of the Fixes Tree</h3>
 <p>
 These compiled snapshots contain the latest bug fixes, without major new
 features. They may be more stable than the development snapshots (and even
@@ -93,11 +101,9 @@ how to do that.)
 <OL>
 <li> To retrieve the full fpc source repository,
 type
-<font size="-1">
 <PRE>
 svn checkout http://svn.freepascal.org/svn/fpc/trunk fpc
 </PRE>
-</font>
 This will create a directory called &quot;fpc&quot; in the current directory, containing
 subdirectories with the following components:
 
@@ -111,32 +117,25 @@ subdirectories with the following components:
 <li><b>ide</b>, the IDE source code.</li>
 <li><b>installer</b>, the text mode installer source code.</li>
 </ul>
-</p>
 
 If you do not want the entire repository, you can check out subsections
 using, e.g.,
 
-<font size="-1">
 <PRE>
 svn checkout http://svn.freepascal.org/svn/fpc/trunk/rtl fpc/rtl
 </PRE>
-</font>
 
 <p>
 Normally, you should perform this checkout step just once.
 </p>
 <li> To update the sources that were downloaded (checked out) above to the latest available version, use
-<font size="-1">
 <PRE>
 svn update fpc
 </PRE>
-</font>
 or
-<font size="-1">
 <PRE>
 svn update fpc/rtl
 </PRE>
-</font>
 if you only downloaded some separate components, such as the rtl sources in this case.<br>
 These commands will retrieve patches <em>ONLY</EM> for the files that have
 changed on the server. <br>
@@ -187,7 +186,6 @@ which is also available online in different formats for free.
 
 <hr>
 
-<p>
 <a name="morerepos"></a><h3>Other repositories</h3>
 The fpc svn server hosts more repositories than only the fpc repository. You can check them out using
 svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt; is:<br>
@@ -198,7 +196,6 @@ svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt;
 <b>fpcbuild</b> Everything needed to build fpc releases. This links
 to several other repositories, so this checkout is really big.<br>
 <b>logs</b> Log files of the repositories mentioned above.<br>
-</p>
 
 <hr>
 
