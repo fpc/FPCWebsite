@@ -185,7 +185,7 @@
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 2.4.2, the second release in the 2.4.x series
+            <p>The latest official version is 2.4.2, the second release in the 2.4.x series.
             New development is performed in 2.5.x series, which eventually
             gets released as 2.6.0 or 3.0.0, depending on milestones achieved.
 
