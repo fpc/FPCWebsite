@@ -5,6 +5,7 @@ uses
 
 const
   runhour = 8;      { cut-off hour that distinguishes yesterday and today }
+  tablewidth = 80;  { maximum width of results table }
   urlprefix = 'http://www.freepascal.org/tests.cgi?';
 
 function getdate(line: string): string;
@@ -31,6 +32,10 @@ type
     data, url: string;
   end;
 
+  tnote = class(tobject)
+    str: string;
+  end;
+
 var
   header: array[0..2] of string;
   footer: string;
@@ -40,8 +45,9 @@ var
 procedure printtable(list: tstringlist; heading: string);
 var
   outputline: toutputline;
-  str, urlref: string;
-  i: integer;
+  failstr, datastr, urlref: string;
+  note: tnote;
+  i, notepos: integer;
 begin
   if list.count = 0 then
     exit;
@@ -50,11 +56,30 @@ begin
     writeln(header[i]);
   for i := 0 to list.count - 1 do
   begin
-    str := list.strings[i];
+    failstr := list.strings[i];
     outputline := toutputline(list.objects[i]);
     urlref := inttostr(urllist.count+1);
-    writeln('| ' + stringofchar(' ', 3 - length(urlref)) + urlref + ' | ' + str + stringofchar(' ', lenfailstr - length(str)) + ' ' + outputline.data);
-    urllist.add(outputline.url);
+    datastr := outputline.data;
+    note := nil;
+    if datastr[length(datastr)] = '|' then
+      datastr[length(datastr)] := ' ';
+    datastr := trimright(datastr);
+    if length(datastr) > tablewidth-2 then
+    begin
+      notepos := rposex('|', datastr, tablewidth);
+      if notepos > 0 then
+        inc(notepos, 2)
+      else
+        notepos := tablewidth-8;
+      note := tnote.create;
+      note.str := copy(datastr, notepos, length(datastr) + 1 - notepos);
+      datastr := copy(datastr, 1, tablewidth - 6) + '...# |';
+    end else
+      datastr := datastr + stringofchar(' ', tablewidth - 1 - length(datastr)) + '|';
+    write('| ', stringofchar(' ', 3 - length(urlref)), urlref, ' | ');
+    write(failstr, stringofchar(' ', lenfailstr + 1 - length(failstr)));
+    writeln(datastr);
+    urllist.addobject(outputline.url, note);
   end;
   writeln(footer);
   writeln;
@@ -62,10 +87,19 @@ end;
 
 procedure printurllist;
 var
+  note: tnote;
   i: integer;
 begin
   for i := 0 to urllist.count-1 do
+  begin
     writeln('[' + inttostr(i+1) + ']: ' + urllist.strings[i]);
+    note := tnote(urllist.objects[i]);
+    if note <> nil then
+    begin
+      writeln('  comment: ' + note.str);
+      note.free;
+    end;
+  end;
   writeln;
 end;
 
@@ -243,16 +277,18 @@ begin
     old := prev;
     prev := curr;
   until (length(old.line) > 0) and (old.line[1] = '+');
-  
-  header[0] := '+-----' + copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[0], datastart, datalen);
-  header[1] := '| URL ' + copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) + 
-    copy(header[1], datastart, datalen);
-  header[2] := '+-----' + copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(header[2], datastart, datalen);
-  footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) + 
-    copy(footer,    datastart, datalen);
-  
+
+  if datalen > tablewidth-1 then
+    datalen := tablewidth-1;
+  header[0] := '+-----' + copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) +
+    copy(header[0], datastart, datalen) + '+';
+  header[1] := '| URL ' + copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) +
+    copy(header[1], datastart, datalen) + '|';
+  header[2] := '+-----' + copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) +
+    copy(header[2], datastart, datalen) + '+';
+  footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) +
+    copy(footer,    datastart, datalen) + '+';
+
   printtable(disappearlist, 'DISAPPEARED:');
   printtable(prevdisappearlist, 'DISAPPEARED YESTERDAY:');
   printtable(changelist, 'CHANGED:');
