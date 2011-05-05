@@ -378,6 +378,7 @@ pic/unitsrtl.gif -text svneol=unset#image/gif
 /resources.html svneol=native#text/plain
 rtl/rtl.fp svneol=native#text/plain
 rtl/win95-rtl-242-fix.html svneol=native#text/plain
+rtl/win95-rtl-244-fix.html svneol=native#text/plain
 scripts/allsourcezips svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/dailymsgdiff svneol=native#text/plain

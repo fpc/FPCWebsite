@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<title>Windows 95 is not supported by Free Pascal 2.4.4 compiler</title>
+</head>
+<body>
+<center>
+<H1>Windows 95 is not supported by Free Pascal 2.4.4 compiler</H1>
+</center>
+<p>
+The Free Pascal Compiler development team has discovered after 
+2.4.2 release that the Free Pascal Compiler 
+does not support Windows 95 Operating System anymore.
+The fix is also not included in 2.4.4 source.
+</p>
+
+
+<p>
+  The following patch allows to fix the 2.4.4 RTL sources in such a way
+as to be able to run applications compiled with that patched RTL
+on Windows 95 operating system.
+</p>
+
+<H2> Win95 version 2.4.4 RTL patch support</H2>
+<PRE>
+--- systhrd.inc.orig	2011-05-05 14:16:51.719492700 +0200
++++ systhrd.inc	2011-05-05 14:14:47.903086200 +0200
+@@ -13,6 +13,7 @@
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ 
+  **********************************************************************}
++{$define SUPPORT_WIN95}
+ 
+ 
+ {*****************************************************************************
+@@ -66,9 +67,6 @@ procedure WinDoneCriticalSection(var cs
+ procedure WinEnterCriticalSection(var cs : TRTLCriticalSection);
+   {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'EnterCriticalSection';
+ 
+-function  WinTryEnterCriticalSection(var cs : TRTLCriticalSection):longint;
+-  {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'TryEnterCriticalSection';
+-
+ procedure WinLeaveCriticalSection(var cs : TRTLCriticalSection);
+   {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'LeaveCriticalSection';
+ 
+@@ -80,6 +78,15 @@ CONST
+    WAIT_ABANDONED = $80;
+    WAIT_FAILED = $ffffffff;
+ 
++{$ifndef SUPPORT_WIN95}
++function WinTryEnterCriticalSection(var cs : TRTLCriticalSection):longint;
++  {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'TryEnterCriticalSection';
++{$else SUPPORT_WIN95}
++type
++  TTryEnterCriticalSection = function(var cs : TRTLCriticalSection):longint; stdcall;
++var
++  WinTryEnterCriticalSection : TTryEnterCriticalSection;
++{$endif SUPPORT_WIN95}
+ 
+ {*****************************************************************************
+                              Threadvar support
+@@ -148,10 +155,10 @@ CONST
+       var
+         dataindex : pointer;
+         errorsave : dword;
+-      begin	    
++      begin	
+ {$ifdef dummy}
+         { it least in the on windows 7 x64, this still doesn't not work, fs:(0x2c) is
+-          self referencing on this system (FK) 
++          self referencing on this system (FK)
+           MVC: It also does not work on Windows Vista 32-bit, Home Premium, SP 1. Results in a crash}
+         asm
+           movl TLSKey,%edx
+@@ -351,6 +358,35 @@ begin
+   WinEnterCriticalSection(PRTLCriticalSection(@cs)^);
+ end;
+ 
++{$ifdef SUPPORT_WIN95}
++function Win95TryEnterCriticalSection(var cs : TRTLCriticalSection):longint;stdcall;
++var
++  MyThreadID : DWORD;
++begin
++  MyThreadId:=GetCurrentThreadId();
++  if InterlockedIncrement(cs.LockCount)=0 then
++    begin
++      cs.OwningThread:=MyThreadId;
++      cs.RecursionCount:=1;
++      result:=1;
++    end
++  else
++    begin
++      if cs.OwningThread=MyThreadId then
++        begin
++          InterlockedDecrement(cs.LockCount);
++          InterlockedIncrement(cs.RecursionCount);
++          result:=1;
++        end
++      else
++        begin
++          InterlockedDecrement(cs.LockCount);
++          result:=0;
++        end;
++    end;
++end;
++{$endif SUPPORT_WIN95}
++
+ function SysTryEnterCriticalSection(var cs):longint;
+ begin
+   result:=WinTryEnterCriticalSection(PRTLCriticalSection(@cs)^);
+@@ -455,6 +491,10 @@ Var
+   WinThreadManager : TThreadManager;
+ 
+ Procedure InitSystemThreads;
++{$IFDEF SUPPORT_WIN95}
++var
++  KernelHandle : THandle;
++{$ENDIF SUPPORT_WIN95}
+ begin
+   With WinThreadManager do
+     begin
+@@ -496,5 +536,16 @@ begin
+   ThreadID := GetCurrentThreadID;
+   if IsLibrary then
+     SysInitMultithreading;
++ {$IFDEF SUPPORT_WIN95}
++   { Try to find TryEnterCriticalSection function }
++   KernelHandle:=LoadLibrary(KernelDLL);
++   if KernelHandle<>0 then
++     begin
++       WinTryEnterCriticalSection:=TTryEnterCriticalSection(GetProcAddress(KernelHandle,'TryEnterCriticalSection'));
++       FreeLibrary(KernelHandle);
++     end;
++   if not assigned(WinTryEnterCriticalSection) then
++     WinTryEnterCriticalSection:=@Win95TryEnterCriticalSection;
++ {$ENDIF SUPPORT_WIN95}
+ end;
+ 
+ 
+</PRE>
+
+<H2> How to apply this patch?</H2>
+<p>
+  You first need to install the sources of 2.4.4 RTL.
+After, just copy the content of the patch above
+to a file, named systhread.patch. Copy that file
+into the directory rtl/win, and apply the patch using:
+<PRE>
+patch -p 0 -i systhread.patch
+</PRE>
+Move back to rtl directory level, and recompile the RTL, using make:
+<PRE>
+make clean all
+</PRE>
+If you want to be able to compile applications that should run
+on Windows 95 operating system, you should probably install
+the new rtl over the existing one.
+</p>
+<p>
+  Pierre Muller, 2011-05-05
+</p>
+</body>
+</html>
+
+
+
