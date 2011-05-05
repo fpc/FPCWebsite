@@ -10,8 +10,8 @@
 <H1>Windows 95 is not supported by Free Pascal 2.4.4 compiler</H1>
 </center>
 <p>
-The Free Pascal Compiler development team has discovered after 
-2.4.2 release that the Free Pascal Compiler 
+The Free Pascal Compiler development team has discovered after
+2.4.2 release that the Free Pascal Compiler
 does not support Windows 95 Operating System anymore.
 The fix is also not included in 2.4.4 source.
 </p>
@@ -29,26 +29,26 @@ on Windows 95 operating system.
 +++ systhrd.inc	2011-05-05 14:14:47.903086200 +0200
 @@ -13,6 +13,7 @@
      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- 
+
   **********************************************************************}
 +{$define SUPPORT_WIN95}
- 
- 
+
+
  {*****************************************************************************
 @@ -66,9 +67,6 @@ procedure WinDoneCriticalSection(var cs
  procedure WinEnterCriticalSection(var cs : TRTLCriticalSection);
    {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'EnterCriticalSection';
- 
+
 -function  WinTryEnterCriticalSection(var cs : TRTLCriticalSection):longint;
 -  {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'TryEnterCriticalSection';
 -
  procedure WinLeaveCriticalSection(var cs : TRTLCriticalSection);
    {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'LeaveCriticalSection';
- 
+
 @@ -80,6 +78,15 @@ CONST
     WAIT_ABANDONED = $80;
     WAIT_FAILED = $ffffffff;
- 
+
 +{$ifndef SUPPORT_WIN95}
 +function WinTryEnterCriticalSection(var cs : TRTLCriticalSection):longint;
 +  {$ifdef wince}cdecl{$else}stdcall{$endif};external KernelDLL name 'TryEnterCriticalSection';
@@ -58,18 +58,18 @@ on Windows 95 operating system.
 +var
 +  WinTryEnterCriticalSection : TTryEnterCriticalSection;
 +{$endif SUPPORT_WIN95}
- 
+
  {*****************************************************************************
                               Threadvar support
 @@ -148,10 +155,10 @@ CONST
        var
          dataindex : pointer;
          errorsave : dword;
--      begin	    
+-      begin
 +      begin	
  {$ifdef dummy}
          { it least in the on windows 7 x64, this still doesn't not work, fs:(0x2c) is
--          self referencing on this system (FK) 
+-          self referencing on this system (FK)
 +          self referencing on this system (FK)
            MVC: It also does not work on Windows Vista 32-bit, Home Premium, SP 1. Results in a crash}
          asm
@@ -77,7 +77,7 @@ on Windows 95 operating system.
 @@ -351,6 +358,35 @@ begin
    WinEnterCriticalSection(PRTLCriticalSection(@cs)^);
  end;
- 
+
 +{$ifdef SUPPORT_WIN95}
 +function Win95TryEnterCriticalSection(var cs : TRTLCriticalSection):longint;stdcall;
 +var
@@ -112,7 +112,7 @@ on Windows 95 operating system.
    result:=WinTryEnterCriticalSection(PRTLCriticalSection(@cs)^);
 @@ -455,6 +491,10 @@ Var
    WinThreadManager : TThreadManager;
- 
+
  Procedure InitSystemThreads;
 +{$IFDEF SUPPORT_WIN95}
 +var
@@ -137,8 +137,8 @@ on Windows 95 operating system.
 +     WinTryEnterCriticalSection:=@Win95TryEnterCriticalSection;
 + {$ENDIF SUPPORT_WIN95}
  end;
- 
- 
+
+
 </PRE>
 
 <H2> How to apply this patch?</H2>
@@ -157,6 +157,23 @@ make clean all
 If you want to be able to compile applications that should run
 on Windows 95 operating system, you should probably install
 the new rtl over the existing one.
+</p>
+<p>
+If you try to recompile all the packages, you might also
+run into the cdrom directory problem: cdrom is a device name
+(like aux, con, lpt1, com1 ...)
+under standard Win95 installation, and thus no directory
+have this name is allowed.
+This means that on extraction of cdrom directory from fpcbuild-2.4.4.zip
+will fail, leading later to an error if you try to recompile the packages.
+
+To overcome this limitation, remove the occurences of cdrom inside
+makefile.fpc in packages directory and run:
+<PRE>
+fpcmake -Tall
+</PRE>
+in the same directory. After this change, the compilation
+of packages directory should succeed.
 </p>
 <p>
   Pierre Muller, 2011-05-05
