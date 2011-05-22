@@ -12,11 +12,11 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest cross compiler release version is <b>2.4.2</b>.
+  The latest cross compiler release version is <b>2.4.4</b>.
 </trn>
 
-<h1>2.4.2</h1>
-The FPC 2.4.2 package for arm-wince is available in one easy to choose format:
+<h1>2.4.4</h1>
+The FPC 2.4.4 package for arm-wince is available in one easy to choose format:
 <ul>
   <li> <a href="#wince">Everything in 1 big package</a>
 </ul>
@@ -30,7 +30,7 @@ The FPC 2.4.2 package for arm-wince is available in one easy to choose format:
 
 <h3><a name="wince"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.arm-wince_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/2.4.2/i386-win32/fpc-2.4.2.arm-wince.exe">fpc-2.4.2.arm-wince.exe</a> (11 MB)
+<li><trn key="website.arm-wince_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/2.4.4/i386-win32/fpc-2.4.4.arm-wince.exe">fpc-2.4.4.arm-wince.exe</a> (11 MB)
   contains an installer.
 </trn>
 </ul>

@@ -9,6 +9,33 @@
 
 <h3>Latest changes:</h3>
 
+<li>May 22th, 2011
+<ul>
+  <li>
+  <trn locale="en_US" key="website.news_headline_20110522">
+    A new release 2.4.4 is available from our sites. 2.4.4 is the second and probably last fixes release from the 2.4 series.
+    Improvements, amongst others:
+     <ul>
+        <li>Many improvements to the XML units</li>
+	<li>Many improvements to the database units.</li>
+	<li>Specially sqlite got quite some fixes.</li>
+	<li>Many improvements to the chm units. </li>
+	<li>Including a commandline CHM compiler</li>
+	<li>Many improvements to fppkg and fpmake for another round of testing.</li>
+	<li>Fixes for multi-threading support in OS/2 RTL.</li>
+     </ul>
+
+    <p>
+    See http://bugs.freepascal.org/changelog_page.php for the list of reported
+    bugs which have been fixed in this release. 
+    </p>
+
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
+    A list of changes that may require
+    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.4">here</A>.
+  </trn></li>
+</ul>
+
 <li>November 12th, 2010
 <ul> 
   <li>

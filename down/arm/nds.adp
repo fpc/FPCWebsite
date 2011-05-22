@@ -27,7 +27,7 @@ The FPC package for arm-nds is available in one easy to choose format:
 
 <h3><a name="ndsbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.arm-nds_1_file_download_win32" locale="en_US"><a href="@mirror_url@dist/2.4.2/arm-nds/arm-nds-fpc-2.4.2.i386-win32.zip">arm-nds-fpc-2.4.2.i386-win32.zip</a> (13 MB)
+<li><trn key="website.arm-nds_1_file_download_win32" locale="en_US"><a href="@mirror_url@dist//arm-nds/arm-nds-fpc-.i386-win32.zip">arm-nds-fpc-.i386-win32.zip</a> (13 MB)
   contains a zip file, which you can exract in your fpc directory. See the included readme file for further instructions.</trn></li>
 </ul>
 

@@ -11,13 +11,13 @@ The complete sources can be downloaded in the following formats:
 <p>
 <DL>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/2.4.2/source/fpcbuild-2.4.2.zip">fpcbuild-2.4.2.zip</a> (43 MB)</DD>
+  <DD><a href="@mirror_url@dist/2.4.4/source/fpcbuild-2.4.4.zip">fpcbuild-2.4.4.zip</a> (43 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/2.4.2/source/fpcbuild-2.4.2.tar.gz">fpcbuild-2.4.2.tar.gz</a> (39 MB)</DD>
+  <DD><a href="@mirror_url@dist/2.4.4/source/fpcbuild-2.4.4.tar.gz">fpcbuild-2.4.4.tar.gz</a> (39 MB)</DD>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/2.4.2/source/fpc-2.4.2.source.zip">fpc-2.4.2.source.zip</a> (26 MB)</DD>
+  <DD><a href="@mirror_url@dist/2.4.4/source/fpc-2.4.4.source.zip">fpc-2.4.4.source.zip</a> (26 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/2.4.2/source/fpc-2.4.2.source.tar.gz">fpc-2.4.2.source.tar.gz</a> (22 MB)</DD>
+  <DD><a href="@mirror_url@dist/2.4.4/source/fpc-2.4.4.source.tar.gz">fpc-2.4.4.source.tar.gz</a> (22 MB)</DD>
 </DL>
 The fpc archive files contain the full sources of:
 <ul>

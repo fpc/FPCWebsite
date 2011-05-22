@@ -12,10 +12,10 @@
 -->
 
 <p>
-The latest release version is <b>2.4.2</b></p>
+The latest release version is <b>2.4.4</b></p>
 
 <h3>Mac OS X 10.6 (Snow Leopard) compatibility</h3>
- "FPC 2.4.2 is qualified for use with Mac OS X 10.4 till 10.6. There is
+ "FPC 2.4.4 is qualified for use with Mac OS X 10.4 till 10.6. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. At this time, the only way to
  work around this bug is use the <tt>-k-no_order_inits</tt> command line
@@ -23,15 +23,15 @@ The latest release version is <b>2.4.2</b></p>
  libraries compiled under previous Mac OS X releases work fine under Mac OS
  X 10.6."
 
-<h3><a name="macosxdmg"></a>Download the 2.4.2 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 2.4.4 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.intel-macosx.dmg">fpc-2.4.2.intel-macosx.dmg</a> (63 MB)
+<li> <a href="@mirror_url@dist/2.4.4/i386-macosx/fpc-2.4.4.intel-macosx.dmg">fpc-2.4.4.intel-macosx.dmg</a> (63 MB)
 contains an installation package for compiling both Intel (32 bit and 64 bit) and PowerPC (32 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.4.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
 contains an installation package for compiling iPhone/iPod Touch programs, as well as the iPhone SDK Integration Kit.
 <br>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.intel.powerpc64-macosx.dmg">fpc-2.4.2.intel.powerpc64-macosx.dmg</a> (13 MB)
+<li> <a href="@mirror_url@dist/2.4.4/i386-macosx/fpc-2.4.4.intel.powerpc64-macosx.dmg">fpc-2.4.4.intel.powerpc64-macosx.dmg</a> (13 MB)
  contains an installation package for compiling PowerPC (64 bit) programs.
 <br>
 
