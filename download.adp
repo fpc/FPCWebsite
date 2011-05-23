@@ -25,7 +25,7 @@
   <trn key="website.can_download_for_platform" locale="en_US">
     You can download the 2.4.2 release for the following cpu and operating systems:
   </trn>
-<p>  
+<p>
 <ul>
     <li>ARM
     <ul>
@@ -41,14 +41,14 @@
       <li><a href="down/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 7.x and 8.x</trn>)
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a> and several crosscompilers.
-      <li><a href="down/i386/haiku@x@">Haiku</a>	
+      <li><a href="down/i386/haiku@x@">Haiku</a>
 <!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
 -->
       <li><a href="down/i386/os2@x@">OS/2</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-242-fix.html"> this fix for 2.4.2 RTL.</a>
-    </ul>  
+      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-244-fix.html"> this fix for 2.4.4 RTL.</a>
+    </ul>
   <li>PowerPC
     <ul>
       <li><a href="down/powerpc/linux@x@">Linux</a>
@@ -57,23 +57,23 @@
       <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
 -->
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
-    </ul>  
+    </ul>
   <li>PowerPC64
     <ul>
       <li><a href="down/powerpc64/linux@x@">Linux</a>
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
-    </ul>  
+    </ul>
   <li>SPARC
     <ul>
       <li><a href="down/sparc/linux@x@">Linux</a>
       <li><a href="down/sparc/solaris@x@">Solaris</a>
-    </ul>  
+    </ul>
   <li>AMD64/x86_64
     <ul>
       <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
       <li><a href="down/x86_64/linux@x@">Linux</a>
       <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
-    </ul>  
+    </ul>
 </ul>
 
 <p>
@@ -126,21 +126,21 @@
       <li><a href="down2/i386/linux@x@">Linux</a>
       <li><a href="down2/i386/macosx@x@">Mac OS X</a>
       <li><a href="down2/i386/win32@x@">Win32</a> (Windows 95, 98, ME, NT, 2000, XP)
-    </ul>  
+    </ul>
   <li>powerpc
     <ul>
       <li><a href="down2/powerpc/linux@x@">Linux</a>
       <li><a href="down2/powerpc/macosx@x@">Mac OS X</a>
-    </ul>  
+    </ul>
   <li>sparc
     <ul>
       <li><a href="down2/sparc/linux@x@">Linux</a>
-    </ul>  
+    </ul>
   <li>amd64/x86_64
     <ul>
       <li><a href="down2/x86_64/linux@x@">Linux</a>
       <li><a href="down2/x86_64/win64@x@">Win64</a>
-    </ul>  
+    </ul>
 </ul>
 <p>
   Furthermore, you can download the following:
