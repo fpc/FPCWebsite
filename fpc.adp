@@ -32,7 +32,7 @@
      </ul>
 
     <p>
-    See http://bugs.freepascal.org/changelog_page.php for the list of reported
+    See <a href="http://bugs.freepascal.org/changelog_page.php">the bug tracker's changelog</a> for the list of reported
     bugs which have been fixed in this release. 
     </p>
 
