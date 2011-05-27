@@ -43,61 +43,6 @@
 </p>
 
 <p>
-<em>November 12th, 2010</em>
-  <trn locale="en_US" key="website.news_headline_20101101">
-    A new release 2.4.2 is available from our sites. 2.4.2 is the first fixes release from the 2.4 series.
-    Improvements, amongst others:
-     <ul>
-      <li>Delphi 2006 like for..in support</li>
-      <li>Support for sealed and abstract class modifiers, </li>
-      <li>new targets
-           <ul>
-              <li>  64-bit FreeBSD (x86_64)</li>
-          </ul>
-      <li>Many improvements and fixes to the XML, database and CHM packages</li>
-      <li>Long term bug in OS/2 implementation of unit Video finally fixed which
-          among others allows inclusion of the text-mode IDE (without debugger)
-          for this platform as part of the distribution again.</li>
-      <li>Many compiler bugfixes and more than half an year of library updates (since 2.4.0)</li>
-     </ul>
-
-    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
-    A list of changes that may require
-    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.2">here</A>.
-  </trn></p>
-
-<p>
-<em>June 4, 2010</em>
-  <trn locale="en_US" key="website.news_headline_20100604">
-    The Dutch Pascal Users Group is organizing a <a href="http://www.hcc-pgg.nl/index.php?actie=bijeenkomsten/volgende_bijeenkomst">Lazarus Day</a> on June 26. 
-    Sessions will be in Dutch. Many Lazarus and Free Pascal developers will attend the meeting.
-  </trn>
-</p>
-
-<em>January 1st, 2010</em>
-  <trn locale="en_US" key="website.news_headline_20100101">
-    Happy New Year!, a new major version 2.4.0 has been released. The 2.4.x series adds, among others, <br>
-     <ul>
-      <li>Delphi like resources for all platforms,</li>
-      <li>Dwarf debug information improvements, </li>
-      <li>Several new targets
-           <ul>
-              <li>  64-bit Mac OS X (x86_64/ppc64)</li>
-              <li>  iPhone (Mac OS X/Arm)</li>
-              <li>  Haiku (from the BeOS family)</li>
-              <li>  Improved ARM EABI support</li>
-          </ul>
-      <li>Whole program optimization</li>
-      <li>Many compiler bugfixes and half an year of library updates (since 2.2.4)</li>
-     </ul>
-
-    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
-    A list of changes that may require
-    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.0">here</A>.
-  </trn>
-</p>
-
-<p>
 <a href="news@x@">Older news...</a>
 </p>
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
