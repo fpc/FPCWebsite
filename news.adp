@@ -410,7 +410,6 @@ yum install fpc-src
    <ul>
      <li>
         For the first time there is a Free Pascal beta release for classic Mac OS.
-        <a href="fpcmac@x@">Read more</a>.
      
    </ul>
    <li>05 Nov 2004

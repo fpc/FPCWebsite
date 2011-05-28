@@ -45,7 +45,6 @@
     <a href="@maindir@future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
     <a href="@maindir@probs@x@"><trn locale="en_US" key="website.Known_Problems">Known Problems</trn></a>
 
-    <a href="@maindir@fpcmac@x@"><trn locale="en_US" key="website.FPC_on_the_Mac">FPC on the Mac</trn></a>
     <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
     <a href="@maindir@contrib/db.php3"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
     <a href="@maindir@contrib/add.php3"><trn locale="en_US" key="website.Contribute">Contribute</trn></a>
