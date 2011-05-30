@@ -17,6 +17,15 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><em>May 30th, 2011</em>
+  <trn locale="en_US" key="website.news_headline_20110530">
+    A book on programming lazarus is available: "Lazarus Complete Guide". <br>
+    It is the translation of the earlier German edition by C&L and is published by the dutch pascal user group. 
+    Several of the Lazarus/Free Pascal developers participated in the creation of this book.<br>
+    It can be ordered on-line <a href="http://www.blaisepascal.eu/index.php?actie=./subscribers/subscription_mainpageUKPaypalPage2">here</a>.
+  </trn>
+</p>
+
 <p><em>May 22th, 2011</em>
   <trn locale="en_US" key="website.news_headline_20110522">
     A new release 2.4.4 is available from our sites. 2.4.4 is the second and probably last fixes release from the 2.4 series.
