@@ -11,7 +11,7 @@
 <ul>
  <li><b>Next major Version</b></li>
   <ul>
-   <li>New implemented features are tracked <a href="http://wiki.freepascal.org/FPC_New_Features_Trunk">the Wiki</a>.
+   <li>New implemented features are tracked on <a href="http://wiki.freepascal.org/FPC_New_Features_Trunk">the Wiki</a>.
 </ul>
 <p>
 
