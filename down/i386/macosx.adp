@@ -29,7 +29,7 @@ contains an installation package for compiling both Intel (32 bit and 64 bit) an
 <li> <a href="@mirror_url@dist/2.4.4/i386-macosx/fpc-2.4.4.intel.powerpc64-macosx.dmg">fpc-2.4.4.intel.powerpc64-macosx.dmg</a> (13 MB)
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
-<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.4.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
+<li> <a href="@mirror_url@dist/2.4.2/i386-macosx/fpc-2.4.2.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
 contains an installation package for compiling iPhone/iPod Touch programs, as well as the iPhone SDK Integration Kit. This package was not updated for FPC 2.4.4, because FPC 2.4.x no longer works with current iOS SDK versions. The next major FPC release will again include iOS support.
 <br>
 
