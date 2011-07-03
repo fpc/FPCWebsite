@@ -28,9 +28,9 @@
 <li>
 <trn key="website.i386-os2_1_file_download_descr" locale="en_US">
   You can download the whole package as 1 big zipped file:
-  <a href="@mirror_url@dist/2.4.4/i386-os2/os2242full.zip">os2242full.zip</a> (49 MB),<br>
+  <a href="@mirror_url@dist/2.4.4/i386-os2/os2244full.zip">os2244full.zip</a> (49 MB),<br>
   or you can download a file that contains the same, only without sources and documentation:
-  <a href="@mirror_url@dist/2.4.4/i386-os2/os2242.zip">os2242.zip</a> (15 MB).
+  <a href="@mirror_url@dist/2.4.4/i386-os2/os2244.zip">os2244.zip</a> (15 MB).
 </trn>
 </ul>
 
@@ -39,7 +39,7 @@
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/2.4.4/source/short/src242.zip">src242.zip</a> (15 MB)
+<a href="@mirror_url@dist/2.4.4/source/short/src244.zip">src244.zip</a> (15 MB)
 </ul>
 
 <p>
