@@ -18,6 +18,8 @@ and small patches to fix compiler bugs.
 Here important announcements (such as new releases) will be posted.
 <li> <I>FPC-Other</I>:
 For all other mail that is not in the above categories.
+<li> <I>MacPascal<I>:
+This is not an FPC-specific mailing list, but most discussions about using FPC on the Mac and for iOS devices take place here.
 </OL>
 
 
@@ -35,6 +37,8 @@ There are 2 ways to do this:
    fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce.
 <li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
    fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other.
+<li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
+   mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
 with the text
 <PRE>
@@ -52,11 +56,10 @@ http://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
 fpc-announce
 <li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-other/">
 http://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
+<li><a href="http://lists.sonic.net/mailman/listinfo/mac-pascal/">http://lists.sonic.net/mailman/listinfo/mac-pascal/</a> for MacPascal
 </OL>
-Give your e-mail address, your password, and that's it.
-(a password is generated if you don't supply one)<p>
-You can specify on this page if you just want a daily digest instead of all
-messages separately.
+Enter your e-mail address, your password, and that's it.
+(a password is generated if you don't supply one)
 
 </ol>
 <p>
@@ -67,10 +70,11 @@ The mailing list messages are archived. To access the archives, go here:
 <li><a href="http://lists.freepascal.org/lists/fpc-devel/">for fpc-devel </a>
 <li><a href="http://lists.freepascal.org/lists/fpc-announce/">for fpc-announce</a>
 <li><a href="http://lists.freepascal.org/lists/fpc-other/">for fpc-other</a>
+<li><a href="http://lists.sonic.net/mailman/private/mac-pascal/">for MacPascal</a> (only accessible to subscribers)
 </OL>
 If the main archive doesn't work, the mailing lists are archived by third party mailing list archives too.
 <h4>The Mail Archive</h4>
-<a href=http://www.mail-archive.com/index.php>The Mail Archive</a> archives all FPC mailing lists. To access
+<a href=http://www.mail-archive.com/index.php>The Mail Archive</a> archives all FPC-hosted mailing lists. To access
 the archives, go here:
 <ol>
 <li><a href="http://www.mail-archive.com/fpc-pascal@lists.freepascal.org/">for fpc-pascal</a>
