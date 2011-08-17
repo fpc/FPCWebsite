@@ -1,0 +1,126 @@
+object ProviderModule: TProviderModule
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  CreateSession = False
+  InputAdaptor = IAFPC
+  ContentProducer = JDFFPC
+  Height = 346
+  HorizontalOffset = 554
+  VerticalOffset = 382
+  Width = 438
+  object JDFFPC: TExtJSJSONDataFormatter
+    AllowPageSize = False
+    left = 300
+    top = 100
+  end
+  object Contrib: TSQLDBWebDataProvider
+    SelectSQL.Strings = (
+      'SELECT'
+      '  C_AUTH_METHOD,'
+      '  C_AUTHOR,'
+      '  C_CATEGORY,'
+      '  C_DATE,'
+      '  C_DESCR,'
+      '  C_EMAIL,'
+      '  C_FTPFILE,'
+      '  C_HOMEPAGE,'
+      '  C_ID,'
+      '  C_NAME,'
+      '  C_OS,'
+      '  C_VERSION'
+      'FROM'
+      '  CONTRIBS'
+    )
+    UpdateSQL.Strings = (
+      'UPDATE CONTRIBS'
+      'SET'
+      '  C_AUTH_METHOD = :C_AUTH_METHOD,'
+      '  C_AUTHOR = :C_AUTHOR,'
+      '  C_CATEGORY = :C_CATEGORY,'
+      '  C_DATE = :C_DATE,'
+      '  C_DESCR = :C_DESCR,'
+      '  C_EMAIL = :C_EMAIL,'
+      '  C_FTPFILE = :C_FTPFILE,'
+      '  C_HOMEPAGE = :C_HOMEPAGE,'
+      '  C_ID = :C_ID,'
+      '  C_NAME = :C_NAME,'
+      '  C_OS = :C_OS,'
+      '  C_PWD = :C_PWD,'
+      '  C_USER = :C_USER,'
+      '  C_VERSION = :C_VERSION'
+      'WHERE'
+      '  (C_ID = :C_ID)'
+    )
+    DeleteSQL.Strings = (
+      'DELETE FROM CONTRIBS WHERE (C_ID=:ID)'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO CONTRIBS'
+      '  (C_AUTH_METHOD,'
+      '  C_AUTHOR,'
+      '  C_CATEGORY,'
+      '  C_DATE,'
+      '  C_DESCR,'
+      '  C_EMAIL,'
+      '  C_FTPFILE,'
+      '  C_HOMEPAGE,'
+      '  C_ID,'
+      '  C_NAME,'
+      '  C_OS,'
+      '  C_PWD,'
+      '  C_USER,'
+      '  C_VERSION)'
+      'VALUES'
+      '  (:C_AUTH_METHOD,'
+      '  :C_AUTHOR,'
+      '  :C_CATEGORY,'
+      '  :C_DATE,'
+      '  :C_DESCR,'
+      '  :C_EMAIL,'
+      '  :C_FTPFILE,'
+      '  :C_HOMEPAGE,'
+      '  :C_ID,'
+      '  :C_NAME,'
+      '  :C_OS,'
+      '  :C_PWD,'
+      '  :C_USER,'
+      '  :C_VERSION)'
+    )
+    Connection = DBFPC
+    IDFieldName = 'C_ID'
+    Options = []
+    Params = <>
+    left = 60
+    top = 100
+  end
+  object DBFPC: TIBConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    LogEvents = []
+    left = 60
+    top = 44
+  end
+  object TRFPC: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = DBFPC
+    left = 172
+    top = 44
+  end
+  object IAFPC: TExtJSJSonWebdataInputAdaptor
+    left = 300
+    top = 44
+  end
+  object QGetID: TSQLQuery
+    FieldDefs = <>
+    AutoCalcFields = False
+    Database = DBFPC
+    SQL.Strings = (
+      'SELECT GEN_ID(GEN_USERS,1) AS THEID  FROM RDB$DATABASE'
+    )
+    Params = <>
+    left = 88
+    top = 184
+  end
+end

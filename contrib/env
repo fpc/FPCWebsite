@@ -1,5 +1,0 @@
-# request method
-setenv REQUEST_METHOD GET
-# several actions
-#setenv QUERY_STRING 'MODE=add&NAME=metoo&author=myself&category=Internet&desc=mydesc';
-setenv QUERY_STRING MODE=htmlquery

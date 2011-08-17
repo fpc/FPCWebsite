@@ -1,0 +1,326 @@
+object ContribsRPC: TContribsRPC
+  OldCreateOrder = False
+  DispatchOptions = [jdoSearchRegistry, jdoSearchOwner, jdoJSONRPC1, jdoJSONRPC2, jdoNotifications]
+  APIPath = 'API'
+  RouterPath = 'router'
+  CreateSession = False
+  NameSpace = 'FPWeb'
+  Height = 289
+  HorizontalOffset = 510
+  VerticalOffset = 449
+  Width = 435
+  object CheckAuthorized: TJSONRPCHandler
+    Options = []
+    ParamDefs = <    
+      item
+        Name = 'ID'
+        DataType = jtNumber
+      end    
+      item
+        Name = 'User'
+      end    
+      item
+        Name = 'Password'
+      end>
+    left = 56
+    top = 32
+  end
+  object AddContrib: TJSONRPCHandler
+    OnExecute = AddContribExecute
+    Options = []
+    ParamDefs = <    
+      item
+        Name = 'Data'
+        DataType = jtObject
+      end>
+    left = 61
+    top = 105
+  end
+  object DeleteContrib: TJSONRPCHandler
+    OnExecute = DeleteContribExecute
+    Options = []
+    ParamDefs = <    
+      item
+        Name = 'ID'
+        DataType = jtNumber
+      end    
+      item
+        Name = 'UserName'
+      end    
+      item
+        Name = 'Password'
+      end>
+    left = 62
+    top = 163
+  end
+  object UpdateContrib: TJSONRPCHandler
+    OnExecute = UpdateContribExecute
+    Options = []
+    ParamDefs = <    
+      item
+        Name = 'Data'
+        DataType = jtObject
+      end>
+    left = 64
+    top = 228
+  end
+  object DBContribs: TIBConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = TRContribs
+    LogEvents = []
+    left = 208
+    top = 32
+  end
+  object QInsertContrib: TSQLQuery
+    FieldDefs = <>
+    Database = DBContribs
+    Transaction = TRContribs
+    SQL.Strings = (
+      'INSERT INTO CONTRIBS'
+      '  (C_AUTH_METHOD,'
+      '  C_AUTHOR,'
+      '  C_CATEGORY,'
+      '  C_DATE,'
+      '  C_DESCR,'
+      '  C_EMAIL,'
+      '  C_FTPFILE,'
+      '  C_HOMEPAGE,'
+      '  C_ID,'
+      '  C_NAME,'
+      '  C_OS,'
+      '  C_PWD,'
+      '  C_USER,'
+      '  C_VERSION)'
+      'VALUES'
+      '  (:C_AUTH_METHOD,'
+      '  :C_AUTHOR,'
+      '  :C_CATEGORY,'
+      '  :C_DATE,'
+      '  :C_DESCR,'
+      '  :C_EMAIL,'
+      '  :C_FTPFILE,'
+      '  :C_HOMEPAGE,'
+      '  :C_ID,'
+      '  :C_NAME,'
+      '  :C_OS,'
+      '  :C_PWD,'
+      '  :C_USER,'
+      '  :C_VERSION)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'C_AUTH_METHOD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_AUTHOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_CATEGORY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_DATE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_DESCR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_EMAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_FTPFILE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_HOMEPAGE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_ID'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_OS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_PWD'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_USER'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_VERSION'
+        ParamType = ptUnknown
+      end>
+    left = 219
+    top = 140
+  end
+  object TRContribs: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = DBContribs
+    left = 316
+    top = 119
+  end
+  object QGetContribID: TSQLQuery
+    FieldDefs = <>
+    Database = DBContribs
+    Transaction = TRContribs
+    SQL.Strings = (
+      'SELECT GEN_ID(GEN_CONTRIBS,1) as THEID FROM RDB$DATABASE'
+    )
+    Params = <>
+    left = 228
+    top = 197
+  end
+  object QUPdateContrib: TSQLQuery
+    FieldDefs = <>
+    Database = DBContribs
+    Transaction = TRContribs
+    SQL.Strings = (
+      'UPDATE CONTRIBS'
+      'SET'
+      '  C_AUTHOR = :C_AUTHOR,'
+      '  C_CATEGORY = :C_CATEGORY,'
+      '  C_DATE = :C_DATE,'
+      '  C_DESCR = :C_DESCR,'
+      '  C_EMAIL = :C_EMAIL,'
+      '  C_FTPFILE = :C_FTPFILE,'
+      '  C_HOMEPAGE = :C_HOMEPAGE,'
+      '  C_NAME = :C_NAME,'
+      '  C_OS = :C_OS,'
+      '  C_VERSION = :C_VERSION'
+      'WHERE'
+      '  (C_ID = :C_ID)'
+      ''
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'C_AUTHOR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_CATEGORY'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_DATE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_DESCR'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_EMAIL'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_FTPFILE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_HOMEPAGE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_NAME'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_OS'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_VERSION'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'C_ID'
+        ParamType = ptUnknown
+      end>
+    left = 224
+    top = 96
+  end
+  object QGetCredentials: TSQLQuery
+    FieldDefs = <>
+    Database = DBContribs
+    Transaction = TRContribs
+    SQL.Strings = (
+      'SELECT'
+      '  C_AUTH_METHOD,'
+      '  C_PWD,'
+      '  C_USER'
+      'FROM'
+      '  CONTRIBS'
+      'WHERE'
+      '  (C_ID = :C_ID)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'C_ID'
+        ParamType = ptUnknown
+      end>
+    left = 298
+    top = 54
+  end
+  object QDeleteContrib: TSQLQuery
+    FieldDefs = <>
+    Database = DBContribs
+    Transaction = TRContribs
+    SQL.Strings = (
+      'DELETE FROM'
+      '  CONTRIBS'
+      'WHERE'
+      '  (C_ID = :C_ID)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'C_ID'
+        ParamType = ptUnknown
+      end>
+    left = 331
+    top = 209
+  end
+end
