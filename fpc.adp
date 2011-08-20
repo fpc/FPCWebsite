@@ -17,6 +17,16 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><em>August 20th, 2011</em>
+  <trn locale="en_US" key="website.news_headline_20110820">
+ Free Pascal now can create bytecode for a Java Virtual Machine.<br> The codegenerator works and supports most pascal constructs.
+ The FPC backend for the Java Virtual Machine (JVM) generates Java byte code that conforms to the specifications of the JDK 1.5 
+ (and later). While not all FPC language features work when targeting the JVM, most do and we have done our best to introduce as 
+ few differences as possible. <br>
+ More information on the JVM back end can be found <a HREF="http://wiki.freepascal.org/FPC_JVM">in the wiki</A>.
+  </trn>
+</p>
+
 <p><em>May 30th, 2011</em>
   <trn locale="en_US" key="website.news_headline_20110530">
     A book on programming lazarus is available: "Lazarus Complete Guide". <br>
