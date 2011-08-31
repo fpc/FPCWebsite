@@ -768,12 +768,12 @@
     codegenerator, and maybe some base libraries) and if the work is
     suitable for inclusion in FPC (a very big if), we will of course
     include it.<p>
-
-    These problems are pretty much similar for the Java (bytecode) too. 
-    One has to mutilate the language, and rewrite the libraries from
-    scratch on the base libraries of the target (Java/.NET). Such an
-    attempt would have little synergy with the FPC project as it is
-    today.<p>
+    
+    Since support for <a href="http://wiki.freepascal.org/FPC_JVM">generating JVM bytecode</a> has been added to the
+    compiler, such a project may be more realistic now than it has been
+    in the past. Many of the caveats mentioned above still hold though:
+    language compatibility is not 100% and most standard units will have
+    to be reimplemented.<p>
           </trn>       
 
    </OL>
