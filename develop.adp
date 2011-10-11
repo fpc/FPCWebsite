@@ -7,6 +7,7 @@ Free Pascal is always under development. If you want to see how the
 development is progressing you can take a peek at the developer versions.</p>
 
 <p><b>Note:</b> There is no support for the development versions.</p>
+<p><b>Note:</b> Always <b>start using the latest official release</b> when compiling a development version. Any other starting compiler is not guaranteed to work.</p>
 
 <p>You have the following options:</p>
 
@@ -16,7 +17,7 @@ development is progressing you can take a peek at the developer versions.</p>
 <a name="sourcestrunk"></a>
 <h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download today's development (trunk - currently v2.5.x) sources in the form
+You can download today's development (trunk - currently v2.7.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
 updated on a daily basis, and reflect the state of the source repository.
 </p>
@@ -34,7 +35,7 @@ with documentation sources and release-building-related files in the same direct
 <a name="sourcesfixes"></a>
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download today's fixes branch (currently v2.2.x) sources in the form
+You can download today's fixes branch (currently v2.4.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
 may eventually be used to build the next stable (fixes) release. These source snapshots are updated on
 a daily basis, and reflect the state of the source repository.
