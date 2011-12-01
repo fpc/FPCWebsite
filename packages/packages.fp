@@ -64,8 +64,6 @@ for reading PNG image files.
 <li><a href="ncurses.html"><b>ncurses</b></a> an interface to the ncurses library.
 <li><a href="opengl.html"><b>opengl</b></a> an interface to the OpenGL library.
 <li><a href="sndfile.html"><b>sndfile</b></a> an interface to the linux libsndfile library.
-<li><a href="svgalib.html"><b>svgalib</b></a> an interface to the
-SVGA graphics library (Linux).
 <li><a href="syslog.html"><b>syslog</b></a> provides an interface to the
 system logger on linux.
 <li><a href="tcl.html"><b>tcl</b></a> an interface to the tcl/tk interpreter.
