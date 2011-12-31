@@ -180,15 +180,16 @@
 	      <li>12/2009: 2.4.0 version
 	      <li>11/2010: 2.4.2 version
 	      <li>05/2011: 2.4.4 version
+	      <li>01/2012: 2.6.0 version (tentative date)
             </ul>
           </trn>  
 
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 2.4.4, the second release in the 2.4.x series.
-            New development is performed in 2.5.x series, which eventually
-            gets released as 2.6.0 or 3.0.0, depending on milestones achieved.
+            <p>The latest official version is 2.6.0, the first release in the 2.6.x series.
+            New development is performed in 2.6.x series, which eventually
+            gets released as 2.8.0 or 3.0.0, depending on milestones achieved.
 
             <h4>Historic versions</h4>
 
