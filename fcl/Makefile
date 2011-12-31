@@ -110,7 +110,6 @@ mirrors.dat:
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
 	echo -e 'Norway\tnorway\tftp://ftp.no.freepascal.org/pub/fpc/' >> mirrors.dat
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
-	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://193.224.143.39/pub/fpc/' >> mirrors.dat
 
 all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh-CN ..//fcl/fcl.var
 all_en_pages: mirrors.dat ..//fcl/fcl.html

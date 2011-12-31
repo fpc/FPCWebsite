@@ -526,77 +526,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> docs-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> docs-russia.var
 	echo >> docs-russia.var
-../..//down/docs/docs-ftp.freepascal.org.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.bg -oe iso-8859-5 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.en -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.fi: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.fi -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.fr -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.id: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.id -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.it: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.it -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.nl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.nl -oe iso-8859-1 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.po: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.po -oe iso-8859-2 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.sl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.sl -oe iso-8859-2 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.ru -oe iso-8859-5 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html.zh-CN: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html.zh-CN -oe utf-16 docs.adp
-../..//down/docs/docs-ftp.freepascal.org.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/docs/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://193.224.143.39/pub/fpc/ -p mirrorsuffix=ftp.freepascal.org -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-ftp.freepascal.org.html -oe ISO-8859-1 docs.adp
-
-../..//down/docs/docs-ftp.freepascal.org.var: gen_makefile.conf
-	echo > docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.bg' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: bg' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.en' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: en' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.fi' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: fi' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.fr' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: fr' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.id' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: id' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.it' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: it' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.nl' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: nl' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.po' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: pl' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.sl' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: sl' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.ru' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: ru' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
-	echo 'URI: docs-ftp.freepascal.org.html.zh-CN' >> docs-ftp.freepascal.org.var
-	echo 'Content-language: zh-CN' >> docs-ftp.freepascal.org.var
-	echo 'Content-type: text/html; charset=utf-16' >> docs-ftp.freepascal.org.var
-	echo >> docs-ftp.freepascal.org.var
 
 ../..//down/docs/docs.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o docs.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -678,10 +607,9 @@ mirrors.dat:
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
 	echo -e 'Norway\tnorway\tftp://ftp.no.freepascal.org/pub/fpc/' >> mirrors.dat
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
-	echo -e 'ftp.freepascal.org\tftp.freepascal.org\tftp://193.224.143.39/pub/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/docs/docs-australia.html.bg ../..//down/docs/docs-australia.html.en ../..//down/docs/docs-australia.html.fi ../..//down/docs/docs-australia.html.fr ../..//down/docs/docs-australia.html.id ../..//down/docs/docs-australia.html.it ../..//down/docs/docs-australia.html.nl ../..//down/docs/docs-australia.html.po ../..//down/docs/docs-australia.html.sl ../..//down/docs/docs-australia.html.ru ../..//down/docs/docs-australia.html.zh-CN ../..//down/docs/docs-australia.var ../..//down/docs/docs-austria.html.bg ../..//down/docs/docs-austria.html.en ../..//down/docs/docs-austria.html.fi ../..//down/docs/docs-austria.html.fr ../..//down/docs/docs-austria.html.id ../..//down/docs/docs-austria.html.it ../..//down/docs/docs-austria.html.nl ../..//down/docs/docs-austria.html.po ../..//down/docs/docs-austria.html.sl ../..//down/docs/docs-austria.html.ru ../..//down/docs/docs-austria.html.zh-CN ../..//down/docs/docs-austria.var ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-israel.html.bg ../..//down/docs/docs-israel.html.en ../..//down/docs/docs-israel.html.fi ../..//down/docs/docs-israel.html.fr ../..//down/docs/docs-israel.html.id ../..//down/docs/docs-israel.html.it ../..//down/docs/docs-israel.html.nl ../..//down/docs/docs-israel.html.po ../..//down/docs/docs-israel.html.sl ../..//down/docs/docs-israel.html.ru ../..//down/docs/docs-israel.html.zh-CN ../..//down/docs/docs-israel.var ../..//down/docs/docs-netherlands.html.bg ../..//down/docs/docs-netherlands.html.en ../..//down/docs/docs-netherlands.html.fi ../..//down/docs/docs-netherlands.html.fr ../..//down/docs/docs-netherlands.html.id ../..//down/docs/docs-netherlands.html.it ../..//down/docs/docs-netherlands.html.nl ../..//down/docs/docs-netherlands.html.po ../..//down/docs/docs-netherlands.html.sl ../..//down/docs/docs-netherlands.html.ru ../..//down/docs/docs-netherlands.html.zh-CN ../..//down/docs/docs-netherlands.var ../..//down/docs/docs-norway.html.bg ../..//down/docs/docs-norway.html.en ../..//down/docs/docs-norway.html.fi ../..//down/docs/docs-norway.html.fr ../..//down/docs/docs-norway.html.id ../..//down/docs/docs-norway.html.it ../..//down/docs/docs-norway.html.nl ../..//down/docs/docs-norway.html.po ../..//down/docs/docs-norway.html.sl ../..//down/docs/docs-norway.html.ru ../..//down/docs/docs-norway.html.zh-CN ../..//down/docs/docs-norway.var ../..//down/docs/docs-russia.html.bg ../..//down/docs/docs-russia.html.en ../..//down/docs/docs-russia.html.fi ../..//down/docs/docs-russia.html.fr ../..//down/docs/docs-russia.html.id ../..//down/docs/docs-russia.html.it ../..//down/docs/docs-russia.html.nl ../..//down/docs/docs-russia.html.po ../..//down/docs/docs-russia.html.sl ../..//down/docs/docs-russia.html.ru ../..//down/docs/docs-russia.html.zh-CN ../..//down/docs/docs-russia.var ../..//down/docs/docs-ftp.freepascal.org.html.bg ../..//down/docs/docs-ftp.freepascal.org.html.en ../..//down/docs/docs-ftp.freepascal.org.html.fi ../..//down/docs/docs-ftp.freepascal.org.html.fr ../..//down/docs/docs-ftp.freepascal.org.html.id ../..//down/docs/docs-ftp.freepascal.org.html.it ../..//down/docs/docs-ftp.freepascal.org.html.nl ../..//down/docs/docs-ftp.freepascal.org.html.po ../..//down/docs/docs-ftp.freepascal.org.html.sl ../..//down/docs/docs-ftp.freepascal.org.html.ru ../..//down/docs/docs-ftp.freepascal.org.html.zh-CN ../..//down/docs/docs-ftp.freepascal.org.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
-all_en_pages: mirrors.dat ../..//down/docs/docs-australia.html ../..//down/docs/docs-austria.html ../..//down/docs/docs-hungary.html ../..//down/docs/docs-israel.html ../..//down/docs/docs-netherlands.html ../..//down/docs/docs-norway.html ../..//down/docs/docs-russia.html ../..//down/docs/docs-ftp.freepascal.org.html ../..//down/docs/docs.html
+all_pages: mirrors.dat ../..//down/docs/docs-australia.html.bg ../..//down/docs/docs-australia.html.en ../..//down/docs/docs-australia.html.fi ../..//down/docs/docs-australia.html.fr ../..//down/docs/docs-australia.html.id ../..//down/docs/docs-australia.html.it ../..//down/docs/docs-australia.html.nl ../..//down/docs/docs-australia.html.po ../..//down/docs/docs-australia.html.sl ../..//down/docs/docs-australia.html.ru ../..//down/docs/docs-australia.html.zh-CN ../..//down/docs/docs-australia.var ../..//down/docs/docs-austria.html.bg ../..//down/docs/docs-austria.html.en ../..//down/docs/docs-austria.html.fi ../..//down/docs/docs-austria.html.fr ../..//down/docs/docs-austria.html.id ../..//down/docs/docs-austria.html.it ../..//down/docs/docs-austria.html.nl ../..//down/docs/docs-austria.html.po ../..//down/docs/docs-austria.html.sl ../..//down/docs/docs-austria.html.ru ../..//down/docs/docs-austria.html.zh-CN ../..//down/docs/docs-austria.var ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-israel.html.bg ../..//down/docs/docs-israel.html.en ../..//down/docs/docs-israel.html.fi ../..//down/docs/docs-israel.html.fr ../..//down/docs/docs-israel.html.id ../..//down/docs/docs-israel.html.it ../..//down/docs/docs-israel.html.nl ../..//down/docs/docs-israel.html.po ../..//down/docs/docs-israel.html.sl ../..//down/docs/docs-israel.html.ru ../..//down/docs/docs-israel.html.zh-CN ../..//down/docs/docs-israel.var ../..//down/docs/docs-netherlands.html.bg ../..//down/docs/docs-netherlands.html.en ../..//down/docs/docs-netherlands.html.fi ../..//down/docs/docs-netherlands.html.fr ../..//down/docs/docs-netherlands.html.id ../..//down/docs/docs-netherlands.html.it ../..//down/docs/docs-netherlands.html.nl ../..//down/docs/docs-netherlands.html.po ../..//down/docs/docs-netherlands.html.sl ../..//down/docs/docs-netherlands.html.ru ../..//down/docs/docs-netherlands.html.zh-CN ../..//down/docs/docs-netherlands.var ../..//down/docs/docs-norway.html.bg ../..//down/docs/docs-norway.html.en ../..//down/docs/docs-norway.html.fi ../..//down/docs/docs-norway.html.fr ../..//down/docs/docs-norway.html.id ../..//down/docs/docs-norway.html.it ../..//down/docs/docs-norway.html.nl ../..//down/docs/docs-norway.html.po ../..//down/docs/docs-norway.html.sl ../..//down/docs/docs-norway.html.ru ../..//down/docs/docs-norway.html.zh-CN ../..//down/docs/docs-norway.var ../..//down/docs/docs-russia.html.bg ../..//down/docs/docs-russia.html.en ../..//down/docs/docs-russia.html.fi ../..//down/docs/docs-russia.html.fr ../..//down/docs/docs-russia.html.id ../..//down/docs/docs-russia.html.it ../..//down/docs/docs-russia.html.nl ../..//down/docs/docs-russia.html.po ../..//down/docs/docs-russia.html.sl ../..//down/docs/docs-russia.html.ru ../..//down/docs/docs-russia.html.zh-CN ../..//down/docs/docs-russia.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
+all_en_pages: mirrors.dat ../..//down/docs/docs-australia.html ../..//down/docs/docs-austria.html ../..//down/docs/docs-hungary.html ../..//down/docs/docs-israel.html ../..//down/docs/docs-netherlands.html ../..//down/docs/docs-norway.html ../..//down/docs/docs-russia.html ../..//down/docs/docs.html
 
 
 # clean

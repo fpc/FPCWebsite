@@ -17,6 +17,46 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><em>January 1st, 2011</em>
+  <trn locale="en_US" key="website.news_headline_20120101">
+    A new release 2.6.0 is available from our sites. 2.6.0 is a major new version,
+      which adds many post Delphi 7 language features and adds or improves the support   
+      for various new platforms.<p>
+    amongst others:
+     <ul>
+        <li>Objective-Pascal dialect, supported on all Mac OS X and iOS targets</li>
+	<li>Delphi compatibility mode improvements
+           <ul>
+            <li>Nested types, class variables and class local constants</li>
+            <li>Advanced records syntax (no constructors yet)</li>
+            <li>(for..in) Enumerators in records</li>
+            <li>Class and record helpers</li>
+            <li>Generic records, arrays and procedural types</li>
+            <li>Delphi-compatibility of general generics syntax improved</li>
+            <li>Scoped enumerations</li>
+            <li>Custom messages for "deprecated" directive</li>
+            <li>Ability to use "&" for escaping keywords</li>
+            </ul></li>
+        <li>New ARM code generator features
+           <ul>
+            <li>ARM VFPv2 and VFPv3 floating point unit support</li>
+     	    <li>Thumb-2 support</li>
+           </ul></li>
+        <li>The rtl and packages got a lot of attention also, see the 
+	     release manifest.</li>
+     </ul>
+
+    <p>
+    See <a href="http://bugs.freepascal.org/changelog_page.php">the changelog</a> for the list of reported
+    bugs which have been fixed in this release. 
+    </p>
+
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
+    A list of changes that may require
+    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.6.0">here</A>.
+  </trn>
+</p>
+
 <p><em>August 20th, 2011</em>
   <trn locale="en_US" key="website.news_headline_20110820">
  <p>The Free Pascal Compiler now can generate byte code for a Java Virtual Machine.</p><p> The codegenerator works and supports most Pascal language constructs.
