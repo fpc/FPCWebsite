@@ -1,6 +1,6 @@
 program adp2html;
 
-uses cwstring,iconvenc;
+uses cwstringm;
 
 type  Pproperty=^Tproperty;
       Tproperty=record
