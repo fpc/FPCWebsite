@@ -12,31 +12,31 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.4.4</b>.
+  The latest release version is</trn> <b>2.6.0</b>.
 
 
 <p>
 <trn key="website.supported_windows_versions" locale="en_US">
   Supported Windows versions are <s>95,</s> 98, ME, NT, 2000, XP, 2003, Vista and Windows 7.
 <p>
-  For Windows 95 please see <a href="../../rtl/win95-rtl-244-fix.html"> this fix for 2.4.4 RTL.</a>
+  For Windows 95 please see <a href="../../rtl/win95-rtl-244-fix.html"> this fix for 2.6.0 RTL.</a>
 </trn>
 <p>
 
 <h3><trn key="website.Download_as_installer" locale="en_US">Download as installer</trn></h3>
 <ul>
 <li>
-<a href="@mirror_url@dist/2.4.4/i386-win32/fpc-2.4.4.i386-win32.exe">fpc-2.4.4.i386-win32.exe</a> (35 MB)
+<a href="@mirror_url@dist/2.6.0/i386-win32/fpc-2.6.0.i386-win32.exe">fpc-2.6.0.i386-win32.exe</a> (35 MB)
 <trn key="website.Download_win32_installer" locale="en_US"> contains the installer containing the compiler and tools for win32</trn>:
 </ul>
 
 <h3><trn key="website.Download_cross_as_installer" locale="en_US">Download cross-compilers as installers</trn></h3>
 <ul>
 <li>
-<a href="@mirror_url@dist/2.4.4/i386-win32/fpc-2.4.4.arm-wince.exe">fpc-2.4.4.arm-wince.exe</a> (9.9 MB)
+<a href="@mirror_url@dist/2.6.0/i386-win32/fpc-2.6.0.arm-wince.exe">fpc-2.6.0.arm-wince.exe</a> (9.9 MB)
 <trn key="website.Download_win32_wince_cross_installer" locale="en_US"> contains the installer containing the win32 to arm-wince cross-compiler only. </trn>:
 <li>
-<a href="@mirror_url@dist/2.4.4/i386-win32/fpc-2.4.4.x86_64-win64.exe">fpc-2.4.4.x86_64-win64.exe</a> (17 MB)
+<a href="@mirror_url@dist/2.6.0/i386-win32/fpc-2.6.0.x86_64-win64.exe">fpc-2.6.0.x86_64-win64.exe</a> (17 MB)
 <trn key="website.Download_win32_win64_cross_installer" locale="en_US"> contains the installer containing the win32 to win64 cross-compiler only. </trn>:
 </ul>
 

@@ -11,10 +11,10 @@
     which you should read for installation instructions and latest news.
   </trn>
 <p>
-  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>2.4.4</b>.
+  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>2.6.0</b>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
-  Because of a lack of release builders and testers, 2.4.4 is only available for a limited
+  Because of a lack of release builders and testers, 2.6.0 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 </trn>
@@ -23,7 +23,7 @@
 <a name="binary"></a><h3><trn key="website.Binaries" locale="en_US">Binaries</trn></h3>
 <p>
   <trn key="website.can_download_for_platform" locale="en_US">
-    You can download the 2.4.4 release for the following cpu and operating systems:
+    You can download the 2.6.0 release for the following cpu and operating systems:
   </trn>
 <p>
 <ul>
@@ -47,7 +47,8 @@
 -->
       <li><a href="down/i386/os2@x@">OS/2</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-244-fix.html"> this fix for 2.4.4 RTL.</a>
+      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> 
+   <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-244-fix.html"> this fix for 2.4.4 RTL.</a> -->
     </ul>
   <li>PowerPC
     <ul>

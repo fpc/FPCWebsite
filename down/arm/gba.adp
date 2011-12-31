@@ -27,7 +27,7 @@ The FPC package for arm-gba is available in one easy to choose format:
 
 <h3><a name="gbabig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.arm-gba_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/2.4.4/arm-gba/arm-gba-fpc-2.4.4.i386-win32.zip">arm-gba-fpc-2.4.4.i386-win32.zip</a> (10 MB)
+<li><trn key="website.arm-gba_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/2.6.0/arm-gba/arm-gba-fpc-2.6.0.i386-win32.zip">arm-gba-fpc-2.6.0.i386-win32.zip</a> (10 MB)
   contains a zip file, which you can exract in your fpc directory. See the included readme file for further instructions.
 </trn>
 </ul>

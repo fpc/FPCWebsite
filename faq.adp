@@ -180,7 +180,7 @@
 	      <li>12/2009: 2.4.0 version
 	      <li>11/2010: 2.4.2 version
 	      <li>05/2011: 2.4.4 version
-	      <li>01/2012: 2.6.0 version (tentative date)
+	      <li>01/2012: 2.6.0 version
             </ul>
           </trn>  
 
@@ -214,11 +214,12 @@
               and so on.
 		<li>Repackagings that affect sources are indicated with a single letter as 
 			suffix (e.g. 2.0.4a), this is usually the case for platforms that weren't part of the original release round.
-             <li>The stable branch (fixes_2_4) always has an odd last number (2.4.1, 2.4.3). 
+             <li>The stable branch (currently, fixes_2_6, previously fixes_2_4) always has an odd last number (2.4.1, 2.4.3,2.6.1). 
                   Compilers with such versions are snapshots, and e.g. a snapshot with 2.4.1 can
  		  be anywhere between 2.4.0 and the moment 2.4.2 branched off (may 2010). Likewise
 		 the fixes_2_4 branch will hold version 2.4.3 till 2.4.4 is branched off (typically
- 		 two months before its release).  After 2.4.4 the stable branch's number is updated to 2.4.5 etc.
+ 		 two months before its release).  After 2.4.4 the stable branch's number is updated to 2.4.5,
+		 after 2.6.0 to 2.6.1 etc.
             </ul>
             <p>
 
@@ -257,9 +258,9 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 2.4.4 (May 2011). GNU Pascal is at
-            version 2.1 (from 2002, which can be built with several different GCC's as backend; 
-            their Mac OS X version is an exception though, as it follows the GCC version number).
+            <DD>Currently, Free Pascal is at version 2.6.0 (January 2012). GNU Pascal is stopped
+            version 2.1 (from 2002, which can be built with several different GCC's as backend;
+            their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>
             <DD>Between releases, development versions of FPC are available through daily snapshots
 	        and the source via SVN. GPC issues a set of patches to the last version a few times 
