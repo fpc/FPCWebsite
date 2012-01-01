@@ -58,6 +58,7 @@
       <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
 -->
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
+      <li><a href="down/powerpc/wii@x@">Nintendo Wii</a>
     </ul>
   <li>PowerPC64
     <ul>
