@@ -19,10 +19,10 @@
 
 <p><em>January 1st, 2012</em>
   <trn locale="en_US" key="website.news_headline_20120101">
-    A new release 2.6.0 is available from our sites. 2.6.0 is a major new version,
-      which adds many post Delphi 7 language features and adds or improves the support   
-      for various new platforms.<p>
-    amongst others:
+    <p>FPC 2.6.0 has been released! 2.6.0 is a major new version,
+      which adds many post-Delphi 7 language features and adds or improves the support   
+      for various platforms.</p><p>
+    The new features include, amongst others:
      <ul>
         <li>Objective-Pascal dialect, supported on all Mac OS X and iOS targets</li>
 	<li>Delphi compatibility mode improvements
@@ -35,25 +35,27 @@
             <li>Delphi-compatibility of general generics syntax improved</li>
             <li>Scoped enumerations</li>
             <li>Custom messages for "deprecated" directive</li>
-            <li>Ability to use "&" for escaping keywords</li>
+            <li>Ability to use "&amp;" for escaping keywords</li>
             </ul></li>
         <li>New ARM code generator features
            <ul>
             <li>ARM VFPv2 and VFPv3 floating point unit support</li>
-     	    <li>Thumb-2 support</li>
+     	    <li>Thumb-2 support (embedded targets only)</li>
            </ul></li>
-        <li>The rtl and packages got a lot of attention also, see the 
+        <li>The rtl and packages also got a lot of attention, see the 
 	     release manifest.</li>
      </ul>
 
     <p>
-    See <a href="http://bugs.freepascal.org/changelog_page.php">the changelog</a> for the list of reported
-    bugs which have been fixed in this release. 
+    See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
+    bugs that have been fixed in this release. 
     </p>
-
-    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
+    <p>
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
+    </p>
+    <p>
     A list of changes that may require
-    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.6.0">here</A>.
+    changes to existing code is also <A HREF="http://wiki.freepascal.org/User_Changes_2.6.0">available</A>.
   </trn>
 </p>
 
@@ -75,31 +77,6 @@
     It can be ordered on-line <a href="http://www.blaisepascal.eu/index.php?actie=./subscribers/subscription_mainpageUKPaypalPage2">here</a>.
     </p>
   </trn>
-</p>
-
-<p><em>May 22th, 2011</em>
-  <trn locale="en_US" key="website.news_headline_20110522">
-    A new release 2.4.4 is available from our sites. 2.4.4 is the second and probably last fixes release from the 2.4 series.
-    Improvements, amongst others:
-     <ul>
-        <li>Many improvements to the XML units</li>
-	<li>Many improvements to the database units.</li>
-	<li>Specially sqlite got quite some fixes.</li>
-	<li>Many improvements to the chm units. </li>
-	<li>Including a commandline CHM compiler</li>
-	<li>Many improvements to fppkg and fpmake for another round of testing.</li>
-	<li>Fixes for multi-threading support in OS/2 RTL.</li>
-     </ul>
-
-    <p>
-    See <a href="http://bugs.freepascal.org/changelog_page.php">the bug tracker's changelog</a> for the list of reported
-    bugs which have been fixed in this release. 
-    </p>
-
-    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon). <br>
-    A list of changes that may require
-    changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.4.4">here</A>.
-  </trn></li>
 </p>
 
 <p>
