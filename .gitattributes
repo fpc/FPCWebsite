@@ -101,6 +101,7 @@ down/powerpc/linux.adp svneol=native#text/plain
 down/powerpc/macos.adp svneol=native#text/plain
 down/powerpc/macosx.adp svneol=native#text/plain
 down/powerpc/morphos.adp svneol=native#text/plain
+down/powerpc/wii.adp svneol=native#text/plain
 down/powerpc64/Makefile svneol=native#text/plain
 down/powerpc64/gen_makefile.conf svneol=native#text/plain
 down/powerpc64/linux.adp svneol=native#text/html
