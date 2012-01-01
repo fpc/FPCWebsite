@@ -17,7 +17,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
-<p><em>January 1st, 2011</em>
+<p><em>January 1st, 2012</em>
   <trn locale="en_US" key="website.news_headline_20120101">
     A new release 2.6.0 is available from our sites. 2.6.0 is a major new version,
       which adds many post Delphi 7 language features and adds or improves the support   
