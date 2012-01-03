@@ -19,7 +19,7 @@
 <trn key="website.supported_windows_versions" locale="en_US">
   Supported Windows versions are <s>95,</s> 98, ME, NT, 2000, XP, 2003, Vista and Windows 7.
 <p>
-  For Windows 95 please see <a href="../../rtl/win95-rtl-244-fix.html"> this fix for 2.6.0 RTL.</a>
+  For Windows 95 please see <a href="../../rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a>
 </trn>
 <p>
 
