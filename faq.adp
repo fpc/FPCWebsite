@@ -32,7 +32,6 @@
     <li><a href="#windowsapp"><trn key="website.q_Real_windows_application" locale="en_US">How do I make a real Windows application with windows and menu bars?</trn></a>
     <li><a href="#game"><trn key="website.q_Game_in_FPC" locale="en_US">How do I make a game with Free Pascal? Can I make a game like Doom 3?</trn></a>
     <li><a href="#ErrorPos"><trn key="website.q_Crash_analysis" locale="en_US">Getting more information when an application crashes</trn></a>
-    <li><a href="#general-heap"><trn key="website.q_Increase_heap" locale="en_US">Increasing the heap size</trn></a>
     <li><a href="#general-doesntfindfiles"><trn key="website.q_Compiler_skips_files" locale="en_US">Compiler seems to skip files in directories -Fu points to</trn></a>
     <li><a href="#binariesbig"><trn key="website.q_Big_binaries" locale="en_US">Why are the generated binaries so big?</trn></a>
     <li><a href="#runerror"><trn key="website.q_Runtime_errors" locale="en_US">Runtime errors</trn></a>
@@ -41,7 +40,6 @@
 <!--
     <li><a href="#debugshared"><trn key="website.q_Debugging_DLL" locale="en_US">Debugging shared library (dynamic linked library) code does not fully work</trn></a>
 -->
-    <li><a href="#cantfindunit"><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></a>
     <li><a href="#cantfindunit"><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Cannot compile a program using a binary-only version of a unit</trn></a>
     <li><a href='#isoxpascal'><trn key="website.q_isoxpascal" locale="en_US">Will you support ISO Extended Pascal?</trn></a>
     <li><a href="#dotnet"><trn key="website.q_What_about_dotNET" locale="en_US">What about .NET?</trn></a>
@@ -383,7 +381,6 @@
         <li><a name='snapshot'></a>
           <h3><trn key="website.q_Wanna_new_version_now" locale="en_US">I want a new version NOW</trn></h3>
 
-          <trn key="website.a_Wanna_new_version_now" locale="en_US">I want a new version NOW
             <p>In the time between the release of new official versions, you can
             have a look at and test developer versions (so-called "snapshots"). Be
             warned though: this is work in progress, so in addition to old bugs
@@ -409,13 +406,6 @@
             making a backup of the original, of course). You can also extract it into
             an empty directory and then move the files to the program directory,
             overwriting existing files. 
-
-            <p> Make sure that you extract the ZIP archive such that the included
-            directory structure remains intact. For example if you use PKUNZIP,
-            use "pkunzip -d" instead of just "pkunzip" (InfoZIP unzip doesn't
-            require any special parameters). Note that snapshots also
-            contain a new RTL which most likely can't be used with the previous
-            release version, so backup your old RTL as well. 
           </trn>
         
 
@@ -489,31 +479,6 @@
                 <PRE>info line *&lt;address&gt;</PRE>For example:<PRE>info line *0x05bd8</PRE>
             </OL>
           </trn>
-
-
-        <li><a name='general-heap'></a>
-          <h3><trn key="website.q_Increase_heap" locale="en_US">Increasing the heap size</trn></h3>
-          <trn key="website.a_Increase_heap" locale="en_US">
-            <p>By default Free Pascal allocates a small part of RAM for your
-            application as heap memory. If it just allocated all it could get,
-            people running Windows would have problems as Windows would increase
-            the swap file size to give the program more memory on and on, until
-            the swap file drive would be full. 
-
-            <p>You can specify the size of the heap with -Chxxxx. 
-
-            <p>However, the heap size doesn't really matter, since the Heap
-            is able to grow: once you have used all the available heap space, the
-            program will request more memory from the Operating system (OS).
-            As a result the heap is limited to the maximum amount of free memory provided
-            by the OS. 
-
-            <p>The -Ch parameter is only useful if you know you will need at least a certain amount
-            of memory. You can then specify this value using the -Ch parameter, so
-            your program will allocate it at once on startup. This is slightly
-            faster than growing the heap a number of times.
-          </trn>
-         
 
 
         <li><a name='general-doesntfindfiles'></a>
@@ -623,7 +588,6 @@
 
 
         <li><a name='cantfindunit'></a>
-          <h3><trn key="website.q_PPU_bin_compatibility" locale="en_US">PPU files binary compatibility between versions</trn></h3>
           <h3><trn key="website.q_Cannot_compile_with_bin_unit" locale="en_US">Cannot compile a program using a binary-only version of a unit</trn></h3>
 
           <trn key="website.a_Cannot_compile_with_bin_unit" locale="en_US">
