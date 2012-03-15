@@ -146,7 +146,7 @@ Contributes the following work to the project:
   <li>runtime library coordination</li>
   <li>Developping BSD port</li>
 </ul>
-<address>Email: <a href="mailto:marcov&#x040;stack.nl">marcov&#x040;stack.nl</a></address>
+<address>Email: <a href="mailto:marco&#x040;freepascal.org">marco&#x040;freepascal.org</a></address>
 </ul>
 
 <hr>
