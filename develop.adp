@@ -35,7 +35,7 @@ with documentation sources and release-building-related files in the same direct
 <a name="sourcesfixes"></a>
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download today's fixes branch (currently v2.4.x) sources in the form
+You can download today's fixes branch (currently v2.6.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
 may eventually be used to build the next stable (fixes) release. These source snapshots are updated on
 a daily basis, and reflect the state of the source repository.
