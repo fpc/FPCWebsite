@@ -9,6 +9,18 @@
 
 <h3>Latest changes:</h3>
 
+<li>March 23th, 2012
+<ul>
+ <li>
+  <trn locale="en_US" key="website.news_headline_20120323">
+    <p> The Free Pascal and Lazarus wiki has been moved to a new server. Also
+the wiki software has been upgraded to the latest Mediawiki version.
+Because porting the custom Free Pascal skin to the new version was too
+time consuming the default monoskin is used now. Therefore you will
+notice changes in its appearance.</p>
+  </trn></li>
+</ul>
+
 <li>January 1st, 2012
 <ul>
   <li>
@@ -50,8 +62,6 @@
     <p>
     A list of changes that may require
     changes to existing code is also <A HREF="http://wiki.freepascal.org/User_Changes_2.6.0">available</A>.
-  </trn></li>
-</ul>
 
 
 <li>August 20th, 2011</li>
