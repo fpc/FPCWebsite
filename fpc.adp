@@ -17,7 +17,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
-<p><em>>March 23th, 2012</em>
+<p><em>March 23th, 2012</em>
   <trn locale="en_US" key="website.news_headline_20120323">
     <p> The Free Pascal and Lazarus wiki has been moved to a new server. Also
 the wiki software has been upgraded to the latest Mediawiki version.
