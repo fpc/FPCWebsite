@@ -7,6 +7,7 @@
 <title>@title@</title>
 <link href="@maindir@css/fp.css" rel="stylesheet" type="text/css" charset="iso-8859-1">
 <link href="@maindir@css/fp-navl.css" rel="alternate stylesheet" type="text/css" charset="iso-8859-1" title="Nav-Left">
+@headmatter@
 </head>
 
 <body>
@@ -85,7 +86,6 @@
    <p><a href="http://www.lazarus.freepascal.org"><img src="@maindir@pic/lazarus_produced_logo.gif" alt="Lazarus Logo" height="57" width="125" ></a></p>
    <p><a href="http://www.ffii.org"><img src="http://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" height="31" width="88" ></a></p>
    <p><a href="http://sourceforge.net"><img src="http://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" alt="SourceForge.net Logo" ></a></p>
-   <p><a href="http://www.toolbox-mag.de/"><img src="@maindir@pic/txlogo.gif" width="128" height="48" alt="Toolbox Logo" ></a></p>
   </div>
  </div>
 				
