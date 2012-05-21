@@ -14,12 +14,19 @@
 <p>
 The latest release version is <b>2.6.0</b></p>
 
+<h3>Xcode 4.3 compatibility</h3>
+ FPC 2.6.0 is qualified for use with Mac OS X 10.4 till 10.7. Xcode 4.3 and later however
+ no longer install the command line tools by default, which are required by FPC. To install
+ them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
+ &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
+
+
 <h3>Xcode 3.2.x (Mac OS X 10.6) compatibility</h3>
- "FPC 2.6.0 is qualified for use with Mac OS X 10.4 till 10.6. There is
+ FPC 2.6.0 is qualified for use with Mac OS X 10.4 till 10.7. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
- command line parameter when compiling a dynamic library."
+ command line parameter when compiling a dynamic library.
 
 <h3><a name="macosxdmg"></a>Download the 2.6.0 release in 1 big file:</h3>
 <ul>
@@ -29,9 +36,8 @@ contains an installation package for compiling both Intel (32 bit and 64 bit) an
 <li> <a href="@mirror_url@dist/2.6.0/i386-macosx/fpc-2.6.0.intel.powerpc64-macosx.dmg">fpc-2.6.0.intel.powerpc64-macosx.dmg</a> (13 MB)
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
-<li> <a href="@mirror_url@dist/2.6.0/i386-macosx/fpc-2.6.0.arm-ios.dmg">fpc-2.4.2.arm-ios.dmg</a> (23 MB)
-contains an installation package for compiling iPhone/iPod Touch programs, as well as the iPhone SDK Integration Kit. This package was not updated for FPC 2.6.0, because FPC 2.4.x no longer works with current iOS SDK versions. The next major FPC release will again include iOS support.
-<br>
+<li> <a href="@mirror_url@dist/2.6.0/i386-macosx/fpc-2.6.0.arm-ios.dmg">fpc-2.6.0.arm-ios.dmg</a> (23 MB)
+contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (the included Xcode template only works with Xcode 3.x; for Xcode 4.x templates, see <a href="http://web.me.com/macpgmr/ObjP/Xcode4">Phil Hess' templates</a><br>
 
 </ul>
 
