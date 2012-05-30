@@ -7,11 +7,10 @@
 <p>
   <trn locale="en_US" key="website.overview_text">
     Free Pascal (aka FPK Pascal) is a 32 and 64 bit professional Pascal compiler.
-    It is available for different processors: Intel x86, Amd64/x86_64, PowerPC, PowerPC64,
-    Sparc, ARM. The discontinued 1.0 version also supports the Motorola 680x0.
-    The following operating systems are supported: Linux, FreeBSD, Haiku,
-    Mac OS X/Darwin, DOS, Win32, Win64, WinCE, OS/2,
-    Netware (libc and classic) and MorphOS.
+    It can target multiple processor architectures: Intel x86, AMD64/x86-64,
+    PowerPC, PowerPC64, SPARC, and ARM. Supported operating systems include Linux,
+    FreeBSD, Haiku, Mac OS X/iOS/Darwin, DOS, Win32, Win64, WinCE, OS/2,
+    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii.
   </trn>
 </p>
 
