@@ -171,77 +171,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-australia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-australia.var
 	echo >> macosx-australia.var
-../..//down/powerpc/morphos-australia.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-australia.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-australia.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-australia.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-australia.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-australia.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-australia.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-australia.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-australia.var: gen_makefile.conf
-	echo > morphos-australia.var
-	echo 'URI: morphos-australia.html.bg' >> morphos-australia.var
-	echo 'Content-language: bg' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.en' >> morphos-australia.var
-	echo 'Content-language: en' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.fi' >> morphos-australia.var
-	echo 'Content-language: fi' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.fr' >> morphos-australia.var
-	echo 'Content-language: fr' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.id' >> morphos-australia.var
-	echo 'Content-language: id' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.it' >> morphos-australia.var
-	echo 'Content-language: it' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.nl' >> morphos-australia.var
-	echo 'Content-language: nl' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.po' >> morphos-australia.var
-	echo 'Content-language: pl' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.sl' >> morphos-australia.var
-	echo 'Content-language: sl' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.ru' >> morphos-australia.var
-	echo 'Content-language: ru' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-australia.var
-	echo >> morphos-australia.var
-	echo 'URI: morphos-australia.html.zh-CN' >> morphos-australia.var
-	echo 'Content-language: zh-CN' >> morphos-australia.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-australia.var
-	echo >> morphos-australia.var
 ../..//down/powerpc/wii-australia.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-australia.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-australia.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -455,77 +384,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-austria.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-austria.var
 	echo >> macosx-austria.var
-../..//down/powerpc/morphos-austria.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-austria.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-austria.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-austria.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-austria.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-austria.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-austria.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-austria.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-austria.var: gen_makefile.conf
-	echo > morphos-austria.var
-	echo 'URI: morphos-austria.html.bg' >> morphos-austria.var
-	echo 'Content-language: bg' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.en' >> morphos-austria.var
-	echo 'Content-language: en' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.fi' >> morphos-austria.var
-	echo 'Content-language: fi' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.fr' >> morphos-austria.var
-	echo 'Content-language: fr' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.id' >> morphos-austria.var
-	echo 'Content-language: id' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.it' >> morphos-austria.var
-	echo 'Content-language: it' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.nl' >> morphos-austria.var
-	echo 'Content-language: nl' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.po' >> morphos-austria.var
-	echo 'Content-language: pl' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.sl' >> morphos-austria.var
-	echo 'Content-language: sl' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.ru' >> morphos-austria.var
-	echo 'Content-language: ru' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-austria.var
-	echo >> morphos-austria.var
-	echo 'URI: morphos-austria.html.zh-CN' >> morphos-austria.var
-	echo 'Content-language: zh-CN' >> morphos-austria.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-austria.var
-	echo >> morphos-austria.var
 ../..//down/powerpc/wii-austria.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-austria.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-austria.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -739,77 +597,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-hungary.var
 	echo >> macosx-hungary.var
-../..//down/powerpc/morphos-hungary.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-hungary.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-hungary.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-hungary.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-hungary.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-hungary.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-hungary.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-hungary.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-hungary.var: gen_makefile.conf
-	echo > morphos-hungary.var
-	echo 'URI: morphos-hungary.html.bg' >> morphos-hungary.var
-	echo 'Content-language: bg' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.en' >> morphos-hungary.var
-	echo 'Content-language: en' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.fi' >> morphos-hungary.var
-	echo 'Content-language: fi' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.fr' >> morphos-hungary.var
-	echo 'Content-language: fr' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.id' >> morphos-hungary.var
-	echo 'Content-language: id' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.it' >> morphos-hungary.var
-	echo 'Content-language: it' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.nl' >> morphos-hungary.var
-	echo 'Content-language: nl' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.po' >> morphos-hungary.var
-	echo 'Content-language: pl' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.sl' >> morphos-hungary.var
-	echo 'Content-language: sl' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.ru' >> morphos-hungary.var
-	echo 'Content-language: ru' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-hungary.var
-	echo >> morphos-hungary.var
-	echo 'URI: morphos-hungary.html.zh-CN' >> morphos-hungary.var
-	echo 'Content-language: zh-CN' >> morphos-hungary.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-hungary.var
-	echo >> morphos-hungary.var
 ../..//down/powerpc/wii-hungary.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-hungary.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-hungary.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1023,77 +810,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-israel.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-israel.var
 	echo >> macosx-israel.var
-../..//down/powerpc/morphos-israel.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-israel.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-israel.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-israel.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-israel.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-israel.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-israel.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-israel.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-israel.var: gen_makefile.conf
-	echo > morphos-israel.var
-	echo 'URI: morphos-israel.html.bg' >> morphos-israel.var
-	echo 'Content-language: bg' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.en' >> morphos-israel.var
-	echo 'Content-language: en' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.fi' >> morphos-israel.var
-	echo 'Content-language: fi' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.fr' >> morphos-israel.var
-	echo 'Content-language: fr' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.id' >> morphos-israel.var
-	echo 'Content-language: id' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.it' >> morphos-israel.var
-	echo 'Content-language: it' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.nl' >> morphos-israel.var
-	echo 'Content-language: nl' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.po' >> morphos-israel.var
-	echo 'Content-language: pl' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.sl' >> morphos-israel.var
-	echo 'Content-language: sl' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.ru' >> morphos-israel.var
-	echo 'Content-language: ru' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-israel.var
-	echo >> morphos-israel.var
-	echo 'URI: morphos-israel.html.zh-CN' >> morphos-israel.var
-	echo 'Content-language: zh-CN' >> morphos-israel.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-israel.var
-	echo >> morphos-israel.var
 ../..//down/powerpc/wii-israel.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-israel.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-israel.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1307,77 +1023,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-netherlands.var
 	echo >> macosx-netherlands.var
-../..//down/powerpc/morphos-netherlands.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-netherlands.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-netherlands.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-netherlands.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-netherlands.var: gen_makefile.conf
-	echo > morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.bg' >> morphos-netherlands.var
-	echo 'Content-language: bg' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.en' >> morphos-netherlands.var
-	echo 'Content-language: en' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.fi' >> morphos-netherlands.var
-	echo 'Content-language: fi' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.fr' >> morphos-netherlands.var
-	echo 'Content-language: fr' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.id' >> morphos-netherlands.var
-	echo 'Content-language: id' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.it' >> morphos-netherlands.var
-	echo 'Content-language: it' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.nl' >> morphos-netherlands.var
-	echo 'Content-language: nl' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.po' >> morphos-netherlands.var
-	echo 'Content-language: pl' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.sl' >> morphos-netherlands.var
-	echo 'Content-language: sl' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.ru' >> morphos-netherlands.var
-	echo 'Content-language: ru' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
-	echo 'URI: morphos-netherlands.html.zh-CN' >> morphos-netherlands.var
-	echo 'Content-language: zh-CN' >> morphos-netherlands.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-netherlands.var
-	echo >> morphos-netherlands.var
 ../..//down/powerpc/wii-netherlands.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-netherlands.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-netherlands.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1591,77 +1236,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-norway.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-norway.var
 	echo >> macosx-norway.var
-../..//down/powerpc/morphos-norway.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-norway.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-norway.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-norway.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-norway.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-norway.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-norway.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-norway.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-norway.var: gen_makefile.conf
-	echo > morphos-norway.var
-	echo 'URI: morphos-norway.html.bg' >> morphos-norway.var
-	echo 'Content-language: bg' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.en' >> morphos-norway.var
-	echo 'Content-language: en' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.fi' >> morphos-norway.var
-	echo 'Content-language: fi' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.fr' >> morphos-norway.var
-	echo 'Content-language: fr' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.id' >> morphos-norway.var
-	echo 'Content-language: id' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.it' >> morphos-norway.var
-	echo 'Content-language: it' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.nl' >> morphos-norway.var
-	echo 'Content-language: nl' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.po' >> morphos-norway.var
-	echo 'Content-language: pl' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.sl' >> morphos-norway.var
-	echo 'Content-language: sl' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.ru' >> morphos-norway.var
-	echo 'Content-language: ru' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-norway.var
-	echo >> morphos-norway.var
-	echo 'URI: morphos-norway.html.zh-CN' >> morphos-norway.var
-	echo 'Content-language: zh-CN' >> morphos-norway.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-norway.var
-	echo >> morphos-norway.var
 ../..//down/powerpc/wii-norway.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-norway.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-norway.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -1875,77 +1449,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> macosx-russia.var
 	echo 'Content-type: text/html; charset=utf-16' >> macosx-russia.var
 	echo >> macosx-russia.var
-../..//down/powerpc/morphos-russia.html.bg: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.bg -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-russia.html.en: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.en -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.fi: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.fi -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.fr: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.fr -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.id: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.id -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.it: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.it -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.nl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.nl -oe iso-8859-1 morphos.adp
-../..//down/powerpc/morphos-russia.html.po: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.po -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-russia.html.sl: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.sl -oe iso-8859-2 morphos.adp
-../..//down/powerpc/morphos-russia.html.ru: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.ru -oe iso-8859-5 morphos.adp
-../..//down/powerpc/morphos-russia.html.zh-CN: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html.zh-CN -oe utf-16 morphos.adp
-../..//down/powerpc/morphos-russia.html: morphos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//morphos-russia.html -oe ISO-8859-1 morphos.adp
-
-../..//down/powerpc/morphos-russia.var: gen_makefile.conf
-	echo > morphos-russia.var
-	echo 'URI: morphos-russia.html.bg' >> morphos-russia.var
-	echo 'Content-language: bg' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.en' >> morphos-russia.var
-	echo 'Content-language: en' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.fi' >> morphos-russia.var
-	echo 'Content-language: fi' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.fr' >> morphos-russia.var
-	echo 'Content-language: fr' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.id' >> morphos-russia.var
-	echo 'Content-language: id' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.it' >> morphos-russia.var
-	echo 'Content-language: it' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.nl' >> morphos-russia.var
-	echo 'Content-language: nl' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.po' >> morphos-russia.var
-	echo 'Content-language: pl' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.sl' >> morphos-russia.var
-	echo 'Content-language: sl' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.ru' >> morphos-russia.var
-	echo 'Content-language: ru' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos-russia.var
-	echo >> morphos-russia.var
-	echo 'URI: morphos-russia.html.zh-CN' >> morphos-russia.var
-	echo 'Content-language: zh-CN' >> morphos-russia.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos-russia.var
-	echo >> morphos-russia.var
 ../..//down/powerpc/wii-russia.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-russia.html.bg -oe iso-8859-5 wii.adp
 ../..//down/powerpc/wii-russia.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -2160,77 +1663,6 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> macosx.var
 	echo >> macosx.var
 
-../..//down/powerpc/morphos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o morphos.html.bg -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o morphos.html.en -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o morphos.html.fi -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o morphos.html.fr -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o morphos.html.id -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o morphos.html.it -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o morphos.html.nl -oe iso-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o morphos.html.po -oe iso-8859-2 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o morphos.html.sl -oe iso-8859-2 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o morphos.html.ru -oe iso-8859-5 ../../templatemirror.adp
-../..//down/powerpc/morphos.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=morphos -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o morphos.html.zh-CN -oe utf-16 ../../templatemirror.adp
-../..//down/powerpc/morphos.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=morphos -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o morphos.html -oe ISO-8859-1 ../../templatemirror.adp
-../..//down/powerpc/morphos.var: gen_makefile.conf
-	echo > morphos.var
-	echo 'URI: morphos.html.bg' >> morphos.var
-	echo 'Content-language: bg' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.en' >> morphos.var
-	echo 'Content-language: en' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.fi' >> morphos.var
-	echo 'Content-language: fi' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.fr' >> morphos.var
-	echo 'Content-language: fr' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.id' >> morphos.var
-	echo 'Content-language: id' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.it' >> morphos.var
-	echo 'Content-language: it' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.nl' >> morphos.var
-	echo 'Content-language: nl' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.po' >> morphos.var
-	echo 'Content-language: pl' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.sl' >> morphos.var
-	echo 'Content-language: sl' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.ru' >> morphos.var
-	echo 'Content-language: ru' >> morphos.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> morphos.var
-	echo >> morphos.var
-	echo 'URI: morphos.html.zh-CN' >> morphos.var
-	echo 'Content-language: zh-CN' >> morphos.var
-	echo 'Content-type: text/html; charset=utf-16' >> morphos.var
-	echo >> morphos.var
-
 ../..//down/powerpc/wii.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=wii -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o wii.html.bg -oe iso-8859-5 ../../templatemirror.adp
 ../..//down/powerpc/wii.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
@@ -2312,8 +1744,8 @@ mirrors.dat:
 	echo -e 'Norway\tnorway\tftp://ftp.no.freepascal.org/pub/fpc/' >> mirrors.dat
 	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/powerpc/linux-australia.html.bg ../..//down/powerpc/linux-australia.html.en ../..//down/powerpc/linux-australia.html.fi ../..//down/powerpc/linux-australia.html.fr ../..//down/powerpc/linux-australia.html.id ../..//down/powerpc/linux-australia.html.it ../..//down/powerpc/linux-australia.html.nl ../..//down/powerpc/linux-australia.html.po ../..//down/powerpc/linux-australia.html.sl ../..//down/powerpc/linux-australia.html.ru ../..//down/powerpc/linux-australia.html.zh-CN ../..//down/powerpc/linux-australia.var ../..//down/powerpc/macosx-australia.html.bg ../..//down/powerpc/macosx-australia.html.en ../..//down/powerpc/macosx-australia.html.fi ../..//down/powerpc/macosx-australia.html.fr ../..//down/powerpc/macosx-australia.html.id ../..//down/powerpc/macosx-australia.html.it ../..//down/powerpc/macosx-australia.html.nl ../..//down/powerpc/macosx-australia.html.po ../..//down/powerpc/macosx-australia.html.sl ../..//down/powerpc/macosx-australia.html.ru ../..//down/powerpc/macosx-australia.html.zh-CN ../..//down/powerpc/macosx-australia.var ../..//down/powerpc/morphos-australia.html.bg ../..//down/powerpc/morphos-australia.html.en ../..//down/powerpc/morphos-australia.html.fi ../..//down/powerpc/morphos-australia.html.fr ../..//down/powerpc/morphos-australia.html.id ../..//down/powerpc/morphos-australia.html.it ../..//down/powerpc/morphos-australia.html.nl ../..//down/powerpc/morphos-australia.html.po ../..//down/powerpc/morphos-australia.html.sl ../..//down/powerpc/morphos-australia.html.ru ../..//down/powerpc/morphos-australia.html.zh-CN ../..//down/powerpc/morphos-australia.var ../..//down/powerpc/wii-australia.html.bg ../..//down/powerpc/wii-australia.html.en ../..//down/powerpc/wii-australia.html.fi ../..//down/powerpc/wii-australia.html.fr ../..//down/powerpc/wii-australia.html.id ../..//down/powerpc/wii-australia.html.it ../..//down/powerpc/wii-australia.html.nl ../..//down/powerpc/wii-australia.html.po ../..//down/powerpc/wii-australia.html.sl ../..//down/powerpc/wii-australia.html.ru ../..//down/powerpc/wii-australia.html.zh-CN ../..//down/powerpc/wii-australia.var ../..//down/powerpc/linux-austria.html.bg ../..//down/powerpc/linux-austria.html.en ../..//down/powerpc/linux-austria.html.fi ../..//down/powerpc/linux-austria.html.fr ../..//down/powerpc/linux-austria.html.id ../..//down/powerpc/linux-austria.html.it ../..//down/powerpc/linux-austria.html.nl ../..//down/powerpc/linux-austria.html.po ../..//down/powerpc/linux-austria.html.sl ../..//down/powerpc/linux-austria.html.ru ../..//down/powerpc/linux-austria.html.zh-CN ../..//down/powerpc/linux-austria.var ../..//down/powerpc/macosx-austria.html.bg ../..//down/powerpc/macosx-austria.html.en ../..//down/powerpc/macosx-austria.html.fi ../..//down/powerpc/macosx-austria.html.fr ../..//down/powerpc/macosx-austria.html.id ../..//down/powerpc/macosx-austria.html.it ../..//down/powerpc/macosx-austria.html.nl ../..//down/powerpc/macosx-austria.html.po ../..//down/powerpc/macosx-austria.html.sl ../..//down/powerpc/macosx-austria.html.ru ../..//down/powerpc/macosx-austria.html.zh-CN ../..//down/powerpc/macosx-austria.var ../..//down/powerpc/morphos-austria.html.bg ../..//down/powerpc/morphos-austria.html.en ../..//down/powerpc/morphos-austria.html.fi ../..//down/powerpc/morphos-austria.html.fr ../..//down/powerpc/morphos-austria.html.id ../..//down/powerpc/morphos-austria.html.it ../..//down/powerpc/morphos-austria.html.nl ../..//down/powerpc/morphos-austria.html.po ../..//down/powerpc/morphos-austria.html.sl ../..//down/powerpc/morphos-austria.html.ru ../..//down/powerpc/morphos-austria.html.zh-CN ../..//down/powerpc/morphos-austria.var ../..//down/powerpc/wii-austria.html.bg ../..//down/powerpc/wii-austria.html.en ../..//down/powerpc/wii-austria.html.fi ../..//down/powerpc/wii-austria.html.fr ../..//down/powerpc/wii-austria.html.id ../..//down/powerpc/wii-austria.html.it ../..//down/powerpc/wii-austria.html.nl ../..//down/powerpc/wii-austria.html.po ../..//down/powerpc/wii-austria.html.sl ../..//down/powerpc/wii-austria.html.ru ../..//down/powerpc/wii-austria.html.zh-CN ../..//down/powerpc/wii-austria.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh-CN ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh-CN ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/morphos-hungary.html.bg ../..//down/powerpc/morphos-hungary.html.en ../..//down/powerpc/morphos-hungary.html.fi ../..//down/powerpc/morphos-hungary.html.fr ../..//down/powerpc/morphos-hungary.html.id ../..//down/powerpc/morphos-hungary.html.it ../..//down/powerpc/morphos-hungary.html.nl ../..//down/powerpc/morphos-hungary.html.po ../..//down/powerpc/morphos-hungary.html.sl ../..//down/powerpc/morphos-hungary.html.ru ../..//down/powerpc/morphos-hungary.html.zh-CN ../..//down/powerpc/morphos-hungary.var ../..//down/powerpc/wii-hungary.html.bg ../..//down/powerpc/wii-hungary.html.en ../..//down/powerpc/wii-hungary.html.fi ../..//down/powerpc/wii-hungary.html.fr ../..//down/powerpc/wii-hungary.html.id ../..//down/powerpc/wii-hungary.html.it ../..//down/powerpc/wii-hungary.html.nl ../..//down/powerpc/wii-hungary.html.po ../..//down/powerpc/wii-hungary.html.sl ../..//down/powerpc/wii-hungary.html.ru ../..//down/powerpc/wii-hungary.html.zh-CN ../..//down/powerpc/wii-hungary.var ../..//down/powerpc/linux-israel.html.bg ../..//down/powerpc/linux-israel.html.en ../..//down/powerpc/linux-israel.html.fi ../..//down/powerpc/linux-israel.html.fr ../..//down/powerpc/linux-israel.html.id ../..//down/powerpc/linux-israel.html.it ../..//down/powerpc/linux-israel.html.nl ../..//down/powerpc/linux-israel.html.po ../..//down/powerpc/linux-israel.html.sl ../..//down/powerpc/linux-israel.html.ru ../..//down/powerpc/linux-israel.html.zh-CN ../..//down/powerpc/linux-israel.var ../..//down/powerpc/macosx-israel.html.bg ../..//down/powerpc/macosx-israel.html.en ../..//down/powerpc/macosx-israel.html.fi ../..//down/powerpc/macosx-israel.html.fr ../..//down/powerpc/macosx-israel.html.id ../..//down/powerpc/macosx-israel.html.it ../..//down/powerpc/macosx-israel.html.nl ../..//down/powerpc/macosx-israel.html.po ../..//down/powerpc/macosx-israel.html.sl ../..//down/powerpc/macosx-israel.html.ru ../..//down/powerpc/macosx-israel.html.zh-CN ../..//down/powerpc/macosx-israel.var ../..//down/powerpc/morphos-israel.html.bg ../..//down/powerpc/morphos-israel.html.en ../..//down/powerpc/morphos-israel.html.fi ../..//down/powerpc/morphos-israel.html.fr ../..//down/powerpc/morphos-israel.html.id ../..//down/powerpc/morphos-israel.html.it ../..//down/powerpc/morphos-israel.html.nl ../..//down/powerpc/morphos-israel.html.po ../..//down/powerpc/morphos-israel.html.sl ../..//down/powerpc/morphos-israel.html.ru ../..//down/powerpc/morphos-israel.html.zh-CN ../..//down/powerpc/morphos-israel.var ../..//down/powerpc/wii-israel.html.bg ../..//down/powerpc/wii-israel.html.en ../..//down/powerpc/wii-israel.html.fi ../..//down/powerpc/wii-israel.html.fr ../..//down/powerpc/wii-israel.html.id ../..//down/powerpc/wii-israel.html.it ../..//down/powerpc/wii-israel.html.nl ../..//down/powerpc/wii-israel.html.po ../..//down/powerpc/wii-israel.html.sl ../..//down/powerpc/wii-israel.html.ru ../..//down/powerpc/wii-israel.html.zh-CN ../..//down/powerpc/wii-israel.var ../..//down/powerpc/linux-netherlands.html.bg ../..//down/powerpc/linux-netherlands.html.en ../..//down/powerpc/linux-netherlands.html.fi ../..//down/powerpc/linux-netherlands.html.fr ../..//down/powerpc/linux-netherlands.html.id ../..//down/powerpc/linux-netherlands.html.it ../..//down/powerpc/linux-netherlands.html.nl ../..//down/powerpc/linux-netherlands.html.po ../..//down/powerpc/linux-netherlands.html.sl ../..//down/powerpc/linux-netherlands.html.ru ../..//down/powerpc/linux-netherlands.html.zh-CN ../..//down/powerpc/linux-netherlands.var ../..//down/powerpc/macosx-netherlands.html.bg ../..//down/powerpc/macosx-netherlands.html.en ../..//down/powerpc/macosx-netherlands.html.fi ../..//down/powerpc/macosx-netherlands.html.fr ../..//down/powerpc/macosx-netherlands.html.id ../..//down/powerpc/macosx-netherlands.html.it ../..//down/powerpc/macosx-netherlands.html.nl ../..//down/powerpc/macosx-netherlands.html.po ../..//down/powerpc/macosx-netherlands.html.sl ../..//down/powerpc/macosx-netherlands.html.ru ../..//down/powerpc/macosx-netherlands.html.zh-CN ../..//down/powerpc/macosx-netherlands.var ../..//down/powerpc/morphos-netherlands.html.bg ../..//down/powerpc/morphos-netherlands.html.en ../..//down/powerpc/morphos-netherlands.html.fi ../..//down/powerpc/morphos-netherlands.html.fr ../..//down/powerpc/morphos-netherlands.html.id ../..//down/powerpc/morphos-netherlands.html.it ../..//down/powerpc/morphos-netherlands.html.nl ../..//down/powerpc/morphos-netherlands.html.po ../..//down/powerpc/morphos-netherlands.html.sl ../..//down/powerpc/morphos-netherlands.html.ru ../..//down/powerpc/morphos-netherlands.html.zh-CN ../..//down/powerpc/morphos-netherlands.var ../..//down/powerpc/wii-netherlands.html.bg ../..//down/powerpc/wii-netherlands.html.en ../..//down/powerpc/wii-netherlands.html.fi ../..//down/powerpc/wii-netherlands.html.fr ../..//down/powerpc/wii-netherlands.html.id ../..//down/powerpc/wii-netherlands.html.it ../..//down/powerpc/wii-netherlands.html.nl ../..//down/powerpc/wii-netherlands.html.po ../..//down/powerpc/wii-netherlands.html.sl ../..//down/powerpc/wii-netherlands.html.ru ../..//down/powerpc/wii-netherlands.html.zh-CN ../..//down/powerpc/wii-netherlands.var ../..//down/powerpc/linux-norway.html.bg ../..//down/powerpc/linux-norway.html.en ../..//down/powerpc/linux-norway.html.fi ../..//down/powerpc/linux-norway.html.fr ../..//down/powerpc/linux-norway.html.id ../..//down/powerpc/linux-norway.html.it ../..//down/powerpc/linux-norway.html.nl ../..//down/powerpc/linux-norway.html.po ../..//down/powerpc/linux-norway.html.sl ../..//down/powerpc/linux-norway.html.ru ../..//down/powerpc/linux-norway.html.zh-CN ../..//down/powerpc/linux-norway.var ../..//down/powerpc/macosx-norway.html.bg ../..//down/powerpc/macosx-norway.html.en ../..//down/powerpc/macosx-norway.html.fi ../..//down/powerpc/macosx-norway.html.fr ../..//down/powerpc/macosx-norway.html.id ../..//down/powerpc/macosx-norway.html.it ../..//down/powerpc/macosx-norway.html.nl ../..//down/powerpc/macosx-norway.html.po ../..//down/powerpc/macosx-norway.html.sl ../..//down/powerpc/macosx-norway.html.ru ../..//down/powerpc/macosx-norway.html.zh-CN ../..//down/powerpc/macosx-norway.var ../..//down/powerpc/morphos-norway.html.bg ../..//down/powerpc/morphos-norway.html.en ../..//down/powerpc/morphos-norway.html.fi ../..//down/powerpc/morphos-norway.html.fr ../..//down/powerpc/morphos-norway.html.id ../..//down/powerpc/morphos-norway.html.it ../..//down/powerpc/morphos-norway.html.nl ../..//down/powerpc/morphos-norway.html.po ../..//down/powerpc/morphos-norway.html.sl ../..//down/powerpc/morphos-norway.html.ru ../..//down/powerpc/morphos-norway.html.zh-CN ../..//down/powerpc/morphos-norway.var ../..//down/powerpc/wii-norway.html.bg ../..//down/powerpc/wii-norway.html.en ../..//down/powerpc/wii-norway.html.fi ../..//down/powerpc/wii-norway.html.fr ../..//down/powerpc/wii-norway.html.id ../..//down/powerpc/wii-norway.html.it ../..//down/powerpc/wii-norway.html.nl ../..//down/powerpc/wii-norway.html.po ../..//down/powerpc/wii-norway.html.sl ../..//down/powerpc/wii-norway.html.ru ../..//down/powerpc/wii-norway.html.zh-CN ../..//down/powerpc/wii-norway.var ../..//down/powerpc/linux-russia.html.bg ../..//down/powerpc/linux-russia.html.en ../..//down/powerpc/linux-russia.html.fi ../..//down/powerpc/linux-russia.html.fr ../..//down/powerpc/linux-russia.html.id ../..//down/powerpc/linux-russia.html.it ../..//down/powerpc/linux-russia.html.nl ../..//down/powerpc/linux-russia.html.po ../..//down/powerpc/linux-russia.html.sl ../..//down/powerpc/linux-russia.html.ru ../..//down/powerpc/linux-russia.html.zh-CN ../..//down/powerpc/linux-russia.var ../..//down/powerpc/macosx-russia.html.bg ../..//down/powerpc/macosx-russia.html.en ../..//down/powerpc/macosx-russia.html.fi ../..//down/powerpc/macosx-russia.html.fr ../..//down/powerpc/macosx-russia.html.id ../..//down/powerpc/macosx-russia.html.it ../..//down/powerpc/macosx-russia.html.nl ../..//down/powerpc/macosx-russia.html.po ../..//down/powerpc/macosx-russia.html.sl ../..//down/powerpc/macosx-russia.html.ru ../..//down/powerpc/macosx-russia.html.zh-CN ../..//down/powerpc/macosx-russia.var ../..//down/powerpc/morphos-russia.html.bg ../..//down/powerpc/morphos-russia.html.en ../..//down/powerpc/morphos-russia.html.fi ../..//down/powerpc/morphos-russia.html.fr ../..//down/powerpc/morphos-russia.html.id ../..//down/powerpc/morphos-russia.html.it ../..//down/powerpc/morphos-russia.html.nl ../..//down/powerpc/morphos-russia.html.po ../..//down/powerpc/morphos-russia.html.sl ../..//down/powerpc/morphos-russia.html.ru ../..//down/powerpc/morphos-russia.html.zh-CN ../..//down/powerpc/morphos-russia.var ../..//down/powerpc/wii-russia.html.bg ../..//down/powerpc/wii-russia.html.en ../..//down/powerpc/wii-russia.html.fi ../..//down/powerpc/wii-russia.html.fr ../..//down/powerpc/wii-russia.html.id ../..//down/powerpc/wii-russia.html.it ../..//down/powerpc/wii-russia.html.nl ../..//down/powerpc/wii-russia.html.po ../..//down/powerpc/wii-russia.html.sl ../..//down/powerpc/wii-russia.html.ru ../..//down/powerpc/wii-russia.html.zh-CN ../..//down/powerpc/wii-russia.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh-CN ../..//down/powerpc/linux.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh-CN ../..//down/powerpc/macosx.var ../..//down/powerpc/morphos.html.bg ../..//down/powerpc/morphos.html.en ../..//down/powerpc/morphos.html.fi ../..//down/powerpc/morphos.html.fr ../..//down/powerpc/morphos.html.id ../..//down/powerpc/morphos.html.it ../..//down/powerpc/morphos.html.nl ../..//down/powerpc/morphos.html.po ../..//down/powerpc/morphos.html.sl ../..//down/powerpc/morphos.html.ru ../..//down/powerpc/morphos.html.zh-CN ../..//down/powerpc/morphos.var ../..//down/powerpc/wii.html.bg ../..//down/powerpc/wii.html.en ../..//down/powerpc/wii.html.fi ../..//down/powerpc/wii.html.fr ../..//down/powerpc/wii.html.id ../..//down/powerpc/wii.html.it ../..//down/powerpc/wii.html.nl ../..//down/powerpc/wii.html.po ../..//down/powerpc/wii.html.sl ../..//down/powerpc/wii.html.ru ../..//down/powerpc/wii.html.zh-CN ../..//down/powerpc/wii.var
-all_en_pages: mirrors.dat ../..//down/powerpc/linux-australia.html ../..//down/powerpc/macosx-australia.html ../..//down/powerpc/morphos-australia.html ../..//down/powerpc/wii-australia.html ../..//down/powerpc/linux-austria.html ../..//down/powerpc/macosx-austria.html ../..//down/powerpc/morphos-austria.html ../..//down/powerpc/wii-austria.html ../..//down/powerpc/linux-hungary.html ../..//down/powerpc/macosx-hungary.html ../..//down/powerpc/morphos-hungary.html ../..//down/powerpc/wii-hungary.html ../..//down/powerpc/linux-israel.html ../..//down/powerpc/macosx-israel.html ../..//down/powerpc/morphos-israel.html ../..//down/powerpc/wii-israel.html ../..//down/powerpc/linux-netherlands.html ../..//down/powerpc/macosx-netherlands.html ../..//down/powerpc/morphos-netherlands.html ../..//down/powerpc/wii-netherlands.html ../..//down/powerpc/linux-norway.html ../..//down/powerpc/macosx-norway.html ../..//down/powerpc/morphos-norway.html ../..//down/powerpc/wii-norway.html ../..//down/powerpc/linux-russia.html ../..//down/powerpc/macosx-russia.html ../..//down/powerpc/morphos-russia.html ../..//down/powerpc/wii-russia.html ../..//down/powerpc/linux.html ../..//down/powerpc/macosx.html ../..//down/powerpc/morphos.html ../..//down/powerpc/wii.html
+all_pages: mirrors.dat ../..//down/powerpc/linux-australia.html.bg ../..//down/powerpc/linux-australia.html.en ../..//down/powerpc/linux-australia.html.fi ../..//down/powerpc/linux-australia.html.fr ../..//down/powerpc/linux-australia.html.id ../..//down/powerpc/linux-australia.html.it ../..//down/powerpc/linux-australia.html.nl ../..//down/powerpc/linux-australia.html.po ../..//down/powerpc/linux-australia.html.sl ../..//down/powerpc/linux-australia.html.ru ../..//down/powerpc/linux-australia.html.zh-CN ../..//down/powerpc/linux-australia.var ../..//down/powerpc/macosx-australia.html.bg ../..//down/powerpc/macosx-australia.html.en ../..//down/powerpc/macosx-australia.html.fi ../..//down/powerpc/macosx-australia.html.fr ../..//down/powerpc/macosx-australia.html.id ../..//down/powerpc/macosx-australia.html.it ../..//down/powerpc/macosx-australia.html.nl ../..//down/powerpc/macosx-australia.html.po ../..//down/powerpc/macosx-australia.html.sl ../..//down/powerpc/macosx-australia.html.ru ../..//down/powerpc/macosx-australia.html.zh-CN ../..//down/powerpc/macosx-australia.var ../..//down/powerpc/wii-australia.html.bg ../..//down/powerpc/wii-australia.html.en ../..//down/powerpc/wii-australia.html.fi ../..//down/powerpc/wii-australia.html.fr ../..//down/powerpc/wii-australia.html.id ../..//down/powerpc/wii-australia.html.it ../..//down/powerpc/wii-australia.html.nl ../..//down/powerpc/wii-australia.html.po ../..//down/powerpc/wii-australia.html.sl ../..//down/powerpc/wii-australia.html.ru ../..//down/powerpc/wii-australia.html.zh-CN ../..//down/powerpc/wii-australia.var ../..//down/powerpc/linux-austria.html.bg ../..//down/powerpc/linux-austria.html.en ../..//down/powerpc/linux-austria.html.fi ../..//down/powerpc/linux-austria.html.fr ../..//down/powerpc/linux-austria.html.id ../..//down/powerpc/linux-austria.html.it ../..//down/powerpc/linux-austria.html.nl ../..//down/powerpc/linux-austria.html.po ../..//down/powerpc/linux-austria.html.sl ../..//down/powerpc/linux-austria.html.ru ../..//down/powerpc/linux-austria.html.zh-CN ../..//down/powerpc/linux-austria.var ../..//down/powerpc/macosx-austria.html.bg ../..//down/powerpc/macosx-austria.html.en ../..//down/powerpc/macosx-austria.html.fi ../..//down/powerpc/macosx-austria.html.fr ../..//down/powerpc/macosx-austria.html.id ../..//down/powerpc/macosx-austria.html.it ../..//down/powerpc/macosx-austria.html.nl ../..//down/powerpc/macosx-austria.html.po ../..//down/powerpc/macosx-austria.html.sl ../..//down/powerpc/macosx-austria.html.ru ../..//down/powerpc/macosx-austria.html.zh-CN ../..//down/powerpc/macosx-austria.var ../..//down/powerpc/wii-austria.html.bg ../..//down/powerpc/wii-austria.html.en ../..//down/powerpc/wii-austria.html.fi ../..//down/powerpc/wii-austria.html.fr ../..//down/powerpc/wii-austria.html.id ../..//down/powerpc/wii-austria.html.it ../..//down/powerpc/wii-austria.html.nl ../..//down/powerpc/wii-austria.html.po ../..//down/powerpc/wii-austria.html.sl ../..//down/powerpc/wii-austria.html.ru ../..//down/powerpc/wii-austria.html.zh-CN ../..//down/powerpc/wii-austria.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh-CN ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh-CN ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/wii-hungary.html.bg ../..//down/powerpc/wii-hungary.html.en ../..//down/powerpc/wii-hungary.html.fi ../..//down/powerpc/wii-hungary.html.fr ../..//down/powerpc/wii-hungary.html.id ../..//down/powerpc/wii-hungary.html.it ../..//down/powerpc/wii-hungary.html.nl ../..//down/powerpc/wii-hungary.html.po ../..//down/powerpc/wii-hungary.html.sl ../..//down/powerpc/wii-hungary.html.ru ../..//down/powerpc/wii-hungary.html.zh-CN ../..//down/powerpc/wii-hungary.var ../..//down/powerpc/linux-israel.html.bg ../..//down/powerpc/linux-israel.html.en ../..//down/powerpc/linux-israel.html.fi ../..//down/powerpc/linux-israel.html.fr ../..//down/powerpc/linux-israel.html.id ../..//down/powerpc/linux-israel.html.it ../..//down/powerpc/linux-israel.html.nl ../..//down/powerpc/linux-israel.html.po ../..//down/powerpc/linux-israel.html.sl ../..//down/powerpc/linux-israel.html.ru ../..//down/powerpc/linux-israel.html.zh-CN ../..//down/powerpc/linux-israel.var ../..//down/powerpc/macosx-israel.html.bg ../..//down/powerpc/macosx-israel.html.en ../..//down/powerpc/macosx-israel.html.fi ../..//down/powerpc/macosx-israel.html.fr ../..//down/powerpc/macosx-israel.html.id ../..//down/powerpc/macosx-israel.html.it ../..//down/powerpc/macosx-israel.html.nl ../..//down/powerpc/macosx-israel.html.po ../..//down/powerpc/macosx-israel.html.sl ../..//down/powerpc/macosx-israel.html.ru ../..//down/powerpc/macosx-israel.html.zh-CN ../..//down/powerpc/macosx-israel.var ../..//down/powerpc/wii-israel.html.bg ../..//down/powerpc/wii-israel.html.en ../..//down/powerpc/wii-israel.html.fi ../..//down/powerpc/wii-israel.html.fr ../..//down/powerpc/wii-israel.html.id ../..//down/powerpc/wii-israel.html.it ../..//down/powerpc/wii-israel.html.nl ../..//down/powerpc/wii-israel.html.po ../..//down/powerpc/wii-israel.html.sl ../..//down/powerpc/wii-israel.html.ru ../..//down/powerpc/wii-israel.html.zh-CN ../..//down/powerpc/wii-israel.var ../..//down/powerpc/linux-netherlands.html.bg ../..//down/powerpc/linux-netherlands.html.en ../..//down/powerpc/linux-netherlands.html.fi ../..//down/powerpc/linux-netherlands.html.fr ../..//down/powerpc/linux-netherlands.html.id ../..//down/powerpc/linux-netherlands.html.it ../..//down/powerpc/linux-netherlands.html.nl ../..//down/powerpc/linux-netherlands.html.po ../..//down/powerpc/linux-netherlands.html.sl ../..//down/powerpc/linux-netherlands.html.ru ../..//down/powerpc/linux-netherlands.html.zh-CN ../..//down/powerpc/linux-netherlands.var ../..//down/powerpc/macosx-netherlands.html.bg ../..//down/powerpc/macosx-netherlands.html.en ../..//down/powerpc/macosx-netherlands.html.fi ../..//down/powerpc/macosx-netherlands.html.fr ../..//down/powerpc/macosx-netherlands.html.id ../..//down/powerpc/macosx-netherlands.html.it ../..//down/powerpc/macosx-netherlands.html.nl ../..//down/powerpc/macosx-netherlands.html.po ../..//down/powerpc/macosx-netherlands.html.sl ../..//down/powerpc/macosx-netherlands.html.ru ../..//down/powerpc/macosx-netherlands.html.zh-CN ../..//down/powerpc/macosx-netherlands.var ../..//down/powerpc/wii-netherlands.html.bg ../..//down/powerpc/wii-netherlands.html.en ../..//down/powerpc/wii-netherlands.html.fi ../..//down/powerpc/wii-netherlands.html.fr ../..//down/powerpc/wii-netherlands.html.id ../..//down/powerpc/wii-netherlands.html.it ../..//down/powerpc/wii-netherlands.html.nl ../..//down/powerpc/wii-netherlands.html.po ../..//down/powerpc/wii-netherlands.html.sl ../..//down/powerpc/wii-netherlands.html.ru ../..//down/powerpc/wii-netherlands.html.zh-CN ../..//down/powerpc/wii-netherlands.var ../..//down/powerpc/linux-norway.html.bg ../..//down/powerpc/linux-norway.html.en ../..//down/powerpc/linux-norway.html.fi ../..//down/powerpc/linux-norway.html.fr ../..//down/powerpc/linux-norway.html.id ../..//down/powerpc/linux-norway.html.it ../..//down/powerpc/linux-norway.html.nl ../..//down/powerpc/linux-norway.html.po ../..//down/powerpc/linux-norway.html.sl ../..//down/powerpc/linux-norway.html.ru ../..//down/powerpc/linux-norway.html.zh-CN ../..//down/powerpc/linux-norway.var ../..//down/powerpc/macosx-norway.html.bg ../..//down/powerpc/macosx-norway.html.en ../..//down/powerpc/macosx-norway.html.fi ../..//down/powerpc/macosx-norway.html.fr ../..//down/powerpc/macosx-norway.html.id ../..//down/powerpc/macosx-norway.html.it ../..//down/powerpc/macosx-norway.html.nl ../..//down/powerpc/macosx-norway.html.po ../..//down/powerpc/macosx-norway.html.sl ../..//down/powerpc/macosx-norway.html.ru ../..//down/powerpc/macosx-norway.html.zh-CN ../..//down/powerpc/macosx-norway.var ../..//down/powerpc/wii-norway.html.bg ../..//down/powerpc/wii-norway.html.en ../..//down/powerpc/wii-norway.html.fi ../..//down/powerpc/wii-norway.html.fr ../..//down/powerpc/wii-norway.html.id ../..//down/powerpc/wii-norway.html.it ../..//down/powerpc/wii-norway.html.nl ../..//down/powerpc/wii-norway.html.po ../..//down/powerpc/wii-norway.html.sl ../..//down/powerpc/wii-norway.html.ru ../..//down/powerpc/wii-norway.html.zh-CN ../..//down/powerpc/wii-norway.var ../..//down/powerpc/linux-russia.html.bg ../..//down/powerpc/linux-russia.html.en ../..//down/powerpc/linux-russia.html.fi ../..//down/powerpc/linux-russia.html.fr ../..//down/powerpc/linux-russia.html.id ../..//down/powerpc/linux-russia.html.it ../..//down/powerpc/linux-russia.html.nl ../..//down/powerpc/linux-russia.html.po ../..//down/powerpc/linux-russia.html.sl ../..//down/powerpc/linux-russia.html.ru ../..//down/powerpc/linux-russia.html.zh-CN ../..//down/powerpc/linux-russia.var ../..//down/powerpc/macosx-russia.html.bg ../..//down/powerpc/macosx-russia.html.en ../..//down/powerpc/macosx-russia.html.fi ../..//down/powerpc/macosx-russia.html.fr ../..//down/powerpc/macosx-russia.html.id ../..//down/powerpc/macosx-russia.html.it ../..//down/powerpc/macosx-russia.html.nl ../..//down/powerpc/macosx-russia.html.po ../..//down/powerpc/macosx-russia.html.sl ../..//down/powerpc/macosx-russia.html.ru ../..//down/powerpc/macosx-russia.html.zh-CN ../..//down/powerpc/macosx-russia.var ../..//down/powerpc/wii-russia.html.bg ../..//down/powerpc/wii-russia.html.en ../..//down/powerpc/wii-russia.html.fi ../..//down/powerpc/wii-russia.html.fr ../..//down/powerpc/wii-russia.html.id ../..//down/powerpc/wii-russia.html.it ../..//down/powerpc/wii-russia.html.nl ../..//down/powerpc/wii-russia.html.po ../..//down/powerpc/wii-russia.html.sl ../..//down/powerpc/wii-russia.html.ru ../..//down/powerpc/wii-russia.html.zh-CN ../..//down/powerpc/wii-russia.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh-CN ../..//down/powerpc/linux.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh-CN ../..//down/powerpc/macosx.var ../..//down/powerpc/wii.html.bg ../..//down/powerpc/wii.html.en ../..//down/powerpc/wii.html.fi ../..//down/powerpc/wii.html.fr ../..//down/powerpc/wii.html.id ../..//down/powerpc/wii.html.it ../..//down/powerpc/wii.html.nl ../..//down/powerpc/wii.html.po ../..//down/powerpc/wii.html.sl ../..//down/powerpc/wii.html.ru ../..//down/powerpc/wii.html.zh-CN ../..//down/powerpc/wii.var
+all_en_pages: mirrors.dat ../..//down/powerpc/linux-australia.html ../..//down/powerpc/macosx-australia.html ../..//down/powerpc/wii-australia.html ../..//down/powerpc/linux-austria.html ../..//down/powerpc/macosx-austria.html ../..//down/powerpc/wii-austria.html ../..//down/powerpc/linux-hungary.html ../..//down/powerpc/macosx-hungary.html ../..//down/powerpc/wii-hungary.html ../..//down/powerpc/linux-israel.html ../..//down/powerpc/macosx-israel.html ../..//down/powerpc/wii-israel.html ../..//down/powerpc/linux-netherlands.html ../..//down/powerpc/macosx-netherlands.html ../..//down/powerpc/wii-netherlands.html ../..//down/powerpc/linux-norway.html ../..//down/powerpc/macosx-norway.html ../..//down/powerpc/wii-norway.html ../..//down/powerpc/linux-russia.html ../..//down/powerpc/macosx-russia.html ../..//down/powerpc/wii-russia.html ../..//down/powerpc/linux.html ../..//down/powerpc/macosx.html ../..//down/powerpc/wii.html
 
 
 # clean
