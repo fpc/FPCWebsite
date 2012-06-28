@@ -146,7 +146,7 @@ far the most economic way to remain up-to-date in terms of bandwidth.
 
 </OL>
 <p>
-<b>Fixes to 2.2.x </b>
+<b>Fixes to 2.6.x </b>
 </p>
 <p>
 The sources of the fixes branch need a separate directory, so create a separate directory fixes, enter it, and repeat
