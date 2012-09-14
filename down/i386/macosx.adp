@@ -14,7 +14,7 @@
 <p>
 The latest release version is <b>2.6.0</b></p>
 
-<h3>Xcode 4.3 compatibility</h3>
+<h3>Xcode 4.3+ compatibility</h3>
  FPC 2.6.0 is qualified for use with Mac OS X 10.4 till 10.7. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
