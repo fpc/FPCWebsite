@@ -41,13 +41,8 @@ Contributes the following work to the project:
 
 <hr>
 <h4>Florian Kl&auml;mpfl</h4>
-<IMG SRC="pic/fk.jpg" ALT="picture of Florian" HEIGHT=247 WIDTH=200>
-<p>
 Year of birth: 1975<br>
-Job: Developing software for medical devices and preparing a PhD
-Erlangen-N&uuml;rnberg, Germany<br>
-Hobbies: computers, classical music, rc planes, books<br>
-Blog: <a href="http://www.florianklaempfl.de/nucleus">Link</a><br>
+Job: Working at the university Erlangen-N&uuml;rnberg and preparing a PhD
 <p>
 Contributes the following work to the project:
 <ul>
