@@ -186,6 +186,7 @@
 	      <li>11/2010: 2.4.2 released
 	      <li>05/2011: 2.4.4 released
 	      <li>01/2012: 2.6.0 released
+	      <li>12/2012: 2.6.2 released (tentative)
             </ul>
           </trn>  
 
