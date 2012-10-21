@@ -9,6 +9,29 @@
 
 <h3>Latest changes:</h3>
 
+<li>October 21st, 2012
+<ul>
+ <li>
+  <trn locale="en_US" key="website.news_headline_20121021">
+    <p>Recently, considerable progress has been reached with regard to
+support of new CPU architectures. This includes not only new support
+for MIPS processors running in both little endian and big endian
+modes (contributed mostly by Florian, Pierre and external
+contributors like Fuxin Zhang), but most notably also revived
+support for Motorola 68000 family. M68k was originally the second
+architecture supported by FPC even before release 1.0, but this
+target has been dormant since the transition to FPC 2.x and now is
+resurrected mostly by Sven. The compiler can be natively compiled for
+M68000 and M68020 (although not necessarily fully working there yet) and
+support for modern Coldfire CPUs is now in mostly working state too. Some
+functionality still needs finishing (e.g. threadvars which impacts StdIO
+among others), but created binaries already run successfully in QEMU. As of
+now, the goal is to support m68k-linux and maybe also m68k-embedded.
+Contributors for any other operating systems like Amiga, AROS or even
+classic Mac OS are - as usually - welcome.</p>
+  </trn></li>
+</ul>
+
 <li>March 23th, 2012
 <ul>
  <li>

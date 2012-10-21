@@ -10,62 +10,33 @@
     It can target multiple processor architectures: Intel x86, AMD64/x86-64,
     PowerPC, PowerPC64, SPARC, and ARM. Supported operating systems include Linux,
     FreeBSD, Haiku, Mac OS X/iOS/Darwin, DOS, Win32, Win64, WinCE, OS/2,
-    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii.
+    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii. Additionally, JVM,
+    MIPS (big and little endian variants) and Motorola 68k architecture targets
+    are available in the development versions.
   </trn>
 </p>
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
-<p><em>March 23th, 2012</em>
-  <trn locale="en_US" key="website.news_headline_20120323">
-    <p> The Free Pascal and Lazarus wiki has been moved to a new server. Also
-the wiki software has been upgraded to the latest Mediawiki version.
-Because porting the custom Free Pascal skin to the new version was too
-time consuming the default monoskin is used now. Therefore you will
-notice changes in its appearance.</p>
+<p><em>October 21st, 2012</em>
+  <trn locale="en_US" key="website.news_headline_20121021">
+    <p>Recently, considerable progress has been reached with regard to
+support of new CPU architectures. This includes not only new support
+for MIPS processors running in both little endian and big endian
+modes (contributed mostly by Florian, Pierre and external
+contributors like Fuxin Zhang), but most notably also revived
+support for Motorola 68000 family. M68k was originally the second
+architecture supported by FPC even before release 1.0, but this
+target has been dormant since the transition to FPC 2.x and now is
+resurrected mostly by Sven. The compiler can be natively compiled for
+M68000 and M68020 (although not necessarily fully working there yet) and
+support for modern Coldfire CPUs is now in mostly working state too. Some
+functionality still needs finishing (e.g. threadvars which impacts StdIO
+among others), but created binaries already run successfully in QEMU. As of
+now, the goal is to support m68k-linux and maybe also m68k-embedded.
+Contributors for any other operating systems like Amiga, AROS or even
+classic Mac OS are - as usually - welcome.</p>
 </trn></p>
-
-<p><em>January 1st, 2012</em>
-  <trn locale="en_US" key="website.news_headline_20120101">
-    <p>FPC 2.6.0 has been released! 2.6.0 is a major new version,
-      which adds many post-Delphi 7 language features and adds or improves the support   
-      for various platforms.</p><p>
-    The new features include, amongst others:
-     <ul>
-        <li>Objective-Pascal dialect, supported on all Mac OS X and iOS targets</li>
-	<li>Delphi compatibility mode improvements
-           <ul>
-            <li>Nested types, class variables and class local constants</li>
-            <li>Advanced records syntax (no constructors yet)</li>
-            <li>(for..in) Enumerators in records</li>
-            <li>Class and record helpers</li>
-            <li>Generic records, arrays and procedural types</li>
-            <li>Delphi-compatibility of general generics syntax improved</li>
-            <li>Scoped enumerations</li>
-            <li>Custom messages for "deprecated" directive</li>
-            <li>Ability to use "&amp;" for escaping keywords</li>
-            </ul></li>
-        <li>New ARM code generator features
-           <ul>
-            <li>ARM VFPv2 and VFPv3 floating point unit support</li>
-     	    <li>Thumb-2 support (embedded targets only)</li>
-           </ul></li>
-        <li>The rtl and packages also got a lot of attention, see the 
-	     release manifest.</li>
-     </ul>
-
-    <p>
-    See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
-    bugs that have been fixed in this release. 
-    </p>
-    <p>
-    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
-    </p>
-    <p>
-    A list of changes that may require
-    changes to existing code is also <A HREF="http://wiki.freepascal.org/User_Changes_2.6.0">available</A>.
-  </trn>
-</p>
 
 <p>
 <a href="news@x@">Older news...</a>
