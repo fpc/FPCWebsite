@@ -37,7 +37,7 @@ contains an installation package for compiling both Intel (32 bit and 64 bit) an
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/2.6.0/i386-macosx/fpc-2.6.0.arm-ios.dmg">fpc-2.6.0.arm-ios.dmg</a> (23 MB)
-contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (the included Xcode template only works with Xcode 3.x; for Xcode 4.x templates, see <a href="http://web.me.com/macpgmr/ObjP/Xcode4">Phil Hess' templates</a><br>
+contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (the included Xcode template only works with Xcode 3.x; for Xcode 4.x templates, see <a href="http://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' templates</a><br>
 
 </ul>
 
