@@ -160,8 +160,10 @@
             the main ones).
 	
             <p>The Free Pascal compiler is available for several
-            architectures: x86 (32 and 64 bit), ARM, PowerPC (32 and 64 bit), SPARC (v8,v9) and MIPS (under development). An older version (the 1.0 series) also supported
-            m68k.
+            architectures: x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron),
+            PowerPC and PowerPC64. An older version (the 1.0 series) and
+            current development version also support m68k, the current development version also
+            supports MIPS (in both big endian and little endian modes).
   	  	
             <p>The compiler is written in Pascal and is able to compile its
             own sources. The source files are distributed under the GPL and included.
@@ -248,7 +250,7 @@
 		test the branch from which the release is created.
 
             <p>We advise all users to upgrade to the newest version for their
-            target (Preferably the new stable 2.6.x series).
+            target (preferably the new stable 2.6.x series).
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
@@ -291,7 +293,7 @@
             implements the Delphi Object Pascal language, Objective-Pascal and has some Mac Pascal extensions.
             GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
             <DT><b>Extensions:</b>
-            <DD>Free Pascal implements method, function and operator overloading. (later Delphi versions add these, so strictly not an extension anymore)
+            <DD>Free Pascal implements method, function and operator overloading (later Delphi versions add these, so strictly not an extension anymore).
             GNU Pascal implements operator overloading.
             <DT><b>License:</b>
             <DD>Both compilers come under the GNU GPL.
