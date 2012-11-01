@@ -28,7 +28,7 @@ functionality still needs finishing (e.g. threadvars which impacts StdIO
 among others), but created binaries already run successfully in QEMU. As of
 now, the goal is to support m68k-linux and maybe also m68k-embedded.
 Contributors for any other operating systems like Amiga, AROS or even
-classic Mac OS are - as usually - welcome.</p>
+classic Mac OS are - as usual - welcome.</p>
   </trn></li>
 </ul>
 
