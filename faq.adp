@@ -160,13 +160,12 @@
             the main ones).
 	
             <p>The Free Pascal compiler is available for several
-            architectures: x86, Sparc (v8,v9), ARM, x86_64 (AMD64/Opteron),
-            PowerPC and PowerPC64. An older version (the 1.0 series) and
-            current development version also support m68k, the current development version also
-            supports MIPS (in both big endian and little endian modes).
+            architectures: x86 (32 and 64 bit), ARM, PowerPC (32 and 64 bit),
+            SPARC (v8, v9), Java Virtual Machine (under development) and MIPS (little and big endian, under development).
+            An older version (the 1.0 series) and current development versions also supported m68k.
   	  	
             <p>The compiler is written in Pascal and is able to compile its
-            own sources. The source files are distributed under the GPL and included.
+            own sources. The source files are distributed under the GPLv2+ and included.
 
             <p>Short history:
             <ul>
@@ -274,26 +273,26 @@
 	        and the source via SVN. GPC issues a set of patches to the last version a few times 
             a year, and there are regular snapshot for OS X and Windows, made by users.
             <DT><b>Operating systems:</b>
-            <DD>Free Pascal runs on a large amount of platforms of OSes,
-            e.g. DOS, Win32 (no UNIX porting layer needed), Linux, FreeBSD,
-            NetBSD, OS/2, BeOS, Mac OS X, on,  at
-            the moment the following architectures: x86 (32 and 64 bit),
-            SPARC, PowerPC (32 and 64 bit), ARM and MIPS (under development).
+            <DD>Free Pascal runs on a large number of platforms,
+            inlcuding DOS, Win32 (no UNIX porting layer needed), Linux, FreeBSD,
+            NetBSD, OS/2, BeOS, Mac OS X, on the following architectures:
+            x86 (32 and 64 bit),
+            SPARC, PowerPC (32 and 64 bit), ARM, Java Virtual Machine (under development), and
+            MIPS (under development).
 
             GNU Pascal runs basically on any system that supported by GCC, and for which the build process was verified.
             <DT><b>Bootstrapping:</b>
             <DD>FPC requires a suitable set of binutils (AS, AR, LD) on some platforms, GNU make and a command line bootstrap compiler. New architectures/OSes are cross-compiled.
 	        GPC bootstraps via a suitable version of GCC, and requires a full set of binutils, flex, bison, gmake, a POSIX shell and libtool 
             <DT><b>Sources:</b>
-            <DD>Free Pascal is entirely written in Pascal (about 6 MB of source
-            code), while GNU Pascal is written in C (it's an adaptation of the GNU
-            C compiler: 2.8 MB code + 8 MB of GNU C code)
+            <DD>Free Pascal is entirely written in Pascal, while GNU Pascal is written in C (it's an adaptation of the GNU
+            C compiler)
             <DT><b>Language:</b>
             <DD>Free Pascal supports the Borland Pascal dialect, 
-            implements the Delphi Object Pascal language, Objective-Pascal and has some Mac Pascal extensions.
-            GNU Pascal supports ISO 7185, ISO 10206, (most of) Borland Pascal 7.0
+            implements the Delphi Object Pascal language, Objective-Pascal and has some support for ISO 7185 Pascal and Mac Pascal extensions.
+            GNU Pascal supports ISO 7185, ISO 10206 and (most of) Borland Pascal 7.0
             <DT><b>Extensions:</b>
-            <DD>Free Pascal implements method, function and operator overloading (later Delphi versions add these, so strictly not an extension anymore).
+            <DD>Free Pascal implements method, function and operator overloading (later Delphi versions have also added these, so strictly they are not extensions anymore)
             GNU Pascal implements operator overloading.
             <DT><b>License:</b>
             <DD>Both compilers come under the GNU GPL.
@@ -312,7 +311,8 @@
             This license does not impose any kind of license on the created applications. It is therefore possible to create closed source
             or proprietary software using the Free Pascal Compiler.
             
-            <p>This extra exception to the LGPL is added:<p><I> As a special
+            <p>The following exception has been added to the LGPL variant 
+               that applies to the FPC RTL:<p><I> As a special
             exception, the copyright holders of this library give you
             permission to link this library with independent modules to
             produce an executable, regardless of the license terms of
@@ -340,8 +340,9 @@
             </ul>
 
             <p> The compiler source code, on the other hand, comes under
-            the GNU Public License, which means that the compiler
-            source can only be used in software projects that are distributed under a compatible license (or that are not distributed at all). 
+            the GNU General Public License, which means that the compiler
+            source can only be used in software projects that are distributed
+            under a compatible license (or that are not distributed at all). 
           </trn>
 
         <li><a name='WhereToGetFP'></a>
@@ -365,8 +366,8 @@
           <h3><trn key="website.q_Why_username_password_for_download" locale="en_US">Why do i have to supply a user name and password to get Free Pascal ?</trn></h3>
 
           <trn key="website.a_Why_username_password_for_download" locale="en_US">
-            <p> You are trying to login to an ftp site. You must use the login name:
-            anonymous and as your password, you should put your e-mail address.
+            <p> You are trying to login to an ftp site. You have to use the login name
+            &quot;anonymous&quot; and your e-mail address as your password.
           </trn>
         
 
@@ -753,7 +754,7 @@
               release all allocated heap memory, as some operating systems do not like it
               when some things are left allocated or opened.
               <li> Some operating systems limit the stack space that can be allocated,
-              therefore it is important to limit subroutine nesting, and the amount of
+              therefore it is important to limit subroutine nesting, and the number of
               local variables. Limiting total stack space usage at a given moment to
               at most 256 KBytes will make porting easier.
               <li> Do not hardcode paths to files, try to use relative paths
