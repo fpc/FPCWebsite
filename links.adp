@@ -73,18 +73,13 @@ your chances to contact them ;-).
 <a name="fpcidesites"></a>
 <h2>Free Pascal related projects that contain an IDE or development tools:</h2>
 <ul>
-  <li>The <a href="http://212.120.113.158/fpide">FPIDE</a> team has a
-    GUI editor for FPC under Windows (Windows 95 and higher).
-    The current version of FPC comes with this IDE.
-  <li>The <a href="ftp://ftp.miraclec.com/pub/fpe-1.35.zip">FPE</a> editor is an
-    alternative to FPIDE on the Windows platforms, which is also highly recommended.
-  <li><a href="http://www.bloodshed.net/devpascal.html">Dev-pascal</a> is a
-    free Windows IDE programmed in Delphi which uses Free Pascal as the
-    underlying compiler. It supports everything a IDE should do, debugging included.
   <li><a href="http://www.lazarus.freepascal.org/">Lazarus</a>
     is a project that aims to develop a Delphi clone
     using the Free Pascal Compiler. This projects includes a rapid development IDE
     based on its own class library the LCL which adaptes to GTK+ on Linux and Win32.
+  <li><a href="http://www.bloodshed.net/devpascal.html">Dev-pascal</a> is a
+    free Windows IDE programmed in Delphi which uses Free Pascal as the
+    underlying compiler. It supports everything a IDE should do, debugging included.
   <li><a href="http://www.mos.fr.st">MOS</a> (Master Operating System) is a
     GUI toolkit like Visual Pascal for making grafical programs that will
     compile with BP7 and Free Pascal; it comes with a visual development tool
@@ -98,11 +93,11 @@ your chances to contact them ;-).
 <a name="otherfpc"></a>
 <h2>Other Free Pascal related sites:</h2>
 <ul>
-  <li><a href='http://www.pascalgamedevelopment.com'>Pascal Game Development</a> is a website dedicated
+  <li><a href="http://www.pascalgamedevelopment.com">Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
 <!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a> -->
-  <li><a href='http://www.friends-of-fpc.org'>Friends-of-fpc: Lots of good articles</a>
-  <li><a href='http://www.freepascal.ru'>FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
+  <li><a href="http://www.friends-of-fpc.org">Friends-of-fpc: Lots of good articles</a>
+  <li><a href="http://www.freepascal.ru">FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
 <!--    <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a> -->
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</a>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
@@ -134,8 +129,6 @@ your chances to contact them ;-).
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
     the MacOS/PowerPC platform. -->
-  <li><a href="http://ftp.sunet.se/EFLIB/">EFLIB</a> is a free class library for
-    pascal.
   <li><a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
     for information on the yacc and lex prgrams for pascal.
 </ul>
