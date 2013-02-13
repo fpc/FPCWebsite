@@ -18,6 +18,26 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><em>February 13th, 2013</em>
+  <trn locale="en_US" key="website.news_headline_20130213">
+    <p>The FreePascal team is pleased to announce official support for native
+Android targets in the trunk SVN repository.</p>
+
+<p>In addition to the existing Android support using the Java VM target,
+you can now use the FreePascal compiler to generate native executables
+and libraries. You can now speed up your performance critical code on
+x86 and ARM CPUs writing in Object Pascal.</p>
+
+<p>We hope that the Android target will attract new and old developers. It
+may still be a little rough on the edges. We appreciate your feedback
+and further contributions.</p>
+
+<p>Read more about how to use native Android support at
+<a href="http://wiki.freepascal.org/Android">Android Wiki page</a>
+</p>
+<trn>
+</p>
+
 <p><em>October 21st, 2012</em>
   <trn locale="en_US" key="website.news_headline_20121021">
     <p>Recently, considerable progress has been reached with regard to
