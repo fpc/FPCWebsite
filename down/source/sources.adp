@@ -34,3 +34,14 @@ The fpcbuild archives also contain all necessary tools install fpc and to build 
 <a href="sources@x@">Back to mirror list</a><BR/>
 <a href="../../download@x@">Back to general download page</a><BR/>
 <p>
+
+<a name="patches"</a><h1>Patches</h1>
+<p>
+Due to the increasing number of targets, issues pop up more often during building specific targets after the main sources have
+been packed. Most patches are only relevant to a specific target. For a list of post release patches view <a href="@mirror_url@dist/2.6.2/source/README.patches.txt">Patches list</a>,
+the patches itself are in <a href="@mirror_url@dist/2.6.2/source/patches">Patches directory</a>. <b>Note:</b> This is an ongoing process, since targets are still being packaged and uploaded.</p>
+<p>
+Hopefully all patches are regularly archived in the <a href="@mirror_url@dist/2.6.2/source/patches.zip">patches.zip</a> and <a href="@mirror_url@dist/2.6.2/source/patches.tar.gz">patches.tar.gz</a> archives.
+</p>
+
+
