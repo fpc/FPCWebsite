@@ -12,12 +12,12 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.6.0</b>.
+  The latest release version is</trn> <b>2.6.2</b>.
 
 
 <h3><a name="freebsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.0/x86_64-freebsd/fpc-2.6.0.x86_64-freebsd8.tar">fpc-2.6.0.x86_64-freebsd8.tar</a> (38 MB)
+<li> <a href="@mirror_url@dist/2.6.2/x86_64-freebsd/fpc-2.6.2.x86_64-freebsd8.tar">fpc-2.6.2.x86_64-freebsd8.tar</a> (38 MB)
 </ul>
 <trn key="website.x86_64-freebsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
