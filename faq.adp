@@ -187,14 +187,14 @@
 	      <li>11/2010: 2.4.2 released
 	      <li>05/2011: 2.4.4 released
 	      <li>01/2012: 2.6.0 released
-	      <li>12/2012: 2.6.2 released (tentative)
+	      <li>02/2013: 2.6.2 released 
             </ul>
           </trn>  
 
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 2.6.0, the first release in the 2.6.x series.
+            <p>The latest official version is 2.6.2, the first fixes release in the 2.6.x series.
             New development is performed in the 2.7.x series, which will eventually
             be released as 2.8.0 or 3.0.0, depending on milestones achieved.
 
@@ -221,7 +221,7 @@
               and so on.
 		<li>Repackagings that affect sources are indicated with a single letter as 
 			suffix (e.g. 2.0.4a). This is usually the case for platforms that weren't part of the original release round.
-             <li>The stable branch (currently, fixes_2_6, previously fixes_2_4) always has an odd last number (2.4.1, 2.4.3, 2.6.1). 
+             <li>The stable branch (currently, fixes_2_6, previously fixes_2_4) always has an odd last number (2.4.3,2.6.1 and 2.6.3). 
                   Compilers with such versions are snapshots, and e.g. a snapshot with 2.4.1 can
  		  be anywhere between 2.4.0 and the moment 2.4.2 branched off (May 2010). Likewise,
 		 after the release of 2.4.2 the fixes_2_4 branch identified itself as version 2.4.3 till 2.4.4 branched off (typically
@@ -265,7 +265,7 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 2.6.0 (January 2012). GNU Pascal is stopped
+            <DD>Currently, Free Pascal is at version 2.6.2 (February 2013). GNU Pascal is stopped
             version 2.1 (from 2002, which can be built with several different GCC's as backend;
             their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>

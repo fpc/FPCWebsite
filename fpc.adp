@@ -18,6 +18,51 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><em>February 23rd, 2013</em>
+  <trn locale="en_US" key="website.news_headline_20130223">
+    <p>FPC 2.6.2 has been released! 2.6.2 is a fixes update from the 2.6.x branch</p>
+    <p>
+    The new features include, amongst others:
+    <ul>
+      <li>Compiler:</li>
+      <ul>
+        <li> Improvements and fixes for the ARM architecture </li>
+      </ul>
+      <li>Packages:</li>
+      <ul>
+        <li> New package fpindexer (indexing engine)</li>
+        <li> Support for observer pattern added to fcl-base (and base classes in RTL)</li>
+        <li> Lots and lots fixes and improvements for fcl-db</li><ul>
+              <li> Support for JSON dataset added among others</li></ul>
+        <li> Fixes and improvements for fcl-passrc (and fpdoc)</li>
+        <li> Updates for PTCPas and gtk2</li>
+        <li> fpmkunit improvements (better support for future switch to fpmake)</li>
+        <li> Several fixes for x11</li>
+        <li> Several fixes for winunits (and winceunits)</li>
+      </ul>
+      <li>Platforms:</li>
+      <ul>
+        <li> Improvements to the NativeNT target (newly introduced as alpha in 2.6.0)</li>
+        <li> Many fixes for OpenBSD and NetBSD (considered in beta state now)</li>
+        <li> Internal ELF writer supported for more BSD targets</li>
+        <li> Fixes and improvements for gba and nds</li>
+      </ul>
+    </ul>
+    <p>
+    See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
+    bugs which have been fixed in this release. 
+    </p>
+    <p>
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
+    </p>
+    <p>Some archives are still being uploaded</p>
+    <p>
+    A list of changes that may require
+    changes to existing code is also <A HREF="http://wiki.freepascal.org/User_Changes_2.6.2">available</A>.
+    <p>
+</trn>
+</p>
+
 <p><em>February 13th, 2013</em>
   <trn locale="en_US" key="website.news_headline_20130213">
     <p>The FreePascal team is pleased to announce official support for native
