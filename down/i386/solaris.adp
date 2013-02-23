@@ -1,4 +1,4 @@
-<master>
+[B<master>
 <property name="title">Free Pascal - Download Solaris</property>
 <property name="entry">download</property>
 <property name="header">Download Solaris Intel x86</property>
@@ -12,13 +12,11 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.4.4</b>.
-
+  The latest release version is</trn> <b>2.6.2</b>.
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.4.4/i386-solaris/fpc-2.4.4.i386-solaris.tar.gz">fpc-2.4.4.i386-solaris.tar.gz</a> (17 MB)
-<li> <a href="@mirror_url@dist/2.4.4/i386-solaris/install.sh">installer script for the above with post 2.4.4 fixes</a> (1 kB)
+<li> <a href="@mirror_url@dist/2.6.2/i386-solaris/fpc-2.6.2.i386-solaris.tar.gz">fpc-2.6.2.i386-solaris.tar.gz</a> (21 MB)
 </ul>
 <trn key="website.i386-solaris_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>

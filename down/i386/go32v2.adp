@@ -18,9 +18,9 @@ isn't supposed to work in Windows NT/2000/XP.</trn>
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="@mirror_url@dist/2.6.0/i386-go32v2/dos260full.zip">dos260full.zip</a> (52 MB),<br>
+<a href="@mirror_url@dist/2.6.0/i386-go32v2/dos260full.zip">dos260full.zip</a> (42 MB),<br>
 or you can download a file that contains the same, only without sources and documentation:
-<a href="@mirror_url@dist/2.6.0/i386-go32v2/dos260.zip">dos260.zip</a> (20 MB).
+<!-- a href="@mirror_url@dist/2.6.0/i386-go32v2/dos260.zip">dos260.zip</a> (20 MB). -->
 <!-- <li>Alternatively, you can download individual packages from <a href="@mirror_url@dist/2.6.0/i386-go32v2/separate">here</a>. -->
 </ul>
 
