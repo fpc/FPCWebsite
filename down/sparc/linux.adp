@@ -11,7 +11,7 @@
 *****************************************************************************
 -->
 
-The latest release version is <b>2.2.2</b>.
+The latest release version is <b>2.6.2</b>.
 
 The FPC package for is available in one easy to choose format:
 <ul>
@@ -20,7 +20,7 @@ The FPC package for is available in one easy to choose format:
 
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/sparc-linux-2.2.2/fpc-2.2.2.sparc-linux.tar">fpc-2.2.2.sparc-linux.tar</a> (26.2 MB)
+<li> <a href="@mirror_url@dist/sparc-linux-2.6.2/fpc-2.6.2.sparc-linux.tar">fpc-2.6.2.sparc-linux.tar</a> (26.2 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".

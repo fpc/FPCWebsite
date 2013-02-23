@@ -12,47 +12,22 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.2.2</b>.
-  The latest cross compiler release version is <b>2.0.4</b>.
+  The latest release version is <b>2.6.2</b>.
 </trn>
 
-<h1>2.2.2</h1>
-The FPC 2.2.2 package for arm-linux is available in one easy to choose format:
+<h1>2.6.2</h1>
+The FPC 2.6.2 package for arm-linux is available in one easy to choose format:
 <ul>
-  <li> <a href="#linuxbig220">Everything in 1 big package</a>
+  <li> <a href="#linuxbig262">Everything in 1 big package</a>
 </ul>
 
-<h3><a name="linuxbig220"></a>Download in 1 big file:</h3>
+<h3><a name="linuxbig262"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/arm-linux-2.2.2/fpc-2.2.2.arm-linux.tar">fpc-2.2.2.arm-linux.tar</a> (28 MB)
+href="@mirror_url@dist/arm-linux-2.6.2/fpc-2.6.2.arm-linux.tar">fpc-2.6.2.arm-linux.tar</a> (28 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
-</ul>
-
-<h1>2.0.4</h1>
-<p>
-<trn key="website.cross_compiler_i386-linux_arm-linux" locale="en_US">
-  This is a cross compiler package from i386-linux to arm-linux. Before you can use it, you need to install
-  <a href="../i386/linux-@mirrorsuffix@@x@">fpc for i386-linux</a>.
-</trn>
-<p>
-
-<trn key="website.arm-linux_available_in" locale="en_US">
-The FPC 2.0.4 package for arm-linux is available in one easy to choose format:
-</trn>
-<ul>
-  <li> <a href="#linuxbig204"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
-</ul>
-
-<h3><a name="linuxbig204"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
-<ul>
-<li><trn key="website.arm-linux_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/arm-linux-2.0.4/arm-linux-fpc-2.0.4.i386-linux.tar">arm-linux-fpc-2.0.4.i386-linux.tar</a> (15 MB)
-  contains a standard tar archive, with an install script<br>
-  After untarring the archive, you can run the install script in the created
-  directory by issuing the command "<tt>sh install.sh</tt>".
-</trn>
 </ul>
 
 <hr>

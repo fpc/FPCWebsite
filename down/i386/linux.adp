@@ -12,7 +12,7 @@
 *****************************************************************************
 -->
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.6.0</b>.
+  The latest release version is</trn> <b>2.6.2</b>.
 
 <P>
 
@@ -28,13 +28,15 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><a href="@mirror_url@dist/2.6.0/i386-linux/fpc-2.6.0.i386-linux.tar">fpc-2.6.0.i386-linux.tar</a> (34 MB)
+<li><a href="@mirror_url@dist/2.6.2/i386-linux/fpc-2.6.2.i386-linux.tar">fpc-2.6.2.i386-linux.tar</a> (34 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script 
   by issuing the command "<tt>sh install.sh</tt>".
 </trn>
 </ul>
+
+<p><h2><b> The 2.6.2 RPM and Deb archives are still in preparation</b></h2></p>
 
 <h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>

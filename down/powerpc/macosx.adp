@@ -12,7 +12,7 @@
 -->
 
 <p>
-The latest release version is <b>2.6.0</b>
+The latest release version is <b>2.6.2</b>
 </p>
 
 <h3>Xcode 3.2.x (Mac OS X 10.6) compatibility</h3>
@@ -22,9 +22,9 @@ The latest release version is <b>2.6.0</b>
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
  command line parameter when compiling a dynamic library."
 
-<h3><a name="macosxdmg"></a>Download the 2.6.0 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 2.6.2 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.0/powerpc-macosx/fpc-2.6.0.powerpc-macosx.dmg">fpc-2.6.0.powerpc-macosx.dmg</a> (46 MB)
+<li> <a href="@mirror_url@dist/2.6.2/powerpc-macosx/fpc-2.6.2.powerpc-macosx.dmg">fpc-2.6.2.powerpc-macosx.dmg</a> (63 MB)
 contains an installation package for compiling PowerPC (32 bit and 64 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
 </ul>
