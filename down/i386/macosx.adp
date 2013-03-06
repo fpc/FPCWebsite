@@ -33,7 +33,7 @@ The latest release version is <b>2.6.2</b></p>
 <li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.intel-macosx.dmg">fpc-2.6.2.intel-macosx.dmg</a> (86 MB)
 contains an installation package for compiling both Intel (32 bit and 64 bit) and PowerPC (32 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
-<li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.intel.powerpc64-macosx.dmg">fpc-2.6.2.intel.powerpc64-macosx.dmg</a> (22 MB)
+<li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.intel-ppc64-macosx.dmg">fpc-2.6.2.intel-ppc64-macosx.dmg</a> (22 MB)
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.arm-ios.dmg">fpc-2.6.2.arm-ios.dmg</a> (26 MB)
