@@ -57,7 +57,7 @@ Contributes the following work to the project:
 
 <hr>
 <h4>Jonas Maebe</h4>
-<IMG SRC="pic/jm.jpg" ALT="picture of Jonas" HEIGHT=175 WIDTH=150>
+<IMG SRC="pic/jm.jpg" ALT="picture of Jonas" HEIGHT=175>
 <p>
 Year of birth: 1979<br>
 Job: Postdoctoral researcher in computer science at Ghent University, Belgium<br>
