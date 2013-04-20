@@ -16,7 +16,7 @@
       <li> <a href="@mirror_url@dist/2.6.2/docs/doc-html.zip">HTML</a> (12 MB)
       <li> <a href="@mirror_url@dist/2.6.2/docs/doc-ps.zip">PostScript</a> (5.7 MB)
       <li> <a href="@mirror_url@dist/2.6.2/docs/doc-dvi.zip">DVI</a> (2.6 MB)
-      <li> <a href="@mirror_url@dist/2.6.0/docs/doc-chm.zip">CHM (still 2.6.0)</a> (5.9 MB)
+      <li> <a href="@mirror_url@dist/2.6.2/docs/doc-chm.zip">CHM</a> (6.4 MB)
       <li> <a href="@mirror_url@dist/2.6.2/docs/doc-txt.zip">Plain text</a> (1.2 MB)
     </ul>
   <li>.tar.gz (for Unix platforms)
