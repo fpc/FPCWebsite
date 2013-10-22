@@ -14,22 +14,22 @@
 <p>
 The latest release version is <b>2.6.2</b></p>
 
-<h3>Xcode 5+ compatibility (Mac OS X 10.8/10.9)</h3>
- FPC 2.6.2 is qualified for use with Mac OS X 10.4 till 10.9. Xcode 5 and later however
+<h3>Xcode 5+ compatibility (OS X 10.8/10.9)</h3>
+ FPC 2.6.2 is qualified for use with Mac OS X 10.4 till OS X 10.9. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
 
 
-<h3>Xcode 4.3+ compatibility (Mac OS X 10.7/10.8)</h3>
- FPC 2.6.2 is qualified for use with Mac OS X 10.4 till 10.9. Xcode 4.3 and later however
+<h3>Xcode 4.3+ compatibility (Mac OS X 10.7/OS X 10.8)</h3>
+ FPC 2.6.2 is qualified for use with Mac OS X 10.4 till OS X 10.9. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
 
 
 <h3>Xcode 3.2.x compatibility (Mac OS X 10.6)</h3>
- FPC 2.6.2 is qualified for use with Mac OS X 10.4 till 10.9. There is
+ FPC 2.6.2 is qualified for use with Mac OS X 10.4 till OS X 10.9. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
