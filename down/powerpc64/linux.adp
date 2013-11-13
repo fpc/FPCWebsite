@@ -1,7 +1,7 @@
 <master>
 <property name="title">Free Pascal - Download Linux</property>
 <property name="entry">download</property>
-<property name="header">Download Linux Sparc</property>
+<property name="header">Download Linux PowerPC64</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
