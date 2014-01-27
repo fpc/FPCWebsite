@@ -35,9 +35,9 @@
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpdoc.pdf">PDF</a></td>
      <td><a href="docs-html/fpdoc/fpdoc.html">HTML</a></td>
 </tr>
-<tr><td><trn locale="en_US" key="website.Doc_refchart">Reference chart with all compiler options and switches</trn> </td>
+<tr><td><trn locale="en_US" key="website.Doc_refchart">Reference chart with all compiler options and switches (PDF only)</trn> </td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/chart.pdf">PDF</a></td>
-     <td><a HREF="docs-html/chart/chart.html">HTML</a></td>
+     <td>N/A</td>
 </tr>
 </table>
 </p>
