@@ -5,7 +5,7 @@ unit wmdelete;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, HTTPDefs, websession, fpHTTP, fpWeb; 
+  Classes, SysUtils, HTTPDefs, iniwebsession, fpHTTP, fpWeb; 
 
 type
   TFPWebModule1 = class(TFPWebModule)

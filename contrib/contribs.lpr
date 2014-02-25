@@ -3,7 +3,7 @@ program contribs;
 {$mode objfpc}{$H+}
 
 uses
-  fpCGI, wmdelete, wmdata, rpcontribs, cfgcontribs, iniwebsession, fpccommunity;
+  fpCGI, wmdata, rpcontribs, cfgcontribs, iniwebsession, fpccommunity;
 
 {$R *.res}
 

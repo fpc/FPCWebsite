@@ -5,7 +5,7 @@ unit rpcontribs;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, HTTPDefs, iniwebsession, fpHTTP, fpWeb, fpjsonrpc,
+  Classes, SysUtils,  HTTPDefs, iniwebsession, fpHTTP, fpWeb, fpjsonrpc,
   db,  webjsonrpc, fpextdirect, fpjson, IBConnection, sqldb;
 
 type
@@ -168,7 +168,6 @@ end;
 procedure TContribsRPC.ValidateContribUser(AID : Integer; Const AUser,APassword : String);
 
 Var
-  AM : Integer;
   aCUN,UN,UP : String;
 
 begin
@@ -180,7 +179,6 @@ begin
     try
       if (EOF and BOF) then
          Raise Exception.CreateFmt('Invalid bug ID : %d',[AID]);
-      AM:=FieldByName('C_AUTH_METHOD').AsInteger;
       UN:=FieldByName('C_USER').AsString;
       UP:=FieldByName('C_PWD').AsString;
     finally
@@ -188,18 +186,8 @@ begin
     end;
     end;
   // verify
-  If (AM=1) then
-    begin
-    If (CompareText(UN,AUser)<>0) or (UP<>APassword) then
-      Raise Exception.CreateFmt('User/Password mismatch for bug %d',[AID]);
-    end
-  else
-    Case VerifyCommunityUser(AUser,APassword,aCUN) of
-      curNOK   : Raise Exception.CreateFmt('User/Password mismatch for bug %d',[AID]);
-      curError : Raise Exception.Create('Could not verify Free Pascal Community credentials');
-      curOK    : if (CompareText(UN,AUser)<>0) then
-                   Raise Exception.CreateFmt('Not owner of this bug',[AID]);
-    end;
+  If (CompareText(UN,AUser)<>0) or (UP<>APassword) then
+    Raise Exception.CreateFmt('User/Password mismatch for bug %d',[AID]);
 end;
 
 procedure TContribsRPC.UpdateObject(ID : Integer; Data : TJSONObject);
