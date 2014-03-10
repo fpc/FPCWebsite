@@ -14,6 +14,12 @@
 <p>
 The latest release version is <b>2.6.2</b></p>
 
+<h3>&quot;Unknown developer&quot; error when installing on Mac OS X 10.7 and later</h3>
+ If you get the message that the FPC installer was created by an unknow developer,
+ right-click on the installation package and choose &quot;Open&quot; in the contextual
+ menu. This workaround is required because we don't pay Apple 79 euro per year, which
+ would prove you can trust us.
+
 <h3>Xcode 5+ compatibility (OS X 10.8/10.9)</h3>
  FPC 2.6.2 is qualified for use with Mac OS X 10.4 till OS X 10.9. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
