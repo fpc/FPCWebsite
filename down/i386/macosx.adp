@@ -12,7 +12,7 @@
 -->
 
 <p>
-The latest release version is <b>2.6.2</b></p>
+The latest release version is <b>2.6.4/b></p>
 
 <h3>&quot;Unknown developer&quot; error when installing on Mac OS X 10.7 and later</h3>
  If you get the message that the FPC installer was created by an unknown developer,
@@ -41,12 +41,12 @@ The latest release version is <b>2.6.2</b></p>
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
  command line parameter when compiling a dynamic library.
 
-<h3><a name="macosxdmg"></a>Download the 2.6.2 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 2.6.4 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.intel-macosx.dmg">fpc-2.6.2.intel-macosx.dmg</a> (86 MB)
+<li> <a href="@mirror_url@dist/2.6.4/i386-macosx/fpc-2.6.4.intel-macosx.dmg">fpc-2.6.4.intel-macosx.dmg</a> (86 MB)
 contains an installation package for compiling both Intel (32 bit and 64 bit) and PowerPC (32 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
-<li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.intel-ppc64-macosx.dmg">fpc-2.6.2.intel-ppc64-macosx.dmg</a> (22 MB)
+<li> <a href="@mirror_url@dist/2.6.4/i386-macosx/fpc-2.6.4.intel-ppc64-macosx.dmg">fpc-2.6.4.intel-ppc64-macosx.dmg</a> (22 MB)
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/2.6.2/i386-macosx/fpc-2.6.2.arm-ios.dmg">fpc-2.6.2.arm-ios.dmg</a> (26 MB)

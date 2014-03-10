@@ -1,13 +1,13 @@
 <master>
-<property name="title">Free Pascal - Download FreeBSD</property>
+<property name="title">Free Pascal - Download NetBSD</property>
 <property name="entry">download</property>
-<property name="header">Download FreeBSD Intel x86</property>
+<property name="header">Download NetBSD AMD64/x86_64</property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
 <!--
 *****************************************************************************
-                                 FreeBSD
+                                 NetBSD
 *****************************************************************************
 -->
 
@@ -15,13 +15,11 @@
   The latest release version is</trn> <b>2.6.4</b>.
 
 
-<h3><a name="freebsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
+<h3><a name="netbsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.4/i386-freebsd/fpc-2.6.4.i386-freebsd10.tar">fpc-2.6.4.i386-freebsd10.tar</a> (42 MB)
-<li> <a href="@mirror_url@dist/2.6.4/i386-freebsd/fpc-2.6.4.i386-freebsd8.tar">fpc-2.6.4.i386-freebsd8.tar</a> (42 MB)
-<li> <a href="@mirror_url@dist/2.6.4/i386-freebsd/fpc-2.6.4.i386-freebsd9.tar">fpc-2.6.4.i386-freebsd9.tar</a> (42 MB)
+<li> <a href="@mirror_url@dist/2.6.4/x86_64-netbsd/fpc-2.6.4.x86_64-netbsd.tar">fpc-2.6.4.x86_64-netbsd.tar</a> (46 MB)
 </ul>
-<trn key="website.i386-freebsd_1_file_download_descr" locale="en_US">
+<trn key="website.x86_64-netbsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
   After untarring the archive, you can run the install script in the created
   directory by issuing the command "<TT>sh install.sh</TT>".
