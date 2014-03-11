@@ -31,7 +31,7 @@ Some highlights are:
   <li> web and json packages synchronized. </li>
   <li> improvements to the chmcmd compiler.</li>
   <li> Several fixes for winunits (and winceunits)</li>
-<ul>
+</ul>
 
 <p>
 See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
