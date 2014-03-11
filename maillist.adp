@@ -18,7 +18,7 @@ and small patches to fix compiler bugs.
 Here important announcements (such as new releases) will be posted.
 <li> <I>FPC-Other</I>:
 For all other mail that is not in the above categories.
-<li> <I>MacPascal<I>:
+<li> <I>MacPascal</I>:
 This is not an FPC-specific mailing list, but most discussions about using FPC on the Mac and for iOS devices take place here.
 </OL>
 
