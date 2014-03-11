@@ -32,7 +32,7 @@ Some highlights are:
   <li> improvements to the chmcmd compiler.</li>
   <li> Several fixes for winunits (and winceunits)</li>
 </ul>
-
+</ul>
 <p>
 See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
 bugs which have been fixed in this release.
