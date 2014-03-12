@@ -53,46 +53,6 @@ bugs which have been fixed in this release.
 </trn>
 </p>
 
-<p><em>February 13th, 2013</em>
-  <trn locale="en_US" key="website.news_headline_20130213">
-    <p>The FreePascal team is pleased to announce official support for native
-Android targets in the trunk SVN repository.</p>
-
-<p>In addition to the existing Android support using the Java VM target,
-you can now use the FreePascal compiler to generate native executables
-and libraries. You can now speed up your performance critical code on
-x86 and ARM CPUs writing in Object Pascal.</p>
-
-<p>We hope that the Android target will attract new and old developers. It
-may still be a little rough on the edges. We appreciate your feedback
-and further contributions.</p>
-
-<p>Read more about how to use native Android support at
-<a href="http://wiki.freepascal.org/Android">Android Wiki page</a>
-</p>
-<trn>
-</p>
-
-<p><em>October 21st, 2012</em>
-  <trn locale="en_US" key="website.news_headline_20121021">
-    <p>Recently, considerable progress has been reached with regard to
-support of new CPU architectures. This includes not only new support
-for MIPS processors running in both little endian and big endian
-modes (contributed mostly by Florian, Pierre and external
-contributors like Fuxin Zhang), but most notably also revived
-support for Motorola 68000 family. M68k was originally the second
-architecture supported by FPC even before release 1.0, but this
-target has been dormant since the transition to FPC 2.x and now is
-resurrected mostly by Sven. The compiler can be natively compiled for
-M68000 and M68020 (although not necessarily fully working there yet) and
-support for modern Coldfire CPUs is now in mostly working state too. Some
-functionality still needs finishing (e.g. threadvars which impacts StdIO
-among others), but created binaries already run successfully in QEMU. As of
-now, the goal is to support m68k-linux and maybe also m68k-embedded.
-Contributors for any other operating systems like Amiga, AROS or even
-classic Mac OS are - as usual - welcome.</p>
-</trn></p>
-
 <p>
 <a href="news@x@">Older news...</a>
 </p>
