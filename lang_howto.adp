@@ -63,9 +63,9 @@ the web site into more languages, that would be great. To get access to the tran
 manager, please do as following:"
 <p>
 <ul>
-<li>Register at the <A href='http://community.freepascal.org:10000'>community</A>, if you
+<li>Register at the <A href='lazarus.freepascal.org'>Forum</A>, if you
     haven't done so yet.
-<li>Get yourself <A href='http://community.freepascal.org:10000/freepascal/request-permissions'>
-    the translator permission</A>
+<!--Get yourself <A href='http://community.freepascal.org:10000/freepascal/request-permissions'>
+    the translator permission-->
 </ul>
 </trn>
