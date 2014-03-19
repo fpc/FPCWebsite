@@ -35,7 +35,7 @@
    <a href="news.html">News</a>
    <a href="download.html">Download</a> 
    <a href="http://www.freepascal.org/wiki/">Wiki</a>
-   <a href="http://community.freepascal.org:10000">Community</a> 
+   <a href="http://lazarus.freepascal.org">Forum</a> 
    <a href="docs.var">Documentation</a> 
    <a href="http://bugs.freepascal.org/set_project.php?project_id=6">Bug tracker</a> 
   </div>
@@ -75,7 +75,7 @@
 
   <h1>Search</h1>
   Search documentation, forums &amp; mailing lists.
-  <form action="http://community.freepascal.org:10000/search/search" method="get">
+  <form action="http://forum.lazarus.freepascal.org/index.php?action=search" method="get">
    <p><input type="text" name="q" size="20" maxlength="256"></p>
    <p><input type="submit" value="Search" name="t">
     <input type="submit" value="Feeling Lucky" name="t">
