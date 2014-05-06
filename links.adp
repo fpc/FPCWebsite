@@ -10,11 +10,12 @@
   (maintained by <a href="mailto:Michael.VanCanneyt&#x040;wisa.be">Michael Van Canneyt</a>)
 </ul>
 <p>
-  The following sites are updated daily and have version 2.0.0 available
+  The following sites are updated daily and have the latest version available:
 <ul>
 <li>
-  <a href="http://gd.tuwien.ac.at/www.freepascal.org">Austria</a>
+  <a href="http://gd.tuwien.ac.at/languages/pascal/fpc/">Austria</a>
   (maintained by <a href="mailto:antonin.sprinzl&#x040;tuwien.ac.at">Antonin Sprinzl</a>)
+<!--
 <li>
   <a href="http://www.ca.freepascal.org">Canada</a>
   (maintained by <a href="mailto:pdavidson&#x040;coraxnetworks.com">Paul Davidson</a>)
@@ -27,9 +28,11 @@
 <li>
   <a href="http://mirror.mirimar.net/freepascal/">Israel (FTP only)</a>
   (maintained by <a href="mailto:idokan&#x040;gmail.com">Ido Kanner</a>)
+-->
 <li>
   <a href="http://freepascal.stack.nl/">The Netherlands 2</a>
   (maintained by <a href="http://www.stack.nl">MCGV Stack</a>)
+<!--
 <li>
   <a href="http://www.no.freepascal.org">Norway</a>
   (maintained by <a href="mailto:stian&#x040;nixia.no">Linux Solutions, Norway (Linux L&oslash;sninger)</a>)
@@ -42,9 +45,10 @@
 <li>
   <a href="ftp://ftp.chg.ru/Mirrors/ftp.freepascal.org/pub/fpc/">Russia (FTP only)</a>
   (maintained by <a href="mailto:sakr&#x040;chg.ru">Serge Krashakov</a>).
-
+-->
 </ul>
 
+<!--
 <p>
   The following sites are out-dated and will be removed in the future
 <ul>
@@ -52,7 +56,6 @@
   <a href="http://fpc.planetmirror.com/">Australia</a>
   (maintained by <a href="mailto:jason&#x040;dstc.edu.au">Jason Andrade</a>)
 
-<!--  
 <li>
   <a href="http://www.jp.freepascal.org/mirror/fpc">Japan</a>
   (maintained by <a href="mailto:wasaki&#x040;cs.shinshu-u.ac.jp">Katsumi Wasaki</a>)
@@ -80,10 +83,6 @@ your chances to contact them ;-).
   <li><a href="http://www.bloodshed.net/devpascal.html">Dev-pascal</a> is a
     free Windows IDE programmed in Delphi which uses Free Pascal as the
     underlying compiler. It supports everything a IDE should do, debugging included.
-  <li><a href="http://www.mos.fr.st">MOS</a> (Master Operating System) is a
-    GUI toolkit like Visual Pascal for making grafical programs that will
-    compile with BP7 and Free Pascal; it comes with a visual development tool
-    for resource editing and should run under DOS and Windows.
   <li><a href="http://sibyl.netlabs.org">OpenSibyl</a> is a project that aims to
     deliver Delphi-like RAD tool primarily for OS/2 using Free Pascal Compiler.
     The complete set of OS/2 features should be made available, not just the
@@ -96,9 +95,10 @@ your chances to contact them ;-).
   <li><a href="http://www.pascalgamedevelopment.com">Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
 <!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil também é OpenSource!</a> -->
-  <li><a href="http://www.friends-of-fpc.org">Friends-of-fpc: Lots of good articles</a>
   <li><a href="http://www.freepascal.ru">FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
 <!--    <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a> -->
+  <li><a href="http://yann.merignac.free.fr/fpc-and-lazarus-for-slackware.html">Script for converting FPC &amp;&nbsp;Lazarus
+      released binaries to Slackware packages</a>
   <li><a href="http://www.optimasc.com/support/fpc/">Freepascal support page</a>  by Carl Eric Cod&egrave;re.
   contains some experimental versions of Freepascal, pre-built cross-compilers for
   Win32 platforms, as well as general information on FPC. </li>
@@ -122,9 +122,6 @@ your chances to contact them ;-).
 <a name="otherpascal"></a>
 <h2>Other Pascal Pages:</h2>
 <ul>
-  <li><a href="http://www.math.uni-magdeburg.de/%7Emkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
-    a clone of Turbo Vision that works in graphics mode; a port
-    for FPC is being developed.
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>, where you can find a lot of info on Pascal
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
@@ -142,5 +139,21 @@ your chances to contact them ;-).
     It provides lots of Unix alike utils plus
     some more that are DOS specific. Further it provides
     documentation on most of the Unix tools plus
-    further information on AT&T assembler coding.</li>
+    further information on AT&amp;T assembler coding.</li>
+</ul>
+
+<a name="defunct_links"></a>
+<h2>Defunct links:</h2>
+<p>The following links worked previously but are apparently not available
+any longer. The information is kept here in case someone is interested
+and wants to search for the original content elsewhere via some search engine:
+<ul>
+  <li><a href="http://www.mos.fr.st">MOS</a> (Master Operating System) is a
+    GUI toolkit like Visual Pascal for making grafical programs that will
+    compile with BP7 and Free Pascal; it comes with a visual development tool
+    for resource editing and should run under DOS and Windows.
+  <li><a href="http://www.friends-of-fpc.org">Friends-of-fpc: Lots of good articles</a>
+  <li><a href="http://www.math.uni-magdeburg.de/%7Emkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
+    a clone of Turbo Vision that works in graphics mode; a port
+    for FPC is being developed.
 </ul>
