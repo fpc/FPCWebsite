@@ -45,7 +45,7 @@
 <!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
 -->
-      <li><a href="down/i386/os2@x@">OS/2</a>
+      <li><a href="down/i386/os2@x@">OS/2 (and eComStation)</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
       <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> 
    <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
