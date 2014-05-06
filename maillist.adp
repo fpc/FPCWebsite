@@ -66,10 +66,10 @@ Enter your e-mail address, your password, and that's it.
 <h3> How to access mailing-list archives ?</h3>
 The mailing list messages are archived. To access the archives, go here:
 <OL>
-<li><a href="http://lists.freepascal.org/lists/fpc-pascal/">for fpc-pascal </a>
-<li><a href="http://lists.freepascal.org/lists/fpc-devel/">for fpc-devel </a>
-<li><a href="http://lists.freepascal.org/lists/fpc-announce/">for fpc-announce</a>
-<li><a href="http://lists.freepascal.org/lists/fpc-other/">for fpc-other</a>
+<li><a href="http://lists.freepascal.org/pipermail/fpc-pascal/">for fpc-pascal </a>
+<li><a href="http://lists.freepascal.org/pipermail/fpc-devel/">for fpc-devel </a>
+<li><a href="http://lists.freepascal.org/pipermail/fpc-announce/">for fpc-announce</a>
+<li><a href="http://lists.freepascal.org/pipermail/fpc-other/">for fpc-other</a>
 <li><a href="http://lists.sonic.net/mailman/private/mac-pascal/">for MacPascal</a> (only accessible to subscribers)
 </OL>
 If the main archive doesn't work, the mailing lists are archived by third party mailing list archives too.
