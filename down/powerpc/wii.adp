@@ -27,7 +27,7 @@ The FPC package for powerpc-wii is available in one easy to choose format:
 
 <h3><a name="wiibig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.powerpc-wii_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/2.6.4/powerpc-wii/powerpc-wii-fpc-2.6.4.i386-win32.zip">powerpc-wii-fpc-2.6.4.i386-win32.zip</a> (10 MB)
+<li><trn key="website.powerpc-wii_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@dist/2.6.4/powerpc-wii/powerpc-wii-fpc-2.6.4.i386-win32.zip">powerpc-wii-fpc-2.6.4.i386-win32.zip</a> (20 MB)
   contains a zip file, which you can exract in your fpc directory. See the included readme file for further instructions.
 </trn>
 </ul>

@@ -12,20 +12,20 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>2.6.2</b>.
+  The latest release version is <b>2.6.4</b>.
 </trn>
 
-<h1>2.6.2</h1>
-The FPC 2.6.2 package for arm-linux is available in one easy to choose format:
+<h1>2.6.4</h1>
+The FPC 2.6.4 package for arm-linux is available in one easy to choose format:
 <ul>
-  <li> <a href="#linuxbig262">Everything in 1 big package</a>
+  <li> <a href="#linuxbig264">Everything in 1 big package</a>
 </ul>
 
-<h3><a name="linuxbig262"></a>Download in 1 big file:</h3>
+<h3><a name="linuxbig264"></a>Download in 1 big file:</h3>
 <p>The distribution in the archive below is for an EABI, armv5tdmi, softfp arm-linux system.</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/2.6.2/arm-linux/fpc-2.6.2.arm-linux.tar">fpc-2.6.2.arm-linux.tar</a> (28 MB)
+href="@mirror_url@dist/2.6.4/arm-linux/fpc-2.6.4.arm-linux.tar">fpc-2.6.4.arm-linux.tar</a> (38 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".

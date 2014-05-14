@@ -30,7 +30,7 @@ The FPC 2.6.2 package for arm-wince is available in one easy to choose format:
 
 <h3><a name="wince"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.arm-wince_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/2.6.2/i386-win32/fpc-2.6.2.arm-wince.exe">fpc-2.6.2.arm-wince.exe</a> (11 MB)
+<li><trn key="website.arm-wince_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/2.6.4/i386-win32/fpc-2.6.4.arm-wince.exe">fpc-2.6.4.arm-wince.exe</a> (14 MB)
   contains an installer.
 </trn>
 </ul>

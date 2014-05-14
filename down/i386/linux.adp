@@ -36,7 +36,7 @@ It is available in different formats:
 </trn>
 </ul>
 
-<p><h2><b> The 2.6.4 RPM and Deb archives are still in preparation</b></h2></p>
+<p><h2><b>Deb archives for 2.6.4 are not available at the moment (the latest version available in Deb archives is 2.6.2).</b></h2></p>
 
 <h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
