@@ -29,77 +29,6 @@ endif
 default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
-../..//down/source/sources-australia.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-australia.html.bg -oe iso-8859-5 sources.adp
-../..//down/source/sources-australia.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-australia.html.en -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/source//sources-australia.html.fi -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/source//sources-australia.html.fr -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/source//sources-australia.html.id -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/source//sources-australia.html.it -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/source//sources-australia.html.nl -oe iso-8859-1 sources.adp
-../..//down/source/sources-australia.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/source//sources-australia.html.po -oe iso-8859-2 sources.adp
-../..//down/source/sources-australia.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/source//sources-australia.html.sl -oe iso-8859-2 sources.adp
-../..//down/source/sources-australia.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/source//sources-australia.html.ru -oe iso-8859-5 sources.adp
-../..//down/source/sources-australia.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/source//sources-australia.html.zh-CN -oe utf-16 sources.adp
-../..//down/source/sources-australia.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/source/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://fpc.planetmirror.com/pub/fpc/ -p mirrorsuffix=australia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-australia.html -oe ISO-8859-1 sources.adp
-
-../..//down/source/sources-australia.var: gen_makefile.conf
-	echo > sources-australia.var
-	echo 'URI: sources-australia.html.bg' >> sources-australia.var
-	echo 'Content-language: bg' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.en' >> sources-australia.var
-	echo 'Content-language: en' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.fi' >> sources-australia.var
-	echo 'Content-language: fi' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.fr' >> sources-australia.var
-	echo 'Content-language: fr' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.id' >> sources-australia.var
-	echo 'Content-language: id' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.it' >> sources-australia.var
-	echo 'Content-language: it' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.nl' >> sources-australia.var
-	echo 'Content-language: nl' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.po' >> sources-australia.var
-	echo 'Content-language: pl' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.sl' >> sources-australia.var
-	echo 'Content-language: sl' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.ru' >> sources-australia.var
-	echo 'Content-language: ru' >> sources-australia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-australia.var
-	echo >> sources-australia.var
-	echo 'URI: sources-australia.html.zh-CN' >> sources-australia.var
-	echo 'Content-language: zh-CN' >> sources-australia.var
-	echo 'Content-type: text/html; charset=utf-16' >> sources-australia.var
-	echo >> sources-australia.var
 ../..//down/source/sources-austria.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-austria.html.bg -oe iso-8859-5 sources.adp
 ../..//down/source/sources-austria.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -242,77 +171,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> sources-hungary.var
 	echo 'Content-type: text/html; charset=utf-16' >> sources-hungary.var
 	echo >> sources-hungary.var
-../..//down/source/sources-israel.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-israel.html.bg -oe iso-8859-5 sources.adp
-../..//down/source/sources-israel.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-israel.html.en -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/source//sources-israel.html.fi -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/source//sources-israel.html.fr -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/source//sources-israel.html.id -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/source//sources-israel.html.it -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/source//sources-israel.html.nl -oe iso-8859-1 sources.adp
-../..//down/source/sources-israel.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/source//sources-israel.html.po -oe iso-8859-2 sources.adp
-../..//down/source/sources-israel.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/source//sources-israel.html.sl -oe iso-8859-2 sources.adp
-../..//down/source/sources-israel.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/source//sources-israel.html.ru -oe iso-8859-5 sources.adp
-../..//down/source/sources-israel.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/source//sources-israel.html.zh-CN -oe utf-16 sources.adp
-../..//down/source/sources-israel.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/source/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=http://mirror.mirimar.net/freepascal/ -p mirrorsuffix=israel -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-israel.html -oe ISO-8859-1 sources.adp
-
-../..//down/source/sources-israel.var: gen_makefile.conf
-	echo > sources-israel.var
-	echo 'URI: sources-israel.html.bg' >> sources-israel.var
-	echo 'Content-language: bg' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.en' >> sources-israel.var
-	echo 'Content-language: en' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.fi' >> sources-israel.var
-	echo 'Content-language: fi' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.fr' >> sources-israel.var
-	echo 'Content-language: fr' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.id' >> sources-israel.var
-	echo 'Content-language: id' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.it' >> sources-israel.var
-	echo 'Content-language: it' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.nl' >> sources-israel.var
-	echo 'Content-language: nl' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.po' >> sources-israel.var
-	echo 'Content-language: pl' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.sl' >> sources-israel.var
-	echo 'Content-language: sl' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.ru' >> sources-israel.var
-	echo 'Content-language: ru' >> sources-israel.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-israel.var
-	echo >> sources-israel.var
-	echo 'URI: sources-israel.html.zh-CN' >> sources-israel.var
-	echo 'Content-language: zh-CN' >> sources-israel.var
-	echo 'Content-type: text/html; charset=utf-16' >> sources-israel.var
-	echo >> sources-israel.var
 ../..//down/source/sources-netherlands.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/fpc/ -p mirrorsuffix=netherlands -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-netherlands.html.bg -oe iso-8859-5 sources.adp
 ../..//down/source/sources-netherlands.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -384,148 +242,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> sources-netherlands.var
 	echo 'Content-type: text/html; charset=utf-16' >> sources-netherlands.var
 	echo >> sources-netherlands.var
-../..//down/source/sources-norway.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-norway.html.bg -oe iso-8859-5 sources.adp
-../..//down/source/sources-norway.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-norway.html.en -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/source//sources-norway.html.fi -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/source//sources-norway.html.fr -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/source//sources-norway.html.id -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/source//sources-norway.html.it -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/source//sources-norway.html.nl -oe iso-8859-1 sources.adp
-../..//down/source/sources-norway.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/source//sources-norway.html.po -oe iso-8859-2 sources.adp
-../..//down/source/sources-norway.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/source//sources-norway.html.sl -oe iso-8859-2 sources.adp
-../..//down/source/sources-norway.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/source//sources-norway.html.ru -oe iso-8859-5 sources.adp
-../..//down/source/sources-norway.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/source//sources-norway.html.zh-CN -oe utf-16 sources.adp
-../..//down/source/sources-norway.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/source/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.no.freepascal.org/pub/fpc/ -p mirrorsuffix=norway -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-norway.html -oe ISO-8859-1 sources.adp
-
-../..//down/source/sources-norway.var: gen_makefile.conf
-	echo > sources-norway.var
-	echo 'URI: sources-norway.html.bg' >> sources-norway.var
-	echo 'Content-language: bg' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.en' >> sources-norway.var
-	echo 'Content-language: en' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.fi' >> sources-norway.var
-	echo 'Content-language: fi' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.fr' >> sources-norway.var
-	echo 'Content-language: fr' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.id' >> sources-norway.var
-	echo 'Content-language: id' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.it' >> sources-norway.var
-	echo 'Content-language: it' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.nl' >> sources-norway.var
-	echo 'Content-language: nl' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.po' >> sources-norway.var
-	echo 'Content-language: pl' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.sl' >> sources-norway.var
-	echo 'Content-language: sl' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.ru' >> sources-norway.var
-	echo 'Content-language: ru' >> sources-norway.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-norway.var
-	echo >> sources-norway.var
-	echo 'URI: sources-norway.html.zh-CN' >> sources-norway.var
-	echo 'Content-language: zh-CN' >> sources-norway.var
-	echo 'Content-type: text/html; charset=utf-16' >> sources-norway.var
-	echo >> sources-norway.var
-../..//down/source/sources-russia.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-russia.html.bg -oe iso-8859-5 sources.adp
-../..//down/source/sources-russia.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-russia.html.en -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/source//sources-russia.html.fi -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/source//sources-russia.html.fr -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/source//sources-russia.html.id -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/source//sources-russia.html.it -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/source//sources-russia.html.nl -oe iso-8859-1 sources.adp
-../..//down/source/sources-russia.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/source//sources-russia.html.po -oe iso-8859-2 sources.adp
-../..//down/source/sources-russia.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/source//sources-russia.html.sl -oe iso-8859-2 sources.adp
-../..//down/source/sources-russia.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/source//sources-russia.html.ru -oe iso-8859-5 sources.adp
-../..//down/source/sources-russia.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/source//sources-russia.html.zh-CN -oe utf-16 sources.adp
-../..//down/source/sources-russia.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/source/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.chg.ru/pub/lang/pascal/fpc/ -p mirrorsuffix=russia -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-russia.html -oe ISO-8859-1 sources.adp
-
-../..//down/source/sources-russia.var: gen_makefile.conf
-	echo > sources-russia.var
-	echo 'URI: sources-russia.html.bg' >> sources-russia.var
-	echo 'Content-language: bg' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.en' >> sources-russia.var
-	echo 'Content-language: en' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.fi' >> sources-russia.var
-	echo 'Content-language: fi' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.fr' >> sources-russia.var
-	echo 'Content-language: fr' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.id' >> sources-russia.var
-	echo 'Content-language: id' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.it' >> sources-russia.var
-	echo 'Content-language: it' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.nl' >> sources-russia.var
-	echo 'Content-language: nl' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.po' >> sources-russia.var
-	echo 'Content-language: pl' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.sl' >> sources-russia.var
-	echo 'Content-language: sl' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.ru' >> sources-russia.var
-	echo 'Content-language: ru' >> sources-russia.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-russia.var
-	echo >> sources-russia.var
-	echo 'URI: sources-russia.html.zh-CN' >> sources-russia.var
-	echo 'Content-language: zh-CN' >> sources-russia.var
-	echo 'Content-type: text/html; charset=utf-16' >> sources-russia.var
-	echo >> sources-russia.var
 
 ../..//down/source/sources.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -600,16 +316,12 @@ english: output_directory all_en_pages
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
-	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
 	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
 	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Israel\tisrael\thttp://mirror.mirimar.net/freepascal/' >> mirrors.dat
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
-	echo -e 'Norway\tnorway\tftp://ftp.no.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 
-all_pages: mirrors.dat ../..//down/source/sources-australia.html.bg ../..//down/source/sources-australia.html.en ../..//down/source/sources-australia.html.fi ../..//down/source/sources-australia.html.fr ../..//down/source/sources-australia.html.id ../..//down/source/sources-australia.html.it ../..//down/source/sources-australia.html.nl ../..//down/source/sources-australia.html.po ../..//down/source/sources-australia.html.sl ../..//down/source/sources-australia.html.ru ../..//down/source/sources-australia.html.zh-CN ../..//down/source/sources-australia.var ../..//down/source/sources-austria.html.bg ../..//down/source/sources-austria.html.en ../..//down/source/sources-austria.html.fi ../..//down/source/sources-austria.html.fr ../..//down/source/sources-austria.html.id ../..//down/source/sources-austria.html.it ../..//down/source/sources-austria.html.nl ../..//down/source/sources-austria.html.po ../..//down/source/sources-austria.html.sl ../..//down/source/sources-austria.html.ru ../..//down/source/sources-austria.html.zh-CN ../..//down/source/sources-austria.var ../..//down/source/sources-hungary.html.bg ../..//down/source/sources-hungary.html.en ../..//down/source/sources-hungary.html.fi ../..//down/source/sources-hungary.html.fr ../..//down/source/sources-hungary.html.id ../..//down/source/sources-hungary.html.it ../..//down/source/sources-hungary.html.nl ../..//down/source/sources-hungary.html.po ../..//down/source/sources-hungary.html.sl ../..//down/source/sources-hungary.html.ru ../..//down/source/sources-hungary.html.zh-CN ../..//down/source/sources-hungary.var ../..//down/source/sources-israel.html.bg ../..//down/source/sources-israel.html.en ../..//down/source/sources-israel.html.fi ../..//down/source/sources-israel.html.fr ../..//down/source/sources-israel.html.id ../..//down/source/sources-israel.html.it ../..//down/source/sources-israel.html.nl ../..//down/source/sources-israel.html.po ../..//down/source/sources-israel.html.sl ../..//down/source/sources-israel.html.ru ../..//down/source/sources-israel.html.zh-CN ../..//down/source/sources-israel.var ../..//down/source/sources-netherlands.html.bg ../..//down/source/sources-netherlands.html.en ../..//down/source/sources-netherlands.html.fi ../..//down/source/sources-netherlands.html.fr ../..//down/source/sources-netherlands.html.id ../..//down/source/sources-netherlands.html.it ../..//down/source/sources-netherlands.html.nl ../..//down/source/sources-netherlands.html.po ../..//down/source/sources-netherlands.html.sl ../..//down/source/sources-netherlands.html.ru ../..//down/source/sources-netherlands.html.zh-CN ../..//down/source/sources-netherlands.var ../..//down/source/sources-norway.html.bg ../..//down/source/sources-norway.html.en ../..//down/source/sources-norway.html.fi ../..//down/source/sources-norway.html.fr ../..//down/source/sources-norway.html.id ../..//down/source/sources-norway.html.it ../..//down/source/sources-norway.html.nl ../..//down/source/sources-norway.html.po ../..//down/source/sources-norway.html.sl ../..//down/source/sources-norway.html.ru ../..//down/source/sources-norway.html.zh-CN ../..//down/source/sources-norway.var ../..//down/source/sources-russia.html.bg ../..//down/source/sources-russia.html.en ../..//down/source/sources-russia.html.fi ../..//down/source/sources-russia.html.fr ../..//down/source/sources-russia.html.id ../..//down/source/sources-russia.html.it ../..//down/source/sources-russia.html.nl ../..//down/source/sources-russia.html.po ../..//down/source/sources-russia.html.sl ../..//down/source/sources-russia.html.ru ../..//down/source/sources-russia.html.zh-CN ../..//down/source/sources-russia.var ../..//down/source/sources.html.bg ../..//down/source/sources.html.en ../..//down/source/sources.html.fi ../..//down/source/sources.html.fr ../..//down/source/sources.html.id ../..//down/source/sources.html.it ../..//down/source/sources.html.nl ../..//down/source/sources.html.po ../..//down/source/sources.html.sl ../..//down/source/sources.html.ru ../..//down/source/sources.html.zh-CN ../..//down/source/sources.var
-all_en_pages: mirrors.dat ../..//down/source/sources-australia.html ../..//down/source/sources-austria.html ../..//down/source/sources-hungary.html ../..//down/source/sources-israel.html ../..//down/source/sources-netherlands.html ../..//down/source/sources-norway.html ../..//down/source/sources-russia.html ../..//down/source/sources.html
+all_pages: mirrors.dat ../..//down/source/sources-austria.html.bg ../..//down/source/sources-austria.html.en ../..//down/source/sources-austria.html.fi ../..//down/source/sources-austria.html.fr ../..//down/source/sources-austria.html.id ../..//down/source/sources-austria.html.it ../..//down/source/sources-austria.html.nl ../..//down/source/sources-austria.html.po ../..//down/source/sources-austria.html.sl ../..//down/source/sources-austria.html.ru ../..//down/source/sources-austria.html.zh-CN ../..//down/source/sources-austria.var ../..//down/source/sources-hungary.html.bg ../..//down/source/sources-hungary.html.en ../..//down/source/sources-hungary.html.fi ../..//down/source/sources-hungary.html.fr ../..//down/source/sources-hungary.html.id ../..//down/source/sources-hungary.html.it ../..//down/source/sources-hungary.html.nl ../..//down/source/sources-hungary.html.po ../..//down/source/sources-hungary.html.sl ../..//down/source/sources-hungary.html.ru ../..//down/source/sources-hungary.html.zh-CN ../..//down/source/sources-hungary.var ../..//down/source/sources-netherlands.html.bg ../..//down/source/sources-netherlands.html.en ../..//down/source/sources-netherlands.html.fi ../..//down/source/sources-netherlands.html.fr ../..//down/source/sources-netherlands.html.id ../..//down/source/sources-netherlands.html.it ../..//down/source/sources-netherlands.html.nl ../..//down/source/sources-netherlands.html.po ../..//down/source/sources-netherlands.html.sl ../..//down/source/sources-netherlands.html.ru ../..//down/source/sources-netherlands.html.zh-CN ../..//down/source/sources-netherlands.var ../..//down/source/sources.html.bg ../..//down/source/sources.html.en ../..//down/source/sources.html.fi ../..//down/source/sources.html.fr ../..//down/source/sources.html.id ../..//down/source/sources.html.it ../..//down/source/sources.html.nl ../..//down/source/sources.html.po ../..//down/source/sources.html.sl ../..//down/source/sources.html.ru ../..//down/source/sources.html.zh-CN ../..//down/source/sources.var
+all_en_pages: mirrors.dat ../..//down/source/sources-austria.html ../..//down/source/sources-hungary.html ../..//down/source/sources-netherlands.html ../..//down/source/sources.html
 
 
 # clean

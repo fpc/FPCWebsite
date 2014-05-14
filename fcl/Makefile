@@ -103,13 +103,9 @@ english: output_directory all_en_pages
 
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
-	echo -e 'Australia\taustralia\thttp://fpc.planetmirror.com/pub/fpc/' >> mirrors.dat
 	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
 	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Israel\tisrael\thttp://mirror.mirimar.net/freepascal/' >> mirrors.dat
 	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
-	echo -e 'Norway\tnorway\tftp://ftp.no.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Russia\trussia\tftp://ftp.chg.ru/pub/lang/pascal/fpc/' >> mirrors.dat
 
 all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh-CN ..//fcl/fcl.var
 all_en_pages: mirrors.dat ..//fcl/fcl.html
