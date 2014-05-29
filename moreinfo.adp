@@ -35,7 +35,7 @@
   <li>A guide how to <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">make code written in C or C++ accessible in Pascal</a>. Thanks to Gilles Marcou!</li>
   <li>Our manuals are written for people who already know how to program in Pascal. <br>
   If you are looking for information how you can learn Pascal,<br>
-  Tao Yue's <a href='http://www.taoyue.com/tutorials/pascal'>Learn Pascal Tutor</a>  is a good choice.</li>
+  Tao Yue's <a href="http://wiki.lazarus.freepascal.org/Object_Pascal_Tutorial">Learn Pascal Tutor</a>  is a good choice.</li>
   <li>
   The <b>windows</b> unit is not documented in Free Pascal. The reason for
   this is that this is a HUGE unit, which would describe the complete win32
