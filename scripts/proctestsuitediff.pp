@@ -1,35 +1,62 @@
 {$mode objfpc}{$h+}
 
 uses
-  sysutils, classes, strutils;
+  sysutils, classes, dateutils, strutils, DB, sqldb,pqconnection, inifiles;
 
 const
   runhour = 8;      { cut-off hour that distinguishes yesterday and today }
-  tablewidth = 80;  { maximum width of results table }
   urlprefix = 'http://www.freepascal.org/tests.cgi?';
 
-function getdate(line: string): string;
-begin
-  result := copy(line, posex('|', line, Pos('|', line)+1)+2, 10);
-end;
+  SQLSelect = 'SELECT '+
+              '  (TU_FAILEDTOCOMPILE+TU_FAILEDTOFAIL+TU_FAILEDTORUN) as FAILS, '+
+              '  Date(TU_DATE) as OnlyDate, '+
+              '  TU_DATE as DATE, '+
+              '  TESTVERSION.TV_VERSION as VERSION, '+
+              '  TESTOS.TO_NAME as OS, '+
+              '  TESTCPU.TC_NAME as CPU, '+
+              '  TU_SUBMITTER as TESTER, '+
+              '  TU_MACHINE as MACHINE, '+
+              '  TU_COMMENT as COMMENT, '+
+              '  TU_ID, '+
+              '  (SELECT string_agg(TR_TEST_FK::text,'','') FROM TESTRESULTS '+
+              '          where TR_TESTRUN_FK=TU_ID AND NOT TR_OK AND NOT TR_SKIP)::text as FAILLIST '+
+              'FROM '+
+              '  TESTRUN '+
+              '  LEFT JOIN TESTCPU ON (TU_CPU_FK=TC_ID) '+
+              '  LEFT JOIN TESTOS ON (TU_OS_FK=TO_ID) '+
+              '  LEFT JOIN TESTVERSION ON (TU_VERSION_FK=TV_ID) '+
+              ' WHERE '+
+              '  (TU_DATE >= (:TestDate - INTERVAL ''2 DAYS'')) AND (TU_DATE < (:TESTDATE + interval ''1 day'')) '+
+              'ORDER BY '+
+              '  VERSION, OS, CPU, TESTER, MACHINE, COMMENT, OnlyDATE ';
 
-function getfail(line: string): string;
+
+type
+  ttestrun = record
+    Line : Integer;
+    TimeStamp,
+    Date : TDateTime;
+    Hour : Integer;
+    Fails : Integer;
+    DBFails : Integer;
+    runid : Integer;
+    failset : string;
+    OS,Version,Cpu,Tester,Machine,Comment : String;
+  end;
+
 var
-  i, j: integer;
-begin
-  i := 2;
-  while (i < length(line)) and (line[i] = ' ') do
-    inc(i);
-  j := i+1;
-  while (j < length(line)) and (line[j] in ['0'..'9']) do
-    inc(j);
-  result := copy(line, i, j-i);
-end;
+  twodaysago, yesterday, today: TDateTime;
+  curr, prev, old: ttestrun;
+  list, prevnochangelist, prevchangelist, prevdisappearlist: tstringlist;
+  prevnewlist, disappearlist, nochangelist, changelist, newlist: tstringlist;
+  blinkerchangelist, blinkernochangelist: tstringlist;
+
 
 type
   toutputline = class(tobject)
   public
-    data, url: string;
+    data : ttestrun;
+    url: string;
   end;
 
   tnote = class(tobject)
@@ -37,51 +64,83 @@ type
   end;
 
 var
-  header: array[0..2] of string;
-  footer: string;
-  lenfailstr: integer;
   urllist: tstrings;
 
-procedure printtable(list: tstringlist; heading: string);
+Function lpad(len : Integer;s : String) : String;
+
+begin
+  Result:=StringOfChar(' ',Len-Length(S))+s;
+end;
+Function rpad(len : Integer;s : String) : String;
+
+begin
+  Result:=S+StringOfChar(' ',Len-Length(S));
+end;
+
+procedure PrintTable(list: tstringlist; heading: string);
+
+Type
+  TColType = (ctURL,ctFails,ctVersion,ctOS,ctCPU,ctTester,ctMachine,ctComment);
+
+Const
+  ColWidths : Array[TColType] of Integer =
+              (5,7,9,11,13,12,22,30);
+  ColNames : Array[TColType] of String =
+              ('URL','Fails','Version','OS','CPU','Tester','Machine','Comment');
+
+
 var
+  TextWidths : Array[TColType] of Integer;
   outputline: toutputline;
-  failstr, datastr, urlref: string;
+  urlref: string;
   note: tnote;
-  i, notepos: integer;
+  i : integer;
+  ct : TColType;
+  Sep : string;
+
 begin
   if list.count = 0 then
     exit;
-  writeln(heading);
-  for i := 0 to 2 do
-    writeln(header[i]);
-  for i := 0 to list.count - 1 do
-  begin
-    failstr := list.strings[i];
-    outputline := toutputline(list.objects[i]);
-    urlref := inttostr(urllist.count+1);
-    datastr := outputline.data;
-    note := nil;
-    if datastr[length(datastr)] = '|' then
-      datastr[length(datastr)] := ' ';
-    datastr := trimright(datastr);
-    if length(datastr) > tablewidth-2 then
+  Writeln(Heading);
+  For ct:=low(TColType) to High(TColType) do
+    TextWidths[ct]:=ColWidths[ct]-2;
+  Sep:='';
+  For ct:=low(TColType) to High(TColType) do
+    Sep:=Sep+'+'+StringOfChar('-',ColWidths[ct]);
+  Sep:=Sep+'+';
+  Writeln(Sep);
+  For ct:=low(TColType) to High(TColType) do
+    Write('|'+rpad(ColWidths[ct],colnames[ct]));
+  Writeln('|');
+  Writeln(Sep);
+  for i:=0 to List.Count-1 do
     begin
-      notepos := rposex('|', datastr, tablewidth);
-      if notepos > 0 then
-        inc(notepos, 2)
+    Note := nil;
+    OutputLine := toutputline(list.objects[i]);
+    With Outputline.Data do
+      begin
+      urlref:=inttostr(urllist.count+1);
+      Write('| ',lpad(TextWidths[ctURL],urlref));
+      Write(' | ',rpad(TextWidths[ctFails],IntToStr(fails)));
+      Write(' | ',rpad(TextWidths[ctVersion],version));
+      Write(' | ',rpad(TextWidths[ctOS],OS));
+      Write(' | ',rpad(TextWidths[ctCPU],CPU));
+      Write(' | ',rpad(TextWidths[ctTester],tester));
+      Write(' | ',rpad(TextWidths[ctMachine],Machine));
+      if Length(Comment)>TextWidths[ctComment] then
+        begin
+        Write(' | ',rpad(TextWidths[ctComment],Copy(Comment,1,TextWidths[ctComment]-4)+'...#'));
+        Note:=TNote.Create;
+        Note.Str:=Comment;
+        end
       else
-        notepos := tablewidth-8;
-      note := tnote.create;
-      note.str := copy(datastr, notepos, length(datastr) + 1 - notepos);
-      datastr := copy(datastr, 1, tablewidth - 6) + '...# |';
-    end else
-      datastr := datastr + stringofchar(' ', tablewidth - 1 - length(datastr)) + '|';
-    write('| ', stringofchar(' ', 3 - length(urlref)), urlref, ' | ');
-    write(failstr, stringofchar(' ', lenfailstr + 1 - length(failstr)));
-    writeln(datastr);
+        Write(' | ',rpad(TextWidths[ctComment],Comment));
+      Writeln(' |')
+      end;
     urllist.addobject(outputline.url, note);
-  end;
-  writeln(footer);
+    OutputLine.Free;
+    end;
+  Writeln(Sep);
   writeln;
 end;
 
@@ -95,94 +154,193 @@ begin
     writeln('[' + inttostr(i+1) + ']: ' + urllist.strings[i]);
     note := tnote(urllist.objects[i]);
     if note <> nil then
-    begin
+      begin
       writeln('  comment: ' + note.str);
       note.free;
-    end;
+      end;
   end;
   writeln;
 end;
 
-procedure addlist(list: tstrings; const failstr, data, url: string);
+procedure addlist(list: tstrings; const data : TTestRun; Const url: string);
 var
   outputline: toutputline;
 begin
-  outputline := toutputline.create;
+  outputline:=toutputline.create;
   outputline.data := data;
   outputline.url := url;
-  list.addobject(failstr, outputline);
-  if length(failstr) > lenfailstr then
-    lenfailstr := length(failstr);
+  list.addobject(IntTostr(data.runid), outputline);
 end;
 
-type
-  ttestrun = record
-    line, date, fail, data, runid, dbfail, failset: string;
-    hour: integer;
-  end;
 
-function construct_results_url(const runid: string): string;
+function construct_results_url(const runid: Integer): string;
 begin
-  result := urlprefix+'action=1&failedonly=1&run1id='+runid;
+  result := urlprefix+'action=1&failedonly=1&run1id='+IntToStr(runid);
 end;
 
-function construct_compare_url(const run1id, run2id: string): string;
+function construct_compare_url(const run1id, run2id: Integer): string;
 begin
-  result := urlprefix+'action=1&run1id='+run1id+'&run2id='+run2id+'&noskipped=1';
+  result := urlprefix+'action=1&run1id='+IntToStr(run1id)+'&run2id='+IntToStr(run2id)+'&noskipped=1';
 end;
 
-function checkchange(var prev, curr: ttestrun; const prevdate, currdate: string;
+function checksame(var prev, curr: ttestrun) : Boolean;
+
+begin
+  Result:=(Prev.os=Curr.os)
+          and (Prev.version=Curr.version)
+          and (Prev.CPU=Curr.CPU)
+          and (Prev.machine=Curr.machine)
+          and (Prev.tester=Curr.tester)
+          and (Prev.comment=Curr.comment)
+end;
+
+function checkchange(var prev, curr: ttestrun; const prevdate, currdate: tdatetime;
   changelist, nochangelist: tstrings): boolean;
 var
   failstr: string;
 begin
-  result := (prev.date = prevdate) and (prev.data = curr.data) and (curr.date = currdate);
+  result := (prev.date=prevdate) and checksame(prev,curr) and (curr.date=currdate);
   if result then
-  begin
-    if (length(curr.line) <> 0) and (length(prev.line) <> 0) then
     begin
-      if prev.failset = curr.failset then
+    if (Curr.line>= 0) and (Prev.line>=0) then
       begin
-        failstr := curr.fail;
-        addlist(nochangelist, failstr, curr.data, construct_results_url(curr.runid));
-      end else begin
-        failstr := prev.fail + ' -> ' + curr.fail;
-        addlist(changelist, failstr, curr.data, construct_compare_url(prev.runid, curr.runid));
-      end;
+      failstr:=IntToStr(Curr.fails);
+      if (Prev.failset=Curr.failset) then
+        begin
+        addlist(nochangelist, curr, construct_results_url(curr.runid));
+        end
+      else
+        begin
+        failstr := IntToStr(prev.fails) + ' -> ' + Failstr;
+        addlist(changelist, curr, construct_compare_url(prev.runid, curr.runid));
+        end;
     end;
     { both these lines have been processed }
-    curr.line := '';
-    prev.line := '';
+    curr.line := -1;
+    prev.line := -1;
   end;
 end;
 
-function findseparator(aoffset, aindex: integer): integer;
-var
-  I: integer;
+Procedure ConfigDB(DB : TSQLConnection);
+
+Const
+  Cfg = 'testsuite.cfg';
+
+Var
+  FN : String;
+
 begin
-  for I := 1 to aindex do
-  begin
-    inc(aoffset);
-    while (aoffset<length(header[1])) and (header[1][aoffset] <> '|') do
-      inc(aoffset);
-  end;
-  result := aoffset;
+  if FileExists(ExtractFilePath(Paramstr(0))+Cfg) then
+    FN:=ExtractFilePath(Paramstr(0))+cfg
+  else if FileExists('/etc/'+Cfg) then
+    FN:='/etc/'+Cfg
+  else
+    begin
+    Writeln(Stderr,'Aborting: no config file found');
+    Halt(2);
+    end;
+  With TMemIniFile.Create(FN) do
+    try
+      DB.HostName:=ReadString('database','Hostname',DB.HostName);
+      DB.DatabaseName:=ReadString('database','DatabaseName',DB.DatabaseName);
+      DB.UserName:=ReadString('database','UserName',DB.UserName);
+      DB.Password:=ReadString('database','Password',DB.Password);
+      DB.CharSet:=ReadString('database','CharSet',DB.CharSet);
+    finally
+      free;
+    end;
 end;
-  
-const
-  { cut fails and date (first two fields, '| FAILS | DATE       ', 21 characters) }
-  datastart = 22;
 
-var
-  twodaysago, yesterday, today: string;
-  curr, prev, old: ttestrun;
-  list, prevnochangelist, prevchangelist, prevdisappearlist: tstringlist;
-  prevnewlist, disappearlist, nochangelist, changelist, newlist: tstringlist;
-  blinkerchangelist, blinkernochangelist: tstringlist;
-  todaydate: TDateTime;
-  dataend, datalen, houroffset: integer;
-  runidoffset, runidend, runidlen: integer;
-  dbfailsep, failoffset, failend: integer;
+Procedure ProcessData;
+
+Var
+  DB : TSQLConnection;
+  Q : TSQLQuery;
+  Line : Integer;
+
+begin
+  DB:=TPQConnection.Create(Nil);
+  try
+    ConfigDB(DB);
+    DB.Transaction:=TSQLTransaction.Create(DB);
+    DB.Connected:=True;
+    Q:=TSQLQuery.Create(DB);
+    Q.Database:=DB;
+    Q.Transaction:=DB.Transaction;
+    Q.SQL.Text:=SQLSelect;
+    Q.ParamByName('TestDate').AsDateTime:=ToDay;
+    Q.Open;
+    if Q.Eof then
+      begin
+      Writeln('No test data');
+      Halt(1);
+      end;
+    Writeln(DateTimeToStr(Now),': Processed query');
+    old.Line:=-1;
+    curr.Line:=-1;
+    prev.Line:=-1;
+    Line:=0;
+    While not Q.EOF do
+      begin
+      Inc(Line);
+      Curr.Line:=Line;
+      With Curr do
+        begin
+        fails:=Q.FieldByName('FAILS').AsInteger;
+        TimeStamp:=Q.FieldByName('DATE').AsDateTime;
+        Date:=DateOf(TimeStamp);
+        Hour:=HourOf(TimeStamp);
+        Version:=Q.FieldByName('Version').AsString;
+        OS:=Q.FieldByName('OS').AsString;
+        Tester:=Q.FieldByName('TESTER').AsString;
+        CPU:=Q.FieldByName('CPU').AsString;
+        Machine:=Q.FieldByName('MACHINE').AsString;
+        Comment:=Q.FieldByName('COMMENT').AsString;
+        Runid:=Q.FieldByName('TU_ID').AsInteger;
+        failset:=Q.FieldByName('FAILLIST').AsString;
+        DBFails:=WordCount(Curr.failset,[',']);
+        end;
+      { 'same' testrun yesterday and today, changelist or nochangelist modified }
+      if checkchange(prev, curr, yesterday, today, changelist, nochangelist) and checksame(old,prev) then
+        old.line := -1;
+      { 'same' testrun two days ago and today, a "blinker" }
+      if checkchange(prev, curr, twodaysago, today, blinkerchangelist, blinkernochangelist) and checksame(old,prev) then
+        old.line := -1;
+      { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
+      { only detect equal testruns yesterday if submitted late for diff mail yesterday }
+      if (Prev.Hour>=runhour) then
+        checkchange(old, prev, twodaysago, yesterday, prevchangelist, prevnochangelist);
+      { still some unprocessed line? }
+      if (old.line>=0) then
+        begin
+        list:=nil;
+        if old.date=twodaysago then
+          begin
+          if old.Hour >= runhour then
+            list := prevdisappearlist
+          { else we already had it disappear yesterday }
+          end
+        else if old.date = yesterday then
+          if old.Hour < runhour then
+            list := disappearlist
+          else
+            list := prevnewlist
+        else if old.date = today then
+          list := newlist;
+        if list <> nil then
+          addlist(list, old, construct_results_url(old.runid));
+        end;
+      old := prev;
+      prev := curr;
+      Q.Next;
+      end;
+  finally
+    DB.Free;
+  end;
+end;
+
+Procedure SetupLists;
+
 begin
   blinkernochangelist := tstringlist.create;
   blinkerchangelist := tstringlist.create;
@@ -195,113 +353,12 @@ begin
   changelist := tstringlist.create;
   newlist := tstringlist.create;
   urllist := tstringlist.create;
-  footer := '';
-  old.data := '';
-  readln;
-  repeat
-    if eof then
-      halt(1);
-    readln(header[0]);
-  until (length(header[0]) > 0) and (header[0][1] = '+');
-  readln(header[1]);
-  readln(header[2]);
-  if ParamCount >= 3 then
-    todaydate := EncodeDate(StrToInt(ParamStr(1)), StrToInt(ParamStr(2)), 
-      StrToInt(ParamStr(3)))
-  else
-    todaydate := Now;
-  twodaysago := FormatDateTime('YYYY-mm-dd', todaydate-2);
-  yesterday := FormatDateTime('YYYY-mm-dd', todaydate-1);
-  today := FormatDateTime('YYYY-mm-dd', todaydate);
-  lenfailstr := 5;  { Length('FAILS') = column header }
-  dataend := findseparator(datastart, 6);
-  datalen := dataend - datastart + 1;
-  { cut time (last 2 fields, ' HH:MM:SS |  XXXX |') }
-  houroffset := dataend + 2;
-  runidoffset := houroffset + 11;
-  runidend := findseparator(runidoffset, 1);
-  runidlen := runidend - 1 - runidoffset;
-  failoffset := runidend + 2;
-  failend := findseparator(failoffset, 1);
-  fillchar(curr,sizeof(curr),0);
-  repeat
-    if eof then
-      break;
-    if (length(curr.line) = 0) or (curr.line[1] <> '+') then
-    begin
-      readln(curr.line);
-      curr.fail := getfail(curr.line);
-      curr.date := getdate(curr.line);
-      curr.data := copy(curr.line, datastart, datalen);
-      curr.hour := strtointdef(copy(curr.line, houroffset, 2), 0);
-      curr.runid := trim(copy(curr.line, runidoffset, runidlen));
-      dbfailsep := posex('|', curr.line, failoffset);
-      curr.dbfail := copy(curr.line, failoffset, dbfailsep-failoffset);
-      curr.failset := trim(copy(curr.line, dbfailsep+1, failend-2-dbfailsep));
-      if curr.dbfail <> curr.fail then
-        curr.fail := curr.fail + ' (' + curr.dbfail + ')';
-    end else 
-    if length(footer) = 0 then
-      footer := curr.line;
-    { 'same' testrun yesterday and today, changelist or nochangelist modified }
-    if checkchange(prev, curr, yesterday, today, changelist, nochangelist) 
-        and (old.data = prev.data) then
-      old.line := '';
-    { 'same' testrun two days ago and today, a "blinker" }
-    if checkchange(prev, curr, twodaysago, today, blinkerchangelist, blinkernochangelist)
-        and (old.data = prev.data) then
-      old.line := '';
-    { 'same' testrun two days ago and yesterday, prevchangelist or prevnochangelist modified }
-    { only detect equal testruns yesterday if submitted late for diff mail yesterday }
-    if prev.hour >= runhour then
-      checkchange(old, prev, twodaysago, yesterday, prevchangelist, prevnochangelist);
-    { still some unprocessed line? }
-    if length(old.line) > 0 then
-    begin
-      list := nil;
-      if old.date = twodaysago then
-      begin
-        if old.hour >= runhour then
-          list := prevdisappearlist
-        { else we already had it disappear yesterday }
-      end else if old.date = yesterday then
-        if old.hour < runhour then
-          list := disappearlist
-        else
-          list := prevnewlist
-      else if old.date = today then
-        list := newlist;
-      if list <> nil then
-        addlist(list, old.fail, old.data, construct_results_url(old.runid));
-    end;
-    old := prev;
-    prev := curr;
-  until (length(old.line) > 0) and (old.line[1] = '+');
+end;
 
-  if datalen > tablewidth-1 then
-    datalen := tablewidth-1;
-  header[0] := '+-----' + copy(header[0], 1, 1) + stringofchar('-', lenfailstr+2) +
-    copy(header[0], datastart, datalen) + '+';
-  header[1] := '| URL ' + copy(header[1], 1, 7) + stringofchar(' ', lenfailstr-4) +
-    copy(header[1], datastart, datalen) + '|';
-  header[2] := '+-----' + copy(header[2], 1, 1) + stringofchar('-', lenfailstr+2) +
-    copy(header[2], datastart, datalen) + '+';
-  footer    := '+-----' + copy(footer,    1, 1) + stringofchar('-', lenfailstr+2) +
-    copy(footer,    datastart, datalen) + '+';
+Procedure FreeLists;
 
-  printtable(disappearlist, 'DISAPPEARED:');
-  printtable(prevdisappearlist, 'DISAPPEARED YESTERDAY:');
-  printtable(changelist, 'CHANGED:');
-  printtable(prevchangelist, 'CHANGED YESTERDAY:');
-  printtable(blinkerchangelist, 'CHANGED BLINKER:');
-  printtable(newlist, 'NEW:');
-  printtable(prevnewlist, 'NEW YESTERDAY:');
-  printtable(nochangelist, 'UNCHANGED:');
-  printtable(prevnochangelist, 'UNCHANGED YESTERDAY:');
-  printtable(blinkernochangelist, 'UNCHANGED BLINKER:');
-
-  printurllist;
-
+begin
+  urllist.free;
   newlist.free;
   changelist.free;
   prevnewlist.free;
@@ -312,4 +369,33 @@ begin
   prevdisappearlist.free;
   blinkerchangelist.free;
   blinkernochangelist.free;
+end;
+
+begin
+  if (ParamCount >= 3) then
+    today := EncodeDate(StrToInt(ParamStr(1)), StrToInt(ParamStr(2)), StrToInt(ParamStr(3)))
+  else
+    today := Date;
+  twodaysago := today-2;
+  yesterday := today-1;
+  Writeln('Comparing ',FormatDateTime('yyyy-mm-dd',Today),
+          ' with ',FormatDateTime('yyyy-mm-dd',Yesterday),
+          ' and ',FormatDateTime('yyyy-mm-dd',TwodaysAgo));
+  SetupLists;
+  try
+    ProcessData;
+    PrintTable(disappearlist, 'DISAPPEARED:');
+    PrintTable(prevdisappearlist, 'DISAPPEARED YESTERDAY:');
+    PrintTable(changelist, 'CHANGED:');
+    PrintTable(prevchangelist, 'CHANGED YESTERDAY:');
+    PrintTable(blinkerchangelist, 'CHANGED BLINKER:');
+    PrintTable(newlist, 'NEW:');
+    PrintTable(prevnewlist, 'NEW YESTERDAY:');
+    PrintTable(nochangelist, 'UNCHANGED:');
+    PrintTable(prevnochangelist, 'UNCHANGED YESTERDAY:');
+    PrintTable(blinkernochangelist, 'UNCHANGED BLINKER:');
+    printurllist;
+  Finally
+    FreeLists;
+  end;
 end.
