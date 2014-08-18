@@ -171,24 +171,24 @@ fpWeb.EntryForm=Ext.extend(Ext.Window,{
       labelWidth: 200,
       labelAlign: 'right',
       items : [
-        { name : 'C_NAME', fieldLabel: 'Name' },
-        { name : 'C_VERSION', fieldLabel: 'Version', width : 50 },
-        { id: 'cgcategory', name : 'C_CATEGORIES', fieldLabel: 'Category', xtype: 'radiogroup',
+        { name : 'c_name', fieldLabel: 'Name' },
+        { name : 'c_version', fieldLabel: 'Version', width : 50 },
+        { id: 'cgcategory', name : 'c_categories', fieldLabel: 'Category', xtype: 'radiogroup',
           columns: 2,
-          items : [ {id : 'cbGraphics', name : 'C_CATEGORY', boxLabel: 'Graphics', inputValue: 'Graphics'},
-                    {id : 'cbInternet', name : 'C_CATEGORY', boxLabel: 'Internet', inputValue: 'Internet'},
-                    {id : 'cbDatabase', name : 'C_CATEGORY', boxLabel: 'Database', inputValue: 'Database'},
-                    {id : 'cbFile handling', name : 'C_CATEGORY', boxLabel: 'File handling', inputValue: 'File handling'},
-                    {id : 'cbMiscellaneous', name : 'C_CATEGORY', boxLabel: 'Miscellaneous', inputValue: 'Miscellaneous'}]},
-        { name : 'C_AUTHOR', fieldLabel: 'Author' },
-        { name : 'C_EMAIL', fieldLabel: 'Email' },
-        { name : 'C_DESCR', fieldLabel: 'Description', xtype: 'textarea', heigt: 150},
-        { name : 'C_FTPFILE', fieldLabel: 'FTP download'},
-        { name : 'C_HOMEPAGE', fieldLabel: 'Home page'},
-        { name : 'C_ID',  xtype: 'hidden'},
-        { name : 'C_OS',fieldLabel: 'Operating system(s)'},
-        { name : 'C_USER', fieldLabel: 'Username'},
-        { name : 'C_PASSWORD', fieldLabel: 'Password', inputType: 'password'}
+          items : [ {id : 'cbGraphics', name : 'c_category', boxLabel: 'Graphics', inputValue: 'Graphics'},
+                    {id : 'cbInternet', name : 'c_category', boxLabel: 'Internet', inputValue: 'Internet'},
+                    {id : 'cbDatabase', name : 'c_category', boxLabel: 'Database', inputValue: 'Database'},
+                    {id : 'cbFile handling', name : 'c_category', boxLabel: 'File handling', inputValue: 'File handling'},
+                    {id : 'cbMiscellaneous', name : 'c_category', boxLabel: 'Miscellaneous', inputValue: 'Miscellaneous'}]},
+        { name : 'c_author', fieldLabel: 'Author' },
+        { name : 'c_email', fieldLabel: 'Email' },
+        { name : 'c_descr', fieldLabel: 'Description', xtype: 'textarea', heigt: 150},
+        { name : 'c_ftpfile', fieldLabel: 'FTP download'},
+        { name : 'c_homepage', fieldLabel: 'Home page'},
+        { name : 'c_id',  xtype: 'hidden'},
+        { name : 'c_os',fieldLabel: 'Operating system(s)'},
+        { name : 'c_user', fieldLabel: 'Username'},
+        { name : 'c_password', fieldLabel: 'Password', inputType: 'password'}
       ],
       buttons: [ this.bok, this.bcancel ]
     });
@@ -235,18 +235,18 @@ fpWeb.ShowContributedUnits = function() {
       idProperty: "C_ID",
       messageProperty: 'message', // Must be specified here
       fields: [
-       { name : 'C_AUTH_METHOD'},
-       { name : 'C_AUTHOR'},
-       { name : 'C_CATEGORY'},
-       { name : 'C_DATE'},
-       { name : 'C_DESCR'},
-       { name : 'C_EMAIL'},
-       { name : 'C_FTPFILE'},
-       { name : 'C_HOMEPAGE'},
-       { name : 'C_ID'},
-       { name : 'C_NAME'},
-       { name : 'C_OS'},
-       { name : 'C_VERSION' }
+       { name : 'c_auth_method'},
+       { name : 'c_author'},
+       { name : 'c_category'},
+       { name : 'c_date'},
+       { name : 'c_descr'},
+       { name : 'c_email'},
+       { name : 'c_ftpfile'},
+       { name : 'c_homepage'},
+       { name : 'c_id'},
+       { name : 'c_name'},
+       { name : 'c_os'},
+       { name : 'c_version' }
      ]
   });
   var data = new Ext.data.Store({
@@ -270,20 +270,20 @@ fpWeb.ShowContributedUnits = function() {
     autoReload: false,
     local: true,
     filters: [
-    { dataIndex: 'C_ID', type: 'numeric' },
-    { dataIndex: 'C_NAME', type: 'string' },
-    { dataIndex: 'C_AUTHOR', type: 'string' },
-    { dataIndex: 'C_VERSION', type: 'string' },
-    { dataIndex: 'C_OS', type: 'string' },
-    { dataIndex: 'C_DESCRIPTION', type: 'string' },
-    { dataIndex: 'C_CATEGORY', type: 'list', options: ['Graphics', 'Miscellaneous', 'Internet', 'Database', 'File Handling']}
+    { dataIndex: 'c_id', type: 'numeric' },
+    { dataIndex: 'c_name', type: 'string' },
+    { dataIndex: 'c_author', type: 'string' },
+    { dataIndex: 'c_version', type: 'string' },
+    { dataIndex: 'c_os', type: 'string' },
+    { dataIndex: 'c_description', type: 'string' },
+    { dataIndex: 'c_category', type: 'list', options: ['Graphics', 'Miscellaneous', 'Internet', 'Database', 'File Handling']}
     ]
   });
   var expander = new Ext.ux.grid.RowExpander({
               tpl:
-                '<div class="description"><B>Description:</B></div> {C_DESCR}<P>'+
-                '<div class="description"><B>Website:</B></div> <A HREF="{C_HOMEPAGE}">{C_HOMEPAGE}</A><BR>'+
-                '<div class="description"><B>FTP download:</B></div> <A HREF="{C_FTPFILE}">{C_FTPFILE}</A>'
+                '<div class="description"><B>Description:</B></div> {c_descr}<P>'+
+                '<div class="description"><B>Website:</B></div> <A HREF="{c_homepage}">{c_homepage}</A><BR>'+
+                '<div class="description"><B>FTP download:</B></div> <A HREF="{c_ftpfile}">{c_ftpfile}</A>'
   });
   var togglePreview = function(show){
     var v = grid.getView();
@@ -326,22 +326,22 @@ fpWeb.ShowContributedUnits = function() {
     listeners: {
       render: function(g) {
         g.on("beforetooltipshow", function(grid, row, col) {
-          grid.tooltip.body.update(grid.getStore().getAt(row).get('C_NAME'));
+          grid.tooltip.body.update(grid.getStore().getAt(row).get('c_name'));
         });
       }
     },
     columns: [
        expander,
-       { dataIndex : 'C_NAME', header : 'Name', sortable: true, width : 80 },
-       { dataIndex : 'C_AUTHOR', header: 'Author', sortable: true, width : 180},
-       { dataIndex : 'C_VERSION', header : 'Version',sortable: true},
-       { dataIndex : 'C_CATEGORY', header: 'Category',sortable: true},
-       { dataIndex : 'C_OS', header: 'OS', width: 80,sortable: true },
-       { dataIndex : 'C_DATE', header: 'Date', sortable: true, hidden : true},
-       { dataIndex : 'C_FTPFILE', header: 'FTP File', sortable: true, hidden: true},
-       { dataIndex : 'C_HOMEPAGE', header: 'Home page', sortable: true, hidden: true},
-       { dataIndex : 'C_ID', header: 'ID', sortable: true, hidden: true},
-       { dataIndex : 'C_USER', header: 'User', sortable: true, hidden: true}
+       { dataIndex : 'c_name', header : 'Name', sortable: true, width : 80 },
+       { dataIndex : 'c_author', header: 'Author', sortable: true, width : 180},
+       { dataIndex : 'c_version', header : 'Version',sortable: true},
+       { dataIndex : 'c_category', header: 'Category',sortable: true},
+       { dataIndex : 'c_os', header: 'OS', width: 80,sortable: true },
+       { dataIndex : 'c_date', header: 'Date', sortable: true, hidden : true},
+       { dataIndex : 'c_ftpfile', header: 'FTP File', sortable: true, hidden: true},
+       { dataIndex : 'c_homepage', header: 'Home page', sortable: true, hidden: true},
+       { dataIndex : 'c_id', header: 'ID', sortable: true, hidden: true},
+       { dataIndex : 'c_user', header: 'User', sortable: true, hidden: true}
     ],
     viewConfig: {
         forceFit: true,
