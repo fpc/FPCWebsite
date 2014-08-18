@@ -47,8 +47,7 @@
     <a href="@maindir@probs@x@"><trn locale="en_US" key="website.Known_Problems">Known Problems</trn></a>
 
     <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
-    <a href="@maindir@contrib/db.php3"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
-    <a href="@maindir@contrib/add.php3"><trn locale="en_US" key="website.Contribute">Contribute</trn></a>
+    <a href="@maindir@contrib/contribs.html"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
     <a href="@maindir@moreinfo@x@"><trn locale="en_US" key="website.More_information">More information</trn></a>
     <a href="@maindir@maillist@x@"><trn locale="en_US" key="website.Mailinglists">Mailing Lists</trn></a>
     <a href="@maindir@port@x@"><trn locale="en_US" key="website.Porting_from_TP7">Porting from TP7</trn></a>
