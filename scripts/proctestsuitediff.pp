@@ -56,6 +56,7 @@ type
   toutputline = class(tobject)
   public
     data : ttestrun;
+    changes,
     url: string;
   end;
 
@@ -84,7 +85,7 @@ Type
 
 Const
   ColWidths : Array[TColType] of Integer =
-              (5,7,9,11,13,12,22,30);
+              (5,12,9,11,13,12,22,30);
   ColNames : Array[TColType] of String =
               ('URL','Fails','Version','OS','CPU','Tester','Machine','Comment');
 
@@ -121,7 +122,10 @@ begin
       begin
       urlref:=inttostr(urllist.count+1);
       Write('| ',lpad(TextWidths[ctURL],urlref));
-      Write(' | ',rpad(TextWidths[ctFails],IntToStr(fails)));
+      if OutputLine.Changes='' then
+        Write(' | ',rpad(TextWidths[ctFails],IntToStr(fails)))
+      else
+        Write(' | ',rpad(TextWidths[ctFails],OutputLine.Changes));
       Write(' | ',rpad(TextWidths[ctVersion],version));
       Write(' | ',rpad(TextWidths[ctOS],OS));
       Write(' | ',rpad(TextWidths[ctCPU],CPU));
@@ -162,7 +166,7 @@ begin
   writeln;
 end;
 
-procedure addlist(list: tstrings; const data : TTestRun; Const url: string);
+Function addlist(list: tstrings; const data : TTestRun; Const url: string) : toutputline;
 var
   outputline: toutputline;
 begin
@@ -171,6 +175,14 @@ begin
   outputline.url := url;
   list.addobject(IntTostr(data.runid), outputline);
 end;
+
+Function addlist(list: tstrings; const changestr : string; const data : TTestRun; Const url: string) : TOutputLine;
+
+begin
+  Result:=AddList(List,data,url);
+  Result.changes:=changestr;
+end;
+
 
 
 function construct_results_url(const runid: Integer): string;
@@ -212,7 +224,7 @@ begin
       else
         begin
         failstr := IntToStr(prev.fails) + ' -> ' + Failstr;
-        addlist(changelist, curr, construct_compare_url(prev.runid, curr.runid));
+        addlist(changelist, failstr, curr, construct_compare_url(prev.runid, curr.runid));
         end;
     end;
     { both these lines have been processed }
