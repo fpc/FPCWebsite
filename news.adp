@@ -9,6 +9,41 @@
 
 <h3>Latest changes:</h3>
 
+<p><em>March 11th, 2014</em>
+<trn locale="en_US" key="website.news_headline_20140311">
+
+<p>FPC 2.6.4 has been released! Free Pascal 2.6.4 is a point release from the 2.6.0 fixes branch.</p>
+<p>
+Some highlights are:
+<ul>
+<li>Packages:</li>
+<ul>
+  <li> Lots and lots fixes and improvements for fcl-db </li>
+  <li> web and json packages synchronized. </li>
+  <li> improvements to the chmcmd compiler.</li>
+  <li> Several fixes for winunits (and winceunits)</li>
+</ul>
+<li>Documentation:</li>
+<ul>
+  <li>Many additions</li>
+  <li>fpjson documented</li>
+</ul>
+</ul>
+<p>
+See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
+bugs which have been fixed in this release.
+</p>
+    <p>
+    Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
+    </p>
+    <p>Some archives are still being uploaded</p>
+    <p>
+    A list of changes that may require
+    changes to existing code is also <A HREF="http://wiki.freepascal.org/User_Changes_2.6.4">available</A>.
+    <p>
+</trn>
+</p>
+
 <p><em>February 23rd, 2013</em>
   <trn locale="en_US" key="website.news_headline_20130223">
     <p>FPC 2.6.2 has been released! 2.6.2 is a fixes update from the 2.6.x branch</p>
