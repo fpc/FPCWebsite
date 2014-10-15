@@ -14,10 +14,7 @@
 <em>October 15, 2014</em>
  </li>
  <ul>
-  <li>Certain e-mail providers blocking mailing lists
-  </li>
-  <ul>
-   <li>
+  <li>
 Some FPC users may have observed issues with delivery of e-mails from FPC (and
 other) mailing lists. Certain large e-mail providers decided to implement
 a policy which effectively disallows use of e-mail accounts hosted by them in
@@ -25,8 +22,8 @@ mailing lists (see
 <a href="http://postmaster.yahoo.com/errors/postmaster-28.html">here</a>).
 Unfortunately, none of the supposed solutions proposed by them for mailing
 lists are really usable at this point in time at least.
-   </li>
-   <li>
+  </li>
+  <li>
 Note that affected are not only Yahoo (and AOL) e-mail accounts but also e-mail
 accounts hosted by companies which implemented the so-called DMARC policy
 support, because they have to respect the Yahoo's DMARC policy (blocking
@@ -36,8 +33,7 @@ also disabled and/or unsubscribed by the mailing list software as a side-effect
 due to the fact that their mail servers start rejecting e-mails sent from Yahoo
 addresses to the mailing lists. Among others, such providers includes e.g.
 Microsoft (hosting e.g. outlook.com or hotmail.com addresses).
-   </li>
-  </ul>
+  </li>
  </ul>
 
 <trn locale="en_US" key="website.news_headline_20140311">
@@ -334,7 +330,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
 <trn locale="en_US" key="website.news_headline_20100101">
  <li>
 <em>January 1, 2010</em>
- <li>
+ </li>
  <ul>
   <li>
     Happy New Year! A new major version 2.4.0 has been released. The 2.4.x series adds, among others:
@@ -605,7 +601,7 @@ We will try to be there on all 5 days. You can find more information about the S
  </ul>
 
  <li>
-<em>September 25, 2006<em>
+<em>September 25, 2006</em>
  </li>
  <ul>
   <li>Francesco Lombardi is writing <a href='http://itaprogaming.free.fr/tutorial.html'> an

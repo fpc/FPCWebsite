@@ -21,7 +21,6 @@
 <p><trn locale="en_US" key="website.news_headline_20141015">
 <em>October 15th, 2014</em></p>
 
-<p>Certain e-mail providers blocking mailing lists</p>
 <p>
 Some FPC users may have observed issues with delivery of e-mails from FPC (and
 other) mailing lists. Certain large e-mail providers decided to implement
