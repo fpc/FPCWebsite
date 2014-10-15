@@ -18,8 +18,33 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
-<p><em>March 11th, 2014</em>
-<trn locale="en_US" key="website.news_headline_20140311">
+<p><trn locale="en_US" key="website.news_headline_20141015">
+<em>October 15th, 2014</em></p>
+
+<p>Certain e-mail providers blocking mailing lists</p>
+<p>
+Some FPC users may have observed issues with delivery of e-mails from FPC (and
+other) mailing lists. Certain large e-mail providers decided to implement
+a policy which effectively disallows use of e-mail accounts hosted by them in
+mailing lists (see
+<a href="http://postmaster.yahoo.com/errors/postmaster-28.html">here</a>).
+Unfortunately, none of the supposed solutions proposed by them for mailing
+lists are really usable at this point in time at least.
+</p>
+<p>
+Note that affected are not only Yahoo (and AOL) e-mail accounts but also e-mail
+accounts hosted by companies which implemented the so-called DMARC policy
+support, because they have to respect the Yahoo's DMARC policy (blocking
+mailing lists) and thus they reject e-mails sent from Yahoo addresses to the
+mailing lists. Addresses from such DMARC-compliant providers may be in turn
+also disabled and/or unsubscribed by the mailing list software as a side-effect
+due to the fact that their mail servers start rejecting e-mails sent from Yahoo
+addresses to the mailing lists. Among others, such providers includes e.g.
+Microsoft (hosting e.g. outlook.com or hotmail.com addresses).
+</p>
+
+<p><trn locale="en_US" key="website.news_headline_20140311">
+<em>March 11th, 2014</em>
 
 <p>FPC 2.6.4 has been released! Free Pascal 2.6.4 is a point release from the 2.6.0 fixes branch.</p>
 <p>
