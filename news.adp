@@ -1183,7 +1183,7 @@ yum install fpc-src
  </ul>
 
  <li>
-<em>19 September 2001<em>
+<em>19 September 2001</em>
  </li>
  <ul>
   <li>Web sites updated (removed invalid links and some general cleanup).</li>
@@ -1314,7 +1314,7 @@ cycle itself on linux-m68k).</li>
  </ul>
 
  <li>
-22 February 2000
+<em>22 February 2000</em>
  </li>
  <ul>
   <li><b>C&amp;L</b> ships the first edition of the German
