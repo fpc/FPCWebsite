@@ -152,7 +152,7 @@
         <li><a name='WhatIsFP'></a>
           <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
           <trn key="website.a_What_is_FPC" locale="en_US">
-            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 32
+            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16,32
             and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
             Linux, Windows, OS/2, FreeBSD, Mac OS X, DOS and
             several other platforms (the number of supported targets grows
@@ -160,7 +160,7 @@
             the main ones).
 	
             <p>The Free Pascal compiler is available for several
-            architectures: x86 (32 and 64 bit), ARM, PowerPC (32 and 64 bit),
+            architectures: x86 (16,32 and 64 bit), ARM, PowerPC (32 and 64 bit),
             SPARC (v8, v9), Java Virtual Machine (under development) and MIPS (little and big endian, under development).
             An older version (the 1.0 series) and current development versions also supported m68k.
   	  	
@@ -275,7 +275,7 @@
             a year, and there are regular snapshot for OS X and Windows, made by users.
             <DT><b>Operating systems:</b>
             <DD>Free Pascal runs on a large number of platforms,
-            inlcuding DOS, Win32 (no UNIX porting layer needed), Linux, FreeBSD,
+            inlcuding DOS (16/32-bit), Win32 (no UNIX porting layer needed), Linux, FreeBSD,
             NetBSD, OS/2, BeOS, Mac OS X, on the following architectures:
             x86 (32 and 64 bit),
             SPARC, PowerPC (32 and 64 bit), ARM, Java Virtual Machine (under development), and
@@ -727,12 +727,13 @@
               <li>Try limiting the size of parameters passed to subroutines to 32K,
               as this is the limit of some processors. Use const or var parameters
               where appropriate. 
-              <li><TT>CPU32</TT> or <TT>CPU64</TT> is defined indicating whether the target is a 32-bit or 
-              64-bit cpu. This can help with incorporating 32-bit and 64-bit specific code. 
+              <li><TT>CPU16</TT>,<TT>CPU32</TT> or <TT>CPU64</TT> is defined indicating 
+              whether the target is a 16,32-bit or 64-bit cpu. This can help with 
+              incorporating 16,32-bit and 64-bit specific code. 
               
               <li>Use the <TT>ptruint</TT> type when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
-              the processor and operating system. 
+              the processor and operating system. For 16-bit it is memory model dependent.
             </ul>
           </trn>
         
@@ -884,7 +885,7 @@
             <p>If the compiler cannot find this unit, there are three possible causes:
             <OL>
                 <li>The fpc.cfg file is not in the same directory as the compiler
-                executable (go32v2, win32 and OS/2) or cannot be found as
+                executable (msdos,go32v2, win32 and OS/2) or cannot be found as
                 "/etc/fpc.cfg" or ".fpc.cfg" in your homedirectory (UNIX platforms).
                 <li>The fpc.cfg file does not contain the -Fu parameter, or a wrong one.
                 See the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">build faq (PDF)</a>, especially the chapters
