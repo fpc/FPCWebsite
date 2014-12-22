@@ -12,12 +12,13 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.6.2</b>.
+  The latest release version is</trn> <b>2.6.4</b>.
 
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.2/x86_64-solaris/fpc-2.6.2.x86_64-solaris.tar">fpc-2.6.2.x86_64-solaris.tar</a> (17 MB)
+<li> <a href="@mirror_url@dist/2.6.4/x86_64-solaris/fpc-2.6.4.x86_64-solaris.tar.gz">fpc-2.6.4.x86_64-solaris.tar.gz</a> (25 MB)</li>
+<li> <a href="@mirror_url@dist/2.6.4/x86_64-solaris/readme.txt">readme.txt for this release</a>  </li>
 </ul>
 <trn key="website.x86_64-solaris_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>

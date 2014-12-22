@@ -74,6 +74,7 @@
     <ul>
       <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
       <li><a href="down/x86_64/linux@x@">Linux</a>
+      <li><a href="down/x86_64/solaris@x@">Solaris</a>
       <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
     </ul>
 </ul>
