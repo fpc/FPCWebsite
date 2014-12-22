@@ -11,8 +11,7 @@
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.6.4</b>.
+<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>2.6.4</b>.
 
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
