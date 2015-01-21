@@ -8,19 +8,25 @@ fpcbuild
 html
 fpc/trunk:6711
 fpc/branches/fixes_2_2:6711
+fpc/branches/fixes_2_4:18074
+fpc/branches/fixes_2_6:29398
 fpcdocs/trunk
 fpcbuild/trunk:392
 fpcbuild/branches/fixes_2_2:392
+fpcbuild/branches/fixes_2_4:675
+fpcbuild/branches/fixes_2_6:881
+fpcbuild/branches/fixes_3_0:1134
 fpcprojects
 lazarus
 lazarus/branches/fixes_0_9_24:12768
-" 
+lazarus/branches/fixes_0_9_30:28810
+"
 
-SNAPSHOTDIR=/FPC/snapshot
+SNAPSHOTDIR=/home/FPC/snapshot
 LOGSDIR=$SNAPSHOTDIR/logs
 SVN2CL=$SNAPSHOTDIR/bin/svn2cl
 
-SVNROOT=/FPC/svn
+SVNROOT=/home/FPC/svn
 SVNURL=file://$SVNROOT
 LOGFILE=$HOME/logs/updatelogs.log
 
