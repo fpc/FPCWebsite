@@ -49,11 +49,11 @@ processfile() {
      $TESTSUITEBINDIR/dbdigest
      err=$?
     else
-     echo "ERROR: No dbdigest.cfg found!"
+     echo "ERROR: No $DBCFG found!"
      err=1
     fi
   else
-    echo "ERROR: No $DBCFG found!"
+    echo "ERROR: No dbdigest.cfg found!"
     err=1
   fi
 
