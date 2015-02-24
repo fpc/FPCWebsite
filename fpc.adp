@@ -22,24 +22,22 @@
 <em>October 15th, 2014</em></p>
 
 <p>
-Some FPC users may have observed issues with delivery of e-mails from FPC (and
-other) mailing lists. Certain large e-mail providers decided to implement
-a policy which effectively disallows use of e-mail accounts hosted by them in
-mailing lists (see
-<a href="http://postmaster.yahoo.com/errors/postmaster-28.html">here</a>).
-Unfortunately, none of the supposed solutions proposed by them for mailing
-lists are really usable at this point in time at least.
+Some FPC users have observed issues with delivery of e-mails from FPC (and
+other) mailing lists. Yahoo has decided to implement
+<a href="http://postmaster.yahoo.com/errors/postmaster-28.html">a DMARC policy</a>, which effectively disallows the use of e-mail accounts hosted by them
+to subscribe to mailing lists. Unfortunately, none of the proposed solutions for mailing
+lists are usable at this point in time.
 </p>
 <p>
-Note that affected are not only Yahoo (and AOL) e-mail accounts but also e-mail
-accounts hosted by companies which implemented the so-called DMARC policy
+Note that not only Yahoo (and AOL) e-mail accounts are affected, but also e-mail
+accounts hosted by other companies that have implemented DMARC policy
 support, because they have to respect the Yahoo's DMARC policy (blocking
 mailing lists) and thus they reject e-mails sent from Yahoo addresses to the
 mailing lists. Addresses from such DMARC-compliant providers may be in turn
-also disabled and/or unsubscribed by the mailing list software as a side-effect
-due to the fact that their mail servers start rejecting e-mails sent from Yahoo
+also be disabled and/or unsubscribed by the mailing list software
+when their mail servers start rejecting e-mails sent from Yahoo
 addresses to the mailing lists. Among others, such providers includes e.g.
-Microsoft (hosting e.g. outlook.com or hotmail.com addresses).
+Microsoft (hosting e.g. outlook.com and hotmail.com addresses).
 </p>
 
 <p><trn locale="en_US" key="website.news_headline_20140311">
