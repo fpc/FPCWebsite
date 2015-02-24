@@ -9,6 +9,16 @@
 
 <h3>Latest changes:</h3>
 <ul>
+ <trn locale="en_US" key="website.news_headline_20150224">
+ <li>
+<em>February 24, 2015</em>
+ </li>
+ <ul>
+  <li>
+Support for the iOS/AArch64 platform has been added</a> to svn trunk. More
+information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
+  </li>
+ </ul>
  <trn locale="en_US" key="website.news_headline_20141015">
  <li>
 <em>October 15, 2014</em>
