@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, HTTPDefs, websession, fpHTTP, fpWeb, fpwebdata,
-  extjsjson, sqldbwebdata, IBConnection, sqldb, pqconnection;
+  extjsjson, sqldbwebdata, sqldb, pqconnection;
 
 type
 
