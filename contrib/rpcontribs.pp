@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils,  HTTPDefs, iniwebsession, fpHTTP, fpWeb, fpjsonrpc,
-  db,  webjsonrpc, fpextdirect, fpjson, IBConnection, sqldb;
+  db,  webjsonrpc, fpextdirect, fpjson, IBConnection, sqldb, pqconnection;
 
 type
 
@@ -16,7 +16,7 @@ type
     CheckAuthorized: TJSONRPCHandler;
     AddContrib: TJSONRPCHandler;
     DeleteContrib: TJSONRPCHandler;
-    DBContribs: TIBConnection;
+    DBContribs: TPQConnection;
     QInsertContrib: TSQLQuery;
     QGetContribID: TSQLQuery;
     QUPdateContrib: TSQLQuery;
@@ -91,16 +91,16 @@ procedure TContribsRPC.FillDataParams(Q : TSQLQuery; Data : TJSONObject);
 begin
   With Q do
     begin
-    ParamByName('C_AUTHOR').AsString:=Data.Strings['C_AUTHOR'];
-    ParamByName('C_CATEGORY').AsString:=Data.Strings['C_CATEGORY'];
+    ParamByName('C_AUTHOR').AsString:=Data.Strings['c_author'];
+    ParamByName('C_CATEGORY').AsString:=Data.Strings['c_category'];
     ParamByName('C_DATE').AsDateTime:=Date;
-    ParamByName('C_DESCR').AsString:=Data.Strings['C_DESCR'];
-    ParamByName('C_EMAIL').AsString:=Data.Strings['C_EMAIL'];
-    ParamByName('C_FTPFILE').AsString:=Data.Strings['C_FTPFILE'];
-    ParamByName('C_HOMEPAGE').AsString:=Data.Strings['C_HOMEPAGE'];
-    ParamByName('C_NAME').AsString:=Data.Strings['C_NAME'];
-    ParamByName('C_OS').AsString:=Data.Strings['C_OS'];
-    ParamByName('C_VERSION').AsString:=Data.Strings['C_VERSION'];
+    ParamByName('C_DESCR').AsString:=Data.Strings['c_descr'];
+    ParamByName('C_EMAIL').AsString:=Data.Strings['c_email'];
+    ParamByName('C_FTPFILE').AsString:=Data.Strings['c_ftpfile'];
+    ParamByName('C_HOMEPAGE').AsString:=Data.Strings['c_homepage'];
+    ParamByName('C_NAME').AsString:=Data.Strings['c_name'];
+    ParamByName('C_OS').AsString:=Data.Strings['c_os'];
+    ParamByName('C_VERSION').AsString:=Data.Strings['c_version'];
     end;
 end;
 
@@ -111,8 +111,8 @@ Var
   AUser,APassword,aCUN : String;
 
 begin
-  AUser:=Data.Strings['C_USER'];
-  APassword:=Data.Strings['C_PASSWORD'];
+  AUser:=Data.Strings['c_user'];
+  APassword:=Data.Strings['c_password'];
   Case VerifyCommunityUser(AUser,APassword,aCUN) of
     curOK : AuthMet:=0;
     curNOK,
@@ -223,10 +223,10 @@ begin
   A:=Params as TJSONArray;
   Data:=A.Objects[0];
   ConnectToDatabase;
-  ID:=StrToIntDef(Data.Strings['C_ID'],-1);
+  ID:=StrToIntDef(Data.Strings['c_id'],-1);
   if (ID=-1) then
-    Raise Exception.Create('Invalid bug ID : '+Data.Strings['C_ID']);
-  ValidateContribUser(ID,Data.Strings['C_USER'],Data.Strings['C_PASSWORD']);
+    Raise Exception.Create('Invalid bug ID : '+Data.Strings['c_id']);
+  ValidateContribUser(ID,Data.Strings['c_user'],Data.Strings['c_password']);
   UpdateObject(ID,Data);
   res:=TJSONBoolean.Create(True);
 end;
