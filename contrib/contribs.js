@@ -92,6 +92,19 @@ Ext.preg('fittoparent', Ext.ux.FitToParent);
 
 Ext.ns('fpWeb');
 // /* Error Handling */
+
+fpWeb.getOptionValue = function(aname) {
+  var args=window.location.hash.substr(2).split('/');
+  var nv;
+  for(var i=0; i<args.length; i++){
+     nv=args[i].split('=');
+     if (nv[0]==aname) {   
+        return nv[1];
+     }
+  }  
+  return null;
+};
+
 fpWeb.showError = function(title, message) {
     Ext.Msg.show({
         title : title,
@@ -154,10 +167,10 @@ fpWeb.EntryForm=Ext.extend(Ext.Window,{
   },
   constructor : function(options) {
     this.bok = new Ext.Button({
-       iconCls : 'icon-ok',
-       text : 'Save',
-       handler : this.submitform,
-       scope : this
+         iconCls : 'icon-ok',
+         text : 'Save',
+         handler : options.readOnly ? this.close : this.submitform,
+         scope : this
     });
     this.bcancel = new Ext.Button({
        iconCls : 'icon-cancel',
@@ -195,7 +208,7 @@ fpWeb.EntryForm=Ext.extend(Ext.Window,{
     Ext.apply(options,{
       width: 600,
       height: 500,
-      title: options.isNew ? 'New contributed unit' : 'Update contributed unit',
+      title: options.readOnly ? 'Viewing contributed unit "'+options.record.get('c_name')+'"' :  options.isNew ? 'New contributed unit' : 'Update contributed unit',
       closable: true,
       modal: true,
       layout: 'fit',
@@ -221,7 +234,9 @@ fpWeb.EditEntry = function(data, rec) {
   f.show();
 };
 fpWeb.ShowContributedUnits = function() {
+  fpWeb.grid = {};
   var myproxy = new Ext.data.HttpProxy ( {
+
     api : {
       read: "contribs.cgi/Provider/Contrib/Read/",
       update: "contribs.cgi/Provider/Contrib/Update/",
@@ -232,7 +247,7 @@ fpWeb.ShowContributedUnits = function() {
   var myreader = new Ext.data.JsonReader ({
       root: "rows",
       successProperty : 'success',
-      idProperty: "C_ID",
+      idProperty: "c_id",
       messageProperty: 'message', // Must be specified here
       fields: [
        { name : 'c_auth_method'},
@@ -250,9 +265,10 @@ fpWeb.ShowContributedUnits = function() {
      ]
   });
   var data = new Ext.data.Store({
+    autoLoad: false,
     proxy: myproxy,
     reader: myreader,
-    idProperty: "C_ID"
+    idProperty: "c_id"
   });
   // Listen to errors.
   data.addListener('exception', function(proxy, type, action, options, res) {
@@ -264,6 +280,29 @@ fpWeb.ShowContributedUnits = function() {
             buttons: Ext.Msg.OK
         });
     }
+  });
+  data.addListener('load', function ( astore, recs, o ) {
+    var n = fpWeb.getOptionValue('c_name') ;
+    var i = null;
+    if (!Ext.isEmpty(n)) {
+      i=data.find('c_name',n);
+    } else {
+      n =  fpWeb.GetOptionValue('c_id') ;
+      i=data.find('c_id',n);
+    }
+   if (!Ext.isEmpty(i)) {
+     var sm = fpWeb.grid.getSelectionModel();
+     var r = data.getAt(i);
+     Ext.TaskMgr.start({ 
+       run : function () { 
+         sm.selectRecords([r]);
+         var f = new fpWeb.EntryForm({readOnly: true, isNew:false, store : data, record : r});
+         f.show();
+        }, 
+      interval : 100,
+      repeat: 1
+     });
+   }
   });
   data.load();
   var filters = new Ext.ux.grid.GridFilters({
@@ -286,9 +325,9 @@ fpWeb.ShowContributedUnits = function() {
                 '<div class="description"><B>FTP download:</B></div> <A HREF="{c_ftpfile}">{c_ftpfile}</A>'
   });
   var togglePreview = function(show){
-    var v = grid.getView();
+    var v = fpWeb.grid.getView();
     var b = Ext.getCmp('toggledetails');
-    for (var i = 0; i<grid.getStore().getCount(); i++) {
+    for (var i = 0; i<fpWeb.grid.getStore().getCount(); i++) {
       if (show) {
        expander.expandRow(i);
       } else {
@@ -300,7 +339,7 @@ fpWeb.ShowContributedUnits = function() {
       b.setText(show ? 'Hide details' : 'Show details' );
     }
   };
-  var grid = new Ext.grid.GridPanel({
+  fpWeb.grid = new Ext.grid.GridPanel({
     frame: true,
     plugins: [filters,expander],
     renderTo: 'contribs',
@@ -347,22 +386,7 @@ fpWeb.ShowContributedUnits = function() {
         forceFit: true,
         showPreview: false, // custom property
         enableRowBody: true, // required to create a second, full-width row to show expanded Record data
-/*
-        getRowClass: function(record, rowIndex, rp, ds){ // rp = rowParams
-            var s = '<div class="description"><B>Description:</B></div> '+record.data.C_DESCR+'<P>';
-            if (record.data.C_HOMEPAGE) {
-              s += '<div class="description"><B>Website:</B></div> <A HREF="'+record.data.C_HOMEPAGE+'">'+record.data.C_HOMEPAGE+'</A><BR>';
-            }
-            if (record.data.C_FTPFILE) {
-              s += '<div class="description"><B>FTP download:</B></div> <A HREF="'+record.data.C_FTPFILE+'"/>'+record.data.C_FTPFILE+'</A>';
-            }
-            if(grid.getView().showPreview){
-                rp.body = s.replace(/<img(.|\n|\r)*>/i,'');
-                return 'x-grid3-row-expanded';
-            }
-            return 'x-grid3-row-collapsed';
-        }
-*/    },
+    },
     sm: new Ext.grid.RowSelectionModel({singleSelect:true}),
     tbar : [ {
           id: 'toggledetails',
@@ -382,33 +406,33 @@ fpWeb.ShowContributedUnits = function() {
             handler: function(btn, ev) {
               fpWeb.AddEntry(data);
             },
-            scope: grid
+            scope: fpWeb.grid
         }, '-' , {
             text: 'Edit',
             iconCls: 'icon-edit',
             handler: function(btn, ev) {
-              var rec = grid.getSelectionModel().getSelected();
+              var rec = fpWeb.grid.getSelectionModel().getSelected();
               if (rec) {
                 fpWeb.EditEntry(data,rec);
               }
             },
-            scope: grid
+            scope: fpWeb.grid
         }, '-', {
             text: 'Delete',
             iconCls: 'icon-delete',
             handler: function(btn, ev) {
-              var index = grid.getSelectionModel().getSelectedCell();
+              var index = fpWeb.grid.getSelectionModel().getSelectedCell();
               if (!index) {
                   return false;
               }
-              var rec = grid.store.getAt(index[0]);
-              grid.store.remove(rec);
+              var rec = fpWeb.grid.store.getAt(index[0]);
+              fpWeb.grid.store.remove(rec);
               },
-            scope: grid
+            scope: fpWeb.grid
         }
     ]
 
   });
    //pass along browser window resize events to the panel
-   Ext.EventManager.onWindowResize(grid.doLayout, grid);
+   Ext.EventManager.onWindowResize(fpWeb.grid.doLayout, fpWeb.grid);
 };
