@@ -34,7 +34,7 @@ object ContribsRPC: TContribsRPC
         DataType = jtObject
       end>
     left = 61
-    top = 105
+    top = 104
   end
   object DeleteContrib: TJSONRPCHandler
     OnExecute = DeleteContribExecute
@@ -63,15 +63,6 @@ object ContribsRPC: TContribsRPC
       end>
     left = 64
     top = 228
-  end
-  object DBContribs: TIBConnection
-    Connected = False
-    LoginPrompt = False
-    KeepConnection = False
-    Transaction = TRContribs
-    LogEvents = []
-    left = 208
-    top = 32
   end
   object QInsertContrib: TSQLQuery
     FieldDefs = <>
@@ -113,72 +104,72 @@ object ContribsRPC: TContribsRPC
       item
         DataType = ftUnknown
         Name = 'C_AUTH_METHOD'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_AUTHOR'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_CATEGORY'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_DATE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_DESCR'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_EMAIL'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_FTPFILE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_HOMEPAGE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_ID'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_NAME'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_OS'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_PWD'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_USER'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_VERSION'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 219
     top = 140
@@ -226,57 +217,57 @@ object ContribsRPC: TContribsRPC
       item
         DataType = ftUnknown
         Name = 'C_AUTHOR'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_CATEGORY'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_DATE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_DESCR'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_EMAIL'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_FTPFILE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_HOMEPAGE'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_NAME'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_OS'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_VERSION'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end    
       item
         DataType = ftUnknown
         Name = 'C_ID'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 224
     top = 96
@@ -299,7 +290,7 @@ object ContribsRPC: TContribsRPC
       item
         DataType = ftUnknown
         Name = 'C_ID'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 298
     top = 54
@@ -318,9 +309,18 @@ object ContribsRPC: TContribsRPC
       item
         DataType = ftUnknown
         Name = 'C_ID'
-        ParamType = ptUnknown
+        ParamType = ptInput
       end>
     left = 331
     top = 209
+  end
+  object DBContribs: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = TRContribs
+    LogEvents = []
+    left = 175
+    top = 46
   end
 end

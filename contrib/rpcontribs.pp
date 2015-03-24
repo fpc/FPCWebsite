@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils,  HTTPDefs, iniwebsession, fpHTTP, fpWeb, fpjsonrpc,
-  db,  webjsonrpc, fpextdirect, fpjson, IBConnection, sqldb, pqconnection;
+  db,  webjsonrpc, fpextdirect, fpjson, sqldb, pqconnection;
 
 type
 
@@ -93,7 +93,7 @@ begin
     begin
     ParamByName('C_AUTHOR').AsString:=Data.Strings['c_author'];
     ParamByName('C_CATEGORY').AsString:=Data.Strings['c_category'];
-    ParamByName('C_DATE').AsDateTime:=Date;
+    ParamByName('C_DATE').AsString:=FormatDateTime('yyyy-mm-dd',Date);
     ParamByName('C_DESCR').AsString:=Data.Strings['c_descr'];
     ParamByName('C_EMAIL').AsString:=Data.Strings['c_email'];
     ParamByName('C_FTPFILE').AsString:=Data.Strings['c_ftpfile'];
