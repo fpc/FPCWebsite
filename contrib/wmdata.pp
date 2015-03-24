@@ -6,16 +6,16 @@ interface
 
 uses
   Classes, SysUtils, HTTPDefs, websession, fpHTTP, fpWeb, fpwebdata,
-  extjsjson, sqldbwebdata, IBConnection, sqldb;
+  extjsjson, sqldbwebdata, IBConnection, sqldb, pqconnection;
 
 type
 
   { TProviderModule }
 
   TProviderModule = class(TFPWebProviderDataModule)
-    DBFPC: TIBConnection;
     JDFFPC: TExtJSJSONDataFormatter;
     IAFPC: TExtJSJSonWebdataInputAdaptor;
+    DBFPC: TPQConnection;
     QGetID: TSQLQuery;
     TRFPC: TSQLTransaction;
     Contrib: TSQLDBWebDataProvider;

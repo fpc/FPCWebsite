@@ -93,14 +93,6 @@ object ProviderModule: TProviderModule
     left = 60
     top = 100
   end
-  object DBFPC: TIBConnection
-    Connected = False
-    LoginPrompt = False
-    KeepConnection = False
-    LogEvents = []
-    left = 60
-    top = 44
-  end
   object TRFPC: TSQLTransaction
     Active = False
     Action = caNone
@@ -116,11 +108,21 @@ object ProviderModule: TProviderModule
     FieldDefs = <>
     AutoCalcFields = False
     Database = DBFPC
+    Transaction = TRFPC
     SQL.Strings = (
       'SELECT GEN_ID(GEN_USERS,1) AS THEID  FROM RDB$DATABASE'
     )
     Params = <>
     left = 88
     top = 184
+  end
+  object DBFPC: TPQConnection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = TRFPC
+    LogEvents = []
+    left = 60
+    top = 40
   end
 end
