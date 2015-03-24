@@ -4,15 +4,15 @@ unit cfgcontribs;
 
 interface
 
-uses ibconnection,  Classes, SysUtils;
+uses pqconnection,  Classes, SysUtils;
 
-procedure ConfigDB(DB : TIBConnection);
+procedure ConfigDB(DB : TPQConnection);
 
 implementation
 
 uses inifiles;
 
-procedure ConfigDB(DB : TIBConnection);
+procedure ConfigDB(DB : TPQConnection);
 
 Var
   ini : Tmeminifile;
@@ -26,6 +26,7 @@ begin
     try
       With DB do
         begin
+        HostName:=Ini.ReadString('Database','Hostname','');
         DatabaseName:=Ini.ReadString('Database','Path',DatabaseName);
         UserName:=Ini.ReadString('Database','UserName',UserName);
         Password:=Ini.ReadString('Database','Password',Password);
