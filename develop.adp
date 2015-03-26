@@ -17,7 +17,7 @@ development is progressing you can take a peek at the developer versions.</p>
 <a name="sourcestrunk"></a>
 <h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download today's development (trunk - currently v2.7.x) sources in the form
+You can download today's development (trunk - currently v3.1.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
 updated on a daily basis, and reflect the state of the source repository.
 </p>
