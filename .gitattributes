@@ -26,10 +26,12 @@ catalogs-disabled/catalog.pl.adp svneol=native#text/html
 catalogs-disabled/catalog.ru.adp svneol=native#text/html
 catalogs-disabled/catalog.sl.adp svneol=native#text/html
 catalogs-disabled/catalog.zh-CN.adp svneol=native#text/html
+contrib/Makefile svneol=native#text/plain
 contrib/add.png -text svneol=unset#image/png
 contrib/cancel.png -text svneol=unset#image/png
 contrib/cfgcontribs.pp svneol=native#text/plain
 contrib/contrib-struct.sql svneol=native#text/plain
+contrib/contribs.adp svneol=native#text/plain
 contrib/contribs.css svneol=native#text/plain
 contrib/contribs.html svneol=native#text/plain
 contrib/contribs.ico -text
@@ -41,7 +43,9 @@ contrib/delete.png -text svneol=unset#image/png
 contrib/edit.png -text svneol=unset#image/png
 contrib/fpc.fbk -text
 contrib/fpccommunity.pp svneol=native#text/plain
+contrib/gen_makefile.conf svneol=native#text/plain
 contrib/hidedetails.png -text svneol=unset#image/png
+contrib/mirrors.dat svneol=native#text/plain
 contrib/ok.png -text svneol=unset#image/png
 contrib/rpcontribs.lfm svneol=native#text/plain
 contrib/rpcontribs.pp svneol=native#text/plain

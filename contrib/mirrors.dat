@@ -1,0 +1,4 @@
+-e name	namel	url
+-e Austria	austria	ftp://gd.tuwien.ac.at/languages/pascal/fpc/
+-e Hungary	hungary	ftp://ftp.hu.freepascal.org/pub/fpc/
+-e Netherlands	netherlands	ftp://freepascal.stack.nl/pub/fpc/
