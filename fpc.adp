@@ -10,9 +10,9 @@
     It can target multiple processor architectures: Intel x86, AMD64/x86-64,
     PowerPC, PowerPC64, SPARC, and ARM. Supported operating systems include Linux,
     FreeBSD, Haiku, Mac OS X/iOS/Darwin, DOS, Win32, Win64, WinCE, OS/2,
-    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii. Additionally, JVM,
-    MIPS (big and little endian variants), i8086 and Motorola 68k architecture targets
-    are available in the development versions.
+    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii. Additionally, support for
+    the JVM, MIPS (big and little endian variants), i8086, Motorola 68k and AArch64
+    architectures is available in the development versions.
   </trn>
 </p>
 
