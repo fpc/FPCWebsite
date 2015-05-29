@@ -18,10 +18,18 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p><trn locale="en_US" key="website.news_headline_20150526">
+<em>May 29th, 2015</em></p>
+<p>
+Support for the Linux/AArch64 platform is now also available in svn trunk,
+thanks to patches provided by Edmund Grimley Evans.
+</p>
+</trn>
+
 <p><trn locale="en_US" key="website.news_headline_20150224">
 <em>February 24th, 2015</em></p>
 <p>
-Support for the iOS/AArch64 platform has been added</a> to svn trunk. More
+Support for the iOS/AArch64 platform has been added to svn trunk. More
 information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
 </p>
 </trn>

@@ -9,13 +9,25 @@
 
 <h3>Latest changes:</h3>
 <ul>
+ <trn locale="en_US" key="website.news_headline_20150526">
+ <li>
+<em>May 29th, 2015</em>
+ </li>
+ <ul>
+  <li>
+Support for the Linux/AArch64 platform is now also available in svn trunk,
+thanks to patches provided by Edmund Grimley Evans.
+  </li>
+ </ul>
+ </trn>
+
  <trn locale="en_US" key="website.news_headline_20150224">
  <li>
 <em>February 24, 2015</em>
  </li>
  <ul>
   <li>
-Support for the iOS/AArch64 platform has been added</a> to svn trunk. More
+Support for the iOS/AArch64 platform has been added to svn trunk. More
 information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
   </li>
  </ul>
@@ -43,6 +55,7 @@ addresses to the mailing lists. Among others, such providers includes e.g.
 Microsoft (hosting e.g. outlook.com and hotmail.com addresses).
   </li>
  </ul>
+</trn>
 
 <trn locale="en_US" key="website.news_headline_20140311">
  <li>
