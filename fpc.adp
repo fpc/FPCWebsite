@@ -18,6 +18,34 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
+<p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20150825">
+ <p>
+  <em>August 25th, 2015</em>
+ </p>
+ <p>
+   FPC 3.0.0-rc1 has been released!
+   <p>
+    You can help improve the upcoming 3.0.0 release by downloading and
+    testing this release. If you want you can report what you have done <a href="http://wiki.freepascal.org/Testers_3.0.0">here.</a>      
+    New features are listed at the <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">wiki</a>.
+    There is also a <a href="http://wiki.freepascal.org/User_Changes_3.0.0">list</a> of changes that may break backwards compatibility.
+    Issues with this release candidate that we already know of are listed
+    <a href="http://wiki.freepascal.org/Issues_3.0.0">here</a>.
+    A preview of the 3.0.0 docs is <a href="http://www.freepascal.org/docs-html/3.0.0/">also</a> available.
+   </p>
+   <p>
+    Downloads are available at:
+    <ul>
+     <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
+     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1</a></li>
+     <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
+    </ul>
+   </p>
+ </p>
+ </trn>
+</p>
+
 <p><trn locale="en_US" key="website.news_headline_20150526">
 <em>May 29th, 2015</em></p>
 <p>
@@ -33,28 +61,6 @@ Support for the iOS/AArch64 platform has been added to svn trunk. More
 information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
 </p>
 </trn>
-
-<p><trn locale="en_US" key="website.news_headline_20141015">
-<em>October 15th, 2014</em></p>
-
-<p>
-Some FPC users have observed issues with delivery of e-mails from FPC (and
-other) mailing lists. Yahoo has decided to implement
-<a href="http://postmaster.yahoo.com/errors/postmaster-28.html">a DMARC policy</a>, which effectively disallows the use of e-mail accounts hosted by them
-to subscribe to mailing lists. Unfortunately, none of the proposed solutions for mailing
-lists are usable at this point in time.
-</p>
-<p>
-Note that not only Yahoo (and AOL) e-mail accounts are affected, but also e-mail
-accounts hosted by other companies that have implemented DMARC policy
-support, because they have to respect the Yahoo's DMARC policy (blocking
-mailing lists) and thus they reject e-mails sent from Yahoo addresses to the
-mailing lists. Addresses from such DMARC-compliant providers may be in turn
-also be disabled and/or unsubscribed by the mailing list software
-when their mail servers start rejecting e-mails sent from Yahoo
-addresses to the mailing lists. Among others, such providers includes e.g.
-Microsoft (hosting e.g. outlook.com and hotmail.com addresses).
-</p>
 
 <p>
 <a href="news@x@">Older news...</a>
