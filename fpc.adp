@@ -19,6 +19,34 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20151021">
+ <p>
+  <em>October 21th, 2015</em>
+ </p>
+ <p>
+   FPC 3.0.0-rc2 has been released!
+   <p>
+    Most important change since the first release candidate is a change in the 
+    unicode resource-string handling. Also there is a new Windows to Android cross-compiler installer.
+   </p>
+   <p>
+    You can help improve the upcoming 3.0.0 release by downloading and
+    testing this release candidate. If you want, you can report what you have done <a href="http://wiki.freepascal.org/Testers_3.0.0">on the wiki</a>, but first you may want to check the <a href="http://wiki.freepascal.org/Issues_3.0.0">known issues</a>.
+    Next, we have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and of <a href="http://wiki.freepascal.org/User_Changes_3.0.0">changes that may break backward compatibility</a>.
+    Finally, you can also preview the <a href="http://www.freepascal.org/docs-html/3.0.0/">FPC 3.0.0 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at:
+    <ul>
+     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2</a></li>
+     <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2</a></li>
+    </ul>
+   </p>
+ </p>
+ </trn>
+</p>
+
+<p>
  <trn locale="en_US" key="website.frontpage.news_headline_20150825">
  <p>
   <em>August 25th, 2015</em>
@@ -48,14 +76,6 @@
 <p>
 Support for the Linux/AArch64 platform is now also available in svn trunk,
 thanks to patches provided by Edmund Grimley Evans.
-</p>
-</trn>
-
-<p><trn locale="en_US" key="website.news_headline_20150224">
-<em>February 24th, 2015</em></p>
-<p>
-Support for the iOS/AArch64 platform has been added to svn trunk. More
-information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
 </p>
 </trn>
 
