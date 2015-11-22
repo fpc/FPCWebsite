@@ -25,6 +25,12 @@ type
   piconv_t = ^iconv_t;
   iconv_t = pointer;
   nl_item = cint;
+{$ifdef ver3}
+  umgrstring = rawbytestring;
+{$else}
+  umgrstring = ansistring
+{$endif}
+
 
 var
   iconv_ansi2ucs4,
@@ -135,7 +141,7 @@ begin
 end;
 }
 
-procedure Wide2AnsiMove(source:pwidechar;var dest:ansistring;len:SizeInt);
+procedure Wide2AnsiMove(source:pwidechar;var dest:umgrstring;{$ifdef ver3}cp:TSystemCodePage;{$endif}len:SizeInt);
   var
     outlength,
     outoffset,
@@ -193,7 +199,7 @@ procedure Wide2AnsiMove(source:pwidechar;var dest:ansistring;len:SizeInt);
   end;
 
 
-procedure Ansi2WideMove(source:pchar;var dest:widestring;len:SizeInt);
+procedure Ansi2WideMove(source:pchar;{$ifdef fpc}cp : TSystemCodePage;{$endif}var dest:widestring;len:SizeInt);
   var
     outlength,
     outoffset,
@@ -316,7 +322,7 @@ procedure Ansi2UCS4Move(source:pchar;var dest:UCS4String;len:SizeInt);
   end;
 
 
-function CompareWideString(const s1, s2 : WideString) : PtrInt;
+function CompareWideString(const s1, s2 : WideString{$ifdef ver3}; Options : TCompareOptions{$endif}) : PtrInt;
   var
     hs1,hs2 : UCS4String;
   begin
@@ -328,7 +334,7 @@ function CompareWideString(const s1, s2 : WideString) : PtrInt;
 
 function CompareTextWideString(const s1, s2 : WideString): PtrInt;
   begin
-    result:=CompareWideString(UpperWideString(s1),UpperWideString(s2));
+    result:=CompareWideString(UpperWideString(s1),UpperWideString(s2){$ifdef ver3},[coIgnoreCase] {$endif});
   end;
 
 
@@ -366,7 +372,9 @@ begin
       {$endif}
       
       CompareWideStringProc:=@CompareWideString;
+{$ifndef ver3}
       CompareTextWideStringProc:=@CompareTextWideString;
+{$endif}
       {
       CharLengthPCharProc
 
