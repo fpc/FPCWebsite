@@ -28,7 +28,7 @@ type
 {$ifdef ver3}
   umgrstring = rawbytestring;
 {$else}
-  umgrstring = ansistring
+  umgrstring = ansistring;
 {$endif}
 
 
@@ -199,7 +199,7 @@ procedure Wide2AnsiMove(source:pwidechar;var dest:umgrstring;{$ifdef ver3}cp:TSy
   end;
 
 
-procedure Ansi2WideMove(source:pchar;{$ifdef fpc}cp : TSystemCodePage;{$endif}var dest:widestring;len:SizeInt);
+procedure Ansi2WideMove(source:pchar;{$ifdef fpc}{$ifdef VER3}cp : TSystemCodePage;{$endif}{$endif}var dest:widestring;len:SizeInt);
   var
     outlength,
     outoffset,
