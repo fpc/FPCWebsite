@@ -20,20 +20,20 @@ The latest release version is <b>3.0.0</b></p>
  choose &quot;Open&quot; in the contextual menu. This workaround is required because we
  don't pay Apple 79 euro per year, which would prove you can trust us.
 
-<h3>Xcode 5+ compatibility (OS X 10.9; for OS X 10.8, see below)</h3>
- FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.9. Xcode 5 and later however
+<h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
+ FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.11. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
 
 <h3>Xcode 4.3-5.x compatibility (Mac OS X 10.7/OS X 10.8)</h3>
- FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.9. Xcode 4.3 and later however
+ FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.11. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
 
 <h3>Xcode 3.2.x-4.2 compatibility (Mac OS X 10.6)</h3>
- FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.9. There is
+ FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.11. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
@@ -48,7 +48,7 @@ contains an installation package for compiling both Intel (32 bit and 64 bit) an
  contains an add-on installation package for compiling PowerPC (64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.1.intel-macosx.cross.ios.dmg">fpc-3.0.1.intel-macosx.cross.ios.dmg</a> (66 MB)
-contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (the included Xcode template only works with Xcode 3.x; for Xcode 4.x templates, see <a href="http://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' templates</a><br>
+contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (for Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site)</a><br>
 <br>
 <li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.0.intel-macosx.cross.jvm.dmg">fpc-3.0.0.intel-macosx.cross.jvm.dmg</a> (11 MB)
  contains an add-on installation package for compiling JVM programs.
