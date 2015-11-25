@@ -28,15 +28,15 @@
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/3.0.0/source/short/src300.zip">src300.zip</a> (23 MB) or<br>
-you can download the full source repository used for building the release - <a href="@mirror_url@dist/3.0.0/source/fpcbuild-3.0.0.zip">fpcbuild-3.0.0.zip</a> (74 MB).
+<a href="@mirror_url@dist/3.0.0/source/short/src300.zip">src300.zip</a> (23 MB) or</li>
+<li>you can download the full source repository used for building the release - <a href="@mirror_url@dist/3.0.0/source/fpcbuild-3.0.0.zip">fpcbuild-3.0.0.zip</a> (74 MB)</li>
 </ul>
 
 <p>
 <h3><trn key="website.Documentation" locale="en_US">Documentation</trn></h3>
 <trn key="website.Documentation_av_several_formats" locale="en_US">
   Documentation is available in several formats (if you want to use the docs inside the text mode IDE, you need the
-  HTML ones or possibly CHM):
+  HTML ones or possibly CHM; all except the Poscript version already included in the full package listed above):
 </trn>
 <ul>
 <li><a href="@mirror_url@dist/3.0.0/docs/doc-pdf.zip">PDF</a></li>
