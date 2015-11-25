@@ -13,27 +13,27 @@
 <tr><th WIDTH="30%" ALIGN=LEFT>Document</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
 <tr><td><trn locale="en_US" key="website.Doc_ug">User's guide</trn></td>
     <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf">PDF</a></td>
-    <td><a href="docs-html/user/user.html">HTML</a></td>
+    <td><a href="docs-html/current/user/user.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_pg">Programmer's guide</trn></td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/prog.pdf">PDF</a></td>
-     <td><a href="docs-html/prog/prog.html">HTML</a></td>
+     <td><a href="docs-html/current/prog/prog.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_lrg">Language reference guide</trn></td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/ref.pdf">PDF</a></td>
-     <td><a href="docs-html/ref/ref.html">HTML</a></td>
+     <td><a href="docs-html/current/ref/ref.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_rtlurm">Run-Time Library (RTL) units reference manual</trn> </td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/rtl.pdf">PDF</a></td>
-     <td><a HREF="docs-html/rtl/index.html">HTML</a></td>
+     <td><a HREF="docs-html/current/rtl/index.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_fclurm">Free Component Library (FCL) units reference manual</trn></td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fcl.pdf">PDF</a></td>
-     <td><a HREF="docs-html/fcl/index.html">HTML</a></td>
+     <td><a HREF="docs-html/current/fcl/index.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_fpcdocdtrm">fpdoc documentation tool reference manual</trn></td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fpdoc.pdf">PDF</a></td>
-     <td><a href="docs-html/fpdoc/fpdoc.html">HTML</a></td>
+     <td><a href="docs-html/current/fpdoc/fpdoc.html">HTML</a></td>
 </tr>
 <tr><td><trn locale="en_US" key="website.Doc_refchart">Reference chart with all compiler options and switches (PDF only)</trn> </td>
      <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/chart.pdf">PDF</a></td>
