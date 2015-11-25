@@ -28,9 +28,9 @@
 <li>
 <trn key="website.i386-os2_1_file_download_descr" locale="en_US">
   You can download the whole package as 1 big zipped file:
-  <a href="@mirror_url@dist/3.0.0/i386-os2/os2264full.zip">os2264full.zip</a> (59 MB),<br>
+  <a href="@mirror_url@dist/3.0.0/i386-os2/os2300full.zip">os2300full.zip</a> (59 MB),<br>
   or you can download a file that contains the same, only without sources and documentation:
-  <a href="@mirror_url@dist/3.0.0/i386-os2/os2264.zip">os2264.zip</a> (21 MB).
+  <a href="@mirror_url@dist/3.0.0/i386-os2/os2300.zip">os2300.zip</a> (21 MB).
 </trn>
 </ul>
 
@@ -39,7 +39,7 @@
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/3.0.0/source/short/src264.zip">src264.zip</a> (15 MB)
+<a href="@mirror_url@dist/3.0.0/source/short/src300.zip">src300.zip</a> (15 MB)
 </ul>
 
 <p>
