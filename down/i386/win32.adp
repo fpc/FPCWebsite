@@ -18,17 +18,17 @@
 <ul>
 <li>
 <a href="@mirror_url@dist/3.0.0/i386-win32/fpc-3.0.0.i386-win32.exe">fpc-3.0.0.i386-win32.exe</a> (32 MB)
-<trn key="website.Download_win32_installer" locale="en_US"> contains the installer containing the compiler and tools for win32</trn>:
+<trn key="website.Download_win32_installer" locale="en_US"> contains the installer containing the compiler and tools for win32.</trn>
 </ul>
 
 <h3><trn key="website.Download_cross_as_installer" locale="en_US">Download cross-compilers as installers</trn></h3>
 <ul>
 <li>
 <a href="@mirror_url@dist/3.0.0/arm-wince/fpc-3.0.0.i386-win32.cross.arm-wince.exe">fpc-3.0.0.i386-win32.cross.arm-wince.exe</a> (11 MB)
-<trn key="website.Download_win32_wince_cross_installer" locale="en_US"> contains the installer containing the win32 to arm-wince cross-compiler only. </trn>:
+<trn key="website.Download_win32_wince_cross_installer" locale="en_US"> contains the installer containing the win32 to arm-wince cross-compiler only.</trn>
 <li>
 <a href="@mirror_url@dist/3.0.0/x86_64-win64/fpc-3.0.0.i386-win32.cross.x86_64-win64.exe">fpc-3.0.0.i386-win32.cross.x86_64-win64.exe</a> (19 MB)
-<trn key="website.Download_win32_win64_cross_installer" locale="en_US"> contains the installer containing the win32 to win64 cross-compiler only. </trn>:
+<trn key="website.Download_win32_win64_cross_installer" locale="en_US"> contains the installer containing the win32 to win64 cross-compiler only.</trn>
 </ul>
 
 <hr>
