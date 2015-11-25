@@ -35,7 +35,7 @@ with documentation sources and release-building-related files in the same direct
 <a name="sourcesfixes"></a>
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download today's fixes branch (currently v2.6.x) sources in the form
+You can download today's fixes branch (currently v3.0.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
 may eventually be used to build the next stable (fixes) release. These source snapshots are updated on
 a daily basis, and reflect the state of the source repository.
@@ -146,15 +146,15 @@ far the most economic way to remain up-to-date in terms of bandwidth.
 
 </OL>
 <p>
-<b>Fixes to 2.6.x </b>
+<b>Fixes to 3.0.x </b>
 </p>
 <p>
 The sources of the fixes branch need a separate directory, so create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes_2_6:
+the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes_3_0:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes_2_6 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes_3_0 fpc
 </pre>
 
 and to update:
@@ -165,7 +165,7 @@ svn update fpc
 
 <p>
 To checkout a release, you have to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tags/release_2_6_4 fpc
+svn checkout http://svn.freepascal.org/svn/fpc/tags/release_3_0_0 fpc
 </p>
 
 <p>

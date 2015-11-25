@@ -12,11 +12,11 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest cross compiler release version is <b>2.6.4</b>.
+  The latest cross compiler release version is <b>3.0.0</b>.
 </trn>
 
-<h1>2.6.4</h1>
-The FPC 2.6.4 package for x86_64-win64 is available in one easy to choose format:
+<h1>3.0.0</h1>
+The FPC 3.0.0 package for x86_64-win64 is available in one easy to choose format:
 <ul>
   <li> <a href="#win64">Everything in 1 big package</a>
 </ul>
@@ -30,7 +30,7 @@ The FPC 2.6.4 package for x86_64-win64 is available in one easy to choose format
 
 <h3><a name="win64"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><trn key="website.Download_win32_win64_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/2.6.4/i386-win32/fpc-2.6.4.x86_64-win64.exe">fpc-2.6.4.x86_64-win64.exe</a> (17 MB)</li>
+<li><trn key="website.Download_win32_win64_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/3.0.0/x86_64-win64/fpc-3.0.0.i386-win32.cross.x86_64-win64.exe">fpc-3.0.0.i386-win32.cross.x86_64-win64.exe</a> (17 MB)</li>
 </ul>
   contains an installer.
 </trn>

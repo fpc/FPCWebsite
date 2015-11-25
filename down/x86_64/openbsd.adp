@@ -12,12 +12,12 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>2.6.4</b>.
+  The latest release version is</trn> <b>3.0.0</b>.
 
 
 <h3><a name="openbsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.4/x86_64-openbsd/fpc-2.6.4.x86_64-openbsd.tar">fpc-2.6.4.x86_64-openbsd.tar</a> (46 MB)
+<li> <a href="@mirror_url@dist/3.0.0/x86_64-openbsd/fpc-3.0.0.x86_64-openbsd.tar">fpc-3.0.0.x86_64-openbsd.tar</a> (44 MB)
 </ul>
 <trn key="website.x86_64-openbsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>

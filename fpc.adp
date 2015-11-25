@@ -19,6 +19,27 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20151125">
+ <p>
+  <em>November 25th, 2015</em>
+ </p>
+ <p>
+   FPC version 3.0.0 "Pestering Peacock" has been released!
+   <p>
+    This version includes support for several new platforms, codepage-aware strings and an integrated Pascal source-repository.
+   </p>
+   <p>
+    We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
+    Finally, you can view the <a href="http://www.freepascal.org/docs-html/3.0.0/">FPC 3.0.0 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+   </p>
+ </p>
+ </trn>
+</p>
+
+<p>
  <trn locale="en_US" key="website.frontpage.news_headline_20151021">
  <p>
   <em>October 21th, 2015</em>
@@ -71,24 +92,16 @@
  </trn>
 </p>
 
-<p><trn locale="en_US" key="website.news_headline_20150526">
-<em>May 29th, 2015</em></p>
-<p>
-Support for the Linux/AArch64 platform is now also available in svn trunk,
-thanks to patches provided by Edmund Grimley Evans.
-</p>
-</trn>
-
 <p>
 <a href="news@x@">Older news...</a>
 </p>
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
-    Version <em>2.6.4</em> is the latest stable version the Free Pascal.
+    Version <em>3.0.0</em> is the latest stable version the Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
-    The development releases have version numbers <EM>2.7.x</EM>.
+    The development releases have version numbers <EM>3.1.x</EM>.
     See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
   </trn>
 </p>

@@ -10,6 +10,26 @@
 <h3>Latest changes:</h3>
 
 <ul>
+ <trn locale="en_US" key="website.frontpage.news_headline_20151125">
+ <li>
+  <em>November 25th, 2015</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.0.0 "Pestering Peacock" has been released!
+   <p>
+    This version includes support for several new platforms, codepage-aware strings and an integrated Pascal source-repository.
+   </p>
+   <p>
+    We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
+    Finally, you can view the <a href="http://www.freepascal.org/docs-html/3.0/">FPC 3.0.0 documentation</a>.
+   </p>
+    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+   </p>
+  </li>
+ </ul>
+ </trn>
+
  <trn locale="en_US" key="website.frontpage.news_headline_20151021">
  <li>
   <em>October 21th, 2015</em>
