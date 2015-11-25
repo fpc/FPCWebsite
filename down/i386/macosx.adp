@@ -42,10 +42,10 @@ The latest release version is <b>3.0.0</b></p>
 <h3><a name="macosxdmg"></a>Download the 3.0.0 release in 1 big file:</h3>
 <ul>
 <li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.0.intel-macosx.dmg">fpc-3.0.0.intel-macosx.dmg</a> (71 MB)
-contains an installation package for compiling both Intel (32 bit and 64 bit) and PowerPC (32 bit) programs, as well as the Xcode Integration Toolkit.
+contains an installation package for compiling both Intel (32 bit and 64 bit).
 <br>
-<li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.0.intel-macosx.cross.ppc64-macosx.dmg">fpc-3.0.0.intel-macosx.cross.ppc64-macosx.dmg</a> (62 MB)
- contains an add-on installation package for compiling PowerPC (64 bit) programs.
+<li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.0.intel-macosx.cross.powerpc-macosx.dmg">fpc-3.0.0.intel-macosx.cross.powerpc-macosx.dmg</a> (62 MB)
+ contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/3.0.0/i386-macosx/fpc-3.0.1.intel-macosx.cross.ios.dmg">fpc-3.0.1.intel-macosx.cross.ios.dmg</a> (66 MB)
 contains an installation package for compiling iPhone/iPod Touch/iPad programs, as well as the iPhone SDK Integration Kit (for Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site)</a><br>
