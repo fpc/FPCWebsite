@@ -45,7 +45,7 @@
 <p>
 <trn locale="en_US" key="website.alternative_doc_formats">
   You can also download the documentation in some alternative formats.
-  See the <a href="download.html">Download</a> page.
+  See the <a href="down/docs/docs.var">Download</a> page.
 </trn>
 </p>
 <p>
