@@ -12,12 +12,12 @@
 -->
 
 <p>
-The latest release version is <b>2.6.4</b>
+The latest release version is <b>3.0.0</b>
 </p>
 
-<h3><a name="macosxdmg"></a>Download the 2.6.4 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 3.0.0 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.4/powerpc-macosx/fpc-2.6.4.powerpc-macosx.dmg">fpc-2.6.4.powerpc-macosx.dmg</a> (63 MB)
+<li> <a href="@mirror_url@dist/3.0.0/powerpc-macosx/fpc-3.0.0.powerpc-macosx.dmg">fpc-3.0.0.powerpc-macosx.dmg</a> (73 MB)
 contains an installation package for compiling PowerPC (32 bit and 64 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
 </ul>
