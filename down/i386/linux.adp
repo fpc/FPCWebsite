@@ -30,10 +30,12 @@ It is available in different formats:
 <ul>
 <li><a href="@mirror_url@dist/3.0.0/i386-linux/fpc-3.0.0.i386-linux.tar">fpc-3.0.0.i386-linux.tar</a> (45 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
-  contains a standard tar archive, with an install script.<br>
+  contains a standard tar archive, with an install script.
   After untarring the archive into a temporary location, you can run the install script 
   by issuing the command "<tt>sh install.sh</tt>".
-</trn>
+</trn></li>
+<li><a href="@mirror_url@dist/3.0.0/i386-linux/fpc-3.0.0.i386-linux.cross.i8086-msdos.tar.xz">fpc-3.0.0.i386-linux.cross.i8086-msdos.tar.xz</a> (22 MB)
+<trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler only. You can install it like the main package.</trn></li>
 </ul>
 
 <h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
