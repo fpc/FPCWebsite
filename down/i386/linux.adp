@@ -58,10 +58,7 @@ It is available in different formats:
 <h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.</trn></em>
 <ul>
-<li><b>Deb archives for 3.0.0 are not available at the moment (the latest version available in Deb archives is 2.6.2).</b><br>
-  <trn key="website.i386-linux_deb_download_descr" locale="en_US"><a href="@mirror_url@dist/2.6.2/i386-linux/deb/">This directory</a> contains
-     the unofficial debian .deb packages.<br>
-  </trn>
+<li><b>Deb archives for 3.0.0 are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
 </ul>
 
 <hr>
