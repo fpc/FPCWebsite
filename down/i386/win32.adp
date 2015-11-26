@@ -34,7 +34,7 @@
 <trn key="website.Download_win32_msdos_cross_installer" locale="en_US"> contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler only.</trn>
 <li>
 <a href="@mirror_url@dist/3.0.0/i386-win32/fpc-3.0.0.i386-win32.cross.android.exe">fpc-3.0.0.i386-win32.cross.android.exe</a> (23 MB)
-<trn key="website.Download_win32_android_cross_installer" locale="en_US"> contains the installer with the win32 to Android (ARM, MIPS, o386) cross-compiler only.</trn>
+<trn key="website.Download_win32_android_cross_installer" locale="en_US"> contains the installer with the win32 to Android (ARM, MIPS, i386) cross-compiler only.</trn>
 </ul>
 
 <hr>
