@@ -7,11 +7,11 @@
 <p>
   <trn locale="en_US" key="website.overview_text">
     Free Pascal is a 32, 64 and 16 bit professional Pascal compiler.
-    It can target multiple processor architectures: Intel x86, AMD64/x86-64,
-    PowerPC, PowerPC64, SPARC, and ARM. Supported operating systems include Linux,
-    FreeBSD, Haiku, Mac OS X/iOS/Darwin, DOS, Win32, Win64, WinCE, OS/2,
-    MorphOS, Nintendo GBA, Nintendo DS, and Nintendo Wii. Additionally, support for
-    the JVM, MIPS (big and little endian variants), i8086, Motorola 68k and AArch64
+    It can target many processor architectures: Intel x86 (including 8086), AMD64/x86-64,
+    PowerPC, PowerPC64, SPARC, ARM, AArch64 and the JVM. Supported operating systems include Linux,
+    FreeBSD, Haiku, Mac OS X/iOS/iPhoneSimulator/Darwin, DOS (16 and 32 bit), Win32, Win64, WinCE, OS/2,
+    MorphOS, Nintendo GBA, Nintendo DS, Nintendo Wii, Android and AIX. Additionally, support for the
+    MIPS (big and little endian variants) and Motorola 68k
     architectures is available in the development versions.
   </trn>
 </p>
@@ -30,7 +30,7 @@
    </p>
    <p>
     We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
-    Finally, you can view the <a href="http://www.freepascal.org/docs-html/3.0.0/">FPC 3.0.0 documentation</a>.
+    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.0 documentation</a>.
    </p>
    <p>
     Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
