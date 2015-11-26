@@ -47,7 +47,7 @@
 -->
       <li><a href="down/i386/os2@x@">OS/2 (and eComStation)</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (and a cross-compiler for i8086-MSDOS)
+      <li><a href="down/i386/win32@x@">Win32, Win64 and WinCE</a> (and cross-compilers for i8086-MSDOS and ARM/MIPS/i386-Android)
    <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
     </ul>
   <li>PowerPC
