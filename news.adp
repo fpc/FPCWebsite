@@ -38,8 +38,8 @@
   <li>
    FPC 3.0.0-rc2 has been released!
    <p>
-    Most important change since the first release candidate is a change in the 
-    unicode resource-string handling. Also there is a new Windows to Android cross-compiler installer.
+    The most important change since the first release candidate is a change in the 
+    unicode resource-string handling. There is also a new Windows to Android cross-compiler installer.
    </p>
    <p>
     You can help improve the upcoming 3.0.0 release by downloading and
@@ -125,7 +125,7 @@ mailing lists) and thus they reject e-mails sent from Yahoo addresses to the
 mailing lists. Addresses from such DMARC-compliant providers may be in turn
 also be disabled and/or unsubscribed by the mailing list software
 when their mail servers start rejecting e-mails sent from Yahoo
-addresses to the mailing lists. Among others, such providers includes e.g.
+addresses to the mailing lists. Among others, such providers include e.g.
 Microsoft (hosting e.g. outlook.com and hotmail.com addresses).
   </li>
  </ul>
