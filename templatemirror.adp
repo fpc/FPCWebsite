@@ -9,7 +9,7 @@
 <p>
 
 <ul>
-  <li><a target=_new href="http://sourceforge.net/project/showfiles.php?group_id=2174">SourceForge</a></li>
+  <li><a target=_new href="http://sourceforge.net/projects/freepascal/files/@sourceforgepath@/@latestversion@">SourceForge</a></li>
 </ul>
 
 <p>
