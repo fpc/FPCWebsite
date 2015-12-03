@@ -256,7 +256,7 @@ puts ""
 
 #Generate mirrors.dat
 puts "mirrors.dat:"
-puts "\techo -e 'name\\tnamel\\turl' > mirrors.dat"
+puts "\t/bin/echo -e 'name\\tnamel\\turl' > mirrors.dat"
 foreach mirror $mirrors {
     set mirror_name [lindex $mirror 0]
     set mirror_namel [string tolower $mirror_name]

@@ -315,7 +315,7 @@ english: output_directory all_en_pages
 	echo >> sources.var
 
 mirrors.dat:
-	echo -e 'name\tnamel\turl' > mirrors.dat
+	/bin/echo -e 'name\tnamel\turl' > mirrors.dat
 	/bin/echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
 	/bin/echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
 	/bin/echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
