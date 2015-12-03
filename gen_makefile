@@ -261,7 +261,7 @@ foreach mirror $mirrors {
     set mirror_name [lindex $mirror 0]
     set mirror_namel [string tolower $mirror_name]
     set mirror_url [lindex $mirror 1]
-    puts "\techo -e '$mirror_name\\t$mirror_namel\\t$mirror_url' >> mirrors.dat"
+    puts "\t/bin/echo -e '$mirror_name\\t$mirror_namel\\t$mirror_url' >> mirrors.dat"
 }
 lappend all "mirrors.dat"
 
