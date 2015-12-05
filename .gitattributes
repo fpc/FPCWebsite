@@ -64,7 +64,6 @@ css/fp.css svneol=native#text/plain
 /docs.adp svneol=native#text/plain
 /down-arm-linux.fp svneol=native#text/plain
 down/Makefile svneol=native#text/plain
-down/Makefile.dir svneol=native#text/plain
 down/arm/Makefile svneol=native#text/plain
 down/arm/gba.adp svneol=native#text/html
 down/arm/gen_makefile.conf svneol=native#text/plain

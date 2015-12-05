@@ -17,4 +17,4 @@ info:
 	for f in $(DIRS) ; do $(MAKE) -C $$f info ; done
 
 makefiles:
-	for f in $(DIRS) ; do cp Makefile.dir $$f/Makefile ; done
+	for f in $(DIRS) ; do cd $$f ; ../../gen_makefile > Makefile ; cd .. ; done
