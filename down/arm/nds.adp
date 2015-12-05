@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Nintendo DS</property>
+<property name="title">Free Pascal - Download Nintendo DS version</property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_linux_nds" locale="en_US">Download Nintendo DS</trn></property>
 <property name="modify"></property>
@@ -11,28 +11,21 @@
 *****************************************************************************
 -->
 
-<p>
-<trn key="website.cross_compiler_i386-win32_arm-nds" locale="en_US">
-  This is a cross compiler package from i386-win32 to arm-nds. Before you can use it, you need to install
-  <a href="../i386/win32-@mirrorsuffix@@x@">fpc for i386-win32</a>.
-</trn>
-<p>
+<p><trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.</p>
 
-<trn key="website.arm-nds_available_in" locale="en_US">
-The FPC package for arm-nds is available in one easy to choose format:
-</trn>
-<ul>
-  <li> <a href="#ndsbig"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
-</ul>
+<h3><trn key="website.Download_installer" locale="en_US">Download native compiler</trn></h3>
+<p><trn key="website.native_compiler_nat_available_nds">There is no native compiler available for the Nintendo DS. You have to use a cross-compiler.</trn></p>
 
-<h3><a name="ndsbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
+<h3><trn key="website.Download_cross_compilers_from_other_host" locale="en_US">Download cross-compiler running on another host</trn></h3>
+<p><trn key="website.other_host_cross_installer_prerequisite">This cross-compiler runs on another host and needs the corresponding native compiler as a prerequisite.</trn></p>
 <ul>
-<li><trn key="website.arm-nds_1_file_download_win32" locale="en_US"><a href="@mirror_url@dist/3.0.0/arm-nds/arm-nds-fpc-3.0.0.i386-win32.zip">arm-nds-fpc-3.0.0.i386-win32.zip</a> (57 MB)
-  contains a zip file, which you can extract in your fpc directory. See the included readme file for further instructions.</trn></li>
+  <li>
+    <a href="@mirror_url@dist/@latestversion@/arm-nds/arm-nds-fpc-@latestversion@.i386-win32.zip">arm-nds-fpc-@latestversion@.i386-win32.zip</a> (56.1 MB)
+    <p><trn key="website.arm-nds_file_download_descr" locale="en_US">Contains a zip file with the win32 to arm-nds cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.</trn></p>
 </ul>
 
 <hr>
 <p>
 <a href="nds@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br>
 <a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
-<p>
+</p>

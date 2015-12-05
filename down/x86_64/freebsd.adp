@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download FreeBSD</property>
+<property name="title">Free Pascal - Download AMD64/x86_64 FreeBSD version</property>
 <property name="entry">download</property>
 <property name="header">Download FreeBSD AMD64/x86_64</property>
 <property name="modify"></property>
@@ -11,20 +11,21 @@
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>3.0.0</b>.
+<p><trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.</p>
 
-
-<h3><a name="freebsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
+<h3><trn key="website.Download_native_compiler" locale="en_US">Download native compiler</trn></h3>
 <ul>
-<li> <a href="@mirror_url@dist/3.0.0/x86_64-freebsd/fpc-3.0.0.x86_64-freebsd9.tar">fpc-3.0.0.x86_64-freebsd9.tar</a> (45 MB)
-<li> <a href="@mirror_url@dist/3.0.0/x86_64-freebsd/fpc-3.0.0.x86_64-freebsd10.tar">fpc-3.0.0.x86_64-freebsd10.tar</a> (44 MB)
+  <li>
+    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd10.tar">fpc-@latestversion@.x86_64-freebsd10.tar</a> (43.1 MB)
+  <li>
+    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd9.tar">fpc-@latestversion@.x86_64-freebsd9.tar</a> (44.1 MB)
 </ul>
-<trn key="website.x86_64-freebsd_1_file_download_descr" locale="en_US">
+
+<p><trn key="website.i386-freebsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
   After untarring the archive, you can run the install script in the created
-  directory by issuing the command "<TT>sh install.sh</TT>".
-</trn>
+  directory by issuing the command "<TT>sh install.sh</TT>".</trn>
+</p>
 
 <hr>
 <p>

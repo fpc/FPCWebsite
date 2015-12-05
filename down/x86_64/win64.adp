@@ -1,41 +1,29 @@
 <master>
-<property name="title">Free Pascal - Download Win64</property>
+<property name="title">Free Pascal - Download x86_64 Win64 version</property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down_win64_x86_64" locale="en_US">Download Win64 x86_64</trn></property>
+<property name="header"><trn key="website.down_win64_x86_64" locale="en_US">Download x86_64 Win64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
 <!--
 *****************************************************************************
-                                 Linux
+                                 Win64
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">
-  The latest cross compiler release version is <b>3.0.0</b>.
-</trn>
+<p><trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.</p>
 
-<h1>3.0.0</h1>
-The FPC 3.0.0 package for x86_64-win64 is available in one easy to choose format:
+<h3><trn key="website.Download_installer" locale="en_US">Download native compiler</trn></h3>
+<p><trn key="website.native_compiler_nat_available_wince">There is no native compiler available for x86_64 Win64. You have to use a cross-compiler.</trn></p>
+
+<h3><trn key="website.Download_cross_compilers_from_other_host" locale="en_US">Download cross-compiler running on another host</trn></h3>
+<p><trn key="website.other_host_cross_installer_prerequisite">This cross-compiler runs on another host and needs the corresponding native compiler as a prerequisite.</trn></p>
 <ul>
-  <li> <a href="#win64">Everything in 1 big package</a>
+<li>
+<a href="@mirror_url@dist/@latestversion@/x86_64-win64/fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe">fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe</a> (18.5 MB)
+<p><trn key="website.Download_win32_win64_cross_installer" locale="en_US">Contains the installer with the win32 to x86_64-Win64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB) to be able to work.</trn></p>
 </ul>
-
-<p>
-<trn key="website.cross_compiler_i386-win32_x86_64-win64" locale="en_US">
-  This is a cross compiler package from i386-win32 to x86_64-win64. Before you can use it, you need to install
-  <a href="../i386/win32-@mirrorsuffix@@x@">fpc for i386-win32</a>.
-</trn>
-<p>
-
-<h3><a name="win64"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
-<ul>
-<li><trn key="website.Download_win32_win64_1_file_download_descr" locale="en_US"><a href="@mirror_url@dist/3.0.0/x86_64-win64/fpc-3.0.0.i386-win32.cross.x86_64-win64.exe">fpc-3.0.0.i386-win32.cross.x86_64-win64.exe</a> (17 MB)</li>
-</ul>
-  contains an installer.
-</trn>
-</ul>
-
+ 
 <hr>
 <p>
 <a href="wince@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br>
