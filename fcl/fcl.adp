@@ -9,7 +9,7 @@
 The Free Component Library is meant to be an free equivalent of Delphi's
 VCL - only all components in this library are non-visual. Visual components
 are the domain of other projects such as
-<a href="http://www.lazarus.freepascal.org/">Lazarus</a> or <a href="http://developer.berlios.de/projects/mseide-msegui/">MSEide+MSEgui</a>.
+<a href="http://www.lazarus.freepascal.org/">Lazarus</a> or <a href="http://mseide-msegui.sourceforge.net/">MSEide+MSEgui</a>.
 <p>
 The idea of FCL is to give a complete set of classes, so a programmer is
 able to tackle most common programming tasks; wherever possible we try to
