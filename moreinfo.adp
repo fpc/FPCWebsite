@@ -20,7 +20,7 @@
     General and DOS: <a href="mailto:florian&#x040;freepascal.org">Florian Klaempfl</a><br>
     Linux: <a href="mailto:michael&#x040;freepascal.org">Michael Van Canneyt</a><br>
     680x0 / BeOS versions: <a href="mailto:cecodere&#x040;yahoo.ca">Carl Eric Codere</a><br>
-    EMX (OS/2 & Dos): <a href="mailto:d.s.p.mantione&#x040;twi.tudelft.nl">Dani&euml;l Mantione</a><br>
+    OS/2 / eComStation and EMX: <a href="mailto:hajny&#x040;SPAM.freepascal.ME.org.NOT">hajny&#x040;SPAM.freepascal.ME.org.NOT</a> (Tomas Hajny)<br>
     FreeBSD: <a href="mailto:marco&#x040;freepascal.org">Marco van de Voort</a><br>
     Mac OS X / Darwin: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a><br>
     Mac OS classic: <a href="mailto:olle.raab&#x040;freepascal.org">olle.raab&#x040;freepascal.org</a><br>
