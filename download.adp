@@ -72,7 +72,7 @@
       <li><a href="down/sparc/linux@x@">Linux</a>
       <li><a href="down/sparc/solaris@x@">Solaris</a>
     </ul>
-  <li>AMD64/x86_64
+  <li>AMD64/Intel 64/x86_64
     <ul>
       <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
       <li><a href="down/x86_64/linux@x@">Linux</a>
