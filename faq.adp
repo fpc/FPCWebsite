@@ -90,7 +90,7 @@
     <li><a href="#libci386">Libc is missing on platforms other than i386</a>
     <li><a href="#vgamissing">Why can't the linker find "vga"?</a>
     <li><a href="#unix-asldmissing">Compiler indicates missing as and ld</a>
-    <li><a href="#unix-ld219">An error occurred while linking, or &quot;did you forget -T?&quot;</a>
+    <li><a href="#unix-ld219">link.res syntax error, or &quot;did you forget -T?&quot;</a>
    </OL>
    <li><trn key="website.OS2_rel_inf" locale="en_US">OS/2-related information</trn>
    <OL>
@@ -1347,22 +1347,27 @@
             should install these tools. 
 
         <li><a name=unix-ld219></a>
-            <h3>An error occurred while linking, or &quot;did you forget -T?&quot;</h3>
+            <h3>link.res syntax error, or &quot;did you forget -T?&quot;</h3>
 
-            <p>There is a bug in GNU LD 2.19 and 2.19.1 that causes it to crash
-            when processing FPC-generated linker scripts. This bug has been fixed
-            in the mean time.</p>
+            <p>There was a bug in GNU LD 2.19 that caused it to crash
+            when processing FPC-generated linker scripts. This bug has been fixed in
+            GNU LD 2.19.1.</p>
 
             <p>At the same time, LD has been modified to emit a warning of the form 
             <pre>
                /usr/bin/ld: warning: link.res contains output sections; did you forget -T?
             </pre></p>
 
-            <p>This warning is benign, and FPC intentionally does not pass -T to LD. The reason
-            is that if -T is used, LD's internal linker script is ignored and only
-            FPC's linker script is used. Such linker scripts also contain paths to
-            libraries however, and if we would ignore the internal linker script then
-            LD would no longer find libraries in distribution-specific directories.</p>
+            <p>FPC 3.1.1 and later by default generate a different kind of linker script
+            that no longer triggers this warning. Unfortunately, this is only possible by
+            making use of functionality that is unavailable before GNU LD 2.19. Earlier
+            versions therefore now complain about a syntax error in link.res. The new
+            <tt>-X9</tt> compiler command line parameter can, however, be used to
+            generate linker scripts that are compatible with pre-2.19 linker versions.
+            </p><p>
+            Their is no way to remove the <tt>-T</tt> warning with earlier FPC versions, but it
+            should not result in any problems.
+            </p>
 
    </OL>
    <LI><h2>OS/2-related information </h2>
