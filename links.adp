@@ -8,6 +8,11 @@
 <li> The Original site is in
   <a href="http://www.freepascal.org/">Belgium</a>
   (maintained by <a href="mailto:Michael.VanCanneyt&#x040;wisa.be">Michael Van Canneyt</a>)
+</li>
+<li> A US mirror is available at
+  <a HREF="http://freepascal.mirror.jaleco.com/">freepascal.mirror.jaleco.com</a>
+  (maintained by <a href="http://de.jaleco.com/">Jaleco.com</a>)
+</li>
 </ul>
 <p>
   The following sites are updated daily and have the latest version available:
