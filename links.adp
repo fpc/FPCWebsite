@@ -13,6 +13,10 @@
   <a HREF="http://freepascal.mirror.jaleco.com/">freepascal.mirror.jaleco.com</a>
   (maintained by <a href="http://de.jaleco.com/">Jaleco.com</a>)
 </li>
+<li> A second US mirror is available at
+  <a HREF="http://freepascal.mirror.fileplanet.com/">freepascal.mirror.fileplanet.com</a>
+  (maintained by <a href="http://www.fileplanet.com/">fileplanet.com</a>)
+</li>
 </ul>
 <p>
   The following sites are updated daily and have the latest version available:
