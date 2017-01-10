@@ -60,16 +60,14 @@ Contributes the following work to the project:
 <IMG SRC="pic/jm.jpg" ALT="picture of Jonas" HEIGHT=175>
 <p>
 Year of birth: 1979<br>
-Job: Postdoctoral researcher in computer science at Ghent University, Belgium<br>
-Hobbies: computers (programming, fps, strategy games), reading, activism concerning misguided law proposals (privacy, immaterial rights)<br>
+Job: Gameplay scripter<br>
+Hobbies: computers (programming, strategy, role playing games), reading, activism concerning misguided law proposals (privacy, immaterial rights)<br>
 <p>
 Contributes the following work to the project:
 <ul>
-  <li>PowerPC port</li>
+  <li>PowerPC, JVM, AArch64 ports</li>
   <li>Mac OS X support</li>
-  <li>processor independent optimizations</li>
-  <li>optimizations on the i386 assembler code</li>
-  <li>compiler and rtl development</li>
+  <li>Compiler and rtl development</li>
 </ul>
 <address>Email: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a></address>
 
