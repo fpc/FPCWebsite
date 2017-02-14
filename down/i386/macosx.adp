@@ -21,7 +21,7 @@ The latest release version is <b>3.0.0</b></p>
  don't pay Apple 79 euro per year, which would prove you can trust us.
 
 <h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
- FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.11. Xcode 5 and later however
+ FPC 3.0.0 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
