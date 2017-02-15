@@ -11,10 +11,11 @@
 
 <ul>
  <trn locale="en_US" key="website.frontpage.news_headline_20170215">
- <p>
+ <li>
   <em>Februari 15th, 2017</em>
- </p>
- <p>
+ </li>
+ <ul>
+  <li>
    FPC version 3.0.2 has been released!
    <p>
     This version is a point update to 3.0 and contains bugfixes and updates packages
@@ -26,7 +27,8 @@
    <p>
     Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
    </p>
- </p>
+   </li>
+ </ul>
  </trn>
 
  <trn locale="en_US" key="website.frontpage.news_headline_20151125">
