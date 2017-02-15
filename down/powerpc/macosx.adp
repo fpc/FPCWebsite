@@ -15,9 +15,9 @@
 The latest release version is <b>3.0.0</b>
 </p>
 
-<h3><a name="macosxdmg"></a>Download the 3.0.0 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the 3.0.2 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/3.0.0/powerpc-macosx/fpc-3.0.0.powerpc-macosx.dmg">fpc-3.0.0.powerpc-macosx.dmg</a> (73 MB)
+<li> <a href="@mirror_url@dist/3.0.2/powerpc-macosx/fpc-3.0.2.powerpc-macosx.dmg">fpc-3.0.2.powerpc-macosx.dmg</a> (73 MB)
 contains an installation package for compiling PowerPC (32 bit and 64 bit) programs, as well as the Xcode Integration Toolkit.
 <br>
 </ul>

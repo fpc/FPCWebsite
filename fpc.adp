@@ -18,6 +18,28 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20170215">
+ <p>
+  <em>Februari 15th, 2017</em>
+ </p>
+ <p>
+   FPC version 3.0.2 has been released!
+   <p>
+    This version is a point update to 3.0 and contains bugfixes and updates packages
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+   </p>
+ </p>
+ </trn>
+</p>
+
+
+<p>
  <trn locale="en_US" key="website.frontpage.news_headline_20151125">
  <p>
   <em>November 25th, 2015</em>
@@ -29,63 +51,10 @@
    </p>
    <p>
     We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.0 documentation</a>.
+    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
    </p>
    <p>
     Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
- </p>
- </trn>
-</p>
-
-<p>
- <trn locale="en_US" key="website.frontpage.news_headline_20151021">
- <p>
-  <em>October 21th, 2015</em>
- </p>
- <p>
-   FPC 3.0.0-rc2 has been released!
-   <p>
-    The most important change since the first release candidate is a change in the 
-    unicode resource-string handling. There is also a new Windows to Android cross-compiler installer.
-   </p>
-   <p>
-    You can help improve the upcoming 3.0.0 release by downloading and
-    testing this release candidate. If you want, you can report what you have done <a href="http://wiki.freepascal.org/Testers_3.0.0">on the wiki</a>, but first you may want to check the <a href="http://wiki.freepascal.org/Issues_3.0.0">known issues</a>.
-    Next, we have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and of <a href="http://wiki.freepascal.org/User_Changes_3.0.0">changes that may break backward compatibility</a>.
-    Finally, you can also preview the <a href="http://www.freepascal.org/docs-html/3.0.0/">FPC 3.0.0 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at:
-    <ul>
-     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2</a></li>
-     <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2</a></li>
-    </ul>
-   </p>
- </p>
- </trn>
-</p>
-
-<p>
- <trn locale="en_US" key="website.frontpage.news_headline_20150825">
- <p>
-  <em>August 25th, 2015</em>
- </p>
- <p>
-   FPC 3.0.0-rc1 has been released!
-   <p>
-    You can help improve the upcoming 3.0.0 release by downloading and
-    testing this release candidate. If you want, you can report what you have done <a href="http://wiki.freepascal.org/Testers_3.0.0">on the wiki</a>, but first you may want to check the <a href="http://wiki.freepascal.org/Issues_3.0.0">known issues</a>.
-    Next, we have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and of <a href="http://wiki.freepascal.org/User_Changes_3.0.0">changes that may break backward compatibility</a>.
-    Finally, you can also preview the <a href="http://www.freepascal.org/docs-html/3.0.0/">FPC 3.0.0 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at:
-    <ul>
-     <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
-     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1</a></li>
-     <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
-    </ul>
    </p>
  </p>
  </trn>
@@ -97,7 +66,7 @@
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
-    Version <em>3.0.0</em> is the latest stable version the Free Pascal.
+    Version <em>3.0.2</em> is the latest stable version the Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
     The development releases have version numbers <EM>3.1.x</EM>.

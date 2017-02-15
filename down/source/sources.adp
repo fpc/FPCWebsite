@@ -11,13 +11,13 @@ The complete sources can be downloaded in the following formats:
 <p>
 <DL>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/3.0.0/source/fpcbuild-3.0.0.zip">fpcbuild-3.0.0.zip</a> (74 MB)</DD>
+  <DD><a href="@mirror_url@dist/3.0.2/source/fpcbuild-3.0.2.zip">fpcbuild-3.0.2.zip</a> (74 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/3.0.0/source/fpcbuild-3.0.0.tar.gz">fpcbuild-3.0.0.tar.gz</a> (67MB)</DD>
+  <DD><a href="@mirror_url@dist/3.0.2/source/fpcbuild-3.0.2.tar.gz">fpcbuild-3.0.2.tar.gz</a> (67MB)</DD>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/3.0.0/source/fpc-3.0.0.source.zip">fpc-3.0.0.source.zip</a> (45 MB)</DD>
+  <DD><a href="@mirror_url@dist/3.0.2/source/fpc-3.0.2.source.zip">fpc-3.0.2.source.zip</a> (45 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/3.0.0/source/fpc-3.0.0.source.tar.gz">fpc-3.0.0.source.tar.gz</a> (38 MB)</DD>
+  <DD><a href="@mirror_url@dist/3.0.2/source/fpc-3.0.2.source.tar.gz">fpc-3.0.2.source.tar.gz</a> (38 MB)</DD>
 </DL>
 The fpc archive files contain the full sources of:
 <ul>

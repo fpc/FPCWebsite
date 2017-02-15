@@ -190,13 +190,14 @@
 	      <li>02/2013: 2.6.2 released 
 	      <li>03/2014: 2.6.4 released
 	      <li>11/2015: 3.0.0 released  
+              <li>02/2017: 3.0.2 released
             </ul>
           </trn>  
 
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 3.0.0, the first release in the 3.0.x series.
+            <p>The latest official version is 3.0.2, the second release in the 3.0.x series.
             New development is performed in the 3.1.x series, which will eventually
             be released as 3.2.0 or 4.0.0, depending on milestones achieved.
 
@@ -228,7 +229,7 @@
  		 be anywhere between 2.6.0 and the moment 2.6.2 branched off (Jan 2013). Likewise,
 		 after the release of 2.6.2 the fixes_2_6 branch identified itself as version 2.6.3 till 2.6.4 branched off (typically
  		 two months before its release).  After 2.6.4, the stable branch's number was updated to 2.6.5,
-		 after 3.0.0 to 3.0.1 etc.
+		 after 3.0.2 to 3.0.3 etc.
             </ul>
             <p>
 
@@ -267,7 +268,7 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 3.0.0 (November 2015). GNU Pascal is stopped
+            <DD>Currently, Free Pascal is at version 3.0.2 (February 2017). GNU Pascal is stopped
             version 2.1 (from 2002, which can be built with several different GCC's as backend;
             their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>

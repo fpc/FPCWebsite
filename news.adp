@@ -10,6 +10,25 @@
 <h3>Latest changes:</h3>
 
 <ul>
+ <trn locale="en_US" key="website.frontpage.news_headline_20170215">
+ <p>
+  <em>Februari 15th, 2017</em>
+ </p>
+ <p>
+   FPC version 3.0.2 has been released!
+   <p>
+    This version is a point update to 3.0 and contains bugfixes and updates packages
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+   </p>
+ </p>
+ </trn>
+
  <trn locale="en_US" key="website.frontpage.news_headline_20151125">
  <li>
   <em>November 25th, 2015</em>

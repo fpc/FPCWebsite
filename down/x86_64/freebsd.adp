@@ -16,9 +16,9 @@
 <h3><trn key="website.Download_native_compiler" locale="en_US">Download native compiler</trn></h3>
 <ul>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd10.tar">fpc-@latestversion@.x86_64-freebsd10.tar</a> (43.1 MB)
+    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd10.tar">fpc-@latestversion@.x86_64-freebsd10.tar</a> (55 MB)
   <li>
-    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd9.tar">fpc-@latestversion@.x86_64-freebsd9.tar</a> (44.1 MB)
+    <a href="@mirror_url@dist/@latestversion@/x86_64-freebsd/fpc-@latestversion@.x86_64-freebsd11.tar">fpc-@latestversion@.x86_64-freebsd11.tar</a> (54 MB)
 </ul>
 
 <p><trn key="website.i386-freebsd_1_file_download_descr" locale="en_US">
