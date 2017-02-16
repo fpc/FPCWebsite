@@ -12,7 +12,7 @@
 -->
 
 <p>
-The latest release version is <b>3.0.0</b>
+The latest release version is <b>3.0.2</b>
 </p>
 
 <h3><a name="macosxdmg"></a>Download the 3.0.2 release in 1 big file:</h3>
