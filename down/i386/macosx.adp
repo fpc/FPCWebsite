@@ -41,7 +41,7 @@ The latest release version is <b>3.0.2</b></p>
 
 <h3><a name="macosxdmg"></a>Download the 3.0.2 release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/3.0.2/i386-macosx/fpc-3.0.0.intel-macosx.dmg">fpc-3.0.2.intel-macosx.dmg</a> (71 MB)
+<li> <a href="@mirror_url@dist/3.0.2/i386-macosx/fpc-3.0.2.intel-macosx.dmg">fpc-3.0.2.intel-macosx.dmg</a> (71 MB)
 contains an installation package for compiling Intel (32 bit and 64 bit) programs.
 <br>
 <li> <a href="@mirror_url@dist/3.0.2/i386-macosx/fpc-3.0.2.intel-macosx.cross.powerpc-macosx.dmg">fpc-3.0.2.intel-macosx.cross.powerpc-macosx.dmg</a> (62 MB)
