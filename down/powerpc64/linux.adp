@@ -11,7 +11,7 @@
 *****************************************************************************
 -->
 
-The latest release version is <b>2.6.4</b>.
+The latest release version is <b>@latestversion@</b>.
 
 The FPC package for is available in one easy to choose format:
 <ul>
@@ -21,7 +21,7 @@ The FPC package for is available in one easy to choose format:
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/2.6.4/powerpc64-linux/fpc-2.6.4.powerpc64-linux.tar">fpc-2.6.4.powerpc64-linux.tar</a> (53 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (57 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
