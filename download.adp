@@ -54,6 +54,7 @@
     </ul>
   <li>PowerPC
     <ul>
+      <li><a href="down/powerpc/aix@x@">AIX</a>
       <li><a href="down/powerpc/linux@x@">Linux</a>
 <!--
       <li><a href="down/powerpc/macos@x@">Mac OS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
@@ -64,6 +65,7 @@
     </ul>
   <li>PowerPC64
     <ul>
+      <li><a href="down/powerpc64/aix@x@">AIX</a>
       <li><a href="down/powerpc64/linux@x@">Linux</a>
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>
