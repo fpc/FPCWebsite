@@ -16,32 +16,27 @@
 </trn>
 
 <h1>3.0.2</h1>
-The FPC 3.0.2 package for arm-linux is available in one easy to choose format:
+The FPC 3.0.2 package for arm-linux is available in two to choose format:
 <ul>
-  <li> <a href="#linuxbig302">Everything in 1 big package</a>
+  <li> <a href="#linuxbig302eabi">Everything in 1 big package for eabi ABI</a>
+  <li> <a href="#linuxbig302eabihf">Everything in 1 big package for eabihf ABI for raspberry</a>
 </ul>
 
-<h3><a name="linuxbig302"></a>Download in 1 big file:</h3>
-<p>The distribution in the archive below is for an EABIHF, like RaspBerry 1 arm-linux system.</p>
+<h3><a name="linuxbig302eabi"></a>Download in 1 big file:</h3>
+<p>The distribution in the archive below is for EABI abi, compiled for armv3 CPU.</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linux.tar">fpc-3.0.2.arm-linux.tar</a> (38 MB)
+href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linuxi-eabi.tar">fpc-3.0.2.arm-linuxi-eabi.tar</a> (38 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
 
-<h1>2.6.4</h1>
-The older FPC 2.6.4 package for arm-linux is available in one easy to choose format:
-<ul>
-  <li> <a href="#linuxbig264">Everything in 1 big package</a>
-</ul>
-
-<h3><a name="linuxbig264"></a>Download in 1 big file:</h3>
-<p>The distribution in the archive below is for an EABI, armv5tdmi, softfp arm-linux system.</p>
+<h3><a name="linuxbig302eabihf"></a>Download in 1 big file:</h3>
+<p>The distribution in the archive below is for an EABIHF, compiled on RaspBerry 1 arm-linux system (for armv6 cpu).</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/2.6.4/arm-linux/fpc-2.6.4.arm-linux.tar">fpc-2.6.4.arm-linux.tar</a> (38 MB)
+href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linux-eabihf-raspberry.tar">fpc-3.0.2.arm-linux-eabihf-raspberry.tar</a> (38 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
