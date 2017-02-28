@@ -26,7 +26,7 @@ The FPC 3.0.2 package for arm-linux is available in two to choose format:
 <p>The distribution in the archive below is for EABI abi, compiled for armv3 CPU.</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linuxi-eabi.tar">fpc-3.0.2.arm-linuxi-eabi.tar</a> (38 MB)
+href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linuxi-eabi.tar">fpc-3.0.2.arm-linuxi-eabi.tar</a> (55 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -36,7 +36,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 <p>The distribution in the archive below is for an EABIHF, compiled on RaspBerry 1 arm-linux system (for armv6 cpu).</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linux-eabihf-raspberry.tar">fpc-3.0.2.arm-linux-eabihf-raspberry.tar</a> (38 MB)
+href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linux-eabihf-raspberry.tar">fpc-3.0.2.arm-linux-eabihf-raspberry.tar</a> (56 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
