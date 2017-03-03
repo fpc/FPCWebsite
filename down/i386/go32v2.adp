@@ -108,7 +108,7 @@ change the name of the files!
 <li>CWSDPMI (necessary for running the installer unless some DPMI runtime already present):
 <a href="@mirror_url@dist/3.0.2/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (20 kB)
 <li>Floating point processor emulator:
-<a href="@mirror_url@dist/3.0.2/i386-go32v2/separate/wemu387.dxe">wemu387.dxe</a> (60 kB)
+<a href="@mirror_url@dist/3.0.2/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (60 kB)
 </ul>
 </OL>
 
