@@ -88,6 +88,11 @@
   <li>MIPS
     <ul>
       <li><a href="down/android/android@x@">Android</a>
+      <li><a href="down/mips/linux@x@">Linux</a>
+    </ul>
+  <li>MIPSEL
+    <ul>
+      <li><a href="down/mipsel/linux@x@">Linux</a> (Experimental, not tested)
     </ul>
 </ul>
 
