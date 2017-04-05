@@ -20,7 +20,7 @@
 <p>
  <trn locale="en_US" key="website.frontpage.news_headline_20170215">
  <p>
-  <em>Februari 15th, 2017</em>
+  <em>February 15th, 2017</em>
  </p>
  <p>
    FPC version 3.0.2 has been released!
