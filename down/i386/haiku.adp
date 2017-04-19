@@ -16,7 +16,7 @@
 <h3><trn key="website.Download_native_compiler" locale="en_US">Download native compiler</trn></h3>
 <ul>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i386-haiku/fpc-@latestversion@.i386-haiku.tar">fpc-@latestversion@.i386-haiku.tar</a> (46.2 MB)
+    <a href="@mirror_url@dist/@latestversion@/i386-haiku/fpc-@latestversion@.i386-haiku.tar">fpc-@latestversion@.i386-haiku.tar</a> (49 MB)
 </ul>
 
 <p><trn key="website.i386-haiku_1_file_download_descr" locale="en_US">
