@@ -83,7 +83,7 @@
 
   <div class="logos">
    <p><a href="http://www.lazarus.freepascal.org"><img src="@maindir@pic/lazarus_produced_logo.gif" alt="Lazarus Logo" height="57" width="125" ></a></p>
-   <p><a href="http://www.ffii.org"><img src="http://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" height="31" width="88" ></a></p>
+   <p><a href="http://www.ffii.org"><img src="https://demo.ffii.org/banners/bsod7s_88x31.en.png" alt="EU-Council segfaulted" height="31" width="88" ></a></p>
    <p><a href="http://sourceforge.net"><img src="https://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" alt="SourceForge.net Logo" ></a></p>
   </div>
  </div>
