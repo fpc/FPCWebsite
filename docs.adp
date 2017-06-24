@@ -10,7 +10,7 @@
 <p>
 <h3><trn locale="en_US" key="website.PDFs_available">The following documents are online available:</trn></h3>
 <table summary="" width="75%" rules="none" cellspacing="0" cellpadding="3" border="1">
-<tr><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th><th WIDTH="30%" ALIGN=LEFT>Document</th></tr>
+<tr><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th><th WIDTH="90%" ALIGN=LEFT>Document</th></tr>
 
 <tr>
     <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf">PDF</a></td>
