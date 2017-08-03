@@ -3,11 +3,12 @@
 # Updatesourcezips for trunk
 #
 
-WORKDIR=$HOME/fpc
-DESTDIR=$HOME/ftp/snapshot/trunk/source
+WORKDIR=$HOME/pas/updatesources
+DESTDIR=fpcftp:ftp/snapshot/trunk/source
 CHECKOUTDIR=$WORKDIR/svnbuild_trunk
 TAG=trunk
 MODULES='fpcbuild'
+ZIPNAME=fpcbuild.zip
 SUFFIX=
 #ZIPPACKAGES='rtl compiler utils fcl packages ide demo'
 ZIPPACKAGES=
