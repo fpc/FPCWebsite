@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Updatesourcezips for trunk
+#
+
+WORKDIR=$HOME/pas/updatesources
+DESTDIR=fpcftp:ftp/snapshot/fixes/source
+CHECKOUTDIR=$WORKDIR/svn_fixes
+TAG=fixes_3_0
+MODULES='fpc'
+ZIPNAME=fpc.zip
+SUFFIX=
+#ZIPPACKAGES='rtl compiler utils fcl packages ide demo'
+ZIPPACKAGES=
+
+. $HOME/scripts/updatesourcezips
