@@ -45,6 +45,10 @@ function set_ppc ()
 function check_one_rtl ()
 {
   CPU_TARGET=$1
+  # mipseb and mips are just aliases
+  if [ "$CPU_TARGET" == "mipseb" ] ; then
+    CPU_TARGET=mips
+  fi
   set_ppc $CPU_TARGET
 
   OS_TARGET=$2
@@ -142,6 +146,10 @@ echo "Starting at `date`" > $EMAILFILE
 LOGPREFIX=$HOME/logs/rtl-check
 
 (
+
+# Remove all existing logs
+rm -Rf ${LOGPREFIX}*
+
 # List separately cases for which special parameters are required
 check_one_rtl arm embedded "-n" "SUBARCH=armv4t"
 check_one_rtl avr embedded "-n" "SUBARCH=avr25"
@@ -165,6 +173,8 @@ list_os x86_64 "-n"
 
 
 # Parse system_CPU_OS entries in compiler/systems.inc source file 
+# Obsolete systems are not listed here
+# as they start with obsolete_system
 index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\), *{ *\([0-9]*\).*:\3;\1!\2:p" compiler/systems.inc`
 
 # Splitt into index, cpu and os
