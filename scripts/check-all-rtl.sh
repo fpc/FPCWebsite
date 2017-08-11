@@ -2,6 +2,23 @@
 
 . $HOME/bin/fpc-versions.sh
 
+# Some programs might freeze
+# like i386-darwin-as...
+
+ulimit -t 300
+
+FPCRELEASEVERSION=$RELEASEVERSION
+
+
+# Add FPC release bin and $HOME/bin directories to PATH
+if [ -d $HOME/bin ] ; then
+  PATH=$HOME/bin:$PATH
+fi
+
+if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
+  PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:$PATH
+fi
+
 if [ "X$MAKE" == "X" ] ; then
   MAKE=make
 fi
@@ -9,11 +26,19 @@ fi
 if [ "X$FIXES" == "X1" ] ; then
   STARTDIR=$FIXESDIR
   svnname=fixes
+  FPCVERSION=$FIXESVERSION
 else
   STARTDIR=$TRUNKDIR
   svnname=trunk
+  FPCVERSION=$TRUNKVERSION
 fi
 
+# Add current FPC (trunk or fixes) bin directory to PATH
+if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
+  export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
+fi
+
+export PATH
 cd $STARTDIR
 
 if [ -d fpcsrc ] ; then
@@ -30,18 +55,18 @@ LOGFILE=$HOME/logs/all-rtl-${svnname}-checks.log
 LISTLOGFILE=$HOME/logs/list-all-rtl-${svnname}-checks.log
 EMAILFILE=$HOME/logs/check-rtl-${svnname}-log.txt
 
-echo "Starting at `date`" > $LOGFILE
-echo "Starting at `date`" > $LISTLOGFILE
-echo "Starting at `date`" > $EMAILFILE
+echo "$0 for $svnname starting at `date`" > $LOGFILE
+echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
+echo "$0 for $svnname starting at `date`" > $EMAILFILE
 
 LOGPREFIX=$HOME/logs/rtl-check-${svnname}
+export dummy_count=0
 
-
-function set_ppc ()
+function set_fpc ()
 {
-  CPU_TARGET=$1
+  LOC_CPU_TARGET=$1
 
-  case $CPU_TARGET in
+  case $LOC_CPU_TARGET in
     aarch64)   FPC=ppca64;;
     alpha)     FPC=ppcaxp;;
     arm)       FPC=ppcarm;;
@@ -71,10 +96,24 @@ function check_one_rtl ()
   if [ "X$CPU_TARGET" == "Xmipseb" ] ; then
     CPU_TARGET=mips
   fi
-  set_ppc $CPU_TARGET
+
+  if [ "X$CPU_TARGET" == "Xx86_6432" ] ; then
+    CPU_TARGET=x86_64
+    is_6432=1
+  else
+    is_6432=0
+  fi
+
+  set_fpc $CPU_TARGET
 
   OS_TARGET=$2
 
+  # system_x86_6432_linux needs to be translated into
+  # CPU=x86_64 and OS=linux6432
+  if [ $is_6432 -eq 1 ] ; then
+    OS_TARGET=${OS_TARGET}6432
+  fi
+   
   # jvm-java and jvm-android have 32 suffix
   # in their system_CPU_OS names
   if [ "X$OS_TARGET" == "Xandroid32" ] ; then
@@ -84,15 +123,19 @@ function check_one_rtl ()
     OS_TARGET=java
   fi
 
-  OPT="$3"
+  LOCAL_OPT="$3"
   MAKEEXTRA="$4"
-  echo "Testing rtl for $CPU_TARGET $OS_TARGET, with OPT=\"$OPT\" and MAKEEXTRA=\"$MAKEEXTRA\""
+
+  EXTRASUFFIX=$5
+
+  echo "Testing rtl for $CPU_TARGET $OS_TARGET, with OPT=\"$LOCAL_OPT\" and MAKEEXTRA=\"$MAKEEXTRA\""
   date "+%Y-%m-%d %H:%M:%S"
-  already_tested=`grep " $CPU_TARGET-$OS_TARGET" $LISTLOGFILE `
+  already_tested=`grep " $CPU_TARGET-${OS_TARGET}$EXTRASUFFIX," $LISTLOGFILE `
   if [ "X$already_tested" != "X" ] ; then
     echo "Already done" 
     return
   fi
+
 
   BINUTILSPREFIX=not_set
 
@@ -100,8 +143,22 @@ function check_one_rtl ()
     ASSEMBLER=java
     # java is installed, no need for prefix
     BINUTILSPREFIX=
-  elif [ "$OS_TARGET" == "darwin" ] ; then
-    ASSEMBLER=clang
+    ASSEMBLER_VER_OPT=--version
+    ASSEMBLER_VER_REGEXPR="java"
+    target-as=$ASSEMBLER
+    assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" `
+  elif [[ ("$OS_TARGET" == "darwin") || ("$OS_TARGET" == "iphonesim") ]] ; then
+    ASSEMBLER=as
+    # Use -Aas-darwin option
+    if [[ ("$CPU_TARGET" == "i386") || ("$CPU_TARGET" == "x86_64") ]] ; then
+      LOCAL_OPT="$LOCAL_OPT -Aas-darwin"
+    else
+      LOCAL_OPT="$LOCAL_OPT -Aas"
+    fi
+  elif [ "$OS_TARGET" == "msdos" ] ; then
+    ASSEMBLER=nasm
+  elif [ "$OS_TARGET" == "win16" ] ; then
+    ASSEMBLER=nasm
   else
     ASSEMBLER=as
   fi
@@ -110,12 +167,22 @@ function check_one_rtl ()
     target_as=`which ${CPU_TARGET}-${OS_TARGET}-${ASSEMBLER}`
     if [ "X$target_as" != "X" ] ; then
       BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+      if [ "$ASSEMBLER" == "nasm" ] ; then
+        ASSEMBLER_VER_OPT=-v
+        ASSEMBLER_VER_REGEXPR="version"
+      else
+        ASSEMBLER_VER_OPT=--version
+        ASSEMBLER_VER_REGEXPR="gnu assembler"
+      fi
+      assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" `
     else
       BINUTILSPREFIX=dummy-
+      assembler_version="Dummy assembler"
+      dummy_count=`expr $dummy_count + 1 `
     fi
   fi
 
-  extra_text=""
+  extra_text="$assembler_version"
 
   if [ $listed -eq 0 ] ; then
     extra_text="not listed in $FPC -h"
@@ -133,36 +200,40 @@ function check_one_rtl ()
   if [ "X$extra_text" != "X" ] ; then
     extra_text="($extra_text)"
   fi
-  $MAKE -C $rtldir clean all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$OPT" $MAKEEXTRA > ${LOGPREFIX}-${CPU_TARGET}-${OS_TARGET}.txt 2>&1
+
+  LOGFILE1=${LOGPREFIX}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.txt
+  LOGFILE2=${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.txt
+
+  $MAKE -C $rtldir clean all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA > $LOGFILE1 2>&1
   res=$?
   if [ $res -eq 0 ] ; then
-    echo "OK: Testing 1st $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
-    echo "OK: Testing 1st $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
+    echo "OK: Testing 1st $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
+    echo "OK: Testing 1st $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
     echo "Re-running make should do nothing"
-    $MAKE -C $rtldir all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$OPT" $MAKEEXTRA > ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt 2>&1
+    $MAKE -C $rtldir all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA > $LOGFILE2 2>&1
     res=$?
     if [ $res -eq 0 ] ; then
-      fpc_called=`grep $FPC ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt`
+      fpc_called=`grep $FPC $LOGFILE2 `
       if [ "X$fpc_called" == "X" ] ; then
-        echo "OK: Testing 2nd $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
-        echo "OK: Testing 2nd $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
+        echo "OK: Testing 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
+        echo "OK: Testing 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
       else
-        echo "Failure: 2nd $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
-        echo "Failure: See ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt for details"
-        echo "Failure: 2nd $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
-        echo "Failure: See ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt for details" >> $LISTLOGFILE
+        echo "Failure: 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
+        echo "Failure: See $LOGFILE2 for details"
+        echo "Failure: 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
+        echo "Failure: See $LOGFILE2 for details" >> $LISTLOGFILE
       fi 
     else
-      echo "Failure: Rerunning make $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text"
-      echo "Failure: See ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt for details"
-      echo "Failure: Rerunning make $rtldir for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See ${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}.txt for details" >> $LISTLOGFILE
+      echo "Failure: Rerunning make $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text"
+      echo "Failure: See $LOGFILE2 for details"
+      echo "Failure: Rerunning make $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text" >> $LISTLOGFILE
+      echo "Failure: See $LOGFILE2 for details" >> $LISTLOGFILE
     fi
    else
-    echo "Failure: Testing rtl for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text"
-    echo "Failure: See ${LOGPREFIX}-${CPU_TARGET}-${OS_TARGET}.txt for details"
-    echo "Failure: Testing rtl for $CPU_TARGET-$OS_TARGET, with OPT=\"$OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text" >> $LISTLOGFILE
-    echo "Failure: See ${LOGPREFIX}-${CPU_TARGET}-${OS_TARGET}.txt for details" >> $LISTLOGFILE
+    echo "Failure: Testing rtl for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text"
+    echo "Failure: See $LOGFILE1 for details"
+    echo "Failure: Testing rtl for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text" >> $LISTLOGFILE
+    echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
   fi
   date "+%Y-%m-%d %H:%M:%S"
 }
@@ -170,7 +241,7 @@ function check_one_rtl ()
 function list_os ()
 {
   CPU_TARGET=$1
-  set_ppc $CPU_TARGET
+  set_fpc $CPU_TARGET
   OPT="$2"
   MAKEEXTRA="$3"
   os_list=`$FPC -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
@@ -187,9 +258,24 @@ rm -Rf ${LOGPREFIX}*
 
 # List separately cases for which special parameters are required
 check_one_rtl arm embedded "-n" "SUBARCH=armv4t"
-check_one_rtl avr embedded "-n" "SUBARCH=avr25"
+check_one_rtl avr embedded "-n" "SUBARCH=avr25" "-avr25"
+check_one_rtl avr embedded "-n" "SUBARCH=avr4" "-avr4"
+check_one_rtl avr embedded "-n" "SUBARCH=avr6"
 check_one_rtl mipsel embedded "-n" "SUBARCH=pic32mx"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall" ""
+
+# msdos OS
+check_one_rtl i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
+check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall" "" "-small"
+check_one_rtl i8086 msdos "-n -CX -XX -Wmmedium" "" "-medium"
+check_one_rtl i8086 msdos "-n -CX -XX -Wmcompact" "" "-compact"
+check_one_rtl i8086 msdos "-n -CX -XX -Wmlarge" "" "-large"
+check_one_rtl i8086 msdos "-n -CX -XX -Wmhuge"
+
+# Win16 OS
+check_one_rtl i8086 win16 "-n -CX -XX -Wmhuge"
+
+# Wii OS requires -Sfresources option
+check_one_rtl powerpc wii "-n -Sfresources"
 
 # Generic listing based on -T$OS_TARGET
 list_os aarch64 "-n"
@@ -227,8 +313,12 @@ for index_cpu_os in $index_cpu_os_list ; do
 done
 
 $MAKE -C rtl distclean 1> /dev/null 2>&1
+echo "dummy_count=$dummy_count"
 
 ) >> $LOGFILE 2>&1
+
+dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
+eval $dummy_count_new_val
 
 echo "Ending at `date`" >> $LOGFILE
 echo "Ending at `date`" >> $LISTLOGFILE
@@ -239,7 +329,10 @@ error_file_list=` sed -n "s|Failure: See \(.*\) for details|\1|p" $LISTLOGFILE `
 
 ok_count=` grep "OK:.*2nd.*" $LISTLOGFILE | wc -l `
 pb_count=` grep "Failure: See.*" $LISTLOGFILE | wc -l `
+total_count=`expr $pb_count + $ok_count `
+
 echo "Short summary: number of ok=$ok_count, number of pb=$pb_count" >> $EMAILFILE
+echo "Number of targets using dummy assembler: $dummy_count/$total_count" >> $EMAILFILE
 echo "###############################" >> $EMAILFILE
 echo "Short list of failed cpu-os pairs" >> $EMAILFILE
 echo "###############################" >> $EMAILFILE
@@ -259,9 +352,9 @@ for file in $error_file_list ; do
   echo "Error in file $index $file" >> $EMAILFILE
   output=`grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal)" $file | grep -v "^[0-9 ]*-$rmprog" `
   if [ "X$output" == "X" ] ; then
-    cat $file  | grep -v "^$rmprog" >> $EMAILFILE
+    cat $file  | grep -v "^$rmprog" | head -20 >> $EMAILFILE
   else
-    grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal)" $file  | grep -v "^[0-9 ]*-$rmprog" >> $EMAILFILE
+    grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal)" $file  | grep -v "^[0-9 ]*-$rmprog" | head -20 >> $EMAILFILE
   fi
   index=` expr $index + 1 `
 done
@@ -273,5 +366,5 @@ echo "###############################" >> $EMAILFILE
 echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
-mutt -x -s "Free Pascal check RTL results date `date +%Y_%m-%d`" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d`" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
