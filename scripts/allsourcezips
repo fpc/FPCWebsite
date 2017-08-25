@@ -1,7 +1,13 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-$HOME/scripts/updatesourcezips_fixes
-$HOME/scripts/updatesourcezips_trunk
-$HOME/scripts/updatesourcezipsbuild_fixes
-$HOME/scripts/updatesourcezipsbuild_trunk
+. $HOME/bin/fpc-versions.sh
+
+LOGFILE=~/logs/update-source-fixes-fpc.log
+$HOME/scripts/updatesourcezips_fixes > $LOGFILE 2>&1
+LOGFILE=~/logs/update-source-trunk-fpc.log
+$HOME/scripts/updatesourcezips_trunk > $LOGFILE 2>&1
+LOGFILE=~/logs/update-source-fixes-fpcbuild.log
+$HOME/scripts/updatesourcezipsbuild_fixes > $LOGFILE 2>&1
+LOGFILE=~/logs/update-source-trunk-fpcbuild.log
+$HOME/scripts/updatesourcezipsbuild_trunk > $LOGFILE 2>&1
 
