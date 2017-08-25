@@ -5,6 +5,9 @@
 ./do-one.sh aarch64-linux aarch64-unknown-linux-gnu
 ## system_aarch64_linux,      { 88 }
 ./do-one.sh aarch64-darwin aarch64-unknown-darwin
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh aarch64-aros aarch64-aros
+export BINUTILS_RELEASE=
 
 ## alpha CPU
 ## Alpha CPU is obbsolete
@@ -12,9 +15,11 @@
 
 ## arm CPU
 ## system_arm_android,        { 77 }
-./do-one.sh arm-android arm-unknown-android-gnu
+./do-one.sh arm-android-gnuas arm-linux-androideabi
 ## system_arm_aros,           { 91 }
-./do-one.sh arm-aros arm-unknown-aros
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh arm-aros arm-aros
+export BINUTILS_RELEASE=
 ## system_arm_darwin,         { 64 }
 ./do-one.sh arm-darwin arm-unknown-darwin
 ## system_arm_embedded,       { 57 }
@@ -46,17 +51,23 @@ export BINUTILS_RELEASE=
 
 ## i386 CPU
 ## system_i386_android,       { 78 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-android-gnuas i686-android-linux
 ## system_i386_aros,          { 83 }
-./do-one.sh i386- i386-unknown-
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh i386-aros i386-aros
+export BINUTILS_RELEASE=
 ## system_i386_beos,          { 16 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-beos i386-unknown-beos
 ## system_i386_darwin,        { 44 }
 ./do-one.sh i386-darwin i386-unknown-darwin
 ## system_i386_embedded,      { 48 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-embedded i386-none-elf
 ## system_i386_EMX,           { 28 }
-./do-one.sh i386- i386-unknown-
+export HOST=i686-unknown-linux
+export BINUTILS_RELEASE="2.9.1-emx"
+./do-one.sh i386-emx i386-unknown-emx
+export BINUTILS_RELEASE=
+export HOST=
 ## system_i386_freebsd,       { 6 }
 ./do-one.sh i386-freebsd i386-unknown-freebsd11
 ## system_i386_GO32V2,        { 2 }
@@ -64,31 +75,33 @@ export BINUTILS_RELEASE=
 ## system_i386_haiku,         { 63 }
 ./do-one.sh i386-haiku i386-unknown-haiku
 ## system_i386_iphonesim,     { 69 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-iphonesim i386-unknown-iphonesim
 ## system_i386_linux,         { 3 }
 ./do-one.sh i386-linux i386-unknown-linux-gnu
 ## system_i386_nativent,      { 68 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-nativent i686-w64-mingw32
 ## system_i386_netbsd,        { 17 }
 ./do-one.sh i386-netbsd i386-unknown-netbsd-gnu
 ## system_i386_Netware,       { 19 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-netare i386-unknown-netware
 ## system_i386_netwlibc,      { 35 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-newlibc i386-unknown-newlibc
 ## system_i386_openbsd,       { 24 }
-# ./do-one.sh i386-openbsd i386-unknown-openbsd-gnu
+export BINUTILS_RELEASE=2.17-openbsd
+./do-one.sh i386-openbsd i386-unknown-openbsd
+export BINUTILS_RELEASE=
 ## system_i386_OS2,           { 4 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-os2 i386-unknown-os2
 ## system_i386_qnx,           { 20 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-qnx i386-unknown-qnx
 ## system_i386_solaris,       { 15 }
 ./do-one.sh i386-solaris i386-unknown-solaris2.10
 ## system_i386_symbian,       { 59 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-symbian i386-unknown-symbian
 ## system_i386_watcom,        { 32 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-watcom i386-unknown-watcom
 ## system_i386_wdosx,         { 21 }
-./do-one.sh i386- i386-unknown-
+./do-one.sh i386-wdosx i386-unknown-wdosx
 ## system_i386_Win32,         { 5 }
 ./do-one.sh i386-win32 i686-w64-mingw32
 ## system_i386_wince,         { 40 }
@@ -110,22 +123,32 @@ export BINUTILS_RELEASE=
 
 ## m68k CPU
 ## system_m68k_Amiga,         { 7 }
-./do-one.sh m68k-amiga m68k-unknown-amiga
+export BINUTILS_RELEASE="2.14-amiga"
+./do-one.sh m68k-amiga m68k-unknown-amigaos
+export BINUTILS_RELEASE=
 ## system_m68k_Atari,         { 8 }
 ./do-one.sh m68k-atari m68k-unknown-atari
+## system_m68k_aros (doesn't exist yet)
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh m68k-aros m68k-aros
+export BINUTILS_RELEASE=
 ## system_m68k_embedded,      { 49 }
 ./do-one.sh m68k-embedded m68k-none-elf
 ## system_m68k_linux,         { 10 }
+# export BINUTILS_RELEASE="2.17"
 ./do-one.sh m68k-linux m68k-unknown-linux-gnu
+#export BINUTILS_RELEASE=
 ## system_m68k_Mac,           { 9 }
 ./do-one.sh m68k-mac m68k-unknown-macos
 ## system_m68k_netbsd,        { 18 }
 ./do-one.sh m68k-netbsd m68k-unknown-netbsd-gnu
 ## system_m68k_openbsd,       { 25 }
-./do-one.sh m68k-openbsd m68k-unknown-openbsd-gnu
+export BINUTILS_RELEASE=2.17-openbsd
+./do-one.sh m68k-openbsd m68k-unknown-openbsd
+export BINUTILS_RELEASE=
 ## system_m68k_PalmOS,        { 11 }
 export BINUTILS_RELEASE="2.14"
-./do-one.sh m68k-palmos m68k-palmos
+./do-one.sh m68k-palmos m68k-unknown-palmos
 export BINUTILS_RELEASE=
 
 ## mips CPU
@@ -134,10 +157,12 @@ export BINUTILS_RELEASE=
 ## system_mipseb_linux,       { 66 }
 ./do-one.sh mips-linux mips-unknown-linux-gnu
 ## system_mips_embedded,      { 56 }
+./do-one.sh mips-embedded mips-none-elf
 ## Same as mips_embedded??
 
 ## mipsel CPU
 ## system_mipsel_android,     { 80 }
+./do-one.sh mispel-android-gnuas mipsel-linux-androideabi
 ## system_mipsel_embedded,    { 82 }
 ./do-one.sh mipsel-embedded mipsel-none-elf
 ## system_mipsel_linux,       { 67 }
@@ -145,9 +170,15 @@ export BINUTILS_RELEASE=
 
 ## powerpc CPU
 ## system_powerpc_aix,        { 73 }
-./do-one.sh powerpc-aix powerpc-unknown-aix
+./do-one.sh powerpc-aix powerpc-unknown-aix7.1
 ## system_powerpc_Amiga,      { 36 }
-./do-one.sh powerpc-amiga powerpc-unknown-amiga
+export BINUTILS_RELEASE="2.14-amiga"
+./do-one.sh powerpc-amiga powerpc-unknown-amigaos
+export BINUTILS_RELEASE=
+## system_powerpc_aros (doesn't exist yet)
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh powerpc-aros ppc-aros
+export BINUTILS_RELEASE=
 ## system_powerpc_darwin,     { 27 }
 ./do-one.sh powerpc-darwin powerpc-unknown-darwin
 ## system_powerpc_embedded,   { 51 }
@@ -161,13 +192,15 @@ export BINUTILS_RELEASE=
 ## system_powerpc_netbsd,     { 29 }
 ./do-one.sh powerpc-netbsd powerpc-unknown-netbsd-gnu
 ## system_powerpc_openbsd,    { 30 }
-./do-one.sh powerpc-openbsd powerpc-unknown-openbsd-gnu
+export BINUTILS_RELEASE=2.17-openbsd
+./do-one.sh powerpc-openbsd powerpc-unknown-openbsd
+export BINUTILS_RELEASE=
 ## system_powerpc_wii,        { 70 }
 ./do-one.sh powerpc-wii powerpc-eabi
 
 ## powerpc64 CPU
 ## system_powerpc64_aix,      { 74 }
-./do-one.sh powerpc64-aix powerpc64-unknown-aix
+./do-one.sh powerpc64-aix powerpc64-unknown-aix7.1
 ## system_powerpc64_darwin,   { 46 }
 ./do-one.sh powerpc64-darwin powerpc64-unknown-darwin
 ## system_powerpc64_embedded, { 58 }
@@ -193,6 +226,9 @@ export BINUTILS_RELEASE=
 ## x86_64 CPU
 ## system_x86_6432_linux,     { 41 }
 ## system_x86_64_aros,        { 84 }
+export BINUTILS_RELEASE="2.25-aros"
+./do-one.sh x86_64-aros x86_64-aros
+export BINUTILS_RELEASE=
 ## system_x86_64_darwin,      { 61 }
 ./do-one.sh x86_64-darwin x86_64-unknown-darwin
 ## system_x86_64_dragonfly,   { 85 }
@@ -207,7 +243,9 @@ export BINUTILS_RELEASE=
 ## system_x86_64_netbsd,      { 72 }
 ./do-one.sh x86_64-netbsd amd64-unknown-netbsd-gnu
 ## system_x86_64_openbsd,     { 71 }
-#./do-one.sh x86_64-openbsd amd64-unknown-openbsd-gnu
+export BINUTILS_RELEASE=2.17-openbsd
+./do-one.sh x86_64-openbsd amd64-unknown-openbsd
+export BINUTILS_RELEASE=
 ## system_x86_64_solaris,     { 65 }
 ./do-one.sh x86_64-solaris x86_64-unknown-solaris2.10
 ## system_x86_64_win64,       { 37 }
