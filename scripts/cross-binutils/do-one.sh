@@ -115,21 +115,24 @@ function copytofpcbin ()
   fi
 
   if [ ! -d ../${binutilsdir} ] ; then
-    tarfile=`ls -1 ../*${binutilsdir}* | grep -e ".*tar" -e "*gz" -e "*.bz2" -e "*.xz" | head -1 `
-    if [ ! -f ${tarfile} ] ; then
-      echo "No ${binutilsdir} pacakge found, trying to upload from ftp.gnu.org depository"
+    tarfile=` cd .. ; ls -1 *${binutilsdir}* | grep -e ".*tar" -e "*gz" -e "*.bz2" -e "*.xz" | head -1 `
+    if [ ! -f ../${tarfile} ] ; then
+      echo "No ${binutilsdir} package found, trying to upload from ftp.gnu.org depository"
       # Should have all from 2.7 to 2.29 (somaetimes with 'a' suffix
-      wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILSVERSION}*.tar.bz2 ..
+      wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}*.tar.bz2 ..
       res=$?
       if [ $res -ne 0 ] ; then
-        wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILSVERSION}*.tar.gz ..
+        wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}*.tar.gz ..
+	tarfile=`cd .. ; ls -1  binutils-${BINUTILS_RELEASE}*.tar.gz `
+      else
+	tarfile=`cd .. ; ls -1  binutils-${BINUTILS_RELEASE}*.tar.bz2 `
       fi
     fi
     # Try to extract 
-    tar -xvf ../binutils-${BINUTILSVERSION}*.tar
+    ( cd .. ; tar -xvf $tarfile )
     res=$?
     if [ ! -d ../${binutilsdir} ] ; then
-      echo "Failed to upload/untar sources for ${BINUTILSVERSION}"
+      echo "Failed to upload/untar sources for ${BINUTILS_RELEASE}"
       exit 1
     fi
   fi
@@ -142,17 +145,34 @@ function copytofpcbin ()
   if [ "$copy_only" == "" ]; then
     export "$LOCAL_CFLAGS"
     export LDFLAGS="${LDFLAGS}"
-    ../../${binutilsdir}/configure $config_option --target=$target  --disable-intl --disable-libtool
-    make all-binutils all-gas all-ld | tee $LOGFILE 2>&1
+    ../../${binutilsdir}/configure $config_option --target=$target  --disable-intl --disable-libtool --disable-werror | tee $LOGFILE 2>&1
+    make all-binutils all-gas all-ld | tee -a $LOGFILE 2>&1
   fi
-  cd gas
-  copytofpcbin as -new
+  if [ -d gas ] ; then
+    cd gas
+    copytofpcbin as -new
+    cd ..
+  else
+    echo "No gas directory, no new assembler generated"
+  fi
+  if [ -d gas ] ; then
+    cd ld
+    copytofpcbin ld -new
+    cd ..
+  else
+    echo "No ld directory, no new linker generated"
+  fi
 
-  cd ../ld
-  copytofpcbin ld -new
-
-  cd ../binutils
-  copytofpcbin  ar
-  copytofpcbin  objdump
-  copytofpcbin  readelf
-
+  if [ -d binutils ] ; then
+    cd binutils
+    copytofpcbin  ar
+    copytofpcbin  objdump
+    copytofpcbin  readelf
+    # aros also needs collect-aros, nm and strip
+    if [ "X${target//aros/}" != "X$target" ] ; then
+      copytofpcbin  nm
+      copytofpcbin  strip -new
+    fi
+  else
+    echo "No binutils directory"
+  fi
