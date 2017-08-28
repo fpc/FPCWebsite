@@ -20,7 +20,12 @@ if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
 fi
 
 if [ "X$MAKE" == "X" ] ; then
-  MAKE=make
+  GMAKE=`which gmake 2> /dev/null`
+  if [ ! -z "$GMAKE" ] ; then
+    MAKE=$GMAKE
+  else
+    MAKE=make
+  fi
 fi
 
 if [ "X$FIXES" == "X1" ] ; then
@@ -37,6 +42,8 @@ fi
 if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
   export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
 fi
+
+export INSTALL_PREFIX=${HOME}/pas/fpc-$FPCVERSION
 
 export PATH
 cd $STARTDIR
@@ -178,7 +185,8 @@ function check_one_rtl ()
     else
       # clang does not need a prefix, as it is multi-platform
       ASSEMBLER=clang
-      BINUTILSPREFIX=
+      # Use symbolic links to clang with CPU-OS- prefixes
+      # instead of resetting BINUTILSPREFIX=
     fi
   elif [ "$CPU_TARGET" == "i8086" ] ; then
     ASSEMBLER=nasm
@@ -219,13 +227,13 @@ function check_one_rtl ()
     ASSEMBLER_VER_REGEXPR="gnu assembler"
   fi
   if [ "X$BINUTILSPREFIX" != "Xdummy-" ] ; then
-    assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" `
+    assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
   extra_text="$assembler_version"
 
   if [ $listed -eq 0 ] ; then
-    extra_text="not listed in $FPC -h"
+    extra_text="$extra_text, not listed in $FPC -h"
   fi
 
   if [ -d rtl/$OS_TARGET ] ; then
@@ -251,8 +259,9 @@ function check_one_rtl ()
     echo "OK: Testing 1st $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
     echo "OK: Testing 1st $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
     echo "Re-running make should do nothing"
+    MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$INSTALL_PREFIX"
     echo "$MAKE -C $rtldir all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT=\"$LOCAL_OPT\" $MAKEEXTRA" > $LOGFILE2
-    $MAKE -C $rtldir all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA >> $LOGFILE2 2>&1
+    $MAKE -C $rtldir all install CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA >> $LOGFILE2 2>&1
     res=$?
     if [ $res -eq 0 ] ; then
       fpc_called=`grep $FPC $LOGFILE2 `
