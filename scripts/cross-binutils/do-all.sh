@@ -61,7 +61,8 @@ export BINUTILS_RELEASE=
 ## system_i386_darwin,        { 44 }
 ./do-one.sh i386-darwin i386-unknown-darwin
 ## system_i386_embedded,      { 48 }
-./do-one.sh i386-embedded i386-none-elf
+## Should it be coff or elf?
+./do-one.sh i386-embedded i386-unknown-elf
 ## system_i386_EMX,           { 28 }
 export HOST=i686-unknown-linux
 export BINUTILS_RELEASE="2.9.1-emx"
@@ -234,6 +235,7 @@ export BINUTILS_RELEASE=
 ## system_x86_64_dragonfly,   { 85 }
 ./do-one.sh x86_64-dragonfly amd64-unknown-dragonflybsd
 ## system_x86_64_embedded,    { 55 }
+./do-one.sh x86_64-embedded amd64-unknown-elf
 ## system_x86_64_freebsd,     { 34 }
 ./do-one.sh x86_64-freebsd amd64-unknown-freebsd11
 ## system_x86_64_iphonesim,   { 87 }
