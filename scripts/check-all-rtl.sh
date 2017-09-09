@@ -9,6 +9,13 @@ ulimit -t 300
 
 FPCRELEASEVERSION=$RELEASEVERSION
 
+if [ -z "$TEST_PACKAGES" ] ; then
+  test_packages=0
+  name=rtl
+else
+  test_packages=1
+  name=rtl-packages
+fi
 
 # Add FPC release bin and $HOME/bin directories to PATH
 if [ -d $HOME/bin ] ; then
@@ -58,15 +65,15 @@ fi
 # the help does not cite this target
 listed=1
 
-LOGFILE=$HOME/logs/all-rtl-${svnname}-checks.log
-LISTLOGFILE=$HOME/logs/list-all-rtl-${svnname}-checks.log
-EMAILFILE=$HOME/logs/check-rtl-${svnname}-log.txt
+LOGFILE=$HOME/logs/all-${name}-${svnname}-checks.log
+LISTLOGFILE=$HOME/logs/list-all-${name}-${svnname}-checks.log
+EMAILFILE=$HOME/logs/check-${name}-${svnname}-log.txt
 
 echo "$0 for $svnname starting at `date`" > $LOGFILE
 echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
 echo "$0 for $svnname starting at `date`" > $EMAILFILE
 
-LOGPREFIX=$HOME/logs/rtl-check-${svnname}
+LOGPREFIX=$HOME/logs/${name}-check-${svnname}
 export dummy_count=0
 
 function set_fpc ()
@@ -251,6 +258,7 @@ function check_one_rtl ()
 
   LOGFILE1=${LOGPREFIX}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.txt
   LOGFILE2=${LOGPREFIX}-2-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.txt
+  LOGFILE3=${LOGPREFIX}-packages-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.txt
 
   echo "$MAKE -C $rtldir clean all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT=\"$LOCAL_OPT\" $MAKEEXTRA" > $LOGFILE1
   $MAKE -C $rtldir clean all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA >> $LOGFILE1 2>&1
@@ -268,6 +276,21 @@ function check_one_rtl ()
       if [ "X$fpc_called" == "X" ] ; then
         echo "OK: Testing 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
         echo "OK: Testing 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
+	if [ $test_packages -eq 1 ] ; then
+	  packagesdir=packages
+	  echo "Testing compilation in $packagesdir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
+          $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARGET OS_TARGET=$OS_TARGET BINUTILSPREFIX=$BINUTILSPREFIX OPT="$LOCAL_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
+          res=$?
+          if [ $res -eq 0 ] ; then
+            echo "OK: Testing 1st $packagesdir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
+            echo "OK: Testing 1st $packagesdir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text" >> $LISTLOGFILE
+          else
+            echo "Failure: Testing $packagesdir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text"
+            echo "Failure: See $LOGFILE3 for details"
+            echo "Failure: Testing $packagesdir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX, res=$res $extra_text" >> $LISTLOGFILE
+            echo "Failure: See $LOGFILE3 for details" >> $LISTLOGFILE
+	  fi
+	fi
       else
         echo "Failure: 2nd $rtldir for $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$LOCAL_OPT\" BINUTILSPREFIX=$BINUTILSPREFIX $extra_text"
         echo "Failure: See $LOGFILE2 for details"
