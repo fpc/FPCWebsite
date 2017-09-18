@@ -32,7 +32,7 @@ export BINUTILS_RELEASE=
 ./do-one.sh arm-nds arm-unknown-nds
 ## system_arm_palmos,         { 45 }
 ## binutils 2.14 patched with http://prc-tools.sourceforge.net/
-export BINUTILS_RELEASE="2.14"
+export BINUTILS_RELEASE="2.14-palmos"
 ./do-one.sh arm-palmos arm-palmos
 export BINUTILS_RELEASE=
 
@@ -148,7 +148,7 @@ export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh m68k-openbsd m68k-unknown-openbsd
 export BINUTILS_RELEASE=
 ## system_m68k_PalmOS,        { 11 }
-export BINUTILS_RELEASE="2.14"
+export BINUTILS_RELEASE="2.14-palmos"
 ./do-one.sh m68k-palmos m68k-unknown-palmos
 export BINUTILS_RELEASE=
 
