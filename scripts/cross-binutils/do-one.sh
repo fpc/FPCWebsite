@@ -119,17 +119,47 @@ function copytofpcbin ()
     if [ ! -f ../${tarfile} ] ; then
       echo "No ${binutilsdir} package found, trying to upload from ftp.gnu.org depository"
       # Should have all from 2.7 to 2.29 (somaetimes with 'a' suffix
-      wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}*.tar.bz2 ..
+      echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2"
+      ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2 )
       res=$?
       if [ $res -ne 0 ] ; then
-        wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}*.tar.gz ..
+        echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2"
+        ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2 )
+	res=$?
+      fi
+      if [ $res -ne 0 ] ; then
+        echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz"
+        ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz )
 	tarfile=`cd .. ; ls -1  binutils-${BINUTILS_RELEASE}*.tar.gz `
+	taropt=z
       else
 	tarfile=`cd .. ; ls -1  binutils-${BINUTILS_RELEASE}*.tar.bz2 `
+	taropt=j
+      fi
+    fi
+    tarsuffix=${tarfile//*./}
+    echo "tar suffix is ${tarsuffix}"
+    if [ "$tarsuffix" == "gz" ] ; then
+      taropt=z
+      echo "Trying gunzip $tarfile"
+      (cd .. ; gunzip $tarfile )
+      if [ -f ../${tarfile//.gz/} ] ; then
+        tarfile=${tarfile//.gz/}
+	taropt=
+      fi
+    elif [ "$tarsuffix" == "bz2" ] ; then
+      taropt=j
+      echo "Trying bzip2 -vd $tarfile"
+      (cd .. ; bzip2 -vd $tarfile )
+      if [ -f ../${tarfile//.bz2/} ] ; then
+        tarfile=${tarfile//.bz2/}
+	taropt=
       fi
     fi
     # Try to extract 
-    ( cd .. ; tar -xvf $tarfile )
+    echo "Trying to extract tarfile $tarfile"
+    echo "( cd .. ; tar -x${taropt}vf $tarfile )"
+    ( cd .. ; tar -x${taropt}vf $tarfile )
     res=$?
     if [ ! -d ../${binutilsdir} ] ; then
       echo "Failed to upload/untar sources for ${BINUTILS_RELEASE}"
