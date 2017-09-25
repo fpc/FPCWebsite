@@ -92,7 +92,12 @@ export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh i386-openbsd i386-unknown-openbsd
 export BINUTILS_RELEASE=
 ## system_i386_OS2,           { 4 }
+export BINUTILS_RELEASE="2.14-os2"
+# This semms also required for cofigure to succeed
+export CC=gcc
 ./do-one.sh i386-os2 i386-unknown-os2
+export BINUTILS_RELEASE=
+export CC=
 ## system_i386_qnx,           { 20 }
 ./do-one.sh i386-qnx i386-unknown-qnx
 ## system_i386_solaris,       { 15 }
