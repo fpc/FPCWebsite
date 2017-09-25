@@ -56,7 +56,16 @@ if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
   export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
 fi
 
-export INSTALL_PREFIX=${HOME}/pas/fpc-$FPCVERSION
+# Use a fake install directory to avoid troubles
+if [ ! -z "$XDG_RUNTIME_DIR" ] ; then
+  export LOCAL_INSTALL_PREFIX=$XDG_RUNTIME_DIR/pas/fpc-$FPCVERSION
+elif [ ! -z "$TMP" ] ; then
+  export LOCAL_INSTALL_PREFIX=$TMP/$USER/pas/fpc-$FPCVERSION
+elif [ ! -z "$TEMP" ] ; then
+  export LOCAL_INSTALL_PREFIX=$TEMP/$USER/pas/fpc-$FPCVERSION
+else	
+  export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
+fi
 
 export PATH
 cd $STARTDIR
@@ -319,7 +328,7 @@ function check_one_rtl ()
     echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
     echo "Re-running make should do nothing"
-    MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$INSTALL_PREFIX"
+    MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
     echo "$MAKE -C $rtldir all install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE2
     $MAKE -C $rtldir all install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE2 2>&1
     res=$?
@@ -579,4 +588,6 @@ echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
 mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d`" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+
+rm -Rf $LOCAL_INSTALL_PREFIX
 
