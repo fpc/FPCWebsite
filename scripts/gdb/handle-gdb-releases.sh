@@ -16,7 +16,7 @@ if [ "X$1" == "X--help" ] ; then
   echo "run ../gdb-X.Y.Z/configure with some options"
   echo "if configure suceeds, it will launch \"make all-gdb\""
   echo "if a new gdb executable is produced, it will be stored as $HOME/bin/gdb-X.Y.Z"
-  echo "After, it will try to use the script from pas/trunk/fpcsrc/pacakges/gdbint directory"
+  echo "After, it will try to use the script from pas/trunk/fpcsrc/packages/gdbint directory"
   echo "Called gen-gdblib-inc.sh and stored the new libgdb produced into dorectory"
   echo "$PASCALMAINDIR/libgdb/gdb-X.Y.Z"
   echo "If MAILTO env variable is set, an email will be sent to this address with"
@@ -156,7 +156,11 @@ function handle_release ()
   fi
 
   cd gdb
-  cp $PASCALMAINDIR/trunk/fpcsrc/packages/gdbint/gen-gdblib-inc.sh .
+  if [ -d $PASCALMAINDIR/trunk/fpcsrc ] ; then
+    cp $PASCALMAINDIR/trunk/fpcsrc/packages/gdbint/gen-gdblib-inc.sh .
+  else
+    cp $PASCALMAINDIR/trunk/packages/gdbint/gen-gdblib-inc.sh .
+  fi
   echo "Running ./gen-gdblib-inc.sh > gen-gdblib-inc.log 2>&1"
   ./gen-gdblib-inc.sh "removedir=/lib /usr/lib"  AWK=gawk > gen-gdblib-inc.log 2>&1
   res=$?
