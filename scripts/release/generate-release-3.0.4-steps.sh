@@ -112,7 +112,9 @@ cd ..
 
 cd $HOME/pas/$FPC_RELEASE_SVN_DIR
 
-LAST_SUPPORTED_GDB=`sed -n "s:.*ifdef *GDB_V\([0-9]*\).*:\1:p" fpcsrc/packages/gdbint/src/gdbint.pp | head -1 `
+if [ ! -z "$LAST_SUPPORTED_GDB" ] ; then
+  LAST_SUPPORTED_GDB=`sed -n "s:.*ifdef *GDB_V\([0-9]*\).*:\1:p" fpcsrc/packages/gdbint/src/gdbint.pp | head -1 `
+fi
 echo "Last supported GDB version is $LAST_SUPPORTED_GDB"
 GDB_MAIN=${LAST_SUPPORTED_GDB:0:1}
 if [ "X${LAST_SUPPORTED_GDB:1:1}" == "X0" ] ; then
