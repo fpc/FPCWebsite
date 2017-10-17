@@ -115,6 +115,12 @@ cd $HOME/pas/$FPC_RELEASE_SVN_DIR
 if [ ! -z "$LAST_SUPPORTED_GDB" ] ; then
   LAST_SUPPORTED_GDB=`sed -n "s:.*ifdef *GDB_V\([0-9]*\).*:\1:p" fpcsrc/packages/gdbint/src/gdbint.pp | head -1 `
 fi
+
+if [ "$TARGETCPU-$TARGETOS" == "x86_64-linux" ] ; then
+  # 7.9.1 does not seem to work correctly for x86_64-linux
+  LAST_SUPPORTED_GDB=7.8.2
+fi
+
 echo "Last supported GDB version is $LAST_SUPPORTED_GDB"
 GDB_MAIN=${LAST_SUPPORTED_GDB:0:1}
 if [ "X${LAST_SUPPORTED_GDB:1:1}" == "X0" ] ; then
