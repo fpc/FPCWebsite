@@ -9,6 +9,8 @@ ulimit -t 300
 
 FPCRELEASEVERSION=$RELEASEVERSION
 
+machine_info=`uname -nmo`
+
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
   test_packages=0
   name=rtl
@@ -56,6 +58,11 @@ if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
   export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
 fi
 
+# Also add $HOME/bin to PATH if it exists, but as last
+if [ -d ${HOME}/bin ] ; then
+  export PATH=$PATH:$HOME/bin
+fi
+
 # Use a fake install directory to avoid troubles
 if [ ! -z "$XDG_RUNTIME_DIR" ] ; then
   export LOCAL_INSTALL_PREFIX=$XDG_RUNTIME_DIR/pas/fpc-$FPCVERSION
@@ -63,10 +70,10 @@ elif [ ! -z "$TMP" ] ; then
   export LOCAL_INSTALL_PREFIX=$TMP/$USER/pas/fpc-$FPCVERSION
 elif [ ! -z "$TEMP" ] ; then
   export LOCAL_INSTALL_PREFIX=$TEMP/$USER/pas/fpc-$FPCVERSION
-else	
+else
   export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
 fi
-
+ 
 export PATH
 cd $STARTDIR
 
@@ -87,6 +94,7 @@ EMAILFILE=$HOME/logs/check-${name}-${svnname}-log.txt
 echo "$0 for $svnname starting at `date`" > $LOGFILE
 echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
 echo "$0 for $svnname starting at `date`" > $EMAILFILE
+echo "Machine info: $machine_info" >> $EMAILFILE
 
 LOGPREFIX=$HOME/logs/${name}-check-${svnname}
 export dummy_count=0
@@ -197,6 +205,10 @@ function check_one_rtl ()
   # Fourth argument: Global extra MAKE parameter
   MAKEEXTRA="$4"
 
+  if [ ! -z "$ASPROG_LOCAL" ] ; then
+    export ASPROG="$ASPROG_LOCAL"
+  fi
+
   # Fifth argument: log file name suffix
   EXTRASUFFIX=$5
 
@@ -247,14 +259,20 @@ function check_one_rtl ()
 
   if [ "X$BINUTILSPREFIX_LOCAL" == "Xnot_set" ] ; then
     target_as=`which ${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-${ASSEMBLER}`
-    if [ "X$target_as" != "X" ] ; then
+    if [ -f "$target_as" ] ; then
       BINUTILSPREFIX_LOCAL=${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-
     else
       BINUTILSPREFIX_LOCAL=dummy-
       assembler_version="Dummy assembler"
+      target_as=`which ${BINUTILSPREFIX_LOCAL}${ASSEMBLER}`
+      if [ ! -f "$target_as" ] ; then
+        echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
+        return
+      fi
       dummy_count=`expr $dummy_count + 1 `
-      target_as=`which ${BINUTILSPREFIX_LOCAL}-${ASSEMBLER}`
     fi
+  else
+    target_as=`which $target_as`
   fi
 
   if [ ! -f "$target_as" ] ; then
@@ -401,9 +419,10 @@ function check_one_rtl ()
     fi
   fi
   date "+%Y-%m-%d %H:%M:%S"
-  BINUTILSPREFIX=
-  ASSEMBLER=
-  AS=
+  BINUTILSPREFIX_LOCAL=
+  ASSEMBLER_LOCAL=
+  ASPROG_LOCAL=
+  ASPROG=
   OPT=
   OPT_LOCAL=
   MAKEEXTRA=
@@ -426,6 +445,12 @@ function list_os ()
 
 # Remove all existing logs
 rm -Rf ${LOGPREFIX}*
+
+if [ "X$1" != "X" ] ; then
+  echo "Testing single configuration $0 $*"
+  check_one_rtl "$1" "$2" "$3" "$4" "$5"
+  exit
+fi
 
 # List separately cases for which special parameters are required
 check_one_rtl arm embedded "-n" "SUBARCH=armv4t"
@@ -459,8 +484,10 @@ check_one_rtl i8086 msdos "-n -CX -XX -Wmhuge"
 check_one_rtl i8086 win16 "-n -CX -XX -Wmhuge"
 
 # m68k 
-check_one_rtl m68k amiga "-n -Avasm" 
+check_one_rtl m68k amiga "-n -Avasm"
+export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional" 
 check_one_rtl m68k atari "-n -Avasm"
+export ASPROG_LOCAL=
 check_one_rtl m68k linux "-n -Avasm" "" "-vasm"
 check_one_rtl m68k macos "-n -Avasm" "" "-vasm"
 
@@ -587,7 +614,7 @@ echo "###############################" >> $EMAILFILE
 echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
-mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d`" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
 rm -Rf $LOCAL_INSTALL_PREFIX
 
