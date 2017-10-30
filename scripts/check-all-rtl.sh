@@ -8,6 +8,7 @@
 ulimit -t 300
 
 FPCRELEASEVERSION=$RELEASEVERSION
+export GREP_CONTEXT_LINES=6
 
 machine_info=`uname -nmo`
 
@@ -90,6 +91,14 @@ listed=1
 LOGFILE=$HOME/logs/all-${name}-${svnname}-checks.log
 LISTLOGFILE=$HOME/logs/list-all-${name}-${svnname}-checks.log
 EMAILFILE=$HOME/logs/check-${name}-${svnname}-log.txt
+
+if [ -f $LOGFILE ] ; then
+  mv -f $LOGFILE ${LOGFILE}.previous
+fi
+
+if [ -f $LISTLOGFILE ] ; then
+  mv -f $LISTLOGFILE ${LISTLOGFILE}.previous
+fi
 
 echo "$0 for $svnname starting at `date`" > $LOGFILE
 echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
@@ -563,6 +572,11 @@ ok_count=` grep "OK:.*2nd.*" $LISTLOGFILE | wc -l `
 pb_count=` grep "Failure: See.*" $LISTLOGFILE | wc -l `
 total_count=`expr $pb_count + $ok_count `
 
+if [ -f $LISTLOGFILE.previous ] ; then
+  echo "Diff to previous list" >> $EMAILFILE
+  diff ${LISTLOGFILE}.previous ${LISTLOGFILE} >> $EMAILFILE
+fi
+
 echo "Short summary: number of ok=$ok_count, number of pb=$pb_count" >> $EMAILFILE
 if [ $rtl_1_failure -gt 0 ] ; then
   echo "$rtl_1_failure rtl level 1 failure(s)" >> $EMAILFILE
@@ -602,7 +616,7 @@ for file in $error_file_list ; do
     echo "No error pattern found in $file" >> $EMAILFILE
     cat $file  | grep -v "^$rmprog" | tail -20 >> $EMAILFILE
   else
-    grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal)" $file  | grep -v "^[0-9 ]*-$rmprog" | head -20 >> $EMAILFILE
+    grep -n -C${GREP_CONTEXT_LINES}  -E "(Fatal:|Error:|make.*Error|make.*Fatal|imake.*Broken pipe)" $file  | grep -v "^[0-9 ]*-$rmprog" | head -20 >> $EMAILFILE
   fi
   index=` expr $index + 1 `
 done
