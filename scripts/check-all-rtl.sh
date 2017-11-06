@@ -45,11 +45,11 @@ if [ "X$MAKE" == "X" ] ; then
 fi
 
 if [ "X$FIXES" == "X1" ] ; then
-  STARTDIR=$FIXESDIR
+  CHECKOUTDIR=$FIXESDIR
   svnname=fixes
   FPCVERSION=$FIXESVERSION
 else
-  STARTDIR=$TRUNKDIR
+  CHECKOUTDIR=$TRUNKDIR
   svnname=trunk
   FPCVERSION=$TRUNKVERSION
 fi
@@ -76,7 +76,7 @@ else
 fi
  
 export PATH
-cd $STARTDIR
+cd $CHECKOUTDIR
 
 if [ -d fpcsrc ] ; then
   cd fpcsrc
