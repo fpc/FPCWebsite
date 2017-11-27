@@ -299,14 +299,15 @@ function check_one_rtl ()
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="vasm"
   elif [ "$ASSEMBLER" == "java" ] ; then
-    ASSEMBLER_VER_OPT=--version
-    ASSEMBLER_VER_REGEXPR="java"
+    ASSEMBLER_VER_OPT=-version
+    ASSEMBLER_VER_REGEXPR="version"
   else
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="gnu assembler"
   fi
   if [ "X$BINUTILSPREFIX" != "Xdummy-" ] ; then
-    assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
+    # Recent java seems to output version to stderr, so redirect it to stdout
+    assembler_version=` $target_as $ASSEMBLER_VER_OPT 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
   extra_text="$assembler_version"
@@ -480,6 +481,15 @@ check_one_rtl x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare
 check_one_rtl i386 darwin "-n"
 check_one_rtl x86_64 darwin "-n"
 
+# arm linux
+
+export CROSSOPT="-Cparmv6 -Caeabi -Cfsoft"
+check_one_rtl arm linux "-n -gl" "CROSSOPT=$CROSSOPT" "-armeabi"
+export CROSSOPT=
+
+export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
+check_one_rtl arm linux "-n -gl" "ASTARGETLEVEL3=$ASTARGETLEVEL3" "-arm_softvfp"
+export ASTARGETLEVEL3=
 
 # msdos OS
 check_one_rtl i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
