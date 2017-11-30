@@ -117,7 +117,7 @@ ulimit -d 65536 -s 8192 -t 240
 echo "Starting make distclean fulldb" >> $report
 echo "`$DATE`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-  TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  TEST_OPT="" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
@@ -125,12 +125,8 @@ echo "`$DATE`" >> $report
 
 tail -30 $testslog >> $report
 
-
-mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC} ${Build_version} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
-
 TEST_OPT="-Cg"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" > ${report2}
+echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" > $report
 echo "`$DATE`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
@@ -139,12 +135,11 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 
-tail -30 $testslog >> $report2
+tail -30 $testslog >> $report
 
 
-mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
-     -i $report2 -- pierre@freepascal.org < /dev/null | tee  ${report}.log
-
+mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, ${Build_version} ${Build_date}" \
+     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 # Cleanup
 
