@@ -11,7 +11,7 @@
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>3.0.2</b>. <trn key="website.old_windows_only" locale="en_US"> Please keep in mind that this package
+<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>3.0.4</b>. <trn key="website.old_windows_only" locale="en_US"> Please keep in mind that this package
 isn't supposed to work in Windows NT/2000/XP.</trn>
 
 <h3>Download as one file</h3>

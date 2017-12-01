@@ -14,7 +14,7 @@
   <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>3.0.2</b>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
-  Because of a lack of release builders and testers, 3.0.2 is only available for a limited
+  Because of a lack of release builders and testers, 3.0.4 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 </trn>
