@@ -11,7 +11,7 @@
     which you should read for installation instructions and latest news.
   </trn>
 <p>
-  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>3.0.2</b>.
+  <trn key="website.latest_release" locale="en_US">The latest release is</trn> <b>3.0.4</b>.
 <p>
 <trn key="website.available_limited_platforms" locale="en_US">
   Because of a lack of release builders and testers, 3.0.4 is only available for a limited
@@ -23,7 +23,7 @@
 <a name="binary"></a><h3><trn key="website.Binaries" locale="en_US">Binaries</trn></h3>
 <p>
   <trn key="website.can_download_for_platform" locale="en_US">
-    You can download the 3.0.2 release for the following cpu and operating systems:
+    You can download the 3.0.4 release for the following cpu and operating systems:
   </trn>
 <p>
 <ul>
