@@ -20,15 +20,15 @@
   The FPC package for OS/2 and eComStation is available in the following options:
 </trn>
 <ul>
-<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2302full.zip">os2302full.zip</a> (84 MB) - full package (recommended)</li>
-<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2302.zip">os2302.zip</a> (31 MB) - binaries without sources and documentation</li>
+<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2304full.zip">os2304full.zip</a> (84 MB) - full package (recommended)</li>
+<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2304.zip">os2304.zip</a> (31 MB) - binaries without sources and documentation</li>
 </ul>
 
 <h3><trn key="website.Sources" locale="en_US">Sources</trn></h3>
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/3.0.4/source/short/src302.zip">src302.zip</a> (23 MB) or</li>
+<a href="@mirror_url@dist/3.0.4/source/short/src304.zip">src304.zip</a> (23 MB) or</li>
 <li>you can download the full source repository used for building the release - <a href="@mirror_url@dist/3.0.4/source/fpcbuild-3.0.4.zip">fpcbuild-3.0.4.zip</a> (74 MB)</li>
 </ul>
 
