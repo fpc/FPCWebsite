@@ -15,7 +15,7 @@ export RELEASEVERSION=3.0.2
 ## Free Pascal trunk and fixes versions
 #################################################################
 export TRUNKVERSION=3.1.1
-export FIXESVERSION=3.0.3
+export FIXESVERSION=3.0.5
 
 #################################################################
 ## Free Pascal trunk and fixes directory names 
