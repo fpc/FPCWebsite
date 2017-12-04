@@ -20,8 +20,8 @@
 <p><trn key="website.other_host_cross_installer_prerequisite">This cross-compiler runs on another host and needs the corresponding native compiler as a prerequisite.</trn></p>
 <ul>
 <li>
-<a href="@mirror_url@dist/@latestversion@/arm-wince/fpc-@latestversion@.i386-win32.cross.arm-wince.exe">fpc-@latestversion@.i386-win32.cross.arm-wince.exe</a> (10.4 MB)
-<p><trn key="website.Download_win32_wince_cross_installer" locale="en_US">Contains the installer with the win32 to arm-wince cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB) to be able to work.</trn></p>
+<a href="@mirror_url@dist/@latestversion@/arm-wince/fpc-@latestversion@.i386-win32.cross.arm-wince.exe">fpc-@latestversion@.i386-win32.cross.arm-wince.exe</a> (16 MB)
+<p><trn key="website.Download_win32_wince_cross_installer" locale="en_US">Contains the installer with the win32 to arm-wince cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.</trn></p>
 </ul>
 
 <hr>
