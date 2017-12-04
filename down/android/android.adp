@@ -21,7 +21,7 @@
 <ul>
   <li>
     <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.android.exe">fpc-@latestversion@.i386-win32.cross.android.exe</a> (25 MB)
-    <p><trn key="website.win32_android_file_download_descr" locale="en_US">Contains the installer with the Win32 to Android (MIPS, ARM, i386) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB) to be able to work.</trn></p>
+    <p><trn key="website.win32_android_file_download_descr" locale="en_US">Contains the installer with the Win32 to Android (MIPS, ARM, i386) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.</trn></p>
 </ul>
 
 <hr>

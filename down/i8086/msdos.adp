@@ -20,8 +20,8 @@
 <p><trn key="website.other_host_cross_installer_prerequisite_m">These cross-compilers run on another host and need the corresponding native compiler as a prerequisite.</trn></p>
 <ul>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe">fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe</a> (21.7 MB)
-    <p><trn key="website.i8086-msdos_file_download_descr" locale="en_US">Contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB) to be able to work.</trn></p>
+    <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe">fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe</a> (24 MB)
+    <p><trn key="website.i8086-msdos_file_download_descr" locale="en_US">Contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.</trn></p>
   <li>
     <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (21.2 MB)
     <p><trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US">Contains a tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">native Linux/i386 compiler</a> (42.8 MB) to be able to work. You can install it like the native compiler.</trn></p>
