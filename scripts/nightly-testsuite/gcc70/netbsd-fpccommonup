@@ -101,9 +101,12 @@ fi
 if [ -f ./compiler/${FPCBIN} ]; then
   Build_version=`./compiler/${FPCBIN} -iV`
   Build_date=`./compiler/${FPCBIN} -iD`
+  FPC_TARGET_OS=`./compiler/${FPCBIN} -iTO`
+  FPC_TARGET_CPU=`./compiler/${FPCBIN} -iTP`
+  FPC_FULL_TARGET=${FPC_TARGET_CPU}-${FPC_TARGET_OS}
 else
   echo "Compilation failed, no new binary ./compiler/${FPCBIN}"
-  mutt -x -s "Free Pascal compilation failed on ${HOST_PC}" \
+  mutt -x -s "Free Pascal compilation failed on ${HOST_PC}, in dir ${SVNDIR}" \
     -i $report -- pierre@freepascal.org < /dev/null
     exit
 fi
@@ -190,7 +193,7 @@ echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}
 
 tail -30 $testslog >> $report
 
-mutt -x -s "Free Pascal results on ${HOST_PC}, dir ${SVNDIR},  ${Build_version} ${Build_date}" \
+mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_FULL_TARGET},  ${Build_version} ${Build_date}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 
