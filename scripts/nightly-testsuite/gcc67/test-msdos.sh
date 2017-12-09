@@ -156,5 +156,7 @@ else
   run_one_model medium
   run_one_model compact
   run_one_model large
-  run_one_model huge
+  if [ "$SVNDIR" == "trunk" ] ; then
+    run_one_model huge
+  fi
 fi

@@ -30,10 +30,23 @@ if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   # Finally try to generate snapshots
   $HOME/bin/all-snapshots.sh
 
+  # For trunk
+  SVNDIR=trunk
+
   # Test msdos 
   $HOME/bin/test-msdos.sh
 
   # Test go32v2
   $HOME/bin/test-go32v2.sh
+
+  # For fixes
+  SVNDIR=fixes
+
+  # Test msdos 
+  $HOME/bin/test-msdos.sh
+
+  # Test go32v2
+  $HOME/bin/test-go32v2.sh
+
 
 fi
