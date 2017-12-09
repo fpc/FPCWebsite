@@ -9,7 +9,7 @@
 ## Last Free Pascal Release version
 ## Should be installed on the machine
 #################################################################
-export RELEASEVERSION=3.0.2
+export RELEASEVERSION=3.0.4
 
 #################################################################
 ## Free Pascal trunk and fixes versions
