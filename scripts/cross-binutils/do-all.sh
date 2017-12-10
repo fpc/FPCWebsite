@@ -225,6 +225,8 @@ export BINUTILS_RELEASE=
 ## sparc64 CPU
 ## system_sparc64_linux       { 93 }
 ./do-one.sh sparc64-linux sparc64-unknown-linux-gnu
+## system_sparc64_ solaris    { 94 }
+./do-one.sh sparc64-solaris sparc64-unknown-solaris2.11
 
 ## WASM CPU
 ## system_wasm_wasm32,        { 92 }

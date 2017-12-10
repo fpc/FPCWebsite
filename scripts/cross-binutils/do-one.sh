@@ -43,7 +43,11 @@ if [ "X$fpcbindir" == "X" ] ; then
     # Link with -static option
     LDFLAGS="-Wl,-static"
   else
-    fpcbindir=$HOME/pas/fpc-${FPC_RELEASE}/bin/
+    if [ -d $HOME/bin ] ; then
+      fpcbindir=$HOME/bin/
+    else
+      fpcbindir=$HOME/pas/fpc-${FPC_RELEASE}/bin/
+    fi
   fi
 fi
 
