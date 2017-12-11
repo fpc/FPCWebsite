@@ -20,7 +20,7 @@ The FPC package for is available in one easy to choose format:
 
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/mipsel-linux/fpc-@latestversion@.mipsel-linux.tar">fpc-@latestversion@.mipsel-linux.tar</a> (55 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/mipsel-linux/fpc-@latestversion@.mipsel-linux.tar">fpc-@latestversion@.mipsel-linux.tar</a> (54 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
