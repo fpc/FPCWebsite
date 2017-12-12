@@ -12,7 +12,7 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is</trn> <b>3.0.4</b>
+  The latest release version is</trn> <b>@latestversion@</b>
 
 <h3><a name="os2big"></a><trn key="website.download_in_1_file" locale="en_US">Download as a single archive</trn>:</h3>
 <p>
@@ -20,16 +20,16 @@
   The FPC package for OS/2 and eComStation is available in the following options:
 </trn>
 <ul>
-<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2304full.zip">os2304full.zip</a> (84 MB) - full package (recommended)</li>
-<li><a href="@mirror_url@dist/3.0.4/i386-os2/os2304.zip">os2304.zip</a> (31 MB) - binaries without sources and documentation</li>
+<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2304full.zip">os2304full.zip</a> (84 MB) - full package (recommended)</li>
+<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2304.zip">os2304.zip</a> (31 MB) - binaries without sources and documentation</li>
 </ul>
 
 <h3><trn key="website.Sources" locale="en_US">Sources</trn></h3>
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/3.0.4/source/short/src304.zip">src304.zip</a> (23 MB) or</li>
-<li>you can download the full source repository used for building the release - <a href="@mirror_url@dist/3.0.4/source/fpcbuild-3.0.4.zip">fpcbuild-3.0.4.zip</a> (74 MB)</li>
+<a href="@mirror_url@dist/@latestversion@/source/short/src304.zip">src304.zip</a> (23 MB) or</li>
+<li>you can download the full source repository used for building the release - <a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</li>
 </ul>
 
 <p>
@@ -39,11 +39,11 @@
   HTML ones or possibly CHM; all except the Poscript version already included in the full package listed above):
 </trn>
 <ul>
-<li><a href="@mirror_url@dist/3.0.4/docs/doc-pdf.zip">PDF</a></li>
-<li><a href="@mirror_url@dist/3.0.4/docs/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">the basic option for the IDE</trn>)</li>
-<li><a href="@mirror_url@dist/3.0.4/docs/doc-ps.zip">PostScript</a> (for printing)</li>
-<li><a href="@mirror_url@dist/3.0.4/docs/doc-chm.zip">CHM</a> (<trn key="website.already_included_zip" locale="en_US">compressed HTML - supported in the text mode IDE</trn>)</li>
-<li><a href="@mirror_url@dist/3.0.4/docs/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
+<li><a href="@mirror_url@dist/@latestversion@/docs/doc-pdf.zip">PDF</a></li>
+<li><a href="@mirror_url@dist/@latestversion@/docs/doc-html.zip">HTML</a> (<trn key="website.to_be_used_from_IDE" locale="en_US">the basic option for the IDE</trn>)</li>
+<li><a href="@mirror_url@dist/@latestversion@/docs/doc-ps.zip">PostScript</a> (for printing)</li>
+<li><a href="@mirror_url@dist/@latestversion@/docs/doc-chm.zip">CHM</a> (<trn key="website.already_included_zip" locale="en_US">compressed HTML - supported in the text mode IDE</trn>)</li>
+<li><a href="@mirror_url@dist/@latestversion@/docs/doc-txt.zip"><trn key="website.plain_text" locale="en_US">plain text</trn></a></li>
 </ul>
 
 <hr>

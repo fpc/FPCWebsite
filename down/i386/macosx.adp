@@ -12,7 +12,7 @@
 -->
 
 <p>
-The latest release version is <b>3.0.4</b></p>
+The latest release version is <b>@latestversion@</b></p>
 
 <h3>&quot;Unknown developer&quot; error when installing (Mac OS X 10.7 and later)</h3>
  If you get the message that the FPC installer was created by an unknown
@@ -39,18 +39,18 @@ The latest release version is <b>3.0.4</b></p>
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
  command line parameter when compiling a dynamic library.
 
-<h3><a name="macosxdmg"></a>Download the 3.0.4 release in 1 big file:</h3>
+<h3><a name="macosxdmg"></a>Download the @latestversion@ release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/3.0.4/i386-macosx/fpc-3.0.4.intel-macosx.dmg">fpc-3.0.4.intel-macosx.dmg</a> (71 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.dmg">fpc-@latestversion@.intel-macosx.dmg</a> (71 MB)
 contains an installation package for compiling Intel (32 bit and 64 bit) programs.
 <br>
-<li> <a href="@mirror_url@dist/3.0.4/i386-macosx/fpc-3.0.4.intel-macosx.cross.powerpc-macosx.dmg">fpc-3.0.4.intel-macosx.cross.powerpc-macosx.dmg</a> (62 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg">fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg</a> (62 MB)
  contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.
 <br>
-<li> <a href="@mirror_url@dist/3.0.4/i386-macosx/fpc-3.0.5.intel-macosx.cross.ios.dmg">fpc-3.0.5.intel-macosx.cross.ios.dmg</a> (66 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-3.0.5.intel-macosx.cross.ios.dmg">fpc-3.0.5.intel-macosx.cross.ios.dmg</a> (66 MB)
 contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br>
 <br>
-<li> <a href="@mirror_url@dist/3.0.4/i386-macosx/fpc-3.0.4.intel-macosx.cross.jvm.dmg">fpc-3.0.4.intel-macosx.cross.jvm.dmg</a> (11 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.jvm.dmg">fpc-3.0.4.intel-macosx.cross.jvm.dmg</a> (11 MB)
  contains an add-on installation package for compiling JVM programs.
 <br>
 </ul>

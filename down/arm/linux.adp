@@ -12,21 +12,21 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>3.0.4</b>.
+  The latest release version is <b>@latestversion@</b>.
 </trn>
 
-<h1>3.0.4</h1>
-The FPC 3.0.4 package for arm-linux is available in two to choose format:
+<h1>@latestversion@</h1>
+The FPC @latestversion@ package for arm-linux is available in two to choose format:
 <ul>
   <li> <a href="#linuxbig302eabi">Everything in 1 big package for eabi ABI</a>
   <li> <a href="#linuxbig302eabihf">Everything in 1 big package for eabihf ABI for raspberry</a>
 </ul>
 
 <h3><a name="linuxbig302eabi"></a>Download in 1 big file:</h3>
-<p>The distribution in the archive below is for EABI abi, compiled for armv3 CPU.</p>
+<p>The distribution in the archive below is for EABI abi, compiled for armv3 CPU (release 3.0.2 only).</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/3.0.4/arm-linux/fpc-3.0.4.arm-linux-eabi.tar">fpc-3.0.4.arm-linux-eabi.tar</a> (55 MB)
+href="@mirror_url@dist/3.0.2/arm-linux/fpc-3.0.2.arm-linux-eabi.tar">fpc-3.0.2.arm-linux-eabi.tar</a> (55 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -36,7 +36,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 <p>The distribution in the archive below is for an EABIHF, compiled on RaspBerry 1 arm-linux system (for armv6 cpu).</p>
 <ul>
 <li> <a
-href="@mirror_url@dist/3.0.4/arm-linux/fpc-3.0.4.arm-linux-eabihf-raspberry.tar">fpc-3.0.4.arm-linux-eabihf-raspberry.tar</a> (56 MB)
+href="@mirror_url@dist/@latestversion@/arm-linux/fpc-@latestversion@.arm-linux-eabihf-raspberry.tar">fpc-@latestversion@.arm-linux-eabihf-raspberry.tar</a> (56 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
