@@ -25,7 +25,9 @@ href="@mirror_url@dist/@latestversion@/powerpc-linux/fpc-@latestversion@.powerpc
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
-</ul>
+
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc-linux/readme-powerpc-linux.txt">readme-powerpc-linux.txt</a> 
+contains information about powerpc linux release build.</ul>
 
 <hr>
 <p>
