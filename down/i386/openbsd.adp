@@ -1,4 +1,4 @@
-r<master>
+<master>
 <property name="title">Free Pascal - Download OpenBSD</property>
 <property name="entry">download</property>
 <property name="header">Download OpenBSD Intel x86</property>

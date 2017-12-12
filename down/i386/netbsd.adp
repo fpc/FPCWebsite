@@ -1,4 +1,4 @@
-r<master>
+<master>
 <property name="title">Free Pascal - Download NetBSD</property>
 <property name="entry">download</property>
 <property name="header">Download NetBSD Intel x86</property>
