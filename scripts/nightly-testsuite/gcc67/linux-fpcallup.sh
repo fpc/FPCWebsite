@@ -3,20 +3,20 @@
 # Do the same with ppc386
 export FPCBIN=ppc386
 export FIXES=0
-$HOME/bin/linux-fpccommonup
+$HOME/bin/linux-fpccommonup.sh
 export FIXES=1
-$HOME/bin/linux-fpccommonup
+$HOME/bin/linux-fpccommonup.sh
 
 # By default use ppcx64
 export FPCBIN=ppcx64
 export FIXES=0
-$HOME/bin/linux-fpccommonup
+$HOME/bin/linux-fpccommonup.sh
 export FIXES=1
-$HOME/bin/linux-fpccommonup
+$HOME/bin/linux-fpccommonup.sh
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
-  $HOME/bin/makesnapshotfixes 
-  $HOME/bin/makesnapshottrunk
+  $HOME/bin/makesnapshotfixes.sh 
+  $HOME/bin/makesnapshottrunk.sh
 
   # Update source on fpcftp machine
   $HOME/scripts/allsourcezips
