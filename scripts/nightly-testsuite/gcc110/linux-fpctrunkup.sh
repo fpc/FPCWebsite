@@ -165,8 +165,8 @@ if [ ${is_same} -ne 0 ] ; then
   exit
 fi
 
-FPC_OS_TARGET=`${NEWFPCBIN} -TO`
-FPC_CPU_TARGET=`${NEWFPCBIN} -TP`
+FPC_OS_TARGET=`${NEWFPCBIN} -iTO`
+FPC_CPU_TARGET=`${NEWFPCBIN} -iTP`
 export TEST_OPT="${OPT}"
 echo "New FPC is ${FPC}" >> $report
 
