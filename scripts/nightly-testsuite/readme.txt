@@ -19,3 +19,6 @@ gcc45: i386_linux machine
 fpcWin7-64: Windows 7 Pro 64-bit
 gcc115: aarch64-linux machine 
 gcc70: x86_64-netbsd NetBSD 5.1
+gcc110: powerpc64-linux machine
+fpc-sparc64: sparc64-linux machine
+
