@@ -32,13 +32,13 @@
     <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@-1.i686.rpm</a> (25 MB) 
     <p><trn key="website.Download_linux_i386_msdos_cross_rpm" locale="en_US">A addon RPM to install i386-linux to i8086 msdos crosscompilation
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.src.rpm">fpc-i8086-msdos-@latestversion@-1.i686.src.rpm</a> (65 MB)  
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB)  
     <p><trn key="website.Download_linux_i386_msdos_cross_srpm" locale="en_US">The associated i386 to i8086 SRPM
   <li>
     <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.rpm">fpc-i8086-msdos-@latestversion@-1.x86_64.rpm</a> (27 MB)  
     <p><trn key="website.Download_linux_x86_64_msdos_cross_rpm" locale="en_US">A addon RPM to install x86_64-linux to i8086 msdos crosscompilation
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.src.rpm">fpc-i8086-msdos-@latestversion@-1.x86_64.src.rpm</a> (65 MB) 
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB) 
     <p><trn key="website.Download_linux_x86_64_msdos_cross_srpm" locale="en_US">The associated x86_64 to i8086 SRPM
 </ul>
 
