@@ -10,7 +10,6 @@ ulimit -t 300
 FPCRELEASEVERSION=$RELEASEVERSION
 export GREP_CONTEXT_LINES=6
 
-
 machine_host=`uname -n`
 if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
   machine_host=gcc21
@@ -33,6 +32,11 @@ else
   test_ppudump=1
 fi
 
+# Install all cross-rtl-pacakges on gcc20 machine
+if [ "X$machine_host" == "Xgcc20" ] ; then
+  DO_FPC_INSTALL=1
+fi
+
 # Add FPC release bin and $HOME/bin directories to PATH
 if [ -d $HOME/bin ] ; then
   PATH=$HOME/bin:$PATH
@@ -40,6 +44,10 @@ fi
 
 if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
   PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:$PATH
+fi
+
+if [ -d /opt/cfarm/clang-release/bin ] ; then
+  PATH=$PATH:/opt/cfarm/clang-release/bin
 fi
 
 if [ "X$MAKE" == "X" ] ; then
@@ -72,14 +80,18 @@ if [ -d ${HOME}/bin ] ; then
 fi
 
 # Use a fake install directory to avoid troubles
-if [ ! -z "$XDG_RUNTIME_DIR" ] ; then
-  export LOCAL_INSTALL_PREFIX=$XDG_RUNTIME_DIR/pas/fpc-$FPCVERSION
-elif [ ! -z "$TMP" ] ; then
-  export LOCAL_INSTALL_PREFIX=$TMP/$USER/pas/fpc-$FPCVERSION
-elif [ ! -z "$TEMP" ] ; then
-  export LOCAL_INSTALL_PREFIX=$TEMP/$USER/pas/fpc-$FPCVERSION
+if [ ! -z "$DO_FPC_INSTALL" ] ; then
+  export LOCAL_INSTALL_PREFIX=$HOME/pas/fpc-$FPCVERSION
 else
-  export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
+  if [ ! -z "$XDG_RUNTIME_DIR" ] ; then
+    export LOCAL_INSTALL_PREFIX=$XDG_RUNTIME_DIR/pas/fpc-$FPCVERSION
+  elif [ ! -z "$TMP" ] ; then
+    export LOCAL_INSTALL_PREFIX=$TMP/$USER/pas/fpc-$FPCVERSION
+  elif [ ! -z "$TEMP" ] ; then
+    export LOCAL_INSTALL_PREFIX=$TEMP/$USER/pas/fpc-$FPCVERSION
+  else	
+    export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
+  fi
 fi
  
 export PATH
@@ -647,5 +659,7 @@ cat $LISTLOGFILE >> $EMAILFILE
 
 mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
-rm -Rf $LOCAL_INSTALL_PREFIX
+if [ -z "$DO_FPC_INSTALL" ] ; then
+  rm -Rf $LOCAL_INSTALL_PREFIX
+fi
 
