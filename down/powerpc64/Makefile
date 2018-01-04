@@ -30,29 +30,29 @@ default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
 ../..//down/powerpc64/aix-austria.html.bg: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.bg -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.bg -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-austria.html.en: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.en -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.en -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.fi: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.fi -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.fi -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.fr: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.fr -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.fr -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.id: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.id -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.id -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.it: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.it -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.it -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.nl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.nl -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.nl -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-austria.html.po: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.po -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.po -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-austria.html.sl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.sl -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.sl -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-austria.html.ru: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.ru -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.ru -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-austria.html.zh-CN: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.zh-CN -oe utf-16 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html.zh-CN -oe utf-16 aix.adp
 ../..//down/powerpc64/aix-austria.html: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc64/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html -oe ISO-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-austria.html -oe ISO-8859-1 aix.adp
 
 ../..//down/powerpc64/aix-austria.var: gen_makefile.conf
 	echo > aix-austria.var
@@ -172,29 +172,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> linux-austria.var
 	echo >> linux-austria.var
 ../..//down/powerpc64/aix-hungary.html.bg: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.bg -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.bg -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-hungary.html.en: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.en -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.en -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.fi: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.fi -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.fi -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.fr: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.fr -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.fr -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.id: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.id -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.id -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.it: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.it -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.it -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.nl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.nl -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.nl -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-hungary.html.po: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.po -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.po -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-hungary.html.sl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.sl -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.sl -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-hungary.html.ru: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.ru -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.ru -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-hungary.html.zh-CN: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.zh-CN -oe utf-16 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html.zh-CN -oe utf-16 aix.adp
 ../..//down/powerpc64/aix-hungary.html: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc64/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html -oe ISO-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-hungary.html -oe ISO-8859-1 aix.adp
 
 ../..//down/powerpc64/aix-hungary.var: gen_makefile.conf
 	echo > aix-hungary.var
@@ -314,29 +314,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=utf-16' >> linux-hungary.var
 	echo >> linux-hungary.var
 ../..//down/powerpc64/aix-netherlands.html.bg: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.bg -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.bg -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.en: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.en -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.en -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.fi: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.fi -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.fi -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.fr: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.fr -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.fr -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.id: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.id -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.id -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.it: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.it -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.it -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.nl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.nl -oe iso-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.nl -oe iso-8859-1 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.po: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.po -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.po -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.sl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.sl -oe iso-8859-2 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.sl -oe iso-8859-2 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.ru: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.ru -oe iso-8859-5 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.ru -oe iso-8859-5 aix.adp
 ../..//down/powerpc64/aix-netherlands.html.zh-CN: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.zh-CN -oe utf-16 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html.zh-CN -oe utf-16 aix.adp
 ../..//down/powerpc64/aix-netherlands.html: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc64/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html -oe ISO-8859-1 aix.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc64//aix-netherlands.html -oe ISO-8859-1 aix.adp
 
 ../..//down/powerpc64/aix-netherlands.var: gen_makefile.conf
 	echo > aix-netherlands.var
@@ -457,29 +457,29 @@ english: output_directory all_en_pages
 	echo >> linux-netherlands.var
 
 ../..//down/powerpc64/aix.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o aix.html.bg -oe iso-8859-5 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o aix.html.bg -oe iso-8859-5 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o aix.html.en -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o aix.html.en -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o aix.html.fi -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o aix.html.fi -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o aix.html.fr -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o aix.html.fr -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o aix.html.id -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o aix.html.id -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o aix.html.it -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o aix.html.it -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o aix.html.nl -oe iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o aix.html.nl -oe iso-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o aix.html.po -oe iso-8859-2 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o aix.html.po -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o aix.html.sl -oe iso-8859-2 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o aix.html.sl -oe iso-8859-2 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o aix.html.ru -oe iso-8859-5 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o aix.html.ru -oe iso-8859-5 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o aix.html.zh-CN -oe utf-16 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o aix.html.zh-CN -oe utf-16 ../../templatemirror.adp
 ../..//down/powerpc64/aix.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o aix.html -oe ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o aix.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/powerpc64/aix.var: gen_makefile.conf
 	echo > aix.var
 	echo 'URI: aix.html.bg' >> aix.var
