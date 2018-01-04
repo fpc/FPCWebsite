@@ -2,10 +2,10 @@
 
 . $HOME/bin/fpc-versions.sh
 
-# Default binutils version is
-# 2.29 (last version August 2017)
+# Latest binutils release version is
+# 2.29.1 (2017/09/25)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.29
+  BINUTILS_RELEASE=2.29.1
 fi
 
 # Latest installed Free Pascal release
