@@ -10,7 +10,14 @@ ulimit -t 300
 FPCRELEASEVERSION=$RELEASEVERSION
 export GREP_CONTEXT_LINES=6
 
-machine_info=`uname -nmo`
+
+machine_host=`uname -n`
+if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
+  mchine_host=gcc21
+fi
+machine_cpu=`uname -m`
+machine_os=`uname -o`
+machine_info="$machine_host $machine_cpu $machine_os"
 
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
   test_packages=0
