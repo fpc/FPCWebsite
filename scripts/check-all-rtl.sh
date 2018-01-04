@@ -13,7 +13,7 @@ export GREP_CONTEXT_LINES=6
 
 machine_host=`uname -n`
 if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
-  mchine_host=gcc21
+  machine_host=gcc21
 fi
 machine_cpu=`uname -m`
 machine_os=`uname -o`
