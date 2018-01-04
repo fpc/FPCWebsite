@@ -25,7 +25,7 @@ href="@mirror_url@dist/@latestversion@/powerpc-aix/fpc-@latestversion@.powerpc-a
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
-<li> See <a href=@mirror_url@dist/@latestversion@/powerpc-aix/readme-powerpc-aix.txt">readme-powerpc-aix.txt</a> for details
+<li> See <a href="@mirror_url@dist/@latestversion@/powerpc-aix/readme-powerpc-aix.txt">readme-powerpc-aix.txt</a> for details
 on the geneation of the installation file.
 </ul>
 
