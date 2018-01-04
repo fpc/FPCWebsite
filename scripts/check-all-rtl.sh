@@ -15,7 +15,7 @@ if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
   machine_host=gcc21
 fi
 machine_cpu=`uname -m`
-machine_os=`uname -o`
+machine_os=`uname -s`
 machine_info="$machine_host $machine_cpu $machine_os"
 
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
