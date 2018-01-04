@@ -529,8 +529,13 @@ export ASPROG_LOCAL=
 check_one_rtl m68k linux "-n -Avasm" "" "-vasm"
 check_one_rtl m68k macos "-n -Avasm" "" "-vasm"
 
-# Wii OS requires -Sfresources option
-check_one_rtl powerpc wii "-n -Sfresources"
+if [ "$svnname" == "fixes" ] ; then
+  # Wii OS requires -Sfresources option
+  check_one_rtl powerpc wii "-n -Sfresources"
+else
+  # -Sfresources is now by default inside rtl/wii/rtl.cfg
+  check_one_rtl powerpc wii "-n"
+fi
 
 # Generic listing based on -T$OS_TARGET
 list_os aarch64 "-n"
