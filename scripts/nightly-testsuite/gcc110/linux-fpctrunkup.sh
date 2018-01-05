@@ -18,7 +18,7 @@ if [ "$CURVER" == "" ]; then
 fi
 if [ "$RELEASEVER" == "" ]; then
   # export RELEASEVER=2.6.4
-  export RELEASEVER=3.0.0
+  export RELEASEVER=3.0.4
 fi
 
 if [ "$FPCBIN" == "" ]; then
