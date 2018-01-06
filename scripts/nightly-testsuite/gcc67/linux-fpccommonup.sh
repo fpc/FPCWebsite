@@ -70,7 +70,7 @@ fi
 
 echo "Starting make distclean all" >> $report
 echo "Start make `$DATE`" >> $report
-${MAKE} distclean all $MAKEDEBUG OPT="$NEEDED_OPT" FPC=$FPCBIN 1> ${makelog} 2>&1
+${MAKE} distclean all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
@@ -81,7 +81,7 @@ fi
 
 if [ ! -f ./compiler/$FPCBIN ] ; then
   # Try a simple cycle in compiler subdirectory
-  ${MAKE} -C compiler distclean cycle $MAKEDEBUG OPT="$NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
+  ${MAKE} -C compiler distclean cycle $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
@@ -98,14 +98,14 @@ echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
 
 echo "Starting make install" >> $report
 echo "`$DATE`" >> $report
-${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="$NEEDED_OPT" FPC=./compiler/$FPCBIN 1>> ${makelog} 2>&1
+${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=./compiler/$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
   for dir in rtl compiler packages utils ide ; do
     echo "Starting install in dir $dir" >> $report
-    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="$NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
   done
@@ -114,7 +114,10 @@ else
 fi
 
 # fullinstall in compiler
-${MAKE} -C compiler $MAKEDEBUG fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="$NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+${MAKE} -C compiler $MAKEDEBUG fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+
+# All cross-compilers (without DEBUG set)
+${MAKE} -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" 1>> ${makelog} 2>&1
 
 # Add new bin dir as first in PATH
 export PATH=/home/${USER}/pas/fpc-${Build_version}/bin:${PATH}
