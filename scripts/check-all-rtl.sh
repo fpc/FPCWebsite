@@ -32,8 +32,11 @@ else
   test_ppudump=1
 fi
 
-# Install all cross-rtl-pacakges on gcc20 machine
+# Install all cross-rtl-pacakges on gcc20/gcc21 machines
 if [ "X$machine_host" == "Xgcc20" ] ; then
+  DO_FPC_INSTALL=1
+fi
+if [ "X$machine_host" == "Xgcc21" ] ; then
   DO_FPC_INSTALL=1
 fi
 
