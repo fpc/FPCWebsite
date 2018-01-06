@@ -107,9 +107,16 @@ fi
 # the help does not cite this target
 listed=1
 
-LOGFILE=$HOME/logs/all-${name}-${svnname}-checks.log
-LISTLOGFILE=$HOME/logs/list-all-${name}-${svnname}-checks.log
-EMAILFILE=$HOME/logs/check-${name}-${svnname}-log.txt
+LOGDIR=$HOME/logs
+
+if [ ! -d $LOGDIR ] ; then
+  echo "Creating directory $LOGDIR"
+  mkdir $LOGDIR
+fi
+
+LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
+LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
+EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
 
 if [ -f $LOGFILE ] ; then
   mv -f $LOGFILE ${LOGFILE}.previous
@@ -124,7 +131,7 @@ echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
 echo "$0 for $svnname starting at `date`" > $EMAILFILE
 echo "Machine info: $machine_info" >> $EMAILFILE
 
-LOGPREFIX=$HOME/logs/${name}-check-${svnname}
+LOGPREFIX=$LOGDIR/${name}-check-${svnname}
 export dummy_count=0
 export rtl_1_failure=0
 export rtl_2_failure=0
@@ -411,6 +418,17 @@ function check_one_rtl ()
             echo "OK: Testing ppudump of $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
             echo "OK: Testing ppudump of $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
           fi
+          LOGFILEPPUNAME=`basename $LOGFILEPPU`
+          IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
+          if [ ! -z "$IS_HUGE" ] ; then
+            echo "$LOGFILEPPU is huge: `wc -c $LOGFILEPPU`"
+            echo "Original $LOGFILEPPU was huge: `wc -c $LOGFILEPPU`" > ${LOGFILEPPU}-tmp
+            head -110 $LOGFILEPPU >> ${LOGFILEPPU}-tmp
+            echo "%%%%% File size reduced %%%%"  >> ${LOGFILEPPU}-tmp
+            tail -110 $LOGFILEPPU >> ${LOGFILEPPU}-tmp
+            rm -Rf $LOGFILEPPU
+            mv ${LOGFILEPPU}-tmp ${LOGFILEPPU}
+          fi
         fi
 	if [ $test_packages -eq 1 ] ; then
 	  echo "Re-compiling native rtl to allow for fpmake compilation"
@@ -440,6 +458,17 @@ function check_one_rtl ()
 	      else
                 echo "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
                 echo "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+              fi
+              LOGFILEPPUNAME=`basename $LOGFILEPACKPPU`
+              IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
+              if [ ! -z "$IS_HUGE" ] ; then
+                echo "$LOGFILEPACKPPU is huge: `wc -c $LOGFILEPACKPPU`"
+                echo "Original $LOGFILEPACKPPU was huge: `wc -c $LOGFILEPACKPPU`" > ${LOGFILEPACKPPU}-tmp
+                head -110 $LOGFILEPACKPPU >> ${LOGFILEPACKPPU}-tmp
+                echo "%%%%% File size reduced %%%%"  >> ${LOGFILEPACKPPU}-tmp
+                tail -110 $LOGFILEPACKPPU >> ${LOGFILEPACKPPU}-tmp
+                rm -Rf $LOGFILEPACKPPU
+                mv ${LOGFILEPACKPPU}-tmp ${LOGFILEPACKPPU}
               fi
             fi
 	  fi
@@ -503,20 +532,23 @@ check_one_rtl x86_64 darwin "-n"
 # arm linux
 
 export CROSSOPT="-Cparmv6 -Caeabi -Cfsoft"
-check_one_rtl arm linux "-n -gl" "CROSSOPT=$CROSSOPT" "-armeabi"
+check_one_rtl arm linux "-n -gl" "" "-armeabi"
 export CROSSOPT=
 
 export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
-check_one_rtl arm linux "-n -gl" "ASTARGETLEVEL3=$ASTARGETLEVEL3" "-arm_softvfp"
+check_one_rtl arm linux "-n -gl" "" "-arm_softvfp"
 export ASTARGETLEVEL3=
 
 # msdos OS
 check_one_rtl i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall" "" "-small"
 check_one_rtl i8086 msdos "-n -CX -XX -Wmmedium" "" "-medium"
 check_one_rtl i8086 msdos "-n -CX -XX -Wmcompact" "" "-compact"
 check_one_rtl i8086 msdos "-n -CX -XX -Wmlarge" "" "-large"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmhuge"
+if [ "$svnname" == "trunk" ] ; then
+  check_one_rtl i8086 msdos "-n -CX -XX -Wmhuge" "" "-huge"
+fi
+# Use small as default memory model
+check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall"
 
 # Win16 OS
 check_one_rtl i8086 win16 "-n -CX -XX -Wmhuge"
