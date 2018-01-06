@@ -17,4 +17,5 @@ DISTCLEAN_BEFORE_TESTS=1
 FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/trunk/x86_64-linux
 export GDBMI=1
 
-. $HOME/bin/makesnapshot
+. $HOME/bin/makesnapshot.sh
+

@@ -15,4 +15,4 @@ LOGFILE=$HOME/logs/snapshot-fixes.log
 PPCCPU=ppcx64
 FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/x86_64-linux
 export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
-. $HOME/bin/makesnapshot
+. $HOME/bin/makesnapshot.sh
