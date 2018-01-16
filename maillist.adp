@@ -16,6 +16,8 @@ technical questions. This list will also be used to announce new snapshots
 and small patches to fix compiler bugs.
 <li> <I>FPC-Announce</I>:
 Here important announcements (such as new releases) will be posted.
+<li> <I>pas2js</I>:
+For all questions and discussions about the pas2js pascal-to-javascript compiler
 <li> <I>FPC-Other</I>:
 For all other mail that is not in the above categories.
 <li> <I>MacPascal</I>:
@@ -37,6 +39,8 @@ There are 2 ways to do this:
    fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce.
 <li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
    fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other.
+<li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
+   pas2js-request&#x040;lists.freepascal.org</a> for pas2js.
 <li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
    mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
@@ -54,6 +58,9 @@ http://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel.
 <li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-announce/">
 http://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
 fpc-announce
+<li><a href="http://lists.freepascal.org/mailman/listinfo/pas2js/">
+http://lists.freepascal.org/mailman/listinfo/pas2js/</a> for
+pas2js
 <li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-other/">
 http://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
 <li><a href="http://lists.sonic.net/mailman/listinfo/mac-pascal/">http://lists.sonic.net/mailman/listinfo/mac-pascal/</a> for MacPascal
@@ -69,6 +76,7 @@ The mailing list messages are archived. To access the archives, go here:
 <li><a href="http://lists.freepascal.org/pipermail/fpc-pascal/">for fpc-pascal </a>
 <li><a href="http://lists.freepascal.org/pipermail/fpc-devel/">for fpc-devel </a>
 <li><a href="http://lists.freepascal.org/pipermail/fpc-announce/">for fpc-announce</a>
+<li><a href="http://lists.freepascal.org/pipermail/pas2js/">for pas2js</a>
 <li><a href="http://lists.freepascal.org/pipermail/fpc-other/">for fpc-other</a>
 <li><a href="http://lists.sonic.net/mailman/private/mac-pascal/">for MacPascal</a> (only accessible to subscribers)
 </OL>
