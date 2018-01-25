@@ -84,7 +84,11 @@ export HOST=
 ## system_i386_netbsd,        { 17 }
 ./do-one.sh i386-netbsd i386-unknown-netbsd-gnu
 ## system_i386_Netware,       { 19 }
-./do-one.sh i386-netare i386-unknown-netware
+export config_option=--enable-obsolete
+export BINUTILS_RELEASE="2.29.1"
+./do-one.sh i386-netware i386-unknown-netware
+export BINUTILS_RELEASE=
+export config_option=
 ## system_i386_netwlibc,      { 35 }
 ./do-one.sh i386-newlibc i386-unknown-newlibc
 ## system_i386_openbsd,       { 24 }
