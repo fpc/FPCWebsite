@@ -35,7 +35,6 @@ fi
 cd ~/pas/${SVNDIR}
 
 export report=`pwd`/report.txt
-export report2=`pwd`/report2.txt
 export makelog=`pwd`/make.txt
 export testslog=`pwd`/tests.txt
 
@@ -67,7 +66,7 @@ else
 fi
 
 
-NEW_PPC_BIN=./compiler/$FPCBIN
+NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
 
 if [ ! -f $NEW_PPC_BIN ] ; then
   echo "No new $NEW_PPC_BIN, aborting" >> $report
@@ -76,11 +75,38 @@ fi
 
 Build_version=`$NEW_PPC_BIN -iV 2> /dev/null`
 Build_date=`$NEW_PPC_BIN -iD 2> /dev/null`
+NEW_OS_TARGET=`$NEW_PPC_BIN -iTO`
+NEW_CPU_TARGET=`$NEW_PPC_BIN -iTP`
 
-echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
+echo "New $FPCBIN version is ${Build_version} ${Build_date} ${NEW_CPU_TARGET}-${NEW_OS_TARGET} " >> $report
 
+# Register system.ppu state
+if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+  /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu | grep -E "(^Analysing|Checksum)" > rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log1 2>&1
+fi
 # Update all cross-compilers (without DEBUG set)
+echo "make -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version}" >> $report
 make -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+makeres=$?
+if [ $makeres -ne 0 ] ; then
+  echo "${MAKE} distclean all failed result=${makeres}" >> $report
+  tail -30 ${makelog} >> $report
+else
+  echo "Ending make distclean all; result=${makeres}" >> $report
+fi
+# Check if system.ppu changed
+# Register system.ppu state
+if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+  /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu | grep -E "(^Analysing|Checksum)"  > rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log2 2>&1
+  diff -c  rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log1 rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log2 > rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-logdiffs
+  diffres=$?
+  if [ $diffres -ne 0 ] ; then
+    echo "ppudump output changed" >> $report
+    cat rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-logdiffs >> $report
+    echo "Cleaning packages to be sure" >> $report
+    make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  fi
+fi
 
 echo "Starting make install" >> $report
 echo "`$DATE`" >> $report
@@ -126,7 +152,7 @@ echo "`$DATE`" >> $report
 tail -30 $testslog >> $report
 
 TEST_OPT="-Cg"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" > $report
+echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
 echo "`$DATE`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
