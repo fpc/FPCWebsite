@@ -14,18 +14,18 @@ $HOME/bin/linux-fpccommonup.sh
 export FIXES=1
 $HOME/bin/linux-fpccommonup.sh
 
+# Test all RTL compilations
+export FIXES=1
+$HOME/bin/check-all-rtl.sh
+export FIXES=0
+$HOME/bin/check-all-rtl.sh
+
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   $HOME/bin/makesnapshotfixes.sh 
   $HOME/bin/makesnapshottrunk.sh
 
   # Update source on fpcftp machine
   $HOME/scripts/allsourcezips
-
-  # Test all RTL compilations
-  export FIXES=1
-  $HOME/bin/check-all-rtl.sh
-  export FIXES=0
-  $HOME/bin/check-all-rtl.sh
 
   # Finally try to generate snapshots
   $HOME/bin/all-snapshots.sh
@@ -47,6 +47,4 @@ if [ "X$HOSTNAME" == "Xgcc67" ] ; then
 
   # Test go32v2
   $HOME/bin/test-go32v2.sh
-
-
 fi
