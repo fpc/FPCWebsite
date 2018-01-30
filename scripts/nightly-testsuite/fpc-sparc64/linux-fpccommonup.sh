@@ -156,6 +156,8 @@ ${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
 testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
+# Just keep last sent file to database
+mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-Cg
@@ -169,6 +171,8 @@ ${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
 testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
+# Just keep last sent file to database
+mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-O2
@@ -181,14 +185,14 @@ fi
 
 # Cleanup
 
-if [ "${testsres}" == "0" ]; then
-  cd ~/pas/trunk
+# if [ "${testsres}" == "0" ]; then
+  cd ~/pas/${SVNDIR}
   ${MAKE} distclean 1>> ${makelog} 2>&1
   if [ -d fpcsrc ] ; then
     cd fpcsrc
   fi
   cd tests
   ${MAKE} distclean TEST_FPC=fpc 1>> ${makelog} 2>&1
-fi
+# fi
 
 
