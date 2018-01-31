@@ -3,9 +3,9 @@
 . $HOME/bin/fpc-versions.sh
 
 # Latest binutils release version is
-# 2.29.1 (2017/09/25)
+# 2.30 (20i8/01/28)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.29.1
+  BINUTILS_RELEASE=2.30
 fi
 
 # Latest installed Free Pascal release
@@ -99,13 +99,22 @@ function copytofpcbin ()
   fi
   echo "Copying $file to $fpcbindir"
   make LDFLAGS="$LDFLAGS"
-  if [ -f .libs/${file}${suff}${EXEEXT} ]; then
-    cp .libs/${file}${suff}${EXEEXT} ${fpcbindir}${prefix}-${file}${EXEEXT}
-  else
-    cp ${file}${suff}${EXEEXT} ${fpcbindir}/${prefix}-${file}${EXEEXT}
-  fi
-  if [ $DO_STRIP -eq 1 ] ; then
-    strip -p -s ${fpcbindir}/${prefix}-${file}${EXEEXT}
+  makeres=$?
+  if [ $makeres -eq 0 ] ; then
+    if [ -f ${fpcbindir}/${prefix}-${file}${EXEEXT} ] ; then
+      if [ ! -d ${fpcbindir}/prev-binutils ] ; then
+        mkdir ${fpcbindir}/prev-binutils
+      fi
+      mv ${fpcbindir}/${prefix}-${file}${EXEEXT} ${fpcbindir}/prev-binutils
+    fi
+    if [ -f .libs/${file}${suff}${EXEEXT} ]; then
+      cp .libs/${file}${suff}${EXEEXT} ${fpcbindir}${prefix}-${file}${EXEEXT}
+    else
+      cp ${file}${suff}${EXEEXT} ${fpcbindir}/${prefix}-${file}${EXEEXT}
+    fi
+    if [ $DO_STRIP -eq 1 ] ; then
+      strip -p -s ${fpcbindir}/${prefix}-${file}${EXEEXT}
+    fi
   fi
 }
 
