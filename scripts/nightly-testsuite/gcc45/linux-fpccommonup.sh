@@ -86,7 +86,10 @@ if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
 fi
 # Update all cross-compilers (without DEBUG set)
 echo "make -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version}" >> $report
-make -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+NEW_PPC_SAFE=`pwd`/compiler/startppc
+cp $NEW_PPC_BIN $NEW_PPC_SAFE
+
+make -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
@@ -95,7 +98,6 @@ else
   echo "Ending make distclean all; result=${makeres}" >> $report
 fi
 # Check if system.ppu changed
-# Register system.ppu state
 if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
   /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu | grep -E "(^Analysing|Checksum)"  > rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log2 2>&1
   diff -c  rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log1 rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-log2 > rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET}/system.ppu-logdiffs
@@ -110,14 +112,14 @@ fi
 
 echo "Starting make install" >> $report
 echo "`$DATE`" >> $report
-${MAKE} DEBUG=1 install INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+${MAKE} DEBUG=1 install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
 makeres=$?
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
   for dir in rtl compiler packages utils ide ; do
     echo "Starting install in dir $dir" >> $report
-    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
   done
@@ -149,7 +151,7 @@ testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 
-tail -30 $testslog >> $report
+tail -43 $testslog >> $report
 
 TEST_OPT="-Cg"
 echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
@@ -161,7 +163,7 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 
-tail -30 $testslog >> $report
+tail -43 $testslog >> $report
 
 
 mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, ${Build_version} ${Build_date}" \
