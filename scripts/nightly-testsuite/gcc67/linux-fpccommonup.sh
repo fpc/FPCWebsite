@@ -47,6 +47,7 @@ fi
 
 cd ~/pas/${SVNDIR}
 
+STARTDIR=`pwd`
 export report=`pwd`/report${SUFFIX}.txt 
 export report2=`pwd`/report2${SUFFIX}.txt 
 export svnlog=`pwd`/svnlog${SUFFIX}.txt 
@@ -95,6 +96,13 @@ fi
 
 if [ $NewBinary -eq 1 ] ; then
 echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
+NEW_UNITDIR=`./compiler/$FPCBIN -iTP`-`./compiler/$FPCBIN -iTO`
+
+# Register system.ppu state
+if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+  echo "system ppu checksums stored to $STARTDIR/${NEW_UNITDIR}-system.ppu-log1" >> $report
+  /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_UNITDIR}/system.ppu | grep -E "(^Analysing|Checksum)" > $STARTDIR/${NEW_UNITDIR}-system.ppu-log1 2>&1
+fi
 
 echo "Starting make install" >> $report
 echo "`$DATE`" >> $report
@@ -114,11 +122,29 @@ else
 fi
 
 # fullinstall in compiler
-${MAKE} -C compiler $MAKEDEBUG fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+${MAKE} -C compiler $MAKEDEBUG cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
 
 # All cross-compilers (without DEBUG set)
-${MAKE} -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" 1>> ${makelog} 2>&1
+# ${MAKE} -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" 1>> ${makelog} 2>&1
 
+# Check if system.ppu changed
+if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+  echo "New system ppu checksums stored to $STARTDIR/${NEW_UNITDIR}-system.ppu-log2" >> $report
+  /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_UNITDIR}/system.ppu | grep -E "(^Analysing|Checksum)" > $STARTDIR/${NEW_UNITDIR}-system.ppu-log2 2>&1
+  cmp  $STARTDIR/${NEW_UNITDIR}-system.ppu-log1 $STARTDIR/${NEW_UNITDIR}-system.ppu-log2 > $STARTDIR/${NEW_UNITDIR}-system.ppu-logdiffs
+  cmpres=$?
+  if [ $cmpres -ne 0 ] ; then
+    echo "ppudump output for system.ppu changed" >> $report
+    echo "ppudump output for system.ppu changed" >> $makelog
+    cat rtl/units/${NEW_UNITDIR}/system.ppu-logdiffs >> $report
+    echo "Cleaning packages to be sure" >> $report
+    echo "Cleaning packages to be sure" >> $makelog
+    ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+    echo "Reinstalling packages as system.ppu has changed" >> $report
+    echo "Reinstalling packages as system.ppu has changed" >> $makelog
+    ${MAKE} -C packages $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=/home/${USER}/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+  fi
+fi
 # Add new bin dir as first in PATH
 export PATH=/home/${USER}/pas/fpc-${Build_version}/bin:${PATH}
 echo "Using new PATH=\"${PATH}\"" >> $report
@@ -142,6 +168,7 @@ function run_tests ()
   MAKE_OPTS="$2"
   logdir=~/logs/$SVNDIR/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
   testslog=~/pas/$SVNDIR/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
+  cleanlog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
   echo "Starting make distclean fulldb" >> $report
   echo "${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
@@ -149,6 +176,8 @@ function run_tests ()
     DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
   echo "`$DATE`" >> $report
   TIME=`date +%H-%M-%S`
+  ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleanlog 2>&1
+  ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleanlog 2>&1
   ${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
     TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
