@@ -198,7 +198,7 @@ function copytofpcbin ()
   else
     echo "No gas directory, no new assembler generated"
   fi
-  if [ -d gas ] ; then
+  if [ -d ld ] ; then
     cd ld
     copytofpcbin ld -new
     cd ..
