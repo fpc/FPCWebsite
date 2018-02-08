@@ -4,7 +4,7 @@
 ## system_aarch64_darwin,     { 86 }
 ./do-one.sh aarch64-linux aarch64-unknown-linux-gnu
 ## system_aarch64_linux,      { 88 }
-./do-one.sh aarch64-darwin aarch64-unknown-darwin
+./do-one.sh aarch64-darwin aarch64-apple-darwin11
 export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh aarch64-aros aarch64-aros
 export BINUTILS_RELEASE=
@@ -21,7 +21,7 @@ export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh arm-aros arm-aros
 export BINUTILS_RELEASE=
 ## system_arm_darwin,         { 64 }
-./do-one.sh arm-darwin arm-unknown-darwin
+./do-one.sh arm-darwin arm-apple-darwin11
 ## system_arm_embedded,       { 57 }
 ./do-one.sh arm-embedded arm-none-elf
 ## system_arm_gba,            { 42 }
@@ -59,7 +59,7 @@ export BINUTILS_RELEASE=
 ## system_i386_beos,          { 16 }
 ./do-one.sh i386-beos i386-unknown-beos
 ## system_i386_darwin,        { 44 }
-./do-one.sh i386-darwin i386-unknown-darwin
+./do-one.sh i386-darwin i386-apple-darwin11
 ## system_i386_embedded,      { 48 }
 ## Should it be coff or elf?
 ./do-one.sh i386-embedded i386-unknown-elf
@@ -190,7 +190,7 @@ export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh powerpc-aros ppc-aros
 export BINUTILS_RELEASE=
 ## system_powerpc_darwin,     { 27 }
-./do-one.sh powerpc-darwin powerpc-unknown-darwin
+./do-one.sh powerpc-darwin powerpc-apple-darwin11
 ## system_powerpc_embedded,   { 51 }
 ./do-one.sh powerpc-embedded powerpc-none-elf
 ## system_powerpc_linux,      { 13 }
@@ -212,7 +212,7 @@ export BINUTILS_RELEASE=
 ## system_powerpc64_aix,      { 74 }
 ./do-one.sh powerpc64-aix powerpc64-unknown-aix7.1
 ## system_powerpc64_darwin,   { 46 }
-./do-one.sh powerpc64-darwin powerpc64-unknown-darwin
+./do-one.sh powerpc64-darwin powerpc64-apple-darwin11
 ## system_powerpc64_embedded, { 58 }
 ./do-one.sh powerpc64-embedded powerpc64-none-elf
 ## system_powerpc64_linux,    { 43 }
@@ -242,7 +242,8 @@ export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh x86_64-aros x86_64-aros
 export BINUTILS_RELEASE=
 ## system_x86_64_darwin,      { 61 }
-./do-one.sh x86_64-darwin x86_64-unknown-darwin
+## disabled using symbolic links to i386 versions
+##./do-one.sh x86_64-darwin x86_64-unknown-darwin
 ## system_x86_64_dragonfly,   { 85 }
 ./do-one.sh x86_64-dragonfly amd64-unknown-dragonflybsd
 ## system_x86_64_embedded,    { 55 }
