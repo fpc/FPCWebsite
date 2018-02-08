@@ -189,6 +189,16 @@ function copytofpcbin ()
     export "$LOCAL_CFLAGS"
     export LDFLAGS="${LDFLAGS}"
     ../../${binutilsdir}/configure $config_option --target=$target  --disable-intl --disable-libtool --disable-werror | tee $LOGFILE 2>&1
+    configres=$?
+    if [ $configres -ne 0 ] ; then
+      echo "Configure failed, trying to erase build directory content before second try"
+      cd ..
+      rm -Rf ${prefix}
+      mkdir -p ${prefix}
+      cd ${prefix}
+      ../../${binutilsdir}/configure $config_option --target=$target  --disable-intl --disable-libtool --disable-werror | tee $LOGFILE 2>&1
+      configres=$?
+    fi
     make all-binutils all-gas all-ld | tee -a $LOGFILE 2>&1
   fi
   if [ -d gas ] ; then
