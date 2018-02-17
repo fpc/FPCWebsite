@@ -19,7 +19,13 @@ fi
 export MAKE=make
 if [ "$HOSTNAME" == "CFARM-IUT-TLSE3" ] ; then
   export HOSTNAME=gcc21
+  run_tests=1
+elif [ "$HOSTNAME" == "gcc20" ] ; then
+  run_tests=1
+else
+  run_tests=0
 fi
+
 HOST_PC=${HOSTNAME}
 
 
@@ -49,8 +55,8 @@ cd ~/pas/${SVNDIR}
 
 STARTDIR=`pwd`
 export report=`pwd`/report${SUFFIX}.txt 
-export report2=`pwd`/report2${SUFFIX}.txt 
 export svnlog=`pwd`/svnlog${SUFFIX}.txt 
+export cleanlog=`pwd`/cleanlog${SUFFIX}.txt 
 export makelog=`pwd`/makelog${SUFFIX}.txt 
 
 echo "Starting $0" > $report
@@ -62,7 +68,7 @@ echo "PATH=$PATH" >> $report
 echo "Start time `$DATE`" > $svnlog
 #ulimit -d 65536 -s 8192 -t 2400  1>> $report 2>&1
 ulimit -t 2400  1>> $report 2>&1
-svn cleanup 1>> $svnlog 2>&1
+svn cleanup 1> $cleanlog 2>&1
 svn up --accept theirs-conflict 1>> $svnlog 2>&1
 
 if [ -d fpcsrc ]; then
@@ -71,7 +77,8 @@ fi
 
 echo "Starting make distclean all" >> $report
 echo "Start make `$DATE`" >> $report
-${MAKE} distclean all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1> ${makelog} 2>&1
+${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
+${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
@@ -205,7 +212,7 @@ function run_tests ()
 cp ${svnlog} ~/pas/$SVNDIR/svnlog-${NEW_UNITDIR}.txt
 cp ${makelog} ~/pas/$SVNDIR/makelog-${NEW_UNITDIR}.txt
 
-if [ "X$HOST_PC" == "Xgcc20" ] ; then
+if [ $run_tests -eq 1 ] ; then
   run_tests ""
   run_tests "-Cg"
   run_tests "-O4"
@@ -228,7 +235,7 @@ fi
 
 if [ ${testsres} -eq 0 ]; then
   cd ~/pas/$SVNDIR
-  ${MAKE} distclean 1>> ${makelog} 2>&1
+  ${MAKE} distclean 1>> ${cleanlog} 2>&1
 fi
 
 )
