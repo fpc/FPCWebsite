@@ -5,7 +5,7 @@
 # Some programs might freeze
 # like i386-darwin-as...
 
-ulimit -t 300
+ulimit -t 300 2> /dev/null
 
 FPCRELEASEVERSION=$RELEASEVERSION
 export GREP_CONTEXT_LINES=6
@@ -103,6 +103,9 @@ cd $CHECKOUTDIR
 if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
+svn_rtl_version=`svnversion -c rtl`
+svn_compiler_version=`svnversion -c compiler`
+svn_packages_version=`svnversion -c packages`
 
 # This variable is reset after
 # all -T"OS" have been parsed
@@ -132,7 +135,18 @@ fi
 echo "$0 for $svnname starting at `date`" > $LOGFILE
 echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
 echo "$0 for $svnname starting at `date`" > $EMAILFILE
+echo "Machine info: $machine_info" >> $LOGFILE
+echo "Machine info: $machine_info" >> $LISTLOGFILE
 echo "Machine info: $machine_info" >> $EMAILFILE
+echo "RTL svn version: $svn_rtl_version" >> $LOGFILE
+echo "RTL svn version: $svn_rtl_version" >> $LISTLOGFILE
+echo "RTL svn version: $svn_rtl_version" >> $EMAILFILE
+echo "Compiler svn version: $svn_compiler_version" >> $LOGFILE
+echo "Compiler svn version: $svn_compiler_version" >> $LISTLOGFILE
+echo "Compiler svn version: $svn_compiler_version" >> $EMAILFILE
+echo "Packages svn version: $svn_packages_version" >> $LOGFILE
+echo "Packages svn version: $svn_packages_version" >> $LISTLOGFILE
+echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 
 LOGPREFIX=$LOGDIR/${name}-check-${svnname}
 export dummy_count=0
@@ -502,16 +516,17 @@ function list_os ()
   done
 }
 
+if [ "X$1" != "X" ] ; then
+  echo "Testing single configuration $0 $*"
+  echo "check_one_rtl cpu=\"$1\" os=\"$2\" opts=\"$3\" make args=\"$4\" suffix=\"$5\""
+  check_one_rtl "$1" "$2" "$3" "$4" "$5"
+  exit
+fi
+
 (
 
 # Remove all existing logs
 rm -Rf ${LOGPREFIX}*
-
-if [ "X$1" != "X" ] ; then
-  echo "Testing single configuration $0 $*"
-  check_one_rtl "$1" "$2" "$3" "$4" "$5"
-  exit
-fi
 
 # List separately cases for which special parameters are required
 check_one_rtl arm embedded "-n" "SUBARCH=armv4t"
