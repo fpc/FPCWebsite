@@ -24,7 +24,7 @@ else
   FPCVERSION=$TRUNKVERSION
 fi
 
-# Need for makesnapshot call
+# Need for makesnapshot.sh call
 export CHECKOUTDIR
 
 # Add current FPC (trunk or fixes) bin directory to PATH
@@ -186,16 +186,16 @@ function set_fpc ()
     # Do not export BINUTILSPREFIX, because
     # this would be used already in first cycle...
 
-    echo "$HOME/bin/makesnapshot $CPU_TARGET $OS_TARGET, with OPT=\"$OPT\", using $target_as ($assembler_version)"
+    echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with OPT=\"$OPT\", using $target_as ($assembler_version)"
     export LOGFILE=$HOME/logs/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
-    $HOME/bin/makesnapshot $CPU_TARGET $OS_TARGET
+    $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
     res=$?
     if [ $res -ne 0 ] ; then
-      echo "makesnapshot failed, res=$res" 
-      echo "$HOME/bin/makesnapshot ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$OPT\", using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
+      echo "makesnapshot.sh failed, res=$res" 
+      echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$OPT\", using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
     else
-      echo "makesnapshot returned 0"
-      echo "$HOME/bin/makesnapshot ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$OPT\", using $target_as ($assembler_version) OK" >> $LISTLOGFILE
+      echo "makesnapshot.sh returned 0"
+      echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with OPT=\"$OPT\", using $target_as ($assembler_version) OK" >> $LISTLOGFILE
     fi
   else
     echo "$target_as for ${CPU_TARGET}-${OS_TARGET} not found, skipping"
