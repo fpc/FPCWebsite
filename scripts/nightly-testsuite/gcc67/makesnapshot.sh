@@ -132,7 +132,7 @@ else
 fi
 
 NEWFPC=$CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU
-if [ ! -f NEWFPC ] ; then
+if [ ! -f $NEWFPC ] ; then
   PPCCPU=${PPCCPU/ppc/ppcross}
   NEWFPC=$CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU
 fi
