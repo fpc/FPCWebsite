@@ -65,14 +65,38 @@ fi
 # copy current compiler to bin dir
 cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
 
+SNAPSHOTFILE=`ls -1 *.tar.gz`
+mv $SNAPSHOTFILE ${SNAPSHOTFILE/.tar.gz/}-${HOSTNAME}.tar.gz
+SNAPSHOTFILE=`ls -1 *.tar.gz`
+
+READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}-$HOSTNAME
+
+cat > $READMEFILE <<EOF
+This snapshot $SNAPSHOTFILE was generated ${date} using:
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT"
+started using ${STARTPP}
+${PPCCPU} -iVDW output is: `${NEWFPC} -iVDW`
+
+uname -a of the machine is:
+`uname -a`
+
+"svnversion -c ." output is: `svnversion -c .`
+
+"svnversion -c fpcsrc" output is: `svnversion -c fpcsrc`
+
+Enjoy,
+
+Pierre Muller
+EOF
+
 # move snapshot
 if [ "$FTPDIR" != "" ]; then
   cd $CHECKOUTDIR
-  if [ $? = 0 ]; then
+  if [ $? -eq 0 ]; then
      #  FTP machine must trust this account. Copy public key to that machine
      # if needed Everything is set
-     scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
-     if [ $? = 0 ]; then   
+     scp ${SCP_EXTRA} ${SNAPSHOTFILE} ${READMEFILE} ${FTPDIR}
+     if [ $? -eq 0 ] ; then
        set ERRORMAILADDR = ""
      fi
   fi
@@ -108,12 +132,12 @@ date
 if [ "${ERRORMAILADDR}" != "" ]; then
         # Create email
         echo "To: ${ERRORMAILADDR}" > $MAILFILE
-        echo "From: fpc@freepascal.org" >> $MAILFILE
-        echo "Subject: Daily compile routine" >> $MAILFILE
-        echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
+        echo "From: pierre@freepascal.org" >> $MAILFILE
+        echo "Subject: Daily snapshot generation routine on $HOSTNAME" >> $MAILFILE
+        echo "Reply-to: pierre@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
         /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
-        sendmail -f fpc@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
+        sendmail -f pierre@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
 fi
 
 # End of script.
