@@ -67,7 +67,7 @@ if [ -f ${TAR} ] ; then
 fi
 
 echo ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" "|" tee makesnapshot-${date}.txt
-${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" | tee makesnapshot-${FPC_CPUOS}-${date}.txt
+${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" > makesnapshot-${FPC_CPUOS}-${date}.txt 2>&1
 
 
 if [ -f ${TAR} ]; then

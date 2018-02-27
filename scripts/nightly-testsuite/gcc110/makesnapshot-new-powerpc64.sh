@@ -65,7 +65,7 @@ if [ -f ${TAR} ] ; then
   mv -f  ${TAR} ${TAR}.old
 fi
 
-${MAKE} ${MAKE_OPTIONS} | tee makesnapshot-${FPC_CPUOS}-${date}.txt
+${MAKE} ${MAKE_OPTIONS} > makesnapshot-${FPC_CPUOS}-${date}.txt 2>&1
 
 
 if [ -f ${TAR} ]; then
