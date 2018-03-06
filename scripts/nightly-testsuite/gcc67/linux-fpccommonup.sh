@@ -28,6 +28,10 @@ fi
 
 HOST_PC=${HOSTNAME}
 
+cleantests=0
+if [ "$HOSTNAME" == "gcc20" ] ; then
+  cleantests=1
+fi
 
 if [ "$USER" == "" ]; then
   USER=$LOGNAME
@@ -175,7 +179,7 @@ function run_tests ()
   MAKE_OPTS="$2"
   logdir=~/logs/$SVNDIR/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
   testslog=~/pas/$SVNDIR/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
-  cleanlog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
+  cleantestslog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
   echo "Starting make distclean fulldb" >> $report
   echo "${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
@@ -183,8 +187,8 @@ function run_tests ()
     DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
   echo "`$DATE`" >> $report
   TIME=`date +%H-%M-%S`
-  ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleanlog 2>&1
-  ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleanlog 2>&1
+  ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleantestslog 2>&1
+  ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleantestslog 2>&1
   ${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
     TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
@@ -236,6 +240,13 @@ fi
 if [ ${testsres} -eq 0 ]; then
   cd ~/pas/$SVNDIR
   ${MAKE} distclean 1>> ${cleanlog} 2>&1
+  if [ -d fpcsrc ] ; then
+    cd fpcsrc
+  fi
+  cd tests
+  if [ $cleantests -eq 1 ] ; then
+    rm -Rf output* 1>> ${cleanlog} 2>&1
+  fi
 fi
 
 )
