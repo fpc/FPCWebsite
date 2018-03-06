@@ -509,7 +509,7 @@ function list_os ()
   set_fpc_local $CPU_TARG_LOCAL
   OPT="$2"
   MAKEEXTRA="$3"
-  os_list=`$FPC_LOCAL -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
+  os_list=`$FPC_LOCAL -h | sed -n "s:^[ \t]*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
   for os in ${os_list} ; do
    echo "check_one_rtl $CPU_TARG_LOCAL ${os,,} \"$OPT\" \"$MAKEEXTRA\""
    check_one_rtl $CPU_TARG_LOCAL ${os,,} "$OPT" "$MAKEEXTRA"
