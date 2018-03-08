@@ -31,7 +31,7 @@ export BINUTILS_RELEASE=
 ## system_arm_nds,            { 47 }
 ./do-one.sh arm-nds arm-unknown-nds
 ## system_arm_netbsd          { 95 }
-./do-one.sh arm-netbsd arm-unknown-netbsd-gnu
+./do-one.sh arm-netbsd arm-unknown-netbsdelf
 ## system_arm_palmos,         { 45 }
 ## binutils 2.14 patched with http://prc-tools.sourceforge.net/
 export BINUTILS_RELEASE="2.14-palmos"
