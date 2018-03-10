@@ -45,7 +45,6 @@ contrib/fpc.fbk -text
 contrib/fpccommunity.pp svneol=native#text/plain
 contrib/gen_makefile.conf svneol=native#text/plain
 contrib/hidedetails.png -text svneol=unset#image/png
-contrib/mirrors.dat svneol=native#text/plain
 contrib/ok.png -text svneol=unset#image/png
 contrib/rpcontribs.lfm svneol=native#text/plain
 contrib/rpcontribs.pp svneol=native#text/plain
@@ -58,7 +57,6 @@ contrib/wmdelete.pp svneol=native#text/plain
 /credits.adp svneol=native#text/plain
 css/fp-navl.css svneol=native#text/plain
 css/fp.css svneol=native#text/plain
-/cwstringm.pp svneol=native#text/x-pascal
 /default-master.adp svneol=native#text/html
 /develop.adp svneol=native#text/plain
 /docs.adp svneol=native#text/plain

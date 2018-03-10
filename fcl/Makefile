@@ -50,7 +50,7 @@ english: output_directory all_en_pages
 ..//fcl/fcl.html.ru: fcl.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//fcl//fcl.html.ru -oe iso-8859-5 fcl.adp
 ..//fcl/fcl.html.zh-CN: fcl.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//fcl//fcl.html.zh-CN -oe utf-16 fcl.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//fcl//fcl.html.zh-CN -oe UTF-8 fcl.adp
 ..//fcl/fcl.html: fcl.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//fcl//fcl.html -oe ISO-8859-1 fcl.adp
 
@@ -98,14 +98,13 @@ english: output_directory all_en_pages
 	echo >> fcl.var
 	echo 'URI: fcl.html.zh-CN' >> fcl.var
 	echo 'Content-language: zh-CN' >> fcl.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//fcl//fcl.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//fcl//fcl.var
 	echo >> fcl.var
 
 mirrors.dat:
-	echo -e 'name\tnamel\turl' > mirrors.dat
-	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh-CN ..//fcl/fcl.var
 all_en_pages: mirrors.dat ..//fcl/fcl.html

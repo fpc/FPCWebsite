@@ -29,77 +29,6 @@ endif
 default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
-../..//down/android/android-austria.html.bg: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/android//android-austria.html.bg -oe iso-8859-5 android.adp
-../..//down/android/android-austria.html.en: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/android//android-austria.html.en -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.fi: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/android//android-austria.html.fi -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.fr: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/android//android-austria.html.fr -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.id: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/android//android-austria.html.id -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.it: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/android//android-austria.html.it -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.nl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/android//android-austria.html.nl -oe iso-8859-1 android.adp
-../..//down/android/android-austria.html.po: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/android//android-austria.html.po -oe iso-8859-2 android.adp
-../..//down/android/android-austria.html.sl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/android//android-austria.html.sl -oe iso-8859-2 android.adp
-../..//down/android/android-austria.html.ru: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/android//android-austria.html.ru -oe iso-8859-5 android.adp
-../..//down/android/android-austria.html.zh-CN: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/android//android-austria.html.zh-CN -oe utf-16 android.adp
-../..//down/android/android-austria.html: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/android/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/android//android-austria.html -oe ISO-8859-1 android.adp
-
-../..//down/android/android-austria.var: gen_makefile.conf
-	echo > android-austria.var
-	echo 'URI: android-austria.html.bg' >> android-austria.var
-	echo 'Content-language: bg' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.en' >> android-austria.var
-	echo 'Content-language: en' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.fi' >> android-austria.var
-	echo 'Content-language: fi' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.fr' >> android-austria.var
-	echo 'Content-language: fr' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.id' >> android-austria.var
-	echo 'Content-language: id' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.it' >> android-austria.var
-	echo 'Content-language: it' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.nl' >> android-austria.var
-	echo 'Content-language: nl' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.po' >> android-austria.var
-	echo 'Content-language: pl' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.sl' >> android-austria.var
-	echo 'Content-language: sl' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.ru' >> android-austria.var
-	echo 'Content-language: ru' >> android-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> android-austria.var
-	echo >> android-austria.var
-	echo 'URI: android-austria.html.zh-CN' >> android-austria.var
-	echo 'Content-language: zh-CN' >> android-austria.var
-	echo 'Content-type: text/html; charset=utf-16' >> android-austria.var
-	echo >> android-austria.var
 ../..//down/android/android-hungary.html.bg: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/android//android-hungary.html.bg -oe iso-8859-5 android.adp
 ../..//down/android/android-hungary.html.en: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -121,7 +50,7 @@ english: output_directory all_en_pages
 ../..//down/android/android-hungary.html.ru: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/android//android-hungary.html.ru -oe iso-8859-5 android.adp
 ../..//down/android/android-hungary.html.zh-CN: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/android//android-hungary.html.zh-CN -oe utf-16 android.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/android//android-hungary.html.zh-CN -oe UTF-8 android.adp
 ../..//down/android/android-hungary.html: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/android/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/android//android-hungary.html -oe ISO-8859-1 android.adp
 
@@ -169,7 +98,7 @@ english: output_directory all_en_pages
 	echo >> android-hungary.var
 	echo 'URI: android-hungary.html.zh-CN' >> android-hungary.var
 	echo 'Content-language: zh-CN' >> android-hungary.var
-	echo 'Content-type: text/html; charset=utf-16' >> android-hungary.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android-hungary.var
 	echo >> android-hungary.var
 ../..//down/android/android-netherlands.html.bg: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/android//android-netherlands.html.bg -oe iso-8859-5 android.adp
@@ -192,7 +121,7 @@ english: output_directory all_en_pages
 ../..//down/android/android-netherlands.html.ru: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/android//android-netherlands.html.ru -oe iso-8859-5 android.adp
 ../..//down/android/android-netherlands.html.zh-CN: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/android//android-netherlands.html.zh-CN -oe utf-16 android.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/android//android-netherlands.html.zh-CN -oe UTF-8 android.adp
 ../..//down/android/android-netherlands.html: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/android/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/android//android-netherlands.html -oe ISO-8859-1 android.adp
 
@@ -240,7 +169,7 @@ english: output_directory all_en_pages
 	echo >> android-netherlands.var
 	echo 'URI: android-netherlands.html.zh-CN' >> android-netherlands.var
 	echo 'Content-language: zh-CN' >> android-netherlands.var
-	echo 'Content-type: text/html; charset=utf-16' >> android-netherlands.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android-netherlands.var
 	echo >> android-netherlands.var
 
 ../..//down/android/android.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
@@ -264,7 +193,7 @@ english: output_directory all_en_pages
 ../..//down/android/android.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="Win32" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o android.html.ru -oe iso-8859-5 ../../templatemirror.adp
 ../..//down/android/android.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="Win32" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o android.html.zh-CN -oe utf-16 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="Win32" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o android.html.zh-CN -oe UTF-8 ../../templatemirror.adp
 ../..//down/android/android.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=android -p sourceforgepath="Win32" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o android.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/android/android.var: gen_makefile.conf
@@ -311,17 +240,16 @@ english: output_directory all_en_pages
 	echo >> android.var
 	echo 'URI: android.html.zh-CN' >> android.var
 	echo 'Content-language: zh-CN' >> android.var
-	echo 'Content-type: text/html; charset=utf-16' >> android.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android.var
 	echo >> android.var
 
 mirrors.dat:
-	/bin/echo -e 'name\tnamel\turl' > mirrors.dat
-	/bin/echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	/bin/echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	/bin/echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/android/android-austria.html.bg ../..//down/android/android-austria.html.en ../..//down/android/android-austria.html.fi ../..//down/android/android-austria.html.fr ../..//down/android/android-austria.html.id ../..//down/android/android-austria.html.it ../..//down/android/android-austria.html.nl ../..//down/android/android-austria.html.po ../..//down/android/android-austria.html.sl ../..//down/android/android-austria.html.ru ../..//down/android/android-austria.html.zh-CN ../..//down/android/android-austria.var ../..//down/android/android-hungary.html.bg ../..//down/android/android-hungary.html.en ../..//down/android/android-hungary.html.fi ../..//down/android/android-hungary.html.fr ../..//down/android/android-hungary.html.id ../..//down/android/android-hungary.html.it ../..//down/android/android-hungary.html.nl ../..//down/android/android-hungary.html.po ../..//down/android/android-hungary.html.sl ../..//down/android/android-hungary.html.ru ../..//down/android/android-hungary.html.zh-CN ../..//down/android/android-hungary.var ../..//down/android/android-netherlands.html.bg ../..//down/android/android-netherlands.html.en ../..//down/android/android-netherlands.html.fi ../..//down/android/android-netherlands.html.fr ../..//down/android/android-netherlands.html.id ../..//down/android/android-netherlands.html.it ../..//down/android/android-netherlands.html.nl ../..//down/android/android-netherlands.html.po ../..//down/android/android-netherlands.html.sl ../..//down/android/android-netherlands.html.ru ../..//down/android/android-netherlands.html.zh-CN ../..//down/android/android-netherlands.var ../..//down/android/android.html.bg ../..//down/android/android.html.en ../..//down/android/android.html.fi ../..//down/android/android.html.fr ../..//down/android/android.html.id ../..//down/android/android.html.it ../..//down/android/android.html.nl ../..//down/android/android.html.po ../..//down/android/android.html.sl ../..//down/android/android.html.ru ../..//down/android/android.html.zh-CN ../..//down/android/android.var
-all_en_pages: mirrors.dat ../..//down/android/android-austria.html ../..//down/android/android-hungary.html ../..//down/android/android-netherlands.html ../..//down/android/android.html
+all_pages: mirrors.dat ../..//down/android/android-hungary.html.bg ../..//down/android/android-hungary.html.en ../..//down/android/android-hungary.html.fi ../..//down/android/android-hungary.html.fr ../..//down/android/android-hungary.html.id ../..//down/android/android-hungary.html.it ../..//down/android/android-hungary.html.nl ../..//down/android/android-hungary.html.po ../..//down/android/android-hungary.html.sl ../..//down/android/android-hungary.html.ru ../..//down/android/android-hungary.html.zh-CN ../..//down/android/android-hungary.var ../..//down/android/android-netherlands.html.bg ../..//down/android/android-netherlands.html.en ../..//down/android/android-netherlands.html.fi ../..//down/android/android-netherlands.html.fr ../..//down/android/android-netherlands.html.id ../..//down/android/android-netherlands.html.it ../..//down/android/android-netherlands.html.nl ../..//down/android/android-netherlands.html.po ../..//down/android/android-netherlands.html.sl ../..//down/android/android-netherlands.html.ru ../..//down/android/android-netherlands.html.zh-CN ../..//down/android/android-netherlands.var ../..//down/android/android.html.bg ../..//down/android/android.html.en ../..//down/android/android.html.fi ../..//down/android/android.html.fr ../..//down/android/android.html.id ../..//down/android/android.html.it ../..//down/android/android.html.nl ../..//down/android/android.html.po ../..//down/android/android.html.sl ../..//down/android/android.html.ru ../..//down/android/android.html.zh-CN ../..//down/android/android.var
+all_en_pages: mirrors.dat ../..//down/android/android-hungary.html ../..//down/android/android-netherlands.html ../..//down/android/android.html
 
 
 # clean

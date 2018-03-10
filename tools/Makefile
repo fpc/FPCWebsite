@@ -50,7 +50,7 @@ english: output_directory all_en_pages
 ..//tools/delp.html.ru: delp.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//delp.html.ru -oe iso-8859-5 delp.adp
 ..//tools/delp.html.zh-CN: delp.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//delp.html.zh-CN -oe utf-16 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//delp.html.zh-CN -oe UTF-8 delp.adp
 ..//tools/delp.html: delp.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//delp.html -oe ISO-8859-1 delp.adp
 
@@ -98,7 +98,7 @@ english: output_directory all_en_pages
 	echo >> delp.var
 	echo 'URI: delp.html.zh-CN' >> delp.var
 	echo 'Content-language: zh-CN' >> delp.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//delp.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//delp.var
 	echo >> delp.var
 ..//tools/fpcmake.html.bg: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//fpcmake.html.bg -oe iso-8859-5 fpcmake.adp
@@ -121,7 +121,7 @@ english: output_directory all_en_pages
 ..//tools/fpcmake.html.ru: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//fpcmake.html.ru -oe iso-8859-5 fpcmake.adp
 ..//tools/fpcmake.html.zh-CN: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//fpcmake.html.zh-CN -oe utf-16 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//fpcmake.html.zh-CN -oe UTF-8 fpcmake.adp
 ..//tools/fpcmake.html: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//fpcmake.html -oe ISO-8859-1 fpcmake.adp
 
@@ -169,7 +169,7 @@ english: output_directory all_en_pages
 	echo >> fpcmake.var
 	echo 'URI: fpcmake.html.zh-CN' >> fpcmake.var
 	echo 'Content-language: zh-CN' >> fpcmake.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//fpcmake.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//fpcmake.var
 	echo >> fpcmake.var
 ..//tools/h2pas.html.bg: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//h2pas.html.bg -oe iso-8859-5 h2pas.adp
@@ -192,7 +192,7 @@ english: output_directory all_en_pages
 ..//tools/h2pas.html.ru: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//h2pas.html.ru -oe iso-8859-5 h2pas.adp
 ..//tools/h2pas.html.zh-CN: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//h2pas.html.zh-CN -oe utf-16 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//h2pas.html.zh-CN -oe UTF-8 h2pas.adp
 ..//tools/h2pas.html: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//h2pas.html -oe ISO-8859-1 h2pas.adp
 
@@ -240,7 +240,7 @@ english: output_directory all_en_pages
 	echo >> h2pas.var
 	echo 'URI: h2pas.html.zh-CN' >> h2pas.var
 	echo 'Content-language: zh-CN' >> h2pas.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//h2pas.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//h2pas.var
 	echo >> h2pas.var
 ..//tools/ppdep.html.bg: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppdep.html.bg -oe iso-8859-5 ppdep.adp
@@ -263,7 +263,7 @@ english: output_directory all_en_pages
 ..//tools/ppdep.html.ru: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppdep.html.ru -oe iso-8859-5 ppdep.adp
 ..//tools/ppdep.html.zh-CN: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppdep.html.zh-CN -oe utf-16 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppdep.html.zh-CN -oe UTF-8 ppdep.adp
 ..//tools/ppdep.html: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppdep.html -oe ISO-8859-1 ppdep.adp
 
@@ -311,7 +311,7 @@ english: output_directory all_en_pages
 	echo >> ppdep.var
 	echo 'URI: ppdep.html.zh-CN' >> ppdep.var
 	echo 'Content-language: zh-CN' >> ppdep.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//ppdep.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppdep.var
 	echo >> ppdep.var
 ..//tools/ppudump.html.bg: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppudump.html.bg -oe iso-8859-5 ppudump.adp
@@ -334,7 +334,7 @@ english: output_directory all_en_pages
 ..//tools/ppudump.html.ru: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppudump.html.ru -oe iso-8859-5 ppudump.adp
 ..//tools/ppudump.html.zh-CN: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppudump.html.zh-CN -oe utf-16 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppudump.html.zh-CN -oe UTF-8 ppudump.adp
 ..//tools/ppudump.html: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppudump.html -oe ISO-8859-1 ppudump.adp
 
@@ -382,7 +382,7 @@ english: output_directory all_en_pages
 	echo >> ppudump.var
 	echo 'URI: ppudump.html.zh-CN' >> ppudump.var
 	echo 'Content-language: zh-CN' >> ppudump.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//ppudump.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppudump.var
 	echo >> ppudump.var
 ..//tools/ppufiles.html.bg: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppufiles.html.bg -oe iso-8859-5 ppufiles.adp
@@ -405,7 +405,7 @@ english: output_directory all_en_pages
 ..//tools/ppufiles.html.ru: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppufiles.html.ru -oe iso-8859-5 ppufiles.adp
 ..//tools/ppufiles.html.zh-CN: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppufiles.html.zh-CN -oe utf-16 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppufiles.html.zh-CN -oe UTF-8 ppufiles.adp
 ..//tools/ppufiles.html: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppufiles.html -oe ISO-8859-1 ppufiles.adp
 
@@ -453,7 +453,7 @@ english: output_directory all_en_pages
 	echo >> ppufiles.var
 	echo 'URI: ppufiles.html.zh-CN' >> ppufiles.var
 	echo 'Content-language: zh-CN' >> ppufiles.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//ppufiles.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppufiles.var
 	echo >> ppufiles.var
 ..//tools/ppumove.html.bg: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppumove.html.bg -oe iso-8859-5 ppumove.adp
@@ -476,7 +476,7 @@ english: output_directory all_en_pages
 ..//tools/ppumove.html.ru: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppumove.html.ru -oe iso-8859-5 ppumove.adp
 ..//tools/ppumove.html.zh-CN: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppumove.html.zh-CN -oe utf-16 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppumove.html.zh-CN -oe UTF-8 ppumove.adp
 ..//tools/ppumove.html: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppumove.html -oe ISO-8859-1 ppumove.adp
 
@@ -524,7 +524,7 @@ english: output_directory all_en_pages
 	echo >> ppumove.var
 	echo 'URI: ppumove.html.zh-CN' >> ppumove.var
 	echo 'Content-language: zh-CN' >> ppumove.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//ppumove.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppumove.var
 	echo >> ppumove.var
 ..//tools/ptop.html.bg: ptop.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ptop.html.bg -oe iso-8859-5 ptop.adp
@@ -547,7 +547,7 @@ english: output_directory all_en_pages
 ..//tools/ptop.html.ru: ptop.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ptop.html.ru -oe iso-8859-5 ptop.adp
 ..//tools/ptop.html.zh-CN: ptop.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ptop.html.zh-CN -oe utf-16 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ptop.html.zh-CN -oe UTF-8 ptop.adp
 ..//tools/ptop.html: ptop.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ptop.html -oe ISO-8859-1 ptop.adp
 
@@ -595,7 +595,7 @@ english: output_directory all_en_pages
 	echo >> ptop.var
 	echo 'URI: ptop.html.zh-CN' >> ptop.var
 	echo 'Content-language: zh-CN' >> ptop.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//ptop.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ptop.var
 	echo >> ptop.var
 ..//tools/rstconv.html.bg: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//rstconv.html.bg -oe iso-8859-5 rstconv.adp
@@ -618,7 +618,7 @@ english: output_directory all_en_pages
 ..//tools/rstconv.html.ru: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//rstconv.html.ru -oe iso-8859-5 rstconv.adp
 ..//tools/rstconv.html.zh-CN: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//rstconv.html.zh-CN -oe utf-16 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//rstconv.html.zh-CN -oe UTF-8 rstconv.adp
 ..//tools/rstconv.html: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//rstconv.html -oe ISO-8859-1 rstconv.adp
 
@@ -666,7 +666,7 @@ english: output_directory all_en_pages
 	echo >> rstconv.var
 	echo 'URI: rstconv.html.zh-CN' >> rstconv.var
 	echo 'Content-language: zh-CN' >> rstconv.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//rstconv.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//rstconv.var
 	echo >> rstconv.var
 ..//tools/tools.html.bg: tools.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tools.html.bg -oe iso-8859-5 tools.adp
@@ -689,7 +689,7 @@ english: output_directory all_en_pages
 ..//tools/tools.html.ru: tools.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tools.html.ru -oe iso-8859-5 tools.adp
 ..//tools/tools.html.zh-CN: tools.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tools.html.zh-CN -oe utf-16 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tools.html.zh-CN -oe UTF-8 tools.adp
 ..//tools/tools.html: tools.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tools.html -oe ISO-8859-1 tools.adp
 
@@ -737,7 +737,7 @@ english: output_directory all_en_pages
 	echo >> tools.var
 	echo 'URI: tools.html.zh-CN' >> tools.var
 	echo 'Content-language: zh-CN' >> tools.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//tools.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//tools.var
 	echo >> tools.var
 ..//tools/tply.html.bg: tply.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tply.html.bg -oe iso-8859-5 tply.adp
@@ -760,7 +760,7 @@ english: output_directory all_en_pages
 ..//tools/tply.html.ru: tply.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
 	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tply.html.ru -oe iso-8859-5 tply.adp
 ..//tools/tply.html.zh-CN: tply.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tply.html.zh-CN -oe utf-16 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tply.html.zh-CN -oe UTF-8 tply.adp
 ..//tools/tply.html: tply.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
 	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tply.html -oe ISO-8859-1 tply.adp
 
@@ -808,14 +808,13 @@ english: output_directory all_en_pages
 	echo >> tply.var
 	echo 'URI: tply.html.zh-CN' >> tply.var
 	echo 'Content-language: zh-CN' >> tply.var
-	echo 'Content-type: text/html; charset=utf-16' >> ..//tools//tply.var
+	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//tply.var
 	echo >> tply.var
 
 mirrors.dat:
-	echo -e 'name\tnamel\turl' > mirrors.dat
-	echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/fpc/' >> mirrors.dat
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ..//tools/delp.html.bg ..//tools/delp.html.en ..//tools/delp.html.fi ..//tools/delp.html.fr ..//tools/delp.html.id ..//tools/delp.html.it ..//tools/delp.html.nl ..//tools/delp.html.po ..//tools/delp.html.sl ..//tools/delp.html.ru ..//tools/delp.html.zh-CN ..//tools/delp.var ..//tools/fpcmake.html.bg ..//tools/fpcmake.html.en ..//tools/fpcmake.html.fi ..//tools/fpcmake.html.fr ..//tools/fpcmake.html.id ..//tools/fpcmake.html.it ..//tools/fpcmake.html.nl ..//tools/fpcmake.html.po ..//tools/fpcmake.html.sl ..//tools/fpcmake.html.ru ..//tools/fpcmake.html.zh-CN ..//tools/fpcmake.var ..//tools/h2pas.html.bg ..//tools/h2pas.html.en ..//tools/h2pas.html.fi ..//tools/h2pas.html.fr ..//tools/h2pas.html.id ..//tools/h2pas.html.it ..//tools/h2pas.html.nl ..//tools/h2pas.html.po ..//tools/h2pas.html.sl ..//tools/h2pas.html.ru ..//tools/h2pas.html.zh-CN ..//tools/h2pas.var ..//tools/ppdep.html.bg ..//tools/ppdep.html.en ..//tools/ppdep.html.fi ..//tools/ppdep.html.fr ..//tools/ppdep.html.id ..//tools/ppdep.html.it ..//tools/ppdep.html.nl ..//tools/ppdep.html.po ..//tools/ppdep.html.sl ..//tools/ppdep.html.ru ..//tools/ppdep.html.zh-CN ..//tools/ppdep.var ..//tools/ppudump.html.bg ..//tools/ppudump.html.en ..//tools/ppudump.html.fi ..//tools/ppudump.html.fr ..//tools/ppudump.html.id ..//tools/ppudump.html.it ..//tools/ppudump.html.nl ..//tools/ppudump.html.po ..//tools/ppudump.html.sl ..//tools/ppudump.html.ru ..//tools/ppudump.html.zh-CN ..//tools/ppudump.var ..//tools/ppufiles.html.bg ..//tools/ppufiles.html.en ..//tools/ppufiles.html.fi ..//tools/ppufiles.html.fr ..//tools/ppufiles.html.id ..//tools/ppufiles.html.it ..//tools/ppufiles.html.nl ..//tools/ppufiles.html.po ..//tools/ppufiles.html.sl ..//tools/ppufiles.html.ru ..//tools/ppufiles.html.zh-CN ..//tools/ppufiles.var ..//tools/ppumove.html.bg ..//tools/ppumove.html.en ..//tools/ppumove.html.fi ..//tools/ppumove.html.fr ..//tools/ppumove.html.id ..//tools/ppumove.html.it ..//tools/ppumove.html.nl ..//tools/ppumove.html.po ..//tools/ppumove.html.sl ..//tools/ppumove.html.ru ..//tools/ppumove.html.zh-CN ..//tools/ppumove.var ..//tools/ptop.html.bg ..//tools/ptop.html.en ..//tools/ptop.html.fi ..//tools/ptop.html.fr ..//tools/ptop.html.id ..//tools/ptop.html.it ..//tools/ptop.html.nl ..//tools/ptop.html.po ..//tools/ptop.html.sl ..//tools/ptop.html.ru ..//tools/ptop.html.zh-CN ..//tools/ptop.var ..//tools/rstconv.html.bg ..//tools/rstconv.html.en ..//tools/rstconv.html.fi ..//tools/rstconv.html.fr ..//tools/rstconv.html.id ..//tools/rstconv.html.it ..//tools/rstconv.html.nl ..//tools/rstconv.html.po ..//tools/rstconv.html.sl ..//tools/rstconv.html.ru ..//tools/rstconv.html.zh-CN ..//tools/rstconv.var ..//tools/tools.html.bg ..//tools/tools.html.en ..//tools/tools.html.fi ..//tools/tools.html.fr ..//tools/tools.html.id ..//tools/tools.html.it ..//tools/tools.html.nl ..//tools/tools.html.po ..//tools/tools.html.sl ..//tools/tools.html.ru ..//tools/tools.html.zh-CN ..//tools/tools.var ..//tools/tply.html.bg ..//tools/tply.html.en ..//tools/tply.html.fi ..//tools/tply.html.fr ..//tools/tply.html.id ..//tools/tply.html.it ..//tools/tply.html.nl ..//tools/tply.html.po ..//tools/tply.html.sl ..//tools/tply.html.ru ..//tools/tply.html.zh-CN ..//tools/tply.var
 all_en_pages: mirrors.dat ..//tools/delp.html ..//tools/fpcmake.html ..//tools/h2pas.html ..//tools/ppdep.html ..//tools/ppudump.html ..//tools/ppufiles.html ..//tools/ppumove.html ..//tools/ptop.html ..//tools/rstconv.html ..//tools/tools.html ..//tools/tply.html

@@ -1,6 +1,8 @@
 program adp2html;
 
-uses cwstringm;
+{$modeswitch out}
+
+uses cwstring, unixcp;
 
 type  Pproperty=^Tproperty;
       Tproperty=record
@@ -32,6 +34,8 @@ var master_template:ansistring;
     input_encoding:ansistring='ISO-8859-1';
     output_encoding:ansistring='ISO-8859-1';
     catalog_encoding:ansistring='UTF-8';
+
+    inputcp, outputcp, catalogcp: tsystemcodepage;
 
 procedure property_set(const name,value:widestring;var tree:Pproperty);
 
@@ -720,6 +724,16 @@ begin
   generate_page:=slave_html;
 end;
 
+procedure set_codepage(const cpvarname: string; const cpname: ansistring; out cpvalue: tsystemcodepage);
+begin
+    cpvalue:=GetCodepageByName(cpname);
+    if cpvalue=CP_NONE then
+      begin
+        writeln('Unsupported ',cpvarname,' code page: ', cpname);
+        halt(1);
+      end;
+end;
+
 procedure parse_cmdline;
 
 type  Tstate=(s_default,s_read_property,s_outputfile,
@@ -831,6 +845,10 @@ begin
         else
           inputfile:=s;
     end;
+
+    set_codepage('input', input_encoding, inputcp);
+    set_codepage('output', output_encoding, outputcp);
+    set_codepage('catalog', catalog_encoding, catalogcp);
 end;
 
 {$ifdef FPC_LITTLE_ENDIAN}
@@ -841,9 +859,6 @@ const unicode_encoding = 'UCS-2BE';
 
 var htmlfile:text;
     page:widestring;
-    iconv_wide2ansi_output:iconv_t;
-    iconv_ansi2wide_input:iconv_t;
-    iconv_ansi2wide_catalog:iconv_t;
 
 begin
   inputfile:='';
@@ -863,14 +878,10 @@ begin
        halt(1);
      end;
 
-  iconv_wide2ansi_output:=iconv_open(Pchar(output_encoding),unicode_encoding);
-  iconv_ansi2wide_input:=iconv_open(unicode_encoding,Pchar(input_encoding));
-  iconv_ansi2wide_catalog:=iconv_open(unicode_encoding,Pchar(catalog_encoding));
-
   property_set('output_encoding',output_encoding);
 
   {Process catalog first.}
-  iconv_ansi2wide:=iconv_ansi2wide_catalog;
+  SetMultiByteConversionCodePage(catalogcp);
   if catalogfile<>'' then
     begin
       mode:=process_catalog;
@@ -878,11 +889,11 @@ begin
     end;
 
   {Process page.}
-  iconv_ansi2wide:=iconv_ansi2wide_input;
+  SetMultiByteConversionCodePage(inputcp);
   mode:=process_page;
   page:=generate_page(inputfile);
 
-  iconv_wide2ansi:=iconv_wide2ansi_output;
+  SetMultiByteConversionCodePage(outputcp);
   if outputfile='' then
     write(page)
   else

@@ -29,77 +29,6 @@ endif
 default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
-../..//down/docs/docs-austria.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.bg -oe iso-8859-5 docs.adp
-../..//down/docs/docs-austria.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.en -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.fi: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.fi -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.fr -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.id: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.id -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.it: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.it -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.nl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.nl -oe iso-8859-1 docs.adp
-../..//down/docs/docs-austria.html.po: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.po -oe iso-8859-2 docs.adp
-../..//down/docs/docs-austria.html.sl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.sl -oe iso-8859-2 docs.adp
-../..//down/docs/docs-austria.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.ru -oe iso-8859-5 docs.adp
-../..//down/docs/docs-austria.html.zh-CN: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-austria.html.zh-CN -oe utf-16 docs.adp
-../..//down/docs/docs-austria.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/docs/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://gd.tuwien.ac.at/languages/pascal/fpc/ -p mirrorsuffix=austria -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-austria.html -oe ISO-8859-1 docs.adp
-
-../..//down/docs/docs-austria.var: gen_makefile.conf
-	echo > docs-austria.var
-	echo 'URI: docs-austria.html.bg' >> docs-austria.var
-	echo 'Content-language: bg' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.en' >> docs-austria.var
-	echo 'Content-language: en' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.fi' >> docs-austria.var
-	echo 'Content-language: fi' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.fr' >> docs-austria.var
-	echo 'Content-language: fr' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.id' >> docs-austria.var
-	echo 'Content-language: id' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.it' >> docs-austria.var
-	echo 'Content-language: it' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.nl' >> docs-austria.var
-	echo 'Content-language: nl' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.po' >> docs-austria.var
-	echo 'Content-language: pl' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.sl' >> docs-austria.var
-	echo 'Content-language: sl' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.ru' >> docs-austria.var
-	echo 'Content-language: ru' >> docs-austria.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-austria.var
-	echo >> docs-austria.var
-	echo 'URI: docs-austria.html.zh-CN' >> docs-austria.var
-	echo 'Content-language: zh-CN' >> docs-austria.var
-	echo 'Content-type: text/html; charset=utf-16' >> docs-austria.var
-	echo >> docs-austria.var
 ../..//down/docs/docs-hungary.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/docs//docs-hungary.html.bg -oe iso-8859-5 docs.adp
 ../..//down/docs/docs-hungary.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -121,7 +50,7 @@ english: output_directory all_en_pages
 ../..//down/docs/docs-hungary.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/docs//docs-hungary.html.ru -oe iso-8859-5 docs.adp
 ../..//down/docs/docs-hungary.html.zh-CN: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-hungary.html.zh-CN -oe utf-16 docs.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-hungary.html.zh-CN -oe UTF-8 docs.adp
 ../..//down/docs/docs-hungary.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/docs/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-hungary.html -oe ISO-8859-1 docs.adp
 
@@ -169,7 +98,7 @@ english: output_directory all_en_pages
 	echo >> docs-hungary.var
 	echo 'URI: docs-hungary.html.zh-CN' >> docs-hungary.var
 	echo 'Content-language: zh-CN' >> docs-hungary.var
-	echo 'Content-type: text/html; charset=utf-16' >> docs-hungary.var
+	echo 'Content-type: text/html; charset=UTF-8' >> docs-hungary.var
 	echo >> docs-hungary.var
 ../..//down/docs/docs-netherlands.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/docs//docs-netherlands.html.bg -oe iso-8859-5 docs.adp
@@ -192,7 +121,7 @@ english: output_directory all_en_pages
 ../..//down/docs/docs-netherlands.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/docs//docs-netherlands.html.ru -oe iso-8859-5 docs.adp
 ../..//down/docs/docs-netherlands.html.zh-CN: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-netherlands.html.zh-CN -oe utf-16 docs.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-netherlands.html.zh-CN -oe UTF-8 docs.adp
 ../..//down/docs/docs-netherlands.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/docs/
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-netherlands.html -oe ISO-8859-1 docs.adp
 
@@ -240,7 +169,7 @@ english: output_directory all_en_pages
 	echo >> docs-netherlands.var
 	echo 'URI: docs-netherlands.html.zh-CN' >> docs-netherlands.var
 	echo 'Content-language: zh-CN' >> docs-netherlands.var
-	echo 'Content-type: text/html; charset=utf-16' >> docs-netherlands.var
+	echo 'Content-type: text/html; charset=UTF-8' >> docs-netherlands.var
 	echo >> docs-netherlands.var
 
 ../..//down/docs/docs.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
@@ -264,7 +193,7 @@ english: output_directory all_en_pages
 ../..//down/docs/docs.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -p sourceforgepath="Documentation" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o docs.html.ru -oe iso-8859-5 ../../templatemirror.adp
 ../..//down/docs/docs.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -p sourceforgepath="Documentation" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o docs.html.zh-CN -oe utf-16 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -p sourceforgepath="Documentation" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o docs.html.zh-CN -oe UTF-8 ../../templatemirror.adp
 ../..//down/docs/docs.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
 	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=docs -p sourceforgepath="Documentation" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o docs.html -oe ISO-8859-1 ../../templatemirror.adp
 ../..//down/docs/docs.var: gen_makefile.conf
@@ -311,17 +240,16 @@ english: output_directory all_en_pages
 	echo >> docs.var
 	echo 'URI: docs.html.zh-CN' >> docs.var
 	echo 'Content-language: zh-CN' >> docs.var
-	echo 'Content-type: text/html; charset=utf-16' >> docs.var
+	echo 'Content-type: text/html; charset=UTF-8' >> docs.var
 	echo >> docs.var
 
 mirrors.dat:
-	/bin/echo -e 'name\tnamel\turl' > mirrors.dat
-	/bin/echo -e 'Austria\taustria\tftp://gd.tuwien.ac.at/languages/pascal/fpc/' >> mirrors.dat
-	/bin/echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-	/bin/echo -e 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/docs/docs-austria.html.bg ../..//down/docs/docs-austria.html.en ../..//down/docs/docs-austria.html.fi ../..//down/docs/docs-austria.html.fr ../..//down/docs/docs-austria.html.id ../..//down/docs/docs-austria.html.it ../..//down/docs/docs-austria.html.nl ../..//down/docs/docs-austria.html.po ../..//down/docs/docs-austria.html.sl ../..//down/docs/docs-austria.html.ru ../..//down/docs/docs-austria.html.zh-CN ../..//down/docs/docs-austria.var ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-netherlands.html.bg ../..//down/docs/docs-netherlands.html.en ../..//down/docs/docs-netherlands.html.fi ../..//down/docs/docs-netherlands.html.fr ../..//down/docs/docs-netherlands.html.id ../..//down/docs/docs-netherlands.html.it ../..//down/docs/docs-netherlands.html.nl ../..//down/docs/docs-netherlands.html.po ../..//down/docs/docs-netherlands.html.sl ../..//down/docs/docs-netherlands.html.ru ../..//down/docs/docs-netherlands.html.zh-CN ../..//down/docs/docs-netherlands.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
-all_en_pages: mirrors.dat ../..//down/docs/docs-austria.html ../..//down/docs/docs-hungary.html ../..//down/docs/docs-netherlands.html ../..//down/docs/docs.html
+all_pages: mirrors.dat ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-netherlands.html.bg ../..//down/docs/docs-netherlands.html.en ../..//down/docs/docs-netherlands.html.fi ../..//down/docs/docs-netherlands.html.fr ../..//down/docs/docs-netherlands.html.id ../..//down/docs/docs-netherlands.html.it ../..//down/docs/docs-netherlands.html.nl ../..//down/docs/docs-netherlands.html.po ../..//down/docs/docs-netherlands.html.sl ../..//down/docs/docs-netherlands.html.ru ../..//down/docs/docs-netherlands.html.zh-CN ../..//down/docs/docs-netherlands.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
+all_en_pages: mirrors.dat ../..//down/docs/docs-hungary.html ../..//down/docs/docs-netherlands.html ../..//down/docs/docs.html
 
 
 # clean

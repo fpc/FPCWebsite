@@ -107,8 +107,8 @@ if $subdir {
 } else {
     puts ".PHONY: all all_pages clean zip tar output_directory"
     puts "default: all"
-    puts "all: \$(ADP2HTML) all_pages down_all down2_all fcl_all tools_all output_directory"
-    puts "english: \$(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_en output_directory"
+    puts "all: \$(ADP2HTML) all_pages down_all down2_all fcl_all tools_all output_directory contrib_all"
+    puts "english: \$(ADP2HTML) all_en_pages down_all_en down2_all_en fcl_all_en tools_all_en output_directory contrib_all"
 }
 
 set all ""
@@ -256,12 +256,12 @@ puts ""
 
 #Generate mirrors.dat
 puts "mirrors.dat:"
-puts "\t/bin/echo -e 'name\\tnamel\\turl' > mirrors.dat"
+puts "\t\$(shell echo 'name\\tnamel\\turl' > mirrors.dat)"
 foreach mirror $mirrors {
     set mirror_name [lindex $mirror 0]
     set mirror_namel [string tolower $mirror_name]
     set mirror_url [lindex $mirror 1]
-    puts "\t/bin/echo -e '$mirror_name\\t$mirror_namel\\t$mirror_url' >> mirrors.dat"
+    puts "\t\$(shell echo '$mirror_name\\t$mirror_namel\\t$mirror_url' >> mirrors.dat)"
 }
 lappend all "mirrors.dat"
 
@@ -293,6 +293,7 @@ output_directory:
 \tmkdir -p $output_dir
 
 # down subdir
+
 down_all:
 \t\$(MAKE) -C down all
 
@@ -304,6 +305,9 @@ fcl_all:
 
 tools_all:
 \t\$(MAKE) -C tools all
+
+contrib_all:
+\t\$(MAKE) -C contrib all
 
 down_all_en:
 \t\$(MAKE) -C down english
@@ -318,17 +322,23 @@ tools_all_en:
 \t\$(MAKE) -C tools english
 
 # clean
-clean: clean_down clean_fcl clean_tools
+clean: clean_down clean_down2 clean_fcl clean_tools clean_contrib
 \trm -f *.html.* *.var mirrors.dat adp2html
 
 clean_down:
 \t\$(MAKE) -C down clean
+
+clean_down2:
+\t\$(MAKE) -C down2 clean
 
 clean_fcl:
 \t\$(MAKE) -C fcl clean
 
 clean_tools:
 \t\$(MAKE) -C tools clean
+
+clean_contrib:
+\t\$(MAKE) -C contrib clean
 
 # archives (unix only)
 tar: all

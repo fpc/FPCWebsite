@@ -93,7 +93,6 @@
    <p>
     Downloads are available at:
     <ul>
-     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc2</a></li>
      <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc2</a></li>
     </ul>
    </p>
@@ -118,7 +117,6 @@
     Downloads are available at:
     <ul>
      <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
-     <li><a href="ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1">ftp://gd.tuwien.ac.at/languages/pascal/fpc/beta/3.0.0-rc1</a></li>
      <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
     </ul>
    </p>

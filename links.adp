@@ -21,10 +21,10 @@
 <p>
   The following sites are updated daily and have the latest version available:
 <ul>
+<!--
 <li>
   <a href="http://gd.tuwien.ac.at/languages/pascal/fpc/">Austria</a>
   (maintained by <a href="mailto:antonin.sprinzl&#x040;tuwien.ac.at">Antonin Sprinzl</a>)
-<!--
 <li>
   <a href="http://www.ca.freepascal.org">Canada</a>
   (maintained by <a href="mailto:pdavidson&#x040;coraxnetworks.com">Paul Davidson</a>)
