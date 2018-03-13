@@ -572,7 +572,7 @@ check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall"
 check_one_rtl i8086 win16 "-n -CX -XX -Wmhuge"
 
 # m68k 
-check_one_rtl m68k amiga "-n -Avasm"
+check_one_rtl m68k amiga "-n -Avasm" "" "-vasm"
 export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional" 
 check_one_rtl m68k atari "-n -Avasm"
 export ASPROG_LOCAL=
