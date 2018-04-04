@@ -14,7 +14,7 @@ $HOME/bin/win-fpccommonup.sh
 export SVNDIR=$TRUNKDIR
 $HOME/bin/win-fpccommonup.sh
 
-$HOME/bin/fpc-cross.sh
-
 $HOME/bin/create-snapshots.sh
+
+$HOME/bin/fpc-cross.sh
 
