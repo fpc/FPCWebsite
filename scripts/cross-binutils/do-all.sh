@@ -15,7 +15,9 @@ export BINUTILS_RELEASE=
 
 ## arm CPU
 ## system_arm_android,        { 77 }
-./do-one.sh arm-android-gnuas arm-linux-androideabi
+## for android Free Pascal compiler uses the default
+## cross-compilation names
+./do-one.sh arm-linux-androideabi arm-linux-androideabi
 ## system_arm_aros,           { 91 }
 export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh arm-aros arm-aros
@@ -53,7 +55,7 @@ export BINUTILS_RELEASE=
 
 ## i386 CPU
 ## system_i386_android,       { 78 }
-./do-one.sh i386-android-gnuas i686-android-linux
+./do-one.sh i686-linux-android i686-android-linux
 ## system_i386_aros,          { 83 }
 export BINUTILS_RELEASE="2.25-aros"
 ./do-one.sh i386-aros i386-aros
@@ -174,7 +176,7 @@ export BINUTILS_RELEASE=
 
 ## mipsel CPU
 ## system_mipsel_android,     { 80 }
-./do-one.sh mispel-android-gnuas mipsel-linux-androideabi
+./do-one.sh mipsel-linux-android mipsel-linux-androideabi
 ## system_mipsel_embedded,    { 82 }
 ./do-one.sh mipsel-embedded mipsel-none-elf
 ## system_mipsel_linux,       { 67 }
