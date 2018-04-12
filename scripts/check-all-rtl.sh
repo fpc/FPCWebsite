@@ -310,9 +310,21 @@ function check_one_rtl ()
   target_as=$ASSEMBLER
 
   if [ "X$BINUTILSPREFIX_LOCAL" == "Xnot_set" ] ; then
-    target_as=`which ${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-${ASSEMBLER}`
+     TRY_BINUTILSPREFIX=${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-
+     # Android has different binutilsprefix defaults
+     if [ "${OS_TARG_LOCAL}" == "android" ] ; then
+       if [ "${CPU_TARG_LOCAL}" == "arm" ] ; then
+        TRY_BINUTILSPREFIX='arm-linux-androideabi-'
+       elif [ "${CPU_TARG_LOCAL}" == "i386" ] ; then
+        TRY_BINUTILSPREFIX='i686-linux-android-'
+       elif [ "${CPU_TARG_LOCAL}" == "mipsel" ] ; then
+        TRY_BINUTILSPREFIX='mipsel-linux-android-'
+       fi
+    fi
+
+    target_as=`which ${TRY_BINUTILSPREFIX}${ASSEMBLER}`
     if [ -f "$target_as" ] ; then
-      BINUTILSPREFIX_LOCAL=${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-
+      BINUTILSPREFIX_LOCAL=${TRY_BINUTILSPREFIX}
     else
       BINUTILSPREFIX_LOCAL=dummy-
       assembler_version="Dummy assembler"
