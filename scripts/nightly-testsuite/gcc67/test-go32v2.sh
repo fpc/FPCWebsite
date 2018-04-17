@@ -34,6 +34,8 @@ CROSSPP=ppc386
 NEWNATIVEFPC=$FPCDIR/compiler/${NATIVEPP}-safe
 NEWCROSSFPC=$FPCDIR/compiler/${CROSSPP}-safe
 
+export TEST_TARGET=go32v2
+
 # Avoid fpcmake not found problem,
 # expects it in utils/fpcm directory, but generated in utils/fpcm/bbin/$fpctarget
 export FPCMAKE=`which fpcmake`
@@ -58,23 +60,10 @@ DJGPP_DIR=$HOME/sys-root/djgpp
 DJGPP_GCC_VERSION=6.10
 
 export NEEDED_OPTS="-Fl${DJGPP_DIR}/lib -Fl${DJGPP_DIR}/lib/gcc/djgpp/${DJGPP_GCC_VERSION}"
+export MAKEFULLOPT=-j5
 
-function run_one_opt ()
+function prepare_go32v2 ()
 {
-if [ "X$1" != "X" ] ; then
-  TEST_OPT="$1"
-else
-  TEST_OPT=
-fi
-TODAY=`date +%Y-%m-%d`
-DIR_OPT=${TEST_OPT// /_}
-logdir=~/logs/$SVNDIR/$TODAY/go32v2
-mkdir -p $logdir
-LOGFILE=$logdir/go32v2-${DIR_OPT}.log
-
-TEST_OPT="$TEST_OPT $NEEDED_OPTS"
-
-(
 echo "Recompiling native RTL"
 make -C $FPCDIR/rtl distclean all OPT="-n -g" FPC=$NATIVEPP
 res=$?
@@ -110,9 +99,8 @@ if [ $res -ne 0 ] ; then
   echo "Recompiling native utils failed, res=$res"
   return 1
 fi
-
 echo "Recompiling i386 compiler"
-make -C $FPCDIR/compiler distclean i386 OPT="-n -g" FPC=$NEWNATIVEFPC
+make -C $FPCDIR/compiler clean i386 OPT="-n -g" FPC=$NEWNATIVEFPC
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling i386 compiler failed, res=$res"
@@ -125,12 +113,31 @@ else
      cp $FPCDIR/compiler/$CROSSPP $NEWCROSSFPC
   fi
 fi
+}
+
+
+function run_one_opt ()
+{
+if [ "X$1" != "X" ] ; then
+  TEST_OPT="$1"
+else
+  TEST_OPT=
+fi
+TODAY=`date +%Y-%m-%d`
+DIR_OPT=${TEST_OPT// /_}
+export logdir=~/logs/$SVNDIR/$TODAY/$TEST_TARGET/$DIR_OPT
+mkdir -p $logdir
+LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
+
+TEST_OPT="$TEST_OPT $NEEDED_OPTS"
+
+(
 echo "Clearing RTL/Packages for msdos"
-make -C $FPCDIR/rtl clean FPC=$NEWCROSSFPC OS_TARGET=go32v2
-make -C $FPCDIR/packages clean FPC=$NEWCROSSFPC OS_TARGET=go32v2
+make -C $FPCDIR/rtl clean FPC=$NEWCROSSFPC OS_TARGET=$TEST_TARGET
+make -C $FPCDIR/packages clean FPC=$NEWCROSSFPC OS_TARGET=$TEST_TARGET
 
 echo "Compiling dosboxwrapper"
-make -C $FPCDIR/tests/utils distclean all dosbox/dosbox_wrapper FPC=$NEWNATIVEFPC
+make -C $FPCDIR/tests/utils distclean all dosbox/dosbox_wrapper FPC=$NEWNATIVEFPC OPT=-gwl
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling dosbox_wrapper failed, res=$res"
@@ -141,26 +148,34 @@ else
     return 1
   fi
 fi
-echo "Running go32v2 testsuite with OPT=\"$1\""
+echo "Running $TEST_TARGET testsuite with OPT=\"$1\""
 export TEST_BINUTILSPREFIX=i386-go32v2-
-make distclean testprep FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=go32v2 TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
+make distclean testprep FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=$TEST_TARGET TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
 res=$?
 if [ $res -eq 0 ] ; then
-  make $MAKEFULLOPT full FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=go32v2 TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
+  make $MAKEFULLOPT full FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=$TEST_TARGET TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
   res=$?
 fi
 if [ $res -ne 0 ] ; then
   echo "Running testsuite failed, res=$res"
   return 1
 else
-  make uploadrun FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=go32v2 TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
+  make uploadrun FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=$TEST_TARGET TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
 fi
+cp output/$TEST_TARGET/faillist $logdir
+cp output/$TEST_TARGET/longlog $logdir
+cp output/$TEST_TARGET/log $logdir
+
 ) > $LOGFILE 2>&1
 }
+
+PREPARELOGFILE=$FPCLOGDIR/test-prepare-$TEST_TARGET-$SVNDIR.log
+
 
 if [ "X$1" != "X" ] ; then
   run_one_opt "$1"
 else
+  prepare_go32v2 > $PREPARELOGFILE 2>&1
   run_one_opt -O-
   run_one_opt -O2
   run_one_opt -O4
