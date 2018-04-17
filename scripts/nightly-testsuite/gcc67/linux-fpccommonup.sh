@@ -67,9 +67,9 @@ echo "Starting $0" > $report
 Start_version=`$FPCBIN -iV`
 Start_date=`$FPCBIN -iD`
 echo "Start $FPCBIN version is ${Start_version} ${Start_date}" >> $report
-echo "Start time `$DATE`" >> $report
+echo "##Start time `$DATE`" >> $report
 echo "PATH=$PATH" >> $report
-echo "Start time `$DATE`" > $svnlog
+echo "##Start time `$DATE`" > $svnlog
 #ulimit -d 65536 -s 8192 -t 2400  1>> $report 2>&1
 ulimit -t 2400  1>> $report 2>&1
 svn cleanup 1> $cleanlog 2>&1
@@ -80,10 +80,16 @@ if [ -d fpcsrc ]; then
 fi
 
 echo "Starting make distclean all" >> $report
-echo "Start make `$DATE`" >> $report
+echo "##Start make distclean `$DATE`" >> $report
+echo "Starting make distclean all" >> $cleanlog
+echo "##Start make distclean `$DATE`" >> $cleanlog
 ${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
-${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1> ${makelog} 2>&1
+echo "##Start make all `$DATE`" >> $report
+echo "##Start make all `$DATE`" > $makelog
+${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
+echo "##End make all `$DATE`, res=$res" >> $report
+echo "##End make all `$DATE`, res=$res" >> $makelog
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
   tail -30 ${makelog} >> $report
@@ -115,28 +121,49 @@ if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
   /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_UNITDIR}/system.ppu | grep -E "(^Analysing|Checksum)" > $STARTDIR/${NEW_UNITDIR}-system.ppu-log1 2>&1
 fi
 
+echo "Starting make installsymlink in compiler dir" >> $report
+echo "##`$DATE`" >> $report
+echo "Starting make installsymlink in compiler dir" >> $makelog
+echo "##`$DATE`" >> $makelog
+${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+makeres=$?
+if [ $makeres -ne 0 ] ; then
+  echo "${MAKE} -C compiler installsymlink failed ${makeres}" >> $report
+fi
+
 echo "Starting make install" >> $report
-echo "`$DATE`" >> $report
-${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=./compiler/$FPCBIN 1>> ${makelog} 2>&1
+echo "##`$DATE`" >> $report
+echo "Starting make install" >> $makelog
+echo "##`$DATE`" >> $makelog
+${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
   for dir in rtl compiler packages utils ide ; do
-    echo "Starting install in dir $dir" >> $report
+    echo "Starting make install in dir $dir" >> $report
+    echo "##`$DATE`" >> $report
+    echo "Starting make install in dir $dir" >> $makelog
+    echo "##`$DATE`" >> $makelog
     ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
+    echo "##`$DATE`" >> $report
+    echo "##`$DATE`" >> $makelog
   done
 else
   echo "Ending make install; result=${makeres}" >> $report
+  echo "##`$DATE`" >> $report
+  echo "Ending make install; result=${makeres}" >> $makelog
+  echo "##`$DATE`" >> $makelog
 fi
 
 # fullinstall in compiler
+echo "Starting make fullinstall in compiler" >> $report
+echo "##`$DATE`" >> $report
+echo "Starting make fullinstall in compiler" >> $makelog
+echo "##`$DATE`" >> $makelog
 ${MAKE} -C compiler $MAKEDEBUG cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
-
-# All cross-compilers (without DEBUG set)
-# ${MAKE} -C compiler cycle install fullcycle fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" 1>> ${makelog} 2>&1
 
 # Check if system.ppu changed
 if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
