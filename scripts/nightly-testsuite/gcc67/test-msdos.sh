@@ -6,7 +6,7 @@ if [ -z "$SVNDIR" ] ; then
   SVNDIR=trunk
 fi
 
-if [ "X$SVNDIR" == "Xtrunk" ] ; then
+if [ "X$SVNDIR" = "Xtrunk" ] ; then
   CURRENTVERSION=$TRUNKVERSION
 else
   CURRENTVERSION=$FIXESVERSION
@@ -56,14 +56,14 @@ cd $FPCDIR/tests/
 function prepare_msdos ()
 {
 echo "Recompiling native RTL"
-make -C $FPCDIR/rtl distclean all OPT="-n -g" FPC=$NATIVEPP
+make -C $FPCDIR/rtl distclean all OPT="-n -gl" FPC=$NATIVEPP
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling native RTL failed, res =$res"
   return 1
 fi
 echo "Recompiling native compiler"
-make -C $FPCDIR/compiler distclean cycle OPT="-n -g" FPC=$NATIVEPP
+make -C $FPCDIR/compiler distclean cycle OPT="-n -gl" FPC=$NATIVEPP
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling native compiler failed, res=$res"
@@ -78,20 +78,20 @@ else
 fi
 # This is needed to have an up-to-date fpcmake binary
 echo "Recompiling native packages and utils"
-make -C $FPCDIR/packages distclean all OPT="-n -g" FPC=$NEWNATIVEFPC
+make -C $FPCDIR/packages distclean all OPT="-n -gl" FPC=$NEWNATIVEFPC
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling native packages failed, res=$res"
   return 1
 fi
-make -C $FPCDIR/utils distclean all OPT="-n -g" FPC=$NEWNATIVEFPC
+make -C $FPCDIR/utils distclean all OPT="-n -gl" FPC=$NEWNATIVEFPC
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling native utils failed, res=$res"
   return 1
 fi
 echo "Recompiling i8086 compiler"
-make -C $FPCDIR/compiler clean i8086 OPT="-n -g" FPC=$NEWNATIVEFPC
+make -C $FPCDIR/compiler clean i8086 OPT="-n -gl" FPC=$NEWNATIVEFPC
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling i8086 compiler failed, res=$res"
@@ -135,6 +135,7 @@ make -C $FPCDIR/rtl clean FPC=$NEWCROSSFPC
 make -C $FPCDIR/packages clean FPC=$NEWCROSSFPC
 
 echo "Compiling dosboxwrapper"
+rm $FPCDIR/tests/utils/dosbox/dosbox_wrapper
 make -C $FPCDIR/tests/utils distclean all dosbox/dosbox_wrapper FPC=$NEWNATIVEFPC OPT="-gwl"
 res=$?
 if [ $res -ne 0 ] ; then
