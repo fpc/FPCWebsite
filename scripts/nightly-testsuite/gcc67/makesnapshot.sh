@@ -136,7 +136,16 @@ if [ ! -f $NEWFPC ] ; then
   PPCCPU=${PPCCPU/ppc/ppcross}
   NEWFPC=$CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU
 fi
-  
+
+NEWCROSSFPC=${NEWFPC/ppc/ppcross}
+
+if [ -f $NEWCROSSFPC ] ; then
+  CROSS=1
+else
+  CROSS=0
+  NEWCROSSFPC=$NEWFPC
+fi
+
 SNAPSHOTFILE=`ls -1 *.tar.gz`
 READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 
@@ -144,7 +153,7 @@ cat > $READMEFILE <<EOF
 This snapshot $SNAPSHOTFILE was generated ${date} using:
 make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT"
 started using ${STARTPP}
-${PPCCPU} -iVDW output is: `${NEWFPC} -iVDW`
+${PPCCPU} -iVDW output is: `${NEWCROSSFPC} -iVDW`
 
 uname -a of the machine is:
 `uname -a`
