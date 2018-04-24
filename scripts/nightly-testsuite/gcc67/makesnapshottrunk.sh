@@ -19,3 +19,15 @@ export GDBMI=1
 
 . $HOME/bin/makesnapshot.sh
 
+STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppc386
+INSTALLCOMPILER=$HOME/bin/ppc386-trunk
+MAILFILE=$HOME/logs/snapshot32-trunk.mail
+LOGFILE=$HOME/logs/snapshot32-trunk.log
+PPCCPU=ppc386
+DISTCLEAN_BEFORE_TESTS=1
+FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/trunk/i386-linux
+export GDBMI=1
+OPT="-Fl/lib32 -Fl/usr/lib32 -Fl/usr/lib/gcc/x86_64-linux-gnu/6/32"
+
+. $HOME/bin/makesnapshot.sh
+
