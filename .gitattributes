@@ -445,6 +445,7 @@ scripts/nightly-testsuite/gcc45/linux-fpccommonup.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc45/makesnapshot.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc45/makesnapshotfixes.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc45/makesnapshottrunk.sh svneol=native#text/plain
+scripts/nightly-testsuite/gcc45/test-go32v2.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc67/all-snapshots.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc67/crontab.txt svneol=native#text/plain
 scripts/nightly-testsuite/gcc67/linux-fpcallup.sh svneol=native#text/plain
