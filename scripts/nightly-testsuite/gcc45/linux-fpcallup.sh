@@ -6,3 +6,5 @@ export FIXES=0
  $HOME/bin/linux-fpccommonup.sh
  $HOME/bin/makesnapshottrunk.sh
 
+$HOME/bin/test-go32v2.sh
+
