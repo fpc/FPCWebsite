@@ -225,6 +225,7 @@ gallery/modworm.jpg -text svneol=unset#image/jpeg
 gallery/modworm.thumb.png -text svneol=unset#image/png
 /gen_makefile svneol=native#text/plain
 /gen_makefile.conf svneol=native#text/plain
+/genvarfile.pp svneol=native#text/plain
 /hartnegg_fpk -text
 html_d/aboutus.fp svneol=native#text/plain
 html_d/api/api.fp svneol=native#text/plain
