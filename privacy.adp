@@ -6,14 +6,17 @@
 The Free Pascal servers are located in the EU, and so are most of the core
 contributors to Free Pascal. This means we are subject to the stipulations
 of the GDPR (General Data Protection Regulation), which requires us to
-inform you about our privacy policy, and what data we collect about you.
+inform you about our privacy policy, and about which data we collect about you.
 </p>
 
 <h2>What data do we collect about you?</h2>
 
 <p>
-In the best case, we collect a name and an email address.
-</p>
+The only personal data we collect and store are:
+<ul>
+<li> a name (which can be a nickname for this specific use)</li>
+<li> an email address</li>
+</ul>
 <p>
 There are 4 possible locations where we ask for a name and an email address:
 <ul>
@@ -43,7 +46,7 @@ You are free to use an alias and a special email address that cannot be
 linked to any other personal information. We will be none the wiser.
 </p>
 <p>
-Note that because some information is displayed publicly, it can be therefor
+Note that because some information is displayed publicly, it can be therefore
 be downloaded to other servers beyond our control (such as mailing list
 archives).
 </p>
@@ -53,7 +56,7 @@ The data is only used to be able contact you through the public websites or by e
 in case of bugreports.
 
 <h2>Where can you see this information?</h2>
-All recorded information is publicly accessible when you log in to one of
+All recorded information is publicly accessible when you log into one of
 these systems, you can consult therefor all information we have on the
 respective websites listed above.
 
