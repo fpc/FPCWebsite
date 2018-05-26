@@ -1,43 +1,68 @@
 program adp2html;
 
-{$modeswitch out}
+{$mode objfpc}
 
-uses cwstring, unixcp;
+uses cwstring,unixcp,sysutils,classes;
 
-type  Pproperty=^Tproperty;
-      Tproperty=record
-        left,right:Pproperty;
-        name,value:widestring;
-      end;
-      Pmessage=^Tmessage;
-      Tmessage=record
-        left,right:Pmessage;
-        locale,key,value:widestring;
-      end;
+type
+  Pproperty=^Tproperty;
+  Tproperty=record
+    left,right:Pproperty;
+    name,value:widestring;
+  end;
+  Pmessage=^Tmessage;
+  Tmessage=record
+    left,right:Pmessage;
+    locale,key,value:widestring;
+   end;
 
 const whitespace=[' ',#13,#10,#8];
 
-var master_template:ansistring;
+Type
+
+  { TPageConverter }
+
+  TPageConverter = Class
+    master_template:ansistring;
     slave_html:widestring;
     inputfile,outputfile,catalogfile:ansistring;
     datasource_prefix:ansistring;
     locale,fallback_locale:string;
     mode:(process_catalog,process_page);
-
-    properties:Pproperty=nil;
-    messages:Pmessage=nil;
-
-    default_master:string='default-master.adp';
-
+    properties:Pproperty;
+    messages:Pmessage;
+    default_master:string ; // ='default-master.adp';
     recognize_properties:boolean;
+    input_encoding:ansistring; // ='ISO-8859-1';
+    output_encoding:ansistring; // ='ISO-8859-1';
+    catalog_encoding:ansistring; //='UTF-8';
+    Constructor Create;
+    procedure property_set(const name,value:widestring;var tree:Pproperty);
+    procedure property_set(const name,value:widestring);
+    function property_get(const name:widestring;tree:Pproperty):widestring;
+    function property_get(const name:widestring):widestring;
+    procedure message_set(const alocale,key,value:widestring;var tree:Pmessage);
+    procedure message_set(const alocale,key,value:widestring);
+    function message_get(const alocale,key:widestring;tree:Pmessage):widestring;
+    function message_get(const alocale,key:widestring):widestring;
+    function replace_properties(s:widestring):widestring;
+  private
+    function adp_parse(adp: widestring): widestring;
+    procedure Execute(const aExt, LangName, LangEncoding: AnsiString);
+    function generate_page(fn: ansistring): widestring;
+    procedure parse_cmdline;
+    procedure parse_param(var p: Widestring; out key, value: widestring);
+  end;
 
-    input_encoding:ansistring='ISO-8859-1';
-    output_encoding:ansistring='ISO-8859-1';
-    catalog_encoding:ansistring='UTF-8';
+constructor TPageConverter.Create;
+begin
+  default_master:='default-master.adp';
+  input_encoding:='ISO-8859-1';
+  output_encoding:='ISO-8859-1';
+  catalog_encoding:='UTF-8';
+end;
 
-    inputcp, outputcp, catalogcp: tsystemcodepage;
-
-procedure property_set(const name,value:widestring;var tree:Pproperty);
+procedure TPageConverter.property_set(const name,value:widestring;var tree:Pproperty);
 
 begin
   if tree=nil then
@@ -56,13 +81,13 @@ begin
     property_set(name,value,tree^.right);
 end;
 
-procedure property_set(const name,value:widestring);
+procedure TPageConverter.property_set(const name,value:widestring);
 
 begin
   property_set(name,value,properties);
 end;
 
-function property_get(const name:widestring;tree:Pproperty):widestring;
+function TPageConverter.property_get(const name:widestring;tree:Pproperty):widestring;
 
 begin
   if tree=nil then
@@ -75,13 +100,13 @@ begin
     property_get:=property_get(name,tree^.right);
 end;
 
-function property_get(const name:widestring):widestring;
+function TPageConverter.property_get(const name:widestring):widestring;
 
 begin
   property_get:=property_get(name,properties);
 end;
 
-procedure message_set(const locale,key,value:widestring;var tree:Pmessage);
+procedure TPageConverter.message_set(const alocale,key,value:widestring;var tree:Pmessage);
 
 begin
   if tree=nil then
@@ -89,53 +114,52 @@ begin
       new(tree);
       tree^.left:=nil;
       tree^.right:=nil;
-      tree^.locale:=locale;
+      tree^.locale:=alocale;
       tree^.key:=key;
       tree^.value:=value;
     end
   else if tree^.key>key then
-    message_set(locale,key,value,tree^.left)
+    message_set(alocale,key,value,tree^.left)
   else if tree^.key<key then
-    message_set(locale,key,value,tree^.right)
+    message_set(alocale,key,value,tree^.right)
   else if tree^.locale>locale then
-    message_set(locale,key,value,tree^.left)
+    message_set(alocale,key,value,tree^.left)
   else if tree^.locale<locale then
-    message_set(locale,key,value,tree^.right)
+    message_set(alocale,key,value,tree^.right)
   else
     tree^.value:=value
 end;
 
-procedure message_set(const locale,key,value:widestring);
+procedure TPageConverter.message_set(const alocale,key,value:widestring);
 
 begin
-  message_set(locale,key,value,messages);
+  message_set(alocale,key,value,messages);
 end;
 
-function message_get(const locale,key:widestring;tree:Pmessage):widestring;
+function TPageConverter.message_get(const alocale,key:widestring;tree:Pmessage):widestring;
 
 begin
   if tree=nil then
     message_get:=''
   else if tree^.key>key then
-    message_get:=message_get(locale,key,tree^.left)
+    message_get:=message_get(alocale,key,tree^.left)
   else if tree^.key<key then
     message_get:=message_get(locale,key,tree^.right)
-  else if tree^.locale>locale then
+  else if tree^.locale>alocale then
     message_get:=message_get(locale,key,tree^.left)
-  else if tree^.locale<locale then
-    message_get:=message_get(locale,key,tree^.right)
+  else if tree^.locale<alocale then
+    message_get:=message_get(alocale,key,tree^.right)
   else
     message_get:=tree^.value
 end;
 
-
-function message_get(const locale,key:widestring):widestring;
+function TPageConverter.message_get(const alocale,key:widestring):widestring;
 
 begin
   message_get:=message_get(locale,key,messages);
 end;
 
-function replace_properties(s:widestring):widestring;
+function TPageConverter.replace_properties(s:widestring):widestring;
 
 var p,q:longint;
     v,c,a:widestring;
@@ -164,7 +188,7 @@ begin
   replace_properties:=s;
 end;
 
-procedure parse_param(var p,key,value:widestring);
+procedure TPageConverter.parse_param(var p : Widestring; Out key,value:widestring);
 
 var pos:longint;
 
@@ -223,7 +247,7 @@ begin
   delete(p,1,pos-1);
 end;
 
-function adp_parse(adp:widestring):widestring;
+function TPageConverter.adp_parse(adp:widestring):widestring;
 
 var last_expr_result:boolean;
 
@@ -474,7 +498,7 @@ var last_expr_result:boolean;
       begin
         parse_param(p,key,value);
         if key='src' then
-          master_template:=replace_properties(value);
+          master_template:=UTF8Encode(replace_properties(value));
       end;
     do_master_tag:='';
   end;
@@ -502,7 +526,7 @@ var last_expr_result:boolean;
       begin
         parse_param(p,key,value);
         if key='name' then
-          datasource:=value;
+          datasource:=UTF8Encode(value);
       end;
 
     {Open the datasource.}
@@ -535,10 +559,10 @@ var last_expr_result:boolean;
           i:=pos(#9,t);
           inc(ncols);
           if i=0 then
-            property_set(datasource+'.'+colnames[n],t)
+            property_set(UTF8Decode(datasource+'.'+colnames[n]),UTF8Decode(t))
           else
             begin
-              property_set(datasource+'.'+colnames[n],copy(t,1,i-1));
+              property_set(UTF8Decode(datasource+'.'+colnames[n]),UTF8Decode(copy(t,1,i-1)));
               delete(t,1,i);
             end;
           inc(n);
@@ -690,9 +714,9 @@ begin
   adp_parse:=parse_at(pos,'');
 end;
 
-function generate_page(fn:ansistring):widestring;
+function TPageConverter.generate_page(fn:ansistring):widestring;
 
-var r:widestring;
+var
     adpfile:file;
     adpansi:ansistring;
     adpwide:widestring;
@@ -704,7 +728,7 @@ begin
     reset(adpfile,1);
     setlength(adpansi,filesize(adpfile));
     blockread(adpfile,adpansi[1],filesize(adpfile));
-    adpwide:=adpansi;
+    adpwide:=UTF8Decode(adpansi);
     close(adpfile);
 {    adpwide:=replace_properties(adpwide);}
     {Do two passes. The first pass if/else tags are expanded...}
@@ -724,17 +748,7 @@ begin
   generate_page:=slave_html;
 end;
 
-procedure set_codepage(const cpvarname: string; const cpname: ansistring; out cpvalue: tsystemcodepage);
-begin
-    cpvalue:=GetCodepageByName(cpname);
-    if cpvalue=CP_NONE then
-      begin
-        writeln('Unsupported ',cpvarname,' code page: ', cpname);
-        halt(1);
-      end;
-end;
-
-procedure parse_cmdline;
+procedure TPageConverter.parse_cmdline;
 
 type  Tstate=(s_default,s_read_property,s_outputfile,
               s_read_locale,s_read_fallback_locale,s_read_catalogfile,
@@ -744,7 +758,7 @@ type  Tstate=(s_default,s_read_property,s_outputfile,
 var ignore_options:boolean;
     i:longint;
     state:Tstate;
-    s,key,value:string;
+    s,key,value:ansistring;
     p:byte;
 
 begin
@@ -758,7 +772,7 @@ begin
           p:=pos('=',s);
           key:=copy(s,1,p-1);
           value:=copy(s,p+1,255);
-          property_set(key,value);
+          property_set(UTF8Decode(key),UTF8Decode(value));
           state:=s_default;
         end;
       s_outputfile:
@@ -822,8 +836,6 @@ begin
           inputfile:=s
         else if s='--' then
           ignore_options:=true
-        else if s='-c' then
-          state:=s_read_catalogfile
         else if s='-ce' then
           state:=s_read_catalogencoding
         else if s='-d' then
@@ -845,17 +857,9 @@ begin
         else
           inputfile:=s;
     end;
-
-    set_codepage('input', input_encoding, inputcp);
-    set_codepage('output', output_encoding, outputcp);
-    set_codepage('catalog', catalog_encoding, catalogcp);
 end;
 
-{$ifdef FPC_LITTLE_ENDIAN}
-const unicode_encoding = 'UCS-2LE';
-{$else  FPC_LITTLE_ENDIAN}
-const unicode_encoding = 'UCS-2BE';
-{$endif  FPC_LITTLE_ENDIAN}
+procedure TPageConverter.Execute(Const aExt,LangName,LangEncoding : AnsiString);
 
 var htmlfile:text;
     page:widestring;
@@ -864,44 +868,96 @@ begin
   inputfile:='';
   outputfile:='';
   catalogfile:='';
-  locale:='';
   fallback_locale:='';
   datasource_prefix:='';
   parse_cmdline;
   if inputfile='' then
      begin
-       writeln('Usage: adp2html [-c catalogfile] [-ce catalog_encoding] \');
+       writeln('Usage: adp2html [-ce catalog_encoding] \');
        writeln('                [-d datasource_prefix] [-ie input_encoding ] \');
        writeln('                [-l locale] [-lb fallback_locale] \');
        writeln('                [-m default_master] [-p key=value] \');
-       writeln('                [-o outputfile] [-oe output_encoding] <filename>');
+       writeln('                [-o outputfile]  <filename>');
        halt(1);
      end;
+  locale:=LangName;
+  property_set('x',aext);
 
-  property_set('output_encoding',output_encoding);
+  output_encoding:=LangEncoding;
+  property_set('output_encoding',UTF8Decode(Langencoding));
+  if LangName='' then
+    catalogfile := 'catalog.en.adp'
+  else
+    catalogfile := 'catalog.'+langName+'.adp';
 
   {Process catalog first.}
-  SetMultiByteConversionCodePage(catalogcp);
-  if catalogfile<>'' then
+  if FileExists(catalogfile) then
     begin
       mode:=process_catalog;
       generate_page(catalogfile);
     end;
 
   {Process page.}
-  SetMultiByteConversionCodePage(inputcp);
   mode:=process_page;
   page:=generate_page(inputfile);
 
-  SetMultiByteConversionCodePage(outputcp);
   if outputfile='' then
     write(page)
   else
     begin
+      if (LangName<>'') then
+        outputfile:=outputfile+'.'+langname;
       assign(htmlfile,outputfile);
+
       rewrite(htmlfile);
       {Possible widestring bug? Manually convert to ansistring.}
       write(htmlfile,ansistring(page));
       close(htmlfile);
     end;
+end;
+
+Const
+  Langcount = 11;
+
+Type
+  TLangarray = Array[1..LangCount] of string;
+
+Const
+  LangNames : TLangarray = ('bg','en','fi','fr','id','it','nl','po','sl','ru','zh-CN');
+  LangContent : TLangarray = ('bg','en','fi','fr','id','it','nl','pl','sl','ru','zh-CN');
+  LangEncoding : TLangarray = ('iso-8859-5','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-2','iso-8859-2','iso-8859-5','utf-16');
+
+
+Var
+  ifn,ofn : string;
+  L : TStringList;
+  i : Integer;
+
+begin
+  For I:=1 to LangCount do
+    With TPageConverter.Create do
+      try
+        Execute('.var',LangNames[i],LangEncoding[i]);
+        ifn:=OutputFile;
+      finally
+        Free;
+      end;
+  With TPageConverter.Create do
+    try
+      Execute('.html','','iso-8859-1');
+      ifn:=OutputFile;
+    finally
+      Free;
+    end;
+  ofn:=ChangeFileExt(ifn,'.var');
+  L:=TStringList.Create;
+  for I:=1 to langCount do
+    begin
+    L.Add('');
+    L.Add(Format('URI: %s.%s',[ifn,LangNames[i]]));
+    L.Add(Format('Content-language: %s',[LangContent[i]]));
+    L.Add(Format('Content-type: text/html; charset=%s',[LangEnCoding[i]]));
+    end;
+  L.Add('');
+  L.SaveToFile(ofn);
 end.

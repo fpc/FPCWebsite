@@ -380,6 +380,7 @@ pic/units.gif -text svneol=unset#image/gif
 pic/unitscon.gif -text svneol=unset#image/gif
 pic/unitsrtl.gif -text svneol=unset#image/gif
 /port.adp svneol=native#text/plain
+/privacy.adp svneol=native#text/plain
 /probs.adp svneol=native#text/plain
 /prog.adp svneol=native#text/plain
 /resources.html svneol=native#text/plain
