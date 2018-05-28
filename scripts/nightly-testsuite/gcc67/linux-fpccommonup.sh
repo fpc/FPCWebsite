@@ -145,7 +145,7 @@ if [ $makeres -ne 0 ] ; then
     echo "##`$DATE`" >> $report
     echo "Starting make install in dir $dir" >> $makelog
     echo "##`$DATE`" >> $makelog
-    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+    ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
     echo "##`$DATE`" >> $report
