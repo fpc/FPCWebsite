@@ -23,7 +23,7 @@
     <em>May 28, 2018</em>
   </p>
   <p>
-   As required by the European GDPR, we have published a <a href="privacy@x@">privacy statement</a>
+   As required by the European <a href="https://gdpr-info.eu/">GDPR</a>, we have published a <a href="privacy@x@">privacy statement</a>
   </p>
  </trn>
 </p>

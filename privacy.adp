@@ -5,7 +5,7 @@
 <p>
 The Free Pascal servers are located in the EU, and so are most of the core
 contributors to Free Pascal. This means we are subject to the stipulations
-of the GDPR (General Data Protection Regulation), which requires us to
+of the <a href="https://gdpr-info.eu/">GDPR</a> (General Data Protection Regulation), which requires us to
 inform you about our privacy policy, and about which data we collect about you.
 </p>
 
