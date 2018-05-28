@@ -267,6 +267,8 @@ list_os ppcx64 x86_64 "-n -gl"
 listed=0
 run_one_snapshot x86_64 dragonfly "-n -gl"
 run_one_snapshot m68k netbsd "-n -gl"
+run_one_snapshot arm aros "-n -gl"
+run_one_snapshot x86_64 aros "-n -gl"
 echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
 ) > $LOGFILE 2>&1
 
