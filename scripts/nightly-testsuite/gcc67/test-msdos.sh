@@ -122,7 +122,7 @@ else
   export TEST_OPT="-Wm$MEMMODEL $MSDOSOPT"
 fi
 TODAY=`date +%Y-%m-%d`
-DIR_OPT=${TEST_OPT// /_}
+DIR_OPT=opt${TEST_OPT// /_}
 export logdir=$FPCLOGDIR/$SVNDIR/$TODAY/$TEST_TARGET/$DIR_OPT
 mkdir -p $logdir
 LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
@@ -173,6 +173,11 @@ cp output/$TEST_TARGET/log $logdir
 PREPARELOGFILE=$FPCLOGDIR/test-prepare-$TEST_TARGET-$SVNDIR.log
 
 if [ "X$1" != "X" ] ; then
+  if [ "X$1" == "X-prep" ] ; then
+    shift
+    prepare_msdos > $PREPARELOGFILE 2>&1
+  fi
+  MAKEFULLOPT= 
   run_one_model $1
 else
   prepare_msdos > $PREPARELOGFILE 2>&1
