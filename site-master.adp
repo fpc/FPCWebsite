@@ -107,7 +107,7 @@
 </div>
 
 <div id="footer">
-  Copyright Free Pascal team 1993-2010.<br>
-  Page design by <a href="http://www.sixshootermedia.com">6ix Shooter Media</a>, additional modifications by <a href="mailto:mcposeidon@mcville.net">Pos3idon</a>.
+  <a href="@maindir@privacy@x@">Privacy statement</a>. Copyright Free Pascal team 1993-2018.<br>
+  Page design by <a href="http://www.sixshootermedia.com">6ix Shooter Media</a>, additional modifications by Pos3idon<.
 </div>
 </body></html>
