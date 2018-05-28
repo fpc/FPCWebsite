@@ -18,6 +18,17 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.privacy">
+  <p>
+    <em>May 28, 2018</em>
+  </p>
+  <p>
+   As required by the European GDPR, we have published a <a href="privacy@x@">privacy statement</a>
+  </p>
+ </trn>
+</p>
+
+<p>
  <trn locale="en_US" key="website.frontpage.news_headline_20171127">
  <p>
   <em>November 28th, 2017</em>
@@ -38,6 +49,7 @@
    </p>
  </trn>
 </p>
+
 
 <p>
  <trn locale="en_US" key="website.frontpage.news_headline_20170215">
