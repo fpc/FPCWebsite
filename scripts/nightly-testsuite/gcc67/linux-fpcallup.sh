@@ -5,6 +5,11 @@ pkill  --signal TERM -x -f $HOME/bin/check-all-rtl.sh
 pkill  --signal TERM -f "$HOME/bin/makesnapshot.*.sh"
 pkill  --signal TERM -f "$HOME/bin/test-.*.sh"
 
+# Set up HOSTNAME variable if empty
+if [ -z "$HOSTNAME" ] ; then
+  export HOSTNAME=`uname -n` 
+fi
+
 # Do the same with ppc386
 export FPCBIN=ppc386
 export FIXES=0
