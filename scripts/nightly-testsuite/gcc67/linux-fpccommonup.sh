@@ -233,10 +233,12 @@ function run_tests ()
     cp output/$NEW_UNITDIR/log $logdir/log-$TIME 
     cp output/$NEW_UNITDIR/longlog $logdir/longlog-$TIME
     cp ${testslog} $logdir/tests-${DIR_OPT}-$TIME
-    if [ -d output-${SVNDIR}-${DIR_OPT} ] ; then
-      rm -Rf output-${SVNDIR}-${DIR_OPT}
+    if [ ${cleantests} -ne 1 ] ; then
+      if [ -d output-${SVNDIR}-${DIR_OPT} ] ; then
+        rm -Rf output-${SVNDIR}-${DIR_OPT}
+      fi
+      cp -Rf output output-${SVNDIR}-${DIR_OPT}
     fi
-    cp -Rf output output-${SVNDIR}-${DIR_OPT}
   fi
 }
 
@@ -267,11 +269,14 @@ fi
 if [ ${testsres} -eq 0 ]; then
   cd ~/pas/$SVNDIR
   ${MAKE} distclean 1>> ${cleanlog} 2>&1
+fi
+
+if [ $cleantests -eq 1 ] ; then
+  cd ~/pas/$SVNDIR
   if [ -d fpcsrc ] ; then
     cd fpcsrc
   fi
   cd tests
-  if [ $cleantests -eq 1 ] ; then
     rm -Rf output* 1>> ${cleanlog} 2>&1
   fi
 fi
