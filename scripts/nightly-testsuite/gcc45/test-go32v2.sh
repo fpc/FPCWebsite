@@ -73,7 +73,7 @@ else
 fi
 TODAY=`date +%Y-%m-%d`
 DIR_OPT=${TEST_OPT// /_}
-logdir=~/logs/$SVNDIR/$TODAY/go32v2
+logdir=$FPCLOGDIR/$SVNDIR/$TODAY/go32v2
 mkdir -p $logdir
 LOGFILE=$logdir/go32v2-${DIR_OPT}.log
 
