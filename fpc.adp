@@ -18,6 +18,18 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.fpc25">
+  <p>
+    <em>June 8, 2018</em>
+  </p>
+  <p>
+    Today FPC celebrates its 25th birthday ! 25 years have passed since 8 june 1993,
+and FPC still does not only exists, but is more alive and kicking than ever!
+  </p>
+ </trn>
+</p>
+
+<p>
  <trn locale="en_US" key="website.frontpage.privacy">
   <p>
     <em>May 28, 2018</em>
