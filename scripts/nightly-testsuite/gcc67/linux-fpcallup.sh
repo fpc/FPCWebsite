@@ -52,7 +52,7 @@ if [ $gen_all -eq 1 ] ; then
   $HOME/bin/all-snapshots.sh
 
   # For trunk
-  SVNDIR=trunk
+  export SVNDIR=trunk
 
   if [ $skip_msdos -eq 0 ] ; then
     # Test msdos 
@@ -65,7 +65,7 @@ if [ $gen_all -eq 1 ] ; then
   fi
 
   # For fixes
-  SVNDIR=fixes
+  export SVNDIR=fixes
 
   # Test msdos 
   $HOME/bin/test-msdos.sh
