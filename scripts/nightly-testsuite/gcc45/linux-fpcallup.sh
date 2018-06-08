@@ -7,4 +7,4 @@ export FIXES=0
  $HOME/bin/makesnapshottrunk.sh
 
 $HOME/bin/test-go32v2.sh
-
+$HOME/bin/test-msdos.sh
