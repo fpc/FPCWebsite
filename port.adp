@@ -8,6 +8,13 @@ This document contains some information about differences between Free Pascal
 and Turbo Pascal 7.0 (and to some extent Delphi). This list is not complete.
 </p>
 
+<p>
+More documentation can be found in the <a href="http://wiki.freepascal.org/Mode_TP">WIKI</a>
+, more <a
+href="http://wiki.freepascal.org/Porting_low-level_DOS_code_for_TP/BP_to_GO32v2_with_FPC">Wiki</a>,
+and the documentation.
+</p>
+
 <h3>Assembler</h3>
 <ul>
   <li>The default assembler uses another syntax, but you can turn on the
