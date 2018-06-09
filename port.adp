@@ -158,4 +158,19 @@ work on non-Intel processors (and will slow down data access in all cases).</li>
   <li>The command line parameters are different</li>
   <li>Not all compiler switches are fully implemented</li>
   <li>The units are not binary compatible</li>
+<li> The Overflow check also affects inc() and dec().</li>
+<li> The Range check not only checks array index for legal values,
+ but also values to be in the possible range of variables.
+ Thus if you need {$Q-} somewhere, you may need to add {$R-}.
+</li>
+<li> The search order for unit-directories and include-directories is reversed,
+ it starts with the last directory. If you have two units with the same name,
+ FreePascal may use a different one than TurboPascal does.
+</li>
+<li> The round function does not round up at 0.5, but to the nearest even number
+ (although SetRoundMode can be used to control the behaviour somewhat)
+</li>
+<li> the dos unit Findfirst() call must always be followed by a Findclose
+ to release some resource.
+</li>
 </ul>
