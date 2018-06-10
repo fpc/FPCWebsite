@@ -57,6 +57,10 @@ elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
 elif [ "X$HOSTNAME" == "Xgcc20" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
+  test_msdos_trunk=1
+  test_msdos_fixes=1
+  test_go32v2_trunk=1
+  test_go32v2_fixes=1
 fi
 if [ $check_cross_fixes -eq 1 ] ; then
   # Test all RTL compilations
