@@ -18,7 +18,7 @@ export TRUNKVERSION=3.1.1
 export FIXESVERSION=3.0.5
 
 #################################################################
-## Free Pascal trunk and fixes directory names 
+## Free Pascal trunk and fixes directory names
 #################################################################
 if [ -z "$TRUNKDIRNAME" ] ; then
   TRUNKDIRNAME=trunk
@@ -26,7 +26,7 @@ fi
 export TRUNKDIRNAME
 if [ -z "$FIXESDIRNAME" ] ; then
   FIXESDIRNAME=fixes
-fi 
+fi
 export FIXESDIRNAME
 
 #################################################################
