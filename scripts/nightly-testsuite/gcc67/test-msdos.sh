@@ -3,7 +3,11 @@
 . $HOME/bin/fpc-versions.sh
 
 if [ -z "$SVNDIR" ] ; then
-  SVNDIR=trunk
+  if [ "$FIXES" == "1" ] ; then
+    SVNDIR=fixes
+  else
+    SVNDIR=trunk
+  fi
 fi
 
 if [ "X$SVNDIR" = "Xtrunk" ] ; then
