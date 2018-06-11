@@ -98,28 +98,28 @@ if [ $gen_cross_snapshots_fixes -eq 1 ] ; then
   $HOME/bin/all-snapshots.sh
 fi
 
-if [ $test_msdos_trunk -eq 0 ] ; then
+if [ $test_msdos_trunk -eq 1 ] ; then
   # For trunk
   export FIXES=0
   # Test msdos 
   $HOME/bin/test-msdos.sh
 fi
 
-if [ $test_go32v2_trunk -eq 0 ] ; then
+if [ $test_go32v2_trunk -eq 1 ] ; then
   # For trunk
   export FIXES=0
   # Test go32v2 
   $HOME/bin/test-go32v2.sh
 fi
 
-if [ $test_msdos_fixes -eq 0 ] ; then
+if [ $test_msdos_fixes -eq 1 ] ; then
   # For fixes
   export FIXES=1
   # Test msdos 
   $HOME/bin/test-msdos.sh
 fi
 
-if [ $test_go32v2_fixes -eq 0 ] ; then
+if [ $test_go32v2_fixes -eq 1 ] ; then
   # For fixes
   export FIXES=1
   # Test go32v2 
