@@ -76,7 +76,7 @@ fi
 if [ $gen_snapshot_fixes -eq 1 ] ; then
   $HOME/bin/makesnapshotfixes.sh 
 fi
-if [ $gen_sbapshot_trunk -eq 1 ] ; then
+if [ $gen_snapshot_trunk -eq 1 ] ; then
   $HOME/bin/makesnapshottrunk.sh
 fi
 
