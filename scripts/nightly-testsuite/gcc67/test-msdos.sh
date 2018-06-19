@@ -49,13 +49,13 @@ export FPCMAKE=`which fpcmake`
 # copy of output to file if
 # section [dos] contians an entry called
 # copy_con_to_file, with the name of the file to write to.
-if [ -s "$DOSBOX" ] ; then
+if [ -z "$DOSBOX" ] ; then
   export DOSBOX=$HOME/bin/dosbox
 fi
 export SDL_VIDEODRIVER=dummy
 export SDL_AUDIODRIVER=dummy
 export DB_SSH_EXTRA="-i $HOME/.ssh/freepascal"
-export SINGLEDOTESTRUNS=1
+# export SINGLEDOTESTRUNS=1, messes up ordering of results
 
 cd $FPCDIR/tests/
 
