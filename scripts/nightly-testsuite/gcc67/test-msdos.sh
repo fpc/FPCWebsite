@@ -136,6 +136,10 @@ LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
 TEST_OPT="$TEST_OPT $NEEDED_OPTS"
 
 (
+if [ ! -x "$DOSBOX" ] ; then
+  echo "Error: $DOSBOX is not executable"
+  exit
+fi
 echo "Clearing RTL/Packages for $TEST_TARGET"
 make -C $FPCDIR/rtl clean FPC=$NEWCROSSFPC
 make -C $FPCDIR/packages clean FPC=$NEWCROSSFPC
