@@ -55,7 +55,7 @@ fi
 export SDL_VIDEODRIVER=dummy
 export SDL_AUDIODRIVER=dummy
 export DB_SSH_EXTRA="-i $HOME/.ssh/freepascal"
-export SINGLEDOTESTRUNS=1
+# export SINGLEDOTESTRUNS=1, messes up ordering of results
 
 cd $FPCDIR/tests/
 
@@ -139,6 +139,11 @@ LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
 TEST_OPT="$TEST_OPT $NEEDED_OPTS"
 
 (
+if [ ! -x "$DOSBOX" ] ; then
+  echo "Error: $DOSBOX is not executable"
+  exit
+fi
+
 echo "Clearing RTL/Packages for msdos"
 make -C $FPCDIR/rtl clean FPC=$NEWCROSSFPC OS_TARGET=$TEST_TARGET
 make -C $FPCDIR/packages clean FPC=$NEWCROSSFPC OS_TARGET=$TEST_TARGET
