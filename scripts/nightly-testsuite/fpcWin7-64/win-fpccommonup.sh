@@ -13,47 +13,50 @@ export CYGXARGS=`which xargs`
 export CYGLS=`which ls`
 export SVN=`which svn`
 export CYGTAIL=`which tail`
+export CYGWHICH=`which which`
+export CYGCYGPATH=`which cygpath`
+export CYGD2U=`which d2u`
 
-if [ "$HOSTNAME" == "" ] ; then
+if [ -z "${HOSTNAME}" ] ; then
   HOSTNAME=`uname -n`
 fi
 
 
-if [ -d $HOME/bin ] ; then
-  if [ "${PATH/$HOME/}" == "${PATH}" ] ; then
+if [ -d ${HOME}/bin ] ; then
+  if [ "${PATH/${HOME}/}" == "${PATH}" ] ; then
    echo "Adding home bin dir"
-   export PATH=$HOME/bin:$PATH
+   export PATH=${HOME}/bin:${PATH}
   fi
 fi
 
-if [ "$HOSTNAME" == "WIN-G8VVDPH2N8D" ]; then
+if [ "${HOSTNAME}" == "WIN-G8VVDPH2N8D" ]; then
   export HOSTNAME=fpcwin2008
-   export PATH=$PATH:/bin
+   export PATH=${PATH}:/bin
 fi
 
-if [ "${STARTVERSION}" == "" ]; then
-  STARTVERSION=3.0.0
+if [ -z "${STARTVERSION}" ]; then
+  STARTVERSION=3.0.4
 fi
-if [ "${SVNDIR}" == "" ]; then
-  SVNDIR=$HOME/pas/trunk
+if [ -z "${SVNDIR}" ]; then
+  SVNDIR=${HOME}/pas/trunk
 fi
 
-if [ "X$SVNDIRNAME" == "X" ] ; then
+if [ -z "${SVNDIRNAME}" ] ; then
   SVNDIRNAME=${SVNDIR##*/}
 fi
 
 # Default is 386 binary
-if [ "$FPCBIN" == "" ] ; then
+if [ -z "${FPCBIN}" ] ; then
   FPCBIN=ppc386
 fi
 
 
-if [ "$FPCBIN" == "ppc386" ] ; then
+if [ "${FPCBIN}" == "ppc386" ] ; then
   FPCFULLTARGET=i386-win32
-elif [ "$FPCBIN" == "ppcx64" ] ; then
+elif [ "${FPCBIN}" == "ppcx64" ] ; then
   FPCFULLTARGET=x86_64-win64
 else
-  echo "Unknown binary $FPCBIN"
+  echo "Unknown binary ${FPCBIN}"
   exit
 fi
 
@@ -62,16 +65,22 @@ if [ "${HOSTNAME}" == "E6510-Muller" ]; then
   export MINGW_CYGWINDIR=e:/cygwin-32
   export CYGWIN_FPCDIR=/cygdrive/e/pas
   export MINGW_FPCDIR=e:/pas
-  export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}
+  export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}:${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/i386-win32
+  if [ "X${MAKE}" == "Xmake" ] ; then
+    export MAKE="e:\\pas\\fpc-${STARTVERSION}\\bin\\i386-win32\\make.exe"
+  fi
+  export MAKE_EXTRA=
+  ##was  RMPROG=${MINGW_CYGWINDIR}/bin/rm CPPROG=${MINGW_CYGWINDIR}/bin/cp"
+  export SVN=/usr/bin/svn
 elif [ "${HOSTNAME}" == "d620-muller" ]; then
   export MINGW_CYGWINDIR=e:/cygwin
   export CYGWIN_FPCDIR=/cygdrive/e/pas
   export MINGW_FPCDIR=e:/pas
   export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}
 elif [ "${HOSTNAME}" == "fpcwinvista64" ]; then
-  export MINGW_CYGWINDIR=c:/cygwin$HOME
-  export CYGWIN_FPCDIR=$HOME/pas
-  export MINGW_FPCDIR=c:/cygwin$HOME/pas
+  export MINGW_CYGWINDIR=c:/cygwin${HOME}
+  export CYGWIN_FPCDIR=${HOME}/pas
+  export MINGW_FPCDIR=c:/cygwin${HOME}/pas
   export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}
   if [ -d "${HOME}/pas/fpc-${STARTVERSION}" ] ; then
     PATH=${HOME}/pas/fpc-${STARTVERSION}/bin/i386-win32:${HOME}/bin:${PATH}
@@ -116,19 +125,20 @@ fi
 
 cd ${SVNDIR}
 
-export report=`pwd`/report.txt
-export svnlog=`pwd`/svn.txt
-export makelog=`pwd`/make.txt
-export testslog=`pwd`/tests.txt
-export uploadlog=`pwd`/tests-upload.txt
+LOGSUFFIX=-${SVNDIRNAME}-${FPCFULLTARGET}
+export report=`pwd`/report${LOGSUFFIX}.txt
+export svnlog=`pwd`/svn${LOGSUFFIX}.txt
+export makelog=`pwd`/make${LOGSUFFIX}.txt
+export testslog=`pwd`/tests${LOGSUFFIX}.txt
+export uploadlog=`pwd`/tests-upload${LOGSUFFIX}.txt
 
-rm -f $report
+rm -f ${report}
 
-echo "Starting $0" > $report
-echo "date is `$CYGDATE`" >> $report
-echo "Time `$CYGDATE +%H:%M:%S`" >> $report
-echo "FPCPATH is $FPCPATH" >> $report
-echo "Starting in directory `pwd`" >> $report
+echo "Starting $0" > ${report}
+echo "date is `${CYGDATE}`" >> ${report}
+echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+echo "FPCPATH is ${FPCPATH}" >> ${report}
+echo "Starting in directory `pwd`" >> ${report}
 
 if [ "$1" == "uploadonly" ]; then
   skipsvn=1
@@ -150,10 +160,10 @@ fi
 
 if ! [ "${skipsvn}" == "1" ]; then
   echo "Running ${SVN}"
-  echo "Running ${SVN}" >> $report
+  echo "Running ${SVN}" >> ${report}
   repeat=1
   tries=0
-  while [ $repeat -eq 1 ] ; do
+  while [ ${repeat} -eq 1 ] ; do
   ${SVN} cleanup --non-interactive > ${svnlog} 2>&1
   if [ -d fpcsrc ]; then
     cd fpcsrc
@@ -172,11 +182,11 @@ if ! [ "${skipsvn}" == "1" ]; then
   fi
   ${SVN} up --accept theirs-full --force >> ${svnlog} 2>&1
   svnres=$?
-  tries=`expr $tries + 1 `
-  if [ $svnres -eq 0 ] ; then
+  tries=`expr ${tries} + 1 `
+  if [ ${svnres} -eq 0 ] ; then
     repeat=0
-  elif [ $tries -gt 15 ] ; then
-    echo "svn up tried 15 times, giving up" >> $report
+  elif [ ${tries} -gt 15 ] ; then
+    echo "svn up tried 15 times, giving up" >> ${report}
     repeat=0
   else
     # svn failed wait for 2 minutes
@@ -195,31 +205,35 @@ if ! [ "${skipsvn}" == "1" ]; then
 fi
 
 if [ -d fpcsrc ]; then
-  echo Changing to fpcsrc dir >> $report
+  echo Changing to fpcsrc dir >> ${report}
   cd fpcsrc
 fi
 
 FPC_SRC_DIR=`pwd`
+MINGW_FPC_SRC_DIR=`${CYGCYGPATH} -am .`
 function list_system_ppu ()
 {
-  $CYGFIND $FPC_SRC_DIR -iname "system.ppu" | $CYGXARGS $CYGLS -l >> $report
+  ${CYGFIND} ${FPC_SRC_DIR} ${CYGWIN_FPCDIR}/fpc-${FPC_VER}  -iname "system.ppu" | ${CYGXARGS} ${CYGLS} -altr >> ${report}
 }
 
+STARTPATH=${PATH}
+PATH=${FPCPATH}:${PATH}
 FPCSTART=`which ${FPCBIN}`
 
-if [ "$FPCSTART" == "" ] ; then
-  echo "${FPCBIN} not found, PATH=\"$PATH\""
+if [ -z "${FPCSTART}" ] ; then
+  echo "${FPCBIN} not found, PATH=\"${PATH}\""
+  echo "${FPCBIN} not found, PATH=\"${PATH}\"" >> ${report}
   if ! [ "${skipsvn}" == "1" ]; then
     ${SVN} cleanup --non-interactive >> ${svnlog} 2>&1
   fi
   exit
 fi
 
-STARTPATH=${PATH}
+PATH=${STARTPATH}
 
 PATH_NO_CYGWIN=
 
-OIFS=$IFS
+OIFS=${IFS}
 IFS=:
 for p in ${STARTPATH} ; do
   # echo p is $p
@@ -229,7 +243,7 @@ for p in ${STARTPATH} ; do
          ;;
     /bin) skip=1;
 	 ;;
-    *) if [ ! "$skip" == "1" ] ; then
+    *) if [ ! "${skip}" == "1" ] ; then
          PATH_NO_CYGWIN=${PATH_NO_CYGWIN}:$p
        fi ;;
   esac
@@ -237,32 +251,36 @@ done
 export PATH=${FPCPATH}:${PATH_NO_CYGWIN}
 IFS=${OIFS}
 
-echo "Time `$CYGDATE +%H:%M:%S`" >> $report
-echo "Used PATH is \"${PATH}\"" >> $report
+echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+echo "Used PATH is \"${PATH}\"" >> ${report}
 
 
 Start_version=`${FPCSTART} -iV`
 Start_date=`${FPCSTART} -iD`
-echo "Start ${FPCBIN} version is ${Start_version}" >> $report
-echo "Start ${FPCBIN} date is ${Start_date}" >> $report
+echo "Start ${FPCBIN} version is ${Start_version}" >> ${report}
+echo "Start ${FPCBIN} date is ${Start_date}" >> ${report}
 list_system_ppu
 
 if ! [ "${skipmake}" == "1" ]; then
   echo "Running make distclean all"
-  echo "Running make distclean all" >> $report
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $report
+  echo "Running make distclean all" >> ${report}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
   # Avoid ppc386 linux executable
   rm -f ./compiler/${FPCBIN} 2> /dev/null
   cmd /c "${MAKE}"  distclean all DEBUG=1 FPC=${FPCBIN} ${MAKE_EXTRA} 1> ${makelog} 2>&1
   makeres=$?
-  if [ ${makeres} != 0 ]; then
-    echo Make failed ${makeres}
-    ${CYGTAIL} -30 ${makelog} 
+  if [ ${makeres} -ne 0 ]; then
+    echo "Make failed ${makeres}"
+    echo "Make failed ${makeres}" >> ${report}
+    ${CYGTAIL} -30 ${makelog}
     ${CYGTAIL} -30 ${makelog}  >> ${report}
     attachment="-a ${makelog}"
     skipinstall=1
     skiptests=1
     skipupload=1
+  else
+    echo "Make finished OK"
+    echo "Make finished OK" >> ${report}
   fi
 fi
 list_system_ppu
@@ -273,134 +291,180 @@ FPC_VER_L=`./compiler/${FPCBIN} -iV`
 FPC_VER=${FPC_VER_L:0:${#FPC_VER_L}-1}
 echo Free pascal version is ${#FPC_VER_L} x${FPC_VER_L}x
 echo Free pascal version is ${#FPC_VER} x${FPC_VER}x
-Build_version=`./compiler/${FPCBIN} -iV`
-Build_date=`./compiler/${FPCBIN} -iD`
+echo Free pascal version is ${#FPC_VER_L} x${FPC_VER_L}x >> ${report}
+echo Free pascal version is ${#FPC_VER} x${FPC_VER}x >> ${report}
+Build_version=`./compiler/${FPCBIN} -iV | ${CYGD2U}`
+Build_date=`./compiler/${FPCBIN} -iD | ${CYGD2U}`
 
 
-echo "New ${FPCBIN} version is ${Build_version}" >> $report
-echo "New ${FPCBIN} date is ${Build_date}" >> $report
-echo "Time `$CYGDATE +%H:%M:%S`" >> $report
+echo "New ${FPCBIN} version is ${Build_version}" >> ${report}
+echo "New ${FPCBIN} date is ${Build_date}" >> ${report}
+echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
 
 if ! [ "${skipintall}" == "1" ]; then
   echo "Running make install"
-  echo "Running make install" >> $report
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $report
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $makelog
-  cmd /c "${MAKE} install INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}  ${MAKE_EXTRA} FPC=./compiler/${FPCBIN}"  1>> ${makelog} 2>&1
+  echo "Running make install" >> ${report}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${makelog}
+  cmd /c "${MAKE} install INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}  ${MAKE_EXTRA} FPC=${MINGW_FPC_SRC_DIR}/compiler/${FPCBIN}"  1>> ${makelog} 2>&1
   makeres=$?
-  if [ ${makeres} != 0 ]; then
-    echo Make install failed ${makeres}
-    ${CYGTAIL} -30 ${makelog} 
+  if [ ${makeres} -ne 0 ]; then
+    echo "Make install failed ${makeres}"
+    echo "Make install failed ${makeres}" >> ${report}
+    ${CYGTAIL} -30 ${makelog}
     ${CYGTAIL} -30 ${makelog}  >> ${report}
     attachment="-a ${makelog}"
     skiptests=1
     skipupload=1
+  else
+    echo "Make install finished OK"
+    echo "Make install finished OK" >> ${report}
   fi
 
 fi
 list_system_ppu
-export FPC=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN}
+export NEW_FPC=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN}
+NEW_FPC_IN_PATH=`${CYGWHICH} ${FPCBIN}`
 export FPCFPMAKE=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN}
+NEW_FPC_VER=`${NEW_FPC} -iV | ${CYGD2U}`
+if [ "${Build_version}" != "${NEW_FPC_VER}" ] ; then
+  echo "Problem with new binary: ${NEW_FPC_IN_PATH}" >> ${report}
+  echo "Expected version is \"${Build_version}\", but got \"${NEW_FPC_VER}\"" >> ${report}
+  exit
+else
+  export FPC=${NEW_FPC}
+fi
 
-function run_make ()
+NEW_FPC_DATE=`${NEW_FPC} -iD | ${CYGD2U}`
+if [ "${Build_date}" != "${NEW_FPC_DATE}" ] ; then
+  echo "Problem with new binary: ${NEW_FPC_IN_PATH}" >> ${report}
+  echo "Expected date is \"${Build_date}\", but got \"${NEW_FPC_DATE}\"" >> ${report}
+  exit
+fi
+
+function run_tests ()
 {
-if ! [ "X${skiptests}" == "X1" ]; then
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $report
-  TIME=`$CYGDATE +%H-%M-%S`
-  echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}" > $testslog
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $testslog
+if  [ "X${skiptests}" == "X1" ]; then
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+  echo "skiptests=1, tests skipped" >> ${report}
+else
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+  TIME=`${CYGDATE} +%H-%M-%S`
+  export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /}.txt
+  export uploadlog=`pwd`/tests-upload${LOGSUFFIX}i-${TEST_OPT// /}.txt
+  echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}" > ${testslog}
+  if [ -z "${FULLFPCBIN}" ] ; then
+    FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN}
+  fi
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${testslog}
   list_system_ppu
   echo "Calling kill-runaway-tests"
-  echo "Calling kill-runaway-tests" >> $testslog
-  $HOME/bin/kill-runaway-tests.sh >> $testslog
+  echo "Calling kill-runaway-tests" >> ${testslog}
+  ${HOME}/bin/kill-runaway-tests.sh >> ${testslog}
   echo "Deleting output directory with Cygwin rm"
-  echo "Deleting output directory with Cygwin rm" >> $testslog
-  $CYGRRM -Rf ./output/ 1>> $testslog 2>&1
+  echo "Deleting output directory with Cygwin rm" >> ${testslog}
+  ${CYGRM} -Rf ./output/ 1>> ${testslog} 2>&1
+  echo "Recompiling rtl and packages dirs"
+  echo "Recompiling rtl and packages dirs" >> ${report}
+  cmd /c ${MAKE} -C ../rtl clean all FPC=${FULLFPCBIN} OPT="-n ${TEST_OPT}" >> ${testslog} 2>&1
+  cmd /c ${MAKE} -C ../packages clean all FPC=${FULLFPCBIN} OPT="-n ${TEST_OPT}" >> ${testslog} 2>&1
   echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}"
-  echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}" >> $report
+  echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}" >> ${report}
   cmd /c ${MAKE} distclean allexectests TEST_OPT="${TEST_OPT}" TEST_USER=pierre \
-    TEST_FPC=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN} \
-    TEST_USE_LONGLOG=1 ${MAKE_EXTRA}  1>> $testslog 2>&1
+    TEST_FPC=${FULLFPCBIN} \
+    TEST_USE_LONGLOG=1 ${MAKE_EXTRA}  1>> ${testslog} 2>&1
   testsres=$?
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $report
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
   if [ ${testsres} != 0 ]; then
     echo Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres}
-    echo Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres} >> $report
+    echo Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres} >> ${report}
     ${CYGTAIL} -30 ${testslog}
     ${CYGTAIL} -30 ${testslog}  >> ${report}
-    attachment="-a ${testslog}"
-    skipupload=1
+    attachment="${attachment} -a ${testslog}"
+    loc_skipupload=1
   else
-    logdir=${HOME}/logs/`$CYGDATE +%Y-%m-%d`/opt-${TEST_OPT// /}/${SVNDIRNAME}-${FPCFULLTARGET}
-    $CYGMKDIR -p ${logdir}
-    $CYGCP ./output/${FPCFULLTARGET}/log ${logdir}/log-$TIME
-    $CYGCP ./output/${FPCFULLTARGET}/longlog ${logdir}/longlog-$TIME
-    $CYGCP ./output/${FPCFULLTARGET}/faillist ${logdir}/faillist-$TIME
-    $CYGCP $testslog ${logdir}/tests.log-$TIME
-    $CYGRM -Rf ./output-${FPCFULLTARGET}-${TEST_OPT// /}
+    logdir=${HOME}/logs/`${CYGDATE} +%Y-%m-%d`/opt-${TEST_OPT// /}/${SVNDIRNAME}-${FPCFULLTARGET}
+    ${CYGMKDIR} -p ${logdir}
+    ${CYGCP} ./output/${FPCFULLTARGET}/log ${logdir}/log-${TIME}
+    ${CYGCP} ./output/${FPCFULLTARGET}/longlog ${logdir}/longlog-${TIME}
+    ${CYGCP} ./output/${FPCFULLTARGET}/faillist ${logdir}/faillist-${TIME}
+    ${CYGCP} ${testslog} ${logdir}/tests.log-${TIME}
+    ${CYGRM} -Rf ./output-${FPCFULLTARGET}-${TEST_OPT// /}
+    loc_skipupload=${skipupload}
   fi
   list_system_ppu
 fi
-if ! [ "X${skipupload}" == "X1" ]; then
-  echo "Running make uploadrun" > $uploadlog
-  echo "Running make uploadrun" >> $report
-  TIME=`$CYGDATE +%H-%M-%S`
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $report
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $uploadlog
-  OLDPATH=$PATH
-  export PATH=$PATH:/usr/bin
+if [ "X${loc_skipupload}" == "X1" ]; then
+  echo "loc_skipupload=1, upload skipped" >> ${report}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+else
+  echo "Running make uploadrun" > ${uploadlog}
+  echo "Running make uploadrun" >> ${report}
+  TIME=`${CYGDATE} +%H-%M-%S`
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${uploadlog}
+  OLDPATH=${PATH}
+  export PATH=${PATH}:/usr/bin
   repeat=1
   tries=0
-  while [ $repeat -eq 1 ] ; do
+  while [ ${repeat} -eq 1 ] ; do
   cmd /c ${MAKE} uploadrun TEST_USER=pierre \
     TEST_HOSTNAME=${HOSTNAME} \
-    TEST_FPC=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN} \
-    FPC=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN} \
-    DB_SSH_EXTRA="-i ~/.ssh/freepascal" DB_USE_SSH=1 ${MAKE_EXTRA} 1>> $uploadlog 2>&1
+    TEST_FPC=${FULLFPCBIN} \
+    FPC=${FULLFPCBIN} \
+    DB_SSH_EXTRA="-i ~/.ssh/freepascal" DB_USE_SSH=1 ${MAKE_EXTRA} 1>> ${uploadlog} 2>&1
   upres=$?
-  if [ $upres -eq 0 ] ; then
+  if [ ${upres} -eq 0 ] ; then
     repeat=0
-  elif [ $tries > 15 ] ; then
-    echo "uploadrun failed 15 times, giving up" >> $uploadlog
-    echo "uploadrun failed 15 times, giving up" >> $report
+  elif [ ${tries} > 15 ] ; then
+    echo "uploadrun failed 15 times, giving up" >> ${uploadlog}
+    echo "uploadrun failed 15 times, giving up" >> ${report}
     repeat=0
   else
     repeat=1
     sleep 120
-    tries=`expr $tries + 1`
-  fi 
+    tries=`expr ${tries} + 1`
+  fi
   list_system_ppu
   done
-  $CYGCP ./output/${FPCFULLTARGET}/*.tar.gz ${logdir}
-  echo "Time `$CYGDATE +%H:%M:%S`" >> $uploadlog
-  $CYGMOVE -f ./output ./output-${FPCFULLTARGET}-${TEST_OPT// /}
-  $CYGCP $uploadlog ${logdir}/uploadlist-$TIME
-  export PATH=$OLDPATH
+  ${CYGCP} ./output/${FPCFULLTARGET}/*.tar.gz ${logdir}
+  echo "Time `${CYGDATE} +%H:%M:%S`" >> ${uploadlog}
+  ${CYGMOVE} -f ./output ./output-${FPCFULLTARGET}-${TEST_OPT// /}
+  ${CYGCP} ${testslog} ${logdir}/testslog-${TIME}
+  ${CYGCP} ${uploadlog} ${logdir}/uploadlist-${TIME}
+  export PATH=${OLDPATH}
 fi
-echo "Time `$CYGDATE +%H:%M:%S`" >> $report
+echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
 }
 
 cd tests
 
 (
 TEST_OPT=""
-run_make
+run_tests
 export TEST_OPT="-CX -XX -O3"
-run_make
+run_tests
 export TEST_OPT="-gl -Aas -al -O3"
-run_make
+run_tests
 export TEST_OPT="-gl -Criot"
-run_make
-) 1>> $report 2>&1
+run_tests
+if [[ ( "${FPCBIN}" == "ppc386" ) && ( "${SVNDIRNAME}" == "trunk" ) ]] ; then
+  make -C ../compiler cycle OPT="-n -gsl -dTEST_WIN32_SEH" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}
+  ${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
+  export FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
+  export TEST_OPT="-dTEST_WIN32_SEH"
+  run_tests
+fi
+) 1>> ${report} 2>&1
 
-echo "Time at end `$CYGDATE +%H:%M:%S`" >> $report
+echo "Time at end `${CYGDATE} +%H:%M:%S`" >> ${report}
 
 export PATH=${STARTPATH}
 
 mutt -x -s "Free Pascal results on ${FPCFULLTARGET} ${HOSTNAME} ${Build_version} ${Build_date}" \
-     -i $report ${attachment} -- pierre@freepascal.org < /dev/null > ${report}.log
+     -i ${report} ${attachment} -- pierre@freepascal.org < /dev/null > ${report}.log
 
-$CYGCP ${makelog} ${makelog}-${FPCFULLTARGET}
-$CYGCP ${testslog} ${testslog}-${FPCFULLTARGET}
-$CYGCP ${report} ${report}-${FPCFULLTARGET}
+${CYGCP} ${makelog} ${makelog}-${FPCFULLTARGET}
+${CYGCP} ${testslog} ${testslog}-${FPCFULLTARGET}
+${CYGCP} ${report} ${report}-${FPCFULLTARGET}
 
