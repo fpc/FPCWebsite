@@ -5808,9 +5808,13 @@ rtl.module("RestConnection",["System","Classes","SysUtils","Web","DB"],function 
           R.DoAfterRequest();
         };
       } else {
-        R.FXHR.open("GET",URL,true);
-        R.FXHR.send();
-        Result = true;
+        if ((2 in R.FLoadOptions) && (this.FConnection.FPageParam === "")) {
+          R.FSuccess = 1}
+         else {
+          R.FXHR.open("GET",URL,true);
+          R.FXHR.send();
+          Result = true;
+        };
       };
       return Result;
     };
@@ -6441,6 +6445,7 @@ rtl.module("ExtJSDataset",["System","Classes","SysUtils","DB","JS","JSONDataset"
 rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","RestConnection","ExtJSDataset"],function () {
   "use strict";
   var $mod = this;
+  this.DefaultBaseLinkURL = "..\/docs-html\/";
   rtl.createClass($mod,"TRestDataset",pas.ExtJSDataset.TExtJSJSONObjectDataSet,function () {
     this.$init = function () {
       pas.ExtJSDataset.TExtJSJSONObjectDataSet.$init.call(this);
@@ -6463,42 +6468,25 @@ rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","
       this.FEdit = null;
       this.FConn = null;
       this.FResult = null;
+      this.FWords = null;
+      this.FFeedback = null;
       this.FContent = null;
       this.FTable = null;
       this.FTBody = null;
+      this.FSearchTerm = "";
+      this.FBaseLinkURL = "";
     };
     this.$final = function () {
       this.FBtn = undefined;
       this.FEdit = undefined;
       this.FConn = undefined;
       this.FResult = undefined;
+      this.FWords = undefined;
+      this.FFeedback = undefined;
       this.FContent = undefined;
       this.FTable = undefined;
       this.FTBody = undefined;
       pas.Classes.TComponent.$final.call(this);
-    };
-    this.DoClick = function (aEvent) {
-      var Result = false;
-      if (this.FContent != null) {
-        this.FContent.innerHTML = "";
-        this.FTable = null;
-        this.FTBody = null;
-      };
-      this.FResult.Close();
-      this.FResult.Load({},null);
-      return Result;
-    };
-    this.Create$1 = function (AOwner) {
-      this.FConn = pas.RestConnection.TRESTConnection.$create("Create$1",[this]);
-      this.FConn.FBaseURL = "http:\/\/localhost:8080\/search\/";
-      this.FConn.FOnGetURL = rtl.createCallback(this,"DogetURL");
-      this.FResult = $mod.TRestDataset.$create("Create$1",[this]);
-      this.FResult.FConnection = this.FConn;
-      this.FResult.FAfterOpen = rtl.createCallback(this,"DoOpen");
-      this.FBtn = document.getElementById("quick-search");
-      this.FEdit = document.getElementById("search-term");
-      this.FContent = document.getElementById("search-result");
-      this.FBtn.onclick = rtl.createCallback(this,"DoClick");
     };
     this.AddRecords = function () {
       var E = null;
@@ -6537,7 +6525,7 @@ rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","
       Result.appendChild(C);
       C = document.createElement("TD");
       A = document.createElement("a");
-      A.setAttribute("href",aPage);
+      A.setAttribute("href",this.FBaseLinkURL + aPage);
       S = aPage;
       I = pas.strutils.RPos("\/",S);
       S = pas.System.Copy(S,I + 1,S.length - I);
@@ -6585,7 +6573,18 @@ rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","
       return Result;
     };
     this.DogetURL = function (Sender, aRequest, aURL) {
-      aURL.set((this.FConn.FBaseURL + "?m=1&q=") + this.FEdit.value);
+      if (aRequest.FDataset === this.FResult) {
+        aURL.set((this.FConn.FBaseURL + "search?m=1&q=") + this.FEdit.value)}
+       else aURL.set((this.FConn.FBaseURL + "list?t=contains&m=1&q=") + this.FSearchTerm);
+    };
+    this.DoInput = function (Event) {
+      var Result = false;
+      if (this.FEdit.value.length > 1) {
+        this.FSearchTerm = this.FEdit.value;
+        this.FWords.Close();
+        this.FWords.Load({},null);
+      };
+      return Result;
     };
     this.DoOpen = function (DataSet) {
       if (!(this.FTable != null)) {
@@ -6596,6 +6595,27 @@ rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","
       };
       this.FResult.First();
       this.AddRecords();
+    };
+    this.DoSelectWord = function (aEvent) {
+      var Result = false;
+      this.FEdit.value = aEvent.target.getAttribute("value");
+      this.FFeedback.setAttribute("style","display: none;");
+      return Result;
+    };
+    this.DoWordsOpen = function (DataSet) {
+      var Button = null;
+      this.FFeedback.innerHTML = "";
+      while (!DataSet.FEOF) {
+        Button = document.createElement("button");
+        Button.className = "dropdown-item";
+        Button.setAttribute("role","option");
+        Button.setAttribute("value",DataSet.FieldByName("word").GetAsString());
+        Button.innerText = DataSet.FieldByName("word").GetAsString();
+        Button.onclick = rtl.createCallback(this,"DoSelectWord");
+        this.FFeedback.appendChild(Button);
+        DataSet.Next();
+      };
+      this.FFeedback.setAttribute("style","display: block;");
     };
     this.GetSection = function (S) {
       var Result = "";
@@ -6613,6 +6633,35 @@ rtl.module("program",["System","JS","Classes","SysUtils","strutils","Web","DB","
         Result = "Programmer's reference"}
        else Result = "";
       return Result;
+    };
+    this.DoClick = function (aEvent) {
+      var Result = false;
+      if (this.FContent != null) {
+        this.FContent.innerHTML = "";
+        this.FTable = null;
+        this.FTBody = null;
+      };
+      this.FResult.Close();
+      this.FResult.Load({},null);
+      return Result;
+    };
+    this.Create$1 = function (AOwner) {
+      this.FBaseLinkURL = $mod.DefaultBaseLinkURL;
+      this.FConn = pas.RestConnection.TRESTConnection.$create("Create$1",[this]);
+      this.FConn.FBaseURL = ".\/docsearch.cgi\/";
+      this.FConn.FOnGetURL = rtl.createCallback(this,"DogetURL");
+      this.FResult = $mod.TRestDataset.$create("Create$1",[this]);
+      this.FResult.FConnection = this.FConn;
+      this.FResult.FAfterOpen = rtl.createCallback(this,"DoOpen");
+      this.FWords = $mod.TRestDataset.$create("Create$1",[this]);
+      this.FWords.FConnection = this.FConn;
+      this.FWords.FAfterOpen = rtl.createCallback(this,"DoWordsOpen");
+      this.FBtn = document.getElementById("quick-search");
+      this.FEdit = document.getElementById("search-term");
+      this.FEdit.oninput = rtl.createCallback(this,"DoInput");
+      this.FContent = document.getElementById("search-result");
+      this.FFeedback = document.getElementById("search-term-feedback");
+      this.FBtn.onclick = rtl.createCallback(this,"DoClick");
     };
   });
   $mod.$main = function () {

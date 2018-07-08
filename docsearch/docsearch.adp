@@ -13,9 +13,11 @@ Search the FPC documentation.<p>
 <div class="container">    
     <div id="quick-access">
       <form class="form-inline quick-search-form" role="form" action="#" accept-charset="utf-8">
-        <div class="form-group">
-    		<input type="text" id="search-term" class="form-control" placeholder="Search term"> </div>
-        <button type="submit" id="quick-search" class="btn btn-outline-success">Search</button>
+        <div class="form-group has-feedback" style="position: relative">
+          <input type="text" id="search-term" class="form-control" placeholder="Search term" autocomplete="off"> 
+          <div id="search-term-feedback" class="typeahead dropdown-menu" role="listbox"></div>
+       </div>
+       <button type="submit" id="quick-search" class="btn btn-outline-success">Search</button>
       </form>
     </div>
 </div>

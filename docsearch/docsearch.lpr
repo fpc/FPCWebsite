@@ -7,7 +7,7 @@ uses
 
 Const
   // Empty or must end on '/' !
-  BaseURL : String = '';
+  DefaultBaseLinkURL : String = '../docs-html/';
 
 Type
 
@@ -25,23 +25,33 @@ Type
   { TSearchClient }
 
   TSearchClient = Class(Tcomponent)
+  private
     FBtn:TJSHTMLElement;
     FEdit:TJSHTMLInputElement;
     FConn : TRESTConnection;
     FResult : TRestDataset;
-    FContent: TJSHTMLElement;
-    FTable : TJSHTMLElement;
+    FWords : TRestDataset;
+    FFeedback,
+    FFeedBackLoading,
+    FContent,
+    FTable,
     FTBody : TJSHTMLElement;
-    function DoClick(aEvent: TJSMouseEvent): boolean;
-    Constructor Create(AOwner : TComponent); override;
-  private
+    FSearchTerm,
+    FBaseLinkURL : String;
     procedure AddRecords;
     function CreateRow1(AID, ARank: Integer; const aPage, aContent: String): TJSElement;
     function CreateRow2(AID, ARank: Integer; const aPage, aContent: String): TJSElement;
     function CreateTable: TJSElement;
     procedure DogetURL(Sender: TComponent; aRequest: TDataRequest; var aURL: String);
+    function DoInput(Event: TEventListenerEvent): boolean;
     procedure DoOpen(DataSet: TDataSet);
+    function DoSelectWord(aEvent: TJSMouseEvent): boolean;
+    procedure DoWordsOpen(DataSet: TDataSet);
     function GetSection(S: String): String;
+    function DoClick(aEvent: TJSMouseEvent): boolean;
+    procedure ShowOrHideFeedBackLoading(doHide: boolean);
+  Public
+    Constructor Create(AOwner : TComponent); override;
   end;
 
 { TRestDataset }
@@ -86,9 +96,24 @@ end;
 
 procedure TSearchClient.DogetURL(Sender: TComponent; aRequest: TDataRequest; var aURL: String);
 begin
-   aURL:=FConn.BaseURL+'?m=1&q='+FEdit.value
+  if aRequest.Dataset=FResult then
+   aURL:=FConn.BaseURL+'search?m=1&q='+FEdit.value
+ else
+   aURL:=FConn.BaseURL+'list?t=contains&m=1&q='+FSearchTerm;
 //   'http://localhost:3000/countries/?limit=20&offset='+IntToStr((aRequest.RequestID-1)*20);
 end;
+
+function TSearchClient.DoInput(Event: TEventListenerEvent): boolean;
+begin
+  if Length(FEdit.Value)>1 then
+    begin
+    FSearchTerm:=FEdit.Value;
+    FWords.Close;
+    FWords.Load([],Nil);
+    end;
+end;
+
+
 
 function TSearchClient.CreateRow2(AID,ARank : Integer; Const aPage,aContent : String) : TJSElement;
 
@@ -143,7 +168,7 @@ begin
   Result.AppendChild(C);
   C:=document.createElement('TD');
   A:=document.createElement('a');
-  A.attrs['href']:=aPage;
+  A.attrs['href']:=FBaseLinkURL+aPage;
   S:=aPage;
   I:=RPos('/',S);
   S:=Copy(S,I+1,Length(S)-I);
@@ -168,16 +193,34 @@ end;
 constructor TSearchClient.Create(aOwner :TComponent);
 
 begin
+  FBaseLinkURL:=DefaultBaseLinkURL;
   FConn:=TRESTConnection.Create(Self);
-  FConn.BaseUrl:='http://localhost:8080/search/';
+  FConn.BaseUrl:='./docsearch.cgi/';
+//  FConn.BaseURL:='http://localhost:8080/';
   FConn.OnGetURL:=@DogetURL;
   FResult:=TRestDataset.Create(Self);
   FResult.Connection:=FConn;
   Fresult.AfterOpen:=@DoOpen;
+  FWords:=TRestDataset.Create(Self);
+  FWords.Connection:=FConn;
+  FWords.AfterOpen:=@DoWordsOpen;
   FBtn:=TJSHTMLElement(document.getElementById('quick-search'));
   FEdit:=TJSHTMLInputElement(document.getElementById('search-term'));
+  FEdit.oninput:=@DoInput;
   FContent:=TJSHTMLElement(document.getElementById('search-result'));
+  FFeedBack:=TJSHTMLElement(document.getElementById('search-term-feedback'));
+//  FFeedBackLoading:=TJSHTMLElement(document.getElementById('search-term-feedback-loading'));
+//  ShowOrHideFeedBackLoading(True);
   FBtn.onclick:=@DoClick;
+end;
+
+procedure TSearchClient.ShowOrHideFeedBackLoading(doHide : boolean);
+
+begin
+  if DoHide then
+    FFeedBackLoading.attrs['style']:='display: none;'
+  else
+    FFeedBackLoading.attrs['style']:='';
 end;
 
 procedure TSearchClient.AddRecords;
@@ -216,6 +259,35 @@ begin
     end;
   FResult.First;
   AddRecords;
+end;
+
+function TSearchClient.DoSelectWord(aEvent: TJSMouseEvent): boolean;
+
+begin
+  FEdit.value:=aEvent.target.attrs['value'];
+  FFeedBack.Attrs['style']:='display: none;';
+end;
+
+procedure TSearchClient.DoWordsOpen(DataSet: TDataSet);
+
+Var
+  Button : TJSHTMLElement;
+
+begin
+  FFeedback.innerHTML:='';
+  while not Dataset.EOF do
+    begin
+    Button:=TJSHTMLElement(document.CreateElement('button'));
+    Button.ClassName:='dropdown-item';
+    Button.attrs['role']:='option';
+    Button.attrs['value']:=Dataset.FieldByname('word').AsString;
+    Button.InnerText:=Dataset.FieldByname('word').AsString;
+    Button.onclick:=@DoSelectWord;
+    FFeedback.AppendChild(Button);
+    Dataset.Next;
+    end;
+  FFeedBack.Attrs['style']:='display: block;';
+
 end;
 
 begin
