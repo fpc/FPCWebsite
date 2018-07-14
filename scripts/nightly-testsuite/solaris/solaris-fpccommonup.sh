@@ -91,7 +91,6 @@ fi
 
 PATH=$NEWPATH
 export PATH
-echo "Using PATH=\"$PATH\""
 
 function test_tmt1_kill {
 if [ -f ~/bin/tmt1_kill.sh ]; then
@@ -135,6 +134,7 @@ fi
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
 echo "Start ${Start_fpc} version is ${Start_version} ${Start_date}" >> $report
+echo "Using PATH=\"$PATH\"" >> $report
 # Adding two gmake distclean before svn up
 FPC_OPTIONS=""
 run_make
