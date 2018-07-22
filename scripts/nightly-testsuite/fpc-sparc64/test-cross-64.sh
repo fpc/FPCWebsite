@@ -198,13 +198,13 @@ if [ $custom -eq 0 ] ; then
   mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
        -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
 
-  # Too many bugs in sparc64 optimzer for now
-  test_opt=
+  # Too many bugs in sparc64 optimizer for now
+  test_opt=1
   if [ "X$test_opt" != "X" ] ; then
     export use_native=0
     # generation of packages still fails on some invalid assembler generation
     # thus use QUICKTEST for now
-    export QUICK="QUICKTEST=1"
+    # export QUICK="QUICKTEST=1"
 
     export TEST_OPT="-O1"
     mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
@@ -227,6 +227,6 @@ mutt -x -s "Free Pascal results for sparc64 on ${HOST_PC}, with option \"${TEST_
 
 
 #make -j 16 fulldb DB_SSH_EXTRA="-i ~/.ssh/freepascal"  TEST_FPC=ppcsparc64 TEST_OPT="-O1" FPCMAKEOPT="$NATIVE_OPT -vx" OPT="$NATIVE_OPT -vx" \
-#      TEST_HOSTNAME=$HOST_PC $QUICK | tee log-O1 2>&1
+#      TEST_HOSTNAME=$HOST_PC $QUICK | tee log-64-O1 2>&1
 #make -j 16 fulldb DB_SSH_EXTRA="-i ~/.ssh/freepascal"  TEST_FPC=ppcsparc64 TEST_OPT="-O2" FPCMAKEOPT="$NATIVE_OPT -vx" OPT="$NATIVE_OPT -vx" \
-#      TEST_HOSTNAME=$HOST_PC $QUICK | tee log-O2 2>&1
+#      TEST_HOSTNAME=$HOST_PC $QUICK | tee log-64-O2 2>&1
