@@ -1,13 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Generic snapshot building
 #
 
 # set correct locale for widestring tests
-export LANG=en_US.utf8
+# was export LANG=en_US.utf8
+export LANG=en_US.UTF-8
 
 if [ "$CHECKOUTDIR" == "" ]; then
   CHECKOUTDIR=~/pas/trunk
 fi
+
+export MAKE=gmake
 
 if [ "$STARTPP" == "" ] ; then
   STARTPP=ppc386
@@ -20,12 +23,18 @@ if [ "$FTPDIR" == "" ] ; then
   if [ "$STARTPP" == "ppcx64" ] ; then
     FTPDIR=fpcftp:ftp/snapshot/trunk/x86_64-solaris
   fi
+  if [ "$STARTPP" == "ppcsparc" ] ; then
+    FTPDIR=fpcftp:ftp/snapshot/trunk/sparc-solaris
+  fi
+  if [ "$STARTPP" == "ppcsparc64" ] ; then
+    FTPDIR=fpcftp:ftp/snapshot/trunk/sparc64-solaris
+  fi
 fi
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 ulimit -d 65536 -s 8192 -t 2400
 
-PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
+PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/opt/csw/bin:/opt/sfw/bin"
 (
 date
 
@@ -33,8 +42,8 @@ date
 cd $CHECKOUTDIR
 rm -rf libgdb
 rm -f *.tar.gz
-make distclean TEST_FPC=$STARTPP || true
-make -C tests distclean TEST_FPC=$STARTPP || true
+$MAKE distclean TEST_FPC=$STARTPP || true
+$MAKE -C tests distclean TEST_FPC=$STARTPP || true
 
 # Run cvs update
 cd $CHECKOUTDIR
@@ -55,7 +64,7 @@ fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
-make singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
+$MAKE singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
 
 if [ "$PPCCPU" == "" ]; then
   PPCCPU=ppc386
@@ -83,14 +92,14 @@ cd $CHECKOUTDIR/tests
 FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
 for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
-  make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
+  $MAKE clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
 done
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
-make distclean || true
-make -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
+$MAKE distclean || true
+$MAKE -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
 
 date
 ) > $LOGFILE 2>&1 </dev/null
