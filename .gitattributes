@@ -482,6 +482,7 @@ scripts/nightly-testsuite/solaris/fpcup.sh svneol=native#text/plain
 scripts/nightly-testsuite/solaris/makesnapshot.sh svneol=native#text/plain
 scripts/nightly-testsuite/solaris/makesnapshots.sh svneol=native#text/plain
 scripts/nightly-testsuite/solaris/solaris-fpccommonup.sh svneol=native#text/plain
+scripts/nightly-testsuite/solaris/upload_testsuite_results.sh svneol=native#text/plain
 scripts/nightly-testsuite/windows-xp-32/kill-leftover-handles.sh svneol=native#text/plain
 scripts/nightly-testsuite/windows-xp-32/kill-locks.sh svneol=native#text/plain
 scripts/nightly-testsuite/windows-xp-32/kill-runaway-tests.sh svneol=native#text/plain
