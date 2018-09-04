@@ -154,7 +154,7 @@ cd ..
 
 cd $HOME/pas/$FPC_RELEASE_SVN_DIR
 
-if [ ! -z "$LAST_SUPPORTED_GDB" ] ; then
+if [ -z "$LAST_SUPPORTED_GDB" ] ; then
   LAST_SUPPORTED_GDB=`sed -n "s:.*ifdef *GDB_V\([0-9]*\).*:\1:p" fpcsrc/packages/gdbint/src/gdbint.pp | head -1 `
 fi
 
