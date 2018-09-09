@@ -76,8 +76,15 @@ function set_fpc ()
 
   set_fpc $CPU_TARGET
 
+  fpc_version=`$FPC -iV`
+  # Remove first point
+  fpc_branch=${fpc_version/\./}
+  # Remove rest, prefix with 'v'
+  fpc_branch=v${fpc_branch/\.*/}
+
   OS_TARGET=$2
-  export BRANCH=$svnname
+
+  export BRANCH=$fpc_branch
 
   # system_x86_6432_linux needs to be translated into
   # CPU=x86_64 and OS=linux6432
