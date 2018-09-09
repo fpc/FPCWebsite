@@ -132,9 +132,9 @@ if [ -f $LISTLOGFILE ] ; then
   mv -f $LISTLOGFILE ${LISTLOGFILE}.previous
 fi
 
-echo "$0 for $svnname starting at `date`" > $LOGFILE
-echo "$0 for $svnname starting at `date`" > $LISTLOGFILE
-echo "$0 for $svnname starting at `date`" > $EMAILFILE
+echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOGFILE
+echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LISTLOGFILE
+echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $EMAILFILE
 echo "Machine info: $machine_info" >> $LOGFILE
 echo "Machine info: $machine_info" >> $LISTLOGFILE
 echo "Machine info: $machine_info" >> $EMAILFILE
@@ -521,6 +521,14 @@ function list_os ()
   set_fpc_local $CPU_TARG_LOCAL
   OPT="$2"
   MAKEEXTRA="$3"
+  fpc_version_local=`$FPC_LOCAL -iV`
+  if [ "$FPC_VERSION" != "$fpc_version_local" ] ; then
+    echo "Warning: $FPC_LOCAL binary reports version $fpc_version_local, while $FPC_VERSION is expected"
+  fi
+
+  fpc_fullversion_local=`$FPC_LOCAL -iW`
+  echo "$FPC_LOCAL -iW reports full version $fpc_fullversion_local"
+
   os_list=`$FPC_LOCAL -h | sed -n "s:^[ \t]*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
   for os in ${os_list} ; do
    echo "check_one_rtl $CPU_TARG_LOCAL ${os,,} \"$OPT\" \"$MAKEEXTRA\""
@@ -724,7 +732,7 @@ echo "###############################" >> $EMAILFILE
 echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
-mutt -x -s "Free Pascal check RTL ${svnname} results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+mutt -x -s "Free Pascal check RTL ${svnname}, $FPC_VERSION results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
 if [ -z "$DO_FPC_INSTALL" ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
