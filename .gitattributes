@@ -448,6 +448,7 @@ scripts/nightly-testsuite/gcc110/makesnapshot-new-powerpc64.sh svneol=native#tex
 scripts/nightly-testsuite/gcc115/crontab.txt svneol=native#text/plain
 scripts/nightly-testsuite/gcc115/fpc-versions.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc115/fpctrunkup.sh svneol=native#text/plain
+scripts/nightly-testsuite/gcc115/fpcup.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc115/linux64-fpctrunkup.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc115/makesnapshot-trunk.sh svneol=native#text/plain
 scripts/nightly-testsuite/gcc45/crontab.txt svneol=native#text/plain
