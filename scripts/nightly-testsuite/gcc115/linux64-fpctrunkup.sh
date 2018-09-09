@@ -1,5 +1,5 @@
 #!/bin/bash
 export FPCBIN=ppca64
 export LOGSUF=-64
-$HOME/bin/linux-fpctrunkup
+$HOME/bin/linux-fpctrunkup.sh
 
