@@ -19,6 +19,9 @@ fi
 export MAKE=make
 if [ "$HOSTNAME" == "CFARM-IUT-TLSE3" ] ; then
   export HOSTNAME=gcc21
+fi
+
+if [ "$HOSTNAME" == "gcc21" ] ; then
   export run_tests=1
 elif [ "$HOSTNAME" == "gcc20" ] ; then
   export run_tests=1
