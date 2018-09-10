@@ -17,11 +17,20 @@ else
   FPC_CPU=powerpc
   FPC_CPUSUF=ppc
 fi
+GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
 
 FPC_OS=linux
 FPC_BIN=ppc${FPC_CPUSUF}
 FPC_CPUOS=${FPC_CPU}-${FPC_OS}
-FPC_VER=$TRUNKVERSION
+if [ -z "$FPC_VER" ] ; then
+  FPC_VER=$TRUNKVERSION
+fi
+if [ -z "$FPCSVNDIR" ] ; then
+  FPCSVNDIR=$TRUNKDIR
+fi
+if [ -z "$FTP_SNAPSHOT_DIR" ] ; then
+  FTP_SNAPSHOT_DIR=$TRUNKDIRNAME
+fi
 
 export FPC=~/pas/fpc-${FPC_VER}/bin/${FPC_BIN}
 
@@ -34,12 +43,12 @@ echo "Adding $HOME/bin to front of PATH"
 export PATH=~/bin:$PATH
 
 MAKE=make
-OPTS="${OPT} -Xd -Fl/usr/lib -Fl/lib -Fd -Fl/lib/gcc/ppc64-redhat-linux/4.8.3/32"
+OPTS="${OPT} -Xd -Fl/usr/lib -Fl/lib -Fd -Fl$GCC_DIR"
 MAKE_OPTIONS="distclean singlezipinstall SNAPSHOT=1 DEBUG=1 NOWPOCYCLE=1"
 date=`date +%Y-%m-%d`
 
 
-cd ~/pas/trunk
+cd $FPCSVNDIR
 
 cat > README-${FPC_CPUOS} <<EOF
 This snapshot was generated ${date} using:
@@ -71,7 +80,7 @@ ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" > makesnapshot-${FPC_CPUOS}-${date}.txt 2>
 
 
 if [ -f ${TAR} ]; then
-  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/trunk/${FPC_CPUOS}
+  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FPC_CPUOS}
 else
   echo Failed to created ${TAR} file
 fi
