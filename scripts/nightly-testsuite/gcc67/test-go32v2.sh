@@ -2,17 +2,21 @@
 
 . $HOME/bin/fpc-versions.sh
 
-if [ -z "$SVNDIR" ] ; then
+if [ -z "$SVNDIRNAME" ] ; then
   if [ "$FIXES" == "1" ] ; then
-    SVNDIR=fixes
+    SVNDIRNAME=fixes
   else
-    SVNDIR=trunk
+    SVNDIRNAME=trunk
   fi
 fi
 
-FPCDIR=$HOME/pas/$SVNDIR/fpcsrc
+if [ -z "$SVNDIR" ] ; then
+  SVNDIR=$HOME/pas/$SVNDIRNAME
+fi
 
-if [ "X$SVNDIR" = "Xtrunk" ] ; then
+FPCDIR=$HOME/pas/$SVNDIRNAME/fpcsrc
+
+if [ "${SVNDIR//trunk/}" != "${SVNDIR}" ] ; then
   CURRENTVERSION=$TRUNKVERSION
 else
   CURRENTVERSION=$FIXESVERSION
@@ -132,7 +136,7 @@ else
 fi
 TODAY=`date +%Y-%m-%d`
 DIR_OPT=${TEST_OPT// /_}
-export logdir=~/logs/$SVNDIR/$TODAY/$TEST_TARGET/$DIR_OPT
+export logdir=~/logs/$SVNDIRNAME/$TODAY/$TEST_TARGET/$DIR_OPT
 mkdir -p $logdir
 LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
 
@@ -184,7 +188,7 @@ cp output/$TEST_TARGET/log $logdir
 ) > $LOGFILE 2>&1
 }
 
-PREPARELOGFILE=$FPCLOGDIR/test-prepare-$TEST_TARGET-$SVNDIR.log
+PREPARELOGFILE=$FPCLOGDIR/test-prepare-$TEST_TARGET-$SVNDIRNAME.log
 
 
 if [ "X$1" != "X" ] ; then
