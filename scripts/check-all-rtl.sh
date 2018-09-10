@@ -163,7 +163,7 @@ export NATIVE_CPU=`fpc -iSP`
 export NATIVE_OS=`fpc -iSO`
 
 if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
-  echo "Running	32bit sparc fpc on sparc64 machine, needs special options"
+  echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
   export NATIVE_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
 else
   export NATIVE_OPT=
@@ -256,10 +256,6 @@ function check_one_rtl ()
 
   # Fourth argument: Global extra MAKE parameter
   MAKEEXTRA="$4"
-
-  if [ ! -z "$ASPROG_LOCAL" ] ; then
-    export ASPROG="$ASPROG_LOCAL"
-  fi
 
   # Fifth argument: log file name suffix
   EXTRASUFFIX=$5
@@ -380,6 +376,10 @@ function check_one_rtl ()
     extra_text="$extra_text no rtl/$OS_TARG_LOCAL found"
   fi
 
+  if [ ! -z "$ASPROG_LOCAL" ] ; then
+    export ASPROG="$ASPROG_LOCAL"
+  fi
+
   if [ "X$extra_text" != "X" ] ; then
     extra_text="($extra_text)"
   fi
@@ -463,7 +463,7 @@ function check_one_rtl ()
 	  echo "Re-compiling native rtl to allow for fpmake compilation"
           $MAKE -C rtl FPC=$NATIVEFPC OPT="$NATIVE_OPT"
 	  echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-          $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL OPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
+          $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
           res=$?
           if [ $res -ne 0 ] ; then
             packages_failure=`expr $packages_failure + 1 `
