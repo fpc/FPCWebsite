@@ -37,7 +37,8 @@ fi
 if [ "$FPCBIN" == "ppcppc" ]; then
   export TEST_BINUTILSPREFIX=powerpc-
   export BINUTILSPREFIX=powerpc-
-  export OPT="${OPT} -Xd -Fl/usr/lib -Fl/lib -Fd -Fl/lib/gcc/ppc64-redhat-linux/4.8.3/32"
+  GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+  export OPT="${OPT} -Xd -Fl/usr/lib -Fl/lib -Fd -Fl$GCC_DIR"
   # Do not try to compile IDE with GDB
   export NOGDB=1
   if [ "$CURVER" == "3.1.1" ] ; then
@@ -45,7 +46,9 @@ if [ "$FPCBIN" == "ppcppc" ]; then
   fi
   export FPMAKE_SKIP_CONFIG="-n -XPpowerpc-"
 else
-  export FPMAKE_SKIP_CONFIG="-n -Fl/usr/lib/gcc/ppc64-redhat-linux/4.8.3"
+  GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
+  export FPMAKE_SKIP_CONFIG="-n -Fl$GCC_DIR"
+  export OPT="$OPT -Fl$GCC_DIR"
   # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
   # instead of supplied libbfd.a from GDB compilation.
   export SPECIALLINK="-Xd"
