@@ -14,7 +14,7 @@ fi
 export LANG=en_US.UTF-8
 
 if [ "$CURVER" == "" ]; then
-  export CURVER=3.1.1
+  export CURVER=3.3.1
 fi
 if [ "$RELEASEVER" == "" ]; then
   # export RELEASEVER=2.6.4
@@ -41,7 +41,11 @@ if [ "$FPCBIN" == "ppcppc" ]; then
   export OPT="${OPT} -Xd -Fl/usr/lib -Fl/lib -Fd -Fl$GCC_DIR"
   # Do not try to compile IDE with GDB
   export NOGDB=1
-  if [ "$CURVER" == "3.1.1" ] ; then
+  VERSION_NB=${CURVER//.*/}
+  RELEASE_NB=${CURVER#*.}
+  PATCH_NB=${RELEASE_NB/*./}
+  RELEASE_NB=${RELEASE_NB//.*/}
+  if [[ ( $VERSION_NB -ge 3 ) && ( $RELEASE_NB -ge 1 ) ]] ; then
     export GDBMI=1
   fi
   export FPMAKE_SKIP_CONFIG="-n -XPpowerpc-"
