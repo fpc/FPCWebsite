@@ -162,8 +162,8 @@ function copytofpcbin ()
       fi
     elif [ "$tarsuffix" == "bz2" ] ; then
       taropt=j
-      echo "Trying bzip2 -vd $tarfile"
-      (cd .. ; bzip2 -vd $tarfile )
+      echo "Trying bunzip2 -vfd $tarfile"
+      (cd .. ; bunzip2 -vfd $tarfile )
       if [ -f ../${tarfile//.bz2/} ] ; then
         tarfile=${tarfile//.bz2/}
 	taropt=
