@@ -32,6 +32,12 @@ else
   EXEEXT=
 fi
 
+if [ "x$SOURCE_OS" == "xAIX" ] ; then
+  DEBUG_OPT=-g
+else
+  DEBUG_OPT=-gdwarf-4
+fi
+
 # Set fpcbindir to install directory
 if [ "X$fpcbindir" == "X" ] ; then
   if [[ "x$SOURCE_OS" == "xCygwin" || "x$SOURCE_OS" == "xMsys" ]] ; then
@@ -59,7 +65,7 @@ if [ "X$CFLAGS" != "X" ] ; then
     LOCAL_CFLAGS=CFLAGS="$CFLAGS"
   fi
 else
-  LOCAL_CFLAGS=CFLAGS="-gdwarf-4 -O0"
+  LOCAL_CFLAGS=CFLAGS="$DEBUG_OPT -O0"
 fi
 
 # Set config_option (might have a non empty startig value)
