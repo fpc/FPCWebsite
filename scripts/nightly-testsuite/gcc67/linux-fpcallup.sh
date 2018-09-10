@@ -40,13 +40,13 @@ if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
   gen_snapshot_fixes=1
   gen_source_zips=1
+  test_msdos_trunk=1
   test_msdos_fixes=1
-  test_go32v2_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
   check_cross_trunk=1
   gen_snapshot_trunk=1
-  test_msdos_trunk=1
   test_go32v2_trunk=1
+  test_go32v2_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
