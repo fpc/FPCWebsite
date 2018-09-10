@@ -5,8 +5,6 @@ export FPC_START_VERSION=3.0.2
 export FPC_RELEASE_SVN_DIR=release_3_0_4
 export FPC_TMP_INSTALL=$HOME/pas/fpc-tmp-$FPC_RELEASE_VERSION
 
-UPLOAD=0
-
 if [ "X${FPC_RELEASE_VERSION//rc/}" != "X${FPC_RELEASE_VERSION}" ] ; then
   is_beta=1
   ftpdir=ftp/beta
@@ -44,8 +42,10 @@ if [ "X$FPC_START_VERSION" != "X$START_FPC_VERSION" ] ; then
   exit
 fi
 
-FPC_NATIVE_BIN=` $STARTFPC -PB `
-FPC_NATIVE_BIN=` basename $FPC_NATIVE_BIN `
+if [ -z "$FPC_NATIVE_BIN" ] ; then
+  FPC_NATIVE_BIN=` $STARTFPC -PB `
+  FPC_NATIVE_BIN=` basename $FPC_NATIVE_BIN `
+fi
 
 echo "Native binary is $FPC_NATIVE_BIN"
 
@@ -81,9 +81,14 @@ fi
 
 
 cd $FPC_RELEASE_SVN_DIR/fpcsrc/compiler
-$MAKE distclean cycle OPT=-n
+$MAKE distclean cycle OPT="-n $REQUIRED_OPT" FPC=$STARTFPC
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "make distclean cycle failed, res=$res"
+  exit
+fi
 $MAKE installsymlink INSTALL_PREFIX=$FPC_TMP_INSTALL FPC=`pwd`/$FPC_NATIVE_BIN
-$MAKE fullcycle fullinstall OPT=-n FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL
+$MAKE fullcycle fullinstall OPT="-n $REQUIRED_OPT" FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make fullcycle fullinstall failed, res=$res"
@@ -177,6 +182,9 @@ if [ $CROSS -eq 1 ] ; then
 else
   GDBDIR=`ls -1dtr $HOME/pas/libgdb/gdb-${GDB_VER}* | tail -1`
   if [ "X$GDBDIR" == "X" ] ; then
+    GDBDIR=`ls -1dtr $HOME/pas/libgdb/$TARGETOS-$TARGETCPU-gdb-${GDB_MAIN}* | tail -1`
+  fi
+  if [ "X$GDBDIR" == "X" ] ; then
     echo "libgdb not found, setting NOGDB=1"
     export NOGDB=1
   else
@@ -195,7 +203,9 @@ cd $HOME/pas/$FPC_RELEASE_SVN_DIR
 echo "Copying docs to here"
 cp -fp $HOME/pas/docs-$FPC_RELEASE_VERSION/* .
 
+export STARTFPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN
 echo "Starting: bash -v ./install/makepack $1"
+echo "Using STARTFPC=$STARTFPC"
 bash -v ./install/makepack $1
 res=$?
 echo "Ended: bash -v ./install/makepack $1, res=$res"
@@ -221,6 +231,7 @@ else
   TARGETCPU=`$STARTFPC -iTP`
 fi
 
+echo "STARTFPC is $STARTFPC, default CPU is $TARGETCPU, default OS $TARGETOS"
 
 if [ ! -z "$1" ] ; then
   echo "Target OS: $TARGETOS, Target CPU: $TARGETCPU"
