@@ -1,6 +1,8 @@
 #!/bin/bash
 export RELEASEVERSION=3.0.4
-export TRUNKDIR=~/pas/trunk
-export TRUNKVERSION=3.1.1
-export FIXESDIR=~/pas/fixes_3_0
-export FIXESVERSION=3.0.5
+export TRUNKDIRNAME=trunk
+export TRUNKDIR=~/pas/$TRUNKDIRNAME
+export TRUNKVERSION=3.3.1
+export FIXESDIRNAME=fixes
+export FIXESDIR=~/pas/$FIXESDIRNAME
+export FIXESVERSION=3.2.0
