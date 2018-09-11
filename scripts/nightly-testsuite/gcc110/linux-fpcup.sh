@@ -16,6 +16,11 @@ export LANG=en_US.UTF-8
 if [ "$CURVER" == "" ]; then
   export CURVER=3.3.1
 fi
+
+if [ -z "$FPCSVNDIR" ] ; then
+  export FPCSVNDIR=$HOME/pas/trunk
+fi
+
 if [ "$RELEASEVER" == "" ]; then
   # export RELEASEVER=2.6.4
   export RELEASEVER=3.0.4
@@ -70,7 +75,7 @@ export PATH=/home/${USER}/pas/fpc-${CURVER}/bin:/home/${USER}/bin:/usr/local/sbi
 
 FPCRELEASEBIN=${FPCRELEASEBINDIR}/${FPCBIN}
 
-cd $SVNDIR
+cd $FPCSVNDIR
 
 export report=`pwd`/report.txt 
 export makelog=`pwd`/make.txt 
@@ -210,7 +215,7 @@ mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET
 # Cleanup
 
 if [ "${testsres}" == "0" ]; then
-  cd $SVNDIR
+  cd $FPCSVNDIR
   ${MAKE} distclean 1>> ${makecleanlog} 2>&1
 fi
 
