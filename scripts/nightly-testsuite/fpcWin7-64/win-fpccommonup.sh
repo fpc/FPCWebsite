@@ -201,6 +201,13 @@ if ! [ "${skipsvn}" == "1" ]; then
     skipinstall=1
     skiptests=1
     skipupload=1
+  else
+    echo "svnversion in base dir" >> ${report}
+    svnversion -c . >> ${report}
+    if [ -d fpcsrc ]; then
+      echo "svnversion in fpcsrc dir" >> ${report}
+      svnversion -c . >> ${report}
+    fi
   fi
 fi
 
