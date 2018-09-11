@@ -70,7 +70,7 @@ export PATH=/home/${USER}/pas/fpc-${CURVER}/bin:/home/${USER}/bin:/usr/local/sbi
 
 FPCRELEASEBIN=${FPCRELEASEBINDIR}/${FPCBIN}
 
-cd ~/pas/trunk
+cd $SVNDIR
 
 export report=`pwd`/report.txt 
 export makelog=`pwd`/make.txt 
@@ -79,10 +79,12 @@ export testslog=`pwd`/tests.txt
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+echo "Start PATH=\"$PATH\"" >> $report
 echo "Start FPCBIN `which ${FPCBIN}`" >> $report
 Start_version=`${FPCBIN} -iV`
+Start_full_version=`${FPCBIN} -iW`
 Start_date=`${FPCBIN} -iD`
-echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
+echo "Start ${FPCBIN} version is ${Start_version} ($Start_full_version) ${Start_date}" >> $report
 svn cleanup 1>> $report 2>&1
 svn up --force --accept theirs-conflict  1>> $report 2>&1
 
@@ -208,7 +210,7 @@ mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET
 # Cleanup
 
 if [ "${testsres}" == "0" ]; then
-  cd ~/pas/trunk
+  cd $SVNDIR
   ${MAKE} distclean 1>> ${makecleanlog} 2>&1
 fi
 
