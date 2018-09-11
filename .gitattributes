@@ -421,6 +421,7 @@ scripts/makesnapshottrunk-arm svneol=native#text/plain
 scripts/makesnapshottrunk-extra svneol=native#text/plain
 scripts/makesnapshottrunk-sse2 svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/crontab.txt -text svneol=native#test/plain
+scripts/nightly-testsuite/fpc-sparc64/generate-cross-sfpux80.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/kill_tests.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/linux-fpcallup.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/linux-fpccommonup.sh svneol=native#text/plain

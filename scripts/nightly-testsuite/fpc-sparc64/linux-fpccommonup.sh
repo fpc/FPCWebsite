@@ -11,6 +11,7 @@ if [ "${HOSTNAME}" == "stadler" ]; then
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
   export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
@@ -19,6 +20,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   export USER=pierre
   export ASTARGET=-32
   export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=0
@@ -36,6 +38,7 @@ if [ "X$FPCBIN" == "X" ]; then
 fi
 
 DATE="date +%Y-%m-%d-%H-%M"
+DATESTR=`$DATE`
 # Use Free Pascal Release Version from fpc-versions script
 FPCRELEASEVERSION=$RELEASEVERSION
 
@@ -49,9 +52,9 @@ fi
 
 cd ~/pas/${SVNDIR}
 
-export report=`pwd`/report.txt
-export makelog=`pwd`/make.txt
-export testslog=`pwd`/tests.txt
+export report=`pwd`/report-${DATESTR}.txt
+export makelog=`pwd`/make-${DATESTR}.txt
+export testslog=`pwd`/tests-${DATESTR}.txt
 
 echo "Starting $0" > $report
 START_PPC_BIN=`which $FPCBIN 2> /dev/null`
@@ -77,7 +80,7 @@ if [ "X$NEEDED_OPT" != "X" ]; then
   export OPT="$NEEDED_OPT $OPT"
 fi
 
-${MAKE} distclean all DEBUG=1 OPT="$OPT" ASTARGET="$ASTARGET" 1> ${makelog} 2>&1
+${MAKE} distclean all DEBUG=1 OPT="$OPT" ASTARGET="$ASTARGET" $MAKEOPT 1> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
@@ -101,14 +104,14 @@ echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
 
 echo "Starting make install" >> $report
 echo "`$DATE`" >> $report
-${MAKE} DEBUG=1 install OPT="$OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+${MAKE} DEBUG=1 install OPT="$OPT" $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
 makeres=$?
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
   for dir in rtl compiler packages utils ide ; do
     echo "Starting install in dir $dir" >> $report
-    ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+    ${MAKE} -C ./$dir install $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
   done
@@ -143,6 +146,9 @@ ${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
 testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
+# Just keep last sent file to database
+mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
+
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-bare
