@@ -5,7 +5,7 @@
 # Latest binutils release version is
 # 2.30 (20i8/01/28)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.30
+  BINUTILS_RELEASE=2.31.1
 fi
 
 # Latest installed Free Pascal release
