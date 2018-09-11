@@ -17,5 +17,5 @@ DISTCLEAN_BEFORE_TESTS=1
 FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/trunk/sparc64-linux
 export GDBMI=1
 # Disable optimization for now
-export EXTRA_MAKE_OPT="FPCCPUOPT=-O-"
+# export EXTRA_MAKE_OPT="FPCCPUOPT=-O-"
 . $HOME/bin/makesnapshot.sh
