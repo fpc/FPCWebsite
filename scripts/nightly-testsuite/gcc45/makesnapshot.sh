@@ -69,7 +69,7 @@ SNAPSHOTFILE=`ls -1 *.tar.gz`
 mv $SNAPSHOTFILE ${SNAPSHOTFILE/.tar.gz/}-${HOSTNAME}.tar.gz
 SNAPSHOTFILE=`ls -1 *.tar.gz`
 
-READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}-$HOSTNAME
+READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 
 cat > $READMEFILE <<EOF
 This snapshot $SNAPSHOTFILE was generated ${date} using:
