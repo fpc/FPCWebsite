@@ -52,13 +52,21 @@ FPCRELEASEVERSION=$RELEASEVERSION
 
 export PATH=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-if [ "x$FIXES" == "x1" ] ; then
-  SVNDIR=fixes
-else
-  SVNDIR=trunk
+if [ -z "$SVNDIRNAME" ] ; then
+  if [ "x$FIXES" == "x1" ] ; then
+    SVNDIRNAME=$FIXESDIRNAME
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=fixes
+    fi
+  else
+    SVNDIRNAME=$TRUNKDIRNAME
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=trunk
+    fi
+  fi
 fi
 
-cd ~/pas/${SVNDIR}
+cd ~/pas/${SVNDIRNAME}
 
 STARTDIR=`pwd`
 export report=`pwd`/report${SUFFIX}.txt 
@@ -195,7 +203,7 @@ if [ $NewBinary -eq 1 ] ; then
   NEW_UNITDIR=`$NEWFPC -iTP`-`$NEWFPC -iTO`
 
   (
-  cd ~/pas/$SVNDIR
+  cd ~/pas/$SVNDIRNAME
   if [ -d fpcsrc ] ; then
     cd fpcsrc
   fi
@@ -212,9 +220,9 @@ if [ $NewBinary -eq 1 ] ; then
     DIR_OPT=${MIN_OPT// /}
     TEST_OPT="$NEEDED_OPT $1"
     MAKE_OPTS="$2"
-    logdir=~/logs/$SVNDIR/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
-    testslog=~/pas/$SVNDIR/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
-    cleantestslog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
+    logdir=~/logs/$SVNDIRNAME/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
+    testslog=~/pas/$SVNDIRNAME/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
+    cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
     echo "Starting make distclean fulldb" >> $report
     echo "${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
@@ -242,16 +250,16 @@ if [ $NewBinary -eq 1 ] ; then
       cp output/$NEW_UNITDIR/longlog $logdir/longlog-$TIME
       cp ${testslog} $logdir/tests-${DIR_OPT}-$TIME
       if [ ${cleantests} -ne 1 ] ; then
-	if [ -d output-${SVNDIR}-${DIR_OPT} ] ; then
-	  rm -Rf output-${SVNDIR}-${DIR_OPT}
+	if [ -d output-${SVNDIRNAME}-${DIR_OPT} ] ; then
+	  rm -Rf output-${SVNDIRNAME}-${DIR_OPT}
 	fi
-	cp -Rf output output-${SVNDIR}-${DIR_OPT}
+	cp -Rf output output-${SVNDIRNAME}-${DIR_OPT}
       fi
     fi
   }
 
-  cp ${svnlog} ~/pas/$SVNDIR/svnlog-${NEW_UNITDIR}.txt
-  cp ${makelog} ~/pas/$SVNDIR/makelog-${NEW_UNITDIR}.txt
+  cp ${svnlog} ~/pas/$SVNDIRNAME/svnlog-${NEW_UNITDIR}.txt
+  cp ${makelog} ~/pas/$SVNDIRNAME/makelog-${NEW_UNITDIR}.txt
 
   if [ $run_tests -eq 1 ] ; then
     run_tests ""
@@ -265,7 +273,7 @@ if [ $NewBinary -eq 1 ] ; then
     run_tests "-Cg -O4 -Criot"
     # also test with TEST_BENCH
     run_tests "-Cg -O2" "TEST_BENCH=1"
-    if [ "X${SVNDIR}" != "X${SVNDIR//trunk//}" ] ; then
+    if [ "X${SVNDIRNAME}" != "X${SVNDIRNAME//trunk//}" ] ; then
       run_tests "-gh"
       # This freezes on trwsync and tw3695 tests
       # run_tests "-ghc"
@@ -275,12 +283,12 @@ if [ $NewBinary -eq 1 ] ; then
   # Cleanup
 
   if [ ${testsres} -eq 0 ]; then
-    cd ~/pas/$SVNDIR
+    cd ~/pas/$SVNDIRNAME
     ${MAKE} distclean 1>> ${cleanlog} 2>&1
   fi
 
   if [ $cleantests -eq 1 ] ; then
-    cd ~/pas/$SVNDIR
+    cd ~/pas/$SVNDIRNAME
     if [ -d fpcsrc ] ; then
       cd fpcsrc
     fi
