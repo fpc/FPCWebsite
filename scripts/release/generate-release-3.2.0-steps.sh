@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export FPC_RELEASE_VERSION=3.2.0-rc0
 export FPC_RELEASE_VERSION_IN_TAR=3.2.0
-export FPC_START_VERSION=3.0.2
+export FPC_START_VERSION=3.0.4
 export FPC_RELEASE_SVN_DIR=fixes_3_2
 export FPC_TMP_INSTALL=$HOME/pas/fpc-tmp-$FPC_RELEASE_VERSION
 
