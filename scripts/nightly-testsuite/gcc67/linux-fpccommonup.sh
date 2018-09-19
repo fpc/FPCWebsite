@@ -22,11 +22,16 @@ if [ "$HOSTNAME" == "CFARM-IUT-TLSE3" ] ; then
 fi
 
 if [ "$HOSTNAME" == "gcc21" ] ; then
-  export run_tests=1
+  export do_run_tests=1
+  export MAKE_J_OPT="-j 5"
 elif [ "$HOSTNAME" == "gcc20" ] ; then
-  export run_tests=1
+  export do_run_tests=1
+  export MAKE_J_OPT="-j 5"
+elif [ "$HOSTNAME" == "gcc123" ] ; then
+  export do_run_tests=1
+  export MAKE_J_OPT="-j 15"
 else
-  export run_tests=0
+  export do_run_tests=0
 fi
 
 HOST_PC=${HOSTNAME}
@@ -74,7 +79,7 @@ export svnlog=`pwd`/svnlog${SUFFIX}.txt
 export cleanlog=`pwd`/cleanlog${SUFFIX}.txt 
 export makelog=`pwd`/makelog${SUFFIX}.txt 
 
-echo "Starting $0" > $report
+echo "Starting $0 on $HOSTNAME" > $report
 Start_version=`$FPCBIN -iV`
 Start_date=`$FPCBIN -iD`
 echo "Start $FPCBIN version is ${Start_version} ${Start_date}" >> $report
@@ -99,8 +104,8 @@ echo "##Start make all `$DATE`" >> $report
 echo "##Start make all `$DATE`" > $makelog
 ${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
-echo "##End make all `$DATE`, res=$res" >> $report
-echo "##End make all `$DATE`, res=$res" >> $makelog
+echo "##End make all `$DATE`, res=$makeres" >> $report
+echo "##End make all `$DATE`, res=$makeres" >> $makelog
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
   tail -30 ${makelog} >> $report
@@ -117,6 +122,7 @@ if [ -f ./compiler/$FPCBIN ] ; then
   Build_version=`./compiler/$FPCBIN -iV`
   Build_date=`./compiler/$FPCBIN -iD`
   NewBinary=1
+  echo "New binary ./compiler/$FPCBIN, version=$Build_version, date=$Build_date" >> $report
 else
   NewBinary=0
   echo "No new binary ./compiler/$FPCBIN" >> $report
@@ -225,7 +231,7 @@ if [ $NewBinary -eq 1 ] ; then
     cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
     echo "Starting make distclean fulldb" >> $report
-    echo "${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    echo "${MAKE} $MAKE_J_OPT distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
     echo "`$DATE`" >> $report
@@ -261,7 +267,7 @@ if [ $NewBinary -eq 1 ] ; then
   cp ${svnlog} ~/pas/$SVNDIRNAME/svnlog-${NEW_UNITDIR}.txt
   cp ${makelog} ~/pas/$SVNDIRNAME/makelog-${NEW_UNITDIR}.txt
 
-  if [ $run_tests -eq 1 ] ; then
+  if [ $do_run_tests -eq 1 ] ; then
     run_tests ""
     run_tests "-Cg"
     run_tests "-O4"
