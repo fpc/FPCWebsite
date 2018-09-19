@@ -10,6 +10,9 @@ if [ -z "$HOSTNAME" ] ; then
   export HOSTNAME=`uname -n` 
 fi
 
+# Keep only first part of machine name
+export HOSTNAME=${HOSTNAME//.*/}
+
 # Do the same with ppc386
 export FPCBIN=ppc386
 export FIXES=0
@@ -47,6 +50,9 @@ elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
   gen_snapshot_trunk=1
   test_go32v2_trunk=1
   test_go32v2_fixes=1
+elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
+  check_cross_trunk=1
+  check_cross_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
