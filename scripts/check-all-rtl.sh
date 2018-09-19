@@ -14,6 +14,7 @@ machine_host=`uname -n`
 if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
   machine_host=gcc21
 fi
+machine_host=${machine_host//.*/}
 machine_cpu=`uname -m`
 machine_os=`uname -s`
 machine_info="$machine_host $machine_cpu $machine_os"
@@ -32,11 +33,26 @@ else
   test_ppudump=1
 fi
 
-# Install all cross-rtl-pacakges on gcc20/gcc21 machines
+if [ -z "$FPC" ] ; then
+  FPC=ppc$machine_cpu
+  case $machine_cpu in
+    arm) FPC=ppcarm ;;
+    aarch64) FPC=ppca64 ;;
+    x86_64|amd64) FPC=ppcx64 ;;
+    i*86) FPC=ppc386 ;;
+    m68k) FPC=ppc68k ;;
+    powerpc) FPC=ppcppc ;;
+    powerpc64) FPC=ppcppc64 ;;
+  esac
+  export FPC
+fi
+
+# Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 if [ "X$machine_host" == "Xgcc20" ] ; then
   DO_FPC_INSTALL=1
-fi
-if [ "X$machine_host" == "Xgcc21" ] ; then
+elif [ "X$machine_host" == "Xgcc21" ] ; then
+  DO_FPC_INSTALL=1
+elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_INSTALL=1
 fi
 
@@ -150,6 +166,7 @@ echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 
 LOGPREFIX=$LOGDIR/${name}-check-${svnname}
 export dummy_count=0
+export skipped_count=0
 export rtl_1_failure=0
 export rtl_2_failure=0
 export rtl_ppu_failure=0
@@ -215,7 +232,7 @@ function check_one_rtl ()
     CPU_TARG_LOCAL=mips
   fi
 
-  # x86_6432 is not a seperate CPU
+  # x86_6432 is not a separate CPU
   if [ "X$CPU_TARG_LOCAL" == "Xx86_6432" ] ; then
     CPU_TARG_LOCAL=x86_64
     is_6432=1
@@ -327,6 +344,7 @@ function check_one_rtl ()
       target_as=`which ${BINUTILSPREFIX_LOCAL}${ASSEMBLER}`
       if [ ! -f "$target_as" ] ; then
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
+        skipped_count=`expr $skipped_count + 1 `
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
@@ -337,6 +355,7 @@ function check_one_rtl ()
 
   if [ ! -f "$target_as" ] ; then
     echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
+    skipped_count=`expr $skipped_count + 1 `
     return
   fi
 
@@ -644,6 +663,7 @@ done
 
 $MAKE -C rtl distclean 1> /dev/null 2>&1
 echo "dummy_count=$dummy_count"
+echo "skipped_count=$skipped_count"
 echo "rtl_1_failure=$rtl_1_failure"
 echo "rtl_2_failure=$rtl_2_failure"
 echo "rtl_ppu_failure=$rtl_ppu_failure"
@@ -654,6 +674,8 @@ echo "packages_ppu_failure=$packages_ppu_failure"
 
 dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
+skipped_count_new_val=` grep "^skipped_count=" $LOGFILE `
+eval $skipped_count_new_val
 rtl_1_failure_new_val=` grep "^rtl_1_failure=" $LOGFILE `
 eval $rtl_1_failure_new_val
 rtl_2_failure_new_val=` grep "^rtl_2_failure=" $LOGFILE `
@@ -681,7 +703,7 @@ if [ -f $LISTLOGFILE.previous ] ; then
   diff ${LISTLOGFILE}.previous ${LISTLOGFILE} >> $EMAILFILE
 fi
 
-echo "Short summary: number of ok=$ok_count, number of pb=$pb_count" >> $EMAILFILE
+echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, number of skips=$skipped_count" >> $EMAILFILE
 if [ $rtl_1_failure -gt 0 ] ; then
   echo "$rtl_1_failure rtl level 1 failure(s)" >> $EMAILFILE
 fi
