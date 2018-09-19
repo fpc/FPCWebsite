@@ -5,7 +5,7 @@
 ./do-one.sh aarch64-linux aarch64-unknown-linux-gnu
 ## system_aarch64_linux,      { 88 }
 ./do-one.sh aarch64-darwin aarch64-apple-darwin11
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh aarch64-aros aarch64-aros
 export BINUTILS_RELEASE=
 
@@ -19,7 +19,7 @@ export BINUTILS_RELEASE=
 ## cross-compilation names
 ./do-one.sh arm-linux-androideabi arm-linux-androideabi
 ## system_arm_aros,           { 91 }
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh arm-aros arm-aros
 export BINUTILS_RELEASE=
 ## system_arm_darwin,         { 64 }
@@ -57,7 +57,7 @@ export BINUTILS_RELEASE=
 ## system_i386_android,       { 78 }
 ./do-one.sh i686-linux-android i686-android-linux
 ## system_i386_aros,          { 83 }
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh i386-aros i386-aros
 export BINUTILS_RELEASE=
 ## system_i386_beos,          { 16 }
@@ -143,7 +143,7 @@ export BINUTILS_RELEASE=
 ## system_m68k_Atari,         { 8 }
 ./do-one.sh m68k-atari m68k-unknown-atari
 ## system_m68k_aros (doesn't exist yet)
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh m68k-aros m68k-aros
 export BINUTILS_RELEASE=
 ## system_m68k_embedded,      { 49 }
@@ -190,7 +190,7 @@ export BINUTILS_RELEASE="2.14-amiga"
 ./do-one.sh powerpc-amiga powerpc-unknown-amigaos
 export BINUTILS_RELEASE=
 ## system_powerpc_aros (doesn't exist yet)
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh powerpc-aros ppc-aros
 export BINUTILS_RELEASE=
 ## system_powerpc_darwin,     { 27 }
@@ -242,7 +242,7 @@ export BINUTILS_RELEASE=
 ## x86_64 CPU
 ## system_x86_6432_linux,     { 41 }
 ## system_x86_64_aros,        { 84 }
-export BINUTILS_RELEASE="2.25-aros"
+export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh x86_64-aros x86_64-aros
 export BINUTILS_RELEASE=
 ## system_x86_64_darwin,      { 61 }
