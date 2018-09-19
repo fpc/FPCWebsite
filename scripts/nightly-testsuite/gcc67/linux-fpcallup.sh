@@ -53,6 +53,8 @@ elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
+  gen_cross_snapshots_fixes=1
+  gen_cross_snapshots_trunk=1
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
