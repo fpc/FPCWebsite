@@ -21,10 +21,10 @@ machine_info="$machine_host $machine_cpu $machine_os"
 
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
   test_packages=0
-  name=rtl
+  name=target-rtl
 else
   test_packages=1
-  name=rtl-packages
+  name=target
 fi
 
 if [ "X$TEST_PPUDUMP" == "X0" ] ; then
@@ -129,7 +129,7 @@ svn_packages_version=`svnversion -c packages`
 # the help does not cite this target
 listed=1
 
-LOGDIR=$HOME/logs
+LOGDIR=$HOME/logs/${svnname}/check-targets
 
 if [ ! -d $LOGDIR ] ; then
   echo "Creating directory $LOGDIR"
@@ -164,7 +164,7 @@ echo "Packages svn version: $svn_packages_version" >> $LOGFILE
 echo "Packages svn version: $svn_packages_version" >> $LISTLOGFILE
 echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 
-LOGPREFIX=$LOGDIR/${name}-check-${svnname}
+LOGPREFIX=$LOGDIR/${name}-check
 export dummy_count=0
 export skipped_count=0
 export rtl_1_failure=0
@@ -213,7 +213,7 @@ function set_fpc_local ()
 }
 
 ######################################
-## check_one_rtl function
+## check_target function
 ## ARG1: target CPU
 ## ARG2: target OS
 ## ARG3: Additional OPT
@@ -222,7 +222,7 @@ function set_fpc_local ()
 ## allows to check different options
 ## for same CPU-OS pair.
 ######################################
-function check_one_rtl ()
+function check_target ()
 {
   ## First argument: CPU_TARGET
   CPU_TARG_LOCAL=$1
@@ -345,6 +345,8 @@ function check_one_rtl ()
       if [ ! -f "$target_as" ] ; then
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
         skipped_count=`expr $skipped_count + 1 `
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
@@ -355,6 +357,8 @@ function check_one_rtl ()
 
   if [ ! -f "$target_as" ] ; then
     echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
     skipped_count=`expr $skipped_count + 1 `
     return
   fi
@@ -550,15 +554,15 @@ function list_os ()
 
   os_list=`$FPC_LOCAL -h | sed -n "s:^[ \t]*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
   for os in ${os_list} ; do
-   echo "check_one_rtl $CPU_TARG_LOCAL ${os,,} \"$OPT\" \"$MAKEEXTRA\""
-   check_one_rtl $CPU_TARG_LOCAL ${os,,} "$OPT" "$MAKEEXTRA"
+   echo "check_target $CPU_TARG_LOCAL ${os,,} \"$OPT\" \"$MAKEEXTRA\""
+   check_target $CPU_TARG_LOCAL ${os,,} "$OPT" "$MAKEEXTRA"
   done
 }
 
 if [ "X$1" != "X" ] ; then
   echo "Testing single configuration $0 $*"
-  echo "check_one_rtl cpu=\"$1\" os=\"$2\" opts=\"$3\" make args=\"$4\" suffix=\"$5\""
-  check_one_rtl "$1" "$2" "$3" "$4" "$5"
+  echo "check_target cpu=\"$1\" os=\"$2\" opts=\"$3\" make args=\"$4\" suffix=\"$5\""
+  check_target "$1" "$2" "$3" "$4" "$5"
   exit
 fi
 
@@ -568,62 +572,62 @@ fi
 rm -Rf ${LOGPREFIX}*
 
 # List separately cases for which special parameters are required
-check_one_rtl arm embedded "-n" "SUBARCH=armv4t"
-check_one_rtl avr embedded "-n" "SUBARCH=avr25" "-avr25"
-check_one_rtl avr embedded "-n" "SUBARCH=avr4" "-avr4"
-check_one_rtl avr embedded "-n" "SUBARCH=avr6"
-check_one_rtl mipsel embedded "-n" "SUBARCH=pic32mx"
+check_target arm embedded "-n" "SUBARCH=armv4t"
+check_target avr embedded "-n" "SUBARCH=avr25" "-avr25"
+check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
+check_target avr embedded "-n" "SUBARCH=avr6"
+check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 
 # Darwin OS check both clang and GNU binutils
-check_one_rtl i386 darwin "-n -Aas-darwin" "" "-gnu-as"
-check_one_rtl x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
+check_target i386 darwin "-n -Aas-darwin" "" "-gnu-as"
+check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
 # Default run using clang (unique executable)
 export BINUTILSPREFIX=reset
-check_one_rtl i386 darwin "-n -ao--target=i686-apple-darwin-macho" "" "-bare-clang"
+check_target i386 darwin "-n -ao--target=i686-apple-darwin-macho" "" "-bare-clang"
 export BINUTILSPREFIX=reset
-check_one_rtl x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare-clang"
+check_target x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare-clang"
 # Default run using CPU-OS-clang
-check_one_rtl i386 darwin "-n"
-check_one_rtl x86_64 darwin "-n"
+check_target i386 darwin "-n"
+check_target x86_64 darwin "-n"
 
 # arm linux
 
 export CROSSOPT="-Cparmv6 -Caeabi -Cfsoft"
-check_one_rtl arm linux "-n -gl" "" "-armeabi"
+check_target arm linux "-n -gl" "" "-armeabi"
 export CROSSOPT=
 
 export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
-check_one_rtl arm linux "-n -gl" "" "-arm_softvfp"
+check_target arm linux "-n -gl" "" "-arm_softvfp"
 export ASTARGETLEVEL3=
 
 # msdos OS
-check_one_rtl i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmmedium" "" "-medium"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmcompact" "" "-compact"
-check_one_rtl i8086 msdos "-n -CX -XX -Wmlarge" "" "-large"
+check_target i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
+check_target i8086 msdos "-n -CX -XX -Wmmedium" "" "-medium"
+check_target i8086 msdos "-n -CX -XX -Wmcompact" "" "-compact"
+check_target i8086 msdos "-n -CX -XX -Wmlarge" "" "-large"
 if [ "$svnname" == "trunk" ] ; then
-  check_one_rtl i8086 msdos "-n -CX -XX -Wmhuge" "" "-huge"
+  check_target i8086 msdos "-n -CX -XX -Wmhuge" "" "-huge"
 fi
 # Use small as default memory model
-check_one_rtl i8086 msdos "-n -CX -XX -Wmsmall"
+check_target i8086 msdos "-n -CX -XX -Wmsmall"
 
 # Win16 OS
-check_one_rtl i8086 win16 "-n -CX -XX -Wmhuge"
+check_target i8086 win16 "-n -CX -XX -Wmhuge"
 
 # m68k 
-check_one_rtl m68k amiga "-n -Avasm" "" "-vasm"
+check_target m68k amiga "-n -Avasm" "" "-vasm"
 export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional" 
-check_one_rtl m68k atari "-n -Avasm"
+check_target m68k atari "-n -Avasm"
 export ASPROG_LOCAL=
-check_one_rtl m68k linux "-n -Avasm" "" "-vasm"
-check_one_rtl m68k macos "-n -Avasm" "" "-vasm"
+check_target m68k linux "-n -Avasm" "" "-vasm"
+check_target m68k macos "-n -Avasm" "" "-vasm"
 
 if [ "$svnname" == "fixes" ] ; then
   # Wii OS requires -Sfresources option
-  check_one_rtl powerpc wii "-n -Sfresources"
+  check_target powerpc wii "-n -Sfresources"
 else
   # -Sfresources is now by default inside rtl/wii/rtl.cfg
-  check_one_rtl powerpc wii "-n"
+  check_target powerpc wii "-n"
 fi
 
 # Generic listing based on -T$OS_TARGET
@@ -658,7 +662,7 @@ for index_cpu_os in $index_cpu_os_list ; do
    cpu=${cpu//!*/}
    cpu=${cpu,,}
    echo "Found item $index, cpu=$cpu, os=$os"
-   check_one_rtl $cpu $os "-n"
+   check_target $cpu $os "-n"
 done
 
 $MAKE -C rtl distclean 1> /dev/null 2>&1
