@@ -32,6 +32,12 @@ if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
   export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
 fi
 
+LOGDIR=$HOME/logs/${svnname}/all-snapshots
+
+if [ ! -d $LOGDIR ] ; then
+  mkdir -p $LOGDIR
+fi
+
 function set_fpc ()
 {
   LOC_CPU_TARGET=$1
@@ -194,7 +200,7 @@ function set_fpc ()
     # this would be used already in first cycle...
 
     echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with OPT=\"$OPT\", using $target_as ($assembler_version)"
-    export LOGFILE=$HOME/logs/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
+    export LOGFILE=$LOGDIR/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
     $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
     res=$?
     if [ $res -ne 0 ] ; then
@@ -233,8 +239,8 @@ function list_os ()
   listed=0
 }
 
-LOGFILE=$HOME/logs/all-${svnname}-snapshots.log
-LISTLOGFILE=$HOME/logs/list-all-snapshots-${svnname}.log
+LOGFILE=$LOGDIR/all-${svnname}-snapshots.log
+LISTLOGFILE=$LOGDIR/list-all-snapshots-${svnname}.log
 
 (
 echo  "Script $0 started at  `date +%Y-%m-%d-%H-%M `"
