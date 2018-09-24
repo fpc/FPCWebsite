@@ -4,9 +4,9 @@
 #
 
 WORKDIR=$HOME/pas/updatesources
-DESTDIR=fpcftp:ftp/snapshot/fixes/source
+DESTDIR=fpcftp:ftp/snapshot/v32/source
 CHECKOUTDIR=$WORKDIR/svn_fixes
-TAG=fixes_3_0
+TAG=fixes_3_2
 MODULES='fpc'
 ZIPNAME=fpc.zip
 SUFFIX=
