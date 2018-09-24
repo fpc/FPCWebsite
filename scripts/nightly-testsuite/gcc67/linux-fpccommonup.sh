@@ -230,15 +230,22 @@ if [ $NewBinary -eq 1 ] ; then
     testslog=~/pas/$SVNDIRNAME/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
     cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
-    echo "Starting make distclean fulldb" >> $report
-    echo "${MAKE} $MAKE_J_OPT distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" TEST_USE_LONGLOG=1 \
-      DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
+    echo "Starting make -C ../rtl distclean" >> $report
     echo "`$DATE`" >> $report
     TIME=`date +%H-%M-%S`
     ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleantestslog 2>&1
+    echo "Starting make -C ../packages distclean" >> $report
+    echo "`$DATE`" >> $report
     ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleantestslog 2>&1
-    ${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    echo "Starting make distclean" >> $report
+    echo "`$DATE`" >> $report
+    ${MAKE} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
+      DB_SSH_EXTRA=" -i ~/.ssh/freepascal" >> $cleantestslog 2>&1
+    echo "${MAKE} $MAKE_J_OPT fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" TEST_USE_LONGLOG=1 \
+      DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
+    ${MAKE} $MAKE_J_OPT fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
     testsres=$?
@@ -252,7 +259,7 @@ if [ $NewBinary -eq 1 ] ; then
 	mkdir -p $logdir
       fi
       cp output/$NEW_UNITDIR/faillist $logdir/faillist-$TIME
-      cp output/$NEW_UNITDIR/log $logdir/log-$TIME 
+      cp output/$NEW_UNITDIR/log $logdir/log-$TIME
       cp output/$NEW_UNITDIR/longlog $logdir/longlog-$TIME
       cp ${testslog} $logdir/tests-${DIR_OPT}-$TIME
       if [ ${cleantests} -ne 1 ] ; then
