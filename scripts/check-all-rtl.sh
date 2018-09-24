@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Script to try all possible CPU-OS combinations
+# possibly with several different options also
+
 . $HOME/bin/fpc-versions.sh
 
 # Some programs might freeze
@@ -14,11 +17,14 @@ machine_host=`uname -n`
 if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
   machine_host=gcc21
 fi
+# Only keep first part of machine name
 machine_host=${machine_host//.*/}
+
 machine_cpu=`uname -m`
 machine_os=`uname -s`
 machine_info="$machine_host $machine_cpu $machine_os"
 
+# Allows to restrict checks to rtl only
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
   test_packages=0
   name=target-rtl
@@ -27,6 +33,7 @@ else
   name=target
 fi
 
+# Allows to disable testing ppudump
 if [ "X$TEST_PPUDUMP" == "X0" ] ; then
   test_ppudump=0
 else
@@ -55,6 +62,11 @@ elif [ "X$machine_host" == "Xgcc21" ] ; then
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_INSTALL=1
 fi
+# Install all packages 
+if [ "X$machine_host" == "Xgcc123" ] ; then
+  DO_FPC_PACKAGES_INSTALL=1
+fi
+
 
 # Add FPC release bin and $HOME/bin directories to PATH
 if [ -d $HOME/bin ] ; then
@@ -497,7 +509,11 @@ function check_target ()
           else
             echo "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
             echo "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
-	    if [ $test_ppudump -eq 1 ] ; then
+            if [ "$DO_FPC_PACKAGES_INSTALL" == "1" ] ; then
+              echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+              $MAKE -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
+            fi
+ 	    if [ $test_ppudump -eq 1 ] ; then
               echo "$MAKE -C packages testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILEPACKPPU
               $MAKE -C packages testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILEPACKPPU 2>&1
               res=$?
