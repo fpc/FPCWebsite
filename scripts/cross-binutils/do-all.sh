@@ -222,6 +222,18 @@ export BINUTILS_RELEASE=
 ## system_powerpc64_linux,    { 43 }
 ./do-one.sh powerpc64-linux powerpc64-unknown-linux-gnu
 
+## riscv32 CPU
+## system_riscv32_linux,      { 96 }
+./do-one.sh riscv32-linux riscv32-unknown-linux-gnu
+## system_riscv32_embedded    { 99 }
+./do-one.sh riscv32-embedded riscv32-none-elf
+
+## riscv64 CPU
+## system_riscv64_linux,      { 97 }
+./do-one.sh riscv64-linux riscv64-unknown-linux-gnu
+## system_riscv64_embedded,   { 98 }
+./do-one.sh riscv64-embedded riscv64-none-elf
+
 ## sparc CPU
 ## system_sparc_embedded,     { 52 }
 ./do-one.sh sparc-embedded sparc-none-elf
