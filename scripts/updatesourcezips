@@ -53,9 +53,16 @@ checkoutmodules() {
   for f in $3; do
     svn co $SVNOPT $SVNROOT/$f/$BRANCH $f
     cd $f
-    svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev"> readme.rev
-    if [ -n "`svn pg svn:externals`" ]; then
-     svn pg svn:externals | cut -f 1 -d " " | xargs svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev" >> readme.rev
+    echo "Free pascal source checkout of $SVNROOT/$f/$BRANCH at `date`" > readme.rev
+    svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev" >> readme.rev
+    echo "\"svnversion -c .\" output: `svnversion -c .`" >> readme.rev
+    svn_externals=`svn pg svn:externals | cut -f 2 -d " " 2> /dev/null`
+    echo "svn_externals=\"$svn_externals\""
+    if [ -n "$svn_externals" ]; then
+      svn pg svn:externals | cut -f 1 -d " " | xargs svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev" >> readme.rev
+      for dir in $svn_externals ; do
+        echo "\"svnversion -c $dir\" output: `svnversion -c $dir`" >> readme.rev
+      done
     fi
     cd ..
   done
@@ -87,8 +94,13 @@ zipmodules() {
   echo "Zipping modules $2 suffix $4"
   cd $1
   for f in $2; do
-    zip -o -q -r $f$4.zip $f -x '*.svn*' -x '*.#*'     
-    moveto $f$4.zip $3
+    zipfile=$f$4.zip
+    if [ -f $zipfile ] ; then
+      # Be sure to start with an empty file
+      mv -f $zipfile $f$4-prev.zip
+    fi
+    zip -o -q -r $zipfile $f -x '*.svn*' -x '*.#*'     
+    moveto $zipfile $3
     moveto $f/readme.rev $3/$f-readme
   done
 }
