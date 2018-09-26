@@ -299,7 +299,6 @@ function check_target ()
     return
   fi
 
-
   # Try to set BINUTILSPREFIX 
   if [ "X${BINUTILSPREFIX}X" == "XresetX" ] ; then
     BINUTILSPREFIX_LOCAL=
@@ -357,8 +356,8 @@ function check_target ()
       if [ ! -f "$target_as" ] ; then
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
         skipped_count=`expr $skipped_count + 1 `
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found" >> $LISTLOGFILE
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
@@ -369,8 +368,8 @@ function check_target ()
 
   if [ ! -f "$target_as" ] ; then
     echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found" >> $LISTLOGFILE
     skipped_count=`expr $skipped_count + 1 `
     return
   fi
