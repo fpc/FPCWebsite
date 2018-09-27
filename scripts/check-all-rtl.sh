@@ -216,6 +216,8 @@ function set_fpc_local ()
     mipsel)    FPC_LOCAL=ppcmipsel;;
     powerpc)   FPC_LOCAL=ppcppc;;
     powerpc64) FPC_LOCAL=ppcppc64;;
+    riscv32)   FPC_LOCAL=ppcrv32;;
+    riscv64)   FPC_LOCAL=ppcrv64;;
     sparc)     FPC_LOCAL=ppcsparc;;
     sparc64)   FPC_LOCAL=ppcsparc64;;
     vis)       FPC_LOCAL=ppcvis;;
@@ -356,8 +358,8 @@ function check_target ()
       if [ ! -f "$target_as" ] ; then
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
         skipped_count=`expr $skipped_count + 1 `
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found" >> $LISTLOGFILE
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy"
+        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy" >> $LISTLOGFILE
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
@@ -393,6 +395,12 @@ function check_target ()
   if [ "X$BINUTILSPREFIX" != "Xdummy-" ] ; then
     # Recent java seems to output version to stderr, so redirect it to stdout
     assembler_version=` $target_as $ASSEMBLER_VER_OPT 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
+  fi
+
+  fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
+  if [ -z "$fpc_local_exe" ] ; then
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found" >> $LISTLOGFILE
   fi
 
   extra_text="$assembler_version"
@@ -559,6 +567,11 @@ function list_os ()
   set_fpc_local $CPU_TARG_LOCAL
   OPT="$2"
   MAKEEXTRA="$3"
+  fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
+  if [ -z "$fpc_local_exe" ] ; then
+    echo "No $FPC_LOCAL found"
+    return
+  fi
   fpc_version_local=`$FPC_LOCAL -iV`
   if [ "$FPC_VERSION" != "$fpc_version_local" ] ; then
     echo "Warning: $FPC_LOCAL binary reports version $fpc_version_local, while $FPC_VERSION is expected"
@@ -657,6 +670,8 @@ list_os mips "-n"
 list_os mipsel "-n"
 list_os powerpc "-n"
 list_os powerpc64 "-n"
+list_os riscv32 "-n"
+list_os riscv64 "-n"
 list_os sparc "-n"
 list_os sparc64 "-n"
 list_os x86_64 "-n"
