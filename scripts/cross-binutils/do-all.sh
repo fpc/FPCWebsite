@@ -153,7 +153,7 @@ export BINUTILS_RELEASE=
 ./do-one.sh m68k-linux m68k-unknown-linux-gnu
 #export BINUTILS_RELEASE=
 ## system_m68k_Mac,           { 9 }
-./do-one.sh m68k-mac m68k-unknown-macos
+./do-one.sh m68k-macos m68k-unknown-macos
 ## system_m68k_netbsd,        { 18 }
 ./do-one.sh m68k-netbsd m68k-unknown-netbsd-gnu
 ## system_m68k_openbsd,       { 25 }
