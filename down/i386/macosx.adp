@@ -41,8 +41,8 @@ The latest release version is <b>@latestversion@</b></p>
 
 <h3><a name="macosxdmg"></a>Download the @latestversion@ release in 1 big file:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.dmg">fpc-@latestversion@.intel-macosx.dmg</a> (71 MB)
-contains an installation package for compiling Intel (32 bit and 64 bit) programs.
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@a.intel-macosx.dmg">fpc-@latestversion@a.intel-macosx.dmg</a> (71 MB)
+contains an installation package for compiling Intel (32 bit and 64 bit) programs (updated to install successfully on macOS 10.14 "Mojave").
 <br>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg">fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg</a> (62 MB)
  contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.
