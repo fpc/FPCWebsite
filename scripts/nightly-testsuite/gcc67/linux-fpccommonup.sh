@@ -180,7 +180,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make fullinstall in compiler" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} -C compiler $MAKEDEBUG cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
 
   # Check if system.ppu changed
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
