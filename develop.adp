@@ -103,7 +103,7 @@ how to do that.)
 <li> To retrieve the full fpc source repository,
 type
 <PRE>
-svn checkout http://svn.freepascal.org/svn/fpc/trunk fpc
+svn checkout https://svn.freepascal.org/svn/fpc/trunk fpc
 </PRE>
 This will create a directory called &quot;fpc&quot; in the current directory, containing
 subdirectories with the following components:
@@ -113,9 +113,7 @@ subdirectories with the following components:
 <li><b>compiler</b>, the compiler source code.</li>
 <li><b>packages</b>, packages source code (contains Free Component Library, gtk, ncurses, mysql and many more)</li>
 <li><b>utils</b>, the utilities source code.</li>
-<li><b>fv</b>, Free Vision.</li>
 <li><b>tests</b>, the compiler and RTL tests.</li>
-<li><b>ide</b>, the IDE source code.</li>
 <li><b>installer</b>, the text mode installer source code.</li>
 </ul>
 
@@ -123,7 +121,7 @@ If you do not want the entire repository, you can check out subsections
 using, e.g.,
 
 <PRE>
-svn checkout http://svn.freepascal.org/svn/fpc/trunk/rtl fpc/rtl
+svn checkout https://svn.freepascal.org/svn/fpc/trunk/rtl fpc/rtl
 </PRE>
 
 <p>
@@ -150,11 +148,11 @@ far the most economic way to remain up-to-date in terms of bandwidth.
 </p>
 <p>
 The sources of the fixes branch need a separate directory, so create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL http://svn.freepascal.org/svn/fpc/branches/fixes_3_0:
+the above checkout command with the URL https://svn.freepascal.org/svn/fpc/branches/fixes_3_0:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout http://svn.freepascal.org/svn/fpc/branches/fixes_3_0 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/branches/fixes_3_0 fpc
 </pre>
 
 and to update:
@@ -165,22 +163,16 @@ svn update fpc
 
 <p>
 To checkout a release, you have to checkout the tagged versions, e.g.
-svn checkout http://svn.freepascal.org/svn/fpc/tags/release_3_0_2 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/tags/release_3_0_2 fpc
 </p>
 
 <p>
 The sources of docs are in a separate repository called &quot;fpcdocs&quot;, so the command to get them is
 <pre>
-svn checkout http://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
+svn checkout https://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
 </pre>
 
-<p>
-In case you have trouble with the default server, you can use http://svn2.freepascal.org as alternative svn
-server. Furthermore, this server also listens at port 8080, so if you can not access svn on the default port 80,
-you can try to use http://svn2.freepascal.org:8080 instead.
-</p>
-
-<p>
+[B>
 If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a>,
 which is also available online in different formats for free.
 </p>
@@ -189,7 +181,7 @@ which is also available online in different formats for free.
 
 <a name="morerepos"></a><h3>Other repositories</h3>
 The fpc svn server hosts more repositories than only the fpc repository. You can check them out using
-svn co http://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt; is:<br>
+svn co https://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt; is:<br>
 <b>fpcprojects</b> Several fpc related projects like a converted TTT 5.10, gdbpas or the FPC irc bot.<br>
 <b>lazarus</b> <a href="http://www.lazarus.freepascal.org">Lazarus</a>.<br>
 <b>fpcdocs</b> The fpc documentation sources.<br>
@@ -204,15 +196,15 @@ to several other repositories, so this checkout is really big.<br>
 
 <p>
 The contents of the SVN archive can also be browsed with your web-browser
-through this <a href="http://www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">viewcvs</a> interface.
+through this <a href="https//www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">viewcvs</a> interface.
 </p>
 
 <hr>
 
 <a name="future"></a><h3>Bugs and the Future</h3>
 <p>
-A list of known bugs is available <a href="http://bugs.freepascal.org/set_project.php?project_id=6">here</a>.<br>
+A list of known bugs is available <a href="https://bugs.freepascal.org/set_project.php?project_id=6">here</a>.<br>
 Future plans for Free Pascal can be viewed <a href="future@x@">here</a>.<br>
 If you are interested in FPC development, you may also be interested in the
-<a href="http://www.freepascal.org/wiki">wiki</a>.
+<a href="http://wiki.freepascal.org/">wiki</a>.
 </p>
