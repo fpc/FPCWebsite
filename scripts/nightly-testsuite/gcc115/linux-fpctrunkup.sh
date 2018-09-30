@@ -14,10 +14,10 @@ fi
 export LANG=en_US.UTF-8
 
 if [ "$CURVER" == "" ]; then
-  export CURVER=3.2.0
+  export CURVER=3.3.1
 fi
 if [ "$SVNDIR" == "" ]; then
-  export SVNDIR=fixes
+  export SVNDIR=trunk
 fi
 if [ "$RELEASEVER" == "" ]; then
   export RELEASEVER=3.0.4
@@ -119,12 +119,16 @@ echo "Starting make `date +%Y-%m-%d-%H:%M:%S`" > $makelog
 # 2.6.4 ppcarm binary
 if [ $NO_RELEASE -eq 1 ]; then
   cd compiler
+  if [ -e ./new-ppca64 ] ; then
+    rm ./new-ppca64
+  fi
   if [ -e ./new-ppcarm ] ; then
     rm ./new-ppcarm
   fi
   if [ -e ./new-ppcrossa64 ] ; then
     rm ./new-ppcrossa64
   fi
+  echo "Trying to recompile current ppcarm" >> $report
   make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
   make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
   res=$?
@@ -134,10 +138,21 @@ if [ $NO_RELEASE -eq 1 ]; then
     # This one might fail as 3.0.0 arm relase fpcmake binary crashes
     make -C ../rtl install FPC=`pwd`/ppcarm INSTALLPREFIX=$HOME/pas/fpc-$CURVER >> ${makelog} 2>&1
   else
-    echo "Error: no new arm native ppcarm" >> $report
-    mutt -x -s "Free Pascal failure on ${HOST_PC}" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
-    exit
+    echo "Trying to recompile current ppcarm using release ppcarm" >> $report
+    make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=${FPCRELEASEBINDIR}/ppcarm >> ${makelog} 2>&1
+    make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=${FPCRELEASEBINDIR}/ppcarm >> ${makelog} 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "Error: no new arm native ppcarm" >> $report
+      mutt -x -s "Free Pascal failure on ${HOST_PC}" \
+       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+      exit
+    else
+      cp ./ppcarm ./new-ppcarm
+      make install FPC=`pwd`/ppcarm INSTALLPREFIX=$HOME/pas/fpc-$CURVER >> ${makelog} 2>&1
+      # This one might fail as 3.0.0 arm relase fpcmake binary crashes
+      make -C ../rtl install FPC=`pwd`/ppcarm INSTALLPREFIX=$HOME/pas/fpc-$CURVER >> ${makelog} 2>&1
+    fi
   fi
   make distclean rtlclean CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-ppcarm >> ${makelog} 2>&1
   # rtl and all targets cannot be combinedc into a single make call,
@@ -197,7 +212,7 @@ fi
 
 if [ ${makeres} -ne 0 ] ; then
   echo "Starting make distclean all, using ${FPCRELEASEBIN}" >> $report
-    ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} \
+    ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} OVERRIDEVERSIONCHECK=1 \
     FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make distclean all with release binary; result=${makeres}" >> $report
@@ -282,12 +297,11 @@ tail -30 $testslog >> $report
 echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
 
-#mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
-#     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
+     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
-TEST_OPT="-O3 -Cg ${TEST_OPT}"
 export testslog=$LOGDIR/tests-O3${LOGSUF}.txt 
-
+TEST_OPT="-O3 -Cg ${TEST_OPT}"
 echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
