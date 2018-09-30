@@ -329,6 +329,10 @@ function check_target ()
   elif [ "X${OPT_LOCAL//Avasm/}" != "X$OPT_LOCAL" ] ; then
     # -Avasm is only used for m68k vasm assmebler 
     ASSEMBLER=vasmm68k_std
+  elif [[ ("$OS_TARG_LOCAL" == "macos") && ("$CPU_TARG_LOCAL" == "powerpc") ]] ; then
+    ASSEMBLER=PPCAsm
+  elif [ "$OS_TARG_LOCAL" == "watcom" ] ; then
+    ASSEMBLER=wasm
   else
     ASSEMBLER=as
   fi
