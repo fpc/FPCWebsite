@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ "$1" == "--copy" ] ; then
+  export BINUTILS_COPY_ONLY=1
+fi
+
+if [ "$1" == "--new-only" ] ; then
+  export BINUTILS_NEW_ONLY=1
+fi
+
 ## aarch64 CPU
 ## system_aarch64_darwin,     { 86 }
 ./do-one.sh aarch64-linux aarch64-unknown-linux-gnu
