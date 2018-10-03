@@ -149,7 +149,10 @@ export BINUTILS_RELEASE="2.14-amiga"
 ./do-one.sh m68k-amiga m68k-unknown-amigaos
 export BINUTILS_RELEASE=
 ## system_m68k_Atari,         { 8 }
-./do-one.sh m68k-atari m68k-unknown-atari
+## based on http://vincent.riviere.free.fr/soft/m68k-atari-mint/
+export BINUTILS_RELEASE="2.30-atari"
+./do-one.sh m68k-atari m68k-atari-mint
+export BINUTILS_RELEASE=
 ## system_m68k_aros (doesn't exist yet)
 export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh m68k-aros m68k-aros
