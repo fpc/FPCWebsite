@@ -65,8 +65,13 @@ fi
 # Install all packages 
 if [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_PACKAGES_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  USE_RELEASE_MAKEFILE_VARIABLE=1
 fi
 
+if [ "X$USE_RELEASE_MAKEFILE_VARIABLE" == "X1" ] ; then
+  export RELEASE=1
+fi
 
 # Add FPC release bin and $HOME/bin directories to PATH
 if [ -d $HOME/bin ] ; then
@@ -135,6 +140,7 @@ svn_rtl_version=`svnversion -c rtl`
 svn_compiler_version=`svnversion -c compiler`
 svn_packages_version=`svnversion -c packages`
 
+
 # This variable is reset after
 # all -T"OS" have been parsed
 # it serves to add a comment that 
@@ -176,6 +182,19 @@ echo "Packages svn version: $svn_packages_version" >> $LOGFILE
 echo "Packages svn version: $svn_packages_version" >> $LISTLOGFILE
 echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 
+if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
+  cd compiler
+  fullcyclelog=$LOGDIR/full-cycle.log
+  make distclean cycle installsymlink fullinstallsymlink OPT="-n -gwl" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
+    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LISTLOGFILE
+    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $EMAILFILE
+  fi
+  cd ..
+fi
+
 LOGPREFIX=$LOGDIR/${name}-check
 export dummy_count=0
 export skipped_count=0
@@ -190,6 +209,19 @@ NATIVEFPC=fpc
 export NATIVE_MACHINE=`uname -m`
 export NATIVE_CPU=`fpc -iSP`
 export NATIVE_OS=`fpc -iSO`
+export NATIVE_DATE=`fpc -iD`
+export NATIVE_VERSION=`fpc -iV`
+export NATIVE_FULLVERSION=`fpc -iW`
+
+if [ "$FPCVERSION" != "$NATIVE_VERSION" ] ; then
+  echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $LOGFILE
+  echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $EMAILFILE
+fi
+system_date=`date +%Y/%m/%d`
+if [ "$system_date" != "$NATIVE_DATE" ] ; then
+  echo "Date from native fpc binary is $NATIVE_DATE, date returns $system_date" >> $LOGFILE
+  echo "Date from native fpc binary is $NATIVE_DATE, date returns $system_date" >> $EMAILFILE
+fi
 
 if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
   echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
@@ -632,14 +664,18 @@ export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
 check_target arm linux "-n -gl" "" "-arm_softvfp"
 export ASTARGETLEVEL3=
 
+export ASTARGETLEVEL3="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
+export OPTLEVEL3="-dFPC_ARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+check_target arm linux "-n -gl" "" "-arm_eabihf"
+export ASTARGETLEVEL3=
+export OPTLEVEL3=
+
 # msdos OS
 check_target i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
 check_target i8086 msdos "-n -CX -XX -Wmmedium" "" "-medium"
 check_target i8086 msdos "-n -CX -XX -Wmcompact" "" "-compact"
 check_target i8086 msdos "-n -CX -XX -Wmlarge" "" "-large"
-if [ "$svnname" == "trunk" ] ; then
-  check_target i8086 msdos "-n -CX -XX -Wmhuge" "" "-huge"
-fi
+check_target i8086 msdos "-n -CX -XX -Wmhuge" "" "-huge"
 # Use small as default memory model
 check_target i8086 msdos "-n -CX -XX -Wmsmall"
 
@@ -652,15 +688,16 @@ export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional"
 check_target m68k atari "-n -Avasm"
 export ASPROG_LOCAL=
 check_target m68k linux "-n -Avasm" "" "-vasm"
-check_target m68k macos "-n -Avasm" "" "-vasm"
+## Disabled: -Avasm is not supported for macoscheck_target m68k macos "-n -Avasm" "" "-vasm"
 
-if [ "$svnname" == "fixes" ] ; then
+## Obsolete since fixes_3_2 branch
+##if [ "$svnname" == "fixes" ] ; then
   # Wii OS requires -Sfresources option
-  check_target powerpc wii "-n -Sfresources"
-else
+  ##check_target powerpc wii "-n -Sfresources"
+##else
   # -Sfresources is now by default inside rtl/wii/rtl.cfg
-  check_target powerpc wii "-n"
-fi
+##  check_target powerpc wii "-n"
+##fi
 
 # Generic listing based on -T$OS_TARGET
 list_os aarch64 "-n"
