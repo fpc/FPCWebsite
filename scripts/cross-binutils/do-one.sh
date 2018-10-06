@@ -80,8 +80,8 @@ function usage ()
 {
   echo "$0 param1 param2 [--copy | --new-only]"
   echo "This script requires two parameters"
-  echo "param1 is the Free Pascal like prefix i386-linux"
-  echo "param2 is the GNU binutils configure target option like i386-unknown-linux-gnu"
+  echo "param1 is the Free Pascal BINUTILS prefix (like i386-linux)"
+  echo "param2 is the GNU binutils configure --target option (like i386-unknown-linux-gnu)"
   echo "Optional --copy parameter means only copy existing files to destination binary directory"
   echo "Optional --new-only parameter means skip if cross-assembler is already in destination directory"
 }
