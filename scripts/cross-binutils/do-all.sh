@@ -16,6 +16,8 @@ fi
 export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh aarch64-aros aarch64-aros
 export BINUTILS_RELEASE=
+## system_aarch64_android     { 100 }
+./do-one.sh aarch64-linux-android aarch64-linux-android
 
 ## alpha CPU
 ## Alpha CPU is obbsolete
