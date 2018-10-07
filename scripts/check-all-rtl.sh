@@ -375,12 +375,31 @@ function check_target ()
      TRY_BINUTILSPREFIX=${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}-
      # Android has different binutilsprefix defaults
      if [ "${OS_TARG_LOCAL}" == "android" ] ; then
-       if [ "${CPU_TARG_LOCAL}" == "arm" ] ; then
-        TRY_BINUTILSPREFIX='arm-linux-androideabi-'
+       if [ "${CPU_TARG_LOCAL}" == "aarch64" ] ; then
+         TRY_BINUTILSPREFIX='aarch64-linux-android-'
+         if [ -n "$AARCH64_ANDROID_ROOT" ] ; then
+           OPT_LOCAL="$OPT_LOCAL -k--sysroot=$AARCH64_ANDROID_ROOT -Fl$AARCH64_ANDROID_ROOT"
+         fi
+       elif [ "${CPU_TARG_LOCAL}" == "arm" ] ; then
+         TRY_BINUTILSPREFIX='arm-linux-androideabi-'
+         if [ -n "$ARM_ANDROID_ROOT" ] ; then
+           OPT_LOCAL="$OPT_LOCAL -k--sysroot=$ARM_ANDROID_ROOT -Fl$ARM_ANDROID_ROOT"
+         fi
        elif [ "${CPU_TARG_LOCAL}" == "i386" ] ; then
-        TRY_BINUTILSPREFIX='i686-linux-android-'
+         TRY_BINUTILSPREFIX='i686-linux-android-'
+         if [ -n "$I386_ANDROID_ROOT" ] ; then
+           OPT_LOCAL="$OPT_LOCAL -k--sysroot=$I386_ANDROID_ROOT -Fl$I386_ANDROID_ROOT"
+         fi
        elif [ "${CPU_TARG_LOCAL}" == "mipsel" ] ; then
-        TRY_BINUTILSPREFIX='mipsel-linux-android-'
+         TRY_BINUTILSPREFIX='mipsel-linux-android-'
+         if [ -n "$MIPSEL_ANDROID_ROOT" ] ; then
+           OPT_LOCAL="$OPT_LOCAL -k--sysroot=$MIPSEL_ANDROID_ROOT -Fl$MIPSEL_ANDROID_ROOT"
+         fi
+       elif [ "${CPU_TARG_LOCAL}" == "x86_64" ] ; then
+         TRY_BINUTILSPREFIX='x86_64-linux-android-'
+         if [ -n "$X86_64_ANDROID_ROOT" ] ; then
+           OPT_LOCAL="$OPT_LOCAL -k--sysroot=$X86_64_ANDROID_ROOT -Fl$X86_64_ANDROID_ROOT"
+         fi
        fi
     fi
 
