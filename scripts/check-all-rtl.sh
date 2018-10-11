@@ -185,7 +185,7 @@ echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
-  make distclean cycle installsymlink fullinstallsymlink OPT="-n -gwl" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink rtlclean rtl fullinstallsymlink OPT="-n -gwl" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
