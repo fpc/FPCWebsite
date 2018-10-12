@@ -46,7 +46,7 @@ cd $cpu-$os
 is_32bit=1;
 is_64bit=0;
 case $cpu in
-  powerpc64|powerpc64le|sparc64|aarch64|x86_64) is_64bit=1; is_32bit=0;;
+  powerpc64|powerpc64le|sparc64|aarch64|x86_64|riscv64) is_64bit=1; is_32bit=0;;
 esac
 
 # Upload exactly a full path file
