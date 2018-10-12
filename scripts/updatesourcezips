@@ -62,6 +62,13 @@ checkoutmodules() {
       svn pg svn:externals | cut -f 1 -d " " | xargs svn info | grep -e "Revision" -e "URL" -e "Last Changed Rev" >> readme.rev
       for dir in $svn_externals ; do
         echo "\"svnversion -c $dir\" output: `svnversion -c $dir`" >> readme.rev
+        if [ "$dir" = "fpcsrc" ] ; then
+          # Add svnversions of subdirectories used by testsuite
+          echo "\"svnversion -c fpcsrc/compiler\" output: `svnversion -c fpcsrc/compiler`" >> readme.rev
+          echo "\"svnversion -c fpcsrc/rtl\" output: `svnversion -c fpcsrc/rtl`" >> readme.rev
+          echo "\"svnversion -c fpcsrc/packages\" output: `svnversion -c fpcsrc/packages`" >> readme.rev
+          echo "\"svnversion -c fpcsrc/tests\" output: `svnversion -c fpcsrc/tests`" >> readme.rev
+        fi
       done
     fi
     cd ..
