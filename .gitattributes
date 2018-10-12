@@ -403,6 +403,7 @@ scripts/check-all-rtl.sh svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/cross-binutils/do-all.sh svneol=native#text/plain
 scripts/cross-binutils/do-one.sh svneol=native#text/plain
+scripts/cross-compile/get-libs.sh svneol=native#text/plain
 scripts/dailymsgdiff svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
 scripts/fpc-versions.sh svneol=native#text/plain
