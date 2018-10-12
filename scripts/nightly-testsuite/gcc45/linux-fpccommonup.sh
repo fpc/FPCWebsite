@@ -154,6 +154,20 @@ echo "`$DATE`" >> $report
 tail -43 $testslog >> $report
 
 TEST_OPT="-Cg"
+export testslog=`pwd`/tests-Cg.txt
+echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
+echo "`$DATE`" >> $report
+${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+  TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+testsres=$?
+echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+echo "`$DATE`" >> $report
+
+tail -43 $testslog >> $report
+
+TEST_OPT="-O4 -gwl"
+export testslog=`pwd`/tests-O4-gwl.txt
 echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
 echo "`$DATE`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
