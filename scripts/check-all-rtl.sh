@@ -55,15 +55,14 @@ if [ -z "$FPC" ] ; then
 fi
 
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
+# Install all packages on gcc21 and gcc123
 if [ "X$machine_host" == "Xgcc20" ] ; then
   DO_FPC_INSTALL=1
 elif [ "X$machine_host" == "Xgcc21" ] ; then
   DO_FPC_INSTALL=1
+  DO_FPC_PACKAGES_INSTALL=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_INSTALL=1
-fi
-# Install all packages 
-if [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   USE_RELEASE_MAKEFILE_VARIABLE=1
@@ -662,8 +661,9 @@ check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 
 # Darwin OS check both clang and GNU binutils
-check_target i386 darwin "-n -Aas-darwin" "" "-gnu-as"
-check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
+# Known to be broken, disabled
+# check_target i386 darwin "-n -Aas-darwin" "" "-gnu-as"
+# check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
 # Default run using clang (unique executable)
 export BINUTILSPREFIX=reset
 check_target i386 darwin "-n -ao--target=i686-apple-darwin-macho" "" "-bare-clang"
@@ -672,6 +672,9 @@ check_target x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare-
 # Default run using CPU-OS-clang
 check_target i386 darwin "-n"
 check_target x86_64 darwin "-n"
+#
+check_target powerpc darwin "-n -Aclang"
+check_target powerpc64 darwin "-n -Aclang"
 
 # arm linux
 
