@@ -3,11 +3,19 @@
 machine=$1
 
 if [ -z "$machine" ] ; then
-  echo "Usage: $0 machine_name"
+  echo "Usage: $0 machine_name [dir_name]"
+  echo "optional dir_name can be used to force name of installation dir"
+  echo "otherwise guessed cpu-os is used"
   exit
 fi
 
+dir_name=$2
+
 cpu=`ssh $machine uname -p | tr [:upper:] [:lower:] `
+if [ "$cpu" == "unknown" ] ; then
+  cpu=`ssh $machine uname -m | tr [:upper:] [:lower:] `
+fi
+
 os=`ssh $machine uname -s | tr [:upper:] [:lower:] `
 
 if [ "$cpu" == "amd64" ] ; then
@@ -37,11 +45,19 @@ if [ "$cpu" == "ppc64le" ] ; then
   cpu=powerpc64le
 fi
 
-if [ ! -d "$cpu-$os" ] ; then
-  echo "Creating directory $cpu-$os"
-  mkdir -p $cpu-$os
+if [ -z "$dir_name" ] ; then
+  dir_name=$cpu-$os
 fi
-cd $cpu-$os
+
+if [ ! -d "$dir_name" ] ; then
+  echo "Creating directory $dir_name"
+  mkdir -p $dir_name
+else
+  echo "Directory $dir_name already exists"
+  echo "exiting to avoid merging"
+  exit
+fi
+cd $dir_name
 
 is_32bit=1;
 is_64bit=0;
