@@ -3,4 +3,4 @@
 CROSSPP=ppcrv32
 
 CPU_TARGET=riscv32
-. $HOME/bin/emul-cpu.sh $*
+. $HOME/bin/comp-cpu.sh $*

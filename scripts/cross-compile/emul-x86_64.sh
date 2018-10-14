@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-CPU_TARGET=sparc64
+CROSSPP=ppcx64
 
+CPU_TARGET=x86_64
 . $HOME/bin/emul-cpu.sh $*

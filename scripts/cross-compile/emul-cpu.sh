@@ -4,20 +4,37 @@ if [ -z "$QEMU_CPU" ] ; then
   QEMU_CPU=$CPU_TARGET
 fi
 
-EMUL=qemu-$QEMU_CPU
+source_os=`uname -s | tr [:upper:] [:lower:] `
+
+# Might need some adaptations
+OS_SOURCE=$source_os
+
+if [ -z "$OS_TARGET" ] ; then
+  OS_TARGET=$OS_SOURCE
+fi
+
+if [ "$OS_SOURCE" == "$OS_TARGET" ] ; then
+  EMUL=qemu-$QEMU_CPU
+else
+  EMUL=qemu-system-$QEMU_CPU
+fi
 
 if [ ! -f "`which $EMUL`" ] ; then
   echo "$EMUL does not exist"
   exit
 else
   EMUL=`which $EMUL`
+  if [ ! -x $EMUL ] ; then
+    echo "£EMUL is not executable"
+    exit
+  fi
 fi
 
 FULL_TARGET=$CPU_TARGET-$OS_TARGET
 
 is_64bit=0
 case $CPU_TARGET in
-  aarch64|powerpc64|sparc64|x86_64) is_64bit=1;;
+  aarch64|powerpc64|riscv64|sparc64|x86_64) is_64bit=1;;
 esac
 
 

@@ -3,4 +3,4 @@
 CROSSPP=ppcmipsel
 
 CPU_TARGET=mipsel
-. $HOME/bin/emul-cpu.sh $*
+. $HOME/bin/comp-cpu.sh $*

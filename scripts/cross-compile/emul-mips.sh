@@ -3,5 +3,4 @@
 CROSSPP=ppcmips
 
 CPU_TARGET=mips
-OS_TARGET=linux
-. $HOME/bin/emul-cpu.sh
+. $HOME/bin/emul-cpu.sh $*

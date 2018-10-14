@@ -2,4 +2,4 @@
 
 CPU_TARGET=sparc64
 
-. $HOME/bin/emul-cpu.sh $*
+. $HOME/bin/comp-cpu.sh $*

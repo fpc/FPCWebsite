@@ -3,5 +3,4 @@
 CROSSPP=ppca64
 
 CPU_TARGET=aarch64
-
-. $HOME/bin/emul-cpu.sha $*
+. $HOME/bin/comp-cpu.sh $*
