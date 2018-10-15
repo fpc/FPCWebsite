@@ -243,10 +243,10 @@ function copytofpcbin ()
     copytofpcbin  ar
     copytofpcbin  objdump
     copytofpcbin  readelf
+    copytofpcbin  strip -new
     # aros also needs collect-aros, nm and strip
     if [ "X${target//aros/}" != "X$target" ] ; then
       copytofpcbin  nm
-      copytofpcbin  strip -new
     fi
   else
     echo "No binutils directory"
