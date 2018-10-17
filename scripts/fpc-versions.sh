@@ -87,57 +87,67 @@ FPC_BIN_x86_64=ppcx64
 #################################################################
 ## NDK must be set for cross-compilation for Android
 #################################################################
-if [ -z "$NDK_VERSION" ] ; then
-  NDK_VERSION=r15c
-fi
 if [ -z "$NDK_BASE_DIR" ] ; then
   NDK_BASE_DIR=${HOME}/gnu/android-ndk
 fi
-
-if [ -d $NDK_BASE_DIR/android-ndk-$NDK_VERSION ] ; then
-  export ANDROID_NDK_ROOT=$NDK_BASE_DIR/android-ndk-$NDK_VERSION
-  if [ -z "$NDK" ] ; then
-    export NDK=$ANDROID_NDK_ROOT
-    # In r18, versions 20 and 25 are absent, removed here also
-    NDK_VERSION_LIST="9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 26 27 28"
-    for ndk_ver in $NDK_VERSION_LIST ; do
-      # aarch64 is present since android-21
-      if [ -z "$AARCH64_ANDROID_ROOT" ] ; then
-        if [ -d "$NDK/platforms/android-$ndk_ver/arch-arm64" ] ; then
-          export AARCH64_ANDROID_VERSION=$ndk_ver
-          export AARCH64_ANDROID_ROOT=$NDK/platforms/android-$AARCH64_ANDROID_VERSION/arch-arm64
-        fi
-      fi
-      # arm is present since android-9
-      if [ -z "$ARM_ANDROID_ROOT" ] ; then
-        if [ -d "$NDK/platforms/android-$ndk_ver/arch-arm" ] ; then
-          export ARM_ANDROID_VERSION=$ndk_ver
-          export ARM_ANDROID_ROOT=$NDK/platforms/android-$ARM_ANDROID_VERSION/arch-arm
-        fi
-      fi
-      export ARM_ANDROID_ROOT=$NDK/platforms/android-9/arch-arm
-      # i386 is present since android-9
-      if [ -z "$I386_ANDROID_ROOT" ] ; then
-        if [ -d "$NDK/platforms/android-$ndk_ver/arch-x86" ] ; then
-          export I386_ANDROID_VERSION=$ndk_ver
-          export I386_ANDROID_ROOT=$NDK/platforms/android-$I386_ANDROID_VERSION/arch-x86
-        fi
-      fi
-      # mipsel is present since android-9
-      if [ -z "$MIPSEL_ANDROID_ROOT" ] ; then
-        if [ -d "$NDK/platforms/android-$ndk_ver/arch-mips" ] ; then
-          export MIPSEL_ANDROID_VERSION=$ndk_ver
-          export MIPSEL_ANDROID_ROOT=$NDK/platforms/android-$MIPSEL_ANDROID_VERSION/arch-mips
-        fi
-      fi
-      # x86_64 is present since android-21
-      export X86_64_ANDROID_ROOT=$NDK/platforms/android-21/arch-x86_64
-      if [ -z "$X86_64_ANDROID_ROOT" ] ; then
-        if [ -d "$NDK/platforms/android-$ndk_ver/arch-x86_64" ] ; then
-          export X86_64_ANDROID_VERSION=$ndk_ver
-          export X86_64_ANDROID_ROOT=$NDK/platforms/android-$X86_64_ANDROID_VERSION/arch-x86_64
-        fi
+if [ -d "$NDK_BASE_DIR" ] ; then
+  if [ -z "$NDK_VERSION" ] ; then
+    NDK_SUBDIRS=`find $NDK_BASE_DIR -iname "android-ndk-*"`
+    for dir in $NDK_SUBDIRS ; do
+      if [ -d "$dir" ] ; then
+        NDK_VERSION=${dir/*android-ndk-/}
       fi
     done
+    if [ -z "$NDK_VERSION" ] ; then
+      NDK_VERSION=r15c
+    fi
+  fi
+
+  if [ -d $NDK_BASE_DIR/android-ndk-$NDK_VERSION ] ; then
+    export ANDROID_NDK_ROOT=$NDK_BASE_DIR/android-ndk-$NDK_VERSION
+    if [ -z "$NDK" ] ; then
+      export NDK=$ANDROID_NDK_ROOT
+      # In r18, versions 20 and 25 are absent, removed here also
+      NDK_VERSION_LIST="9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 26 27 28"
+      for ndk_ver in $NDK_VERSION_LIST ; do
+        # aarch64 is present since android-21
+        if [ -z "$AARCH64_ANDROID_ROOT" ] ; then
+          if [ -d "$NDK/platforms/android-$ndk_ver/arch-arm64" ] ; then
+            export AARCH64_ANDROID_VERSION=$ndk_ver
+            export AARCH64_ANDROID_ROOT=$NDK/platforms/android-$AARCH64_ANDROID_VERSION/arch-arm64
+          fi
+        fi
+        # arm is present since android-9
+        if [ -z "$ARM_ANDROID_ROOT" ] ; then
+          if [ -d "$NDK/platforms/android-$ndk_ver/arch-arm" ] ; then
+            export ARM_ANDROID_VERSION=$ndk_ver
+            export ARM_ANDROID_ROOT=$NDK/platforms/android-$ARM_ANDROID_VERSION/arch-arm
+          fi
+        fi
+        # i386 is present since android-9
+        if [ -z "$I386_ANDROID_ROOT" ] ; then
+          if [ -d "$NDK/platforms/android-$ndk_ver/arch-x86" ] ; then
+            export I386_ANDROID_VERSION=$ndk_ver
+            export I386_ANDROID_ROOT=$NDK/platforms/android-$I386_ANDROID_VERSION/arch-x86
+          fi
+        fi
+        # mipsel is present since android-9
+        if [ -z "$MIPSEL_ANDROID_ROOT" ] ; then
+          if [ -d "$NDK/platforms/android-$ndk_ver/arch-mips" ] ; then
+            export MIPSEL_ANDROID_VERSION=$ndk_ver
+            export MIPSEL_ANDROID_ROOT=$NDK/platforms/android-$MIPSEL_ANDROID_VERSION/arch-mips
+          fi
+        fi
+        # x86_64 is present since android-21
+        export X86_64_ANDROID_ROOT=$NDK/platforms/android-21/arch-x86_64
+        if [ -z "$X86_64_ANDROID_ROOT" ] ; then
+          if [ -d "$NDK/platforms/android-$ndk_ver/arch-x86_64" ] ; then
+            export X86_64_ANDROID_VERSION=$ndk_ver
+            export X86_64_ANDROID_ROOT=$NDK/platforms/android-$X86_64_ANDROID_VERSION/arch-x86_64
+          fi
+        fi
+      done
+    fi
   fi
 fi
+
