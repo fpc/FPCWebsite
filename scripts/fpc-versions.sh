@@ -17,6 +17,7 @@ export RELEASEVERSION=3.0.4
 export TRUNKVERSION=3.3.1
 export FIXESVERSION=3.2.0
 
+export FIXES_BRANCH=fixes_${FIXESVERSION:0:1}_${FIXESVERSION:2:1}
 #################################################################
 ## Free Pascal trunk and fixes directory names
 #################################################################
@@ -37,7 +38,12 @@ if [ -z "$PASDIR" ] ; then
 fi
 
 export TRUNKDIR=${PASDIR}/${TRUNKDIRNAME}
-export FIXESDIR=${PASDIR}/${FIXESDIRNAME}
+
+if [ -d ${PASDIR}/${FIXES_BRANCH} ] ; then
+  export FIXESDIR=${PASDIR}/${FIXES_BRANCH}
+else
+  export FIXESDIR=${PASDIR}/${FIXESDIRNAME}
+fi
 
 #################################################################
 ## Free Pascal trunk and fixes installation directories
