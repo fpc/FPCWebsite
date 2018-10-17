@@ -451,11 +451,35 @@ function check_target ()
     assembler_version=` $target_as $ASSEMBLER_VER_OPT 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
-  fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
+  if [ -n "$RECOMPILE_OPT" ] ; then
+    LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
+    make -C compiler rtlclean clean rtl $CPU_TARG_LOCAL OPT="$RECOMPILE_OPT" > $LOGFILE_RECOMPILE 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} recompilation failed, res=$res"
+      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} recompilation failed, res=$res" >> $LISTLOGFILE
+      skipped_count=`expr $skipped_count + 1 `
+      return
+    fi
+    fpc_local_exe=`pwd`/compiler/$FPC_LOCAL
+  else
+    fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
+  fi
   if [ -z "$fpc_local_exe" ] ; then
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found" >> $LISTLOGFILE
+    skipped_count=`expr $skipped_count + 1 `
+    return
   fi
+  if [ ! -x "$fpc_local_exe" ] ; then
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable"
+    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable" >> $LISTLOGFILE
+    skipped_count=`expr $skipped_count + 1 `
+    return
+  fi
+
+  # use explicit compiler location
+  FPC_LOCAL=$fpc_local_exe
 
   extra_text="$assembler_version"
 
@@ -678,19 +702,23 @@ check_target powerpc64 darwin "-n -Aclang"
 
 # arm linux
 
-export CROSSOPT="-Cparmv6 -Caeabi -Cfsoft"
-check_target arm linux "-n -gl" "" "-armeabi"
-export CROSSOPT=
+export RECOMPILE_OPT="-dFPC_ARMEL"
+check_target arm linux "-n -gl -Cparmv6 -Caeabi -Cfsoft" "" "-armeabi"
+export RECOMPILE_OPT=
 
-export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
+export RECOMPILE_OPT="-dFPC_ARMEB"
+check_target arm linux "-n -gl -Cparmv6 -Caarmeb -Cfsoft" "" "-armeb"
+export RECOMPILE_OPT=
+
+export ASTARGET="-march=armv5 -mfpu=softvfp "
 check_target arm linux "-n -gl" "" "-arm_softvfp"
-export ASTARGETLEVEL3=
+export ASTARGET=
 
-export ASTARGETLEVEL3="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
-export OPTLEVEL3="-dFPC_ARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
-check_target arm linux "-n -gl" "" "-arm_eabihf"
-export ASTARGETLEVEL3=
-export OPTLEVEL3=
+export ASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
+export RECOMPILE_OPT="-dFPC_ARMHF"
+check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
+export ASTARGET=
+export RECOMPILE_OPT=
 
 # msdos OS
 check_target i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
