@@ -17,19 +17,37 @@ if [ ! -s sys-root ] ; then
   mkdir sys-root
 fi
 
-svn checkout https://svn.freepascal.org/svn/html/scripts
+if [ ! -d scripts ] ; then
+  echo "Installing Free Pascal scripts"
+  svn checkout https://svn.freepascal.org/svn/html/scripts
+else
+  cd scripts
+  echo "Updating Free Pascal scripts"
+  svn cleanup
+  svn up
+  cd ..
+fi
 
-cd bin
-ln -s ~/scripts/fpc-versions.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/linux-fpcallup.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/linux-fpccommonup.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/all-snapshots.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/makesnapshot.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/makesnapshotfixes.sh 
-ln -s ~/scripts/nightly-testsuite/x86_64-linux/makesnapshottrunk.sh 
+function maybe_add_symlink ()
+{
+  file=$1
+  filename=`basename $file`
+  if [ ! -f $HOME/bin/$filename ] ; then
+    echo "Adding symlink to $file"
+    ( cd bin ; ln -s $file )
+  fi
+}
+
+maybe_add_symlink ~/scripts/fpc-versions.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/linux-fpcallup.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/linux-fpccommonup.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/all-snapshots.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshot.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshotfixes.sh 
+maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshottrunk.sh 
 
 # Get Free Pasca versions from the fpc-versions.sh script
-. ./fpc-versions.sh
+. $HOME/bin/fpc-versions.sh
 
 QEMU_VERSION=3.0.0
 NASM_VERSION=2.13.03
@@ -38,26 +56,60 @@ VASM_VERSION=1_8d
 
 cd $HOME/pas
 
-wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/i386-linux/fpc-$RELEASEVERSION.i386-linux.tar
-wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/x86_64-linux/fpc-$RELEASEVERSION.x86_64-linux.tar
-tar -xvf fpc-$RELEASEVERSION.i386-linux.tar 
-tar -xvf fpc-$RELEASEVERSION.x86_64-linux.tar 
-cd fpc-$RELEASEVERSION.i386-linux/
-vim ./install.sh 
-cd ../fpc-$RELEASEVERSION.x86_64-linux/
- vim install.sh 
-cd
-sed "s:3\.0\.4:\$fpcversion:g" -i .fpc.cfg
-cd pas
-svn checkout https://svn.freepascal.org/svn/fpcbuild/trunk
-svn checkout https://svn.freepascal.org/svn/fpcbuild/branches/fixes_3_2
+if [ ! -d $HOME/pas/fpc-$RELEASEVERSION ] ; then
+  # Installing latest Free Pascal distribution
+  FPC_RELEASE32_TAR=fpc-${RELEASEVERSION}.i386-linux.tar
+  FPC_RELEASE64_TAR=fpc-${RELEASEVERSION}.x86_64-linux.tar
+  if [ ! -f $FPC_RELEASE32_TAR ] ; then
+    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/i386-linux/$FPC_RELEASE32_TAR
+  fi
+  if [ ! -f $FPC_RELEASE64_TAR ] ;then
+    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/x86_64-linux/$FPC_RELEASE64_TAR
+  fi
+  tar -xvf $FPC_RELEASE32_TAR
+  tar -xvf $FPC_RELEASE64_TAR
+  cd ${FPC_RELEASE32_TAR/.tar/}
+  ./install.sh 
+  cd ../${FPC_RELEASE64_TAR/.tar/}
+  ./install.sh 
+  cd $HOME
+  RELEASEVERSION_REGEX=${RELEASEVERSION//\./\\.}
+  echo "Substituting $RELEASEVERSION_REGEX"
+  sed "s:${RELEASEVERSION_REGEX}:\$fpcversion:g" -i .fpc.cfg
+fi
+
+cd $PASDIR
+if [ ! -d $TRUNKDIRNAME ] ; then
+  svn checkout https://svn.freepascal.org/svn/fpcbuild/$TRUNKDIRNAME
+else
+  if [ ! -d trunk ] ; then
+    ln -s $FIXES_BRANCH trunk
+  fi
+  cd trunk
+  svn cleanup
+  svn up
+  cd ..
+fi
+
+if [ ! -d $FIXESDIR ] ; then
+  svn checkout https://svn.freepascal.org/svn/fpcbuild/branches/$FIXES_BRANCH
+else
+  if [ ! -d fixes ] ; then
+    ln -s $FIXES_BRANCH fixes
+  fi
+  cd fixes
+  svn cleanup
+  svn up
+  cd ..
+fi
+
+
 cd trunk/fpcsrc/compiler/
 make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppc386
 make installsymlink FPC=`pwd`/ppc386 PREFIX=~/pas/fpc-$TRUNKVERSION
 make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppcx64
 make installsymlink FPC=`pwd`/ppcx64 PREFIX=~/pas/fpc-$TRUNKVERSION
 cd ~/pas
-ln -s fixes_3_2 fixes
 cd fixes/
 cd fpcsrc/compiler/
 make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppc386
