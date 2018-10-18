@@ -453,15 +453,24 @@ function check_target ()
 
   if [ -n "$RECOMPILE_OPT" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
-    make -C compiler rtlclean clean rtl $CPU_TARG_LOCAL OPT="$RECOMPILE_OPT" > $LOGFILE_RECOMPILE 2>&1
+    # First recompile rtl
+    make -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
     res=$?
+    if [ $res -eq 0 ] ; then
+      # Now recompile compiler, using CPC_TARGET, so that clean removes the old stuff
+      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
+      res=$?
+    fi
     if [ $res -ne 0 ] ; then
-      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} recompilation failed, res=$res"
-      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} recompilation failed, res=$res" >> $LISTLOGFILE
+      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
+      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res" >> $LISTLOGFILE
       skipped_count=`expr $skipped_count + 1 `
       return
     fi
     fpc_local_exe=`pwd`/compiler/$FPC_LOCAL
+    if [ -n "$RECOMPILE_INSTALL_NAME" ] ; then
+      cp -fp $fpc_local_exe $LOCAL_INSTALL_PREFIX/bin/$RECOMPILE_INSTALL_NAME
+    fi
   else
     fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   fi
@@ -703,21 +712,35 @@ check_target powerpc64 darwin "-n -Aclang"
 # arm linux
 
 export RECOMPILE_OPT="-dFPC_ARMEL"
+export RECOMPILE_INSTALL_NAME=ppcarmel
+export ASTARGET="-march=armv6 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caeabi -Cfsoft" "" "-armeabi"
+export ASTARGET=
+export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 export RECOMPILE_OPT="-dFPC_ARMEB"
+export RECOMPILE_INSTALL_NAME=ppcarmeb
+export ASTARGET="-march=armv5 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caarmeb -Cfsoft" "" "-armeb"
+export ASTARGET=
+export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
+export RECOMPILE_OPT="-dFPC_OARM"
+export RECOMPILE_INSTALL_NAME=ppcoarm
 export ASTARGET="-march=armv5 -mfpu=softvfp "
 check_target arm linux "-n -gl" "" "-arm_softvfp"
 export ASTARGET=
+export RECOMPILE_INSTALL_NAME=
+export RECOMPILE_OPT=
 
-export ASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 export RECOMPILE_OPT="-dFPC_ARMHF"
+export RECOMPILE_INSTALL_NAME=ppcarmhf
+export ASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
 export ASTARGET=
+export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 # msdos OS
