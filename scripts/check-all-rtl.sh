@@ -5,6 +5,12 @@
 
 . $HOME/bin/fpc-versions.sh
 
+if [ -n "$1" ] ; then
+  dir_name_suffix="-$1"
+else
+  dir_name_suffix=
+fi
+
 # Some programs might freeze
 # like i386-darwin-as...
 
@@ -43,13 +49,17 @@ fi
 if [ -z "$FPC" ] ; then
   FPC=ppc$machine_cpu
   case $machine_cpu in
+    aarch64|arm64) FPC=ppca64 ;;
     arm) FPC=ppcarm ;;
-    aarch64) FPC=ppca64 ;;
-    x86_64|amd64) FPC=ppcx64 ;;
     i*86) FPC=ppc386 ;;
     m68k) FPC=ppc68k ;;
+    mipsel*) FPC=ppcmipsel ;;
+    mips*) FPC=ppcmips ;;
     powerpc) FPC=ppcppc ;;
     powerpc64) FPC=ppcppc64 ;;
+    riscv32) FPC=ppcrv32 ;;
+    riscv64) FPC=ppcrv64 ;;
+    x86_64|amd64) FPC=ppcx64 ;;
   esac
   export FPC
 fi
@@ -65,33 +75,13 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
+  # RECOMPILE_FULL_OPT=-CriotR
+  RECOMPILE_FULL_OPT=
   USE_RELEASE_MAKEFILE_VARIABLE=1
 fi
 
 if [ "X$USE_RELEASE_MAKEFILE_VARIABLE" == "X1" ] ; then
   export RELEASE=1
-fi
-
-# Add FPC release bin and $HOME/bin directories to PATH
-if [ -d $HOME/bin ] ; then
-  PATH=$HOME/bin:$PATH
-fi
-
-if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
-  PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:$PATH
-fi
-
-if [ -d /opt/cfarm/clang-release/bin ] ; then
-  PATH=$PATH:/opt/cfarm/clang-release/bin
-fi
-
-if [ "X$MAKE" == "X" ] ; then
-  GMAKE=`which gmake 2> /dev/null`
-  if [ ! -z "$GMAKE" ] ; then
-    MAKE=$GMAKE
-  else
-    MAKE=make
-  fi
 fi
 
 if [ "X$FIXES" == "X1" ] ; then
@@ -109,9 +99,31 @@ if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
   export PATH=$HOME/pas/fpc-$FPCVERSION/bin:$PATH
 fi
 
+# Checking if native $FPC is in PATH
+found_fpc=`which $FPC 2> /dev/null `
+
+# Add RELEASE directory
+if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
+  PATH=${PATH}:${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin
+fi
+
 # Also add $HOME/bin to PATH if it exists, but as last
 if [ -d ${HOME}/bin ] ; then
-  export PATH=$PATH:$HOME/bin
+  export PATH=${PATH}:${HOME}/bin
+fi
+
+
+if [ -d /opt/cfarm/clang-release/bin ] ; then
+  PATH=$PATH:/opt/cfarm/clang-release/bin
+fi
+
+if [ "X$MAKE" == "X" ] ; then
+  GMAKE=`which gmake 2> /dev/null`
+  if [ ! -z "$GMAKE" ] ; then
+    MAKE=$GMAKE
+  else
+    MAKE=make
+  fi
 fi
 
 # Use a fake install directory to avoid troubles
@@ -146,7 +158,7 @@ svn_packages_version=`svnversion -c packages`
 # the help does not cite this target
 listed=1
 
-LOGDIR=$HOME/logs/${svnname}/check-targets
+LOGDIR=$HOME/logs/${svnname}${dir_name_suffix}/check-targets
 
 if [ ! -d $LOGDIR ] ; then
   echo "Creating directory $LOGDIR"
@@ -184,12 +196,13 @@ echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
-  make distclean cycle installsymlink rtlclean rtl fullinstallsymlink OPT="-n -gwl" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LISTLOGFILE
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $EMAILFILE
+    exit
   fi
   cd ..
 fi
@@ -474,6 +487,7 @@ function check_target ()
   else
     fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   fi
+
   if [ -z "$fpc_local_exe" ] ; then
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found" >> $LISTLOGFILE
@@ -486,6 +500,21 @@ function check_target ()
     skipped_count=`expr $skipped_count + 1 `
     return
   fi
+  CROSS_VERSION=`$fpc_local_exe -iV` 
+  if [ "$FPCVERSION" != "$CROSS_VERSION" ] ; then
+    echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $LOGFILE
+    echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $EMAILFILE
+    skipped_count=`expr $skipped_count + 1 `
+    return
+  fi
+  CROSS_DATE=`$fpc_local_exe -iD` 
+  if [ "$system_date" != "$CROSS_DATE" ] ; then
+    echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $LOGFILE
+    echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $EMAILFILE
+    skipped_count=`expr $skipped_count + 1 `
+    return
+  fi
+
 
   # use explicit compiler location
   FPC_LOCAL=$fpc_local_exe
