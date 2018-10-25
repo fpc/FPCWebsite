@@ -65,6 +65,12 @@ case $cpu in
   powerpc64|powerpc64le|sparc64|aarch64|x86_64|riscv64) is_64bit=1; is_32bit=0;;
 esac
 
+case $os in
+  darwin) dynlib_suffix=.dylib;;
+  win32|win64|wince) dynlib_suffix=.dll;;
+  *) dynlib_suffix=.so;;
+esac
+
 # Upload exactly a full path file
 function upload_file ()
 {
@@ -204,22 +210,22 @@ done
 maybe_upload_files "libc.a"
 
 # libc.so
-maybe_upload_files "libc.so"
+maybe_upload_files "libc${dynlib_suffix}"
 
 #libdl.so
-maybe_upload_files "libdl.so"
+maybe_upload_files "libdl${dynlib_suffix}"
 
 #ld*.so*
-maybe_upload_files "ld*.so*"
+maybe_upload_files "ld*${dynlib_suffix}*"
 
 #libpthread.so
-maybe_upload_files "libpthread.so"
+maybe_upload_files "libpthread${dynlib_suffix}"
 
 #libiconv.a
 maybe_upload_files "libiconv.a"
 
 #libiconv.so
-maybe_upload_files "libiconv.so"
+maybe_upload_files "libiconv${dynlib_suffix}"
 
 #libgcc.a
 maybe_upload_files "libgcc.a"
