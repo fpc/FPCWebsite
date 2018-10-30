@@ -29,6 +29,8 @@ if [ -d ${HOME}/bin ] ; then
   fi
 fi
 
+export MUTT=`which mutt`
+
 if [ "${HOSTNAME}" == "WIN-G8VVDPH2N8D" ]; then
   export HOSTNAME=fpcwin2008
    export PATH=${PATH}:/bin
@@ -51,16 +53,33 @@ if [ -z "${FPCBIN}" ] ; then
 fi
 
 
-if [ "${FPCBIN}" == "ppc386" ] ; then
+if [ "${FPCBIN:0:6}" == "ppc386" ] ; then
   FPCFULLTARGET=i386-win32
-elif [ "${FPCBIN}" == "ppcx64" ] ; then
+elif [ "${FPCBIN:0:6}" == "ppcx64" ] ; then
   FPCFULLTARGET=x86_64-win64
 else
   echo "Unknown binary ${FPCBIN}"
   exit
 fi
 
-if [ "${HOSTNAME}" == "E6510-Muller" ]; then
+if [ "${HOSTNAME}" == "PC-Nanion" ]; then
+  # base dir is C:/pas
+  echo "Using $HOSTNAME setup"
+  export HOSTNAME=fpc-Win10-64
+  export MINGW_CYGWINDIR=c:/cygwin64
+  export CYGWIN_FPCDIR=/cygdrive/c/pas
+  export MINGW_FPCDIR=c:/pas
+  export STARTVERSION=3.0.2
+  export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}:${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/i386-win32
+  if [ "X${MAKE}" == "Xmake" ] ; then
+    export MAKE="c:\\pas\\fpc-${STARTVERSION}\\bin\\i386-win32\\make.exe"
+  fi
+  export MAKE_EXTRA=
+  ##was  RMPROG=${MINGW_CYGWINDIR}/bin/rm CPPROG=${MINGW_CYGWINDIR}/bin/cp"
+  export SVN=/usr/bin/svn
+  export SSHPROG=$MINGW_CYGWINDIR/bin/ssh.exe
+  export SCPPROG=$MINGW_CYGWINDIR/bin/scp.exe
+elif [ "${HOSTNAME}" == "E6510-Muller" ]; then
   export HOSTNAME=fpcWin7-64
   export MINGW_CYGWINDIR=e:/cygwin-32
   export CYGWIN_FPCDIR=/cygdrive/e/pas
@@ -211,6 +230,21 @@ if ! [ "${skipsvn}" == "1" ]; then
   fi
 fi
 
+if [ -d install ] ; then
+  if [ "$FPCFULLTARGET" == "i386-win32" ] ; then
+    if [ -d "install/binw32" ] ; then
+      echo "Adding install/binw32 dir in front of FPCPATH variable" >> ${report}
+      export FPCPATH=`pwd`/install/binw32:$FPCPATH
+    fi
+  fi
+  if [ "$FPCFULLTARGET" == "x86_64-win64" ] ; then
+    if [ -d "install/binw64" ] ; then
+      echo "Adding install/binw64 dir in front of FPCPATH variable" >> ${report}
+      export FPCPATH=`pwd`/install/binw64:$FPCPATH
+    fi
+  fi
+fi
+
 if [ -d fpcsrc ]; then
   echo Changing to fpcsrc dir >> ${report}
   cd fpcsrc
@@ -307,6 +341,8 @@ Build_date=`./compiler/${FPCBIN} -iD | ${CYGD2U}`
 echo "New ${FPCBIN} version is ${Build_version}" >> ${report}
 echo "New ${FPCBIN} date is ${Build_date}" >> ${report}
 echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
+echo "PATH=${PATH}" >> ${report}
+echo "MAKE=${MAKE}" >> ${report}
 
 if ! [ "${skipintall}" == "1" ]; then
   echo "Running make install"
@@ -390,7 +426,7 @@ else
     attachment="${attachment} -a ${testslog}"
     loc_skipupload=1
   else
-    logdir=${HOME}/logs/`${CYGDATE} +%Y-%m-%d`/opt-${TEST_OPT// /}/${SVNDIRNAME}-${FPCFULLTARGET}
+    logdir=${HOME}/logs/${SVNDIRNAME}/${FPCFULLTARGET}/`${CYGDATE} +%Y-%m-%d`/opt-${TEST_OPT// /}
     ${CYGMKDIR} -p ${logdir}
     ${CYGCP} ./output/${FPCFULLTARGET}/log ${logdir}/log-${TIME}
     ${CYGCP} ./output/${FPCFULLTARGET}/longlog ${logdir}/longlog-${TIME}
@@ -468,7 +504,7 @@ echo "Time at end `${CYGDATE} +%H:%M:%S`" >> ${report}
 
 export PATH=${STARTPATH}
 
-mutt -x -s "Free Pascal results on ${FPCFULLTARGET} ${HOSTNAME} ${Build_version} ${Build_date}" \
+$MUTT -x -s "Free Pascal results on ${FPCFULLTARGET} ${HOSTNAME} ${Build_version} ${Build_date}" \
      -i ${report} ${attachment} -- pierre@freepascal.org < /dev/null > ${report}.log
 
 ${CYGCP} ${makelog} ${makelog}-${FPCFULLTARGET}
