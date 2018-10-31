@@ -120,6 +120,7 @@ function add_dir ()
       if [ "${EXTRAOPTS/-Fl$file_dir/}" == "$EXTRAOPTS" ] ; then
         echo "Adding $file_dir directory to library path list"
         EXTRAOPTS="$EXTRAOPTS -Fl$file_dir"
+	DARWIN_LIBRARY_PATH="$DARWIN_LIBRARY_PATH:$file_dir"
       fi
     fi
   done
@@ -127,12 +128,19 @@ function add_dir ()
   
 if [ -d "$QEMU_SYSROOT" ] ; then
   echo "Adding $QEMU_SYSROOT sysroot directory"
+  DARWIN_LIBRARY_PATH=
   add_dir "crt1.o"
   add_dir "crtbegin.o"
   add_dir "libc.a"
   add_dir "libc.so"
   add_dir "ld*.so*"
-  EXTRAOPTS="$EXTRAOPTS -Xd -Xr$QEMU_SYSROOT -k--sysroot=$QEMU_SYSROOT"
+  if [ "$OS_TARGET" == "darwin" ] ; then
+    EXTRAOPTS="$EXTRAOPTS -Xd -Xr$QEMU_SYSROOT"
+    export DYLD_LIBRARY_PATH="$DARWIN_LIBRARY_PATH"
+    echo "Using DYLD_LIBRARY_PATH=\"$DARWIN_LIBRARY_PATH\""
+  else
+    EXTRAOPTS="$EXTRAOPTS -Xd -Xr$QEMU_SYSROOT -k--sysroot=$QEMU_SYSROOT"
+  fi
 fi
 
 $CROSSPP $EXTRAOPTS $*
