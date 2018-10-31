@@ -71,6 +71,14 @@ if [ "X$machine_host" == "Xgcc20" ] ; then
 elif [ "X$machine_host" == "Xgcc21" ] ; then
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
+elif [ "X$machine_host" == "Xgcc70" ] ; then
+  # Temp mount is too small, don't use it
+  XDG_RUNTIME_DIR=
+  DO_FPC_PACKAGES_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  # RECOMPILE_FULL_OPT=-CriotR
+  RECOMPILE_FULL_OPT="-CriotR"
+  USE_RELEASE_MAKEFILE_VARIABLE=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
@@ -203,6 +211,12 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LISTLOGFILE
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $EMAILFILE
     exit
+  else
+    # Using new temp installation bin dir
+    export PATH=$LOCAL_INSTALL_PREFIX/bin:$PATH
+    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $LOGFILE
+    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $LISTLOGFILE
+    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $EMAILFILE
   fi
   cd ..
 fi
