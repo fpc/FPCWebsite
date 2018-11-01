@@ -221,7 +221,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd ..
 fi
 
-LOGPREFIX=$LOGDIR/${name}-check
+export LOGPREFIX=$LOGDIR/${name}-check
 export dummy_count=0
 export skipped_count=0
 export rtl_1_failure=0
@@ -475,7 +475,7 @@ function check_target ()
   fi
   if [ "X$BINUTILSPREFIX" != "Xdummy-" ] ; then
     # Recent java seems to output version to stderr, so redirect it to stdout
-    assembler_version=` $target_as $ASSEMBLER_VER_OPT 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
+    assembler_version=` $target_as $ASSEMBLER_VER_OPT < /dev/null 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
   if [ -n "$RECOMPILE_OPT" ] ; then
@@ -738,7 +738,7 @@ check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 
 # Darwin OS check both clang and GNU binutils
 # Known to be broken, disabled
-# check_target i386 darwin "-n -Aas-darwin" "" "-gnu-as"
+check_target i386 darwin "-n -Aas-darwin" "" "-with-darwin-as"
 # check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
 # Default run using clang (unique executable)
 export BINUTILSPREFIX=reset
@@ -746,11 +746,14 @@ check_target i386 darwin "-n -ao--target=i686-apple-darwin-macho" "" "-bare-clan
 export BINUTILSPREFIX=reset
 check_target x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare-clang"
 # Default run using CPU-OS-clang
-check_target i386 darwin "-n"
+check_target i386 darwin "-n" 
 check_target x86_64 darwin "-n"
-#
-check_target powerpc darwin "-n -Aclang"
-check_target powerpc64 darwin "-n -Aclang"
+# powerpc (32 and 64 bit) ofr Darwin will be removed from clang
+check_target powerpc darwin "-n -Aclang" "" "-with-clang"
+check_target powerpc64 darwin "-n -Aclang" "" "-with-clang"
+
+check_target powerpc darwin "-n -Aas-darwin"
+check_target powerpc64 darwin "-n -Aas-darwin"
 
 # arm linux
 
