@@ -204,7 +204,15 @@ echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
 if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
-  make distclean cycle installsymlink rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LOGFILE
+    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LISTLOGFILE
+    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $EMAILFILE
+    exit
+  fi
+  make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
