@@ -170,7 +170,7 @@ LOGDIR=$HOME/logs/${svnname}${dir_name_suffix}/check-targets
 
 if [ ! -d $LOGDIR ] ; then
   echo "Creating directory $LOGDIR"
-  mkdir $LOGDIR
+  mkdir -p $LOGDIR
 fi
 
 LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
