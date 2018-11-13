@@ -100,77 +100,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> msdos-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> msdos-hungary.var
 	echo >> msdos-hungary.var
-../..//down/i8086/msdos-netherlands.html.bg: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.bg -oe iso-8859-5 msdos.adp
-../..//down/i8086/msdos-netherlands.html.en: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.en -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.fi: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.fi -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.fr: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.fr -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.id: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.id -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.it: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.it -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.nl: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.nl -oe iso-8859-1 msdos.adp
-../..//down/i8086/msdos-netherlands.html.po: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.po -oe iso-8859-2 msdos.adp
-../..//down/i8086/msdos-netherlands.html.sl: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.sl -oe iso-8859-2 msdos.adp
-../..//down/i8086/msdos-netherlands.html.ru: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.ru -oe iso-8859-5 msdos.adp
-../..//down/i8086/msdos-netherlands.html.zh-CN: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html.zh-CN -oe UTF-8 msdos.adp
-../..//down/i8086/msdos-netherlands.html: msdos.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/i8086/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/i8086//msdos-netherlands.html -oe ISO-8859-1 msdos.adp
-
-../..//down/i8086/msdos-netherlands.var: gen_makefile.conf
-	echo > msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.bg' >> msdos-netherlands.var
-	echo 'Content-language: bg' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.en' >> msdos-netherlands.var
-	echo 'Content-language: en' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.fi' >> msdos-netherlands.var
-	echo 'Content-language: fi' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.fr' >> msdos-netherlands.var
-	echo 'Content-language: fr' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.id' >> msdos-netherlands.var
-	echo 'Content-language: id' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.it' >> msdos-netherlands.var
-	echo 'Content-language: it' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.nl' >> msdos-netherlands.var
-	echo 'Content-language: nl' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.po' >> msdos-netherlands.var
-	echo 'Content-language: pl' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.sl' >> msdos-netherlands.var
-	echo 'Content-language: sl' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.ru' >> msdos-netherlands.var
-	echo 'Content-language: ru' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
-	echo 'URI: msdos-netherlands.html.zh-CN' >> msdos-netherlands.var
-	echo 'Content-language: zh-CN' >> msdos-netherlands.var
-	echo 'Content-type: text/html; charset=UTF-8' >> msdos-netherlands.var
-	echo >> msdos-netherlands.var
 
 ../..//down/i8086/msdos.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=msdos -p sourceforgepath="DOS" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o msdos.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -246,10 +175,9 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html.bg ../..//down/i8086/msdos-hungary.html.en ../..//down/i8086/msdos-hungary.html.fi ../..//down/i8086/msdos-hungary.html.fr ../..//down/i8086/msdos-hungary.html.id ../..//down/i8086/msdos-hungary.html.it ../..//down/i8086/msdos-hungary.html.nl ../..//down/i8086/msdos-hungary.html.po ../..//down/i8086/msdos-hungary.html.sl ../..//down/i8086/msdos-hungary.html.ru ../..//down/i8086/msdos-hungary.html.zh-CN ../..//down/i8086/msdos-hungary.var ../..//down/i8086/msdos-netherlands.html.bg ../..//down/i8086/msdos-netherlands.html.en ../..//down/i8086/msdos-netherlands.html.fi ../..//down/i8086/msdos-netherlands.html.fr ../..//down/i8086/msdos-netherlands.html.id ../..//down/i8086/msdos-netherlands.html.it ../..//down/i8086/msdos-netherlands.html.nl ../..//down/i8086/msdos-netherlands.html.po ../..//down/i8086/msdos-netherlands.html.sl ../..//down/i8086/msdos-netherlands.html.ru ../..//down/i8086/msdos-netherlands.html.zh-CN ../..//down/i8086/msdos-netherlands.var ../..//down/i8086/msdos.html.bg ../..//down/i8086/msdos.html.en ../..//down/i8086/msdos.html.fi ../..//down/i8086/msdos.html.fr ../..//down/i8086/msdos.html.id ../..//down/i8086/msdos.html.it ../..//down/i8086/msdos.html.nl ../..//down/i8086/msdos.html.po ../..//down/i8086/msdos.html.sl ../..//down/i8086/msdos.html.ru ../..//down/i8086/msdos.html.zh-CN ../..//down/i8086/msdos.var
-all_en_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html ../..//down/i8086/msdos-netherlands.html ../..//down/i8086/msdos.html
+all_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html.bg ../..//down/i8086/msdos-hungary.html.en ../..//down/i8086/msdos-hungary.html.fi ../..//down/i8086/msdos-hungary.html.fr ../..//down/i8086/msdos-hungary.html.id ../..//down/i8086/msdos-hungary.html.it ../..//down/i8086/msdos-hungary.html.nl ../..//down/i8086/msdos-hungary.html.po ../..//down/i8086/msdos-hungary.html.sl ../..//down/i8086/msdos-hungary.html.ru ../..//down/i8086/msdos-hungary.html.zh-CN ../..//down/i8086/msdos-hungary.var ../..//down/i8086/msdos.html.bg ../..//down/i8086/msdos.html.en ../..//down/i8086/msdos.html.fi ../..//down/i8086/msdos.html.fr ../..//down/i8086/msdos.html.id ../..//down/i8086/msdos.html.it ../..//down/i8086/msdos.html.nl ../..//down/i8086/msdos.html.po ../..//down/i8086/msdos.html.sl ../..//down/i8086/msdos.html.ru ../..//down/i8086/msdos.html.zh-CN ../..//down/i8086/msdos.var
+all_en_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html ../..//down/i8086/msdos.html
 
 
 # clean

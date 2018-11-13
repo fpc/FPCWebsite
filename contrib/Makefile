@@ -104,7 +104,6 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ..//contribs/contribs.html.bg ..//contribs/contribs.html.en ..//contribs/contribs.html.fi ..//contribs/contribs.html.fr ..//contribs/contribs.html.id ..//contribs/contribs.html.it ..//contribs/contribs.html.nl ..//contribs/contribs.html.po ..//contribs/contribs.html.sl ..//contribs/contribs.html.ru ..//contribs/contribs.html.zh-CN ..//contribs/contribs.var
 all_en_pages: mirrors.dat ..//contribs/contribs.html

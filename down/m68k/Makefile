@@ -100,77 +100,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> linux-hungary.var
 	echo >> linux-hungary.var
-../..//down/m68k/linux-netherlands.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.bg -oe iso-8859-5 linux.adp
-../..//down/m68k/linux-netherlands.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.en -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.fi: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.fi -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.fr -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.id: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.id -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.it: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.it -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.nl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.nl -oe iso-8859-1 linux.adp
-../..//down/m68k/linux-netherlands.html.po: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.po -oe iso-8859-2 linux.adp
-../..//down/m68k/linux-netherlands.html.sl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.sl -oe iso-8859-2 linux.adp
-../..//down/m68k/linux-netherlands.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.ru -oe iso-8859-5 linux.adp
-../..//down/m68k/linux-netherlands.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html.zh-CN -oe UTF-8 linux.adp
-../..//down/m68k/linux-netherlands.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/m68k/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="3.0.2" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/m68k//linux-netherlands.html -oe ISO-8859-1 linux.adp
-
-../..//down/m68k/linux-netherlands.var: gen_makefile.conf
-	echo > linux-netherlands.var
-	echo 'URI: linux-netherlands.html.bg' >> linux-netherlands.var
-	echo 'Content-language: bg' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.en' >> linux-netherlands.var
-	echo 'Content-language: en' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.fi' >> linux-netherlands.var
-	echo 'Content-language: fi' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.fr' >> linux-netherlands.var
-	echo 'Content-language: fr' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.id' >> linux-netherlands.var
-	echo 'Content-language: id' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.it' >> linux-netherlands.var
-	echo 'Content-language: it' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.nl' >> linux-netherlands.var
-	echo 'Content-language: nl' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.po' >> linux-netherlands.var
-	echo 'Content-language: pl' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.sl' >> linux-netherlands.var
-	echo 'Content-language: sl' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.ru' >> linux-netherlands.var
-	echo 'Content-language: ru' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-netherlands.var
-	echo >> linux-netherlands.var
-	echo 'URI: linux-netherlands.html.zh-CN' >> linux-netherlands.var
-	echo 'Content-language: zh-CN' >> linux-netherlands.var
-	echo 'Content-type: text/html; charset=UTF-8' >> linux-netherlands.var
-	echo >> linux-netherlands.var
 
 ../..//down/m68k/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.2" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -246,10 +175,9 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/m68k/linux-hungary.html.bg ../..//down/m68k/linux-hungary.html.en ../..//down/m68k/linux-hungary.html.fi ../..//down/m68k/linux-hungary.html.fr ../..//down/m68k/linux-hungary.html.id ../..//down/m68k/linux-hungary.html.it ../..//down/m68k/linux-hungary.html.nl ../..//down/m68k/linux-hungary.html.po ../..//down/m68k/linux-hungary.html.sl ../..//down/m68k/linux-hungary.html.ru ../..//down/m68k/linux-hungary.html.zh-CN ../..//down/m68k/linux-hungary.var ../..//down/m68k/linux-netherlands.html.bg ../..//down/m68k/linux-netherlands.html.en ../..//down/m68k/linux-netherlands.html.fi ../..//down/m68k/linux-netherlands.html.fr ../..//down/m68k/linux-netherlands.html.id ../..//down/m68k/linux-netherlands.html.it ../..//down/m68k/linux-netherlands.html.nl ../..//down/m68k/linux-netherlands.html.po ../..//down/m68k/linux-netherlands.html.sl ../..//down/m68k/linux-netherlands.html.ru ../..//down/m68k/linux-netherlands.html.zh-CN ../..//down/m68k/linux-netherlands.var ../..//down/m68k/linux.html.bg ../..//down/m68k/linux.html.en ../..//down/m68k/linux.html.fi ../..//down/m68k/linux.html.fr ../..//down/m68k/linux.html.id ../..//down/m68k/linux.html.it ../..//down/m68k/linux.html.nl ../..//down/m68k/linux.html.po ../..//down/m68k/linux.html.sl ../..//down/m68k/linux.html.ru ../..//down/m68k/linux.html.zh-CN ../..//down/m68k/linux.var
-all_en_pages: mirrors.dat ../..//down/m68k/linux-hungary.html ../..//down/m68k/linux-netherlands.html ../..//down/m68k/linux.html
+all_pages: mirrors.dat ../..//down/m68k/linux-hungary.html.bg ../..//down/m68k/linux-hungary.html.en ../..//down/m68k/linux-hungary.html.fi ../..//down/m68k/linux-hungary.html.fr ../..//down/m68k/linux-hungary.html.id ../..//down/m68k/linux-hungary.html.it ../..//down/m68k/linux-hungary.html.nl ../..//down/m68k/linux-hungary.html.po ../..//down/m68k/linux-hungary.html.sl ../..//down/m68k/linux-hungary.html.ru ../..//down/m68k/linux-hungary.html.zh-CN ../..//down/m68k/linux-hungary.var ../..//down/m68k/linux.html.bg ../..//down/m68k/linux.html.en ../..//down/m68k/linux.html.fi ../..//down/m68k/linux.html.fr ../..//down/m68k/linux.html.id ../..//down/m68k/linux.html.it ../..//down/m68k/linux.html.nl ../..//down/m68k/linux.html.po ../..//down/m68k/linux.html.sl ../..//down/m68k/linux.html.ru ../..//down/m68k/linux.html.zh-CN ../..//down/m68k/linux.var
+all_en_pages: mirrors.dat ../..//down/m68k/linux-hungary.html ../..//down/m68k/linux.html
 
 
 # clean

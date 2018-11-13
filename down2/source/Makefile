@@ -100,77 +100,6 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> sources-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> sources-hungary.var
 	echo >> sources-hungary.var
-../..//down2/source/sources-netherlands.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.bg -oe iso-8859-5 sources.adp
-../..//down2/source/sources-netherlands.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.en -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.fi -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.fr -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.id -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.it -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.nl -oe iso-8859-1 sources.adp
-../..//down2/source/sources-netherlands.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.po -oe iso-8859-2 sources.adp
-../..//down2/source/sources-netherlands.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.sl -oe iso-8859-2 sources.adp
-../..//down2/source/sources-netherlands.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.ru -oe iso-8859-5 sources.adp
-../..//down2/source/sources-netherlands.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html.zh-CN -oe UTF-8 sources.adp
-../..//down2/source/sources-netherlands.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down2/source/
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://freepascal.stack.nl/pub/mirrors/fpc/ -p mirrorsuffix=netherlands -p latestversion="" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down2/source//sources-netherlands.html -oe ISO-8859-1 sources.adp
-
-../..//down2/source/sources-netherlands.var: gen_makefile.conf
-	echo > sources-netherlands.var
-	echo 'URI: sources-netherlands.html.bg' >> sources-netherlands.var
-	echo 'Content-language: bg' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.en' >> sources-netherlands.var
-	echo 'Content-language: en' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.fi' >> sources-netherlands.var
-	echo 'Content-language: fi' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.fr' >> sources-netherlands.var
-	echo 'Content-language: fr' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.id' >> sources-netherlands.var
-	echo 'Content-language: id' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.it' >> sources-netherlands.var
-	echo 'Content-language: it' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.nl' >> sources-netherlands.var
-	echo 'Content-language: nl' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.po' >> sources-netherlands.var
-	echo 'Content-language: pl' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.sl' >> sources-netherlands.var
-	echo 'Content-language: sl' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.ru' >> sources-netherlands.var
-	echo 'Content-language: ru' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-netherlands.var
-	echo >> sources-netherlands.var
-	echo 'URI: sources-netherlands.html.zh-CN' >> sources-netherlands.var
-	echo 'Content-language: zh-CN' >> sources-netherlands.var
-	echo 'Content-type: text/html; charset=UTF-8' >> sources-netherlands.var
-	echo >> sources-netherlands.var
 
 ../..//down2/source/sources.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -p sourceforgepath="" -p latestversion="" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -246,10 +175,9 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Netherlands\tnetherlands\tftp://freepascal.stack.nl/pub/mirrors/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down2/source/sources-hungary.html.bg ../..//down2/source/sources-hungary.html.en ../..//down2/source/sources-hungary.html.fi ../..//down2/source/sources-hungary.html.fr ../..//down2/source/sources-hungary.html.id ../..//down2/source/sources-hungary.html.it ../..//down2/source/sources-hungary.html.nl ../..//down2/source/sources-hungary.html.po ../..//down2/source/sources-hungary.html.sl ../..//down2/source/sources-hungary.html.ru ../..//down2/source/sources-hungary.html.zh-CN ../..//down2/source/sources-hungary.var ../..//down2/source/sources-netherlands.html.bg ../..//down2/source/sources-netherlands.html.en ../..//down2/source/sources-netherlands.html.fi ../..//down2/source/sources-netherlands.html.fr ../..//down2/source/sources-netherlands.html.id ../..//down2/source/sources-netherlands.html.it ../..//down2/source/sources-netherlands.html.nl ../..//down2/source/sources-netherlands.html.po ../..//down2/source/sources-netherlands.html.sl ../..//down2/source/sources-netherlands.html.ru ../..//down2/source/sources-netherlands.html.zh-CN ../..//down2/source/sources-netherlands.var ../..//down2/source/sources.html.bg ../..//down2/source/sources.html.en ../..//down2/source/sources.html.fi ../..//down2/source/sources.html.fr ../..//down2/source/sources.html.id ../..//down2/source/sources.html.it ../..//down2/source/sources.html.nl ../..//down2/source/sources.html.po ../..//down2/source/sources.html.sl ../..//down2/source/sources.html.ru ../..//down2/source/sources.html.zh-CN ../..//down2/source/sources.var
-all_en_pages: mirrors.dat ../..//down2/source/sources-hungary.html ../..//down2/source/sources-netherlands.html ../..//down2/source/sources.html
+all_pages: mirrors.dat ../..//down2/source/sources-hungary.html.bg ../..//down2/source/sources-hungary.html.en ../..//down2/source/sources-hungary.html.fi ../..//down2/source/sources-hungary.html.fr ../..//down2/source/sources-hungary.html.id ../..//down2/source/sources-hungary.html.it ../..//down2/source/sources-hungary.html.nl ../..//down2/source/sources-hungary.html.po ../..//down2/source/sources-hungary.html.sl ../..//down2/source/sources-hungary.html.ru ../..//down2/source/sources-hungary.html.zh-CN ../..//down2/source/sources-hungary.var ../..//down2/source/sources.html.bg ../..//down2/source/sources.html.en ../..//down2/source/sources.html.fi ../..//down2/source/sources.html.fr ../..//down2/source/sources.html.id ../..//down2/source/sources.html.it ../..//down2/source/sources.html.nl ../..//down2/source/sources.html.po ../..//down2/source/sources.html.sl ../..//down2/source/sources.html.ru ../..//down2/source/sources.html.zh-CN ../..//down2/source/sources.var
+all_en_pages: mirrors.dat ../..//down2/source/sources-hungary.html ../..//down2/source/sources.html
 
 
 # clean
