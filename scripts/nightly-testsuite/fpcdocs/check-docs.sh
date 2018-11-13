@@ -27,13 +27,19 @@ export PATH=$HOME/pas/fpc-$CURVER/bin:$PATH
 
 FPC_DATE=`$FPCBIN -iD`
 today=`date "+%Y/%m/%d"`
+
+# Allow --force option
+if [ "$1" == "--force" ] ; then
+  FPC_DATE=today
+fi
   
 logfile=$HOME/logs/fpcsrc-$SVNNAME.log
 report=$HOME/logs/report-$SVNNAME.txt
 
 cd $SVNDIR
 
-svn cleanup > $report 2>&1
+echo "Starting svn clean/up" > $report
+svn cleanup >> $report 2>&1
 svn up >> $report 2>&1
 
 if [ "$FPC_DATE" == "$today" ] ; then
@@ -48,6 +54,7 @@ else
 
   cd fpcsrc/compiler
 
+  echo "Starting 'make distclean cycle' at fpcsrc/compiler level" >> $report
   make distclean cycle OPT="-n -gl" > $logfile 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
@@ -55,6 +62,7 @@ else
     tail -30 $logfile >> $report
   fi
 
+  echo "Starting 'make installsymlink' at fpcsrc/compiler level" >> $report
   make installsymlink FPC=`pwd`/ppcx64 PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
@@ -63,13 +71,18 @@ else
   fi
 
   cd ..
-  make distclean install FPC=$HOME/pas/fpc-$CURVER/bin/ppcx64 PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
-  res=$?
-  if [ $res -ne 0 ] ; then
-    echo "make install failed, res=$res" >> $report
-    tail -30 $logfile >> $report
-  fi
-
+  for dir in rtl packages utils ; do
+    echo "Starting 'make distclean install' in fpcsrc/$dir" >> $report
+    make -C $dir distclean install FPC=$HOME/pas/fpc-$CURVER/bin/ppcx64 OPT="-n -gl" PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "make install in fpcsrc/$dir failed, res=$res" >> $report
+      tail -30 $logfile >> $report
+      mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+           -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+      exit
+    fi
+  done
   cd ..
 fi
 
@@ -90,6 +103,7 @@ pdflogfile=$HOME/logs/pdfdocs-$SVNNAME.log
 
 ulimit -t 1200
 
+echo "Starting 'make distclean examples' at fpcdocs level" >> $report
 make distclean examples FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
 res=$?
 if [ $res -ne 0 ] ; then
@@ -97,15 +111,23 @@ if [ $res -ne 0 ] ; then
   tail -30 $logfile >> $report
 fi
 
-make pdfinstall FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $pdflogfile 2>&1
+echo "Starting 'make pdfinstall pdfzip pdftar' at fpcdocs level" >> $report
+make pdfinstall pdfzip pdftar LATEXOPT=-halt-on-error LATEXPOSTOPT=" < /dev/null" FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $pdflogfile 2>&1
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make pdfinstall failed, res=$res" >> $report
-  tail -30 $logfile >> $report
+  tail -30 $pdflogfile >> $report
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+  exit
+else
+  echo "make pdfinstall success, new files:" >> $report
+  ls -ltr doc-pdf.* >> $report
 fi
 res=1
 let trial=1
 while [ $res -ne 0 ] ; do 
+  echo "Starting 'make execute' at fpcdocs level, nb=$trial" >> $report
   echo "Running \"make execute\", nb=$trial" >> $logfile
   make execute >> $logfile 2>&1
   res=$?
@@ -119,10 +141,10 @@ while [ $res -ne 0 ] ; do
   fi
 done
 
-pdf_listing=`ls -1 doc-pdf.*`
+pdf_listing=`ls -1 doc-pdf.* 2> /dev/null `
 
 if [ -n "$pdf_listing" ] ; then
-  scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_MACHINE}:${UPLOAD_DIR}
+  scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}
 fi
 
 # installed TeX is pdftex, so no html possible
@@ -130,6 +152,7 @@ fi
 cd ../demo
 logfile=$HOME/logs/fpc-demos-$SVNNAME.log
 
+echo "Starting 'make distclean all execute' at demo level" >> $report
 make distclean all execute FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
 if [ $res -ne 0 ] ; then
   echo "make all execute in demo failed, res=$res" >> $report
