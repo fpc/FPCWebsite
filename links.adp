@@ -38,9 +38,6 @@
   <a href="http://mirror.mirimar.net/freepascal/">Israel (FTP only)</a>
   (maintained by <a href="mailto:idokan&#x040;gmail.com">Ido Kanner</a>)
 -->
-<li>
-  <a href="http://freepascal.stack.nl/">The Netherlands 2</a>
-  (maintained by <a href="http://www.stack.nl">MCGV Stack</a>)
 <!--
 <li>
   <a href="http://www.no.freepascal.org">Norway</a>
