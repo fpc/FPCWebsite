@@ -181,23 +181,29 @@ else
   export FPC=$FPC32
 fi
 
-
-mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+SEND_MULTIPLE=0
+if [ $SEND_MULTIPLE -eq 1 ] ; then
+  mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
+       -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+fi
 
 run_test
 
 if [ $custom -eq 0 ] ; then
-  mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
-       -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
-
+  if [ $SEND_MULTIPLE -eq 1 ] ; then
+    mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
+         -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+  fi
   export TEST_OPT="-Cg -O-"
-  mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
-       -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+  if [ $SEND_MULTIPLE -eq 1 ] ; then
+    mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
+         -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+  fi
   run_test
-  mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
-       -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
-
+  if [ $SEND_MULTIPLE -eq 1 ] ; then
+    mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
+         -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+  fi
   # Too many bugs in sparc64 optimizer for now
   test_opt=1
   if [ "X$test_opt" != "X" ] ; then
@@ -207,15 +213,21 @@ if [ $custom -eq 0 ] ; then
     # export QUICK="QUICKTEST=1"
 
     export TEST_OPT="-O1"
-    mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
-         -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    if [ $SEND_MULTIPLE -eq 1 ] ; then
+      mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
+           -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    fi
     run_test
-    mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
-       -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    if [ $SEND_MULTIPLE -eq 1 ] ; then
+      mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
+           -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    fi
     export TEST_OPT="-O2"
 
-    mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
-         -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    if [ $SEND_MULTIPLE -eq 1 ] ; then
+      mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
+           -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
+    fi
     run_test
   fi  
 fi
