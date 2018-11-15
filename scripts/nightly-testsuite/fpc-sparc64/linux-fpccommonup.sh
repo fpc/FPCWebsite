@@ -138,9 +138,14 @@ cd tests
 ulimit -s 8192 -t 240
 
 TEST_OPT="$NEEDED_OPT"
-echo "Starting make distclean fulldb" >> $report
+echo "Starting make distclean" >> $report
 echo "`$DATE`" >> $report
-${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+echo "Starting make fulldb" >> $report
+echo "`$DATE`" >> $report
+${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
@@ -154,9 +159,14 @@ tail -30 $testslog >> $report
 mv $testslog ${testslog}-bare
 
 TEST_OPT="-Cg $NEEDED_OPT"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "`$DATE`" >> $report
+${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
@@ -169,9 +179,14 @@ tail -30 $testslog >> $report
 mv $testslog ${testslog}-Cg
 
 TEST_OPT="-O2 $NEEDED_OPT"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} -j 16 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "`$DATE`" >> $report
+${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
