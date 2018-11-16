@@ -2,7 +2,9 @@
 echo Testing msdos with msdos emulator
 if not exist msdos-results mkdir msdos-results
 
-set INSTALL_PREFIX=e:/pas/fpc-3.1.1
+if "X%FPCVERSION%" == "X" set FPCVERSION=3.3.1
+if "X%SVNDIRNAME%" == "X" set SVNDIRNAME=trunk
+set INSTALL_PREFIX=e:/pas/fpc-%FPCVERSION%
 set BINDIR=%INSTALL_PREFIX%/bin/i386-win32/
 set CYGWINBINDIR=e:\cygwin-32\bin
 set RMPROG=e:/cygwin-32/bin/rm.exe
@@ -19,13 +21,17 @@ set TEST_BENCH=1
 set TEST_BINUTILSPREFIX=
 set TEST_OS_TARGET=msdos
 
-set FPCDIR=e:/pas/trunk/fpcsrc
-set FPCWDIR=e:\pas\trunk\fpcsrc
+set FPCDRIVE=e:
+set FPCDIR=%FPCDRIVE%/pas/%SVNDIRNAME%/fpcsrc
+set FPCWDIR=%FPCDRIVE%\pas\%SVNDIRNAME%\fpcsrc
+
 set GLOBALLOG=%FPCWDIR%\tests\test-msdos-msdos.log
 set NATLOG=%FPCWDIR%\tests\nat-win32.log
 set NAT_FPC=%BINDIR%ppc386.exe
 set CROSS_FPC=%BINDIR%ppc8086.exe
 
+%FPCDRIVE%
+cd %FPCWDIR%
 
 echo "I8086 tests starting"
 echo "I8086 tests starting" > %GLOBALLOG%

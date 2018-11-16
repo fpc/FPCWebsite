@@ -1,7 +1,10 @@
 echo Testing msdos with msdos emulator
 mkdir msdos-results
 
-set BINDIR=e:/pas/fpc-3.1.1/bin/i386-win32/
+if "X%FPCVERSION%" == "X" set FPCVERSION=3.3.1
+if "X%SVNDIRNAME%" == "X" set SVNDIRNAME=trunk
+
+set BINDIR=e:/pas/fpc-%FPCVERSION%/bin/i386-win32/
 set CYGWINBINDIR=e:\cygwin-32\bin
 set EMULATOR=e:/pas/fpc-3.0.0/bin/i386-win32/msdos.exe
 set V=1
@@ -13,6 +16,15 @@ set TEST_OS_TARGET=go32v2
 set TEST_BINUTILSPREFIX=i386-go32v2-
 set DOUPLOAD=0
 if "X%1" == "Xupload" set DOUPLOAD=1
+
+set FPCDRIVE=e:
+set FPCDIR=%FPCDRIVE%/pas/%SVNDIRNAME%/fpcsrc
+set FPCWDIR=%FPCDRIVE%\pas\%SVNDIRNAME%\fpcsrc
+
+
+%FPCDRIVE%
+cd %FPCWDIR%
+
 goto alltests
 
 

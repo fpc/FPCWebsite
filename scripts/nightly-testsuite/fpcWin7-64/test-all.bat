@@ -2,8 +2,11 @@
 
 set FPCDRIVE=e:
 set PASWDIR=e:\pas
-set FPCWDIR=%PASWDIR%\trunk
-set FPCVERSION=3.3.1
+
+if "X%SVNDIRNAME%" == "X" set SVNDIRNAME=trunk
+
+set FPCWDIR=%PASWDIR%\%SVNDIRNAME%
+if "X%FPCVERSION%" == "X" set FPCVERSION=3.3.1
 set FPCFULLTARGET=i386-win32
 set CYGWINWBINDIR=e:\cygwin-32\bin
 set RMPROG=%CYGWINWBINDIR%\rm.exe

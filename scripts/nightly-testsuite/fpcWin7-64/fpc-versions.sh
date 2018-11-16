@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 export FPCDIR=$HOME/pas
 export RELEASEVERSION=3.0.4
-export TRUNKDIR=$FPCDIR/trunk
+export TRUNKDIRNAME=trunk
+export TRUNKDIR=$FPCDIR/i$TRUNKDIRNAME
 export TRUNKVERSION=3.3.1
-export FIXESDIR=$FPCDIR/fixes
+export FIXESDIRNAME=fixes
+export FIXESDIR=$FPCDIR/$FIXESDIRNAME
 export FIXESVERSION=3.2.0

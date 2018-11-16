@@ -7,8 +7,9 @@ rem set EXTRAOPT=-Oonopeephole
 rem hopefully not needed anymore
 rem -Criot
 
+if "X%SVNDIRNAME%" == "X" set SVNDIRNAME=trunk
 e:
-cd \pas\trunk
+cd \pas\%SVNDIRNAME%
 gecho -n "set CPU=" > getcpu.bat
 fpc -iSP >> getcpu.bat
 call getcpu.bat
@@ -72,7 +73,7 @@ if "X%UPLOAD%" == "X1" %MAKE% uploadrun TEST_FPC=%BINDIR%/%PPC%
 %MAKE% distclean allexectests TEST_FPC=%BINDIR%/%PPC% TEST_OPT=-Xe
 if "X%UPLOAD%" == "X1" %MAKE% uploadrun TEST_FPC=%BINDIR%/%PPC% TEST_OPT=-Xe
 :runppudumptest
-cd \pas\trunk
+cd \pas\%SVNDIRNAME%
 if exist fpcsrc cd fpcsrc
 cd compiler
 %MAKE% testppudump
@@ -96,4 +97,4 @@ set RUNSVNUP=
 set RUNTESTS=
 set TARGETDIR=
 set UPLOAD=
-cd \pas\trunk
+cd \pas\%SVNDIRNAME%
