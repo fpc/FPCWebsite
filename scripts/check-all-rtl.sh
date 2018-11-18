@@ -232,6 +232,8 @@ fi
 export LOGPREFIX=$LOGDIR/${name}-check
 export dummy_count=0
 export skipped_count=0
+export run_fpcmake_first_count=0
+export os_target_not_supported_count=0
 export rtl_1_failure=0
 export rtl_2_failure=0
 export rtl_ppu_failure=0
@@ -582,11 +584,28 @@ function check_target ()
   $MAKE -C $rtldir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE1 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
-    rtl_1_failure=`expr $rtl_1_failure + 1 `
-    echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-    echo "Failure: See $LOGFILE1 for details"
-    echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-    echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
+    # Check for "The Makefile doesn't support target $CPU_TARG_LOCAL-$OS_TARG_LOCAL, please run fpcmake first.  Stop" pattern
+    fpcmake_pattern=`grep "The Makefile doesn't support target $CPU_TARG_LOCAL-$OS_TARG_LOCAL, please run fpcmake first."  $LOGFILE1 2> /dev/null`
+    unsupported_target_pattern=`grep "Error: Illegal parameter: -T$OS_TARG_LOCAL" $LOGFILE1 2> /dev/null `
+    if [ -n "$fpcmake_pattern" ] ; then
+      run_fpcmake_first_count=`expr $run_fpcmake_first_count + 1 `
+      echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      echo "Failure: See $LOGFILE1 for details"
+      echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
+      echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
+    elif [ -n "$unsupported_target_pattern" ] ; then
+      os_target_not_supported_count=`expr $os_target_not_supported_count + 1 `
+      echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      echo "Failure: See $LOGFILE1 for details"
+      echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
+      echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
+    else
+      rtl_1_failure=`expr $rtl_1_failure + 1 `
+      echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      echo "Failure: See $LOGFILE1 for details"
+      echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
+      echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
+    fi
   else
     echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
@@ -866,6 +885,8 @@ done
 $MAKE -C rtl distclean 1> /dev/null 2>&1
 echo "dummy_count=$dummy_count"
 echo "skipped_count=$skipped_count"
+echo "run_fpcmake_first_count=$run_fpcmake_first_count"
+echo "os_target_not_supported_count=$os_target_not_supported_count"
 echo "rtl_1_failure=$rtl_1_failure"
 echo "rtl_2_failure=$rtl_2_failure"
 echo "rtl_ppu_failure=$rtl_ppu_failure"
@@ -878,6 +899,10 @@ dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
 skipped_count_new_val=` grep "^skipped_count=" $LOGFILE `
 eval $skipped_count_new_val
+run_fpcmake_first_count_new_val=` grep "^run_fpcmake_first_count=" $LOGFILE `
+eval $run_fpcmake_first_count_new_val
+os_target_not_supported_count_new_val=` grep "^os_target_not_supported_count=" $LOGFILE `
+eval $os_target_not_supported_count_new_val
 rtl_1_failure_new_val=` grep "^rtl_1_failure=" $LOGFILE `
 eval $rtl_1_failure_new_val
 rtl_2_failure_new_val=` grep "^rtl_2_failure=" $LOGFILE `
@@ -906,6 +931,12 @@ if [ -f $LISTLOGFILE.previous ] ; then
 fi
 
 echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, number of skips=$skipped_count" >> $EMAILFILE
+if [ $run_fpcmake_first_count -gt 0 ] ; then
+  echo "$run_fpcmake_first_count CPU-OS not handled by fpcmake failure(s)" >> $EMAILFILE
+fi
+if [ $os_target_not_supported_count -gt 0 ] ; then
+  echo "$os_target_not_supported_count OS not supported by CPU compiler failure(s)" >> $EMAILFILE
+fi
 if [ $rtl_1_failure -gt 0 ] ; then
   echo "$rtl_1_failure rtl level 1 failure(s)" >> $EMAILFILE
 fi
