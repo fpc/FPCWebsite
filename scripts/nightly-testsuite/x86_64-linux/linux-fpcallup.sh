@@ -141,4 +141,17 @@ if [ $test_go32v2_fixes -eq 1 ] ; then
   $HOME/bin/test-go32v2.sh
 fi
 
+# Check if script directory exists
+if [ -d $HOME/scripts ] ; then
+  cd $HOME/scripts
+  svn cleanup
+  svn up --non-interactive --accept theirs-conflict 
+  cd $HOME
+elif [ -d $HOME/pas/scripts ] ; then
+  cd $HOME/pas/scripts
+  svn cleanup
+  svn up --non-interactive --accept theirs-conflict 
+  cd $HOME
+fi
+
 
