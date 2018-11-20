@@ -74,6 +74,7 @@ elif [ "X$machine_host" == "Xgcc21" ] ; then
 elif [ "X$machine_host" == "Xgcc70" ] ; then
   # Temp mount is too small, don't use it
   XDG_RUNTIME_DIR=
+  DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   # RECOMPILE_FULL_OPT=-CriotR
@@ -232,13 +233,23 @@ fi
 export LOGPREFIX=$LOGDIR/${name}-check
 export dummy_count=0
 export skipped_count=0
-export run_fpcmake_first_count=0
-export os_target_not_supported_count=0
+export run_fpcmake_first_failure=0
+export os_target_not_supported_failure=0
 export rtl_1_failure=0
 export rtl_2_failure=0
 export rtl_ppu_failure=0
 export packages_failure=0
 export packages_ppu_failure=0
+export dummy_list=
+export skipped_list=
+export run_fpcmake_first_list=
+export os_target_not_supported_list=
+export rtl_1_list=
+export rtl_2_list=
+export rtl_ppu_list=
+export packages_list=
+export packages_ppu_list=
+
 
 NATIVEFPC=fpc
 
@@ -588,19 +599,22 @@ function check_target ()
     fpcmake_pattern=`grep "The Makefile doesn't support target $CPU_TARG_LOCAL-$OS_TARG_LOCAL, please run fpcmake first."  $LOGFILE1 2> /dev/null`
     unsupported_target_pattern=`grep "Error: Illegal parameter: -T$OS_TARG_LOCAL" $LOGFILE1 2> /dev/null `
     if [ -n "$fpcmake_pattern" ] ; then
-      run_fpcmake_first_count=`expr $run_fpcmake_first_count + 1 `
+      run_fpcmake_first_failure=`expr $run_fpcmake_first_failure + 1 `
+      run_fpcmake_first_list="$run_fpcmake_first_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       echo "Failure: See $LOGFILE1 for details"
       echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
       echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
     elif [ -n "$unsupported_target_pattern" ] ; then
-      os_target_not_supported_count=`expr $os_target_not_supported_count + 1 `
+      os_target_not_supported_failure=`expr $os_target_not_supported_failure + 1 `
+      os_target_not_supported_list="$os_target_not_supported_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       echo "Failure: See $LOGFILE1 for details"
       echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
       echo "Failure: See $LOGFILE1 for details" >> $LISTLOGFILE
     else
       rtl_1_failure=`expr $rtl_1_failure + 1 `
+      rtl_1_list="$rtl_1_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       echo "Failure: See $LOGFILE1 for details"
       echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
@@ -616,6 +630,7 @@ function check_target ()
     res=$?
     if [ $res -ne 0 ] ; then
       rtl_2_failure=`expr $rtl_2_failure + 1 `
+      rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       echo "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       echo "Failure: See $LOGFILE2 for details"
       echo "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
@@ -624,6 +639,7 @@ function check_target ()
       fpc_called=`grep -E "(^|[^=])$FPC_LOCAL" $LOGFILE2 `
       if [ "X$fpc_called" != "X" ] ; then
         rtl_2_failure=`expr $rtl_2_failure + 1 `
+        rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
         echo "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again"
         echo "Failure: See $LOGFILE2 for details"
         echo "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again" >> $LISTLOGFILE
@@ -638,6 +654,7 @@ function check_target ()
           res=$?
 	  if [ $res -ne 0 ] ; then
             rtl_ppu_failure=`expr $rtl_ppu_failure + 1 `
+            rtl_ppu_list="$rtl_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
             echo "Failure: ppudump for $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
             echo "Failure: See $LOGFILEPPU for details"
             echo "Failure: ppudump for $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
@@ -666,6 +683,7 @@ function check_target ()
           res=$?
           if [ $res -ne 0 ] ; then
             packages_failure=`expr $packages_failure + 1 `
+            packages_list="$packages_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
             echo "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
             echo "Failure: See $LOGFILE3 for details"
             echo "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
@@ -683,6 +701,7 @@ function check_target ()
               res=$?
 	      if [ $res -ne 0 ] ; then
                 packages_ppu_failure=`expr $packages_ppu_failure + 1 `
+                packages_ppu_list="$packages_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
                 echo "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
                 echo "Failure: See $LOGFILEPACKPPU for details"
                 echo "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
@@ -885,13 +904,34 @@ done
 $MAKE -C rtl distclean 1> /dev/null 2>&1
 echo "dummy_count=$dummy_count"
 echo "skipped_count=$skipped_count"
-echo "run_fpcmake_first_count=$run_fpcmake_first_count"
-echo "os_target_not_supported_count=$os_target_not_supported_count"
+echo "run_fpcmake_first_failure=$run_fpcmake_first_failure"
+if [ $run_fpcmake_first_failure -gt 0 ] ; then
+  echo "run_fpcmake_first_list=\"$run_fpcmake_first_list\""
+fi
+echo "os_target_not_supported_failure=$os_target_not_supported_failure"
+if [ $os_target_not_supported_failure -gt 0 ] ; then
+  echo "os_target_not_supported_list=\"$os_target_not_supported_list\""
+fi
 echo "rtl_1_failure=$rtl_1_failure"
+if [ $rtl_1_failure -gt 0 ] ; then
+  echo "rtl_1_list=\"$rtl_1_list\""
+fi
 echo "rtl_2_failure=$rtl_2_failure"
+if [ $rtl_2_failure -gt 0 ] ; then
+  echo "rtl_2_list=\"$rtl_2_list\""
+fi
 echo "rtl_ppu_failure=$rtl_ppu_failure"
+if [ $rtl_ppu_failure -gt 0 ] ; then
+  echo "rtl_ppu_list=\"$rtl_ppu_list\""
+fi
 echo "packages_failure=$packages_failure"
+if [ $packages_failure -gt 0 ] ; then
+  echo "packages_list=\"$packages_list\""
+fi
 echo "packages_ppu_failure=$packages_ppu_failure"
+if [ $packages_ppu_failure -gt 0 ] ; then
+  echo "packages_ppu_list=\"$packages_ppu_list\""
+fi
 
 ) >> $LOGFILE 2>&1
 
@@ -899,10 +939,10 @@ dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
 skipped_count_new_val=` grep "^skipped_count=" $LOGFILE `
 eval $skipped_count_new_val
-run_fpcmake_first_count_new_val=` grep "^run_fpcmake_first_count=" $LOGFILE `
-eval $run_fpcmake_first_count_new_val
-os_target_not_supported_count_new_val=` grep "^os_target_not_supported_count=" $LOGFILE `
-eval $os_target_not_supported_count_new_val
+run_fpcmake_first_failure_new_val=` grep "^run_fpcmake_first_failure=" $LOGFILE `
+eval $run_fpcmake_first_failure_new_val
+os_target_not_supported_failure_new_val=` grep "^os_target_not_supported_failure=" $LOGFILE `
+eval $os_target_not_supported_failure_new_val
 rtl_1_failure_new_val=` grep "^rtl_1_failure=" $LOGFILE `
 eval $rtl_1_failure_new_val
 rtl_2_failure_new_val=` grep "^rtl_2_failure=" $LOGFILE `
@@ -913,6 +953,21 @@ packages_failure_new_val=` grep "^packages_failure=" $LOGFILE `
 eval $packages_failure_new_val
 packages_ppu_failure_new_val=` grep "^packages_ppu_failure=" $LOGFILE `
 eval $packages_ppu_failure_new_val
+run_fpcmake_first_list_new_val=` grep "^run_fpcmake_first_list=" $LOGFILE `
+eval $run_fpcmake_first_list_new_val
+os_target_not_supported_list_new_val=` grep "^os_target_not_supported_list=" $LOGFILE `
+eval $os_target_not_supported_list_new_val
+rtl_1_list_new_val=` grep "^rtl_1_list=" $LOGFILE `
+eval $rtl_1_list_new_val
+rtl_2_list_new_val=` grep "^rtl_2_list=" $LOGFILE `
+eval $rtl_2_list_new_val
+rtl_ppu_list_new_val=` grep "^rtl_ppu_list=" $LOGFILE `
+eval $rtl_ppu_list_new_val
+packages_list_new_val=` grep "^packages_list=" $LOGFILE `
+eval $packages_list_new_val
+packages_ppu_list_new_val=` grep "^packages_ppu_failure=" $LOGFILE `
+eval $packages_ppu_list_new_val
+
 
 echo "Ending at `date`" >> $LOGFILE
 echo "Ending at `date`" >> $LISTLOGFILE
@@ -931,26 +986,26 @@ if [ -f $LISTLOGFILE.previous ] ; then
 fi
 
 echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, number of skips=$skipped_count" >> $EMAILFILE
-if [ $run_fpcmake_first_count -gt 0 ] ; then
-  echo "$run_fpcmake_first_count CPU-OS not handled by fpcmake failure(s)" >> $EMAILFILE
+if [ $run_fpcmake_first_failure -gt 0 ] ; then
+  echo "$run_fpcmake_first_failure CPU-OS not handled by fpcmake failure(s), $run_fpcmake_first_list" >> $EMAILFILE
 fi
-if [ $os_target_not_supported_count -gt 0 ] ; then
-  echo "$os_target_not_supported_count OS not supported by CPU compiler failure(s)" >> $EMAILFILE
+if [ $os_target_not_supported_failure -gt 0 ] ; then
+  echo "$os_target_not_supported_failure OS not supported by CPU compiler failure(s), $os_target_not_supported_list" >> $EMAILFILE
 fi
 if [ $rtl_1_failure -gt 0 ] ; then
-  echo "$rtl_1_failure rtl level 1 failure(s)" >> $EMAILFILE
+  echo "$rtl_1_failure rtl level 1 failure(s), $rtl_1_list" >> $EMAILFILE
 fi
 if [ $rtl_2_failure -gt 0 ] ; then
-  echo "$rtl_2_failure rtl level 2 failure(s)" >> $EMAILFILE
+  echo "$rtl_2_failure rtl level 2 failure(s), $rtl_2_list" >> $EMAILFILE
 fi
 if [ $rtl_ppu_failure -gt 0 ] ; then
-  echo "$rtl_ppu_failure rtl ppudump failure(s)" >> $EMAILFILE
+  echo "$rtl_ppu_failure rtl ppudump failure(s), $rtl_ppu_list" >> $EMAILFILE
 fi
 if [ $packages_failure -gt 0 ] ; then
-  echo "$packages_failure packages failure(s)" >> $EMAILFILE
+  echo "$packages_failure packages failure(s), $packages_list" >> $EMAILFILE
 fi
 if [ $packages_ppu_failure -gt 0 ] ; then
-  echo "$packages_ppu_failure packages ppudump failure(s)" >> $EMAILFILE
+  echo "$packages_ppu_failure packages ppudump failure(s), $packages_ppu_list" >> $EMAILFILE
 fi
 echo "Number of targets using dummy assembler: $dummy_count/$total_count" >> $EMAILFILE
 echo "###############################" >> $EMAILFILE
@@ -987,7 +1042,13 @@ echo "###############################" >> $EMAILFILE
 echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
-mutt -x -s "Free Pascal check RTL ${svnname}, $FPC_VERSION results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+if [ -n "$RECOMPILE_FULL_OPT" ] ; then
+  FPC_INFO="$FPC_VERSION, compilers compiled with $RECOMPILE_FULL_OPT,"
+else
+  FPC_INFO="$FPC_VERSION"
+fi
+
+mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
 if [ -z "$DO_FPC_INSTALL" ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
