@@ -795,8 +795,8 @@ check_target x86_64 darwin "-n -ao--target=x86_64-apple-darwin-macho" "" "-bare-
 check_target i386 darwin "-n" 
 check_target x86_64 darwin "-n"
 # powerpc (32 and 64 bit) ofr Darwin will be removed from clang
-check_target powerpc darwin "-n -Aclang" "" "-with-clang"
-check_target powerpc64 darwin "-n -Aclang" "" "-with-clang"
+# check_target powerpc darwin "-n -Aclang" "" "-with-clang"
+# check_target powerpc64 darwin "-n -Aclang" "" "-with-clang"
 
 check_target powerpc darwin "-n -Aas-darwin"
 check_target powerpc64 darwin "-n -Aas-darwin"
@@ -853,7 +853,10 @@ export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional"
 check_target m68k atari "-n -Avasm"
 export ASPROG_LOCAL=
 check_target m68k linux "-n -Avasm" "" "-vasm"
-## Disabled: -Avasm is not supported for macoscheck_target m68k macos "-n -Avasm" "" "-vasm"
+## Disabled: -Avasm is not supported for macos
+## check_target m68k macos "-n -Avasm" "" "-vasm"
+# palmos requires -CX -XX otherwise section overflow errors appear
+check_target m68k palmos "-n -CX -XX"
 
 ## Obsolete since fixes_3_2 branch
 ##if [ "$svnname" == "fixes" ] ; then
