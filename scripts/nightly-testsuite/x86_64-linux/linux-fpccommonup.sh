@@ -157,7 +157,7 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $makeres -ne 0 ] ; then
     echo "${MAKE} install failed ${makeres}" >> $report
-    for dir in rtl compiler packages utils ide ; do
+    for dir in rtl compiler packages utils ; do
       echo "Starting make install in dir $dir" >> $report
       echo "##`$DATE`" >> $report
       echo "Starting make install in dir $dir" >> $makelog
