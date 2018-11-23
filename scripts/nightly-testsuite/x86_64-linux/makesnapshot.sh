@@ -86,7 +86,13 @@ else
 fi
 
 rm -rf libgdb
-rm -f *.tar.gz
+if [ "X$HOSTNAME" == "Xgcc123" ] ; then
+  mkdir -p snapshots
+  mv -f *.tar.gz snapshots
+else
+  rm -f *.tar.gz
+fi
+
 (make distclean TEST_FPC=$STARTPP || true) > /dev/null
 (make -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP || true) > /dev/null
 
@@ -102,7 +108,7 @@ if [ "$LIBGDBZIP" != "" ]; then
         unzip -o ${LIBGDBZIP} >> $LONGLOGFILE 2>&1
 fi
 else
-  EXTRAOPT="GDBMI=1"
+  EXTRAOPT="$EXTRAOPT GDBMI=1"
 fi
 
 
@@ -111,8 +117,8 @@ cd $CHECKOUTDIR
 # Regenerate native rtl units, needed for bs_units
 echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
 make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
-echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT\"" 
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT" >> $LONGLOGFILE 2>&1
+echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
 res=$?
 
 if [ $res -ne 0 ] ; then
@@ -146,12 +152,18 @@ else
   NEWCROSSFPC=$NEWFPC
 fi
 
-SNAPSHOTFILE=`ls -1 *.tar.gz`
+SNAPSHOTFILE=`ls -1 *fpc-*.tar.gz 2> /dev/null`
+
+if [ -n "$MAKESNAPSHOT_SUFFIX" ] ; then
+  mv ${SNAPSHOTFILE} ${SNAPSHOTFILE/.tar.gz/${MAKESNAPSHOT_SUFFIX}.tar.gz}
+  SNAPSHOTFILE=`ls -1 *fpc-*.tar.gz`
+fi
+
 READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 
 cat > $READMEFILE <<EOF
 This snapshot $SNAPSHOTFILE was generated ${date} using:
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT"
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
 started using ${STARTPP}
 ${PPCCPU} -iVDW output is: `${NEWCROSSFPC} -iVDW`
 
