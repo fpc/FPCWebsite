@@ -2,10 +2,12 @@
 
 if [ "$1" == "--copy" ] ; then
   export BINUTILS_COPY_ONLY=1
+  shift
 fi
 
 if [ "$1" == "--new-only" ] ; then
   export BINUTILS_NEW_ONLY=1
+  shift
 fi
 
 ## aarch64 CPU
