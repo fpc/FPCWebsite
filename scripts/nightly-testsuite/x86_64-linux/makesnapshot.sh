@@ -123,7 +123,16 @@ res=$?
 
 if [ $res -ne 0 ] ; then
   echo "make singlezipinstall failed, res=$res"
-  exit $res
+  no_libgdb_error=`grep "No libgdb.a found, supply NOGDB=1" $LONGLOGFILE `
+  if [ -n "$no_libgdb_error" ] ; then
+    echo "Trying a second time with NOGDB=1"
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
+    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
+    res=$?
+  fi
+  if [ $res -ne 0 ] ; then
+    exit $res
+  fi
 fi
 
 if [ "$PPCCPU" == "" ]; then
