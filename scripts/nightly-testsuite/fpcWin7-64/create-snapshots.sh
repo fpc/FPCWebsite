@@ -24,9 +24,10 @@ $HOME/bin/kill-leftover-handles.sh
 # All those batches only work if started in their directory
 export WANTED_VERSION=$FIXESVERSION
 cd $FIXESDIR
+export DEFAULT_SUBDIR=fixes
 if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
-/cygdrive/c/WINDOWS/system32/cmd.exe /C "E:\\pas\\fixes\\fpcsrc\\createsnapshots.bat"
+/cygdrive/c/WINDOWS/system32/cmd.exe /C "E:\\pas\\fixes_3_2\\fpcsrc\\createsnapshots.bat"
 $HOME/bin/kill-leftover-handles.sh
 
