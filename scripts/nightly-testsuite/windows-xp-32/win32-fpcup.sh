@@ -62,4 +62,4 @@ export SVNDIR=$TRUNKDIR
 # Restore path 
 export PATH=$HOME/pas/fpc-$TRUNKVERSION/bin/i386-win32:$HOME/pas/fpc-$RELEASEVERSION/bin/i386-win32:$LOCSTARTPATH
 
-/cygdrive/c/windows/system32/cmd.exe /C E:\pas\trunk\fpcsrc\tests\test-all.bat > $LOG_TESTS 2>&1
+/cygdrive/c/windows/system32/cmd.exe /C E:\\pas\\trunk\\fpcsrc\\tests\\test-all.bat > $LOG_TESTS 2>&1
