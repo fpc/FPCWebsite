@@ -4,13 +4,24 @@
 
 # Set main variables
 export MAKE=make
-if [ "${HOSTNAME}" == "stadler" ]; then
+if [ "${HOSTNAME}" == "gcc202" ]; then
+  export HOST_PC=gcc202
+  export USER=pierre
+  export ASTARGET=-32
+  # We should try to use automatic output of gcc 
+  export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
+  export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
+  export DO_TESTS=1
+elif [ "${HOSTNAME}" == "stadler" ]; then
   export HOST_PC=fpc-sparc64
   export USER=pierre
   export ASTARGET=-32
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -19,7 +30,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre
   export ASTARGET=-32
-  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -42,7 +53,7 @@ DATESTR=`$DATE`
 # Use Free Pascal Release Version from fpc-versions script
 FPCRELEASEVERSION=$RELEASEVERSION
 
-export PATH=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 if [ "x$FIXES" == "x1" ] ; then
   SVNDIR=fixes
@@ -120,7 +131,7 @@ else
 fi
 
 # Add new bin dir as first in PATH
-export PATH=/home/${USER}/pas/fpc-${Build_version}/bin:${PATH}
+export PATH=${HOME}/pas/fpc-${Build_version}/bin:${PATH}
 echo "Using new PATH=\"${PATH}\"" >> $report
 NEWFPC=`which $FPCBIN`
 echo "Using new binary \"${NEWFPC}\"" >> $report
@@ -140,12 +151,12 @@ ulimit -s 8192 -t 240
 TEST_OPT="$NEEDED_OPT"
 echo "Starting make distclean" >> $report
 echo "`$DATE`" >> $report
-${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
 echo "Starting make fulldb" >> $report
 echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
@@ -161,12 +172,12 @@ mv $testslog ${testslog}-bare
 TEST_OPT="-Cg $NEEDED_OPT"
 echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
 echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
@@ -181,12 +192,12 @@ mv $testslog ${testslog}-Cg
 TEST_OPT="-O2 $NEEDED_OPT"
 echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
 echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
