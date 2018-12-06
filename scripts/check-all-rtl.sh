@@ -460,11 +460,13 @@ function check_target ()
       if [ ! -f "$target_as" ] ; then
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
         skipped_count=`expr $skipped_count + 1 `
+        skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
         echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy"
         echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy" >> $LISTLOGFILE
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
+      dummy_list="$dummy_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     fi
   else
     target_as=`which $target_as`
@@ -475,6 +477,7 @@ function check_target ()
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found" >> $LISTLOGFILE
     skipped_count=`expr $skipped_count + 1 `
+    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
 
@@ -513,6 +516,7 @@ function check_target ()
       echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
       echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res" >> $LISTLOGFILE
       skipped_count=`expr $skipped_count + 1 `
+      skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       return
     fi
     fpc_local_exe=`pwd`/compiler/$FPC_LOCAL
@@ -527,12 +531,14 @@ function check_target ()
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found" >> $LISTLOGFILE
     skipped_count=`expr $skipped_count + 1 `
+    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   if [ ! -x "$fpc_local_exe" ] ; then
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable"
     echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable" >> $LISTLOGFILE
     skipped_count=`expr $skipped_count + 1 `
+    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   CROSS_VERSION=`$fpc_local_exe -iV` 
@@ -540,6 +546,7 @@ function check_target ()
     echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $LOGFILE
     echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $EMAILFILE
     skipped_count=`expr $skipped_count + 1 `
+    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   CROSS_DATE=`$fpc_local_exe -iD` 
@@ -547,6 +554,7 @@ function check_target ()
     echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $LOGFILE
     echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $EMAILFILE
     skipped_count=`expr $skipped_count + 1 `
+    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
 
@@ -906,7 +914,13 @@ done
 
 $MAKE -C rtl distclean 1> /dev/null 2>&1
 echo "dummy_count=$dummy_count"
+if [ $dummy_count -gt 0 ] ; then
+  echo "dummy_list=\"$dummy_list\""
+fi
 echo "skipped_count=$skipped_count"
+if [ $skipped_count -gt 0 ] ; then
+  echo "skipped_list=\"$skipped_list\""
+fi
 echo "run_fpcmake_first_failure=$run_fpcmake_first_failure"
 if [ $run_fpcmake_first_failure -gt 0 ] ; then
   echo "run_fpcmake_first_list=\"$run_fpcmake_first_list\""
@@ -956,6 +970,10 @@ packages_failure_new_val=` grep "^packages_failure=" $LOGFILE `
 eval $packages_failure_new_val
 packages_ppu_failure_new_val=` grep "^packages_ppu_failure=" $LOGFILE `
 eval $packages_ppu_failure_new_val
+dummy_list_new_val=` grep "^dummy_list=" $LOGFILE `
+eval $dummy_list_new_val
+skipped_list_new_val=` grep "^skipped_list=" $LOGFILE `
+eval $skipped_list_new_val
 run_fpcmake_first_list_new_val=` grep "^run_fpcmake_first_list=" $LOGFILE `
 eval $run_fpcmake_first_list_new_val
 os_target_not_supported_list_new_val=` grep "^os_target_not_supported_list=" $LOGFILE `
@@ -1010,6 +1028,12 @@ fi
 if [ $packages_ppu_failure -gt 0 ] ; then
   echo "$packages_ppu_failure packages ppudump failure(s), $packages_ppu_list" >> $EMAILFILE
 fi
+if [ $skipped_count -gt 0 ] ; then
+  echo "$skipped_count skipped target(s), $skipped_list" >> $EMAILFILE
+fi
+if [ $dummy_count -gt 0 ] ; then
+  echo "$dummy_count target(s) using dummy assembler, $dummy_list" >> $EMAILFILE
+fi
 echo "Number of targets using dummy assembler: $dummy_count/$total_count" >> $EMAILFILE
 echo "###############################" >> $EMAILFILE
 echo "Short list of failed cpu-os pairs" >> $EMAILFILE
@@ -1049,6 +1073,11 @@ if [ -n "$RECOMPILE_FULL_OPT" ] ; then
   FPC_INFO="$FPC_VERSION, compilers compiled with $RECOMPILE_FULL_OPT,"
 else
   FPC_INFO="$FPC_VERSION"
+fi
+
+# Add $HOME/bin directory if it exists at start of PATH to use custom mutt
+if [ -d $HOME/bin ] ; then
+  PATH=$HOME/bin:$PATH
 fi
 
 mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
