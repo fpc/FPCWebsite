@@ -98,7 +98,7 @@ fi
 
 if [ $gen_source_zips -eq 1 ] ; then
   # Update source on fpcftp machine
-  $HOME/scripts/allsourcezips
+  . $HOME/scripts/allsourcezips
 fi
 
 if [ $gen_cross_snapshots_trunk -eq 1 ] ; then
@@ -141,16 +141,27 @@ if [ $test_go32v2_fixes -eq 1 ] ; then
   $HOME/bin/test-go32v2.sh
 fi
 
+# Check if latest source was uploaded
+TODAY=`date +%Y-%m-%d`
+
+today_trunk_sources=`ssh fpcftp "find ftp/snapshot/trunk/source -newermt $TODAY" 2> /dev/null `
+today_fixes_sources=`ssh fpcftp "find ftp/snapshot/fixes/source -newermt $TODAY" 2> /dev/null `
+if [ -z "$today_trunk_sources$today_fixes_sources" ] ; then
+  # Update source on fpcftp machine
+  . $HOME/scripts/allsourcezips
+fi
+
 # Check if script directory exists
+SVNLOGFILE=$HOME/logs/svn-scripts.log
 if [ -d $HOME/scripts ] ; then
   cd $HOME/scripts
-  svn cleanup
-  svn up --non-interactive --accept theirs-conflict 
+  svn cleanup > $SVNLOGFILE 2>&1
+  svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
   cd $HOME
 elif [ -d $HOME/pas/scripts ] ; then
   cd $HOME/pas/scripts
-  svn cleanup
-  svn up --non-interactive --accept theirs-conflict 
+  svn cleanup > $SVNLOGFILE 2>&1
+  svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
   cd $HOME
 fi
 
