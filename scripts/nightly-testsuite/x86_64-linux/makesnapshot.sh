@@ -13,6 +13,8 @@ if [ "X$2" != "X" ] ; then
   OS_TARGET=$2
 fi
 
+FULL_TARGET=${CPU_TARGET}-${OS_TARGET}
+
 export LANG=en_US.utf8
 export DB_SSH_EXTRA="-i ${HOME}/.ssh/freepascal"
 export SCP_EXTRA="-i ${HOME}/.ssh/freepascal"
@@ -110,7 +112,76 @@ fi
 else
   EXTRAOPT="$EXTRAOPT GDBMI=1"
 fi
+sysroot=$HOME/sys-root
 
+is_64bit=0
+case $CPU_TARGET in
+  aarch64|powerpc64|riscv64|sparc64|x86_64) is_64bit=1;;
+esac
+
+function add_dir ()
+{
+  pattern="$1"
+  if [ "${pattern/\//_}" != "$pattern" ] ; then
+    if [ -f "$pattern" ] ; then
+      file_list=$pattern
+    else
+      file_list=`find $sysroot/ -wholename "$pattern"`
+    fi
+  else
+    file_list=`find $sysroot/ -iname "$pattern"`
+  fi
+  for file in $file_list ; do
+    use_file=0
+    file_type=`file $file`
+    if [ "$file_type" != "${file_type//symbolic link/}" ] ; then
+      ls_line=`ls -l $file`
+      echo "ls line is \"$ls_line\""
+      link_target=${ls_line/* /}
+      echo "link target is \"$link_target\""
+      if [[ "${link_target:0:1}" == / || "${link_target:0:2}" == ~[/a-z] ]] ; then
+        is_absolute=1
+        add_dir $link_target
+      else
+        is_absolute=0
+        dir=`dirname $file`
+        add_dir $dir/$link_target
+      fi
+      return
+    fi
+
+    file_is_64=`echo $file_type | grep "64-bit" `
+    if [[ ( -n "$file_is_64" ) && ( $is_64 -eq 1 ) ]] ; then
+      use_file=1
+    fi
+    if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
+      use_file=1
+    fi
+    echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
+    if [ $use_file -eq 1 ] ; then
+      file_dir=`dirname $file`
+      if [ "${CROSSOPT/-Fl$file_dir /}" == "$CROSSOPT" ] ; then
+        echo "Adding $file_dir directory to library path list"
+        CROSSOPT="$CROSSOPT -Fl$file_dir "
+      fi
+    fi
+  done
+}
+ 
+CROSSOPT_ORIG="$CROSSOPT"
+
+if [ -d "$HOME/sys-root/${FULL_TARGET}" ] ; then
+  echo "Trying to build using BUILFULLNATIVE=1"
+  export BUILDFULLNATIVE=1
+  sysroot=$HOME/sys-root/${FULL_TARGET}
+  add_dir "crt1.o"
+  add_dir "crti.o"
+  add_dir "crtbegin.o"
+  add_dir "libc.a"
+  add_dir "libc.so"
+  add_dir "ld*.so*"
+  CROSSOPT="$CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
@@ -126,14 +197,34 @@ if [ $res -ne 0 ] ; then
   no_libgdb_error=`grep "No libgdb.a found, supply NOGDB=1" $LONGLOGFILE `
   if [ -n "$no_libgdb_error" ] ; then
     echo "Trying a second time with NOGDB=1"
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
     echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
     make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
     res=$?
   fi
+fi
+
+if [ "$BUILDFULLNATIVE" == "1" ] ; then
   if [ $res -ne 0 ] ; then
-    exit $res
+    echo "Try again, without BUILDFULLNATIVE" >> $LONGLOGFILE
+    echo "Try again, without BUILDFULLNATIVE"
+    export BUILDFULLNATIVE=
+    CROSSOPT="$CROSSOPT_ORIG"
+    echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
+    make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" >> $LONGLOGFILE
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
+    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
+    res=$?
   fi
 fi
+
+if [ $res -ne 0 ] ; then
+  echo "make singlezipinstall failed, res=$res" >> $LONGLOGFILE
+  echo "make singlezipinstall failed, res=$res"
+  exit $res
+fi
+
 
 if [ "$PPCCPU" == "" ]; then
   PPCCPU=${FPC_BIN}
