@@ -1,6 +1,6 @@
 #!/bin/bash
 . $HOME/bin/fpc-versions.sh
-if [ "X$DO_FIXES" == "X" ] ; then
+if [ "X$FIXES" == "X" ] ; then
   export SVNDIR=$TRUNKDIR
   export TARGET_VERSION=$TRUNKVERSION
 else
