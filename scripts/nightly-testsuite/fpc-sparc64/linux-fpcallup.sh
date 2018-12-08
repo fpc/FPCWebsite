@@ -21,5 +21,8 @@ export FIXES=0
 if [ $enable_64bit_tests -eq 1 ] ; then
    $HOME/bin/test-cross-64.sh
    $HOME/bin/makesnapshottrunk64.sh
+   export FIXES=1
+   $HOME/bin/test-cross-64.sh
+   $HOME/bin/makesnapshotfixes64.sh
 fi
 
