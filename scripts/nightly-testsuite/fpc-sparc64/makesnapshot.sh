@@ -131,9 +131,34 @@ else
   echo "Ended make singlezipinstall OK"
 fi
 
-if [ "X$PPCCPU" == "X" ]; then
-  PPCCPU=ppcsparc
+if [ "X$TARGET_CPU" == "Xsparc64" ] ; then
+  NEWPPCCPU=`pwd`/fpcsrc/compiler/ppcsparc64
+else
+  NEWPPCCPU=`pwd`/fpcsrc/compiler/ppcsparc
 fi
+
+SNAPSHOTFILE=`ls -1 *fpc-*.tar.gz 2> /dev/null`
+READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
+date=`date +%Y-%m-%d`
+
+cat > $READMEFILE <<EOF
+This snapshot $SNAPSHOTFILE was generated ${date} using:
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
+started using ${STARTPP}
+${NEWPPCCPU} -iVDW output is: `${NEWPPCCPU} -iVDW`
+
+uname -a of the machine is:
+`uname -a`
+
+"svnversion -c ." output is: `svnversion -c .`
+
+"svnversion -c fpcsrc" output is: `svnversion -c fpcsrc`
+
+Enjoy,
+
+Pierre Muller
+EOF
+
 
 # copy current compiler to bin dir
 if [ -f $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU ] ; then
@@ -159,7 +184,7 @@ else
     # if needed Everything is set
     echo "Starting scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}"
     ssh ${SCP_EXTRA} ${FTPDIR//:*/} mkdir -p ${FTPDIR//*:/}
-    scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
+    scp ${SCP_EXTRA} *.tar.gz ${READMEFILE} ${FTPDIR}
     res=$?
     if [ $res -ne 0 ]; then
       echo "scp failed res=$res"
