@@ -5,16 +5,28 @@ export FPC_START_VERSION=3.0.4
 export FPC_RELEASE_SVN_DIR=fixes_3_2
 export FPC_TMP_INSTALL=$HOME/pas/fpc-tmp-$FPC_RELEASE_VERSION
 
-UPLOAD=0
+if [ -z "$UPLOAD" ] ; then
+  UPLOAD=0
+fi
 
-if [ "X${FPC_RELEASE_VERSION//rc/}" != "X${FPC_RELEASE_VERSION}" ] ; then
+if [ -z "$KEEP_ALL" ] ; then
+  KEEP_ALL=0
+fi
+
+if [ -z "$BASE_PAS_DIR" ] ; then
+  BASE_PAS_DIR=$HOME/pas/release-build
+fi
+
+if [ "X${FPC_RELEASE_VERSION//-rc/}" != "X${FPC_RELEASE_VERSION}" ] ; then
   is_beta=1
   ftpdir=ftp/beta
   tags=branches
+  FPC_RELEASE_SUBDIR=${FPC_RELEASE_VERSION/-rc*/}
 else
   is_beta=0
   ftpdir=ftp/dist
   tags=tags
+  FPC_RELEASE_SUBDIR=${FPC_RELEASE_VERSION}
 fi
 
 MAKE=`which gmake`
@@ -63,8 +75,13 @@ elif [ ! -z "$TEMP" ] ; then
 else
   export TMP_PREFIX=${HOME}/tmp/$USER
 fi
- 
-cd  $HOME/pas
+
+if [ ! -d $BASE_PAS_DIR ] ; then
+  mkdir -p $BASE_PAS_DIR
+fi
+
+cd  $BASE_PAS_DIR
+
 echo "Checking out release $FPC_RELEASE_SVN_DIR"
 if [ -d $FPC_RELEASE_SVN_DIR ] ; then
   cd $FPC_RELEASE_SVN_DIR
@@ -92,13 +109,15 @@ if [ $res -ne 0 ] ; then
   exit
 fi
 $MAKE installsymlink INSTALL_PREFIX=$FPC_TMP_INSTALL FPC=`pwd`/$FPC_NATIVE_BIN
-$MAKE fullcycle fullinstall OPT="-n $REQUIRED_OPT" FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL
+$MAKE rtlclean rtl fullcycle fullinstallsymlink OPT="-n $REQUIRED_OPT" FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make fullcycle fullinstall failed, res=$res"
+  exit
 fi
 cd ../../..
 
+# Start of make_release function
 function make_release () {
 START_SOURCE_OS=`$STARTFPC -iSO`
 START_SOURCE_CPU=`$STARTFPC -iSP`
@@ -106,12 +125,13 @@ START_OS_TARGET=`$STARTFPC -iTO`
 START_CPU_TARGET=`$STARTFPC -iTP`
 
 if [ $# -ne 0 ]; then
-  if [ $# -ne 1 ]; then
-    echo "Usage: $0 [<cpu>-<os>]"
-    exit 1
-  fi
+#  if [ $# -ne 1 ]; then
+#    echo "Usage: $0 [<cpu>-<os>]"
+#    exit 1
+#  fi
   TARGETCPU=`echo $1 | sed 's+\([^-]*\)-.*+\1+'`
   TARGETOS=`echo $1 | sed 's+[^-]*-\(.*\)+\1+'`
+  suffix=$2
 else
   TARGETCPU=$START_CPU_TARGET
   TARGETOS=$START_OS_TARGET
@@ -213,19 +233,28 @@ echo "Using STARTFPC=$STARTFPC"
 bash -v ./install/makepack $1
 res=$?
 echo "Ended: bash -v ./install/makepack $1, res=$res"
-
+if [ $res -ne 0 ] ; then
+  return
+fi
 
 cd $HOME/pas/$FPC_RELEASE_SVN_DIR
+if [ -n "$suffix" ]; then
+  if [ -f "fpc-${FPC_RELEASE_VERSION_IN_TAR}.${TARGETCPU}-${TARGETOS}.tar" ]; then
+    mv fpc-${FPC_RELEASE_VERSION_IN_TAR}.${TARGETCPU}-${TARGETOS}.tar fpc-${FPC_RELEASE_VERSION_IN_TAR}.${TARGETCPU}-${TARGETOS}${suffix}.tar
+  fi
+fi
+
 files=`ls -1 ./fpc-${FPC_RELEASE_VERSION_IN_TAR}.${TARGETCPU}-${TARGETOS}*tar`
 
-if [[ ("X$files" != "X") && ($UPLOAD -eq 1) ]] ; then
+if [[ ( "X$files" != "X" ) && ( $UPLOAD -eq 1 ) ]] ; then
   echo "found $files"
   echo "Creating directory ftp/beta/${FPC_RELEASE_VERSION}/${TARGETCPU}-${TARGETOS} on ftpmaster"
-  ssh  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org "mkdir ${ftpdir}/${FPC_RELEASE_VERSION}/${TARGETCPU}-${TARGETOS}"
+  ssh  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org "mkdir -p ${ftpdir}/${FPC_RELEASE_VERSION}/${TARGETCPU}-${TARGETOS}"
   echo "Transferring $files to that directory"
   scp -p  -i ~/.ssh/freepascal $files fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/$TARGETCPU-${TARGETOS}
 fi
 }
+# End of make_release function
 
 if [ $# -ne 0 ]; then
   TARGETCPU=`echo $1 | sed 's+\([^-]*\)-.*+\1+'`
@@ -243,12 +272,14 @@ if [ ! -z "$1" ] ; then
 fi
 
 # make_release i386-linux 2>&1 | tee $HOME/logs/make-release-${FPC_RELEASE_VERSION}-i386-linux.log
+
+# Start of list_os function
 function list_os ()
 {
   FPC=$1
   CPU_TARGET=$2
   OPT="$3"
-  os_list=` $FPC_TMP_INSTALL/lib/fpc/$FPC_RELEASE_VERSION/$FPC -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" || true `
+  os_list=` $FPC_TMP_INSTALL/bin/$FPC -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" || true `
   listed=1
   for os in ${os_list} ; do
    echo "make_release $CPU_TARGET $os \"$OPT\", ignored..."
@@ -258,6 +289,7 @@ function list_os ()
   done
   listed=0
 }
+# End of list_os function
 
 LOGFILE=$HOME/logs/all-${FPC_RELEASE_SVN_DIR}-releases.log
 LISTLOGFILE=$HOME/logs/list-all-releases-${FPC_RELEASE_SVN_DIR}.log
@@ -272,8 +304,9 @@ list_os ppca64 aarch64 "-n -g"
 # -Tlinux is not listed on `ppca64 -h` output
 # make_release aarch64 linux "-n -gl"
 
+export OPTLEVEL2="-dFPC_ARMEL"
 export CROSSOPT="-CpARMV6 -CaEABI -CfSOFT"
-#make_release arm linux "-n -gl" "CROSSOPT=$CROSSOPT" "-armeabi"
+make_release arm-linux "-armeabi"
 export CROSSOPT=
 
 export ASTARGETLEVEL3="-march=armv5 -mfpu=softvfp "
