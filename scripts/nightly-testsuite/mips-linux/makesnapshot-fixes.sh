@@ -59,7 +59,7 @@ Pierre Muller
 EOF
 
 
-TAR=./fpc-${FPC_VER}.${FPC_CPUOS}.tar.gz
+TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz | head -1 `
 
 if [ -f ${TAR} ] ; then
   mv -f  ${TAR} ${TAR}.old
