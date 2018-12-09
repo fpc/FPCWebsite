@@ -18,6 +18,10 @@ fi
  
 . $HOME/bin/fpc-versions.sh
 
+if [ -d $HOME/bin ] ; then
+  export PATH=$HOME/bin:$PATH
+fi
+
 export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
