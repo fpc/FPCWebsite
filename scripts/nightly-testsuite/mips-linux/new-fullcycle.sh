@@ -162,7 +162,16 @@ else
     res=$?
     if [ $res -ne 0 ] ; then
       echo "WARNING: make all failed"
-      attach="$attach -a $alllog"
+      for dir in rtl packages utils ; do
+        make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT=-n OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
+        res=$?
+        if [ $res -ne 0 ] ; then
+          echo "make install in $dir failed, res=$res"
+        fi
+      done
+      if [ $res -ne 0 ] ; then 
+        attach="$attach -a $alllog"
+      fi
     fi
   fi
   cd ./tests
