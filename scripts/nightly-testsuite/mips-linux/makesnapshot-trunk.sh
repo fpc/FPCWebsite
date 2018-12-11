@@ -40,9 +40,35 @@ date=`date +%Y-%m-%d`
 
 cd $TRUNKDIR
 
+TAR=./fpc-${FPC_VER}.${FPC_CPUOS}.tar.gz
+
+if [ -f ${TAR} ] ; then
+  mv -f  ${TAR} ${TAR}.old
+fi
+
+${MAKE} ${MAKE_OPTIONS}  2>&1 | tee ${HOME}/logs/makesnapshot-${FPC_VER}-${date}.txt
+res=$?
+
+if [ $res -ne 0 ] ; then
+  echo "Normal tar file generation error"
+  ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1 2>&1 | tee ${HOME}/logs/makesnapshot-O1-${FPC_VER}-${date}.txt
+  MAKE_EXTRA="FPCCPUOPT=-O1"
+  res=$?
+  if [ $res -ne 0 ] ; then
+    echo "-O1 tar file generation error"
+    ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O- 2>&1 | tee ${HOME}/logs/makesnapshot-O--${FPC_VER}-${date}.txt
+    MAKE_EXTRA="FPCCPUOPT=-O-"
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "-O- tar file generation error"
+      exit
+    fi
+  fi
+fi
+
 cat > README <<EOF
 This snapshot was generated ${date} using:
-${MAKE} ${MAKE_OPTIONS}
+${MAKE} ${MAKE_OPTIONS} ${MAKE_EXTRA}
 started using ${FPC}
 ppc${FPC_CPU} -iVDW output is: `${FPC} -iVDW`
 
@@ -59,19 +85,6 @@ Pierre Muller
 EOF
 
 
-TAR=./fpc-${FPC_VER}.${FPC_CPUOS}.tar.gz
-
-if [ -f ${TAR} ] ; then
-  mv -f  ${TAR} ${TAR}.old
-fi
-
-${MAKE} ${MAKE_OPTIONS}  2>&1 | tee ${HOME}/logs/makesnapshot-${FPC_VER}-${date}.txt
-res=$?
-
-if [ $res -ne 0 ] ; then
-  echo "tar file generation error"
-  exit
-fi
 if [ -f ${TAR} ]; then
   scp ${TAR} README fpcftp:ftp/snapshot/trunk/${FPC_CPUOS}
 else
