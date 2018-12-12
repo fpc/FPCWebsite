@@ -29,12 +29,12 @@ if [ "X$FIXES" == "X1" ] ; then
   FPC_VER=$FIXESVERSION
   FPC_DIRNAME=$FIXESDIRNAME
   FPC_DIR=$FIXESDIR
-  FTP_DIR=${FPC_DIR//_*/}
+  FTP_DIRNAME=${FPC_DIRNAME//_*/}
 else
   FPC_VER=$TRUNKVERSION
   FPC_DIRNAME=$TRUNKDIRNAME
   FPC_DIR=$TRUNKDIR
-  FTP_DIR=${FPC_DIR//_*/}
+  FTP_DIRNAME=${FPC_DIRNAME//_*/}
 fi
 
 export FPC=~/pas/fpc-${FPC_VER}/bin/${FPC_BIN}
@@ -52,9 +52,9 @@ date=`date +%Y-%m-%d`
 cd $FPC_DIR
 
 
-TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz | head -1 `
+TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
 
-if [ -f ${TAR} ] ; then
+if [[ -n "${TAR}" && -f "${TAR}" ]] ; then
   mv -f  ${TAR} ${TAR}.old
 fi
 
@@ -78,8 +78,10 @@ if [ $res -ne 0 ] ; then
   fi
 fi
 
+TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
+
 cat > README <<EOF
-This snapshot was generated ${date} using:
+This ${TAR} snapshot was generated ${date} using:
 ${MAKE} ${MAKE_OPTIONS} ${MAKE_EXTRA}
 started using ${FPC}
 ppc${FPC_CPU} -iVDW output is: `${FPC} -iVDW`
@@ -96,7 +98,7 @@ Enjoy,
 Pierre Muller
 EOF
 
-if [ -f ${TAR} ]; then
+if [[ -n "${TAR}" && -f "${TAR}" ]]; then
   echo "scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
   scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}
 else
