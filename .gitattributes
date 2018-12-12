@@ -544,6 +544,7 @@ scripts/nightly-testsuite/mips-linux/check-optimization.sh svneol=native#text/pl
 scripts/nightly-testsuite/mips-linux/fpc-versions.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/makesnapshot-fixes.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/makesnapshot-trunk.sh svneol=native#text/plain
+scripts/nightly-testsuite/mips-linux/makesnapshot.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/new-fullcycle.sh svneol=native#text/plain
 scripts/nightly-testsuite/readme.txt svneol=native#text/plain
 scripts/nightly-testsuite/solaris/fpcfixesup.sh svneol=native#text/plain
