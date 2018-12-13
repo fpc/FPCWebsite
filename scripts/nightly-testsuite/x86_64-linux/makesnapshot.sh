@@ -114,9 +114,9 @@ else
 fi
 sysroot=$HOME/sys-root
 
-is_64bit=0
+is_64=0
 case $CPU_TARGET in
-  aarch64|powerpc64|riscv64|sparc64|x86_64) is_64bit=1;;
+  aarch64|powerpc64|riscv64|sparc64|x86_64) is_64=1;;
 esac
 
 function add_dir ()
@@ -216,6 +216,17 @@ if [ "$BUILDFULLNATIVE" == "1" ] ; then
     echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
     make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
     res=$?
+    if [ $res -ne 0 ] ; then
+      echo "make singlezipinstall failed, res=$res"
+      no_libgdb_error=`grep "No libgdb.a found, supply NOGDB=1" $LONGLOGFILE `
+      if [ -n "$no_libgdb_error" ] ; then
+        echo "Trying a second time with NOGDB=1"
+        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
+        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
+        make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
+        res=$?
+      fi
+    fi
   fi
 fi
 
