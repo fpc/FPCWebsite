@@ -222,7 +222,7 @@ echo "Ending at `date +%Y-%m-%d-%H-%M`"
 
 }
 
-
+res=0
 do_snapshot > $LOGFILE 2>&1 </dev/null
 
 # send result to webmaster
@@ -233,7 +233,11 @@ if [ "${ERRORMAILADDR}" != "" ]; then
         echo "Subject: Daily compile routine" >> $MAILFILE
         echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
-        /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
+        if [ $res -ne 0 ] ; then
+          /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
+        else
+          echo "Script $0 finished successfully" >> $MAILFILE
+        fi
         # sendmail -f fpc@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
 	mutt -x -s "Daily makesnapshot.sh script on ${HOST_PC} for $CHECKOUTDIR" \
      	  -i $MAILFILE $MUTTATTACH -- ${ERRORMAILADDR}  < /dev/null | tee  ${report}.log
