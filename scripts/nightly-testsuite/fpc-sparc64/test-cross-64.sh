@@ -18,7 +18,22 @@ fi
 
 # Set main variables
 export MAKE=make
-if [ "${HOSTNAME}" == "stadler" ]; then
+if [ "${HOSTNAME}" == "gcc202" ]; then
+  export HOST_PC=${HOSTNAME}
+  export USER=pierre
+  export ASTARGET=-32
+  export NEEDED_OPT="-ao-32 -Fl/lib32 -Fo/usr/lib32 -Fl/usr/lib32"
+  if [ -d "/usr/sparc64-linux-gnu/lib32" ] ; then
+    export NEEDED_OPT="$NEEDED_OPT -Fl/usr/sparc64-linux-gnu/lib32"
+  fi
+  if [ -d "$HOME/local/lib32" ] ; then
+    export NEEDED_OPT="$NEEDED_OPT -Fl$HOME/local/lib32"
+  fi
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
+  export DO_TESTS=1
+  export NATIVE_OPT="$NEEDED_OPT -XPsparc-linux-"
+elif [ "${HOSTNAME}" == "stadler" ]; then
   export HOST_PC=fpc-sparc64
   export USER=pierre
   export ASTARGET=-32
@@ -26,6 +41,7 @@ if [ "${HOSTNAME}" == "stadler" ]; then
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
+  export NATIVE_OPT="-Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32 -XPsparc-unknown-linux-gnu-"
 elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre
@@ -34,6 +50,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=0
+  export NATIVE_OPT="-Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32 -XPsparc-unknown-linux-gnu-"
 else
   HOST_PC=${HOSTNAME}
   export DO_TESTS=0
@@ -115,8 +132,6 @@ if [[ ( -f $FPC64NAT ) && ($use_native -eq 1) ]] ; then
 fi
 }
 
-export HOST_PC=fpc-sparc64
-export NATIVE_OPT="-Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32 -XPsparc-unknown-linux-gnu-"
 export OPT64="-n -gwl"
 # NATIVE_OPT needs to be used both for OPT and FPCMAKEOPT
 # to succeed using sparc32 fpmake executable
