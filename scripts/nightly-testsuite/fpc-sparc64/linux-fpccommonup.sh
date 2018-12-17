@@ -163,7 +163,7 @@ testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
+mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
 
 
 tail -30 $testslog >> $report
@@ -184,7 +184,7 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
+mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-Cg
@@ -204,7 +204,7 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv output/*/fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
+mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-O2
