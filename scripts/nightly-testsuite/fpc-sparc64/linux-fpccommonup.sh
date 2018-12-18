@@ -15,6 +15,7 @@ if [ "${HOSTNAME}" == "gcc202" ]; then
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
+  export DO_SNAPSHOTS=1
 elif [ "${HOSTNAME}" == "stadler" ]; then
   export HOST_PC=fpc-sparc64
   export USER=pierre
