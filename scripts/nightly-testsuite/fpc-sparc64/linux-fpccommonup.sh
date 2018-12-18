@@ -151,6 +151,8 @@ ulimit -s 8192 -t 240
 TEST_OPT="$NEEDED_OPT"
 echo "Starting make distclean" >> $report
 echo "`$DATE`" >> $report
+${MAKE} -C ../rtl distclean > /dev/null 2>&1
+${MAKE} -C ../packages distclean > /dev/null 2>&1
 ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
@@ -172,6 +174,8 @@ mv $testslog ${testslog}-bare
 TEST_OPT="-Cg $NEEDED_OPT"
 echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
+${MAKE} -C ../rtl distclean > /dev/null 2>&1
+${MAKE} -C ../packages distclean > /dev/null 2>&1
 ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
@@ -192,6 +196,8 @@ mv $testslog ${testslog}-Cg
 TEST_OPT="-O2 $NEEDED_OPT"
 echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
+${MAKE} -C ../rtl distclean > /dev/null 2>&1
+${MAKE} -C ../packages distclean > /dev/null 2>&1
 ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
