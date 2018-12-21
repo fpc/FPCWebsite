@@ -456,6 +456,7 @@ scripts/makesnapshottrunk svneol=native#text/plain
 scripts/makesnapshottrunk-arm svneol=native#text/plain
 scripts/makesnapshottrunk-extra svneol=native#text/plain
 scripts/makesnapshottrunk-sse2 svneol=native#text/plain
+scripts/merge-rev-to-fixes.sh svneol=native#text/plain
 scripts/nightly-testsuite/aix/aix-fpcup.sh svneol=native#text/plain
 scripts/nightly-testsuite/aix/aix32-fpcfixesup.sh svneol=native#text/plain
 scripts/nightly-testsuite/aix/aix32-fpctrunkup.sh svneol=native#text/plain
