@@ -185,11 +185,16 @@ fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
+
+if [ "X$BUILDFULLNATIVE" == "X1" ] ; then
+  MAKE_EXTRA="BUILDFULLNATIVE=1"
+fi
+
 # Regenerate native rtl units, needed for bs_units
 echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
 make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
-echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
+echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
 res=$?
 
 if [ $res -ne 0 ] ; then
@@ -197,9 +202,9 @@ if [ $res -ne 0 ] ; then
   no_libgdb_error=`grep "No libgdb.a found, supply NOGDB=1" $LONGLOGFILE `
   if [ -n "$no_libgdb_error" ] ; then
     echo "Trying a second time with NOGDB=1"
-    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
-    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
-    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
+    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
     res=$?
   fi
 fi
@@ -209,21 +214,22 @@ if [ "$BUILDFULLNATIVE" == "1" ] ; then
     echo "Try again, without BUILDFULLNATIVE" >> $LONGLOGFILE
     echo "Try again, without BUILDFULLNATIVE"
     export BUILDFULLNATIVE=
+    export MAKE_EXTRA=
     CROSSOPT="$CROSSOPT_ORIG"
     echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
     make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
-    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" >> $LONGLOGFILE
-    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
-    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" >> $LONGLOGFILE
+    echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
+    make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       echo "make singlezipinstall failed, res=$res"
       no_libgdb_error=`grep "No libgdb.a found, supply NOGDB=1" $LONGLOGFILE `
       if [ -n "$no_libgdb_error" ] ; then
         echo "Trying a second time with NOGDB=1"
-        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
-        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
-        make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
+        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" >> $LONGLOGFILE
+        echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\" NOGDB=1" 
+        make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" NOGDB=1 >> $LONGLOGFILE 2>&1
         res=$?
       fi
     fi
@@ -274,7 +280,7 @@ READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 
 cat > $READMEFILE <<EOF
 This snapshot $SNAPSHOTFILE was generated ${date} using:
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
 started using ${STARTPP}
 ${PPCCPU} -iVDW output is: `${NEWCROSSFPC} -iVDW`
 
