@@ -27,6 +27,9 @@ if [ "$HOSTNAME" == "gcc21" ] ; then
 elif [ "$HOSTNAME" == "gcc20" ] ; then
   export do_run_tests=1
   export MAKE_J_OPT="-j 5"
+elif [ "$HOSTNAME" == "gcc121" ] ; then
+  export do_run_tests=1
+  export MAKE_J_OPT="-j 15"
 elif [ "$HOSTNAME" == "gcc123" ] ; then
   export do_run_tests=1
   export MAKE_J_OPT="-j 15"
@@ -126,6 +129,13 @@ if [ -f ./compiler/$FPCBIN ] ; then
 else
   NewBinary=0
   echo "No new binary ./compiler/$FPCBIN" >> $report
+fi
+
+if [ -z "$MAKE_TESTS_TARGET" ] ; then
+  # Default make tests target is 'fulldb' 
+  # which also means upload to testuite database
+  # export with value full to avoid upload
+  MAKE_TESTS_TARGET=fulldb
 fi
 
 if [ $NewBinary -eq 1 ] ; then
@@ -242,14 +252,14 @@ if [ $NewBinary -eq 1 ] ; then
     ${MAKE} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" >> $cleantestslog 2>&1
-    echo "${MAKE} $MAKE_J_OPT fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    echo "${MAKE} $MAKE_J_OPT $MAKE_TESTS_TARGET $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
-    ${MAKE} $MAKE_J_OPT fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    ${MAKE} $MAKE_J_OPT $MAKE_TESTS_TARGET $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
     testsres=$?
-    echo "Ending make distclean fulldb; result=${testsres}" >> $report
+    echo "Ending make distclean $MAKE_TESTS_TARGET; result=${testsres}" >> $report
     echo "`$DATE`" >> $report
     if [ $testsres -ne 0 ] ; then
       echo "Last 30 lines of testslog" >> $report
