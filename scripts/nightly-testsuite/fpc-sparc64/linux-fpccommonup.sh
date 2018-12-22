@@ -166,8 +166,12 @@ testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
-
+TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+if [ -n "$TARFILE" ] ; then
+  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
+else
+  echo "No fpc*.tar.gz found" >> $report
+fi
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-bare
@@ -189,7 +193,13 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
+TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+if [ -n "$TARFILE" ] ; then
+  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
+else
+  echo "No fpc*.tar.gz found" >> $report
+fi
+
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-Cg
@@ -211,11 +221,15 @@ testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 # Just keep last sent file to database
-mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
+TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+if [ -n "$TARFILE" ] ; then
+  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
+else
+  echo "No fpc*.tar.gz found" >> $report
+fi
 
 tail -30 $testslog >> $report
 mv $testslog ${testslog}-O2
-
 
 mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
