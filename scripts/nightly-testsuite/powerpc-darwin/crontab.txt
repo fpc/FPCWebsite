@@ -1,0 +1,2 @@
+MAILTO=pierre@mail.freepascal.org
+ 5  0  *  *  *  /home/muller/bin/crontab.sh
