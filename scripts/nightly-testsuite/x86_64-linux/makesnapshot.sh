@@ -112,7 +112,10 @@ fi
 else
   EXTRAOPT="$EXTRAOPT GDBMI=1"
 fi
-sysroot=$HOME/sys-root
+
+if [ -z "$global_sysroot" ] ; then
+  global_sysroot=$HOME/sys-root
+fi
 
 is_64=0
 case $CPU_TARGET in
@@ -170,10 +173,10 @@ function add_dir ()
  
 CROSSOPT_ORIG="$CROSSOPT"
 
-if [ -d "$HOME/sys-root/${FULL_TARGET}" ] ; then
+if [ -d "$global_sysroot/${FULL_TARGET}" ] ; then
   echo "Trying to build using BUILFULLNATIVE=1"
   export BUILDFULLNATIVE=1
-  sysroot=$HOME/sys-root/${FULL_TARGET}
+  sysroot=$global_sysroot/${FULL_TARGET}
   add_dir "crt1.o"
   add_dir "crti.o"
   add_dir "crtbegin.o"
