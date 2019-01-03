@@ -71,7 +71,7 @@ fixeslog=$HOME/logs/fixes/update-fixes.log
 update_branch fixes > $fixeslog 2>&1
 
 cd $HOME/pas/scripts
-rsync -avz nima:pas/scripts/ .
-rsync -avz . nima:pas/scripts/
+rsync -avuz nima:pas/scripts/ .
+rsync -avuz . nima:pas/scripts/
 ## /Users/pierre/bin/makesnapshot-new-powerpc.sh
 
