@@ -898,7 +898,7 @@ listed=0
 # Parse system_CPU_OS entries in compiler/systems.inc source file 
 # Obsolete systems are not listed here
 # as they start with obsolete_system
-index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\), *{ *\([0-9]*\).*:\3;\1!\2:p" compiler/systems.inc`
+index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\) *,? *{ *\([0-9]*\).*:\3;\1!\2:p" compiler/systems.inc`
 
 # Split into index, cpu and os
 for index_cpu_os in $index_cpu_os_list ; do
