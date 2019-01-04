@@ -13,20 +13,6 @@ fi
 # Keep only first part of machine name
 export HOSTNAME=${HOSTNAME//.*/}
 
-# Do the same with ppc386
-export FPCBIN=ppc386
-export FIXES=0
-$HOME/bin/linux-fpccommonup.sh
-export FIXES=1
-$HOME/bin/linux-fpccommonup.sh
-
-# By default use ppcx64
-export FPCBIN=ppcx64
-export FIXES=0
-$HOME/bin/linux-fpccommonup.sh
-export FIXES=1
-$HOME/bin/linux-fpccommonup.sh
-
 check_cross_fixes=0
 check_cross_trunk=0
 gen_snapshot_fixes=0
@@ -38,6 +24,8 @@ test_msdos_trunk=0
 test_msdos_fixes=0
 test_go32v2_trunk=0
 test_go32v2_fixes=0
+do_i386=1
+do_x86_64=1
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
@@ -50,6 +38,11 @@ elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
   gen_snapshot_trunk=1
   test_go32v2_trunk=1
   test_go32v2_fixes=1
+elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
+  check_cross_trunk=1
+  check_cross_fixes=1
+  do_i386=0
+  export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
@@ -77,6 +70,25 @@ elif [ "X$HOSTNAME" == "Xgcc70" ] ; then
   test_go32v2_trunk=0
   test_go32v2_fixes=0
 fi
+
+# Do the same with ppc386
+if [ $do_i386 -eq 1 ] ; then
+  export FPCBIN=ppc386
+  export FIXES=0
+  $HOME/bin/linux-fpccommonup.sh
+  export FIXES=1
+  $HOME/bin/linux-fpccommonup.sh
+fi
+
+# By default use ppcx64
+if [ $do_x86_64 -eq 1 ] ; then
+  export FPCBIN=ppcx64
+  export FIXES=0
+  $HOME/bin/linux-fpccommonup.sh
+  export FIXES=1
+  $HOME/bin/linux-fpccommonup.sh
+fi
+
 if [ $check_cross_fixes -eq 1 ] ; then
   # Test all RTL compilations
   export FIXES=1
