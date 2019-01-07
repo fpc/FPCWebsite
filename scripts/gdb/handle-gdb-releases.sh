@@ -250,6 +250,9 @@ handle_release gdb-7.12.1.tar.gz --disable-build-with-cxx
 handle_release gdb-8.0.tar.gz
 handle_release gdb-8.0.1.tar.gz
 handle_release gdb-8.1.tar.gz
+handle_release gdb-8.1.1.tar.gz
+handle_release gdb-8.2.tar.gz
+handle_release gdb-8.2.1.tar.gz
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
