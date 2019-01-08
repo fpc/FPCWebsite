@@ -22,8 +22,8 @@ function compile_ide_with_libgdb ()
     mkdir ./units-$release
   fi
 
-  make -C ../packages distclean OPT="-n -gl" > $log 2>&1
-  make -C ../rtl distclean all OPT="-n -gl" >> $log 2>&1
+  make -C ../../packages distclean OPT="-n -gl" > $log 2>&1
+  make -C ../../rtl distclean all OPT="-n -gl" >> $log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "Error: Creation of rtl units failed, res=$res"
@@ -32,8 +32,8 @@ function compile_ide_with_libgdb ()
     echo "Creation of rtl units for fp-$release OK"
   fi
 
-  make -C ../packages all DEBUG=1 >> $log 2>&1
-  make -C ../packages/gdbint distclean all OPT="-n -gl" >> $log 2>&1
+  make -C ../../packages all DEBUG=1 >> $log 2>&1
+  make -C ../../packages/gdbint distclean all OPT="-n -gl" >> $log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "Error: Compilation of gdbint for fp-$release failed, res=$res"
@@ -65,7 +65,7 @@ function compile_ide_with_libgdb ()
 }
 
 
-libgdb_dir_list=`ls -1d $PASMAINDIR/libgdb/ | sed "s:gdb-::" `
+libgdb_dir_list=`ls -1d $PASCALMAINDIR/libgdb/ | sed "s:gdb-::" `
 
 
 (
@@ -112,7 +112,11 @@ compile_ide_with_libgdb 7.8.2
 compile_ide_with_libgdb 7.9
 compile_ide_with_libgdb 7.9.1
 compile_ide_with_libgdb 7.10
+compile_ide_with_libgdb 7.10.1
+compile_ide_with_libgdb 7.11
+compile_ide_with_libgdb 7.11.1
 compile_ide_with_libgdb 7.12
+compile_ide_with_libgdb 7.12.1
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
