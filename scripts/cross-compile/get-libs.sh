@@ -150,7 +150,7 @@ function upload_file ()
 function maybe_upload_files ()
 {
   pattern="$1"
-  file_list=`ssh $machine find "/usr/lib*" "/lib*" -name "$pattern" 2> /dev/null`
+  file_list=`ssh $machine find "/usr/lib*" "/lib* /boot/system" -name "$pattern" 2> /dev/null`
   if [ -n "$file_list" ] ; then
     for file in $file_list ; do
       upload_file $file
@@ -167,6 +167,10 @@ fi
 
 if [ -z "$crt_o_files" ] ; then
   crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crti.o" 2> /dev/null`
+fi
+
+if [ -z "$crt_o_files" ] ; then
+  crt_o_files=`ssh $machine find "/boot/system" -name "start*.o" 2> /dev/null`
 fi
 
 if [ -z "$crt_o_files" ] ; then
@@ -229,6 +233,13 @@ maybe_upload_files "libiconv${dynlib_suffix}"
 
 #libgcc.a
 maybe_upload_files "libgcc.a"
+
+#libroot.a (haiku)
+if [ "$os" == "haiku" ] ; then
+  maybe_upload_files "libroot.so"
+  maybe_upload_files "libnetwork.so"
+  maybe_upload_files "libtextencoding.so"
+fi
 
 cd ..
 
