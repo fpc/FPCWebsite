@@ -174,6 +174,10 @@ if [ ! -d $LOGDIR ] ; then
   mkdir -p $LOGDIR
 fi
 
+if [ -z "$global_sysroot" ] ; then
+  global_sysroot=$HOME/sys-root
+fi
+
 LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
@@ -277,6 +281,60 @@ else
   export NATIVE_OPT=
 fi
 
+# Add a directory to CROSSOPT
+# if pattern is found
+is_64=0
+sysroot=
+
+function add_dir ()
+{
+  pattern="$1"
+  if [ "${pattern/\//_}" != "$pattern" ] ; then
+    if [ -f "$pattern" ] ; then
+      file_list=$pattern
+    else
+      file_list=`find $sysroot/ -wholename "$pattern"`
+    fi
+  else
+    file_list=`find $sysroot/ -iname "$pattern"`
+  fi
+  for file in $file_list ; do
+    use_file=0
+    file_type=`file $file`
+    if [ "$file_type" != "${file_type//symbolic link/}" ] ; then
+      ls_line=`ls -l $file`
+      echo "ls line is \"$ls_line\""
+      link_target=${ls_line/* /}
+      echo "link target is \"$link_target\""
+      if [[ "${link_target:0:1}" == / || "${link_target:0:2}" == ~[/a-z] ]] ; then
+        is_absolute=1
+        add_dir $link_target
+      else
+        is_absolute=0
+        dir=`dirname $file`
+        add_dir $dir/$link_target
+      fi
+      return
+    fi
+
+    file_is_64=`echo $file_type | grep "64-bit" `
+    if [[ ( -n "$file_is_64" ) && ( $is_64 -eq 1 ) ]] ; then
+      use_file=1
+    fi
+    if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
+      use_file=1
+    fi
+    echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
+    if [ $use_file -eq 1 ] ; then
+      file_dir=`dirname $file`
+      if [ "${CROSSOPT/-Fl$file_dir /}" == "$CROSSOPT" ] ; then
+        echo "Adding $file_dir directory to library path list"
+        CROSSOPT="$CROSSOPT -Fl$file_dir "
+      fi
+    fi
+  done
+}
+ 
 function set_fpc_local ()
 {
   LOC_CPU_TARGET=$1
@@ -586,6 +644,34 @@ function check_target ()
   fi
   packagesdir=packages
 
+  is_64=0
+  case $CPU_TARG_LOCAL in
+    aarch64|powerpc64|riscv64|sparc64|x86_64) is_64=1;;
+  esac
+
+
+  CROSSOPT="$OPT_LOCAL"
+  CROSSOPT_ORIG="$CROSSOPT"
+
+  if [ -d "$global_sysroot/${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}" ] ; then
+    echo "Trying to build using BUILDFULLNATIVE=1"
+    export BUILDFULLNATIVE=1
+    sysroot=$global_sysroot/${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}
+    add_dir "crt1.o"
+    add_dir "crti.o"
+    add_dir "crtbegin.o"
+    add_dir "libc.a"
+    add_dir "libc.so"
+    add_dir "ld*.so*"
+    if [ "${OS_TARG_LOCAL}" == "haiku" ] ; then
+      add_dir "libroot.so"
+      add_dir "libnetwork.so"
+    fi
+    OPT_LOCAL="$CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+  else
+    export BUILDFULLNATIVE=
+  fi
+
   LOGFILE0=${LOGPREFIX}-distclean-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE1=${LOGPREFIX}-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE2=${LOGPREFIX}-2-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
@@ -689,6 +775,15 @@ function check_target ()
 	  echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
           $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
           res=$?
+          if [ $res -ne 0 ] ; then
+            if [ "$BUILDFULLNATIVE" == "1" ] ; then
+              export BUILDFULLNATIVE=
+	      echo "Testing second compilation in $packagesdir (without BILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+              $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE3 2>&1
+              res=$?
+            fi
+          fi
+
           if [ $res -ne 0 ] ; then
             packages_failure=`expr $packages_failure + 1 `
             packages_list="$packages_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
@@ -898,15 +993,15 @@ listed=0
 # Parse system_CPU_OS entries in compiler/systems.inc source file 
 # Obsolete systems are not listed here
 # as they start with obsolete_system
-index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\) *,? *{ *\([0-9]*\).*:\3;\1!\2:p" compiler/systems.inc`
+index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\) *[,]* *{ *\([0-9]*\).*:\3;\1,\2:p" compiler/systems.inc`
 
 # Split into index, cpu and os
 for index_cpu_os in $index_cpu_os_list ; do
    index=${index_cpu_os//;*/}
-   os=${index_cpu_os//*!/}
+   os=${index_cpu_os//*,/}
    os=${os,,}
    cpu=${index_cpu_os/*;/}
-   cpu=${cpu//!*/}
+   cpu=${cpu//,*/}
    cpu=${cpu,,}
    echo "Found item $index, cpu=$cpu, os=$os"
    check_target $cpu $os "-n"
