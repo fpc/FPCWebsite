@@ -13,6 +13,9 @@ if [ "X$2" != "X" ] ; then
   OS_TARGET=$2
 fi
 
+hostname=`hostname`
+hostname=${hostname//.*/}
+
 FULL_TARGET=${CPU_TARGET}-${OS_TARGET}
 
 export LANG=en_US.utf8
@@ -282,7 +285,7 @@ fi
 READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 
 cat > $READMEFILE <<EOF
-This snapshot $SNAPSHOTFILE was generated ${date} using:
+This snapshot $SNAPSHOTFILE was generated ${date} on ${hostname} using:
 make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
 started using ${STARTPP}
 ${PPCCPU} -iVDW output is: `${NEWCROSSFPC} -iVDW`
