@@ -268,6 +268,8 @@ export BINUTILS_RELEASE=
 
 ## x86_64 CPU
 ## system_x86_6432_linux,     { 41 }
+## system_x86_64_android,     { 101 }
+./do-one.sh x86_64-linux-android amd64-linux-android
 ## system_x86_64_aros,        { 84 }
 export BINUTILS_RELEASE="2.30-aros"
 ./do-one.sh x86_64-aros x86_64-aros
@@ -281,6 +283,8 @@ export BINUTILS_RELEASE=
 ./do-one.sh x86_64-embedded amd64-unknown-elf
 ## system_x86_64_freebsd,     { 34 }
 ./do-one.sh x86_64-freebsd amd64-unknown-freebsd11
+## system_x86_64_haiku,       { 102 }
+./do-one.sh x86_64-haiku amd64-unknown-haiku
 ## system_x86_64_iphonesim,   { 87 }
 ## same as system_x86_64_darwin
 ## system_x86_64_linux,       { 26 }
