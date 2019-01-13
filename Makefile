@@ -43,8 +43,9 @@ english: all_pages down_all_en down2_all_en fcl_all_en tools_all_en output_direc
 	
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
-	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-
+ 	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
+        echo -e 'Canada\tcanada\t\ftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat
+        
 all_pages: $(GENVARFILE) $(ADP2HTML) mirrors.dat $(HTMLPAGES)
 
 
