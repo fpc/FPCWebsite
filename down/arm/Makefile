@@ -313,6 +313,290 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> wince-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> wince-hungary.var
 	echo >> wince-hungary.var
+../..//down/arm/linux-canada.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.bg -oe iso-8859-5 linux.adp
+../..//down/arm/linux-canada.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.en -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.fi: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.fi -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.fr -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.id: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.id -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.it: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.it -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.nl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.nl -oe iso-8859-1 linux.adp
+../..//down/arm/linux-canada.html.po: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.po -oe iso-8859-2 linux.adp
+../..//down/arm/linux-canada.html.sl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.sl -oe iso-8859-2 linux.adp
+../..//down/arm/linux-canada.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.ru -oe iso-8859-5 linux.adp
+../..//down/arm/linux-canada.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//linux-canada.html.zh-CN -oe UTF-8 linux.adp
+../..//down/arm/linux-canada.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//linux-canada.html -oe ISO-8859-1 linux.adp
+
+../..//down/arm/linux-canada.var: gen_makefile.conf
+	echo > linux-canada.var
+	echo 'URI: linux-canada.html.bg' >> linux-canada.var
+	echo 'Content-language: bg' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.en' >> linux-canada.var
+	echo 'Content-language: en' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fi' >> linux-canada.var
+	echo 'Content-language: fi' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fr' >> linux-canada.var
+	echo 'Content-language: fr' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.id' >> linux-canada.var
+	echo 'Content-language: id' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.it' >> linux-canada.var
+	echo 'Content-language: it' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.nl' >> linux-canada.var
+	echo 'Content-language: nl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.po' >> linux-canada.var
+	echo 'Content-language: pl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.sl' >> linux-canada.var
+	echo 'Content-language: sl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.ru' >> linux-canada.var
+	echo 'Content-language: ru' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.zh-CN' >> linux-canada.var
+	echo 'Content-language: zh-CN' >> linux-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> linux-canada.var
+	echo >> linux-canada.var
+../..//down/arm/gba-canada.html.bg: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.bg -oe iso-8859-5 gba.adp
+../..//down/arm/gba-canada.html.en: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.en -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.fi: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.fi -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.fr: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.fr -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.id: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.id -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.it: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.it -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.nl: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.nl -oe iso-8859-1 gba.adp
+../..//down/arm/gba-canada.html.po: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.po -oe iso-8859-2 gba.adp
+../..//down/arm/gba-canada.html.sl: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.sl -oe iso-8859-2 gba.adp
+../..//down/arm/gba-canada.html.ru: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.ru -oe iso-8859-5 gba.adp
+../..//down/arm/gba-canada.html.zh-CN: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.zh-CN -oe UTF-8 gba.adp
+../..//down/arm/gba-canada.html: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//gba-canada.html -oe ISO-8859-1 gba.adp
+
+../..//down/arm/gba-canada.var: gen_makefile.conf
+	echo > gba-canada.var
+	echo 'URI: gba-canada.html.bg' >> gba-canada.var
+	echo 'Content-language: bg' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.en' >> gba-canada.var
+	echo 'Content-language: en' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.fi' >> gba-canada.var
+	echo 'Content-language: fi' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.fr' >> gba-canada.var
+	echo 'Content-language: fr' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.id' >> gba-canada.var
+	echo 'Content-language: id' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.it' >> gba-canada.var
+	echo 'Content-language: it' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.nl' >> gba-canada.var
+	echo 'Content-language: nl' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.po' >> gba-canada.var
+	echo 'Content-language: pl' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.sl' >> gba-canada.var
+	echo 'Content-language: sl' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.ru' >> gba-canada.var
+	echo 'Content-language: ru' >> gba-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> gba-canada.var
+	echo >> gba-canada.var
+	echo 'URI: gba-canada.html.zh-CN' >> gba-canada.var
+	echo 'Content-language: zh-CN' >> gba-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> gba-canada.var
+	echo >> gba-canada.var
+../..//down/arm/nds-canada.html.bg: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.bg -oe iso-8859-5 nds.adp
+../..//down/arm/nds-canada.html.en: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.en -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.fi: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.fi -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.fr: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.fr -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.id: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.id -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.it: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.it -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.nl: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.nl -oe iso-8859-1 nds.adp
+../..//down/arm/nds-canada.html.po: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.po -oe iso-8859-2 nds.adp
+../..//down/arm/nds-canada.html.sl: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.sl -oe iso-8859-2 nds.adp
+../..//down/arm/nds-canada.html.ru: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.ru -oe iso-8859-5 nds.adp
+../..//down/arm/nds-canada.html.zh-CN: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//nds-canada.html.zh-CN -oe UTF-8 nds.adp
+../..//down/arm/nds-canada.html: nds.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//nds-canada.html -oe ISO-8859-1 nds.adp
+
+../..//down/arm/nds-canada.var: gen_makefile.conf
+	echo > nds-canada.var
+	echo 'URI: nds-canada.html.bg' >> nds-canada.var
+	echo 'Content-language: bg' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.en' >> nds-canada.var
+	echo 'Content-language: en' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.fi' >> nds-canada.var
+	echo 'Content-language: fi' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.fr' >> nds-canada.var
+	echo 'Content-language: fr' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.id' >> nds-canada.var
+	echo 'Content-language: id' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.it' >> nds-canada.var
+	echo 'Content-language: it' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.nl' >> nds-canada.var
+	echo 'Content-language: nl' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.po' >> nds-canada.var
+	echo 'Content-language: pl' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.sl' >> nds-canada.var
+	echo 'Content-language: sl' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.ru' >> nds-canada.var
+	echo 'Content-language: ru' >> nds-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> nds-canada.var
+	echo >> nds-canada.var
+	echo 'URI: nds-canada.html.zh-CN' >> nds-canada.var
+	echo 'Content-language: zh-CN' >> nds-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> nds-canada.var
+	echo >> nds-canada.var
+../..//down/arm/wince-canada.html.bg: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.bg -oe iso-8859-5 wince.adp
+../..//down/arm/wince-canada.html.en: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.en -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.fi: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.fi -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.fr: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.fr -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.id: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.id -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.it: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.it -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.nl: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.nl -oe iso-8859-1 wince.adp
+../..//down/arm/wince-canada.html.po: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.po -oe iso-8859-2 wince.adp
+../..//down/arm/wince-canada.html.sl: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.sl -oe iso-8859-2 wince.adp
+../..//down/arm/wince-canada.html.ru: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.ru -oe iso-8859-5 wince.adp
+../..//down/arm/wince-canada.html.zh-CN: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//wince-canada.html.zh-CN -oe UTF-8 wince.adp
+../..//down/arm/wince-canada.html: wince.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//wince-canada.html -oe ISO-8859-1 wince.adp
+
+../..//down/arm/wince-canada.var: gen_makefile.conf
+	echo > wince-canada.var
+	echo 'URI: wince-canada.html.bg' >> wince-canada.var
+	echo 'Content-language: bg' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.en' >> wince-canada.var
+	echo 'Content-language: en' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.fi' >> wince-canada.var
+	echo 'Content-language: fi' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.fr' >> wince-canada.var
+	echo 'Content-language: fr' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.id' >> wince-canada.var
+	echo 'Content-language: id' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.it' >> wince-canada.var
+	echo 'Content-language: it' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.nl' >> wince-canada.var
+	echo 'Content-language: nl' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.po' >> wince-canada.var
+	echo 'Content-language: pl' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.sl' >> wince-canada.var
+	echo 'Content-language: sl' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.ru' >> wince-canada.var
+	echo 'Content-language: ru' >> wince-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> wince-canada.var
+	echo >> wince-canada.var
+	echo 'URI: wince-canada.html.zh-CN' >> wince-canada.var
+	echo 'Content-language: zh-CN' >> wince-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> wince-canada.var
+	echo >> wince-canada.var
 
 ../..//down/arm/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -601,9 +885,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/arm/linux-hungary.html.bg ../..//down/arm/linux-hungary.html.en ../..//down/arm/linux-hungary.html.fi ../..//down/arm/linux-hungary.html.fr ../..//down/arm/linux-hungary.html.id ../..//down/arm/linux-hungary.html.it ../..//down/arm/linux-hungary.html.nl ../..//down/arm/linux-hungary.html.po ../..//down/arm/linux-hungary.html.sl ../..//down/arm/linux-hungary.html.ru ../..//down/arm/linux-hungary.html.zh-CN ../..//down/arm/linux-hungary.var ../..//down/arm/gba-hungary.html.bg ../..//down/arm/gba-hungary.html.en ../..//down/arm/gba-hungary.html.fi ../..//down/arm/gba-hungary.html.fr ../..//down/arm/gba-hungary.html.id ../..//down/arm/gba-hungary.html.it ../..//down/arm/gba-hungary.html.nl ../..//down/arm/gba-hungary.html.po ../..//down/arm/gba-hungary.html.sl ../..//down/arm/gba-hungary.html.ru ../..//down/arm/gba-hungary.html.zh-CN ../..//down/arm/gba-hungary.var ../..//down/arm/nds-hungary.html.bg ../..//down/arm/nds-hungary.html.en ../..//down/arm/nds-hungary.html.fi ../..//down/arm/nds-hungary.html.fr ../..//down/arm/nds-hungary.html.id ../..//down/arm/nds-hungary.html.it ../..//down/arm/nds-hungary.html.nl ../..//down/arm/nds-hungary.html.po ../..//down/arm/nds-hungary.html.sl ../..//down/arm/nds-hungary.html.ru ../..//down/arm/nds-hungary.html.zh-CN ../..//down/arm/nds-hungary.var ../..//down/arm/wince-hungary.html.bg ../..//down/arm/wince-hungary.html.en ../..//down/arm/wince-hungary.html.fi ../..//down/arm/wince-hungary.html.fr ../..//down/arm/wince-hungary.html.id ../..//down/arm/wince-hungary.html.it ../..//down/arm/wince-hungary.html.nl ../..//down/arm/wince-hungary.html.po ../..//down/arm/wince-hungary.html.sl ../..//down/arm/wince-hungary.html.ru ../..//down/arm/wince-hungary.html.zh-CN ../..//down/arm/wince-hungary.var ../..//down/arm/linux.html.bg ../..//down/arm/linux.html.en ../..//down/arm/linux.html.fi ../..//down/arm/linux.html.fr ../..//down/arm/linux.html.id ../..//down/arm/linux.html.it ../..//down/arm/linux.html.nl ../..//down/arm/linux.html.po ../..//down/arm/linux.html.sl ../..//down/arm/linux.html.ru ../..//down/arm/linux.html.zh-CN ../..//down/arm/linux.var ../..//down/arm/gba.html.bg ../..//down/arm/gba.html.en ../..//down/arm/gba.html.fi ../..//down/arm/gba.html.fr ../..//down/arm/gba.html.id ../..//down/arm/gba.html.it ../..//down/arm/gba.html.nl ../..//down/arm/gba.html.po ../..//down/arm/gba.html.sl ../..//down/arm/gba.html.ru ../..//down/arm/gba.html.zh-CN ../..//down/arm/gba.var ../..//down/arm/nds.html.bg ../..//down/arm/nds.html.en ../..//down/arm/nds.html.fi ../..//down/arm/nds.html.fr ../..//down/arm/nds.html.id ../..//down/arm/nds.html.it ../..//down/arm/nds.html.nl ../..//down/arm/nds.html.po ../..//down/arm/nds.html.sl ../..//down/arm/nds.html.ru ../..//down/arm/nds.html.zh-CN ../..//down/arm/nds.var ../..//down/arm/wince.html.bg ../..//down/arm/wince.html.en ../..//down/arm/wince.html.fi ../..//down/arm/wince.html.fr ../..//down/arm/wince.html.id ../..//down/arm/wince.html.it ../..//down/arm/wince.html.nl ../..//down/arm/wince.html.po ../..//down/arm/wince.html.sl ../..//down/arm/wince.html.ru ../..//down/arm/wince.html.zh-CN ../..//down/arm/wince.var
-all_en_pages: mirrors.dat ../..//down/arm/linux-hungary.html ../..//down/arm/gba-hungary.html ../..//down/arm/nds-hungary.html ../..//down/arm/wince-hungary.html ../..//down/arm/linux.html ../..//down/arm/gba.html ../..//down/arm/nds.html ../..//down/arm/wince.html
+all_pages: mirrors.dat ../..//down/arm/linux-hungary.html.bg ../..//down/arm/linux-hungary.html.en ../..//down/arm/linux-hungary.html.fi ../..//down/arm/linux-hungary.html.fr ../..//down/arm/linux-hungary.html.id ../..//down/arm/linux-hungary.html.it ../..//down/arm/linux-hungary.html.nl ../..//down/arm/linux-hungary.html.po ../..//down/arm/linux-hungary.html.sl ../..//down/arm/linux-hungary.html.ru ../..//down/arm/linux-hungary.html.zh-CN ../..//down/arm/linux-hungary.var ../..//down/arm/gba-hungary.html.bg ../..//down/arm/gba-hungary.html.en ../..//down/arm/gba-hungary.html.fi ../..//down/arm/gba-hungary.html.fr ../..//down/arm/gba-hungary.html.id ../..//down/arm/gba-hungary.html.it ../..//down/arm/gba-hungary.html.nl ../..//down/arm/gba-hungary.html.po ../..//down/arm/gba-hungary.html.sl ../..//down/arm/gba-hungary.html.ru ../..//down/arm/gba-hungary.html.zh-CN ../..//down/arm/gba-hungary.var ../..//down/arm/nds-hungary.html.bg ../..//down/arm/nds-hungary.html.en ../..//down/arm/nds-hungary.html.fi ../..//down/arm/nds-hungary.html.fr ../..//down/arm/nds-hungary.html.id ../..//down/arm/nds-hungary.html.it ../..//down/arm/nds-hungary.html.nl ../..//down/arm/nds-hungary.html.po ../..//down/arm/nds-hungary.html.sl ../..//down/arm/nds-hungary.html.ru ../..//down/arm/nds-hungary.html.zh-CN ../..//down/arm/nds-hungary.var ../..//down/arm/wince-hungary.html.bg ../..//down/arm/wince-hungary.html.en ../..//down/arm/wince-hungary.html.fi ../..//down/arm/wince-hungary.html.fr ../..//down/arm/wince-hungary.html.id ../..//down/arm/wince-hungary.html.it ../..//down/arm/wince-hungary.html.nl ../..//down/arm/wince-hungary.html.po ../..//down/arm/wince-hungary.html.sl ../..//down/arm/wince-hungary.html.ru ../..//down/arm/wince-hungary.html.zh-CN ../..//down/arm/wince-hungary.var ../..//down/arm/linux-canada.html.bg ../..//down/arm/linux-canada.html.en ../..//down/arm/linux-canada.html.fi ../..//down/arm/linux-canada.html.fr ../..//down/arm/linux-canada.html.id ../..//down/arm/linux-canada.html.it ../..//down/arm/linux-canada.html.nl ../..//down/arm/linux-canada.html.po ../..//down/arm/linux-canada.html.sl ../..//down/arm/linux-canada.html.ru ../..//down/arm/linux-canada.html.zh-CN ../..//down/arm/linux-canada.var ../..//down/arm/gba-canada.html.bg ../..//down/arm/gba-canada.html.en ../..//down/arm/gba-canada.html.fi ../..//down/arm/gba-canada.html.fr ../..//down/arm/gba-canada.html.id ../..//down/arm/gba-canada.html.it ../..//down/arm/gba-canada.html.nl ../..//down/arm/gba-canada.html.po ../..//down/arm/gba-canada.html.sl ../..//down/arm/gba-canada.html.ru ../..//down/arm/gba-canada.html.zh-CN ../..//down/arm/gba-canada.var ../..//down/arm/nds-canada.html.bg ../..//down/arm/nds-canada.html.en ../..//down/arm/nds-canada.html.fi ../..//down/arm/nds-canada.html.fr ../..//down/arm/nds-canada.html.id ../..//down/arm/nds-canada.html.it ../..//down/arm/nds-canada.html.nl ../..//down/arm/nds-canada.html.po ../..//down/arm/nds-canada.html.sl ../..//down/arm/nds-canada.html.ru ../..//down/arm/nds-canada.html.zh-CN ../..//down/arm/nds-canada.var ../..//down/arm/wince-canada.html.bg ../..//down/arm/wince-canada.html.en ../..//down/arm/wince-canada.html.fi ../..//down/arm/wince-canada.html.fr ../..//down/arm/wince-canada.html.id ../..//down/arm/wince-canada.html.it ../..//down/arm/wince-canada.html.nl ../..//down/arm/wince-canada.html.po ../..//down/arm/wince-canada.html.sl ../..//down/arm/wince-canada.html.ru ../..//down/arm/wince-canada.html.zh-CN ../..//down/arm/wince-canada.var ../..//down/arm/linux.html.bg ../..//down/arm/linux.html.en ../..//down/arm/linux.html.fi ../..//down/arm/linux.html.fr ../..//down/arm/linux.html.id ../..//down/arm/linux.html.it ../..//down/arm/linux.html.nl ../..//down/arm/linux.html.po ../..//down/arm/linux.html.sl ../..//down/arm/linux.html.ru ../..//down/arm/linux.html.zh-CN ../..//down/arm/linux.var ../..//down/arm/gba.html.bg ../..//down/arm/gba.html.en ../..//down/arm/gba.html.fi ../..//down/arm/gba.html.fr ../..//down/arm/gba.html.id ../..//down/arm/gba.html.it ../..//down/arm/gba.html.nl ../..//down/arm/gba.html.po ../..//down/arm/gba.html.sl ../..//down/arm/gba.html.ru ../..//down/arm/gba.html.zh-CN ../..//down/arm/gba.var ../..//down/arm/nds.html.bg ../..//down/arm/nds.html.en ../..//down/arm/nds.html.fi ../..//down/arm/nds.html.fr ../..//down/arm/nds.html.id ../..//down/arm/nds.html.it ../..//down/arm/nds.html.nl ../..//down/arm/nds.html.po ../..//down/arm/nds.html.sl ../..//down/arm/nds.html.ru ../..//down/arm/nds.html.zh-CN ../..//down/arm/nds.var ../..//down/arm/wince.html.bg ../..//down/arm/wince.html.en ../..//down/arm/wince.html.fi ../..//down/arm/wince.html.fr ../..//down/arm/wince.html.id ../..//down/arm/wince.html.it ../..//down/arm/wince.html.nl ../..//down/arm/wince.html.po ../..//down/arm/wince.html.sl ../..//down/arm/wince.html.ru ../..//down/arm/wince.html.zh-CN ../..//down/arm/wince.var
+all_en_pages: mirrors.dat ../..//down/arm/linux-hungary.html ../..//down/arm/gba-hungary.html ../..//down/arm/nds-hungary.html ../..//down/arm/wince-hungary.html ../..//down/arm/linux-canada.html ../..//down/arm/gba-canada.html ../..//down/arm/nds-canada.html ../..//down/arm/wince-canada.html ../..//down/arm/linux.html ../..//down/arm/gba.html ../..//down/arm/nds.html ../..//down/arm/wince.html
 
 
 # clean

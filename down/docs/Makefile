@@ -100,6 +100,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> docs-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> docs-hungary.var
 	echo >> docs-hungary.var
+../..//down/docs/docs-canada.html.bg: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.bg -oe iso-8859-5 docs.adp
+../..//down/docs/docs-canada.html.en: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.en -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.fi: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.fi -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.fr: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.fr -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.id: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.id -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.it: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.it -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.nl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.nl -oe iso-8859-1 docs.adp
+../..//down/docs/docs-canada.html.po: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.po -oe iso-8859-2 docs.adp
+../..//down/docs/docs-canada.html.sl: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.sl -oe iso-8859-2 docs.adp
+../..//down/docs/docs-canada.html.ru: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.ru -oe iso-8859-5 docs.adp
+../..//down/docs/docs-canada.html.zh-CN: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/docs//docs-canada.html.zh-CN -oe UTF-8 docs.adp
+../..//down/docs/docs-canada.html: docs.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/docs/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/docs//docs-canada.html -oe ISO-8859-1 docs.adp
+
+../..//down/docs/docs-canada.var: gen_makefile.conf
+	echo > docs-canada.var
+	echo 'URI: docs-canada.html.bg' >> docs-canada.var
+	echo 'Content-language: bg' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.en' >> docs-canada.var
+	echo 'Content-language: en' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.fi' >> docs-canada.var
+	echo 'Content-language: fi' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.fr' >> docs-canada.var
+	echo 'Content-language: fr' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.id' >> docs-canada.var
+	echo 'Content-language: id' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.it' >> docs-canada.var
+	echo 'Content-language: it' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.nl' >> docs-canada.var
+	echo 'Content-language: nl' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.po' >> docs-canada.var
+	echo 'Content-language: pl' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.sl' >> docs-canada.var
+	echo 'Content-language: sl' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.ru' >> docs-canada.var
+	echo 'Content-language: ru' >> docs-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> docs-canada.var
+	echo >> docs-canada.var
+	echo 'URI: docs-canada.html.zh-CN' >> docs-canada.var
+	echo 'Content-language: zh-CN' >> docs-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> docs-canada.var
+	echo >> docs-canada.var
 
 ../..//down/docs/docs.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=docs -p sourceforgepath="Documentation" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o docs.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -175,9 +246,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
-all_en_pages: mirrors.dat ../..//down/docs/docs-hungary.html ../..//down/docs/docs.html
+all_pages: mirrors.dat ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-canada.html.bg ../..//down/docs/docs-canada.html.en ../..//down/docs/docs-canada.html.fi ../..//down/docs/docs-canada.html.fr ../..//down/docs/docs-canada.html.id ../..//down/docs/docs-canada.html.it ../..//down/docs/docs-canada.html.nl ../..//down/docs/docs-canada.html.po ../..//down/docs/docs-canada.html.sl ../..//down/docs/docs-canada.html.ru ../..//down/docs/docs-canada.html.zh-CN ../..//down/docs/docs-canada.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
+all_en_pages: mirrors.dat ../..//down/docs/docs-hungary.html ../..//down/docs/docs-canada.html ../..//down/docs/docs.html
 
 
 # clean

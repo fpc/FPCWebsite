@@ -100,6 +100,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> sources-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> sources-hungary.var
 	echo >> sources-hungary.var
+../..//down/source/sources-canada.html.bg: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/source//sources-canada.html.bg -oe iso-8859-5 sources.adp
+../..//down/source/sources-canada.html.en: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-canada.html.en -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.fi: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/source//sources-canada.html.fi -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.fr: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/source//sources-canada.html.fr -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.id: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/source//sources-canada.html.id -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.it: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/source//sources-canada.html.it -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.nl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/source//sources-canada.html.nl -oe iso-8859-1 sources.adp
+../..//down/source/sources-canada.html.po: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/source//sources-canada.html.po -oe iso-8859-2 sources.adp
+../..//down/source/sources-canada.html.sl: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/source//sources-canada.html.sl -oe iso-8859-2 sources.adp
+../..//down/source/sources-canada.html.ru: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/source//sources-canada.html.ru -oe iso-8859-5 sources.adp
+../..//down/source/sources-canada.html.zh-CN: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/source//sources-canada.html.zh-CN -oe UTF-8 sources.adp
+../..//down/source/sources-canada.html: sources.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/source/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/source//sources-canada.html -oe ISO-8859-1 sources.adp
+
+../..//down/source/sources-canada.var: gen_makefile.conf
+	echo > sources-canada.var
+	echo 'URI: sources-canada.html.bg' >> sources-canada.var
+	echo 'Content-language: bg' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.en' >> sources-canada.var
+	echo 'Content-language: en' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.fi' >> sources-canada.var
+	echo 'Content-language: fi' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.fr' >> sources-canada.var
+	echo 'Content-language: fr' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.id' >> sources-canada.var
+	echo 'Content-language: id' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.it' >> sources-canada.var
+	echo 'Content-language: it' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.nl' >> sources-canada.var
+	echo 'Content-language: nl' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.po' >> sources-canada.var
+	echo 'Content-language: pl' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.sl' >> sources-canada.var
+	echo 'Content-language: sl' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.ru' >> sources-canada.var
+	echo 'Content-language: ru' >> sources-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> sources-canada.var
+	echo >> sources-canada.var
+	echo 'URI: sources-canada.html.zh-CN' >> sources-canada.var
+	echo 'Content-language: zh-CN' >> sources-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> sources-canada.var
+	echo >> sources-canada.var
 
 ../..//down/source/sources.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=sources -p sourceforgepath="Source" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o sources.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -175,9 +246,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/source/sources-hungary.html.bg ../..//down/source/sources-hungary.html.en ../..//down/source/sources-hungary.html.fi ../..//down/source/sources-hungary.html.fr ../..//down/source/sources-hungary.html.id ../..//down/source/sources-hungary.html.it ../..//down/source/sources-hungary.html.nl ../..//down/source/sources-hungary.html.po ../..//down/source/sources-hungary.html.sl ../..//down/source/sources-hungary.html.ru ../..//down/source/sources-hungary.html.zh-CN ../..//down/source/sources-hungary.var ../..//down/source/sources.html.bg ../..//down/source/sources.html.en ../..//down/source/sources.html.fi ../..//down/source/sources.html.fr ../..//down/source/sources.html.id ../..//down/source/sources.html.it ../..//down/source/sources.html.nl ../..//down/source/sources.html.po ../..//down/source/sources.html.sl ../..//down/source/sources.html.ru ../..//down/source/sources.html.zh-CN ../..//down/source/sources.var
-all_en_pages: mirrors.dat ../..//down/source/sources-hungary.html ../..//down/source/sources.html
+all_pages: mirrors.dat ../..//down/source/sources-hungary.html.bg ../..//down/source/sources-hungary.html.en ../..//down/source/sources-hungary.html.fi ../..//down/source/sources-hungary.html.fr ../..//down/source/sources-hungary.html.id ../..//down/source/sources-hungary.html.it ../..//down/source/sources-hungary.html.nl ../..//down/source/sources-hungary.html.po ../..//down/source/sources-hungary.html.sl ../..//down/source/sources-hungary.html.ru ../..//down/source/sources-hungary.html.zh-CN ../..//down/source/sources-hungary.var ../..//down/source/sources-canada.html.bg ../..//down/source/sources-canada.html.en ../..//down/source/sources-canada.html.fi ../..//down/source/sources-canada.html.fr ../..//down/source/sources-canada.html.id ../..//down/source/sources-canada.html.it ../..//down/source/sources-canada.html.nl ../..//down/source/sources-canada.html.po ../..//down/source/sources-canada.html.sl ../..//down/source/sources-canada.html.ru ../..//down/source/sources-canada.html.zh-CN ../..//down/source/sources-canada.var ../..//down/source/sources.html.bg ../..//down/source/sources.html.en ../..//down/source/sources.html.fi ../..//down/source/sources.html.fr ../..//down/source/sources.html.id ../..//down/source/sources.html.it ../..//down/source/sources.html.nl ../..//down/source/sources.html.po ../..//down/source/sources.html.sl ../..//down/source/sources.html.ru ../..//down/source/sources.html.zh-CN ../..//down/source/sources.var
+all_en_pages: mirrors.dat ../..//down/source/sources-hungary.html ../..//down/source/sources-canada.html ../..//down/source/sources.html
 
 
 # clean

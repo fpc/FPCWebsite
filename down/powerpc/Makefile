@@ -313,6 +313,290 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> wii-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> wii-hungary.var
 	echo >> wii-hungary.var
+../..//down/powerpc/aix-canada.html.bg: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.bg -oe iso-8859-5 aix.adp
+../..//down/powerpc/aix-canada.html.en: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.en -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.fi: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.fi -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.fr: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.fr -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.id: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.id -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.it: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.it -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.nl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.nl -oe iso-8859-1 aix.adp
+../..//down/powerpc/aix-canada.html.po: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.po -oe iso-8859-2 aix.adp
+../..//down/powerpc/aix-canada.html.sl: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.sl -oe iso-8859-2 aix.adp
+../..//down/powerpc/aix-canada.html.ru: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.ru -oe iso-8859-5 aix.adp
+../..//down/powerpc/aix-canada.html.zh-CN: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html.zh-CN -oe UTF-8 aix.adp
+../..//down/powerpc/aix-canada.html: aix.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//aix-canada.html -oe ISO-8859-1 aix.adp
+
+../..//down/powerpc/aix-canada.var: gen_makefile.conf
+	echo > aix-canada.var
+	echo 'URI: aix-canada.html.bg' >> aix-canada.var
+	echo 'Content-language: bg' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.en' >> aix-canada.var
+	echo 'Content-language: en' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.fi' >> aix-canada.var
+	echo 'Content-language: fi' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.fr' >> aix-canada.var
+	echo 'Content-language: fr' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.id' >> aix-canada.var
+	echo 'Content-language: id' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.it' >> aix-canada.var
+	echo 'Content-language: it' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.nl' >> aix-canada.var
+	echo 'Content-language: nl' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.po' >> aix-canada.var
+	echo 'Content-language: pl' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.sl' >> aix-canada.var
+	echo 'Content-language: sl' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.ru' >> aix-canada.var
+	echo 'Content-language: ru' >> aix-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> aix-canada.var
+	echo >> aix-canada.var
+	echo 'URI: aix-canada.html.zh-CN' >> aix-canada.var
+	echo 'Content-language: zh-CN' >> aix-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> aix-canada.var
+	echo >> aix-canada.var
+../..//down/powerpc/linux-canada.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.bg -oe iso-8859-5 linux.adp
+../..//down/powerpc/linux-canada.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.en -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.fi: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.fi -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.fr -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.id: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.id -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.it: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.it -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.nl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.nl -oe iso-8859-1 linux.adp
+../..//down/powerpc/linux-canada.html.po: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.po -oe iso-8859-2 linux.adp
+../..//down/powerpc/linux-canada.html.sl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.sl -oe iso-8859-2 linux.adp
+../..//down/powerpc/linux-canada.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.ru -oe iso-8859-5 linux.adp
+../..//down/powerpc/linux-canada.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html.zh-CN -oe UTF-8 linux.adp
+../..//down/powerpc/linux-canada.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//linux-canada.html -oe ISO-8859-1 linux.adp
+
+../..//down/powerpc/linux-canada.var: gen_makefile.conf
+	echo > linux-canada.var
+	echo 'URI: linux-canada.html.bg' >> linux-canada.var
+	echo 'Content-language: bg' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.en' >> linux-canada.var
+	echo 'Content-language: en' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fi' >> linux-canada.var
+	echo 'Content-language: fi' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fr' >> linux-canada.var
+	echo 'Content-language: fr' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.id' >> linux-canada.var
+	echo 'Content-language: id' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.it' >> linux-canada.var
+	echo 'Content-language: it' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.nl' >> linux-canada.var
+	echo 'Content-language: nl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.po' >> linux-canada.var
+	echo 'Content-language: pl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.sl' >> linux-canada.var
+	echo 'Content-language: sl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.ru' >> linux-canada.var
+	echo 'Content-language: ru' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.zh-CN' >> linux-canada.var
+	echo 'Content-language: zh-CN' >> linux-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> linux-canada.var
+	echo >> linux-canada.var
+../..//down/powerpc/macosx-canada.html.bg: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.bg -oe iso-8859-5 macosx.adp
+../..//down/powerpc/macosx-canada.html.en: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.en -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.fi: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.fi -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.fr: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.fr -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.id: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.id -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.it: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.it -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.nl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.nl -oe iso-8859-1 macosx.adp
+../..//down/powerpc/macosx-canada.html.po: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.po -oe iso-8859-2 macosx.adp
+../..//down/powerpc/macosx-canada.html.sl: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.sl -oe iso-8859-2 macosx.adp
+../..//down/powerpc/macosx-canada.html.ru: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.ru -oe iso-8859-5 macosx.adp
+../..//down/powerpc/macosx-canada.html.zh-CN: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html.zh-CN -oe UTF-8 macosx.adp
+../..//down/powerpc/macosx-canada.html: macosx.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//macosx-canada.html -oe ISO-8859-1 macosx.adp
+
+../..//down/powerpc/macosx-canada.var: gen_makefile.conf
+	echo > macosx-canada.var
+	echo 'URI: macosx-canada.html.bg' >> macosx-canada.var
+	echo 'Content-language: bg' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.en' >> macosx-canada.var
+	echo 'Content-language: en' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.fi' >> macosx-canada.var
+	echo 'Content-language: fi' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.fr' >> macosx-canada.var
+	echo 'Content-language: fr' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.id' >> macosx-canada.var
+	echo 'Content-language: id' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.it' >> macosx-canada.var
+	echo 'Content-language: it' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.nl' >> macosx-canada.var
+	echo 'Content-language: nl' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.po' >> macosx-canada.var
+	echo 'Content-language: pl' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.sl' >> macosx-canada.var
+	echo 'Content-language: sl' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.ru' >> macosx-canada.var
+	echo 'Content-language: ru' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> macosx-canada.var
+	echo >> macosx-canada.var
+	echo 'URI: macosx-canada.html.zh-CN' >> macosx-canada.var
+	echo 'Content-language: zh-CN' >> macosx-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> macosx-canada.var
+	echo >> macosx-canada.var
+../..//down/powerpc/wii-canada.html.bg: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.bg -oe iso-8859-5 wii.adp
+../..//down/powerpc/wii-canada.html.en: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.en -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.fi: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.fi -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.fr: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.fr -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.id: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.id -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.it: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.it -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.nl: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.nl -oe iso-8859-1 wii.adp
+../..//down/powerpc/wii-canada.html.po: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.po -oe iso-8859-2 wii.adp
+../..//down/powerpc/wii-canada.html.sl: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.sl -oe iso-8859-2 wii.adp
+../..//down/powerpc/wii-canada.html.ru: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.ru -oe iso-8859-5 wii.adp
+../..//down/powerpc/wii-canada.html.zh-CN: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html.zh-CN -oe UTF-8 wii.adp
+../..//down/powerpc/wii-canada.html: wii.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/powerpc/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/powerpc//wii-canada.html -oe ISO-8859-1 wii.adp
+
+../..//down/powerpc/wii-canada.var: gen_makefile.conf
+	echo > wii-canada.var
+	echo 'URI: wii-canada.html.bg' >> wii-canada.var
+	echo 'Content-language: bg' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.en' >> wii-canada.var
+	echo 'Content-language: en' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.fi' >> wii-canada.var
+	echo 'Content-language: fi' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.fr' >> wii-canada.var
+	echo 'Content-language: fr' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.id' >> wii-canada.var
+	echo 'Content-language: id' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.it' >> wii-canada.var
+	echo 'Content-language: it' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.nl' >> wii-canada.var
+	echo 'Content-language: nl' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.po' >> wii-canada.var
+	echo 'Content-language: pl' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.sl' >> wii-canada.var
+	echo 'Content-language: sl' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.ru' >> wii-canada.var
+	echo 'Content-language: ru' >> wii-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> wii-canada.var
+	echo >> wii-canada.var
+	echo 'URI: wii-canada.html.zh-CN' >> wii-canada.var
+	echo 'Content-language: zh-CN' >> wii-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> wii-canada.var
+	echo >> wii-canada.var
 
 ../..//down/powerpc/aix.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=aix -p sourceforgepath="AIX" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o aix.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -601,9 +885,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/powerpc/aix-hungary.html.bg ../..//down/powerpc/aix-hungary.html.en ../..//down/powerpc/aix-hungary.html.fi ../..//down/powerpc/aix-hungary.html.fr ../..//down/powerpc/aix-hungary.html.id ../..//down/powerpc/aix-hungary.html.it ../..//down/powerpc/aix-hungary.html.nl ../..//down/powerpc/aix-hungary.html.po ../..//down/powerpc/aix-hungary.html.sl ../..//down/powerpc/aix-hungary.html.ru ../..//down/powerpc/aix-hungary.html.zh-CN ../..//down/powerpc/aix-hungary.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh-CN ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh-CN ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/wii-hungary.html.bg ../..//down/powerpc/wii-hungary.html.en ../..//down/powerpc/wii-hungary.html.fi ../..//down/powerpc/wii-hungary.html.fr ../..//down/powerpc/wii-hungary.html.id ../..//down/powerpc/wii-hungary.html.it ../..//down/powerpc/wii-hungary.html.nl ../..//down/powerpc/wii-hungary.html.po ../..//down/powerpc/wii-hungary.html.sl ../..//down/powerpc/wii-hungary.html.ru ../..//down/powerpc/wii-hungary.html.zh-CN ../..//down/powerpc/wii-hungary.var ../..//down/powerpc/aix.html.bg ../..//down/powerpc/aix.html.en ../..//down/powerpc/aix.html.fi ../..//down/powerpc/aix.html.fr ../..//down/powerpc/aix.html.id ../..//down/powerpc/aix.html.it ../..//down/powerpc/aix.html.nl ../..//down/powerpc/aix.html.po ../..//down/powerpc/aix.html.sl ../..//down/powerpc/aix.html.ru ../..//down/powerpc/aix.html.zh-CN ../..//down/powerpc/aix.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh-CN ../..//down/powerpc/linux.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh-CN ../..//down/powerpc/macosx.var ../..//down/powerpc/wii.html.bg ../..//down/powerpc/wii.html.en ../..//down/powerpc/wii.html.fi ../..//down/powerpc/wii.html.fr ../..//down/powerpc/wii.html.id ../..//down/powerpc/wii.html.it ../..//down/powerpc/wii.html.nl ../..//down/powerpc/wii.html.po ../..//down/powerpc/wii.html.sl ../..//down/powerpc/wii.html.ru ../..//down/powerpc/wii.html.zh-CN ../..//down/powerpc/wii.var
-all_en_pages: mirrors.dat ../..//down/powerpc/aix-hungary.html ../..//down/powerpc/linux-hungary.html ../..//down/powerpc/macosx-hungary.html ../..//down/powerpc/wii-hungary.html ../..//down/powerpc/aix.html ../..//down/powerpc/linux.html ../..//down/powerpc/macosx.html ../..//down/powerpc/wii.html
+all_pages: mirrors.dat ../..//down/powerpc/aix-hungary.html.bg ../..//down/powerpc/aix-hungary.html.en ../..//down/powerpc/aix-hungary.html.fi ../..//down/powerpc/aix-hungary.html.fr ../..//down/powerpc/aix-hungary.html.id ../..//down/powerpc/aix-hungary.html.it ../..//down/powerpc/aix-hungary.html.nl ../..//down/powerpc/aix-hungary.html.po ../..//down/powerpc/aix-hungary.html.sl ../..//down/powerpc/aix-hungary.html.ru ../..//down/powerpc/aix-hungary.html.zh-CN ../..//down/powerpc/aix-hungary.var ../..//down/powerpc/linux-hungary.html.bg ../..//down/powerpc/linux-hungary.html.en ../..//down/powerpc/linux-hungary.html.fi ../..//down/powerpc/linux-hungary.html.fr ../..//down/powerpc/linux-hungary.html.id ../..//down/powerpc/linux-hungary.html.it ../..//down/powerpc/linux-hungary.html.nl ../..//down/powerpc/linux-hungary.html.po ../..//down/powerpc/linux-hungary.html.sl ../..//down/powerpc/linux-hungary.html.ru ../..//down/powerpc/linux-hungary.html.zh-CN ../..//down/powerpc/linux-hungary.var ../..//down/powerpc/macosx-hungary.html.bg ../..//down/powerpc/macosx-hungary.html.en ../..//down/powerpc/macosx-hungary.html.fi ../..//down/powerpc/macosx-hungary.html.fr ../..//down/powerpc/macosx-hungary.html.id ../..//down/powerpc/macosx-hungary.html.it ../..//down/powerpc/macosx-hungary.html.nl ../..//down/powerpc/macosx-hungary.html.po ../..//down/powerpc/macosx-hungary.html.sl ../..//down/powerpc/macosx-hungary.html.ru ../..//down/powerpc/macosx-hungary.html.zh-CN ../..//down/powerpc/macosx-hungary.var ../..//down/powerpc/wii-hungary.html.bg ../..//down/powerpc/wii-hungary.html.en ../..//down/powerpc/wii-hungary.html.fi ../..//down/powerpc/wii-hungary.html.fr ../..//down/powerpc/wii-hungary.html.id ../..//down/powerpc/wii-hungary.html.it ../..//down/powerpc/wii-hungary.html.nl ../..//down/powerpc/wii-hungary.html.po ../..//down/powerpc/wii-hungary.html.sl ../..//down/powerpc/wii-hungary.html.ru ../..//down/powerpc/wii-hungary.html.zh-CN ../..//down/powerpc/wii-hungary.var ../..//down/powerpc/aix-canada.html.bg ../..//down/powerpc/aix-canada.html.en ../..//down/powerpc/aix-canada.html.fi ../..//down/powerpc/aix-canada.html.fr ../..//down/powerpc/aix-canada.html.id ../..//down/powerpc/aix-canada.html.it ../..//down/powerpc/aix-canada.html.nl ../..//down/powerpc/aix-canada.html.po ../..//down/powerpc/aix-canada.html.sl ../..//down/powerpc/aix-canada.html.ru ../..//down/powerpc/aix-canada.html.zh-CN ../..//down/powerpc/aix-canada.var ../..//down/powerpc/linux-canada.html.bg ../..//down/powerpc/linux-canada.html.en ../..//down/powerpc/linux-canada.html.fi ../..//down/powerpc/linux-canada.html.fr ../..//down/powerpc/linux-canada.html.id ../..//down/powerpc/linux-canada.html.it ../..//down/powerpc/linux-canada.html.nl ../..//down/powerpc/linux-canada.html.po ../..//down/powerpc/linux-canada.html.sl ../..//down/powerpc/linux-canada.html.ru ../..//down/powerpc/linux-canada.html.zh-CN ../..//down/powerpc/linux-canada.var ../..//down/powerpc/macosx-canada.html.bg ../..//down/powerpc/macosx-canada.html.en ../..//down/powerpc/macosx-canada.html.fi ../..//down/powerpc/macosx-canada.html.fr ../..//down/powerpc/macosx-canada.html.id ../..//down/powerpc/macosx-canada.html.it ../..//down/powerpc/macosx-canada.html.nl ../..//down/powerpc/macosx-canada.html.po ../..//down/powerpc/macosx-canada.html.sl ../..//down/powerpc/macosx-canada.html.ru ../..//down/powerpc/macosx-canada.html.zh-CN ../..//down/powerpc/macosx-canada.var ../..//down/powerpc/wii-canada.html.bg ../..//down/powerpc/wii-canada.html.en ../..//down/powerpc/wii-canada.html.fi ../..//down/powerpc/wii-canada.html.fr ../..//down/powerpc/wii-canada.html.id ../..//down/powerpc/wii-canada.html.it ../..//down/powerpc/wii-canada.html.nl ../..//down/powerpc/wii-canada.html.po ../..//down/powerpc/wii-canada.html.sl ../..//down/powerpc/wii-canada.html.ru ../..//down/powerpc/wii-canada.html.zh-CN ../..//down/powerpc/wii-canada.var ../..//down/powerpc/aix.html.bg ../..//down/powerpc/aix.html.en ../..//down/powerpc/aix.html.fi ../..//down/powerpc/aix.html.fr ../..//down/powerpc/aix.html.id ../..//down/powerpc/aix.html.it ../..//down/powerpc/aix.html.nl ../..//down/powerpc/aix.html.po ../..//down/powerpc/aix.html.sl ../..//down/powerpc/aix.html.ru ../..//down/powerpc/aix.html.zh-CN ../..//down/powerpc/aix.var ../..//down/powerpc/linux.html.bg ../..//down/powerpc/linux.html.en ../..//down/powerpc/linux.html.fi ../..//down/powerpc/linux.html.fr ../..//down/powerpc/linux.html.id ../..//down/powerpc/linux.html.it ../..//down/powerpc/linux.html.nl ../..//down/powerpc/linux.html.po ../..//down/powerpc/linux.html.sl ../..//down/powerpc/linux.html.ru ../..//down/powerpc/linux.html.zh-CN ../..//down/powerpc/linux.var ../..//down/powerpc/macosx.html.bg ../..//down/powerpc/macosx.html.en ../..//down/powerpc/macosx.html.fi ../..//down/powerpc/macosx.html.fr ../..//down/powerpc/macosx.html.id ../..//down/powerpc/macosx.html.it ../..//down/powerpc/macosx.html.nl ../..//down/powerpc/macosx.html.po ../..//down/powerpc/macosx.html.sl ../..//down/powerpc/macosx.html.ru ../..//down/powerpc/macosx.html.zh-CN ../..//down/powerpc/macosx.var ../..//down/powerpc/wii.html.bg ../..//down/powerpc/wii.html.en ../..//down/powerpc/wii.html.fi ../..//down/powerpc/wii.html.fr ../..//down/powerpc/wii.html.id ../..//down/powerpc/wii.html.it ../..//down/powerpc/wii.html.nl ../..//down/powerpc/wii.html.po ../..//down/powerpc/wii.html.sl ../..//down/powerpc/wii.html.ru ../..//down/powerpc/wii.html.zh-CN ../..//down/powerpc/wii.var
+all_en_pages: mirrors.dat ../..//down/powerpc/aix-hungary.html ../..//down/powerpc/linux-hungary.html ../..//down/powerpc/macosx-hungary.html ../..//down/powerpc/wii-hungary.html ../..//down/powerpc/aix-canada.html ../..//down/powerpc/linux-canada.html ../..//down/powerpc/macosx-canada.html ../..//down/powerpc/wii-canada.html ../..//down/powerpc/aix.html ../..//down/powerpc/linux.html ../..//down/powerpc/macosx.html ../..//down/powerpc/wii.html
 
 
 # clean

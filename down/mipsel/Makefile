@@ -100,6 +100,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> linux-hungary.var
 	echo >> linux-hungary.var
+../..//down/mipsel/linux-canada.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.bg -oe iso-8859-5 linux.adp
+../..//down/mipsel/linux-canada.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.en -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.fi: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.fi -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.fr -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.id: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.id -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.it: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.it -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.nl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.nl -oe iso-8859-1 linux.adp
+../..//down/mipsel/linux-canada.html.po: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.po -oe iso-8859-2 linux.adp
+../..//down/mipsel/linux-canada.html.sl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.sl -oe iso-8859-2 linux.adp
+../..//down/mipsel/linux-canada.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.ru -oe iso-8859-5 linux.adp
+../..//down/mipsel/linux-canada.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html.zh-CN -oe UTF-8 linux.adp
+../..//down/mipsel/linux-canada.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/mipsel/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/mipsel//linux-canada.html -oe ISO-8859-1 linux.adp
+
+../..//down/mipsel/linux-canada.var: gen_makefile.conf
+	echo > linux-canada.var
+	echo 'URI: linux-canada.html.bg' >> linux-canada.var
+	echo 'Content-language: bg' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.en' >> linux-canada.var
+	echo 'Content-language: en' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fi' >> linux-canada.var
+	echo 'Content-language: fi' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fr' >> linux-canada.var
+	echo 'Content-language: fr' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.id' >> linux-canada.var
+	echo 'Content-language: id' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.it' >> linux-canada.var
+	echo 'Content-language: it' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.nl' >> linux-canada.var
+	echo 'Content-language: nl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.po' >> linux-canada.var
+	echo 'Content-language: pl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.sl' >> linux-canada.var
+	echo 'Content-language: sl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.ru' >> linux-canada.var
+	echo 'Content-language: ru' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.zh-CN' >> linux-canada.var
+	echo 'Content-language: zh-CN' >> linux-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> linux-canada.var
+	echo >> linux-canada.var
 
 ../..//down/mipsel/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -175,9 +246,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html.bg ../..//down/mipsel/linux-hungary.html.en ../..//down/mipsel/linux-hungary.html.fi ../..//down/mipsel/linux-hungary.html.fr ../..//down/mipsel/linux-hungary.html.id ../..//down/mipsel/linux-hungary.html.it ../..//down/mipsel/linux-hungary.html.nl ../..//down/mipsel/linux-hungary.html.po ../..//down/mipsel/linux-hungary.html.sl ../..//down/mipsel/linux-hungary.html.ru ../..//down/mipsel/linux-hungary.html.zh-CN ../..//down/mipsel/linux-hungary.var ../..//down/mipsel/linux.html.bg ../..//down/mipsel/linux.html.en ../..//down/mipsel/linux.html.fi ../..//down/mipsel/linux.html.fr ../..//down/mipsel/linux.html.id ../..//down/mipsel/linux.html.it ../..//down/mipsel/linux.html.nl ../..//down/mipsel/linux.html.po ../..//down/mipsel/linux.html.sl ../..//down/mipsel/linux.html.ru ../..//down/mipsel/linux.html.zh-CN ../..//down/mipsel/linux.var
-all_en_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html ../..//down/mipsel/linux.html
+all_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html.bg ../..//down/mipsel/linux-hungary.html.en ../..//down/mipsel/linux-hungary.html.fi ../..//down/mipsel/linux-hungary.html.fr ../..//down/mipsel/linux-hungary.html.id ../..//down/mipsel/linux-hungary.html.it ../..//down/mipsel/linux-hungary.html.nl ../..//down/mipsel/linux-hungary.html.po ../..//down/mipsel/linux-hungary.html.sl ../..//down/mipsel/linux-hungary.html.ru ../..//down/mipsel/linux-hungary.html.zh-CN ../..//down/mipsel/linux-hungary.var ../..//down/mipsel/linux-canada.html.bg ../..//down/mipsel/linux-canada.html.en ../..//down/mipsel/linux-canada.html.fi ../..//down/mipsel/linux-canada.html.fr ../..//down/mipsel/linux-canada.html.id ../..//down/mipsel/linux-canada.html.it ../..//down/mipsel/linux-canada.html.nl ../..//down/mipsel/linux-canada.html.po ../..//down/mipsel/linux-canada.html.sl ../..//down/mipsel/linux-canada.html.ru ../..//down/mipsel/linux-canada.html.zh-CN ../..//down/mipsel/linux-canada.var ../..//down/mipsel/linux.html.bg ../..//down/mipsel/linux.html.en ../..//down/mipsel/linux.html.fi ../..//down/mipsel/linux.html.fr ../..//down/mipsel/linux.html.id ../..//down/mipsel/linux.html.it ../..//down/mipsel/linux.html.nl ../..//down/mipsel/linux.html.po ../..//down/mipsel/linux.html.sl ../..//down/mipsel/linux.html.ru ../..//down/mipsel/linux.html.zh-CN ../..//down/mipsel/linux.var
+all_en_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html ../..//down/mipsel/linux-canada.html ../..//down/mipsel/linux.html
 
 
 # clean

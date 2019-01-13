@@ -384,6 +384,361 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> solaris-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> solaris-hungary.var
 	echo >> solaris-hungary.var
+../..//down/x86_64/linux-canada.html.bg: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.bg -oe iso-8859-5 linux.adp
+../..//down/x86_64/linux-canada.html.en: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.en -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.fi: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.fi -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.fr: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.fr -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.id: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.id -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.it: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.it -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.nl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.nl -oe iso-8859-1 linux.adp
+../..//down/x86_64/linux-canada.html.po: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.po -oe iso-8859-2 linux.adp
+../..//down/x86_64/linux-canada.html.sl: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.sl -oe iso-8859-2 linux.adp
+../..//down/x86_64/linux-canada.html.ru: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.ru -oe iso-8859-5 linux.adp
+../..//down/x86_64/linux-canada.html.zh-CN: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html.zh-CN -oe UTF-8 linux.adp
+../..//down/x86_64/linux-canada.html: linux.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//linux-canada.html -oe ISO-8859-1 linux.adp
+
+../..//down/x86_64/linux-canada.var: gen_makefile.conf
+	echo > linux-canada.var
+	echo 'URI: linux-canada.html.bg' >> linux-canada.var
+	echo 'Content-language: bg' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.en' >> linux-canada.var
+	echo 'Content-language: en' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fi' >> linux-canada.var
+	echo 'Content-language: fi' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.fr' >> linux-canada.var
+	echo 'Content-language: fr' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.id' >> linux-canada.var
+	echo 'Content-language: id' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.it' >> linux-canada.var
+	echo 'Content-language: it' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.nl' >> linux-canada.var
+	echo 'Content-language: nl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.po' >> linux-canada.var
+	echo 'Content-language: pl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.sl' >> linux-canada.var
+	echo 'Content-language: sl' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.ru' >> linux-canada.var
+	echo 'Content-language: ru' >> linux-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> linux-canada.var
+	echo >> linux-canada.var
+	echo 'URI: linux-canada.html.zh-CN' >> linux-canada.var
+	echo 'Content-language: zh-CN' >> linux-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> linux-canada.var
+	echo >> linux-canada.var
+../..//down/x86_64/win64-canada.html.bg: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.bg -oe iso-8859-5 win64.adp
+../..//down/x86_64/win64-canada.html.en: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.en -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.fi: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.fi -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.fr: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.fr -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.id: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.id -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.it: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.it -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.nl: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.nl -oe iso-8859-1 win64.adp
+../..//down/x86_64/win64-canada.html.po: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.po -oe iso-8859-2 win64.adp
+../..//down/x86_64/win64-canada.html.sl: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.sl -oe iso-8859-2 win64.adp
+../..//down/x86_64/win64-canada.html.ru: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.ru -oe iso-8859-5 win64.adp
+../..//down/x86_64/win64-canada.html.zh-CN: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html.zh-CN -oe UTF-8 win64.adp
+../..//down/x86_64/win64-canada.html: win64.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//win64-canada.html -oe ISO-8859-1 win64.adp
+
+../..//down/x86_64/win64-canada.var: gen_makefile.conf
+	echo > win64-canada.var
+	echo 'URI: win64-canada.html.bg' >> win64-canada.var
+	echo 'Content-language: bg' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.en' >> win64-canada.var
+	echo 'Content-language: en' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.fi' >> win64-canada.var
+	echo 'Content-language: fi' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.fr' >> win64-canada.var
+	echo 'Content-language: fr' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.id' >> win64-canada.var
+	echo 'Content-language: id' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.it' >> win64-canada.var
+	echo 'Content-language: it' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.nl' >> win64-canada.var
+	echo 'Content-language: nl' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.po' >> win64-canada.var
+	echo 'Content-language: pl' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.sl' >> win64-canada.var
+	echo 'Content-language: sl' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.ru' >> win64-canada.var
+	echo 'Content-language: ru' >> win64-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> win64-canada.var
+	echo >> win64-canada.var
+	echo 'URI: win64-canada.html.zh-CN' >> win64-canada.var
+	echo 'Content-language: zh-CN' >> win64-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> win64-canada.var
+	echo >> win64-canada.var
+../..//down/x86_64/freebsd-canada.html.bg: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.bg -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.en: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.en -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.fi: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.fi -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.fr: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.fr -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.id: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.id -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.it: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.it -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.nl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.nl -oe iso-8859-1 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.po: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.po -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.sl: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.sl -oe iso-8859-2 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.ru: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.ru -oe iso-8859-5 freebsd.adp
+../..//down/x86_64/freebsd-canada.html.zh-CN: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html.zh-CN -oe UTF-8 freebsd.adp
+../..//down/x86_64/freebsd-canada.html: freebsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//freebsd-canada.html -oe ISO-8859-1 freebsd.adp
+
+../..//down/x86_64/freebsd-canada.var: gen_makefile.conf
+	echo > freebsd-canada.var
+	echo 'URI: freebsd-canada.html.bg' >> freebsd-canada.var
+	echo 'Content-language: bg' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.en' >> freebsd-canada.var
+	echo 'Content-language: en' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.fi' >> freebsd-canada.var
+	echo 'Content-language: fi' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.fr' >> freebsd-canada.var
+	echo 'Content-language: fr' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.id' >> freebsd-canada.var
+	echo 'Content-language: id' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.it' >> freebsd-canada.var
+	echo 'Content-language: it' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.nl' >> freebsd-canada.var
+	echo 'Content-language: nl' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.po' >> freebsd-canada.var
+	echo 'Content-language: pl' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.sl' >> freebsd-canada.var
+	echo 'Content-language: sl' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.ru' >> freebsd-canada.var
+	echo 'Content-language: ru' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+	echo 'URI: freebsd-canada.html.zh-CN' >> freebsd-canada.var
+	echo 'Content-language: zh-CN' >> freebsd-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> freebsd-canada.var
+	echo >> freebsd-canada.var
+../..//down/x86_64/netbsd-canada.html.bg: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.bg -oe iso-8859-5 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.en: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.en -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.fi: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.fi -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.fr: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.fr -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.id: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.id -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.it: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.it -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.nl: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.nl -oe iso-8859-1 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.po: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.po -oe iso-8859-2 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.sl: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.sl -oe iso-8859-2 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.ru: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.ru -oe iso-8859-5 netbsd.adp
+../..//down/x86_64/netbsd-canada.html.zh-CN: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html.zh-CN -oe UTF-8 netbsd.adp
+../..//down/x86_64/netbsd-canada.html: netbsd.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//netbsd-canada.html -oe ISO-8859-1 netbsd.adp
+
+../..//down/x86_64/netbsd-canada.var: gen_makefile.conf
+	echo > netbsd-canada.var
+	echo 'URI: netbsd-canada.html.bg' >> netbsd-canada.var
+	echo 'Content-language: bg' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.en' >> netbsd-canada.var
+	echo 'Content-language: en' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.fi' >> netbsd-canada.var
+	echo 'Content-language: fi' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.fr' >> netbsd-canada.var
+	echo 'Content-language: fr' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.id' >> netbsd-canada.var
+	echo 'Content-language: id' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.it' >> netbsd-canada.var
+	echo 'Content-language: it' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.nl' >> netbsd-canada.var
+	echo 'Content-language: nl' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.po' >> netbsd-canada.var
+	echo 'Content-language: pl' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.sl' >> netbsd-canada.var
+	echo 'Content-language: sl' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.ru' >> netbsd-canada.var
+	echo 'Content-language: ru' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+	echo 'URI: netbsd-canada.html.zh-CN' >> netbsd-canada.var
+	echo 'Content-language: zh-CN' >> netbsd-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> netbsd-canada.var
+	echo >> netbsd-canada.var
+../..//down/x86_64/solaris-canada.html.bg: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.bg -oe iso-8859-5 solaris.adp
+../..//down/x86_64/solaris-canada.html.en: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.en -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.fi: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.fi -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.fr: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.fr -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.id: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.id -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.it: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.it -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.nl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.nl -oe iso-8859-1 solaris.adp
+../..//down/x86_64/solaris-canada.html.po: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.po -oe iso-8859-2 solaris.adp
+../..//down/x86_64/solaris-canada.html.sl: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.sl -oe iso-8859-2 solaris.adp
+../..//down/x86_64/solaris-canada.html.ru: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.ru -oe iso-8859-5 solaris.adp
+../..//down/x86_64/solaris-canada.html.zh-CN: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html.zh-CN -oe UTF-8 solaris.adp
+../..//down/x86_64/solaris-canada.html: solaris.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/x86_64/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/x86_64//solaris-canada.html -oe ISO-8859-1 solaris.adp
+
+../..//down/x86_64/solaris-canada.var: gen_makefile.conf
+	echo > solaris-canada.var
+	echo 'URI: solaris-canada.html.bg' >> solaris-canada.var
+	echo 'Content-language: bg' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.en' >> solaris-canada.var
+	echo 'Content-language: en' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.fi' >> solaris-canada.var
+	echo 'Content-language: fi' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.fr' >> solaris-canada.var
+	echo 'Content-language: fr' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.id' >> solaris-canada.var
+	echo 'Content-language: id' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.it' >> solaris-canada.var
+	echo 'Content-language: it' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.nl' >> solaris-canada.var
+	echo 'Content-language: nl' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.po' >> solaris-canada.var
+	echo 'Content-language: pl' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.sl' >> solaris-canada.var
+	echo 'Content-language: sl' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.ru' >> solaris-canada.var
+	echo 'Content-language: ru' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> solaris-canada.var
+	echo >> solaris-canada.var
+	echo 'URI: solaris-canada.html.zh-CN' >> solaris-canada.var
+	echo 'Content-language: zh-CN' >> solaris-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> solaris-canada.var
+	echo >> solaris-canada.var
 
 ../..//down/x86_64/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -oe iso-8859-5 ../../templatemirror.adp
@@ -743,9 +1098,10 @@ english: output_directory all_en_pages
 mirrors.dat:
 	$(shell echo 'name\tnamel\turl' > mirrors.dat)
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/x86_64/linux-hungary.html.bg ../..//down/x86_64/linux-hungary.html.en ../..//down/x86_64/linux-hungary.html.fi ../..//down/x86_64/linux-hungary.html.fr ../..//down/x86_64/linux-hungary.html.id ../..//down/x86_64/linux-hungary.html.it ../..//down/x86_64/linux-hungary.html.nl ../..//down/x86_64/linux-hungary.html.po ../..//down/x86_64/linux-hungary.html.sl ../..//down/x86_64/linux-hungary.html.ru ../..//down/x86_64/linux-hungary.html.zh-CN ../..//down/x86_64/linux-hungary.var ../..//down/x86_64/win64-hungary.html.bg ../..//down/x86_64/win64-hungary.html.en ../..//down/x86_64/win64-hungary.html.fi ../..//down/x86_64/win64-hungary.html.fr ../..//down/x86_64/win64-hungary.html.id ../..//down/x86_64/win64-hungary.html.it ../..//down/x86_64/win64-hungary.html.nl ../..//down/x86_64/win64-hungary.html.po ../..//down/x86_64/win64-hungary.html.sl ../..//down/x86_64/win64-hungary.html.ru ../..//down/x86_64/win64-hungary.html.zh-CN ../..//down/x86_64/win64-hungary.var ../..//down/x86_64/freebsd-hungary.html.bg ../..//down/x86_64/freebsd-hungary.html.en ../..//down/x86_64/freebsd-hungary.html.fi ../..//down/x86_64/freebsd-hungary.html.fr ../..//down/x86_64/freebsd-hungary.html.id ../..//down/x86_64/freebsd-hungary.html.it ../..//down/x86_64/freebsd-hungary.html.nl ../..//down/x86_64/freebsd-hungary.html.po ../..//down/x86_64/freebsd-hungary.html.sl ../..//down/x86_64/freebsd-hungary.html.ru ../..//down/x86_64/freebsd-hungary.html.zh-CN ../..//down/x86_64/freebsd-hungary.var ../..//down/x86_64/netbsd-hungary.html.bg ../..//down/x86_64/netbsd-hungary.html.en ../..//down/x86_64/netbsd-hungary.html.fi ../..//down/x86_64/netbsd-hungary.html.fr ../..//down/x86_64/netbsd-hungary.html.id ../..//down/x86_64/netbsd-hungary.html.it ../..//down/x86_64/netbsd-hungary.html.nl ../..//down/x86_64/netbsd-hungary.html.po ../..//down/x86_64/netbsd-hungary.html.sl ../..//down/x86_64/netbsd-hungary.html.ru ../..//down/x86_64/netbsd-hungary.html.zh-CN ../..//down/x86_64/netbsd-hungary.var ../..//down/x86_64/solaris-hungary.html.bg ../..//down/x86_64/solaris-hungary.html.en ../..//down/x86_64/solaris-hungary.html.fi ../..//down/x86_64/solaris-hungary.html.fr ../..//down/x86_64/solaris-hungary.html.id ../..//down/x86_64/solaris-hungary.html.it ../..//down/x86_64/solaris-hungary.html.nl ../..//down/x86_64/solaris-hungary.html.po ../..//down/x86_64/solaris-hungary.html.sl ../..//down/x86_64/solaris-hungary.html.ru ../..//down/x86_64/solaris-hungary.html.zh-CN ../..//down/x86_64/solaris-hungary.var ../..//down/x86_64/linux.html.bg ../..//down/x86_64/linux.html.en ../..//down/x86_64/linux.html.fi ../..//down/x86_64/linux.html.fr ../..//down/x86_64/linux.html.id ../..//down/x86_64/linux.html.it ../..//down/x86_64/linux.html.nl ../..//down/x86_64/linux.html.po ../..//down/x86_64/linux.html.sl ../..//down/x86_64/linux.html.ru ../..//down/x86_64/linux.html.zh-CN ../..//down/x86_64/linux.var ../..//down/x86_64/win64.html.bg ../..//down/x86_64/win64.html.en ../..//down/x86_64/win64.html.fi ../..//down/x86_64/win64.html.fr ../..//down/x86_64/win64.html.id ../..//down/x86_64/win64.html.it ../..//down/x86_64/win64.html.nl ../..//down/x86_64/win64.html.po ../..//down/x86_64/win64.html.sl ../..//down/x86_64/win64.html.ru ../..//down/x86_64/win64.html.zh-CN ../..//down/x86_64/win64.var ../..//down/x86_64/freebsd.html.bg ../..//down/x86_64/freebsd.html.en ../..//down/x86_64/freebsd.html.fi ../..//down/x86_64/freebsd.html.fr ../..//down/x86_64/freebsd.html.id ../..//down/x86_64/freebsd.html.it ../..//down/x86_64/freebsd.html.nl ../..//down/x86_64/freebsd.html.po ../..//down/x86_64/freebsd.html.sl ../..//down/x86_64/freebsd.html.ru ../..//down/x86_64/freebsd.html.zh-CN ../..//down/x86_64/freebsd.var ../..//down/x86_64/netbsd.html.bg ../..//down/x86_64/netbsd.html.en ../..//down/x86_64/netbsd.html.fi ../..//down/x86_64/netbsd.html.fr ../..//down/x86_64/netbsd.html.id ../..//down/x86_64/netbsd.html.it ../..//down/x86_64/netbsd.html.nl ../..//down/x86_64/netbsd.html.po ../..//down/x86_64/netbsd.html.sl ../..//down/x86_64/netbsd.html.ru ../..//down/x86_64/netbsd.html.zh-CN ../..//down/x86_64/netbsd.var ../..//down/x86_64/solaris.html.bg ../..//down/x86_64/solaris.html.en ../..//down/x86_64/solaris.html.fi ../..//down/x86_64/solaris.html.fr ../..//down/x86_64/solaris.html.id ../..//down/x86_64/solaris.html.it ../..//down/x86_64/solaris.html.nl ../..//down/x86_64/solaris.html.po ../..//down/x86_64/solaris.html.sl ../..//down/x86_64/solaris.html.ru ../..//down/x86_64/solaris.html.zh-CN ../..//down/x86_64/solaris.var
-all_en_pages: mirrors.dat ../..//down/x86_64/linux-hungary.html ../..//down/x86_64/win64-hungary.html ../..//down/x86_64/freebsd-hungary.html ../..//down/x86_64/netbsd-hungary.html ../..//down/x86_64/solaris-hungary.html ../..//down/x86_64/linux.html ../..//down/x86_64/win64.html ../..//down/x86_64/freebsd.html ../..//down/x86_64/netbsd.html ../..//down/x86_64/solaris.html
+all_pages: mirrors.dat ../..//down/x86_64/linux-hungary.html.bg ../..//down/x86_64/linux-hungary.html.en ../..//down/x86_64/linux-hungary.html.fi ../..//down/x86_64/linux-hungary.html.fr ../..//down/x86_64/linux-hungary.html.id ../..//down/x86_64/linux-hungary.html.it ../..//down/x86_64/linux-hungary.html.nl ../..//down/x86_64/linux-hungary.html.po ../..//down/x86_64/linux-hungary.html.sl ../..//down/x86_64/linux-hungary.html.ru ../..//down/x86_64/linux-hungary.html.zh-CN ../..//down/x86_64/linux-hungary.var ../..//down/x86_64/win64-hungary.html.bg ../..//down/x86_64/win64-hungary.html.en ../..//down/x86_64/win64-hungary.html.fi ../..//down/x86_64/win64-hungary.html.fr ../..//down/x86_64/win64-hungary.html.id ../..//down/x86_64/win64-hungary.html.it ../..//down/x86_64/win64-hungary.html.nl ../..//down/x86_64/win64-hungary.html.po ../..//down/x86_64/win64-hungary.html.sl ../..//down/x86_64/win64-hungary.html.ru ../..//down/x86_64/win64-hungary.html.zh-CN ../..//down/x86_64/win64-hungary.var ../..//down/x86_64/freebsd-hungary.html.bg ../..//down/x86_64/freebsd-hungary.html.en ../..//down/x86_64/freebsd-hungary.html.fi ../..//down/x86_64/freebsd-hungary.html.fr ../..//down/x86_64/freebsd-hungary.html.id ../..//down/x86_64/freebsd-hungary.html.it ../..//down/x86_64/freebsd-hungary.html.nl ../..//down/x86_64/freebsd-hungary.html.po ../..//down/x86_64/freebsd-hungary.html.sl ../..//down/x86_64/freebsd-hungary.html.ru ../..//down/x86_64/freebsd-hungary.html.zh-CN ../..//down/x86_64/freebsd-hungary.var ../..//down/x86_64/netbsd-hungary.html.bg ../..//down/x86_64/netbsd-hungary.html.en ../..//down/x86_64/netbsd-hungary.html.fi ../..//down/x86_64/netbsd-hungary.html.fr ../..//down/x86_64/netbsd-hungary.html.id ../..//down/x86_64/netbsd-hungary.html.it ../..//down/x86_64/netbsd-hungary.html.nl ../..//down/x86_64/netbsd-hungary.html.po ../..//down/x86_64/netbsd-hungary.html.sl ../..//down/x86_64/netbsd-hungary.html.ru ../..//down/x86_64/netbsd-hungary.html.zh-CN ../..//down/x86_64/netbsd-hungary.var ../..//down/x86_64/solaris-hungary.html.bg ../..//down/x86_64/solaris-hungary.html.en ../..//down/x86_64/solaris-hungary.html.fi ../..//down/x86_64/solaris-hungary.html.fr ../..//down/x86_64/solaris-hungary.html.id ../..//down/x86_64/solaris-hungary.html.it ../..//down/x86_64/solaris-hungary.html.nl ../..//down/x86_64/solaris-hungary.html.po ../..//down/x86_64/solaris-hungary.html.sl ../..//down/x86_64/solaris-hungary.html.ru ../..//down/x86_64/solaris-hungary.html.zh-CN ../..//down/x86_64/solaris-hungary.var ../..//down/x86_64/linux-canada.html.bg ../..//down/x86_64/linux-canada.html.en ../..//down/x86_64/linux-canada.html.fi ../..//down/x86_64/linux-canada.html.fr ../..//down/x86_64/linux-canada.html.id ../..//down/x86_64/linux-canada.html.it ../..//down/x86_64/linux-canada.html.nl ../..//down/x86_64/linux-canada.html.po ../..//down/x86_64/linux-canada.html.sl ../..//down/x86_64/linux-canada.html.ru ../..//down/x86_64/linux-canada.html.zh-CN ../..//down/x86_64/linux-canada.var ../..//down/x86_64/win64-canada.html.bg ../..//down/x86_64/win64-canada.html.en ../..//down/x86_64/win64-canada.html.fi ../..//down/x86_64/win64-canada.html.fr ../..//down/x86_64/win64-canada.html.id ../..//down/x86_64/win64-canada.html.it ../..//down/x86_64/win64-canada.html.nl ../..//down/x86_64/win64-canada.html.po ../..//down/x86_64/win64-canada.html.sl ../..//down/x86_64/win64-canada.html.ru ../..//down/x86_64/win64-canada.html.zh-CN ../..//down/x86_64/win64-canada.var ../..//down/x86_64/freebsd-canada.html.bg ../..//down/x86_64/freebsd-canada.html.en ../..//down/x86_64/freebsd-canada.html.fi ../..//down/x86_64/freebsd-canada.html.fr ../..//down/x86_64/freebsd-canada.html.id ../..//down/x86_64/freebsd-canada.html.it ../..//down/x86_64/freebsd-canada.html.nl ../..//down/x86_64/freebsd-canada.html.po ../..//down/x86_64/freebsd-canada.html.sl ../..//down/x86_64/freebsd-canada.html.ru ../..//down/x86_64/freebsd-canada.html.zh-CN ../..//down/x86_64/freebsd-canada.var ../..//down/x86_64/netbsd-canada.html.bg ../..//down/x86_64/netbsd-canada.html.en ../..//down/x86_64/netbsd-canada.html.fi ../..//down/x86_64/netbsd-canada.html.fr ../..//down/x86_64/netbsd-canada.html.id ../..//down/x86_64/netbsd-canada.html.it ../..//down/x86_64/netbsd-canada.html.nl ../..//down/x86_64/netbsd-canada.html.po ../..//down/x86_64/netbsd-canada.html.sl ../..//down/x86_64/netbsd-canada.html.ru ../..//down/x86_64/netbsd-canada.html.zh-CN ../..//down/x86_64/netbsd-canada.var ../..//down/x86_64/solaris-canada.html.bg ../..//down/x86_64/solaris-canada.html.en ../..//down/x86_64/solaris-canada.html.fi ../..//down/x86_64/solaris-canada.html.fr ../..//down/x86_64/solaris-canada.html.id ../..//down/x86_64/solaris-canada.html.it ../..//down/x86_64/solaris-canada.html.nl ../..//down/x86_64/solaris-canada.html.po ../..//down/x86_64/solaris-canada.html.sl ../..//down/x86_64/solaris-canada.html.ru ../..//down/x86_64/solaris-canada.html.zh-CN ../..//down/x86_64/solaris-canada.var ../..//down/x86_64/linux.html.bg ../..//down/x86_64/linux.html.en ../..//down/x86_64/linux.html.fi ../..//down/x86_64/linux.html.fr ../..//down/x86_64/linux.html.id ../..//down/x86_64/linux.html.it ../..//down/x86_64/linux.html.nl ../..//down/x86_64/linux.html.po ../..//down/x86_64/linux.html.sl ../..//down/x86_64/linux.html.ru ../..//down/x86_64/linux.html.zh-CN ../..//down/x86_64/linux.var ../..//down/x86_64/win64.html.bg ../..//down/x86_64/win64.html.en ../..//down/x86_64/win64.html.fi ../..//down/x86_64/win64.html.fr ../..//down/x86_64/win64.html.id ../..//down/x86_64/win64.html.it ../..//down/x86_64/win64.html.nl ../..//down/x86_64/win64.html.po ../..//down/x86_64/win64.html.sl ../..//down/x86_64/win64.html.ru ../..//down/x86_64/win64.html.zh-CN ../..//down/x86_64/win64.var ../..//down/x86_64/freebsd.html.bg ../..//down/x86_64/freebsd.html.en ../..//down/x86_64/freebsd.html.fi ../..//down/x86_64/freebsd.html.fr ../..//down/x86_64/freebsd.html.id ../..//down/x86_64/freebsd.html.it ../..//down/x86_64/freebsd.html.nl ../..//down/x86_64/freebsd.html.po ../..//down/x86_64/freebsd.html.sl ../..//down/x86_64/freebsd.html.ru ../..//down/x86_64/freebsd.html.zh-CN ../..//down/x86_64/freebsd.var ../..//down/x86_64/netbsd.html.bg ../..//down/x86_64/netbsd.html.en ../..//down/x86_64/netbsd.html.fi ../..//down/x86_64/netbsd.html.fr ../..//down/x86_64/netbsd.html.id ../..//down/x86_64/netbsd.html.it ../..//down/x86_64/netbsd.html.nl ../..//down/x86_64/netbsd.html.po ../..//down/x86_64/netbsd.html.sl ../..//down/x86_64/netbsd.html.ru ../..//down/x86_64/netbsd.html.zh-CN ../..//down/x86_64/netbsd.var ../..//down/x86_64/solaris.html.bg ../..//down/x86_64/solaris.html.en ../..//down/x86_64/solaris.html.fi ../..//down/x86_64/solaris.html.fr ../..//down/x86_64/solaris.html.id ../..//down/x86_64/solaris.html.it ../..//down/x86_64/solaris.html.nl ../..//down/x86_64/solaris.html.po ../..//down/x86_64/solaris.html.sl ../..//down/x86_64/solaris.html.ru ../..//down/x86_64/solaris.html.zh-CN ../..//down/x86_64/solaris.var
+all_en_pages: mirrors.dat ../..//down/x86_64/linux-hungary.html ../..//down/x86_64/win64-hungary.html ../..//down/x86_64/freebsd-hungary.html ../..//down/x86_64/netbsd-hungary.html ../..//down/x86_64/solaris-hungary.html ../..//down/x86_64/linux-canada.html ../..//down/x86_64/win64-canada.html ../..//down/x86_64/freebsd-canada.html ../..//down/x86_64/netbsd-canada.html ../..//down/x86_64/solaris-canada.html ../..//down/x86_64/linux.html ../..//down/x86_64/win64.html ../..//down/x86_64/freebsd.html ../..//down/x86_64/netbsd.html ../..//down/x86_64/solaris.html
 
 
 # clean
