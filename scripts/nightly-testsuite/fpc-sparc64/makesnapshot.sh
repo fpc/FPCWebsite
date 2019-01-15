@@ -33,22 +33,55 @@ export TARGET_CPU=`${PPCCPU} -iTP`
 
 export TARGET_OS=`${PPCCPU} -iTO`
 
+  echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
+  NATIVE_OPT32="-ao-32"
+  if [ -d /lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
+  fi
+  if [ -d /usr/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+  fi
+  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
+  fi
+  if [ -d /usr/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+  fi
+  if [ -d $HOME/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+  fi
+
+
 if [ "${HOSTNAME}" == "stadler" ]; then
   HOST_PC=fpc-sparc64
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
-    export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+    export NEEDED_OPT="$NEEDED_OPT32"
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
+elif [ "${HOSTNAME}" == "gcc202" ]; then
+  USER=pierre
+  if [ "X$TARGET_CPU" == "Xsparc" ] ; then
+    export ASTARGET=-32
+    export NEEDED_OPT="$NEEDED_OPT32"
+  fi
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
 elif [ "${HOSTNAME}" == "deb4g" ]; then
   HOST_PC=fpc-sparc64-T5
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
-    export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+    export NEEDED_OPT="$NEEDED_OPT32"
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -176,7 +209,7 @@ if [ "X$FTPDIR" == "X" ] ; then
 else
   cd $CHECKOUTDIR
   res=$?
-  if [ $res -ne 0 ]; then
+  if [ $res -ne 0 ] ; then
     echo "ch to $CHECKOUTDIR failed"
   export MUTTATTACH="-a $LOGFILE"
   else
@@ -186,11 +219,11 @@ else
     ssh ${SCP_EXTRA} ${FTPDIR//:*/} mkdir -p ${FTPDIR//*:/}
     scp ${SCP_EXTRA} *.tar.gz ${READMEFILE} ${FTPDIR}
     res=$?
-    if [ $res -ne 0 ]; then
+    if [ $res -ne 0 ] ; then
       echo "scp failed res=$res"
       export MUTTATTACH="-a $LOGFILE"
     else
-      set ERRORMAILADDR = ""
+      echo 'set ERRORMAILADDR = ""'
     fi
   fi
 fi
