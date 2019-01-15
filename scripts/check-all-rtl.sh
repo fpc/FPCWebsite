@@ -293,7 +293,29 @@ fi
 
 if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
   echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
-  export NATIVE_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  NATIVE_OPT="-ao-32"
+  if [ -d /lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl/lib32"
+  fi
+  if [ -d /usr/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl/usr/lib32"
+  fi
+  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl/usr/sparc64-linux-gnu/lib32"
+  fi
+  if [ -d /usr/local/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl/usr/local/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl$HOME/gnu/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl$HOME/lib32"
+  fi
+  if [ -d $HOME/local/lib32 ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
+  fi
+  export NATIVE_OPT
 else
   export NATIVE_OPT=
 fi
