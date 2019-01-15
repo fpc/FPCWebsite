@@ -2,6 +2,30 @@
 
 . $HOME/bin/fpc-versions.sh
 
+  echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
+  NATIVE_OPT32="-ao-32"
+  if [ -d /lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
+  fi
+  if [ -d /usr/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+  fi
+  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
+  fi
+  if [ -d /usr/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+  fi
+  if [ -d $HOME/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+  fi
+
 # Set main variables
 export MAKE=make
 if [ "${HOSTNAME}" == "gcc202" ]; then
@@ -10,7 +34,7 @@ if [ "${HOSTNAME}" == "gcc202" ]; then
   export ASTARGET=-32
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
+  export NEEDED_OPT="$NEEDED_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -22,7 +46,7 @@ elif [ "${HOSTNAME}" == "stadler" ]; then
   export ASTARGET=-32
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
+  export NEEDED_OPT="$NEEDED_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -31,7 +55,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre
   export ASTARGET=-32
-  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl${HOME}/local/lib32"
+  export NEEDED_OPT="$NEEDED_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
