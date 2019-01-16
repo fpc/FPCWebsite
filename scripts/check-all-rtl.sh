@@ -222,16 +222,38 @@ echo "Utils svn version: $svn_utils_version" >> $LISTLOGFILE
 if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
+  echo "Recompiling native compiler" >> $LOGFILE
+  echo "Recompiling native compiler" >> $LISTLOGFILE
+  echo "Recompiling native compiler" >> $EMAILFILE
   make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $LOGFILE
+    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $LISTLOGFILE
+    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $EMAILFILE
+    export FPCCPUOPT="-O-"
+    make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    makeres=$?
+  fi
   if [ $makeres -ne 0 ] ; then
     echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LOGFILE
     echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LISTLOGFILE
     echo "Generating new native compiler failed, see $fullcyclelog for details" >> $EMAILFILE
     exit
   fi
+  echo "Recompiling cross-compilers" >> $LOGFILE
+  echo "Recompiling cross-compilers" >> $LISTLOGFILE
+  echo "Recompiling cross-compilers" >> $EMAILFILE
   make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $LOGFILE
+    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $LISTLOGFILE
+    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $EMAILFILE
+    export FPCCPUOPT="-O-"
+    make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    makeres=$?
+  fi
   if [ $makeres -ne 0 ] ; then
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
     echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LISTLOGFILE
@@ -244,6 +266,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
     echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $LISTLOGFILE
     echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $EMAILFILE
   fi
+  export FPCCPUOPT=
   cd ..
 fi
 
