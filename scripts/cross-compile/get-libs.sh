@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 
 force=0
+local_links=0
 
 if [ "$1" == "-f" ] ; then
   force=1
   shift
 fi
 
+if [ "$1" == "-l" ] ; then
+  local_links=1
+  shift
+fi
+
 machine=$1
 
-if [ -z "$machine" ] ; then
-  echo "Usage: $0 [-f] machine_name [dir_name]"
-  echo "optional dir_name can be used to force name of installation dir"
-  echo "otherwise guessed cpu-os is used"
-  echo "-f can be added to allow writing into existing directory"
-  exit
+
+if [ $local_links -eq 0 ]; then
+  if [ -z "$machine" ] ; then
+    echo "Usage: $0 [-f] machine_name [dir_name]"
+    echo "optional dir_name can be used to force name of installation dir"
+    echo "otherwise guessed cpu-os is used"
+    echo "-f can be added to allow writing into existing directory"
+    exit
+  fi
 fi
 
 if [ "$1" == "-f" ] ; then
@@ -29,65 +38,71 @@ if [ "$1" == "-f" ] ; then
   shift
 fi
 
-cpu=`ssh $machine uname -p | tr [:upper:] [:lower:] `
-if [ "$cpu" == "unknown" ] ; then
-  cpu=`ssh $machine uname -m | tr [:upper:] [:lower:] `
-fi
-
-os=`ssh $machine uname -s | tr [:upper:] [:lower:] `
-
-if [ "$cpu" == "amd64" ] ; then
-  cpu=x86_64
-fi
-
-echo "$machine reports CPU $cpu"
-echo "$machine reports OS $os"
-
-if [ "$cpu" == "amd64" ] ; then
-  cpu=x86_64
-fi
-
-if [ "$cpu" == "arm64" ] ; then
-  cpu=aarch64
-fi
-
-if [ "$cpu" == "ppc" ] ; then
-  cpu=powerpc
-fi
-
-if [ "$cpu" == "ppc64" ] ; then
-  cpu=powerpc64
-fi
-
-if [ "$cpu" == "ppc64le" ] ; then
-  cpu=powerpc64le
-fi
-
-if [ -z "$dir_name" ] ; then
-  dir_name=$cpu-$os
-fi
-
-if [ ! -d "$dir_name" ] ; then
-  echo "Creating directory $dir_name"
-  mkdir -p $dir_name
+if [ -z "$machine" ] ; then
+  cpu=unknown
+  os=unknown
 else
-  echo "Directory $dir_name already exists"
-  if [ $force -eq 0 ] ; then
-    echo "exiting to avoid merging"
-    exit
+  cpu=`ssh $machine uname -p | tr [:upper:] [:lower:] `
+  if [ "$cpu" == "unknown" ] ; then
+    cpu=`ssh $machine uname -m | tr [:upper:] [:lower:] `
   fi
+
+  os=`ssh $machine uname -s | tr [:upper:] [:lower:] `
+
+  if [ "$cpu" == "amd64" ] ; then
+    cpu=x86_64
+  fi
+
+  echo "$machine reports CPU $cpu"
+  echo "$machine reports OS $os"
+
+  if [ "$cpu" == "amd64" ] ; then
+    cpu=x86_64
+  fi
+
+  if [ "$cpu" == "arm64" ] ; then
+    cpu=aarch64
+  fi
+
+  if [ "$cpu" == "ppc" ] ; then
+    cpu=powerpc
+  fi
+
+  if [ "$cpu" == "ppc64" ] ; then
+    cpu=powerpc64
+  fi
+
+  if [ "$cpu" == "ppc64le" ] ; then
+    cpu=powerpc64le
+  fi
+
+  if [ -z "$dir_name" ] ; then
+    dir_name=$cpu-$os
+  fi
+
+  if [ ! -d "$dir_name" ] ; then
+    echo "Creating directory $dir_name"
+    mkdir -p $dir_name
+  else
+    echo "Directory $dir_name already exists"
+    if [ $force -eq 0 ] ; then
+      echo "exiting to avoid merging"
+      exit
+    fi
+  fi
+
+  cd $dir_name
 fi
-cd $dir_name
 
 is_32bit=1;
 is_64bit=0;
-case $cpu in
+case "$cpu" in
   powerpc64|powerpc64le|sparc64|aarch64|x86_64|riscv64) is_64bit=1; is_32bit=0;;
 esac
 
-case $os in
-  darwin) dynlib_suffix=.dylib;;
-  win32|win64|wince) dynlib_suffix=.dll;;
+case "X_$os" in
+  X_darwin) dynlib_suffix=.dylib;;
+  X_win32|X_win64|X_wince) dynlib_suffix=.dll;;
   *) dynlib_suffix=.so;;
 esac
 
@@ -129,7 +144,7 @@ function upload_file ()
     echo "ls line is \"$ls_line\""
     link_target=${ls_line/* /}
     echo "link target is \"$link_target\""
-    if [[ "${link_target:0:1}" == / || "${link_target:0:2}" == ~[/a-z] ]] ; then
+    if [[ "${link_target:0:1}" == "/" || "${link_target:0:2}" == "~[/a-z]" ]] ; then
       is_absolute=1
     else
       is_absolute=0
@@ -178,96 +193,156 @@ function maybe_upload_files ()
   fi
 }
 
-# Checking for crt1.o file
-crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crt0.o" 2> /dev/null`
+if [ -n "$machine" ] ; then
+  # Checking for crt1.o file
+  crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crt0.o" 2> /dev/null`
 
-if [ -z "$crt_o_files" ] ; then
-  crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crt1.o" 2> /dev/null`
-fi
-
-if [ -z "$crt_o_files" ] ; then
-  crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crti.o" 2> /dev/null`
-fi
-
-if [ -z "$crt_o_files" ] ; then
-  crt_o_files=`ssh $machine find "/boot/system" -name "start*.o" 2> /dev/null`
-fi
-
-if [ -z "$crt_o_files" ] ; then
-  echo "No *crt*.o file found"
-  exit
-fi
-
-# Copy all object from that directory
-for f in $crt_o_files ; do
-  echo "Testing file \"$f\""
-  if [ -f ".$f" ] ; then
-    echo "\".$f\" already uploaded"
-  else
-    dir=`ssh $machine dirname $f`
-    if [ ! -d ".$dir" ] ; then
-      echo "Adding local directory .$dir"
-      mkdir -p .$dir
-    fi
-    scp $machine:"$dir/*.o" .$dir/
+  if [ -z "$crt_o_files" ] ; then
+    crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crt1.o" 2> /dev/null`
   fi
+
+  if [ -z "$crt_o_files" ] ; then
+    crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crti.o" 2> /dev/null`
+  fi
+
+  if [ -z "$crt_o_files" ] ; then
+    crt_o_files=`ssh $machine find "/boot/system" -name "start*.o" 2> /dev/null`
+  fi
+
+  if [ -z "$crt_o_files" ] ; then
+    echo "No *crt*.o file found"
+    exit
+  fi
+
+  # Copy all object from that directory
+  for f in $crt_o_files ; do
+    echo "Testing file \"$f\""
+    if [ -f ".$f" ] ; then
+      echo "\".$f\" already uploaded"
+    else
+      dir=`ssh $machine dirname $f`
+      if [ ! -d ".$dir" ] ; then
+        echo "Adding local directory .$dir"
+        mkdir -p .$dir
+      fi
+      scp $machine:"$dir/*.o" .$dir/
+    fi
+  done
+
+  crtbegin_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crtbegin.o" 2> /dev/null`
+
+  # Copy all object from that directory
+  for f in $crtbegin_o_files ; do
+    echo "Testing file \"$f\""
+    if [ -f ".$f" ] ; then
+      echo "\".$f\" already uploaded"
+    else
+      dir=`ssh $machine dirname $f`
+      if [ ! -d ".$dir" ] ; then
+        echo "Adding local directory .$dir"
+        mkdir -p .$dir
+      fi
+      scp $machine:"$dir/*.o" .$dir/
+    fi
+  done
+
+  # libc.a
+  maybe_upload_files "libc.a"
+
+  # libc.so
+  maybe_upload_files "libc${dynlib_suffix}"
+
+  #libdl.so
+  maybe_upload_files "libdl${dynlib_suffix}"
+
+  #ld*.so*
+  maybe_upload_files "ld*${dynlib_suffix}*"
+
+  #libpthread.so
+  maybe_upload_files "libpthread${dynlib_suffix}"
+
+  #libiconv.a
+  maybe_upload_files "libiconv.a"
+
+  #libiconv.so
+  maybe_upload_files "libiconv${dynlib_suffix}"
+
+  #libgcc.a
+  maybe_upload_files "libgcc.a"
+
+  if [ "$os" == "aix" ] ; then
+    maybe_upload_files "libm.so"
+    maybe_upload_files "libbsd.so"
+    maybe_upload_files "libm.a"
+    maybe_upload_files "libbsd.a"
+  fi
+
+  #libroot.a (haiku)
+  if [ "$os" == "haiku" ] ; then
+    maybe_upload_files "libroot.so"
+    maybe_upload_files "libnetwork.so"
+    maybe_upload_files "libtextencoding.so"
+  fi
+
+  cd ..
+fi
+
+absolute_link_list=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" `
+absolute_link_names=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 9}' `
+absolute_link_targets=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 11}' `
+
+OIFS=$IFS
+IFS=$'\n'
+for link_line in $absolute_link_list ; do
+  IFS=$OIFS
+  # echo "line is \"$link_line\""
+  name=`echo $link_line | gawk '{print $9}' `
+  rel_name=$name
+  target=`echo $link_line | gawk '{print $11}' `
+  if [ "${name:0:2}" == "./" ] ; then
+    name=${name/./`pwd`}
+  fi
+  echo "name is \"$name\", target is \"$target\""
+  dir=`dirname $name`
+  basename=`basename $name`
+  rel_dir=""
+  rel_dir_p=""
+  odir=`pwd`
+  cd $dir
+  start_dir=$dir
+  ls -l $basename
+  dir_p=${dir//\//;}
+  target_p=${target//\//;}
+  while [ "${target_p/${dir_p};/${rel_dir}}" == "${target_p}" ] ; do
+    cd ..
+    rel_dir="../$rel_dir"
+    rel_dir_p="..;$rel_dir_p"
+    dirname=`basename $dir`
+    dir=`dirname $dir`
+    dir_p=${dir//\//;}
+    # echo "dir_p is $dir_p"
+    if [ "$dir" == "$odir" ] ; then
+      continue
+    fi
+  done
+  # echo "dir_p=\"$dir_p\""
+  # echo "rel_dir_p=\"$rel_dir_p\""
+  new_target_p=${target_p/${dir_p};/${rel_dir_p}}
+  new_target=${new_target_p//;/\/}
+  # echo "New target_p is \"$new_target_p\""
+  echo "Replacing \"$dir/\" by \"$rel_dir\" in \"$target\" by \"$new_target\" as $name"
+  cd $start_dir
+  if [ -f  "$new_target" ] ; then
+    if [ -f "$basename" ] ; then
+      rm $basename
+      ln -s $new_target $basename
+    fi
+  else
+    echo "$new_target does not exist"
+  fi
+  cd $odir
 done
 
-crtbegin_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crtbegin.o" 2> /dev/null`
-
-# Copy all object from that directory
-for f in $crtbegin_o_files ; do
-  echo "Testing file \"$f\""
-  if [ -f ".$f" ] ; then
-    echo "\".$f\" already uploaded"
-  else
-    dir=`ssh $machine dirname $f`
-    if [ ! -d ".$dir" ] ; then
-      echo "Adding local directory .$dir"
-      mkdir -p .$dir
-    fi
-    scp $machine:"$dir/*.o" .$dir/
-  fi
-done
-
-# libc.a
-maybe_upload_files "libc.a"
-
-# libc.so
-maybe_upload_files "libc${dynlib_suffix}"
-
-#libdl.so
-maybe_upload_files "libdl${dynlib_suffix}"
-
-#ld*.so*
-maybe_upload_files "ld*${dynlib_suffix}*"
-
-#libpthread.so
-maybe_upload_files "libpthread${dynlib_suffix}"
-
-#libiconv.a
-maybe_upload_files "libiconv.a"
-
-#libiconv.so
-maybe_upload_files "libiconv${dynlib_suffix}"
-
-#libgcc.a
-maybe_upload_files "libgcc.a"
-
-if [ "$os" == "aix" ] ; then
-  maybe_upload_files "libm.so"
-  maybe_upload_files "libbsd.so"
-  maybe_upload_files "libm.a"
-  maybe_upload_files "libbsd.a"
-fi
-
-#libroot.a (haiku)
-if [ "$os" == "haiku" ] ; then
-  maybe_upload_files "libroot.so"
-  maybe_upload_files "libnetwork.so"
-  maybe_upload_files "libtextencoding.so"
-fi
-
-cd ..
-
+# echo "absolute link names =\"$absolute_link_names\""
+# echo "absolute link targets =\"$absolute_link_targets\""
 
