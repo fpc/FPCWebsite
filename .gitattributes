@@ -474,6 +474,7 @@ scripts/nightly-testsuite/fpc-sparc64/linux-fpcallup.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/linux-fpccommonup.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/makesnapshot.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/makesnapshotfixes.sh svneol=native#text/plain
+scripts/nightly-testsuite/fpc-sparc64/makesnapshotfixes64.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/makesnapshottrunk.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/makesnapshottrunk64.sh svneol=native#text/plain
 scripts/nightly-testsuite/fpc-sparc64/test-cross-64.sh svneol=native#text/plain
