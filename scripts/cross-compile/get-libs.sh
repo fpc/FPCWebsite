@@ -1,15 +1,33 @@
 #!/usr/bin/env bash
 
+force=0
+
+if [ "$1" == "-f" ] ; then
+  force=1
+  shift
+fi
+
 machine=$1
 
 if [ -z "$machine" ] ; then
-  echo "Usage: $0 machine_name [dir_name]"
+  echo "Usage: $0 [-f] machine_name [dir_name]"
   echo "optional dir_name can be used to force name of installation dir"
   echo "otherwise guessed cpu-os is used"
+  echo "-f can be added to allow writing into existing directory"
   exit
 fi
 
+if [ "$1" == "-f" ] ; then
+  force=1
+  shift
+fi
+
 dir_name=$2
+
+if [ "$1" == "-f" ] ; then
+  force=1
+  shift
+fi
 
 cpu=`ssh $machine uname -p | tr [:upper:] [:lower:] `
 if [ "$cpu" == "unknown" ] ; then
@@ -54,8 +72,10 @@ if [ ! -d "$dir_name" ] ; then
   mkdir -p $dir_name
 else
   echo "Directory $dir_name already exists"
-  echo "exiting to avoid merging"
-  exit
+  if [ $force -eq 0 ] ; then
+    echo "exiting to avoid merging"
+    exit
+  fi
 fi
 cd $dir_name
 
@@ -233,6 +253,13 @@ maybe_upload_files "libiconv${dynlib_suffix}"
 
 #libgcc.a
 maybe_upload_files "libgcc.a"
+
+if [ "$os" == "aix" ] ; then
+  maybe_upload_files "libm.so"
+  maybe_upload_files "libbsd.so"
+  maybe_upload_files "libm.a"
+  maybe_upload_files "libbsd.a"
+fi
 
 #libroot.a (haiku)
 if [ "$os" == "haiku" ] ; then
