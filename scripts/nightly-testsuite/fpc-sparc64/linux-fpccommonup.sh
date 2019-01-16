@@ -2,7 +2,7 @@
 
 . $HOME/bin/fpc-versions.sh
 
-  echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
+  # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
   NATIVE_OPT32="-ao-32"
   if [ -d /lib32 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
