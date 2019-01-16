@@ -186,7 +186,9 @@ if [ -d "$global_sysroot/${FULL_TARGET}" ] ; then
   add_dir "libc.a"
   add_dir "libc.so"
   add_dir "ld*.so*"
-  CROSSOPT="$CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+  CROSSOPT="-XR$sysroot $CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+  echo "CROSSOPT set to \"$CROSSOPT\""
+  export OPTLEVEL3="$CROSSOPT"
 fi
 
 # make the snapshot!
