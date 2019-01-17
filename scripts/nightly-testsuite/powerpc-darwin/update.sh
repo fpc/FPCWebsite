@@ -24,7 +24,7 @@ if [ "X$use_rsync" == "X1" ] ; then
     mkdir $BRANCH_NAME
   fi
   cd $BRANCH_NAME
-  rsync -avz nima:pas/rsync/$BRANCH_NAME/ .
+  rsync -auvz nima:pas/rsync/$BRANCH_NAME/ .
   res=$?
   if [ $res -ne 0 ] ; then
     echo "rsync failed res=$res"
@@ -53,10 +53,15 @@ else
   cd $BRANCH_NAME
 fi
 
-make all OVERRIDEVERSIONCHECK=1 OPT="-n -gl" FPC=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcppc
-if [ -f ./fpcsrc/compiler/ppcppc ] ; then
-  cp -f ./fpcsrc/compiler/ppcppc $HOME/pas/fpc-$CURRENT_VERSION/lib/fpc/$CURRENT_VERSION/ppcppc
+## make all OVERRIDEVERSIONCHECK=1 OPT="-n -gl" FPC=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcppc
+## res=$?
+res=1
+if [ $res -eq 0 ] ; then
+  if [ -f ./fpcsrc/compiler/ppcppc ] ; then
+    cp -f ./fpcsrc/compiler/ppcppc $HOME/pas/fpc-$CURRENT_VERSION/lib/fpc/$CURRENT_VERSION/ppcppc
+  fi
 fi
+
 cd ..
 
 ## make install OVERRIDEVERSIONCHECK=1 OPT="-n -gl" FPC=$HOME/pas/fpc-$CURRENT_VERSION/bin/ppcppc INSTALL_PREFIX=$HOME/pas/fpc-$CURRENT_VERSION
