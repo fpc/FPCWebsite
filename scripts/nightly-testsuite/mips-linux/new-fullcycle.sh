@@ -155,23 +155,40 @@ else
     echo "Skipping install"
     shift
   else
-    make distclean > /dev/null
+    repeat=1
     # -O2 option is still buggy, we need to use FPCCPUOPT=-O-, OBSOLETE?
-    ADDOPT=
-    make all install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
-    res=$?
-    if [ $res -ne 0 ] ; then
-      echo "WARNING: make all failed"
-      for dir in rtl packages utils ; do
-        make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT=-n OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
-        res=$?
-        if [ $res -ne 0 ] ; then
-          echo "make install in $dir failed, res=$res"
-        fi
-      done
-      if [ $res -ne 0 ] ; then 
-        attach="$attach -a $alllog"
+    FPCCPUOPT=-O2
+    while [ $repeat -eq 1 ] ; do
+      make distclean > /dev/null
+      ADDOPT="FPCCPUOPT=$FPCCPUOPT"
+      echo "Starting make all install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1"
+      make all install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "WARNING: make all failed, trying by sub-directories"
+        for dir in rtl packages utils ; do
+          echo "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
+          make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
+          res=$?
+          if [ $res -ne 0 ] ; then
+            echo "make install in $dir failed, res=$res"
+          fi
+        done
       fi
+      if [ $res -eq 0 ] ; then
+        repeat=0
+      else
+        if [ "$FPCCPUOPT" == "-O2" ] ; then
+          FPCCPUOPT=-O1
+        elif [ "$FPCCPUOPT" == "-O1" ] ; then
+          FPCCPUOPT=-O-
+        else
+          repeat=0
+        fi
+      fi
+    done
+    if [ $res -ne 0 ] ; then 
+      attach="$attach -a $alllog"
     fi
   fi
   cd ./tests
@@ -221,7 +238,7 @@ function wait_for_lock ()
 function release_lock ()
 {
   echo "new-fullcycle.sh ended at `date`" >> $LOCKFILE
-  mv $LOCKFILE $OLDLOCKFILE
+  mv -f $LOCKFILE $OLDLOCKFILE
 }
 
 wait_for_lock
