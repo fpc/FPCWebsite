@@ -63,13 +63,13 @@ res=$?
 
 if [ $res -ne 0 ] ; then
   echo "Normal tar file generation error"
-  ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1 > ${HOME}/logs/makesnapshot-O1-${FPC_VER}-${date}.txt 2>&1
   MAKE_EXTRA="FPCCPUOPT=-O1"
+  ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1 > ${HOME}/logs/makesnapshot-O1-${FPC_VER}-${date}.txt 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "-O1 tar file generation error"
-    ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O- > ${HOME}/logs/makesnapshot-O--${FPC_VER}-${date}.txt  2>&1
     MAKE_EXTRA="FPCCPUOPT=-O-"
+    ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O- > ${HOME}/logs/makesnapshot-O--${FPC_VER}-${date}.txt  2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       echo "-O- tar file generation error"
