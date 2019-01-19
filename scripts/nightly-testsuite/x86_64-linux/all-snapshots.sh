@@ -382,10 +382,25 @@ list_os ppcsparc sparc "-n -gl"
 list_os ppcsparc64 sparc64 "-n -gl"
 list_os ppcx64 x86_64 "-n -gl"
 listed=0
+index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\) *[,]* *{ *\([0-9]*\).*:\3;\1,\2:p" compiler/systems.inc`
+
 run_one_snapshot x86_64 dragonfly "-n -gl"
 run_one_snapshot m68k netbsd "-n -gl"
 run_one_snapshot arm aros "-n -gl"
 run_one_snapshot x86_64 aros "-n -gl"
+
+# Split into index, cpu and os
+for index_cpu_os in $index_cpu_os_list ; do
+   index=${index_cpu_os//;*/}
+   os=${index_cpu_os//*,/}
+   os=${os,,}
+   cpu=${index_cpu_os/*;/}
+   cpu=${cpu//,*/}
+   cpu=${cpu,,}
+   echo "Found item $index, cpu=$cpu, os=$os"
+   run_one_snapshot $cpu $os "-n -gl"
+done
+
 echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
 ) > $LOGFILE 2>&1
 
