@@ -972,8 +972,8 @@ function list_os ()
 {
   CPU_TARG_LOCAL=$1
   set_fpc_local $CPU_TARG_LOCAL
-  OPT="$2"
-  MAKEEXTRA="$3"
+  list_os_OPT="$2"
+  list_os_MAKEEXTRA="$3"
   fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   if [ -z "$fpc_local_exe" ] ; then
     echo "No $FPC_LOCAL found"
@@ -989,8 +989,8 @@ function list_os ()
 
   os_list=`$FPC_LOCAL -h | sed -n "s:^[ \t]*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
   for os in ${os_list} ; do
-   echo "check_target $CPU_TARG_LOCAL ${os,,} \"$OPT\" \"$MAKEEXTRA\""
-   check_target $CPU_TARG_LOCAL ${os,,} "$OPT" "$MAKEEXTRA"
+    echo "check_target $CPU_TARG_LOCAL ${os,,} \"$list_os_OPT\" \"$list_os_MAKEEXTRA\""
+    check_target $CPU_TARG_LOCAL ${os,,} "$list_os_OPT" "$list_os_MAKEEXTRA"
   done
 }
 
