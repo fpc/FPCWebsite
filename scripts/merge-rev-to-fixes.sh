@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 . $HOME/bin/fpc-versions.sh
 
@@ -19,6 +19,15 @@ FPCBASEDIR=`pwd`
 COMMITFILE=$FPCBASEDIR/commit.txt
 PRISTINELOG=$FPCBASEDIR/pristine.log
 MODIFIEDLOG=$FPCBASEDIR/modified.log
+
+if [ -z "$MAKE" ] ; then
+  MAKE=`which gmake 2> /dev/null`
+  if [ -z "$MAKE" ] ; then
+    MAKE=make
+  fi
+fi
+
+MAKE_OPT="-j 8"
 
 export PATH=$HOME/pas/fpc-$FIXESVERSION/bin:$PATH
 
@@ -69,15 +78,16 @@ fi
 if [ ! -s ./tests/pristine-log ] ; then
   echo "Generating pristine testsuite results"
   (
-  make distclean
+  $MAKE distclean
   cd compiler
   export INSTALL_PREFIX=$HOME/pas/fpc-$FIXESERSION
 
-  make cycle installsymlink rtlinstall OPT="-n -gl"
+  $MAKE cycle installsymlink rtlinstall OPT="-n -gl"
   cd ..
-  make distclean install OPT="-n -gl"
+  $MAKE distclean install OPT="-n -gl"
   cd tests
-  make distclean full TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
+  $MAKE distclean TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
+  $MAKE $MAKE_OPT full TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
   cp output/x86_64-linux/log pristine-log
   cp output/x86_64-linux/longlog pristine-longlog
   cp output/x86_64-linux/faillist pristine-faillist
@@ -100,11 +110,12 @@ done
 echo "Generating modified testsuite results"
   (
   cd $FPCBASEDIR
-  make distclean
+  $MAKE distclean
   cd compiler
-  make cycle OPT="-n -gl"
+  $MAKE cycle OPT="-n -gl"
   cd ../tests
-  make distclean full TEST_OPT="-n -gl" TEST_FPC=$FPCBASEDIR/compiler/ppcx64
+  $MAKE distclean TEST_OPT="-n -gl" TEST_FPC=$FPCBASEDIR/compiler/ppcx64
+  $MAKE $MAKE_OPT full TEST_OPT="-n -gl" TEST_FPC=$FPCBASEDIR/compiler/ppcx64
   cp output/x86_64-linux/log modified-log
   cp output/x86_64-linux/longlog modified-longlog
   cp output/x86_64-linux/faillist modified-faillist
