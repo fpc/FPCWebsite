@@ -278,12 +278,23 @@ function list_os ()
 
 LOGFILE=$LOGDIR/all-${svnname}-snapshots.log
 LISTLOGFILE=$LOGDIR/list-all-snapshots-${svnname}.log
+EMAILFILE=$LOGDIR/all-snapshots-${svnname}-log.txt
+
+if [ -f $LOGFILE ] ; then
+  mv -f $LOGFILE ${LOGFILE}.previous
+fi
+
+if [ -f $LISTLOGFILE ] ; then
+  mv -f $LISTLOGFILE ${LISTLOGFILE}.previous
+fi
 
 (
 echo "Script $0 started at  `date +%Y-%m-%d-%H-%M `"
 echo "Using PATH=$PATH"
 echo "Script $0 started at  `date +%Y-%m-%d-%H-%M `" > $LISTLOGFILE
 echo "Using PATH=$PATH" >> $LISTLOGFILE
+echo "Script $0 started at  `date +%Y-%m-%d-%H-%M `" > $EMAILFILE
+echo "Using PATH=$PATH" >> $EMAILFILE
 listed=0
 list_os ppca64 aarch64 "-n -g"
 # -Tlinux is not listed on `ppca64 -h` output
@@ -403,4 +414,30 @@ done
 
 echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
 ) > $LOGFILE 2>&1
+
+ok_count=` grep "OK" $LISTLOGFILE | wc -l `
+pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
+total_count=`expr $pb_count + $ok_count `
+echo "Short summary: number of ok=$ok_count, number of pb=$pb_counti, total=$total_count" >> $EMAILFILE
+
+if [ -f $LISTLOGFILE.previous ] ; then
+  prev_ok_count=` grep "OK" $LISTLOGFILE | wc -l `
+  prev_pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
+  prev_total_count=`expr $prev_pb_count + $prev_ok_count `
+  echo "Prev short summary: number of ok=$prev_ok_count, number of pb=$prev_pb_count, total=$prev_total_count" >> $EMAILFILE
+fi
+
+if [ -f $LISTLOGFILE.previous ] ; then
+  echo "Diff to previous list" >> $EMAILFILE
+  diff ${LISTLOGFILE}.previous ${LISTLOGFILE} >> $EMAILFILE
+fi
+echo "" >> $EMAILFILE
+echo "###############################" >> $EMAILFILE
+echo "Full log listing: " >> $EMAILFILE
+echo "###############################" >> $EMAILFILE
+echo "" >> $EMAILFILE
+cat $LISTLOGFILE >> $EMAILFILE
+
+
+mutt -x -s "Free Pascal all-snapshots.sh script for ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
