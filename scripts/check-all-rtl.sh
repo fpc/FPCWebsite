@@ -90,6 +90,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
 elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
+  test_utils=1
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
