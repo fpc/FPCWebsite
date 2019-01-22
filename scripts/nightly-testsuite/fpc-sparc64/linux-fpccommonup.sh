@@ -28,13 +28,17 @@
 
 # Set main variables
 export MAKE=make
+if [ -z "$HOSTNAME" ] ; then
+  HOSTNAME=`uname -n`
+fi
+
 if [ "${HOSTNAME}" == "gcc202" ]; then
   export HOST_PC=gcc202
   export USER=pierre
   export ASTARGET=-32
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-  export NEEDED_OPT="$NEEDED_OPT32"
+  export NEEDED_OPT="$NATIVE_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -46,7 +50,7 @@ elif [ "${HOSTNAME}" == "stadler" ]; then
   export ASTARGET=-32
   # We should try to use automatic output of gcc 
   export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-  export NEEDED_OPT="$NEEDED_OPT32"
+  export NEEDED_OPT="$NATIVE_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -55,7 +59,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre
   export ASTARGET=-32
-  export NEEDED_OPT="$NEEDED_OPT32"
+  export NEEDED_OPT="$NATIVE_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -111,6 +115,7 @@ fi
 
 echo "Starting make distclean all" >> $report
 echo "Start make `$DATE`" >> $report
+echo "On host ${HOSTNAME}" >> $report
 if [ "X$NEEDED_OPT" != "X" ]; then
   echo "Using needed opt \"$NEEDED_OPT\"" >> $report
   export OPT="$NEEDED_OPT $OPT"
