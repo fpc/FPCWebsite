@@ -8,8 +8,9 @@ export LANG=en_US.utf8
 export DB_SSH_EXTRA="-i ${HOME}/.ssh/freepascal"
 export SCP_EXTRA="-i ${HOME}/.ssh/freepascal"
 export MUTTATTACH=
+export RECOMPILE_COMPILER_FIRST=0
 
-export PATH="${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
+export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin"
 
 if [ "X$PPCCPU" == "X" ] ; then
   export PPCCPU=fpc
@@ -19,43 +20,45 @@ if [ "X$STARTPP" != "X" ] ; then
 fi
 
 if [ "X`which $PPCCPU`" == "X" ] ; then
-  # No release of that compiler, use trunk
-  export PATH="${HOME}/pas/fpc-${TRUNKVERSION}/bin:${PATH}"
-  export MAKE_EXTRA_OPT="$MAKE_EXTRA_OPT OVERRIDEVERSIOCHECK=1"
+  RECOMPILE_COMPILER_FIRST=1
 fi
 
-if [ "X`which $PPCCPU`" == "X" ] ; then
-  echo "No $PPCCPU found"
-  exit 1
-fi
-
+export SOURCE_CPU=`${PPCCPU} -iSP`
 export TARGET_CPU=`${PPCCPU} -iTP`
+if [ "$SOURCE_CPU" != "$TARGET_CPU" ] ; then
+  RECOMPILE_COMPILER_FIRST=1
+fi
 
+export SOURCE_OS=`${PPCCPU} -iSO`
 export TARGET_OS=`${PPCCPU} -iTO`
+if [ "$SOURCE_OS" != "$TARGET_OS" ] ; then
+  RECOMPILE_COMPILER_FIRST=1
+fi
 
-  echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
-  NATIVE_OPT32="-ao-32"
-  if [ -d /lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
-  fi
-  if [ -d /usr/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
-  fi
-  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
-  fi
-  if [ -d /usr/local/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
-  fi
-  if [ -d $HOME/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
-  fi
-  if [ -d $HOME/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
-  fi
-  if [ -d $HOME/local/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
-  fi
+
+echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
+NATIVE_OPT32="-ao-32"
+if [ -d /lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
+fi
+if [ -d /usr/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+fi
+if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
+fi
+if [ -d /usr/local/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+fi
+if [ -d $HOME/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+fi
+if [ -d $HOME/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+fi
+if [ -d $HOME/local/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+fi
 
 
 if [ "${HOSTNAME}" == "stadler" ]; then
@@ -63,7 +66,7 @@ if [ "${HOSTNAME}" == "stadler" ]; then
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
-    export NEEDED_OPT="$NEEDED_OPT32"
+    export NEEDED_OPT="$NATIVE_OPT32"
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -72,7 +75,7 @@ elif [ "${HOSTNAME}" == "gcc202" ]; then
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
-    export NEEDED_OPT="$NEEDED_OPT32"
+    export NEEDED_OPT="$NATIVE_OPT32"
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -81,7 +84,7 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
-    export NEEDED_OPT="$NEEDED_OPT32"
+    export NEEDED_OPT="$NATIVE_OPT32"
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -107,7 +110,7 @@ function do_snapshot ()
 {
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 # ulimit -d 65536 -s 8192 -t 2400
-ulimit -s 8192 -t 2400
+ulimit -s 8192 -t 2400 2> /dev/null
 echo "Starting at `date +%Y-%m-%d-%H-%M`" 
 
 echo "PATH=\"${PATH}\""
@@ -132,6 +135,11 @@ rm -f *.tar.gz
 (make distclean TEST_FPC=$STARTPP || true) > /dev/null 2>&1
 (make -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP || true) > /dev/null 2>&1
 
+if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
+  make -C $FPCSRCDIR/compiler distclean cycle OS_TARGET=$TARGET_OS CPU_TARGET=$TARGET_CPU FPC=fpc OPT=-n
+  make -C $FPCSRCDIR/compiler installsymlink FPC=$FPCSRCDIR/compiler/$STARTPP
+fi
+
 if [ "X${GDBMI}" == "X" ]; then
 # add needed files (libgdb.a)
 if [ "$LIBGDBZIP" != "" ]; then
@@ -142,7 +150,7 @@ else
   EXTRAOPT="GDBMI=1"
 fi
 if [ "X$TARGET_CPU" == "Xsparc" ] ; then
-  NEEDED_OPT="-ao-32 -Fl/usr/lib32 -Fo/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  NEEDED_OPT="$NATIVE_OPT32"
 else
   NEEDED_OPT=
 fi
