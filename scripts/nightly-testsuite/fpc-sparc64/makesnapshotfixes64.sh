@@ -8,7 +8,8 @@ set -e
 export ERRORMAILADDR=pierre@freepascal.org
 # Checkout dir
 CHECKOUTDIR=$FIXESDIR
-STARTPP=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc64-native
+STARTPP=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc64
+export PATH=$PATH:$HOME/pas/fpc-$FIXESVERSION/bin
 INSTALLCOMPILER=$HOME/bin/ppcsparc64-fixes
 MAILFILE=$HOME/logs/snapshot-fixes64.mail
 LOGFILE=$HOME/logs/snapshot-fixes64.log
