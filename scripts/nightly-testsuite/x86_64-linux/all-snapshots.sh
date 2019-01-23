@@ -7,6 +7,17 @@ if [ -d $HOME/bin ] ; then
   PATH=$HOME/bin:$PATH
 fi
 
+machine_host=`uname -n`
+if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
+  machine_host=gcc21
+fi
+# Only keep first part of machine name
+machine_host=${machine_host//.*/}
+
+machine_cpu=`uname -m`
+machine_os=`uname -s`
+machine_info="$machine_host $machine_cpu $machine_os"
+
 if [ -d ${HOME}/pas/fpc-${RELEASEVERSION}/bin ] ; then
   PATH=${HOME}/pas/fpc-${RELEASEVERSION}/bin:$PATH
 fi
@@ -418,7 +429,7 @@ echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
 ok_count=` grep "OK" $LISTLOGFILE | wc -l `
 pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
 total_count=`expr $pb_count + $ok_count `
-echo "Short summary: number of ok=$ok_count, number of pb=$pb_counti, total=$total_count" >> $EMAILFILE
+echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, total=$total_count" >> $EMAILFILE
 
 if [ -f $LISTLOGFILE.previous ] ; then
   prev_ok_count=` grep "OK" $LISTLOGFILE | wc -l `
