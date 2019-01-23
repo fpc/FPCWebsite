@@ -49,8 +49,14 @@ fi
 # Allows to enable testing utils 
 if [ "X$TEST_UTILS" == "X1" ] ; then
   test_utils=1
+  if [ $test_ppudump -eq 1 ] ; then
+    test_utils_ppudump=1
+  else
+    test_utils_ppudump=0
+  fi
 else
   test_utils=0
+  test_utils_ppudump=0
 fi
 
 if [ -z "$FPC" ] ; then
@@ -91,6 +97,7 @@ elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
+  test_utils_ppudump=1
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
