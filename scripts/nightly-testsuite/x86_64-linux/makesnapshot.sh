@@ -189,7 +189,13 @@ if [ -d "$global_sysroot/${FULL_TARGET}" ] ; then
   add_dir "libc.a"
   add_dir "libc.so"
   add_dir "ld*.so*"
+  if [ "${OS_TARGET}" == "haiku" ] ; then
+    add_dir "libroot.so"
+    add_dir "libnetwork.so"
+  fi
   if [ "$OS_TARGET" == "aix" ] ; then
+    add_dir "libm.a"
+    add_dir "libbsd.a"
     if [ $is_64 -eq 1 ] ; then
       add_dir "crt*_64.o"
     fi
