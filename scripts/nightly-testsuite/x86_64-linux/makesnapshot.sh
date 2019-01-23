@@ -163,6 +163,9 @@ function add_dir ()
     if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
       use_file=1
     fi
+    if [ "$OS_TARGET" == "aix" ] ; then
+      use_file=1
+    fi
     echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
     if [ $use_file -eq 1 ] ; then
       file_dir=`dirname $file`
@@ -186,7 +189,16 @@ if [ -d "$global_sysroot/${FULL_TARGET}" ] ; then
   add_dir "libc.a"
   add_dir "libc.so"
   add_dir "ld*.so*"
-  CROSSOPT="-XR$sysroot $CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+  if [ "$OS_TARGET" == "aix" ] ; then
+    if [ $is_64 -eq 1 ] ; then
+      add_dir "crt*_64.o"
+    fi
+  fi
+  CROSSOPT="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
+  # -Xr is not supported for AIX OS
+  if [ "$OS_TARGET" != "aix" ] ; then
+    CROSSOPT="$CROSSOPT -Xr$sysroot"
+  fi
   echo "CROSSOPT set to \"$CROSSOPT\""
   export OPTLEVEL3="$CROSSOPT"
 fi
