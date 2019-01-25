@@ -454,6 +454,14 @@ function set_fpc_local ()
 ######################################
 function check_target ()
 {
+  BINUTILSPREFIX_LOCAL=
+  ASSEMBLER_LOCAL=
+  ASPROG_LOCAL=
+  ASPROG=
+  OPT=
+  OPT_LOCAL=
+  MAKEEXTRA=
+
   ## First argument: CPU_TARGET
   CPU_TARG_LOCAL=$1
 
