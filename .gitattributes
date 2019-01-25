@@ -404,6 +404,7 @@ scripts/compare-check-results.sh svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/cross-binutils/do-all.sh svneol=native#text/plain
 scripts/cross-binutils/do-one.sh svneol=native#text/plain
+scripts/cross-binutils/gen-collect-aros.sh svneol=native#text/plain
 scripts/cross-compile/comp-aarch64.sh svneol=native#text/plain
 scripts/cross-compile/comp-arm.sh svneol=native#text/plain
 scripts/cross-compile/comp-avr.sh svneol=native#text/plain
