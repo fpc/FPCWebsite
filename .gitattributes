@@ -441,6 +441,7 @@ scripts/cross-compile/emul-sparc64.sh svneol=native#text/plain
 scripts/cross-compile/emul-x86_64.sh svneol=native#text/plain
 scripts/cross-compile/get-libs.sh svneol=native#text/plain
 scripts/cross-compile/install-all.sh svneol=native#text/plain
+scripts/cross-compile/install-qemu.sh svneol=native#text/plain
 scripts/dailymsgdiff svneol=native#text/plain
 scripts/dbdigest.cfg.example svneol=native#text/plain
 scripts/fpc-versions.sh svneol=native#text/plain
