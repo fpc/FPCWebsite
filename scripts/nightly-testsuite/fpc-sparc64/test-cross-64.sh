@@ -182,7 +182,18 @@ echo "cp ../compiler/ppcsparc64 $FPC64NAT" >> $report
 cp ../compiler/ppcsparc64 $FPC64NAT
 
 make -C ../rtl all FPC=$CROSSFPC OPT="$OPT64 -O-" FPCMAKEOPT="$NATIVE_OPT -vx" 
-make -C ../packages all FPC=$CROSSFPC OPT="$OPT64 -O-" FPCMAKEOPT="$NATIVE_OPT -vx" 
+res=$?
+if [ $res -eq 0 ] ; then
+  make -C ../packages all FPC=$CROSSFPC OPT="$OPT64 -O-" FPCMAKEOPT="$NATIVE_OPT -vx" 
+fi
+res=$?
+
+if [ $res -eq 0 ] ; then
+  # Upload new rtl/packages
+  make -C ../rtl install FPC=$CROSSFPC OPT="$OPT64 -O-" FPCMAKEOPT="$NATIVE_OPT -vx" INSTALL_PREFIX=$HOME/pas/fpc-$TARGET_VERSION
+  make -C ../packages install FPC=$CROSSFPC OPT="$OPT64 -O-" FPCMAKEOPT="$NATIVE_OPT -vx" INSTALL_PREFIX=$HOME/pas/fpc-$TARGET_VERSION
+
+fi
 
 if [ $custom -eq 1 ] ; then
   export use_native=0
