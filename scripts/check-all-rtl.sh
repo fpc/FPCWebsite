@@ -197,15 +197,24 @@ if [ -z "$global_sysroot" ] ; then
 fi
 
 LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
+LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
+PREVLOGFILE=${LOGFILE}.previous
+PREVLISTLOGFILE=${LISTLOGFILE}.previous
 
 if [ -f $LOGFILE ] ; then
-  mv -f $LOGFILE ${LOGFILE}.previous
+  mv -f $LOGFILE ${PREVLOGFILE}
 fi
 
 if [ -f $LISTLOGFILE ] ; then
-  mv -f $LISTLOGFILE ${LISTLOGFILE}.previous
+  mv -f $LISTLOGFILE ${PREVLISTLOGFILE}
+  prev_failure_list=` sed -n "s|Failure: See \(.*\) for details.*|\1|p" ${PREVLISTLOGFILE}`
+  for file in $prev_failure_list ; do
+    if [ -f "$file" ] ; then
+      mv -f $file ${file/.txt/}.last-failure.txt
+    fi
+  done
 fi
 
 echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOGFILE
@@ -852,7 +861,7 @@ function check_target ()
   fi
   if [ $test_packages -eq 1 ] ; then
     echo "Re-compiling native rtl to allow for fpmake compilation"
-    $MAKE -C rtl FPC=$NATIVEFPC OPT="$NATIVE_OPT"
+    $MAKE -C rtl FPC=$NATIVEFPC OPT="$NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
     $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
@@ -1237,6 +1246,66 @@ eval $utils_list_new_val
 utils_ppu_list_new_val=` grep "^utils_ppu_failure=" $LOGFILE `
 eval $utils_ppu_list_new_val
 
+function prev_ ()
+{
+# Dummy function to avoid error in eval below
+# when no regular expression is found by grep
+  true
+}
+
+if [ -f $PREVLOGFILE ] ; then
+  prev_dummy_count_new_val=prev_` grep "^dummy_count=" $PREVLOGFILE `
+  eval $prev_dummy_count_new_val
+  prev_skipped_count_new_val=prev_` grep "^skipped_count=" $PREVLOGFILE `
+  eval $prev_skipped_count_new_val
+  prev_run_fpcmake_first_failure_new_val=prev_` grep "^run_fpcmake_first_failure=" $PREVLOGFILE `
+  eval $prev_run_fpcmake_first_failure_new_val
+  prev_os_target_not_supported_failure_new_val=prev_` grep "^os_target_not_supported_failure=" $PREVLOGFILE `
+  eval $prev_os_target_not_supported_failure_new_val
+  prev_rtl_1_failure_new_val=prev_` grep "^rtl_1_failure=" $PREVLOGFILE `
+  eval $prev_rtl_1_failure_new_val
+  prev_rtl_2_failure_new_val=prev_` grep "^rtl_2_failure=" $PREVLOGFILE `
+  eval $prev_rtl_2_failure_new_val
+  prev_rtl_ppu_failure_new_val=prev_` grep "^rtl_ppu_failure=" $PREVLOGFILE `
+  eval $prev_rtl_ppu_failure_new_val
+  prev_packages_failure_new_val=prev_` grep "^packages_failure=" $PREVLOGFILE `
+  eval $prev_packages_failure_new_val
+  prev_packages_ppu_failure_new_val=prev_` grep "^packages_ppu_failure=" $PREVLOGFILE `
+  eval $prev_packages_ppu_failure_new_val
+  prev_utils_failure_new_val=prev_` grep "^utils_failure=" $PREVLOGFILE `
+  eval $prev_utils_failure_new_val
+  prev_utils_ppu_failure_new_val=prev_` grep "^utils_ppu_failure=" $PREVLOGFILE `
+  eval $prev_utils_ppu_failure_new_val
+  prev_dummy_list_new_val=prev_` grep "^dummy_list=" $PREVLOGFILE `
+  eval $prev_dummy_list_new_val
+  prev_skipped_list_new_val=prev_` grep "^skipped_list=" $PREVLOGFILE `
+  eval $prev_skipped_list_new_val
+  prev_run_fpcmake_first_list_new_val=prev_` grep "^run_fpcmake_first_list=" $PREVLOGFILE `
+  eval $prev_run_fpcmake_first_list_new_val
+  prev_os_target_not_supported_list_new_val=prev_` grep "^os_target_not_supported_list=" $PREVLOGFILE `
+  eval $prev_os_target_not_supported_list_new_val
+  prev_rtl_1_list_new_val=prev_` grep "^rtl_1_list=" $PREVLOGFILE `
+  eval $prev_rtl_1_list_new_val
+  prev_rtl_2_list_new_val=prev_` grep "^rtl_2_list=" $PREVLOGFILE `
+  eval $prev_rtl_2_list_new_val
+  prev_rtl_ppu_list_new_val=prev_` grep "^rtl_ppu_list=" $PREVLOGFILE `
+  eval $prev_rtl_ppu_list_new_val
+  prev_packages_list_new_val=prev_` grep "^packages_list=" $PREVLOGFILE `
+  eval $prev_packages_list_new_val
+  prev_packages_ppu_list_new_val=prev_` grep "^packages_ppu_failure=" $PREVLOGFILE `
+  eval $prev_packages_ppu_list_new_val
+  prev_utils_list_new_val=prev_` grep "^utils_list=" $PREVLOGFILE `
+  eval $prev_utils_list_new_val
+  prev_utils_ppu_list_new_val=prev_` grep "^utils_ppu_failure=" $PREVLOGFILE `
+  eval $prev_utils_ppu_list_new_val
+  prev_date_new_val="prev_date='` sed -n 's:Ending at ::p' $PREVLOGFILE`'"
+  eval $prev_date_new_val
+  prev_ok_count=` grep "OK:.*2nd.*" $PREVLISTLOGFILE | wc -l `
+  prev_pb_count=` grep "Failure: See.*" $PREVLISTLOGFILE | wc -l `
+  prev_total_count=`expr $prev_pb_count + $prev_ok_count `
+else
+  prev_date=
+fi
 
 echo "Ending at `date`" >> $LOGFILE
 echo "Ending at `date`" >> $LISTLOGFILE
@@ -1249,44 +1318,107 @@ ok_count=` grep "OK:.*2nd.*" $LISTLOGFILE | wc -l `
 pb_count=` grep "Failure: See.*" $LISTLOGFILE | wc -l `
 total_count=`expr $pb_count + $ok_count `
 
-if [ -f $LISTLOGFILE.previous ] ; then
-  echo "Diff to previous list" >> $EMAILFILE
-  diff ${LISTLOGFILE}.previous ${LISTLOGFILE} >> $EMAILFILE
+if [ -n "$prev_date" ] ; then
+  diff_output=` diff $PREVLISTLOGFILE $LISTLOGFILE `
+  if [ -z "$diff_output" ] ; then
+    echo "No diff to previous list" >> $EMAILFILE
+  else
+    echo "Diff to previous list" >> $EMAILFILE
+    diff ${PREVLISTLOGFILE} ${LISTLOGFILE} >> $EMAILFILE
+  fi
 fi
 
 echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, number of skips=$skipped_count" >> $EMAILFILE
+if [ -n "$prev_date" ] ; then
+  echo "Previous short summary: number of ok=$prev_ok_count, number of pb=$prev_pb_count, number of skips=$prev_skipped_count" >> $EMAILFILE
+fi
 if [ $run_fpcmake_first_failure -gt 0 ] ; then
   echo "$run_fpcmake_first_failure CPU-OS not handled by fpcmake failure(s), $run_fpcmake_first_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$run_fpcmake_first_list" != "$prev_run_fpcmake_first_list" ] ; then
+    echo "Previous $prev_run_fpcmake_first_failure CPU-OS not handled by fpcmake failure(s), $prev_run_fpcmake_first_list" >> $EMAILFILE
+  fi
 fi
 if [ $os_target_not_supported_failure -gt 0 ] ; then
   echo "$os_target_not_supported_failure OS not supported by CPU compiler failure(s), $os_target_not_supported_list" >> $EMAILFILE
 fi
+if [ -n "$prev_date" ] ; then
+  if [ "$os_target_not_supported_list" != "$prev_os_target_not_supported_list" ] ; then
+    echo "Previous $prev_os_target_not_supported_failure OS not supported by CPU compiler failure(s), $prev_os_target_not_supported_list" >> $EMAILFILE
+  fi
+fi
 if [ $rtl_1_failure -gt 0 ] ; then
   echo "$rtl_1_failure rtl level 1 failure(s), $rtl_1_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$rtl_1_list" != "$prev_rtl_1_list" ] ; then
+    echo "Previous $prev_rtl_1_failure rtl level 1 failure(s), $prev_rtl_1_list" >> $EMAILFILE
+  fi
 fi
 if [ $rtl_2_failure -gt 0 ] ; then
   echo "$rtl_2_failure rtl level 2 failure(s), $rtl_2_list" >> $EMAILFILE
 fi
+if [ -n "$prev_date" ] ; then
+  if [ "$rtl_2_list" != "$prev_rtl_2_list" ] ; then
+    echo "Previous $prev_rtl_2_failure rtl level 2 failure(s), $prev_rtl_2_list" >> $EMAILFILE
+  fi
+fi
 if [ $rtl_ppu_failure -gt 0 ] ; then
   echo "$rtl_ppu_failure rtl ppudump failure(s), $rtl_ppu_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$rtl_ppu_list" != "$prev_rtl_ppu_list" ] ; then
+    echo "iPrevious $prev_rtl_ppu_failure rtl ppudump failure(s), $prev_rtl_ppu_list" >> $EMAILFILE
+  fi
 fi
 if [ $packages_failure -gt 0 ] ; then
   echo "$packages_failure packages failure(s), $packages_list" >> $EMAILFILE
 fi
+if [ -n "$prev_date" ] ; then
+  if [ "$packages_list" != "$prev_packages_list" ] ; then
+    echo "Previous $prev_packages_failure packages failure(s), $prev_packages_list" >> $EMAILFILE
+  fi
+fi
 if [ $packages_ppu_failure -gt 0 ] ; then
   echo "$packages_ppu_failure packages ppudump failure(s), $packages_ppu_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$packages_ppu_list" != "$prev_packages_ppu_list" ] ; then
+    echo "Previous $prev_packages_ppu_failure packages ppudump failure(s), $prev_packages_ppu_list" >> $EMAILFILE
+  fi
 fi
 if [ $utils_failure -gt 0 ] ; then
   echo "$utils_failure utils failure(s), $utils_list" >> $EMAILFILE
 fi
+if [ -n "$prev_date" ] ; then
+  if [ "$utils_list" != "$prev_utils_list" ] ; then
+    echo "Previous $prev_utils_failure utils failure(s), $prev_utils_list" >> $EMAILFILE
+  fi
+fi
 if [ $utils_ppu_failure -gt 0 ] ; then
   echo "$utils_ppu_failure utils ppudump failure(s), $utils_ppu_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$utils_ppu_list" != "$prev_utils_ppu_list" ] ; then
+    echo "Previous $prev_utils_ppu_failure utils ppudump failure(s), $prev_utils_ppu_list" >> $EMAILFILE
+  fi
 fi
 if [ $skipped_count -gt 0 ] ; then
   echo "$skipped_count skipped target(s), $skipped_list" >> $EMAILFILE
 fi
+if [ -n "$prev_date" ] ; then
+  if [ "$skipped_list" != "$prev_skipped_list" ] ; then
+    echo "Previous $prev_skipped_count skipped target(s), $prev_skipped_list" >> $EMAILFILE
+  fi
+fi
 if [ $dummy_count -gt 0 ] ; then
   echo "$dummy_count target(s) using dummy assembler, $dummy_list" >> $EMAILFILE
+fi
+if [ -n "$prev_date" ] ; then
+  if [ "$dummy_list" != "$prev_dummy_list" ] ; then
+    echo "Previous $prev_dummy_count target(s) using dummy assembler, $prev_dummy_list" >> $EMAILFILE
+  fi
 fi
 echo "Number of targets using dummy assembler: $dummy_count/$total_count" >> $EMAILFILE
 echo "###############################" >> $EMAILFILE
