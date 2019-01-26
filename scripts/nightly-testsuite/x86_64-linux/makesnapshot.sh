@@ -164,6 +164,7 @@ function add_dir ()
       use_file=1
     fi
     if [ "$OS_TARGET" == "aix" ] ; then
+      # AIX puts 32 and 64 bit versions into the same library
       use_file=1
     fi
     echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""

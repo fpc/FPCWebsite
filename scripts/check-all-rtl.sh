@@ -6,7 +6,11 @@
 . $HOME/bin/fpc-versions.sh
 
 if [ -n "$1" ] ; then
-  dir_name_suffix="-$1"
+  if [ -n "$2" ] ; then
+    dir_name_suffix="-$1-$2"
+  else
+    dir_name_suffix="-$1"
+  fi
 else
   dir_name_suffix=
 fi
@@ -95,6 +99,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   USE_RELEASE_MAKEFILE_VARIABLE=1
 elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
+  test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -364,10 +369,12 @@ fi
 # if pattern is found
 is_64=0
 sysroot=
+dir_found=0
 
 function add_dir ()
 {
   pattern="$1"
+  echo "add_dir: testing \"$pattern\""
   if [ "${pattern/\//_}" != "$pattern" ] ; then
     if [ -f "$pattern" ] ; then
       file_list=$pattern
@@ -403,12 +410,18 @@ function add_dir ()
     if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
       use_file=1
     fi
+    if [ "$OS_TARG_LOCAL" == "aix" ] ; then
+      # AIX puts 32 and 64 bit versions into the same library
+      use_file=1
+    fi
     echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
     if [ $use_file -eq 1 ] ; then
       file_dir=`dirname $file`
+      echo "Adding $file_dir"
       if [ "${CROSSOPT/-Fl$file_dir /}" == "$CROSSOPT" ] ; then
         echo "Adding $file_dir directory to library path list"
         CROSSOPT="$CROSSOPT -Fl$file_dir "
+        dir_found=1
       fi
     fi
   done
@@ -742,9 +755,8 @@ function check_target ()
   CROSSOPT_ORIG="$CROSSOPT"
 
   if [ -d "$global_sysroot/${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}" ] ; then
-    echo "Trying to build using BUILDFULLNATIVE=1"
-    export BUILDFULLNATIVE=1
     sysroot=$global_sysroot/${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}
+    dir_found=0
     add_dir "crt1.o"
     add_dir "crti.o"
     add_dir "crtbegin.o"
@@ -755,7 +767,25 @@ function check_target ()
       add_dir "libroot.so"
       add_dir "libnetwork.so"
     fi
-    OPT_LOCAL="$CROSSOPT -Xd -Xr$sysroot -k--sysroot=$sysroot"
+    if [ "${OS_TARG_LOCAL}" == "aix" ] ; then
+      add_dir "libm.a"
+      add_dir "libbsd.a"
+      if [ $is_64 -eq 1 ] ; then
+        add_dir "crt*_64.o"
+      fi
+    fi
+    if [ $dir_found -eq 1 ] ; then
+      echo "Trying to build using BUILDFULLNATIVE=1"
+      export BUILDFULLNATIVE=1
+      OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
+      # -Xr is not supported for AIX OS
+      if [ "${OS_TARG_LOCAL}" != "aix" ] ; then
+        OPT_LOCAL="$OPT_LOCAL -Xr$sysroot"
+      fi
+      echo "OPT_LOCAL set to \"$OPT_LOCAL\""
+    else
+      export BUILDFULLNATIVE=
+    fi
   else
     export BUILDFULLNATIVE=
   fi
@@ -877,7 +907,7 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
-        echo "Testing second compilation in $packagesdir (without BILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         res=$?
       fi
@@ -934,7 +964,7 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
-        echo "Testing second compilation in $utilsdir (without BILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        echo "Testing second compilation in $utilsdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE -C $utilsdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
         res=$?
       fi
