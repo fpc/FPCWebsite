@@ -28,24 +28,23 @@ if [ "$DO_SNAPSHOTS" == "1" ] ; then
   fi
 fi
 
-export FIXES=1
-$HOME/bin/check-all-rtl.sh
 export FIXES=0
-$HOME/bin/check-all-rtl.sh
-
 cd $HOME/pas/trunk/fpcsrc/compiler
 # regenerate cross-compilers for check-all-rtl.sh script
 make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$TRUNKVERSION FPC=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcsparc > $HOME/logs/trunk-fullinstall.log 2>&1
 # Update ppc386, ppcx64 and ppc8086 with softfpu extended emulation
-export FIXES=0
 $HOME/bin/generate-cross-sfpux80.sh > $HOME/logs/trunk-generate-sfpux80.log 2>&1
+# Check trunk cross-compilation
+$HOME/bin/check-all-rtl.sh
 
+export FIXES=1
 cd $HOME/pas/fixes/fpcsrc/compiler
 # regenerate cross-compilers for check-all-rtl.sh script
 make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc > $HOME/logs/fixes-fullinstall.log 2>&1
 # Update ppc386, ppcx64 and ppc8086 with softfpu extended emulation
-export FIXES=1
 $HOME/bin/generate-cross-sfpux80.sh > $HOME/logs/fixes-generate-sfpux80.log 2>&1
+# Check fixes cross-compilation
+$HOME/bin/check-all-rtl.sh
 
 if [ $enable_64bit_tests -eq 1 ] ; then
   $HOME/bin/test-cross-64.sh
