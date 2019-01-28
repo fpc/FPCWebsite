@@ -5,14 +5,21 @@
 
 . $HOME/bin/fpc-versions.sh
 
+if [ "$1" == "test_add_dir" ] ; then
+  test_add_dir=1
+  dir_name_suffix=-test_add_dir
+  shift
+else
+  test_add_dir=0
+  dir_name_suffix=
+fi
+
 if [ -n "$1" ] ; then
   if [ -n "$2" ] ; then
-    dir_name_suffix="-$1-$2"
+    dir_name_suffix="$dir_name_suffix-$1-$2"
   else
-    dir_name_suffix="-$1"
+    dir_name_suffix="$dir_name_suffix-$1"
   fi
-else
-  dir_name_suffix=
 fi
 
 # Some programs might freeze
@@ -383,16 +390,30 @@ dir_found=0
 function add_dir ()
 {
   pattern="$1"
+  file_list=
+
+  if [ "${pattern:0:1}" == "-" ] ; then
+    find_expr="${pattern}"
+    pattern="$2"
+  else
+    find_expr=
+  fi
+
   echo "add_dir: testing \"$pattern\""
   if [ "${pattern/\//_}" != "$pattern" ] ; then
-    if [ -f "$pattern" ] ; then
+    if [ -f "$sysroot/$pattern" ] ; then
       file_list=$pattern
     else
-      file_list=`find $sysroot/ -wholename "$pattern"`
+      find_expr="-wholename"
     fi
   else
-    file_list=`find $sysroot/ -iname "$pattern"`
+    find_expr="-iname"
   fi
+
+  if [ -z "$file_list" ] ; then
+    file_list=` find $sysroot/ $find_expr "$pattern" `
+  fi
+
   for file in $file_list ; do
     use_file=0
     file_type=`file $file`
@@ -771,7 +792,12 @@ function check_target ()
     add_dir "crtbegin.o"
     add_dir "libc.a"
     add_dir "libc.so"
-    add_dir "ld*.so*"
+    add_dir -regex "'.*/libc\.so\..*'"
+    add_dir "ld.so"
+    add_dir -regex "'.*/ld\.so\.[0-9.]*'"
+    if [ "${OS_TARG_LOCAL}" == "linux" ] ; then
+      add_dir -regex "'.*/ld-linux.*\.so\.*[0-9.]*'"
+    fi
     if [ "${OS_TARG_LOCAL}" == "haiku" ] ; then
       add_dir "libroot.so"
       add_dir "libnetwork.so"
@@ -799,6 +825,10 @@ function check_target ()
     export BUILDFULLNATIVE=
   fi
 
+  if [ $test_add_dir -eq 1 ] ; then
+    echo "test_add_dir: ${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}: OPT_LOCAL=\"$OPT_LOCAL\""
+    return
+  fi
   LOGFILE_DISTCLEAN=${LOGPREFIX}-distclean-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE_RTL=${LOGPREFIX}-rtl-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE_RTL_2=${LOGPREFIX}-rtl2-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
@@ -917,6 +947,7 @@ function check_target ()
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
         echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        $MAKE $MAKEJOPT -C $packagesdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         res=$?
       fi
@@ -974,6 +1005,7 @@ function check_target ()
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
         echo "Testing second compilation in $utilsdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        $MAKE $MAKEJOPT -C $utilsdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
         $MAKE $MAKEJOPT -C $utilsdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
         res=$?
       fi
