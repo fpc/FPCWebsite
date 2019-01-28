@@ -62,3 +62,8 @@ if [ $enable_64bit_tests -eq 1 ] ; then
   fi
 fi
 
+cd $HOME/scripts
+svn cleanup
+svn up
+
+
