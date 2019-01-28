@@ -95,6 +95,12 @@ if [ "X$machine_host" == "Xgcc20" ] ; then
 elif [ "X$machine_host" == "Xgcc21" ] ; then
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
+elif [ "X$machine_host" == "Xgcc67" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
+elif [ "X$machine_host" == "Xgcc68" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc70" ] ; then
   # Temp mount is too small, don't use it
   XDG_RUNTIME_DIR=
