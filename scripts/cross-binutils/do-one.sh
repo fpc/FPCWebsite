@@ -242,6 +242,10 @@ function copytofpcbin ()
     cd binutils
     copytofpcbin  ar
     copytofpcbin  objdump
+    # avr also needs objcopy
+    if [ "X${target//avr/}" != "X$target" ] ; then
+      copytofpcbin  objcopy
+    fi
     copytofpcbin  readelf
     copytofpcbin  strip -new
     # aros also needs collect-aros, nm and strip
