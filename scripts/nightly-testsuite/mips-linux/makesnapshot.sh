@@ -47,6 +47,7 @@ fi
 MAKE=make
 MAKE_OPTIONS="distclean singlezipinstall SNAPSHOT=1 NOGDB=1 DEBUG=1 NOWPOCYCLE=1"
 date=`date +%Y-%m-%d`
+start_date_time=`date +%Y-%m-%d-%H-%M`
 
 
 cd $FPC_DIR
@@ -79,6 +80,7 @@ if [ $res -ne 0 ] ; then
 fi
 
 TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
+end_date_time=`date +%Y-%m-%d-%H-%M`
 
 cat > README <<EOF
 This ${TAR} snapshot was generated ${date} using:
@@ -98,6 +100,7 @@ Enjoy,
 Pierre Muller
 EOF
 
+echo "Script $0 from $start_date_time to $end_date_time"
 if [[ -n "${TAR}" && -f "${TAR}" ]]; then
   echo "scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
   scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}
