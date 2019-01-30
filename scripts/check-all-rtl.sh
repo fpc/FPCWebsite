@@ -1324,11 +1324,11 @@ rtl_ppu_list_new_val=` grep "^rtl_ppu_list=" $LOGFILE `
 eval $rtl_ppu_list_new_val
 packages_list_new_val=` grep "^packages_list=" $LOGFILE `
 eval $packages_list_new_val
-packages_ppu_list_new_val=` grep "^packages_ppu_failure=" $LOGFILE `
+packages_ppu_list_new_val=` grep "^packages_ppu_list=" $LOGFILE `
 eval $packages_ppu_list_new_val
 utils_list_new_val=` grep "^utils_list=" $LOGFILE `
 eval $utils_list_new_val
-utils_ppu_list_new_val=` grep "^utils_ppu_failure=" $LOGFILE `
+utils_ppu_list_new_val=` grep "^utils_ppu_list=" $LOGFILE `
 eval $utils_ppu_list_new_val
 
 function prev_ ()
@@ -1377,11 +1377,11 @@ if [ -f $PREVLOGFILE ] ; then
   eval $prev_rtl_ppu_list_new_val
   prev_packages_list_new_val=prev_` grep "^packages_list=" $PREVLOGFILE `
   eval $prev_packages_list_new_val
-  prev_packages_ppu_list_new_val=prev_` grep "^packages_ppu_failure=" $PREVLOGFILE `
+  prev_packages_ppu_list_new_val=prev_` grep "^packages_ppu_list=" $PREVLOGFILE `
   eval $prev_packages_ppu_list_new_val
   prev_utils_list_new_val=prev_` grep "^utils_list=" $PREVLOGFILE `
   eval $prev_utils_list_new_val
-  prev_utils_ppu_list_new_val=prev_` grep "^utils_ppu_failure=" $PREVLOGFILE `
+  prev_utils_ppu_list_new_val=prev_` grep "^utils_ppu_list=" $PREVLOGFILE `
   eval $prev_utils_ppu_list_new_val
   prev_date_new_val="prev_date='` sed -n 's:Ending at ::p' $PREVLOGFILE`'"
   eval $prev_date_new_val
