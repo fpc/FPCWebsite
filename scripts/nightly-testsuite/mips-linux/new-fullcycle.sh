@@ -26,6 +26,7 @@ export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
 
+ulimit -t 3600
 
 LOCKFILE=/home/fpcdevel/pas/lock
 OLDLOCKFILE=/home/fpcdevel/pas/last-lock
@@ -258,13 +259,11 @@ fi
 
 export PATH=${ORIGPATH}
 
-ulimit -t 3600
-
 if [ $skipfixes -eq 0 ] ; then
-  . $HOME/bin/makesnapshot-fixes.sh
+  $HOME/bin/makesnapshot-fixes.sh
 fi
 if [ $skiptrunk -eq 0 ] ; then
-  . $HOME/bin/makesnapshot-trunk.sh
+  $HOME/bin/makesnapshot-trunk.sh
 fi
 
 if [ -f ~/pas/trunk/fpcsrc/tests/do-checks.txt ] ; then
