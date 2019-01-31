@@ -135,9 +135,11 @@ rm -f *.tar.gz
 (make distclean TEST_FPC=$STARTPP || true) > /dev/null 2>&1
 (make -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP || true) > /dev/null 2>&1
 
+STARTPPNAME=`basename $STARTPP`
+
 if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
   make -C $FPCSRCDIR/compiler distclean cycle OS_TARGET=$TARGET_OS CPU_TARGET=$TARGET_CPU FPC=fpc OPT=-n
-  make -C $FPCSRCDIR/compiler installsymlink FPC=$FPCSRCDIR/compiler/$STARTPP
+  make -C $FPCSRCDIR/compiler installsymlink FPC=$FPCSRCDIR/compiler/$STARTPPNAME
 fi
 
 if [ "X${GDBMI}" == "X" ]; then
