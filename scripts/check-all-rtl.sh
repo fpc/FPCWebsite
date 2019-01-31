@@ -436,7 +436,7 @@ function add_dir ()
         dir=`dirname $file`
         add_dir $dir/$link_target
       fi
-      return
+      continue
     fi
 
     file_is_64=`echo $file_type | grep "64-bit" `
@@ -803,6 +803,10 @@ function check_target ()
     add_dir -regex "'.*/ld\.so\.[0-9.]*'"
     if [ "${OS_TARG_LOCAL}" == "linux" ] ; then
       add_dir -regex "'.*/ld-linux.*\.so\.*[0-9.]*'"
+    fi
+    if [ "${OS_TARG_LOCAL}" == "beos" ] ; then
+      add_dir "libroot.so"
+      add_dir "libnetwork.so"
     fi
     if [ "${OS_TARG_LOCAL}" == "haiku" ] ; then
       add_dir "libroot.so"
