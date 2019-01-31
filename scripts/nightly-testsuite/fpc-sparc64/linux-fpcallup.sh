@@ -4,6 +4,11 @@ enable_64bit_tests=1
 
 . $HOME/bin/fpc-versions.sh
 
+# Make sure ${HOME}/bin is in PATH
+if [ -d ${HOME}/bin ] ; then
+  export PATH=${PATH}:${HOME}/bin
+fi
+
 DO_SNAPSHOTS=1
 # Check if latest source was uploaded
 TODAY=`date +%Y-%m-%d`
