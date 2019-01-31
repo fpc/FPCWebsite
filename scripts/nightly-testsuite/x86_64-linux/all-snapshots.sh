@@ -141,6 +141,25 @@ function set_fpc_local ()
     BINUTILSPREFIX=not_set
   fi
 
+  if [ "X$BINUTILSPREFIX" == "Xnot_set" ] ; then
+     TRY_BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+     # Android has different binutilsprefix defaults
+     if [ "${OS_TARGET}" == "android" ] ; then
+       if [ "${CPU_TARGET}" == "aarch64" ] ; then
+         TRY_BINUTILSPREFIX='aarch64-linux-android-'
+       elif [ "${CPU_TARGET}" == "arm" ] ; then
+         TRY_BINUTILSPREFIX='arm-linux-androideabi-'
+       elif [ "${CPU_TARGET}" == "i386" ] ; then
+         TRY_BINUTILSPREFIX='i686-linux-android-'
+       elif [ "${CPU_TARGET}" == "mipsel" ] ; then
+         TRY_BINUTILSPREFIX='mipsel-linux-android-'
+       elif [ "${CPU_TARGET}" == "x86_64" ] ; then
+         TRY_BINUTILSPREFIX='x86_64-linux-android-'
+       fi
+    fi
+  else
+    TRY_BINUTILSPREFIX=
+  fi
   if [ "$CPU_TARGET" == "jvm" ] ; then
     ASSEMBLER=java
     # java is installed, no need for prefix
@@ -164,15 +183,26 @@ function set_fpc_local ()
     ASSEMBLER=as
   fi
 
-  target_as=`which $ASSEMBLER`
+  target_as=`which $ASSEMBLER 2> /dev/null`
 
   if [ "X$BINUTILSPREFIX" == "Xnot_set" ] ; then
-    target_as=`which ${CPU_TARGET}-${OS_TARGET}-${ASSEMBLER}`
-    if [ "X$target_as" != "X" ] ; then
-      BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+    if [ -n "$TRY_BINUTILSPREFIX" ] ; then
+      target_as=`which ${TRY_BINUTILSPREFIX}${ASSEMBLER} 2> /dev/null`
+      if [ -f "$target_as" ] ; then
+        BINUTILSPREFIX=${TRY_BINUTILSPREFIX}
+      fi
     else
-      BINUTILSPREFIX=dummy-
-      assembler_version="Dummy assembler"
+      target_as=`which ${CPU_TARGET}-${OS_TARGET}-${ASSEMBLER} 2> /dev/null`
+      if [ "X$target_as" != "X" ] ; then
+        BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+      else
+        BINUTILSPREFIX=dummy-
+        assembler_version="Dummy assembler"
+        echo "Skip: Not testing $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, only dummy assembler found"
+        echo "Skip: Not testing $CPU_TARGET-${OS_TARGET}${EXTRASUFFIX}, only dummy assembler found" >> $LISTLOGFILE
+        skipped_count=`expr $skipped_count + 1 `
+	return
+      fi
     fi
   fi
 
