@@ -240,7 +240,7 @@ fi
 
 if [ -n "$sysroot" ] ; then
   echo "Trying to build using BUILDFULLNATIVE=1"
-  export BUILDFULLNATIVE=1
+  dir_found=0
   add_dir "crt1.o"
   add_dir "crti.o"
   add_dir "crtbegin.o"
@@ -266,13 +266,16 @@ if [ -n "$sysroot" ] ; then
       add_dir "crt*_64.o"
     fi
   fi
-  CROSSOPT="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
-  # -Xr is not supported for AIX OS
-  if [ "$OS_TARGET" != "aix" ] ; then
-    CROSSOPT="$CROSSOPT -Xr$sysroot"
+  if [ $dir_found -eq 1 ] ; then
+    export BUILDFULLNATIVE=1
+    CROSSOPT="$CROSSOPT -Xd -k--sysroot=$sysroot -XR$sysroot"
+    # -Xr is not supported for AIX OS
+    if [ "$OS_TARGET" != "aix" ] ; then
+      CROSSOPT="$CROSSOPT -Xr$sysroot"
+    fi
+    echo "CROSSOPT set to \"$CROSSOPT\""
+    export OPTLEVEL3="$CROSSOPT"
   fi
-  echo "CROSSOPT set to \"$CROSSOPT\""
-  export OPTLEVEL3="$CROSSOPT"
 fi
 # make the snapshot!
 cd $CHECKOUTDIR
@@ -301,7 +304,11 @@ if [ $res -ne 0 ] ; then
 fi
 
 if [ "$BUILDFULLNATIVE" == "1" ] ; then
-  if [ $res -ne 0 ] ; then
+  if [ $res -eq 0 ] ; then
+    if [ "${MAKEEXTRA/BUILDFULLNATIVE/}" == "${MAKEEXTRA}" ] ; then
+      MAKEEXTRA="$MAKEEXTRA BUILDFULLNATIVE=1"
+    fi
+  else
     echo "Try again, without BUILDFULLNATIVE" >> $LONGLOGFILE
     echo "Try again, without BUILDFULLNATIVE"
     export BUILDFULLNATIVE=
