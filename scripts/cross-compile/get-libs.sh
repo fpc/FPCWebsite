@@ -76,6 +76,10 @@ else
     cpu=powerpc64le
   fi
 
+  if [ "$os" == "sunos" ] ; then
+    cpu=solaris
+  fi
+
   if [ -z "$dir_name" ] ; then
     dir_name=$cpu-$os
   fi
@@ -106,6 +110,8 @@ case "X_$os" in
   *) dynlib_suffix=.so;;
 esac
 
+upload_list=":"
+
 # Upload exactly a full path file
 function upload_file ()
 {
@@ -115,7 +121,7 @@ function upload_file ()
   dir=`ssh $machine dirname $f`
   if [ ! -d ".$dir" ] ; then
     echo "Adding local directory .$dir"
-    mkdir -p .$dir
+    mkdir -p ".$dir"
   fi
   if [ "$file_type" != "${file_type//symbolic link/}" ] ; then
     is_link=1
@@ -165,9 +171,18 @@ function upload_file ()
       echo "Unable to locate $link_target on $machine"
     fi
   else
-    echo "Uploading $machine:$f to `pwd`$dir"
-    scp $machine:$f .$dir
-    if [ $is_linker_script -eq 1 ] ; then
+    if [ "${uploadlist/:$f:/}" != "$uploadlist" ] ; then
+      echo "File $f already uploaded"
+    else
+      echo "Uploading $machine:$f to `pwd`$dir"
+      scp -p $machine:$f .$dir
+      res=$?
+      if [ $res -eq 0 ] ; then
+        uploadlist="${uploadlist}${f}:"
+      else
+        echo "scp -p $machine:$f .$dir failed, res=$res"
+      fi
+      if [ $is_linker_script -eq 1 ] ; then
       echo "Trying to isolate library references inside $f"
       file_content="`cat .$f | sed -n "s:GROUP::p" `"
       for ff in $file_content ; do
@@ -256,7 +271,8 @@ if [ -n "$machine" ] ; then
   maybe_upload_files "libdl${dynlib_suffix}"
 
   #ld*.so*
-  maybe_upload_files "ld*${dynlib_suffix}*"
+  maybe_upload_files "ld.${dynlib_suffix}*"
+  maybe_upload_files "ld-*.${dynlib_suffix}*"
 
   #libpthread.so
   maybe_upload_files "libpthread${dynlib_suffix}"
@@ -269,6 +285,10 @@ if [ -n "$machine" ] ; then
 
   #libgcc.a
   maybe_upload_files "libgcc.a"
+
+  if [ "$os" == "solaris" ] ; then
+    maybe_upload_files "libmd.so.1"
+  fi
 
   if [ "$os" == "aix" ] ; then
     maybe_upload_files "libm.so"
