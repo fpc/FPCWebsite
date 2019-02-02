@@ -10,7 +10,7 @@ export SCP_EXTRA="-i ${HOME}/.ssh/freepascal"
 export MUTTATTACH=
 export RECOMPILE_COMPILER_FIRST=0
 
-export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin"
+export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin"
 
 if [ "X$PPCCPU" == "X" ] ; then
   export PPCCPU=fpc
