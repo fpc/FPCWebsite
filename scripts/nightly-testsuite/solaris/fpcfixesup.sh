@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export CPU=`uname -p`
+export machine=`uname -n`
 
 . ~/bin/fpc-versions.sh
 
@@ -37,30 +38,44 @@ function spath ()
 export WITHCSW=1
 export SVNDIR=fixes
 
+is_locked=0
 LOCKFILE=$HOME/pas/$SVNDIR/lock
 while [ -f $LOCKFILE ] ; do
   sleep 60
+  if [ $is_locked -eq 0 ] ; then
+    is_locked=1
+    echo "$machine: File $LOCKFILE present, start waiting at `date +%Y-%m%d-%H:%M`"
+  fi
 done
+
+if [ $is_locked -eq 1 ] ; then
+  echo "$machine: File $LOCKFILE removed, end waiting at `date +%Y-%m%d-%H:%M`"
+fi
+
 
 if [ "$CPU" = "i386" ] ; then
   export FPCBIN=ppc386
   export FPCPASINSTALLDIR=$HOME/pas/i386
-  echo "Starting solaris-fpccommonup.sh with FPCBIN=$FPCBIN" > $LOCKFILE
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`"
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`" > $LOCKFILE
   ~/bin/solaris-fpccommonup.sh
   export FPCPASINSTALLDIR=$HOME/pas/x86_64
   export FPCBIN=ppcx64
-  echo "Starting solaris-fpccommonup.sh with FPCBIN=$FPCBIN" > $LOCKFILE
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`"
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`" > $LOCKFILE
   ~/bin/solaris-fpccommonup.sh
 fi
 if [ "$CPU" = "sparc" ] ; then
   export FPCBIN=ppcsparc
   export FPCPASINSTALLDIR=$HOME/pas/sparc
-  echo "Starting solaris-fpccommonup.sh with FPCBIN=$FPCBIN" > $LOCKFILE
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`"
+  echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`" > $LOCKFILE
   ~/bin/solaris-fpccommonup.sh
   if [ "$TEST_SPARC64" = "1" ] ; then
     export FPCBIN=ppcsparc64
     export FPCPASINSTALLDIR=$HOME/pas/sparc64
-    echo "Starting solaris-fpccommonup.sh with FPCBIN=$FPCBIN" > $LOCKFILE
+    echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`"
+    echo "$machine: Starting $SVNDIR solaris-fpccommonup.sh with FPCBIN=$FPCBIN at `date +%Y-%m%d-%H:%M`" > $LOCKFILE
     ~/bin/solaris-fpccommonup.sh
   fi
 fi
