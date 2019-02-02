@@ -19,11 +19,12 @@ if [ -z "$HOSTNAME" ] ; then
 fi
 
 echo "Running $0 on $HOSTNAME"
+pref=$HOSTNAME
 
 if [ "${HOSTNAME/unstable/}" != "${HOSTNAME}" ] ; then
   HOST_PC=opencsw
   do_upload=0
-  echo "Using special opencsw buildfarm configuration"
+  echo "$pref: Using special opencsw buildfarm configuration"
   # We need /opt/csw/bin in path
   WITHCSW=1
 else
@@ -140,7 +141,7 @@ fi
 
 PATH=$NEWPATH
 export PATH
-echo "Using new path $PATH"
+echo "$pref: Using new path $PATH"
 
 function test_tmt1_kill {
   if [ -f ~/bin/tmt1_kill.sh ]; then
@@ -222,15 +223,15 @@ if [ -z "$SKIPMAKE" ] ; then
     tail -30 ${makelog} >> $report
     run_make "distclean all install" "FPC=${FPCBIN}"
   fi
-  
+ 
+  new_comp_ok=0 
   if [ "${makeres}" != "0" ]; then
     tail -30 ${makelog} >> $report
     cd compiler
     # Try again only compiler level
     run_make "distclean cycle install" "DEBUG=1 FPC=${FPCBIN}"
     if [ "${makeres}" == "0" ]; then
-    cd ../rtl
-    run_make "distclean install" "DEBUG=1 FPC=${FPCBIN}"
+      new_comp_ok=1
     fi
     cd ..
   fi
@@ -246,12 +247,15 @@ if [ -z "$SKIPMAKE" ] ; then
     FPCBIN=${STOREFPCBIN}
     if [ "${makeres}" == "0" ]; then
       run_make "install rtlinstall" "OPT=-gl FPC=`pwd`/${FPCBIN} INSTALL_PREFIX=${FPCPASINSTALLDIR}/fpc-${FPC_TARGET_VER}"
+      new_comp_ok=1
     else
       tail -30 ${makelog} >> $report
     fi
     cd ..
   fi
-  else
+  if [ $new_comp_ok -eq 1 ] ; then
+    run_make "distclean install" "DEBUG=1 FPC=${FPCBIN}"
+  fi
   if [ -d fpcsrc ]; then
     cd fpcsrc
   fi
