@@ -6,44 +6,126 @@
 # was export LANG=en_US.utf8
 export LANG=en_US.UTF-8
 
-if [ "$CHECKOUTDIR" == "" ]; then
-  CHECKOUTDIR=~/pas/trunk
-fi
+. $HOME/bin/fpc-versions.sh
 
+if [ "${HOSTNAME/unstable/}" != "${HOSTNAME}" ] ; then
+  HOST_PC=opencsw
+fi
+ 
 export MAKE=gmake
 
 if [ "$STARTPP" == "" ] ; then
-  STARTPP=ppc386
+  if [ "`uname -p`" == "sparc" ] ; then
+    STARTPP=ppcsparc
+  else
+    STARTPP=ppc386
+  fi
+fi
+
+if [ "X$FIXES" == "X1" ] ; then
+  SVNDIR=fixes
+  SVNVER=$FIXESVERSION
+else
+  SVNDIR=trunk
+  SVNVER=$TRUNKVERSION
 fi
 
 if [ "$FTPDIR" == "" ] ; then
   if [ "$STARTPP" == "ppc386" ] ; then
-    FTPDIR=fpcftp:ftp/snapshot/trunk/i386-solaris
+    FTPDIR=fpcftp:ftp/snapshot/$SVNDIR/i386-solaris
   fi
   if [ "$STARTPP" == "ppcx64" ] ; then
-    FTPDIR=fpcftp:ftp/snapshot/trunk/x86_64-solaris
+    FTPDIR=fpcftp:ftp/snapshot/$SVNDIR/x86_64-solaris
   fi
   if [ "$STARTPP" == "ppcsparc" ] ; then
-    FTPDIR=fpcftp:ftp/snapshot/trunk/sparc-solaris
+    FTPDIR=fpcftp:ftp/snapshot/$SVNDIR/sparc-solaris
   fi
   if [ "$STARTPP" == "ppcsparc64" ] ; then
-    FTPDIR=fpcftp:ftp/snapshot/trunk/sparc64-solaris
+    FTPDIR=fpcftp:ftp/snapshot/$SVNDIR/sparc64-solaris
+    if [ "$CHECKOUTDIR" == "" ]; then
+      CHECKOUTDIR=~/pas/sparc64-solaris-trunk/fpcsrc
+    fi
   fi
+fi
+
+if [ "$CHECKOUTDIR" == "" ]; then
+  CHECKOUTDIR=~/pas/$SVNDIR
+fi
+
+if [ -d "$CHECKOUTDIR/fpcsrc" ] ; then
+  CHECKOUTDIR="$CHECKOUTDIR/fpcsrc"
+fi
+
+# Set default CPU if not set
+if [ -z "${FPC_TARGET_CPU}" ]; then
+  if [ "${STARTPP}" == "ppcx64" ]; then
+    FPC_TARGET_CPU=x86_64
+  elif [ "${STARTPP}" == "ppc386" ]; then
+    FPC_TARGET_CPU=i386
+  elif [ "${STARTPP}" == "ppcsparc" ]; then
+    FPC_TARGET_CPU=sparc
+  elif [ "${STARTPP}" == "ppcsparc64" ]; then
+    FPC_TARGET_CPU=sparc64
+  else
+    FPC_TARGET_CPU=Unknown
+  fi
+fi
+
+FPC_TARGET=${FPC_TARGET_CPU}-solaris
+FPCPASDIR=$HOME/pas
+
+if [ -z "$FPCPASINSTALLDIR" ] ; then
+  if [ "$HOST_PC" == "opencsw" ] ; then
+    if [ -z "$FPC_SOURCE_CPU" ] ; then
+      FPCPASINSTALLDIR=$FPCPASDIR/$FPC_TARGET_CPU
+    else
+      FPCPASINSTALLDIR=$FPCPASDIR/$FPC_SOURCE_CPU
+    fi
+  else
+    FPCPASINSTALLDIR=$FPCPASDIR
+  fi
+fi
+
+export FPCPASINSTALLDIR
+export SVNVER
+
+if [ -z "$LOGFILE" ] ; then
+  LOGFILE=$HOME/logs/makesnapshot-$SVNVER-$SVNDIR-$FPC_TARGET_CPU.log
 fi
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 ulimit -d 65536 -s 8192 -t 2400
 
-PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/opt/csw/bin:/opt/sfw/bin"
 (
+# PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/opt/csw/bin:/opt/sfw/bin"
+PATH=$PATH:/opt/csw/bin
+if [ -d "$FPCPASINSTALLDIR/fpc-$RELEASEVERSION/bin" ] ; then
+  PATH=$FPCPASINSTALLDIR/fpc-$RELEASEVERSION/bin:$PATH
+  echo "Adding release $RELEASEVERSION Free Pascal binary directory to PATH"
+else
+  if [ -d "$FPCPASINSTALLDIR/fpc-$SVNVER/bin" ] ; then
+    PATH=$FPCPASINSTALLDIR/fpc-$SVNVER/bin:$PATH
+    echo "Adding $SVNVER Free Pascal binary directory to PATH"
+    export OVERRIDEVERSIONCHECK=1
+  else
+    echo "Problem with PATH"
+  fi
+fi
+
+export PATH
+
 date
+uname -a
+echo "Start PATH is \"$PATH\""
+#env
+set | grep PAS
 
 # Clean, ignore errors makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
 rm -f *.tar.gz
 $MAKE distclean TEST_FPC=$STARTPP || true
-$MAKE -C tests distclean TEST_FPC=$STARTPP || true
+# $MAKE -C tests distclean TEST_FPC=$STARTPP || true
 
 # Run cvs update
 cd $CHECKOUTDIR
@@ -74,32 +156,42 @@ fi
 cp $CHECKOUTDIR/compiler/$PPCCPU $INSTALLCOMPILER
 
 # move snapshot
-if [ "$FTPDIR" != "" ]; then
-  cd $CHECKOUTDIR
-  if [ $? = 0 ]; then
-     #  FTP machine must trust this account. Copy public key to that machine
-     # if needed Everything is set
-     scp *.tar.gz ${FTPDIR}
-     if [ $? = 0 ]; then   
-       set ERRORMAILADDR = ""
-     fi
-  fi
+if [ ! -d $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET ] ; then
+  mkdir -p $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET
 fi
+scp *${FPC_TARGET}*gz $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/
+
+# if [ "$FTPDIR" != "" ]; then
+#  cd $CHECKOUTDIR
+#  if [ $? = 0 ]; then
+#     #  FTP machine must trust this account. Copy public key to that machine
+#     # if needed Everything is set
+#     ssh ${FTPDIR/:*/} ls -l ${FTPDIR/*:/}
+#     res=$?
+#     if [ $res -ne 0 ] ; then
+#       ssh $FTPSITE mkdir -p ${FTPDIR/*:/}
+#     fi
+#     scp *.tar.gz ${FTPDIR}
+#     if [ $? = 0 ]; then   
+#       set ERRORMAILADDR = ""
+#     fi
+#  fi
+#fi
 
 # run testsuite and store results in database
-cd $CHECKOUTDIR/tests
+#cd $CHECKOUTDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
-FPCVERSION=0
-[ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
-  $MAKE clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
-done
+#FPCVERSION=0
+#[ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
+#for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
+#  $MAKE clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
+#done
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
 $MAKE distclean || true
-$MAKE -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
+#$MAKE -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
 
 date
 ) > $LOGFILE 2>&1 </dev/null
