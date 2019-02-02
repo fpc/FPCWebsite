@@ -44,4 +44,19 @@ for file in *.tar.gz ; do
   fi
 done
 
+if [ -d to_ftp ] ; then
+  cd to_ftp
+  for file in */*/* ; do
+  if [ -f $file ] ; then
+    scp $file fpcftp:ftp/snapshot/$file
+    resscp=$?
+    if [ $resscp -eq 0 ] ; then
+      if [ $VERBOSE -ne 0 ] ; then
+        echo "`date +%Y-%m-%d-%H:%M` Transfer of $file succeeded" >> $LOGFILE
+      fi
+      rm $file
+    fi
+  fi
+  cd ..
+fi
 
