@@ -33,25 +33,24 @@ fi
 
 dir_name=$2
 
-if [ "$1" == "-f" ] ; then
-  force=1
-  shift
+FIND=` which gfind 2> /dev/null `
+
+if [ -z "$FIND" ] ; then
+  FIND=find
 fi
 
 if [ -z "$machine" ] ; then
   cpu=unknown
   os=unknown
 else
-  cpu=`ssh $machine uname -p | tr [:upper:] [:lower:] `
+  cpu=`ssh $machine uname -p`
+  cpu=`echo $cpu | tr "[A-Z]" "[a-z]" `
+  echo "cpu is $cpu"
   if [ "$cpu" == "unknown" ] ; then
-    cpu=`ssh $machine uname -m | tr [:upper:] [:lower:] `
+    cpu=`ssh $machine uname -m | tr "[A-Z]" "[a-z]" `
   fi
 
-  os=`ssh $machine uname -s | tr [:upper:] [:lower:] `
-
-  if [ "$cpu" == "amd64" ] ; then
-    cpu=x86_64
-  fi
+  os=`ssh $machine uname -s | tr "[A-Z]" "[a-z]" `
 
   echo "$machine reports CPU $cpu"
   echo "$machine reports OS $os"
@@ -77,7 +76,7 @@ else
   fi
 
   if [ "$os" == "sunos" ] ; then
-    cpu=solaris
+    os=solaris
   fi
 
   if [ -z "$dir_name" ] ; then
@@ -122,6 +121,8 @@ function upload_file ()
   if [ ! -d ".$dir" ] ; then
     echo "Adding local directory .$dir"
     mkdir -p ".$dir"
+  else
+    echo ".$dir already exists"
   fi
   if [ "$file_type" != "${file_type//symbolic link/}" ] ; then
     is_link=1
@@ -163,10 +164,14 @@ function upload_file ()
       ( upload_file $nf )
       echo "Adding symbolic link .$f to `pwd`$dir/$link_target"
       if [ $is_absolute -eq 0 ] ; then
-        ( cd .$dir ; ln -sf $link_target `basename $f` )
+        ( cd .$dir ;
+           ln -sf $link_target `basename $f` 
+        )
       else
-        ( ln -sf  `pwd`$link_target `pwd`$f )
+        ( ln -sf  `pwd`$link_target `pwd`$f
+        )
       fi
+      uploadlist="${uploadlist}${f}:"
     else
       echo "Unable to locate $link_target on $machine"
     fi
@@ -183,15 +188,16 @@ function upload_file ()
         echo "scp -p $machine:$f .$dir failed, res=$res"
       fi
       if [ $is_linker_script -eq 1 ] ; then
-      echo "Trying to isolate library references inside $f"
-      file_content="`cat .$f | sed -n "s:GROUP::p" `"
-      for ff in $file_content ; do
-        echo "Handling $ff"
-        if [ "${ff:0:1}" == "/" ] ; then
-          echo "Looking for file $ff"
-          upload_file $ff
-        fi
-      done
+        echo "Trying to isolate library references inside $f"
+        file_content="`cat .$f | sed -n "s:GROUP::p" `"
+        for ff in $file_content ; do
+          echo "Handling $ff"
+          if [ "${ff:0:1}" == "/" ] ; then
+            echo "Looking for file $ff"
+            upload_file $ff
+          fi
+        done
+      fi
     fi
   fi
 }
@@ -240,7 +246,7 @@ if [ -n "$machine" ] ; then
         echo "Adding local directory .$dir"
         mkdir -p .$dir
       fi
-      scp $machine:"$dir/*.o" .$dir/
+      scp -p $machine:"$dir/*.o" .$dir/
     fi
   done
 
@@ -287,7 +293,12 @@ if [ -n "$machine" ] ; then
   maybe_upload_files "libgcc.a"
 
   if [ "$os" == "solaris" ] ; then
+    echo "Trying to get Solaris specific files"
     maybe_upload_files "libmd.so.1"
+    maybe_upload_files "libaio.so"
+    maybe_upload_files "libm.so"
+    maybe_upload_files "libmd5.so"
+    maybe_upload_files "librt.so"
   fi
 
   if [ "$os" == "aix" ] ; then
@@ -307,9 +318,10 @@ if [ -n "$machine" ] ; then
   cd ..
 fi
 
-absolute_link_list=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" `
-absolute_link_names=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 9}' `
-absolute_link_targets=`find . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 11}' `
+
+absolute_link_list=`$FIND . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" `
+absolute_link_names=`$FIND . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 9}' `
+absolute_link_targets=`$FIND . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 11}' `
 
 OIFS=$IFS
 IFS=$'\n'
