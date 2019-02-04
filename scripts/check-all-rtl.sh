@@ -551,7 +551,7 @@ function check_target ()
   # Third argument: optional extra OPT value
   # Always add -vx to get exact command line used when
   # calling GNU assembler/clang/java ...
-  OPT_LOCAL="$3 -vx"
+  OPT_LOCAL="$3 -vx $GLOBAL_OPT"
 
   if [[ ("$NATIVE_OS" == "$OS_TARG_LOCAL") && ("$NATIVE_CPU" == "$CPU_TARG_LOCAL") ]] ; then
     echo "Adding NATIVE_OPT \"$NATIVE_OPT\""
