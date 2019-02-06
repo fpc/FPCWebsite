@@ -183,6 +183,15 @@ function add_dir ()
     if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
       use_file=1
     fi
+    if [ $use_file -eq 0 ] ; then
+      file_is_64=`objdump -f $file | grep "format.*64" `
+      if [[ ( -n "$file_is_64" ) && ( $is_64 -eq 1 ) ]] ; then
+        use_file=1
+      fi
+      if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
+        use_file=1
+      fi
+    fi
     if [ "$OS_TARG_LOCAL" == "aix" ] ; then
       # AIX puts 32 and 64 bit versions into the same library
       use_file=1
@@ -239,7 +248,7 @@ if [ "${CROSSOPT/-k--sysroot=/}" != "${CROSSOPT}" ] ; then
 fi
 
 if [ -n "$sysroot" ] ; then
-  echo "Trying to build using BUILDFULLNATIVE=1"
+  echo "Checking for BUILDFULLNATIVE=1, sysroot=\"$sysroot\""
   dir_found=0
   add_dir "crt1.o"
   add_dir "crti.o"
@@ -269,19 +278,24 @@ if [ -n "$sysroot" ] ; then
   if [ $dir_found -eq 1 ] ; then
     export BUILDFULLNATIVE=1
     CROSSOPT="$CROSSOPT -Xd -k--sysroot=$sysroot -XR$sysroot"
+    echo "Using BUILDFULLNATIVE=1 with CROSSOPT=\"$CROSSOPT\""
     # -Xr is not supported for AIX OS
     if [ "$OS_TARGET" != "aix" ] ; then
       CROSSOPT="$CROSSOPT -Xr$sysroot"
     fi
     echo "CROSSOPT set to \"$CROSSOPT\""
     export OPTLEVEL3="$CROSSOPT"
+  else
+    echo "No library found, not using sysroot"
   fi
 fi
 # make the snapshot!
 cd $CHECKOUTDIR
 
 if [ "X$BUILDFULLNATIVE" == "X1" ] ; then
-  MAKE_EXTRA="BUILDFULLNATIVE=1"
+  if [ "${MAKE_EXTRA/BUILDFULLNATIVE=1/}" == "${MAKE_EXTRA}" ] ; then
+    MAKE_EXTRA+="BUILDFULLNATIVE=1"
+  fi
 fi
 
 # Regenerate native rtl units, needed for bs_units
@@ -305,8 +319,8 @@ fi
 
 if [ "$BUILDFULLNATIVE" == "1" ] ; then
   if [ $res -eq 0 ] ; then
-    if [ "${MAKEEXTRA/BUILDFULLNATIVE/}" == "${MAKEEXTRA}" ] ; then
-      MAKEEXTRA="$MAKEEXTRA BUILDFULLNATIVE=1"
+    if [ "${MAKE_EXTRA/BUILDFULLNATIVE=1/}" == "${MAKE_EXTRA}" ] ; then
+      MAKE_EXTRA="$MAKE_EXTRA BUILDFULLNATIVE=1"
     fi
   else
     echo "Try again, without BUILDFULLNATIVE" >> $LONGLOGFILE
