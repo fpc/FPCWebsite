@@ -2,11 +2,12 @@
 
 . $HOME/bin/fpc-versions.sh
 
-# Latest binutils release version is
-# 2.30 (20i8/01/28)
+# Latest binutils release version is 2.32 (2019/02/02)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.31.1
+  BINUTILS_RELEASE=2.32
 fi
+
+BINUTILS_2_32_BZ2_MD5SUM=64f8ea283e571200f8b2b7f66fe8a0d6
 
 # Latest installed Free Pascal release
 # used to install generated cross-assembler/linker
@@ -184,6 +185,15 @@ function copytofpcbin ()
       fi
     elif [ "$tarsuffix" == "bz2" ] ; then
       taropt=j
+      MD5SUM=BINUTILS_${BINUTILS_RELEASE//./_}_BZ2_MD5SUM
+      MD5SUM_VAL=${!MD5SUM}
+      if  [ -n "${MD5SUM_VAL}" ] ; then
+        md5val=`md5sum ../$tarfile | gawk '{print $1;}' `
+	if [ "$md5val" != "$MD5SUM_VAL" ] ; then
+	  echo "Wrong md5sum control value: expected $MD5SUM_VAL, got $md5val"
+	  exit
+        fi
+      fi
       echo "Trying bunzip2 -vfd $tarfile"
       (cd .. ; bunzip2 -vfd $tarfile )
       if [ -f ../${tarfile//.bz2/} ] ; then
