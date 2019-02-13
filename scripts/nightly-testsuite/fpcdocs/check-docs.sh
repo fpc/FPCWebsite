@@ -100,6 +100,7 @@ svn up >> $report 2>&1
 
 logfile=$HOME/logs/fpcdocs-$SVNNAME.log
 pdflogfile=$HOME/logs/pdfdocs-$SVNNAME.log
+rtlinclogfile=$HOME/logs/rtlinc-$SVNNAME.log
 
 ulimit -t 1200
 
@@ -109,6 +110,17 @@ res=$?
 if [ $res -ne 0 ] ; then
   echo "make examples failed, res=$res" >> $report
   tail -30 $logfile >> $report
+fi
+
+echo "Starting 'make rtl.inc' at fpcdocs level" >> $report
+make rtl.inc FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $rtlinclogfile 2>&1
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "make rtl.inc failed, res=$res" >> $report
+  tail -30 $rtlinclogfile >> $report
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+  exit
 fi
 
 echo "Starting 'make pdfinstall pdfzip pdftar' at fpcdocs level" >> $report
@@ -125,6 +137,7 @@ else
   ls -ltr doc-pdf.* >> $report
 fi
 res=1
+max_trial=10
 let trial=1
 while [ $res -ne 0 ] ; do 
   echo "Starting 'make execute' at fpcdocs level, nb=$trial" >> $report
@@ -134,17 +147,31 @@ while [ $res -ne 0 ] ; do
   if [ $res -ne 0 ] ; then
     echo "\"make execute\" error $res, nb=$trial" >> $report
     tail -11 $logfile >> $report
-  fi
-  let trial++
-  if [ $trial -gt 10 ] ; then
-    re=0
+    let trial++
+    if [ $trial -gt $max_trial ] ; then
+      res=0
+    fi
   fi
 done
 
 pdf_listing=`ls -1 doc-pdf.* 2> /dev/null `
 
 if [ -n "$pdf_listing" ] ; then
-  scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}
+  echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
+  res=1
+  let trial=1
+  while [ $res -ne 0 ] ; do 
+    scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "scp upload error error $res, nb=$trial" >> $report
+      tail -11 $logfile >> $report
+      let trial++
+      if [ $trial -gt $max_trial ] ; then
+        res=0
+      fi
+    fi
+  done  
 fi
 
 # installed TeX is pdftex, so no html possible
