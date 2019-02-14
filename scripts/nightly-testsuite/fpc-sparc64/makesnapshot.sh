@@ -1,6 +1,8 @@
 #!/bin/bash
 # Generic snapshot building
 #
+echo "Starting $0 script at `date +%Y-%m-%d-%H-%M`" > $LOGFILE
+
 . ${HOME}/bin/fpc-versions.sh
 
 # set correct locale for widestring tests
@@ -21,22 +23,25 @@ fi
 
 if [ "X`which $PPCCPU`" == "X" ] ; then
   RECOMPILE_COMPILER_FIRST=1
+  echo "Re-compiling compiler first because $PPCCPU is not in PATH" >> $LOGFILE
 fi
 
 export SOURCE_CPU=`${PPCCPU} -iSP`
 export TARGET_CPU=`${PPCCPU} -iTP`
 if [ "$SOURCE_CPU" != "$TARGET_CPU" ] ; then
   RECOMPILE_COMPILER_FIRST=1
+  echo "Re-compiling compiler first because $PPCCPU is cross-cpu compiler" >> $LOGFILE
 fi
 
 export SOURCE_OS=`${PPCCPU} -iSO`
 export TARGET_OS=`${PPCCPU} -iTO`
 if [ "$SOURCE_OS" != "$TARGET_OS" ] ; then
   RECOMPILE_COMPILER_FIRST=1
+  echo "Re-compiling compiler first because $PPCCPU is cross-os compiler" >> $LOGFILE
 fi
 
 
-echo "Running	32bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
+echo "Running 32-bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
 NATIVE_OPT32="-ao-32"
 if [ -d /lib32 ] ; then
   NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
@@ -139,7 +144,7 @@ STARTPPNAME=`basename $STARTPP`
 
 if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
   make -C $FPCSRCDIR/compiler distclean cycle OS_TARGET=$TARGET_OS CPU_TARGET=$TARGET_CPU FPC=fpc OPT=-n
-  make -C $FPCSRCDIR/compiler installsymlink FPC=$FPCSRCDIR/compiler/$STARTPPNAME
+  make -C $FPCSRCDIR/compiler installsymlink FPC=`pwd`/$FPCSRCDIR/compiler/$STARTPPNAME
 fi
 
 if [ "X${GDBMI}" == "X" ]; then
@@ -266,7 +271,9 @@ echo "Ending at `date +%Y-%m-%d-%H-%M`"
 }
 
 res=0
-do_snapshot > $LOGFILE 2>&1 </dev/null
+do_snapshot >> $LOGFILE 2>&1 </dev/null
+
+echo "Starting $0 script at `date +%Y-%m-%d-%H-%M`" >> $LOGFILE
 
 # send result to webmaster
 if [ "${ERRORMAILADDR}" != "" ]; then
