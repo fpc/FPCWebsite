@@ -47,7 +47,7 @@ if [ "$FPC_DATE" == "$today" ] ; then
 else
   if [ ! -d fpcsrc ] ; then
     echo "Missing fpcsrc directory" >> $report
-    mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+    mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, error: not fpcsrc" \
          -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
     exit
   fi
@@ -78,7 +78,7 @@ else
     if [ $res -ne 0 ] ; then
       echo "make install in fpcsrc/$dir failed, res=$res" >> $report
       tail -30 $logfile >> $report
-      mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+      mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, error: make install failed" \
            -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
       exit
     fi
@@ -88,7 +88,7 @@ fi
 
 if [ ! -d fpcdocs ] ; then
   echo "Missing fpcdocs directory" >> $report
-  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}i, error: no fpcdocs" \
        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 fi
@@ -118,7 +118,7 @@ res=$?
 if [ $res -ne 0 ] ; then
   echo "make rtl.inc failed, res=$res" >> $report
   tail -30 $rtlinclogfile >> $report
-  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, error rtl.inc generation failed" \
        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 fi
@@ -129,7 +129,7 @@ res=$?
 if [ $res -ne 0 ] ; then
   echo "make pdfinstall failed, res=$res" >> $report
   tail -30 $pdflogfile >> $report
-  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, pdf generation failed" \
        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 else
@@ -156,6 +156,8 @@ done
 
 pdf_listing=`ls -1 doc-pdf.* 2> /dev/null `
 
+uploaded=0
+
 if [ -n "$pdf_listing" ] ; then
   echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
   res=1
@@ -170,6 +172,8 @@ if [ -n "$pdf_listing" ] ; then
       if [ $trial -gt $max_trial ] ; then
         res=0
       fi
+    else
+      uploaded=1
     fi
   done  
 fi
@@ -186,6 +190,11 @@ if [ $res -ne 0 ] ; then
   tail -30 $logfile >> $report
 fi
 
-mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}" \
+if [ $uploaded -eq 0 ] ; then
+  EXTRA_TITLE=" upload to $UPLOAD_HOST failed"
+else
+  EXTRA_TITLE=
+fi
+mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}${EXTRA_TITLE}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
