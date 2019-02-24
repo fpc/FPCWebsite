@@ -176,7 +176,7 @@ cd tests
 #Limit resources (64mb data, 8mb stack, 4 minutes)
 
 #ulimit -d 65536 -s 8192 -t 240
-ulimit -s 8192 -t 240
+ulimit -s 8192 -t 2400
 
 TEST_OPT="$NEEDED_OPT"
 echo "Starting make distclean" >> $report
