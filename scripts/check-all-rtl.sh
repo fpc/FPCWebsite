@@ -102,6 +102,8 @@ elif [ "X$machine_host" == "Xgcc68" ] ; then
   test_utils=1
   test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc70" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
   # Temp mount is too small, don't use it
   XDG_RUNTIME_DIR=
   DO_FPC_INSTALL=1
