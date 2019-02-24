@@ -2,9 +2,11 @@
 . $HOME/bin/fpc-versions.sh
 if [ "X$FIXES" == "X" ] ; then
   export SVNDIR=$TRUNKDIR
+  export SVNDIRNAME=$TRUNKDIRNAME
   export TARGET_VERSION=$TRUNKVERSION
 else
   export SVNDIR=$FIXESDIR
+  export SVNDIRNAME=$FIXESDIRNAME
   export TARGET_VERSION=$FIXESVERSION
 fi
 
@@ -73,8 +75,8 @@ if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
 
-export logfile=$HOME/logs/cross-64bit.log
-export report=$HOME/logs/cross-64bit-report.log
+export logfile=$HOME/logs/cross-$SVNDIRNAME-64bit.log
+export report=$HOME/logs/cross-$SVNDIRNAME-64bit-report.log
 export MAKEJOPT="-j 10"
 
 function run_test ()
