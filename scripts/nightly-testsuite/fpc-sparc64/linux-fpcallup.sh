@@ -44,6 +44,8 @@ $HOME/bin/check-all-rtl.sh
 
 export FIXES=1
 cd $HOME/pas/fixes/fpcsrc/compiler
+# regenerate native compiler for check-all-rtl.sh script, as the last one might be too old
+make distclean cycle installsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc > $HOME/logs/fixes-fullinstall.log 2>&1
 # regenerate cross-compilers for check-all-rtl.sh script
 make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc > $HOME/logs/fixes-fullinstall.log 2>&1
 # Update ppc386, ppcx64 and ppc8086 with softfpu extended emulation
