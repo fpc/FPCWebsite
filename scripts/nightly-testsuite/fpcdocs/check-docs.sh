@@ -115,6 +115,10 @@ fi
 echo "Starting 'make rtl.inc' at fpcdocs level" >> $report
 make rtl.inc FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $rtlinclogfile 2>&1
 res=$?
+if [ ! -f rtl.inc ] ; then
+  echo "No rtl.inc file generated" >> $report
+  res=1
+fi
 if [ $res -ne 0 ] ; then
   echo "make rtl.inc failed, res=$res" >> $report
   tail -30 $rtlinclogfile >> $report
