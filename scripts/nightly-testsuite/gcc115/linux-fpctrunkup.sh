@@ -129,6 +129,7 @@ if [ $NO_RELEASE -eq 1 ]; then
     rm ./new-ppcrossa64
   fi
   echo "Trying to recompile current ppcarm" >> $report
+  echo "Trying to recompile current ppcarm" >> $makelog
   make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
   make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
   res=$?
@@ -139,13 +140,15 @@ if [ $NO_RELEASE -eq 1 ]; then
     make -C ../rtl install FPC=`pwd`/ppcarm INSTALLPREFIX=$HOME/pas/fpc-$CURVER >> ${makelog} 2>&1
   else
     echo "Trying to recompile current ppcarm using release ppcarm" >> $report
+    echo "Trying to recompile current ppcarm using release ppcarm" >> $makelog
     make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=${FPCRELEASEBINDIR}/ppcarm >> ${makelog} 2>&1
     make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=${FPCRELEASEBINDIR}/ppcarm >> ${makelog} 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       echo "Error: no new arm native ppcarm" >> $report
+      ls -altr ppc* >> $report
       mutt -x -s "Free Pascal failure on ${HOST_PC}" \
-       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
       exit
     else
       cp ./ppcarm ./new-ppcarm
@@ -297,8 +300,8 @@ tail -30 $testslog >> $report
 echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
 
-mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+#mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
+#     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 export testslog=$LOGDIR/tests-O3${LOGSUF}.txt 
 TEST_OPT="-O3 -Cg ${TEST_OPT}"
