@@ -70,7 +70,8 @@ if [ $enable_64bit_tests -eq 1 ] ; then
 fi
 
 cd $HOME/scripts
-svn cleanup
-svn up
+svn cleanup > $HOME/logs/update-scripts.log 2>&1
+svn up --accept theirs-conflict >> $HOME/logs/update-scripts.log 2>&1
+
 
 
