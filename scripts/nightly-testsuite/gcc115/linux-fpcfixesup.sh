@@ -65,6 +65,9 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   export TEST_BINUTILSPREFIX=arm-linux-
   export BINUTILSPREFIX=arm-linux-
   export OPT="${OPT} -Xd -Fl/usr/lib -Fl/lib"
+  if [ -d /usr/lib/gcc-cross/arm-linux-gnueabihf/4.8 ] ; then
+    export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8"
+  fi
   export FPMAKE_SKIP_CONFIG="-n -XParm-linux-"
 elif [ "$FPCBIN" == "ppca64" ] ; then
   export NO_RELEASE=1
