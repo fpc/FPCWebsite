@@ -22,6 +22,12 @@ if [ -n "$1" ] ; then
   fi
 fi
 
+if [ -z "$dir_name_suffix" ] ; then
+  if [ -n "$GLOBAL_OPT" ] ; then
+    dir_name_suffix=${GLOBAL_OPT// /_}
+  fi
+fi
+
 # Some programs might freeze
 # like i386-darwin-as...
 
