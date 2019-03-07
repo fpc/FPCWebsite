@@ -50,9 +50,11 @@ machine_info="$machine_host $machine_cpu $machine_os"
 # Allows to restrict checks to rtl only
 if [ "X$TEST_PACKAGES" == "X0" ] ; then
   test_packages=0
+  OK_REGEXP="OK:.*2nd rtl"
   name=target-rtl
 else
   test_packages=1
+  OK_REGEXP="OK:.*packages"
   name=target
 fi
 
@@ -61,6 +63,11 @@ if [ "X$TEST_PPUDUMP" == "X0" ] ; then
   test_ppudump=0
 else
   test_ppudump=1
+  if [ "X$TEST_PACKAGES" == "X0" ] ; then
+    OK_REGEXP="OK:.*ppudump of rtl"
+  else
+    OK_REGEXP="OK:.*ppudump of packages"
+  fi
 fi
 
 # Allows to enable testing utils 
@@ -68,8 +75,10 @@ if [ "X$TEST_UTILS" == "X1" ] ; then
   test_utils=1
   if [ $test_ppudump -eq 1 ] ; then
     test_utils_ppudump=1
+    OK_REGEXP="OK:.*ppudump for utils"
   else
     test_utils_ppudump=0
+    OK_REGEXP="OK:.*utils"
   fi
 else
   test_utils=0
@@ -1401,7 +1410,7 @@ if [ -f $PREVLOGFILE ] ; then
   eval $prev_utils_ppu_list_new_val
   prev_date_new_val="prev_date='` sed -n 's:Ending at ::p' $PREVLOGFILE`'"
   eval $prev_date_new_val
-  prev_ok_count=` grep "OK:.*2nd.*" $PREVLISTLOGFILE | wc -l `
+  prev_ok_count=` grep "$OK_REGEXP" $PREVLISTLOGFILE | wc -l `
   prev_pb_count=` grep "Failure: See.*" $PREVLISTLOGFILE | wc -l `
   prev_total_count=`expr $prev_pb_count + $prev_ok_count `
 else
@@ -1415,7 +1424,7 @@ echo "Ending at `date`" >> $LISTLOGFILE
 
 error_file_list=` sed -n "s|Failure: See \(.*\) for details|\1|p" $LISTLOGFILE `
 
-ok_count=` grep "OK:.*2nd.*" $LISTLOGFILE | wc -l `
+ok_count=` grep "$OK_REGEXP" $LISTLOGFILE | wc -l `
 pb_count=` grep "Failure: See.*" $LISTLOGFILE | wc -l `
 total_count=`expr $pb_count + $ok_count `
 
