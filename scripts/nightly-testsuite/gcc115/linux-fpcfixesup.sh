@@ -39,6 +39,9 @@ if [ "$FPCBIN" == "" ]; then
   if [ "${processor}" == "arm" ] ; then
     FPCBIN=ppcarm
     LOGSUF=-32
+    if [ -z "$REQUIRED_ARM_OPT" ] ; then
+      export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl$HOME/sys-root/arm-linux-gnueabihf/lib"
+    fi
   fi
 fi
 
@@ -68,7 +71,10 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   if [ -d /usr/lib/gcc-cross/arm-linux-gnueabihf/4.8 ] ; then
     export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8"
   fi
-  export FPMAKE_SKIP_CONFIG="-n -XParm-linux-"
+  if [ -s "$REQUIRED_ARM_OPT" ] ; then
+    export OPT="$OPT $REQUIRED_ARM_OPT"
+  fi
+  export FPCMAKEOPT="-gl -XParm-linux- $REQUIRED_ARM_OPT"
 elif [ "$FPCBIN" == "ppca64" ] ; then
   export NO_RELEASE=1
   export FPMAKE_SKIP_CONFIG="-n"
@@ -243,11 +249,11 @@ else
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
-  INSTALLSRC=utils
+  INSTALLSRC=packages
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
-  INSTALLSRC=packages
+  INSTALLSRC=utils
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
