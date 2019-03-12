@@ -127,6 +127,10 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT="-CriotR"
   USE_RELEASE_MAKEFILE_VARIABLE=1
+elif [ "X$machine_host" == "Xgcc113" ] ; then
+  DO_RECOMPILE_FULL=1
+  test_utils=1
+  test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
   test_utils_ppudump=1
