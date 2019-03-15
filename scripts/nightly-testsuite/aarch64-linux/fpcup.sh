@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. $HOME/bin/fpc-versions.sh
+
 TZ='Europe/Paris'; export TZ
 if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n `
