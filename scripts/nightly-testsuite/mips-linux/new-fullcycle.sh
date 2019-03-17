@@ -286,4 +286,10 @@ if [ -f ~/pas/fixes/fpcsrc/tests/do-checks.txt ] ; then
     echo "no" >  ~/pas/fixes/fpcsrc/tests/do-checks.txt
   fi
 fi
+
+cd $HOME/scripts
+(
+  svn cleanup
+  svn up ) > $HOME/logs/svn-scripts.log 2>&1
+
 release_lock
