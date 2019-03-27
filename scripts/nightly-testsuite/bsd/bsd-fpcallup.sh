@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Always generate debug information
+export NEEDED_OPT=-g
+
 export FIXES=0
 export FPCBIN=ppcx64
 $HOME/bin/bsd-fpccommonup.sh

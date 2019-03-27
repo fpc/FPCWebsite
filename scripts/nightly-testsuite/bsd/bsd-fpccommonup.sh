@@ -40,6 +40,15 @@ else
   SUFFIX=-64
 fi
 
+if [ "$OS" == "openbsd" ] ; then
+  # OpenBSD still using old 6.4 GDB version
+  # which does not undersantd dwarf sets
+  # -gonodwarfsets allows GDB to correctly parse dwarf information
+  if [ "${NEEDED_OPT//-g/}" != "${NEEDED_OPT}" ] ; then
+    NEEDED_OPT="$NEEDED_OPT -gonodwarfsets"
+  fi
+fi
+
 export MAKE=`which gmake`
 
 if [ -z "$MAKE" ] ; then
