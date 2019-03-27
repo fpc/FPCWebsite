@@ -14,8 +14,8 @@ export RELEASEVERSION=3.0.4
 #################################################################
 ## Free Pascal trunk and fixes versions
 #################################################################
-export TRUNKVERSION=3.1.1
-export FIXESVERSION=3.0.5
+export TRUNKVERSION=3.3.1
+export FIXESVERSION=3.2.0
 
 #################################################################
 ## Free Pascal trunk and fixes directory names
@@ -45,6 +45,16 @@ export FIXESDIR=${PASDIR}/${FIXESDIRNAME}
 INSTALLFPCDIRPREFIX=${HOME}/pas/fpc-
 INSTALLTRUNKDIR=${INSTALLFPCDIRPREFIX}${TRUNKVERSION}
 INSTALLFIXESDIR=${INSTALLFPCDIRPREFIX}${FIXESVERSION}
+
+#################################################################
+## Free Pascal test of latest release installed
+#################################################################
+if [ ! -d "${INSTALLFPCDIRPREFIX}${RELEASEVERSION}" ]; then
+  RELEASEVERSION=3.0.2
+  if [ ! -d "${INSTALLFPCDIRPREFIX}${RELEASEVERSION}" ]; then
+    RELEASEVERSION=3.0.0
+  fi
+fi
 
 #################################################################
 ## Free Pascal mainn directory for log files
