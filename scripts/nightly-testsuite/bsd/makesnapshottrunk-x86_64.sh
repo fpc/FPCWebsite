@@ -11,10 +11,16 @@ if [ -z "$OS" ] ; then
   echo "OS is $OS"
 fi
 
+if [ "$OS" == "openbsd" ] ; then
+  export OVERRIDEVERSIONCHECK=1
+  STARTPP=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcx64
+else
+  STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcx64
+fi
+
 export ERRORMAILADDR=pierre@freepascal.org
 # Checkout dir
 CHECKOUTDIR=$HOME/pas/trunk
-STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcx64
 INSTALLCOMPILER=$HOME/bin/ppcx64
 MAILFILE=$HOME/logs/snapshot64-trunk.mail
 LOGFILE=$HOME/logs/snapshot64-trunk.log
