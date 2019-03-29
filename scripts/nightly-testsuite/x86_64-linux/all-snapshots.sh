@@ -68,6 +68,8 @@ function set_fpc_local ()
     mipsel)    FPC_LOCAL=ppcmipsel;;
     powerpc)   FPC_LOCAL=ppcppc;;
     powerpc64) FPC_LOCAL=ppcppc64;;
+    riscv32)   FPC_LOCAL=ppcrv32;;
+    riscv64)   FPC_LOCAL=ppcrv64;;
     sparc)     FPC_LOCAL=ppcsparc;;
     sparc64)   FPC_LOCAL=ppcsparc64;;
     vis)       FPC_LOCAL=ppcvis;;
@@ -121,7 +123,7 @@ function set_fpc_local ()
 
   # Always add -vx to get exact command line used when
   # calling GNU assembler/clang/java ...
-  LOCAL_OPT="$3 -vx"
+  LOCAL_OPT="$3 -vx $GLOBAL_OPT"
   MAKEEXTRA="$4"
 
   EXTRASUFFIX=$5
@@ -164,7 +166,6 @@ function set_fpc_local ()
     ASSEMBLER=java
     # java is installed, no need for prefix
     BINUTILSPREFIX=
-    assembler_version=` $target_as $ASSEMBLER_VER_OPT | grep -i "$ASSEMBLER_VER_REGEXPR" `
   elif [[ ("$OS_TARGET" == "darwin") || ("$OS_TARGET" == "iphonesim") ]] ; then
     if [ "X${LOCAL_OPT//Aas/}" != "X$LOCAL_OPT" ] ; then
       ASSEMBLER=as
@@ -191,7 +192,9 @@ function set_fpc_local ()
       if [ -f "$target_as" ] ; then
         BINUTILSPREFIX=${TRY_BINUTILSPREFIX}
       fi
-    else
+    fi
+    if [ "X$BINURTILSPREFIX" == "Xnot_set" ] ; then
+      # Try with default CPU-OS-ASSEMBLER
       target_as=`which ${CPU_TARGET}-${OS_TARGET}-${ASSEMBLER} 2> /dev/null`
       if [ "X$target_as" != "X" ] ; then
         BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
@@ -243,7 +246,7 @@ function set_fpc_local ()
     res=$?
     if [ $res -eq 0 ] ; then
       # Now recompile compiler, using CPC_TARGET, so that clean removes the old stuff
-      make -C compiler clean all CPC_TARGET=$CPU_TARGET OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
+      make -C compiler clean all CPC_TARGET=$CPU_TARGET PPC_TARGET=$CPU_TARGET OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
       res=$?
     fi
     if [ $res -ne 0 ] ; then
@@ -408,6 +411,9 @@ run_one_snapshot x86_64 win64 "-n -gl"
 export BUILDFULLNATIVE=
 # nativvent has no lineinfo unit support
 run_one_snapshot i386 nativent "-n -g" 
+run_one_snapshot arm aros "-n -g"
+run_one_snapshot x86_64 aros "-n -g"
+
 
 list_os ppcarm arm "-n -gl"
 list_os ppcavr avr "-n -gl"
@@ -438,8 +444,6 @@ index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]
 
 run_one_snapshot x86_64 dragonfly "-n -gl"
 run_one_snapshot m68k netbsd "-n -gl"
-run_one_snapshot arm aros "-n -gl"
-run_one_snapshot x86_64 aros "-n -gl"
 
 # Split into index, cpu and os
 for index_cpu_os in $index_cpu_os_list ; do
@@ -458,14 +462,20 @@ echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
 
 ok_count=` grep "OK" $LISTLOGFILE | wc -l `
 pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
-total_count=`expr $pb_count + $ok_count `
-echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, total=$total_count" >> $EMAILFILE
+skip_count=` grep "Skip:" $LISTLOGFILE | wc -l `
+skipped_count=` grep "skipped" $LISTLOGFILE | wc -l `
+skip_count=`expr $skip_count + $skipped_count `
+total_count=`expr $pb_count + $ok_count + $skip_count`
+echo "Short summary: number of ok=$ok_count, number of pb=$pb_count, number of skips=$skip_count, total=$total_count" >> $EMAILFILE
 
-if [ -f $LISTLOGFILE.previous ] ; then
-  prev_ok_count=` grep "OK" $LISTLOGFILE | wc -l `
-  prev_pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
-  prev_total_count=`expr $prev_pb_count + $prev_ok_count `
-  echo "Prev short summary: number of ok=$prev_ok_count, number of pb=$prev_pb_count, total=$prev_total_count" >> $EMAILFILE
+if [ -f ${LISTLOGFILE}.previous ] ; then
+  prev_ok_count=` grep "OK" ${LISTLOGFILE}.previous | wc -l `
+  prev_pb_count=` grep "Error:" ${LISTLOGFILE}.previous | wc -l `
+  prev_skip_count=` grep "Skip:" ${LISTLOGFILE}.previous | wc -l `
+  prev_skipped_count=` grep "skipped" ${LISTLOGFILE}.previous | wc -l `
+  prev_skip_count=`expr $prev_skip_count + $prev_skipped_count `
+  prev_total_count=`expr $prev_pb_count + $prev_ok_count + $prev_skip_count`
+  echo "Prev short summary: number of ok=$prev_ok_count, number of pb=$prev_pb_count, number of skips=$prev_skip_count, total=$prev_total_count" >> $EMAILFILE
 fi
 
 if [ -f $LISTLOGFILE.previous ] ; then
