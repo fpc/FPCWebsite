@@ -13,22 +13,26 @@ if [ "$1" == "-l" ] ; then
   shift
 fi
 
+if [ "$1" == "-all" ] ; then
+  get_all=1
+  shift
+else
+  get_all=0
+fi
+
 machine=$1
 
 
 if [ $local_links -eq 0 ]; then
   if [ -z "$machine" ] ; then
-    echo "Usage: $0 [-f] machine_name [dir_name]"
+    echo "Usage: $0 [-f] [-l] [-all] machine_name [dir_name]"
     echo "optional dir_name can be used to force name of installation dir"
     echo "otherwise guessed cpu-os is used"
     echo "-f can be added to allow writing into existing directory"
+    echo "-l can be added to generate local links (to facilitate move to another machine)"
+    echo "-all can be added to keep both 32 and 64-bit libraries"
     exit
   fi
-fi
-
-if [ "$1" == "-f" ] ; then
-  force=1
-  shift
 fi
 
 dir_name=$2
@@ -102,6 +106,11 @@ is_64bit=0;
 case "$cpu" in
   powerpc64|powerpc64le|sparc64|aarch64|x86_64|riscv64) is_64bit=1; is_32bit=0;;
 esac
+
+if [ $get_all -eq 1 ] ; then
+  is_32bit=1
+  is_64bit=1
+fi
 
 case "X_$os" in
   X_darwin) dynlib_suffix=.dylib;;
@@ -206,7 +215,8 @@ function upload_file ()
 function maybe_upload_files ()
 {
   pattern="$1"
-  file_list=`ssh $machine find "/usr/lib*" "/lib* /boot/system" -name "$pattern" 2> /dev/null`
+  echo "Looking for $pattern"
+  file_list=`ssh $machine find "/usr/lib*" "/lib*" "/usr/*/lib*" "/usr/local/lib*" "/boot/system" -name "$pattern" 2> /dev/null`
   if [ -n "$file_list" ] ; then
     for file in $file_list ; do
       upload_file $file
@@ -277,8 +287,8 @@ if [ -n "$machine" ] ; then
   maybe_upload_files "libdl${dynlib_suffix}"
 
   #ld*.so*
-  maybe_upload_files "ld.${dynlib_suffix}*"
-  maybe_upload_files "ld-*.${dynlib_suffix}*"
+  maybe_upload_files "ld${dynlib_suffix}*"
+  maybe_upload_files "ld-*${dynlib_suffix}*"
 
   #libpthread.so
   maybe_upload_files "libpthread${dynlib_suffix}"
@@ -287,7 +297,7 @@ if [ -n "$machine" ] ; then
   maybe_upload_files "libiconv.a"
 
   #libiconv.so
-  maybe_upload_files "libiconv${dynlib_suffix}"
+  maybe_upload_files "libiconv${dynlib_suffix}*"
 
   #libgcc.a
   maybe_upload_files "libgcc.a"
@@ -311,10 +321,12 @@ if [ -n "$machine" ] ; then
   fi
 
   if [ "$os" == "aix" ] ; then
+    echo "Trying to get AIX specific files"
     maybe_upload_files "libm.so"
     maybe_upload_files "libbsd.so"
     maybe_upload_files "libm.a"
     maybe_upload_files "libbsd.a"
+    maybe_upload_files "libpthread.a"
   fi
 
   #libroot.a (haiku)
