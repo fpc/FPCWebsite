@@ -89,18 +89,27 @@ FPCRELEASEVERSION=$RELEASEVERSION
 
 export PATH=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin:/home/${USER}/bin:$PATH
 
+
 if [ "x$FIXES" == "x1" ] ; then
+  SVN_VER=$FIXESVERSION
   SVNDIR=fixes
 else
+  SVN_VER=$TRUNKVERSION
   SVNDIR=trunk
 fi
+
+if [ "$OS" == "openbsd" ] ; then
+  export OVERRIDEVERSIONCHECK=1
+  PATH=$HOME/pas/fpc-$SVN_VER/bin:$PATH
+fi
+
 
 if [ -z "$ZIPNAME" ] ; then
   ZIPNAME=fpcbuild
 fi
 
-if [ -d ~/pas/${SVNDIR} ] ; then
-  cd ~/pas/${SVNDIR}
+if [ ! -d ~/pas/${SVNDIR} ] ; then
+  mkdir -p ~/pas/${SVNDIR}
 fi
 
 if [ ! -d ~/logs ] ; then
@@ -111,7 +120,7 @@ if [ ! -d ~/logs/$SVNDIR ] ; then
   mkdir ~/logs/$SVNDIR
 fi
 
-cd  ~/logs/$SVNDIR
+cd  ~/pas/$SVNDIR
 
 LOGDIR=`pwd`
 export report=$LOGDIR/report${SUFFIX}.txt 
