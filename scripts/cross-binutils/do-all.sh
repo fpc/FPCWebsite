@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$1" == "--copy" ] ; then
   export BINUTILS_COPY_ONLY=1

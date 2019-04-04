@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 . $HOME/bin/fpc-versions.sh
 
@@ -188,10 +188,19 @@ function copytofpcbin ()
       MD5SUM=BINUTILS_${BINUTILS_RELEASE//./_}_BZ2_MD5SUM
       MD5SUM_VAL=${!MD5SUM}
       if  [ -n "${MD5SUM_VAL}" ] ; then
-        md5val=`md5sum ../$tarfile | gawk '{print $1;}' `
-	if [ "$md5val" != "$MD5SUM_VAL" ] ; then
-	  echo "Wrong md5sum control value: expected $MD5SUM_VAL, got $md5val"
-	  exit
+        MD5SUM=`which md5sum 2> /dev/null`
+        AWK=`which gawk 2> /dev/null`
+	if [ -z "$AWK" ] ; then
+	  AWK=`which awk 2> /dev/null`
+	fi
+	if [ -n "$MD5SUM" ] ; then
+          if [ -n "$GAWK" ] ; then
+            md5val=`$MD5SUM ../$tarfile | $AWK '{print $1;}' `
+            if [ "$md5val" != "$MD5SUM_VAL" ] ; then
+	      echo "Wrong md5sum control value: expected $MD5SUM_VAL, got $md5val"
+	      exit
+            fi
+          fi
         fi
       fi
       echo "Trying bunzip2 -vfd $tarfile"
