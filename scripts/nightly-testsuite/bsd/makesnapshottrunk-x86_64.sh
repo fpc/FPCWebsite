@@ -8,7 +8,7 @@ set -e
 
 if [ -z "$OS" ] ; then
   OS=`uname -s | tr '[:upper:]' '[:lower:]' `
-  echo "OS is $OS"
+  # echo "OS is $OS"
 fi
 
 if [ "$OS" == "openbsd" ] ; then
