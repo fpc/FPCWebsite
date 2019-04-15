@@ -5,7 +5,7 @@
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
 OS=`uname -s | tr '[:upper:]' '[:lower:]' `
-echo "OS is $OS"
+# echo "OS is $OS"
 
 if [ "X$FPCBIN" == "X" ] ; then
   FPCBIN=ppcx64
@@ -34,7 +34,7 @@ if [ "X$FPCBIN" == "Xppc386" ] ; then
   SUFFIX=-32
   NEEDED_OPT="-Xd $NEEDED_OPT"
   export BINUTILSPREFIX=i386-${OS}-
-  export FPCMAKEOPT="$NEEDiED_OPT -XP$BINUTILSPREFIX"
+  export FPCMAKEOPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
 else
   NEEDED_OPT=
   SUFFIX=-64
@@ -60,21 +60,25 @@ if [ -z "$MAKE" ] ; then
   exit
 fi
 
+cleantests=0
+if [ -z "$HOSTNAME" ] ; then
+  HOSTNAME=`uname -n`
+fi
+HOSTNAME=${HOSTNAME/.*/}
 if [ "$HOSTNAME" == "gcc300" ] ; then
+  cleantests=1
   export run_tests=0
 else
-  export run_tests=0
+  export run_tests=1
 fi
 
 HOST_PC=${HOSTNAME}
 
-cleantests=0
-if [ "$HOSTNAME" == "gcc300" ] ; then
-  cleantests=1
-fi
-
-if [ "$USER" == "" ]; then
+if [ -z "$USER" ]; then
   USER=$LOGNAME
+fi
+if [ -z "$USER" ] ; then
+  USER=pierre
 fi
 
 if [ "X$USE_DEBUG" == "X1" ] ; then
@@ -100,6 +104,7 @@ fi
 
 if [ "$OS" == "openbsd" ] ; then
   export OVERRIDEVERSIONCHECK=1
+  export MAKE_EXTRA="FPCCPUOPT=-O-"
   PATH=$HOME/pas/fpc-$SVN_VER/bin:$PATH
 fi
 
@@ -211,10 +216,10 @@ echo "Starting make distclean all" >> $report
 echo "##Start make distclean `$DATE`" >> $report
 echo "Starting make distclean all" >> $cleanlog
 echo "##Start make distclean `$DATE`" >> $cleanlog
-${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
+${MAKE} distclean $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
 echo "##Start make all `$DATE`" >> $report
 echo "##Start make all `$DATE`" > $makelog
-${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
+${MAKE} all $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
 echo "##End make all `$DATE`, res=$res" >> $report
 echo "##End make all `$DATE`, res=$res" >> $makelog
@@ -227,7 +232,7 @@ fi
 
 if [ ! -f ./compiler/$FPCBIN ] ; then
   # Try a simple cycle in compiler subdirectory
-  ${MAKE} -C compiler distclean cycle $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
+  ${MAKE} -C compiler distclean cycle $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
@@ -253,7 +258,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make installsymlink in compiler dir" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "${MAKE} -C compiler installsymlink failed ${makeres}" >> $report
@@ -263,7 +268,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make install" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
   makeres=$?
 
   if [ $makeres -ne 0 ] ; then
@@ -273,7 +278,7 @@ if [ $NewBinary -eq 1 ] ; then
       echo "##`$DATE`" >> $report
       echo "Starting make install in dir $dir" >> $makelog
       echo "##`$DATE`" >> $makelog
-      ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+      ${MAKE} -C ./$dir install $MAKEDEBUG $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
       makeres=$?
       echo "Ending make -C ./$dir install; result=${makeres}" >> $report
       echo "##`$DATE`" >> $report
@@ -291,7 +296,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make fullinstall in compiler" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} -C compiler $MAKEDEBUG cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
 
   # Check if system.ppu changed
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
@@ -308,7 +313,7 @@ if [ $NewBinary -eq 1 ] ; then
       ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
       echo "Reinstalling packages as system.ppu has changed" >> $report
       echo "Reinstalling packages as system.ppu has changed" >> $makelog
-      ${MAKE} -C packages $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=/home/${USER}/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+      ${MAKE} -C packages $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=/home/${USER}/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
     fi
   fi
   # Add new bin dir as first in PATH
@@ -342,16 +347,19 @@ if [ $NewBinary -eq 1 ] ; then
     cleantestslog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
     echo "Starting make distclean fulldb" >> $report
-    echo "${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    echo "${MAKE} ${MAKE_J_OPT} distclean followed by fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" FPCMAKEOPT=\"$FPCMAKEOPT\" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
     echo "`$DATE`" >> $report
     TIME=`date +%H-%M-%S`
     ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleantestslog 2>&1
     ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleantestslog 2>&1
-    ${MAKE} -j 5 distclean fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    ${MAKE} ${MAKE_J_OPT} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+    ${MAKE} ${MAKE_J_OPT} fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
+      DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
     testsres=$?
     echo "Ending make distclean fulldb; result=${testsres}" >> $report
     echo "`$DATE`" >> $report
@@ -378,18 +386,27 @@ if [ $NewBinary -eq 1 ] ; then
   cp ${svnlog} ~/pas/$SVNDIR/svnlog-${NEW_UNITDIR}.txt
   cp ${makelog} ~/pas/$SVNDIR/makelog-${NEW_UNITDIR}.txt
 
+  echo "begin end." > test_empty.pp
+  PIC_DEFAULT=`$NEWFPC $FPCMAKEOPT -va test_empty.pp 2>&1 | grep -i "Macro defined.* FPC_PIC" `
+  rm -f test_empty*  2> /dev/null
+  if [ -n "$PIC_DEFAULT" ] ; then
+    ALT_PIC="-Cg-"
+  else
+    ALT_PIC="-Cg"
+  fi
+
   if [ $run_tests -eq 1 ] ; then
     run_tests ""
-    run_tests "-Cg"
+    run_tests "$ALT_PIC"
     run_tests "-O4"
     run_tests "-gwl"
-    run_tests "-Cg -gwl"
+    run_tests "$ALT_PIC -gwl"
     run_tests "-O4 -gwl"
-    run_tests "-Cg -O4"
+    run_tests "$ALT_PIC -O4"
     run_tests "-Criot"
-    run_tests "-Cg -O4 -Criot"
+    run_tests "$ALT_PIC -O4 -Criot"
     # also test with TEST_BENCH
-    run_tests "-Cg -O2" "TEST_BENCH=1"
+    run_tests "$ALT_PIC -O2" "TEST_BENCH=1"
     if [ "X${SVNDIR}" != "X${SVNDIR//trunk//}" ] ; then
       run_tests "-gh"
       # This freezes on trwsync and tw3695 tests
