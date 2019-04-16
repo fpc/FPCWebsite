@@ -134,6 +134,7 @@ elif [ "X$machine_host" == "Xgcc113" ] ; then
 elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
   test_utils_ppudump=1
+  MAKEJOPT="-j 16"
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
