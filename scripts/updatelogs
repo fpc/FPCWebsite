@@ -10,12 +10,15 @@ fpc/trunk:6711
 fpc/branches/fixes_2_2:6711
 fpc/branches/fixes_2_4:18074
 fpc/branches/fixes_2_6:29398
+fpc/branches/fixes_3_0:29398
+fpc/branches/fixes_3_2:39628
 fpcdocs/trunk
 fpcbuild/trunk:392
 fpcbuild/branches/fixes_2_2:392
 fpcbuild/branches/fixes_2_4:675
 fpcbuild/branches/fixes_2_6:881
 fpcbuild/branches/fixes_3_0:1134
+fpcbuild/branches/fixes_3_2:1364
 fpcprojects
 lazarus
 lazarus/branches/fixes_0_9_24:12768
