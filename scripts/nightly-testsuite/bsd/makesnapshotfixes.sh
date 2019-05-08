@@ -2,7 +2,6 @@
 #
 # Snapshot building for Free Pascal Compiler
 #
-set -e
 
 . $HOME/bin/fpc-versions.sh
 
