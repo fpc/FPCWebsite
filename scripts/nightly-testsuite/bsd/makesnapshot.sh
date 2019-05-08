@@ -13,10 +13,21 @@ if [ "$CHECKOUTDIR" == "" ]; then
     exit 1
 fi
 
+export MAKE=`which gmake`
+
+if [ -z "$MAKE" ] ; then
+  export MAKE=`which make`
+fi
+
+if [ -z "$MAKE" ] ; then
+  echo "Fatal: no make found"
+  exit
+fi
+
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 ulimit -d 65536 -s 8192 -t 2400
 
-PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/pkg/bin"
+PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/pkg/bin"
 (
 date
 
@@ -30,44 +41,48 @@ fi
 
 rm -rf libgdb
 rm -f *.tar.gz
-gmake distclean FPC=$STARTPP || true
-gmake -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP FPC=$STARTPP || true
+echo "Starting $MAKE distclean"
+$MAKE distclean FPC=$STARTPP
+res=$?
+echo "$MAKE distclean ended, res=$res"
+echo "Starting $MAKE distclean in tests"
+$MAKE -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP FPC=$STARTPP
+res=$?
+echo "$MAKE distclean in tests ended, res=$res"
 
 # Run cvs update
 cd $CHECKOUTDIR
-svn cleanup
-svn up
+SVN=`which svn`
 
-EXTRAOPT="OPT=\"$OPT\""
-
-# add needed files (libgdb.a)
-if [ "$LIBGDBZIP" != "" ]; then
-        cd $CHECKOUTDIR/$FPCSRCDIR
-        unzip -o ${LIBGDBZIP}
-#else
-#  if [ ! -d $FPCSRCDIR/libgdb ] ; then
-#    EXTRAOPT="$EXTRAOPT NOGDB=1" Obsolete
-#  fi
+if [ -n "$SVN" ] ; then
+  $SVN cleanup
+  $SVN up
 fi
 
-# Copy fv, not needed anymore for 1.9.x
-#cd $CHECKOUTDIR/../fv
-#cvs up -CPd
-#cd $CHECKOUTDIR
-#cp -a ../fv $CHECKOUTDIR
+#EXTRAOPT="OPT=\"$OPT\""
+
+# add needed files (libgdb.a)
+if [ -n "$LIBGDBZIP" ]; then
+        cd $CHECKOUTDIR/$FPCSRCDIR
+        unzip -o ${LIBGDBZIP}
+fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
-gmake info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
-res=makeres=$?
+echo "Starting $MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT\""
+$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT"
+res=$?
+echo "$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT\" ended, res=$res"
 
-if [ "$PPCCPU" == "" ]; then
+if [ -z "$PPCCPU" ]; then
   PPCCPU=ppc386
 fi
 
 # copy current compiler to bin dir
-echo cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
-cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
+if [ -n "$INSTALLCOMPILER" ] ; then
+  echo "cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER"
+  cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
+fi
 
 # move snapshot
 echo "Upload snapshot"
@@ -76,13 +91,13 @@ if [ "$FTPDIR" != "" ]; then
   if [ $? -eq 0 ]; then
      #  FTP machine must trust this account. Copy public key to that machine
      # if needed Everything is set
-     echo scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
+     echo "scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}"
      scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
      if [ $? -eq 0 ]; then   
        set ERRORMAILADDR = ""
      fi
        else
-	   echo Error moving to $CHECKOUTDIR
+	   echo "Error moving to $CHECKOUTDIR"
   fi
 fi
 
@@ -93,18 +108,18 @@ FPCVERSION=0
 [ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
 for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
   if [ "x$DISTCLEAN_BEFORE_TESTS" == "x1" ] ; then
-    gmake -C ../rtl distclean $EXTRAOPT FPC=$INSTALLCOMPILER
-    gmake -C ../packages distclean $EXTRAOPT FPC=$INSTALLCOMPILER
+    $MAKE -C ../rtl distclean $EXTRAOPT FPC=$INSTALLCOMPILER
+    $MAKE -C ../packages distclean $EXTRAOPT FPC=$INSTALLCOMPILER
   fi
-  gmake clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION  TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
+  $MAKE clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION  TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
 done
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR/$FPCSRCDIR
 # rm -rf libgdb
 cd $CHECKOUTDIR
-gmake distclean FPC=$INSTALLCOMPILER || true
-gmake -C $FPCSRCDIR/tests distclean TEST_FPC=$INSTALLCOMPILER FPC=$INSTALLCOMPILER || true
+$MAKE distclean FPC=$INSTALLCOMPILER || true
+$MAKE -C $FPCSRCDIR/tests distclean TEST_FPC=$INSTALLCOMPILER FPC=$INSTALLCOMPILER || true
 
 date
 ) > $LOGFILE 2>&1 </dev/null
