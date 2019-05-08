@@ -25,6 +25,10 @@ if [ "$RELEASEVER" == "" ]; then
   export RELEASEVER=$RELEASEVERSION
 fi
 
+if [ -z "$LC_ALL" ] ; then
+  export LC_ALL=en_US.UTF-8
+fi
+
 if [ "$FPCBIN" == "" ]; then
   if [ "${processor}" == "ppc64" ] ; then
     FPCBIN=ppcppc64
@@ -59,10 +63,9 @@ else
   LOGSUFFIX=${CURVER}-64
 fi
 
-if [ "$MAKE" == "" ]; then
-  if [ -e gmake ] ; then
-    MAKE=gmake
-  else
+if [ -z "$MAKE" ]; then
+  MAKE=` which gmake 2> /dev/null `
+  if [ -z "$MAKE" ] ; then
     MAKE=make
   fi
 fi
