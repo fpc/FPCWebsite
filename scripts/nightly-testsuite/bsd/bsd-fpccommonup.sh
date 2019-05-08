@@ -7,7 +7,7 @@
 OS=`uname -s | tr '[:upper:]' '[:lower:]' `
 # echo "OS is $OS"
 
-if [ "X$FPCBIN" == "X" ] ; then
+if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
@@ -15,7 +15,11 @@ if [ -z "$OS" ] ; then
   OS=`$FPCBIN -iST`
 fi
 
-if [ "X$FPCBIN" == "Xppc386" ] ; then
+if [ -z "$LC_ALL" ] ; then
+  export LC_ALL=en_US.UTF-8
+fi
+
+if [ "$FPCBIN" == "ppc386" ] ; then
   if [ -d /lib/i386 ] ; then
     NEEDED_OPT="$NEEDED_OPT -Fl/lib/i386"
   fi
@@ -105,7 +109,7 @@ fi
 if [ "$OS" == "openbsd" ] ; then
   export OVERRIDEVERSIONCHECK=1
   export MAKE_EXTRA="FPCCPUOPT=-O-"
-  PATH=$HOME/pas/fpc-$SVN_VER/bin:$PATH
+  export PATH=$HOME/pas/fpc-$SVN_VER/bin:$PATH
 fi
 
 
@@ -134,9 +138,10 @@ export cleanlog=$LOGDIR/cleanlog${SUFFIX}.txt
 export makelog=$LOGDIR/makelog${SUFFIX}.txt 
 
 echo "Starting $0" > $report
+Start_binary=`which $FPCBIN`
 Start_version=`$FPCBIN -iV`
 Start_date=`$FPCBIN -iD`
-echo "Start $FPCBIN version is ${Start_version} ${Start_date}" >> $report
+echo "Start $Start_binary version is ${Start_version} ${Start_date}" >> $report
 echo "##Start time `$DATE`" >> $report
 echo "PATH=$PATH" >> $report
 echo "##Start time `$DATE`" > $svnlog
