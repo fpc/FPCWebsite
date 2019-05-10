@@ -11,7 +11,8 @@ if [ "$HOSTNAME" == "gcc115" ] ; then
   export generate_snapshots=1
 elif [ "$HOSTNAME" == "gcc113" ] ; then
   export generate_snapshots=0
-  export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl$HOME/sys-root/arm-linux-gnueabihf/lib"
+  export ARM_ABI=gnueabihf
+  export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
 else
   export generate_snapshots=0
 fi
