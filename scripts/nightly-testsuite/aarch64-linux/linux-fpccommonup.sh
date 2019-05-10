@@ -79,14 +79,19 @@ elif [ "$FPCBIN" == "ppcppc64" ]; then
 elif [ "$FPCBIN" == "ppcarm" ]; then
   LOGSUF=-32
   INSTALL_SUFFIX=-32
+  if [ -z "$ARM_ABI" ] ; then
+    export ARM_ABI=gnueabihf
+  fi  
   if [ -z "$REQUIRED_ARM_OPT" ] ; then
-    export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl$HOME/sys-root/arm-linux-gnueabihf/lib"
+    export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
   fi
   export TEST_BINUTILSPREFIX=arm-linux-
   export BINUTILSPREFIX=arm-linux-
   export OPT="${OPT} -Xd"
-  if [ -d /usr/lib/gcc-cross/arm-linux-gnueabihf/4.8 ] ; then
-    export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8"
+  export TEST_ABI=$ARM_ABI
+  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
+  if [ -d /usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
+    export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
   fi
   if [ -n "$REQUIRED_ARM_OPT" ] ; then
     export OPT="$OPT $REQUIRED_ARM_OPT"
@@ -262,8 +267,10 @@ if [ ${makeres} -eq 0 ] ; then
   if [ ${makeres} -ne 0 ]; then
     tail -30 ${makelog} >> $report
   fi
-else
-  echo "Make all failed, trying to install new by parts" >> $report
+fi
+
+if [ ${makeres} -ne 0 ] ; then
+  echo "Make all or install failed, trying to install new by parts" >> $report
   INSTALLSRC=compiler
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
@@ -310,6 +317,7 @@ cd tests
 
   echo "Starting make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"" >> $report
   ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
   testsres=$?
@@ -328,6 +336,7 @@ cd tests
   echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
   echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
   ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
     TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
   testsres=$?
