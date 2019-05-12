@@ -11,6 +11,25 @@ fi
 
 export PATH=/home/${USER}/pas/fpc-${CURRENT_VERSION}/bin:${PATH}
 
+if [ -z "$FPC" ] ; then
+  FPC=fpc
+fi
+
+if [ "X$MAKE" == "X" ] ; then
+  GMAKE=`which gmake 2> /dev/null`
+  if [ -n "$GMAKE" ] ; then
+    MAKE=$GMAKE
+  else
+    MAKE=`which make 2> /dev/null`
+  fi
+fi
+
+CPU_TARGET=`$FPC -iTP`
+FPCBIN_VARNAME=FPC_BIN_$CPU_TARGET
+DEFAULT_FPC_BIN=${!FPCBIN_VARNAME}
+SPECIAL_FPC_BIN=${DEFAULT_FPC_BIN}x80
+echo "Default FPC_BIN is $DEFAULT_FPC_BIN"
+
 cd 
 cd $SVNDIR
 if [ -d fpcsrc ] ; then
@@ -19,17 +38,20 @@ fi
 
 cd compiler
 
-make rtlclean rtl OPT="-n -gwl -dFPC_SOFT_FPUX80"
-make  -C . clean all OPT="-n -gwl -dFPC_SOFT_FPUX80"  
+$MAKE rtlclean rtl OPT="-n -gwl -dFPC_SOFT_FPUX80"
+$MAKE  -C . clean all OPT="-n -gwl -dFPC_SOFT_FPUX80"  
 # ALLOW_WARNINGS=1
-cp ./ppcsparc ./ppcsparcx80
-make rtlclean rtl OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/ppcsparcx80
-make clean i386 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/ppcsparcx80
-cp ./ppc386 ~/pas/fpc-$CURRENT_VERSION/bin/ppc386
-make clean x86_64 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/ppcsparcx80
-cp ./ppcx64 ~/pas/fpc-$CURRENT_VERSION/bin/ppcx64
-make clean i8086 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/ppcsparcx80
-cp ./ppc8086 ~/pas/fpc-$CURRENT_VERSION/bin/ppc8086
+cp ./$DEFAULT_FPC_BIN ./$SPECIAL_FPC_BIN
+$MAKE rtlclean rtl OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/$SPECIAL_FPC_BIN
+$MAKE clean i386 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/$SPECIAL_FPC_BIN
+cp ./ppc386 ~/pas/fpc-$CURRENT_VERSION/lib/fpc/$CURRENT_VERSION/ppc386
+( cd ~/pas/fpc-$CURRENT_VERSION/bin ; ln -sf ../lib/fpc/$CURRENT_VERSION/ppc386 ppc386 )
+$MAKE clean x86_64 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/$SPECIAL_FPC_BIN
+cp ./ppcx64 ~/pas/fpc-$CURRENT_VERSION/lib/fpc/$CURRENT_VERSION/ppcx64
+( cd ~/pas/fpc-$CURRENT_VERSION/bin ; ln -sf ../lib/fpc/$CURRENT_VERSION/ppcx64 ppcx64 )
+$MAKE clean i8086 OPT="-n -gwl -dFPC_SOFT_FPUX80" FPC=`pwd`/$SPECIAL_FPC_BIN
+cp ./ppc8086 ~/pas/fpc-$CURRENT_VERSION/lib/fpc/$CURRENT_VERSION/ppc8086
+( cd ~/pas/fpc-$CURRENT_VERSION/bin ; ln -sf ../lib/fpc/$CURRENT_VERSION/ppc8086 ppc8086 )
 
 
 
