@@ -9,10 +9,16 @@ else
   CURRENT_VERSION=$TRUNKVERSION
 fi
 
-export PATH=/home/${USER}/pas/fpc-${CURRENT_VERSION}/bin:${PATH}
+export PATH=${HOME}/pas/fpc-${CURRENT_VERSION}/bin:${PATH}
 
 if [ -z "$FPC" ] ; then
   FPC=fpc
+fi
+
+FULLFPC=` which $FPC 2> /dev/null `
+if [ -z "$FULLFPC" ] ; then
+  echo "Could not find $FPC in $PATH"
+  exit
 fi
 
 if [ "X$MAKE" == "X" ] ; then
@@ -23,6 +29,11 @@ if [ "X$MAKE" == "X" ] ; then
     MAKE=`which make 2> /dev/null`
   fi
 fi
+if [ -z "$MAKE" ] ; then
+  echo "Could not find make/gmake in $PATH"
+  exit
+fi
+
 
 CPU_TARGET=`$FPC -iTP`
 FPCBIN_VARNAME=FPC_BIN_$CPU_TARGET
