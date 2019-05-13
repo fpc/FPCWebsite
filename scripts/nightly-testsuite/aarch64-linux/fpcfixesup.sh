@@ -19,8 +19,12 @@ if [ $generate_snapshots -eq 1 ] ; then
   $HOME/bin/makesnapshot-fixes.sh 1> ${LOG} 2>&1
   echo "Finished makesnapshot-fixes at `date`" >> $HOME/.lastfpcfixesup
 else
-  export LOG=~/logs/fixes/check-all-rtl/log
   export FIXES=1
+  export LOG=~/logs/fixes/check-all-rtl/80x-log
+  echo "Starting generate-cross-sfpux80.sh at `date`" >> $HOME/.lastfpcfixesup
+  $HOME/bin/generate-cross-sfpux80.sh 1> ${LOG} 2>&1
+  echo "Finished generate-cross-sfpux80.sh at `date`" >> $HOME/.lastfpcfixesup
+  export LOG=~/logs/fixes/check-all-rtl/log
   echo "Starting check-all-rtl.sh at `date`" >> $HOME/.lastfpcfixesup
   $HOME/bin/check-all-rtl.sh 1> ${LOG} 2>&1
   echo "Finished check-all-rtl.sh at `date`" >> $HOME/.lastfpcfixesup

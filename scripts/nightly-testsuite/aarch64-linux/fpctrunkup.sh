@@ -18,6 +18,10 @@ if [ $generate_snapshots -eq 1 ] ; then
   $HOME/bin/makesnapshot-trunk.sh 1> ${LOG} 2>&1
   echo "Finished makesnapshot-trunk at `date`" >> $HOME/.lastfpctrunkup
 else
+  export LOG=~/logs/trunk/check-all-rtl/80x-log
+  echo "Starting generate-cross-sfpux80.sh at `date`" >> $HOME/.lastfpctrunkup
+  $HOME/bin/generate-cross-sfpux80.sh 1> ${LOG} 2>&1
+  echo "Finished generate-cross-sfpux80.sh at `date`" >> $HOME/.lastfpctrunkup
   export LOG=~/logs/trunk/check-all-rtl/log
   echo "Starting check-all-rtl.sh at `date`" >> $HOME/.lastfpctrunkup
   $HOME/bin/check-all-rtl.sh 1> ${LOG} 2>&1
