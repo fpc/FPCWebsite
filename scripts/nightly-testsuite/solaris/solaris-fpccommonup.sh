@@ -194,6 +194,7 @@ if [ -z "$SKIPMAKE" ] ; then
   FPC_OPTIONS=""
   run_make distclean
   run_make distclean
+  svn cleanup 1>> $report 2>&1
   svn up --accept theirs-conflict  1>> $report 2>&1
   
   # Move to fpcsrc subdirectory if present
