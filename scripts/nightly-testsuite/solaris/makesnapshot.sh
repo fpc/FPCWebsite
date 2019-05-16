@@ -159,7 +159,7 @@ cp $CHECKOUTDIR/compiler/$PPCCPU $INSTALLCOMPILER
 if [ ! -d $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET ] ; then
   mkdir -p $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET
 fi
-scp *${FPC_TARGET}*gz $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/
+cp -fp *${FPC_TARGET}*gz $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/
 
 # if [ "$FTPDIR" != "" ]; then
 #  cd $CHECKOUTDIR
