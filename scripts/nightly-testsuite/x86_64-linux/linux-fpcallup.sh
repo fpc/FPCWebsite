@@ -166,7 +166,15 @@ fi
 # Check if script directory exists
 SVNLOGFILE=$HOME/logs/svn-scripts.log
 if [ -d $HOME/scripts ] ; then
-  cd $HOME/scripts
+  SCRIPTDIR=$HOME/scripts
+elif [ -d $HOME/pas/scripts ] ; then
+  SCRIPTDIR=$HOME/pas/scripts
+else
+  SCRIPTDIR=
+fi
+
+if [ -n "$SCRIPTDIR" ] ; then
+  cd $SCRIPTDIR
   svn cleanup > $SVNLOGFILE 2>&1
   svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
   cd $HOME
