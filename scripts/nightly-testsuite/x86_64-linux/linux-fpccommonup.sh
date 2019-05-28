@@ -77,7 +77,12 @@ if [ -z "$SVNDIRNAME" ] ; then
   fi
 fi
 
-cd ~/pas/${SVNDIRNAME}
+if [ -d "$HOME/pas/${SVNDIRNAME}" ] ; then
+  cd "$HOME/pas/${SVNDIRNAME}"
+else
+  echo "Directory $HOME/pas/${SVNDIRNAME} not found, skipping"
+  exit
+fi
 
 function add_log ()
 {
