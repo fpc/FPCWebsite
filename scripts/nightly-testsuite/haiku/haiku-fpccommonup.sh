@@ -18,9 +18,16 @@ if [ "$HOST_CPU" == "x86" ] ; then
 else
   HOST_FPC=ppcx64
   SUFF=-64
+  if [ "$RELEASEVERSION" == "3.0.4" ] ; then
+    NO_RELEASE=1
+  fi
 fi
 
-export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$RELEASEVERSION
+if [ -n "$NO_RELEASE" ] ; then
+  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$RELEASEVERSION
+else
+  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
+fi
 export FPC_TRUNK_INSTALLDIR=$HOME/pas/fpc-$TRUNKVERSION
 export FPC_FIXES_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
 
@@ -31,9 +38,11 @@ fi
 if [ $FIXES -eq 1 ] ; then
   FPC_INSTALLDIR=$FPC_FIXES_INSTALLDIR
   SVN_DIR=$FIXESDIR
+  BRANCH=fixes
 else
   FPC_INSTALLDIR=$FPC_TRUNK_INSTALLDIR
   SVN_DIR=$TRUNKDIR
+  BRANCH=trunk
 fi
 
 SSHKEY=/boot/home/config/settings/ssh/freepascal
@@ -110,20 +119,41 @@ if [ ${makeres} != 0 ]; then
   echo "${MAKE} failed res=${makeres}" >> $report
   skiptests=1
   testsres=0
+  skipsnapshot=1
 else
   cp -pf ./compiler/$HOST_FPC $FPC_INSTALLDIR/bin
   NEWBIN=$FPC_INSTALLDIR/bin/$HOST_FPC
   # ${MAKE} distclean 1>> ${makelog} 2>&1
+  skipsnapshot=0
+  Build_version=`$NEWBIN -iV`
+  Build_date=`$NEWBIN -iD`
+  OS_TARGET=`$NEWBIN -iTO`
+  CPU_TARGET=`$NEWBIN -iTP`
+  FULL_TARGET=$CPU_TARGET-$OS_TARGET
 fi
 
 echo "Ending make distclean all; result=${makeres}" >> $report
-tail -30 ${makelog} >> $report
+if [ $makeres -ne 0 ] ; then
+  tail -30 ${makelog} >> $report
+fi
 
+if [ $skipsnapshot -eq 0 ] ; then
+  echo "Starting make singlezipinstall" >> $report
+  ${MAKE} distclean singlezipinstall INSTALL_PREFIX=$FPC_INSTALLDIR FPC=$NEWBIN 1>> ${makelog} 2>&1
+  echo "${MAKE} distclean singlezipinstall INSTALL_PREFIX=$FPC_INSTALLDIR FPC=$NEWBIN 1>> ${makelog} 2>&1" > readme
+  makeres=$?
+  svn info . >> readme
+  echo "Generated `date +%Y-%m-%d:%H:%M`" >> readme
+
+  echo "Ending make singlezipinstall; result=${makeres}" >> $report
+  if [ $makeres -ne 0 ] ; then
+   tail -30 ${makelog} >> $report
+  else
+   scp -p fpc*gz readme fpcftp:ftp/snapshot/$BRANCH/$FULL_TARGET/
+  fi
+fi
 
 if [ ${skiptests} == 0 ]; then
-Build_version=`$NEWBIN -iV`
-Build_date=`$NEWBIN -iD`
-
 echo "New $HOST_FPC version is ${Build_version} ${Build_date}" >> $report
 
 # Not supported on haiku: ulimit -t 300
