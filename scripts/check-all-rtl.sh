@@ -5,9 +5,17 @@
 
 . $HOME/bin/fpc-versions.sh
 
+if [ "$1" == "--verbose" ] ; then
+  verbose=1
+  shift
+else
+  verbose=0
+fi
+
 if [ "$1" == "test_add_dir" ] ; then
   test_add_dir=1
   dir_name_suffix=-test_add_dir
+  verbose=1
   shift
 else
   test_add_dir=0
@@ -25,6 +33,9 @@ fi
 if [ -z "$dir_name_suffix" ] ; then
   if [ -n "$GLOBAL_OPT" ] ; then
     dir_name_suffix=${GLOBAL_OPT// /_}
+    if [ $verbose -eq 1 ] ; then
+      echo "Using dir name suffix $dir_name_suffix"
+    fi
   fi
 fi
 
@@ -216,6 +227,10 @@ else
 fi
  
 export PATH
+if [ $verbose -eq 1 ] ; then
+  echo "Using PATH=$PATH"
+fi
+
 cd $CHECKOUTDIR
 
 if [ -d fpcsrc ] ; then
@@ -253,88 +268,96 @@ LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
 LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
-PREVLOGFILE=${LOGFILE}.previous
-PREVLISTLOGFILE=${LISTLOGFILE}.previous
+if [ -z "$PREVIOUS_SUFFIX" ] ; then
+  PREVIOUS_SUFFIX=.previous
+fi
+
+PREVLOGFILE=${LOGFILE}${PREVIOUS_SUFFIX}
+PREVLISTLOGFILE=${LISTLOGFILE}${PREVIOUS_SUFFIX}
 
 if [ -f $LOGFILE ] ; then
+  if [ $verbose -eq 1 ] ; then
+    echo "moving $LOGFILE to ${PREVLOGFILE}"
+  fi
   mv -f $LOGFILE ${PREVLOGFILE}
 fi
 
 if [ -f $LISTLOGFILE ] ; then
+  if [ $verbose -eq 1 ] ; then
+    echo "moving $LISTLOGFILE to ${PREVLISTLOGFILE}"
+  fi
   mv -f $LISTLOGFILE ${PREVLISTLOGFILE}
-  prev_failure_list=` sed -n "s|Failure: See \(.*\) for details.*|\1|p" ${PREVLISTLOGFILE}`
+  prev_failure_list=` sed -n "s|Failure: See \(${LOGDIR}/.*.txt\) for details.*|\1|p" ${PREVLISTLOGFILE}`
+  if [ $verbose -eq 1 ] ; then
+    echo "Previous failure list is $prev_failure_list"
+  fi
   for file in $prev_failure_list ; do
     if [ -f "$file" ] ; then
-      mv -f $file ${file/.txt/}.last-failure.txt
+      echo "Previous failure in $file renamed to ${file/.txt/}.last-failure-txt"
+      mv -f $file ${file/.txt/}.last-failure-txt
     fi
   done
 fi
 
-echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOGFILE
-echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LISTLOGFILE
-echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $EMAILFILE
-echo "Machine info: $machine_info" >> $LOGFILE
-echo "Machine info: $machine_info" >> $LISTLOGFILE
-echo "Machine info: $machine_info" >> $EMAILFILE
-echo "RTL svn version: $svn_rtl_version" >> $LOGFILE
-echo "RTL svn version: $svn_rtl_version" >> $LISTLOGFILE
-echo "RTL svn version: $svn_rtl_version" >> $EMAILFILE
-echo "Compiler svn version: $svn_compiler_version" >> $LOGFILE
-echo "Compiler svn version: $svn_compiler_version" >> $LISTLOGFILE
-echo "Compiler svn version: $svn_compiler_version" >> $EMAILFILE
-echo "Packages svn version: $svn_packages_version" >> $LOGFILE
-echo "Packages svn version: $svn_packages_version" >> $LISTLOGFILE
-echo "Packages svn version: $svn_packages_version" >> $EMAILFILE
-echo "Utils svn version: $svn_utils_version" >> $EMAILFILE
-echo "Utils svn version: $svn_utils_version" >> $LOGFILE
-echo "Utils svn version: $svn_utils_version" >> $LISTLOGFILE
+# echo to LOGFILE, LISTLOGFILE and EMAILFILE
+function mecho ()
+{
+  echo "$*" >> $LOGFILE
+  echo "$*" >> $LISTLOGFILE
+  echo "$*" >> $EMAILFILE
+  if [ $verbose -eq 1 ] ; then
+  echo "$*"
+  fi
+}
+
+# echo to LISTLOGFILE and stdout
+function lecho ()
+{
+  echo "$*"
+  echo "$*" >> $LISTLOGFILE
+}
+
+rm -f $LOGFILE $LISTLOGFILE $EMAILFILE
+
+mecho "$0 for $svnname, version $FPCVERSION starting at `date`"
+mecho "Machine info: $machine_info"
+mecho "RTL svn version: $svn_rtl_version"
+mecho "Compiler svn version: $svn_compiler_version"
+mecho "Packages svn version: $svn_packages_version"
+mecho "Utils svn version: $svn_utils_version"
 
 if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
-  echo "Recompiling native compiler" >> $LOGFILE
-  echo "Recompiling native compiler" >> $LISTLOGFILE
-  echo "Recompiling native compiler" >> $EMAILFILE
+  mecho "Recompiling native compiler"
   make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
-    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $LOGFILE
-    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $LISTLOGFILE
-    echo "Second try for native compiler, using FPCCPUOPT=\"-O-\"" >> $EMAILFILE
+    mecho "Second try for native compiler, using FPCCPUOPT=\"-O-\""
     export FPCCPUOPT="-O-"
     make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
-    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LOGFILE
-    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $LISTLOGFILE
-    echo "Generating new native compiler failed, see $fullcyclelog for details" >> $EMAILFILE
+    mecho "Generating new native compiler failed, see $fullcyclelog for details"
     exit
   fi
-  echo "Recompiling cross-compilers" >> $LOGFILE
-  echo "Recompiling cross-compilers" >> $LISTLOGFILE
-  echo "Recompiling cross-compilers" >> $EMAILFILE
+  mecho "Recompiling cross-compilers"
   make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
-    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $LOGFILE
-    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $LISTLOGFILE
-    echo "Second try for cross-compilers, using FPCCPUOPT=\"-O-\"" >> $EMAILFILE
+    mecho "Second try for cross-compilers, using FPCCPUOPT=\"-O-\""
     export FPCCPUOPT="-O-"
     make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
-    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LOGFILE
-    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $LISTLOGFILE
-    echo "Generating new cross-compilers failed, see $fullcyclelog for details" >> $EMAILFILE
+    mecho "Generating new cross-compilers failed, see $fullcyclelog for details"
     exit
   else
     # Using new temp installation bin dir
     export PATH=$LOCAL_INSTALL_PREFIX/bin:$PATH
-    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $LOGFILE
-    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $LISTLOGFILE
-    echo "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable" >> $EMAILFILE
+    mecho "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable"
   fi
   export FPCCPUOPT=
   cd ..
@@ -681,8 +704,7 @@ function check_target ()
         echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
         skipped_count=`expr $skipped_count + 1 `
         skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy"
-        echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy" >> $LISTLOGFILE
+        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${TRY_BINUTILSPREFIX}${ASSEMBLER} not found and no dummy"
         return
       fi
       dummy_count=`expr $dummy_count + 1 `
@@ -694,8 +716,7 @@ function check_target ()
 
   if [ ! -f "$target_as" ] ; then
     echo "No ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} found, skipping"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found" >> $LISTLOGFILE
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${BINUTILSPREFIX_LOCAL}${ASSEMBLER} not found"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
@@ -733,8 +754,7 @@ function check_target ()
       res=$?
     fi
     if [ $res -ne 0 ] ; then
-      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
-      echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res" >> $LISTLOGFILE
+      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
       skipped_count=`expr $skipped_count + 1 `
       skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       return
@@ -748,31 +768,27 @@ function check_target ()
   fi
 
   if [ -z "$fpc_local_exe" ] ; then
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found" >> $LISTLOGFILE
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   if [ ! -x "$fpc_local_exe" ] ; then
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable"
-    echo "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable" >> $LISTLOGFILE
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   CROSS_VERSION=`$fpc_local_exe -iV` 
   if [ "$FPCVERSION" != "$CROSS_VERSION" ] ; then
-    echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $LOGFILE
-    echo "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected" >> $EMAILFILE
+    lecho "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   CROSS_DATE=`$fpc_local_exe -iD` 
   if [ "$system_date" != "$CROSS_DATE" ] ; then
-    echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $LOGFILE
-    echo "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date" >> $EMAILFILE
+    lecho "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
@@ -874,6 +890,8 @@ function check_target ()
   LOGFILE_UTILS=${LOGPREFIX}-utils-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE_UTILS_PPU=${LOGPREFIX}-utils-ppudump-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
 
+  previous_target_failures=`sed -n "s|^Failure:.*See .*\(${LOGPREFIX}.*-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt\).*|\1|p" ${PREVLISTLOGFILE} `
+
   step_ok_count=0
   # Distclean in rtl and packages first
   echo "Distclean in rtl and packages first" > $LOGFILE_DISTCLEAN
@@ -891,31 +909,24 @@ function check_target ()
     if [ -n "$fpcmake_pattern" ] ; then
       run_fpcmake_first_failure=`expr $run_fpcmake_first_failure + 1 `
       run_fpcmake_first_list="$run_fpcmake_first_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-      echo "Failure: See $LOGFILE_RTL for details"
-      echo "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_RTL for details" >> $LISTLOGFILE
+      lecho "Failure: fpcmake does not support $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: See $LOGFILE_RTL for details"
     elif [ -n "$unsupported_target_pattern" ] ; then
       os_target_not_supported_failure=`expr $os_target_not_supported_failure + 1 `
       os_target_not_supported_list="$os_target_not_supported_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-      echo "Failure: See $LOGFILE_RTL for details"
-      echo "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_RTL for details" >> $LISTLOGFILE
+      lecho "Failure: OS Target $OS_TARG_LOCAL not supported for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: See $LOGFILE_RTL for details"
     else
       rtl_1_failure=`expr $rtl_1_failure + 1 `
       rtl_1_list="$rtl_1_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-      echo "Failure: See $LOGFILE_RTL for details"
-      echo "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_RTL for details" >> $LISTLOGFILE
+      lecho "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: See $LOGFILE_RTL for details"
     fi
     return 1
   else
     let ++step_ok_count
   fi
-  echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-  echo "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+  lecho "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
   echo "Re-running make should do nothing"
   MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
   echo "$MAKE -C $rtldir all install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL_2
@@ -924,26 +935,21 @@ function check_target ()
   if [ $res -ne 0 ] ; then
     rtl_2_failure=`expr $rtl_2_failure + 1 `
     rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-    echo "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-    echo "Failure: See $LOGFILE_RTL_2 for details"
-    echo "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-    echo "Failure: See $LOGFILE_RTL_2 for details" >> $LISTLOGFILE
+    lecho "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+    lecho "Failure: See $LOGFILE_RTL_2 for details"
     return 2
   fi
   fpc_called=`grep -E "(^|[^=])$FPC_LOCAL" $LOGFILE_RTL_2 `
   if [ "X$fpc_called" != "X" ] ; then
     rtl_2_failure=`expr $rtl_2_failure + 1 `
     rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-    echo "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again"
-    echo "Failure: See $LOGFILE_RTL_2 for details"
-    echo "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again" >> $LISTLOGFILE
-    echo "Failure: See $LOGFILE_RTL_2 for details" >> $LISTLOGFILE
+    lecho "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again"
+    lecho "Failure: See $LOGFILE_RTL_2 for details"
     return 2
   else
     let ++step_ok_count
   fi
-  echo "OK: Testing 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-  echo "OK: Testing 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+  lecho "OK: Testing 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
   if [ $test_ppudump -eq 1 ] ; then
     echo "$MAKE $MAKEJOPT -C compiler rtlppulogs CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL_PPU
     $MAKE $MAKEJOPT -C compiler rtlppulogs CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_RTL_PPU 2>&1
@@ -951,13 +957,10 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       rtl_ppu_failure=`expr $rtl_ppu_failure + 1 `
       rtl_ppu_list="$rtl_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: ppudump for $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-      echo "Failure: See $LOGFILE_RTL_PPU for details"
-      echo "Failure: ppudump for $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_RTL_PPU for details" >> $LISTLOGFILE
+      lecho "Failure: ppudump for $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+      lecho "Failure: See $LOGFILE_RTL_PPU for details"
     else
-      echo "OK: Testing ppudump of $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-      echo "OK: Testing ppudump of $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+      lecho "OK: Testing ppudump of $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       let ++step_ok_count
     fi
     LOGFILE_RTL_PPUNAME=`basename $LOGFILE_RTL_PPU`
@@ -992,14 +995,11 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       packages_failure=`expr $packages_failure + 1 `
       packages_list="$packages_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-      echo "Failure: See $LOGFILE_PACKAGES for details"
-      echo "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_PACKAGES for details" >> $LISTLOGFILE
+      lecho "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: See $LOGFILE_PACKAGES for details"
       return 3
     fi
-    echo "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    echo "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+    lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     if [ "$DO_FPC_PACKAGES_INSTALL" == "1" ] ; then
       echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
@@ -1011,13 +1011,10 @@ function check_target ()
       if [ $res -ne 0 ] ; then
         packages_ppu_failure=`expr $packages_ppu_failure + 1 `
         packages_ppu_list="$packages_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        echo "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        echo "Failure: See $LOGFILE_PACKAGES_PPU for details"
-        echo "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
-        echo "Failure: See $LOGFILE_PACKAGES_PPU for details" >> $LISTLOGFILE
+        lecho "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "Failure: See $LOGFILE_PACKAGES_PPU for details"
       else
-        echo "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        echo "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+        lecho "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_PACKAGES_PPU`
       IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
@@ -1050,14 +1047,11 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       utils_failure=`expr $utils_failure + 1 `
       utils_list="$utils_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      echo "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
-      echo "Failure: See $LOGFILE_UTILS for details"
-      echo "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text" >> $LISTLOGFILE
-      echo "Failure: See $LOGFILE_UTILS for details" >> $LISTLOGFILE
+      lecho "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: See $LOGFILE_UTILS for details"
       return 3
     fi
-    echo "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    echo "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+    lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     if [ "$DO_FPC_UTILS_INSTALL" == "1" ] ; then
       echo "Testing installation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $utilsdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
@@ -1069,13 +1063,10 @@ function check_target ()
       if [ $res -ne 0 ] ; then
         utils_ppu_failure=`expr $utils_ppu_failure + 1 `
         utils_ppu_list="$utils_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        echo "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        echo "Failure: See $LOGFILE_PACKAGES_PPU for details"
-        echo "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
-        echo "Failure: See $LOGFILE_PACKAGES_PPU for details" >> $LISTLOGFILE
+        lecho "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "Failure: See $LOGFILE_PACKAGES_PPU for details"
       else
-        echo "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        echo "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" >> $LISTLOGFILE
+        lecho "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_PACKAGES_PPU`
       IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
@@ -1135,8 +1126,8 @@ fi
 
 (
 
-# Remove all existing logs
-rm -Rf ${LOGPREFIX}*
+# Remove all existing logs, but not failed ones
+rm -Rf ${LOGPREFIX}*.txt
 
 # List separately cases for which special parameters are required
 check_target arm embedded "-n" "SUBARCH=armv4t"
