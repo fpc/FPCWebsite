@@ -35,6 +35,7 @@ if [ $run_32 -eq 1 ] ; then
   export FPCBIN=ppc386
   $HOME/bin/bsd-fpccommonup.sh
 fi
+$HOME/bin/makesnapshottrunk.sh
 
 export FIXES=1
 if [ $run_64 -eq 1 ] ; then
@@ -46,5 +47,4 @@ if [ $run_32 -eq 1 ] ; then
   $HOME/bin/bsd-fpccommonup.sh
 fi
 
-$HOME/bin/makesnapshottrunk.sh
 $HOME/bin/makesnapshotfixes.sh
