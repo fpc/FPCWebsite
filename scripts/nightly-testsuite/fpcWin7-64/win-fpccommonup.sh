@@ -394,7 +394,7 @@ else
   echo "Time `${CYGDATE} +%H:%M:%S`" >> ${report}
   TIME=`${CYGDATE} +%H-%M-%S`
   export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /}.txt
-  export uploadlog=`pwd`/tests-upload${LOGSUFFIX}i-${TEST_OPT// /}.txt
+  export uploadlog=`pwd`/tests-upload${LOGSUFFIX}-${TEST_OPT// /}.txt
   echo "Running make distclean fulldb TEST_OPT=${TEST_OPT}" > ${testslog}
   if [ -z "${FULLFPCBIN}" ] ; then
     FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/${FPCFULLTARGET}/${FPCBIN}
@@ -492,11 +492,25 @@ run_tests
 export TEST_OPT="-gl -Criot"
 run_tests
 if [[ ( "${FPCBIN}" == "ppc386" ) && ( "${SVNDIRNAME}" == "trunk" ) ]] ; then
-  make -C ../compiler cycle OPT="-n -gsl -dTEST_WIN32_SEH" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}
-  ${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
-  export FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
-  export TEST_OPT="-dTEST_WIN32_SEH"
-  run_tests
+  sehlog=`pwd`/make-seh-compiler.log
+  echo "Running make -C ../compiler cycle OPT=\"-n -gsl -dTEST_WIN32_SEH\" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}" >> ${report}
+  make -C ../compiler cycle OPT="-n -gsl -dTEST_WIN32_SEH" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} > ${sehlog} 2>&1
+  res=$?
+  if [ $res -ne 0 ] ; then
+    echo "make seh compiler failed, res=$res" >> ${report}
+  else
+    echo "make seh compiler finished, res=$res" >> ${report}
+    echo "${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe" >> ${report}
+    ${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "copy of seh compiler failed, res=$res" >> ${report}
+    else
+      export FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386seh.exe
+      export TEST_OPT="-dTEST_WIN32_SEH"
+      run_tests
+    fi
+  fi
 fi
 ) 1>> ${report} 2>&1
 
