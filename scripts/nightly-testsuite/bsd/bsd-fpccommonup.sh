@@ -6,6 +6,8 @@
 
 OS=`uname -s | tr '[:upper:]' '[:lower:]' `
 # echo "OS is $OS"
+CPU=`uname -p | tr '[:upper:]' '[:lower:]' `
+# echo "CPU is $CPU"
 
 if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
@@ -36,9 +38,11 @@ if [ "$FPCBIN" == "ppc386" ] ; then
     NEEDED_OPT="$NEEDED_OPT -Fl/usr/local/lib32"
   fi
   SUFFIX=-32
-  NEEDED_OPT="-Xd $NEEDED_OPT"
-  export BINUTILSPREFIX=i386-${OS}-
-  export FPCMAKEOPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
+  if [ "$CPU" != "i386" ] ; then
+    NEEDED_OPT="-Xd $NEEDED_OPT"
+    export BINUTILSPREFIX=i386-${OS}-
+    export FPCMAKEOPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
+  fi
 else
   NEEDED_OPT=
   SUFFIX=-64
