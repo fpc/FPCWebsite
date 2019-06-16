@@ -51,18 +51,19 @@ subscribe yourpassword [address=youremailaddres]
  as the first line.
 <li> Point your browser to
 <OL>
-<li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-pascal/">
-http://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal,
-<li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-devel/">
-http://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel.
-<li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-announce/">
-http://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
+<li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-pascal/">
+https://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal,
+<li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-devel/">
+https://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel.
+
+<li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-announce/">
+https://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
 fpc-announce
-<li><a href="http://lists.freepascal.org/mailman/listinfo/pas2js/">
-http://lists.freepascal.org/mailman/listinfo/pas2js/</a> for
+<li><a href="https://lists.freepascal.org/mailman/listinfo/pas2js/">
+https://lists.freepascal.org/mailman/listinfo/pas2js/</a> for
 pas2js
-<li><a href="http://lists.freepascal.org/mailman/listinfo/fpc-other/">
-http://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
+<li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-other/">
+https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
 <li><a href="http://lists.sonic.net/mailman/listinfo/mac-pascal/">http://lists.sonic.net/mailman/listinfo/mac-pascal/</a> for MacPascal
 </OL>
 Enter your e-mail address, your password, and that's it.
@@ -73,11 +74,11 @@ Enter your e-mail address, your password, and that's it.
 <h3> How to access mailing-list archives ?</h3>
 The mailing list messages are archived. To access the archives, go here:
 <OL>
-<li><a href="http://lists.freepascal.org/pipermail/fpc-pascal/">for fpc-pascal </a>
-<li><a href="http://lists.freepascal.org/pipermail/fpc-devel/">for fpc-devel </a>
-<li><a href="http://lists.freepascal.org/pipermail/fpc-announce/">for fpc-announce</a>
-<li><a href="http://lists.freepascal.org/pipermail/pas2js/">for pas2js</a>
-<li><a href="http://lists.freepascal.org/pipermail/fpc-other/">for fpc-other</a>
+<li><a href="https://lists.freepascal.org/pipermail/fpc-pascal/">for fpc-pascal </a>
+<li><a href="https://lists.freepascal.org/pipermail/fpc-devel/">for fpc-devel </a>
+<li><a href="https://lists.freepascal.org/pipermail/fpc-announce/">for fpc-announce</a>
+<li><a href="https://lists.freepascal.org/pipermail/pas2js/">for pas2js</a>
+<li><a href="https://lists.freepascal.org/pipermail/fpc-other/">for fpc-other</a>
 <li><a href="http://lists.sonic.net/mailman/private/mac-pascal/">for MacPascal</a> (only accessible to subscribers)
 </OL>
 If the main archive doesn't work, the mailing lists are archived by third party mailing list archives too.
