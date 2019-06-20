@@ -34,13 +34,15 @@ fi
 
 export FPC=~/pas/fpc-${CURVER}/bin/${FPC_BIN}
 
-if [ "${PATH/${CURVER}//}" = "${PATH}" ] ; then
-  echo "Adding ${CURVER} binary directory"
-  export PATH=${PATH}:~/pas/fpc-${CURVER}/bin
+if [ "${PATH/${HOME}\/bin//}" = "${PATH}" ] ; then
+  echo "Adding $HOME/bin to front of PATH"
+  export PATH=$HOME/bin:$PATH
 fi
 
-echo "Adding $HOME/bin to front of PATH"
-export PATH=~/bin:$PATH
+if [ "${PATH/fpc-${CURVER}//}" = "${PATH}" ] ; then
+  echo "Adding ${CURVER} binary directory"
+  export PATH=~/pas/fpc-${CURVER}/bin:${PATH}
+fi
 
 MAKE=make
 OPTS="${OPT} -Fl/usr/lib64 -Fl/lib64 -Fd -Fl$GCC_DIR"
@@ -57,7 +59,7 @@ cat > README-${FPC_CPUOS} <<EOF
 This ${FPC_BRANCH} snapshot was generated ${date} using:
 ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}"
 started using ${FPC}
-${FPC_BIN} -iVDW output is: `${FPC_BIN} -iVDW`
+${FPC_BIN} -iVDW output is: `${FPC} -iVDW`
 
 uname -a of the machine is:
 `uname -a`
@@ -71,18 +73,22 @@ Enjoy,
 Pierre Muller
 EOF
 
-
-TAR=./fpc-${CURFULLVER}.${FPC_CPUOS}.tar.gz
+TAR_PATTERN="fpc-${CURVER}*.${FPC_CPUOS}.tar.gz"
+TAR=`ls -1tr $TAR_PATTERN | tail -1`
 
 if [ -f ${TAR} ] ; then
   mv -f  ${TAR} ${TAR}.old
 fi
 
-echo ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" "|" tee makesnapshot-${FPC_BRANCH}-${date}.txt
-${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" > makesnapshot-${FPC_CPUOS}-${FPC_BRANCH}-${date}.txt 2>&1
+echo "${MAKE} ${MAKE_OPTIONS} OPT=\"${OPTS}\" FPC=${FPC} > makesnapshot-${FPC_CPUOS}-${FPC_BRANCH}-${date}.txt 2>&1"
+${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" FPC=${FPC} > makesnapshot-${FPC_CPUOS}-${FPC_BRANCH}-${date}.txt 2>&1
+
+
+TAR=`ls -1tr $TAR_PATTERN | tail -1`
 
 if [ -f ${TAR} ]; then
   scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FPC_CPUOS}
 else
-  echo Failed to created ${TAR} file
+  echo "Failed to created ${TAR_PATTERN} file"
 fi
+
