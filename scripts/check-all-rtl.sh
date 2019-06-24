@@ -766,6 +766,7 @@ function check_target ()
   else
     fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   fi
+  export ASTARGET="$CROSSASTARGET"
 
   if [ -z "$fpc_local_exe" ] ; then
     lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
@@ -1159,33 +1160,33 @@ check_target powerpc64 darwin "-n -Aas-darwin"
 
 export RECOMPILE_OPT="-dFPC_ARMEL"
 export RECOMPILE_INSTALL_NAME=ppcarmel
-export ASTARGET="-march=armv6 -meabi=5 -mfpu=softvfp "
+export CROSSASTARGET="-march=armv6 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caeabi -Cfsoft" "" "-armeabi"
-export ASTARGET=
+export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
-export RECOMPILE_OPT="-dFPC_ARMEB"
+export RECOMPILE_OPT="-dFPC_ARMEB -ao-meabi=5"
 export RECOMPILE_INSTALL_NAME=ppcarmeb
-export ASTARGET="-march=armv5 -meabi=5 -mfpu=softvfp "
+export CROSSASTARGET="-march=armv5 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caarmeb -Cfsoft" "" "-armeb"
-export ASTARGET=
+export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 export RECOMPILE_OPT="-dFPC_OARM"
 export RECOMPILE_INSTALL_NAME=ppcoarm
-export ASTARGET="-march=armv5 -mfpu=softvfp "
+export CROSSASTARGET="-march=armv5 -mfpu=softvfp "
 check_target arm linux "-n -gl" "" "-arm_softvfp"
-export ASTARGET=
+export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 export RECOMPILE_OPT="-dFPC_ARMHF"
 export RECOMPILE_INSTALL_NAME=ppcarmhf
-export ASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
+export CROSSASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
-export ASTARGET=
+export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
