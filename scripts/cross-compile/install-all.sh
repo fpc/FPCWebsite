@@ -31,6 +31,10 @@ fi
 function maybe_add_symlink ()
 {
   file=$1
+  if [ ! -f $file ] ; then
+    echo "$file does not exist"
+    return
+  fi
   filename=`basename $file`
   if [ ! -f $HOME/bin/$filename ] ; then
     echo "Adding symlink to $file"
@@ -38,18 +42,33 @@ function maybe_add_symlink ()
   fi
 }
 
-maybe_add_symlink ~/scripts/fpc-versions.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/linux-fpcallup.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/linux-fpccommonup.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/all-snapshots.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshot.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshotfixes.sh 
-maybe_add_symlink ~/scripts/nightly-testsuite/x86_64-linux/makesnapshottrunk.sh 
+cpu=`uname -p`
+os=`uname -s`
+echo "cpu=$cpu, os=$os"
 
-# Get Free Pasca versions from the fpc-versions.sh script
+case "$os" in
+  SunOS) os=solaris;;
+esac
+
+case "$cpu" in
+  sparc|sparc64) CPU32=sparc; CPU64=sparc64;;
+  i*86|x86_64|amd64) CPU32=i386; CPU64=x86_64;;
+  arm|aarch64|arm64) CPU32=arm; CPU64=aarch64;;
+esac
+
+script_dir=~/scripts/nightly-testsuite/$cpu-$os
+if [ ! -d "$script_dir" ] ; then
+  script_dir=~/scripts/nightly-testsuite/$os
+fi
+
+for file in $script_dir/*.sh ; do
+  maybe_add_symlink $file
+done 
+
+# Get Free Pascal versions from the fpc-versions.sh script
 . $HOME/bin/fpc-versions.sh
 
-QEMU_VERSION=3.0.0
+QEMU_VERSION=4.0.0
 NASM_VERSION=2.13.03
 VASM_VERSION=1_8d
 VLINK_VERSION=0_16a
@@ -57,22 +76,45 @@ do_update=0
 
 cd $HOME/pas
 
+case "$os" in
+  solaris) RELEASEVERSION=3.0.2
+esac
+
+CPUOS32=$CPU32-$os
+CPUOS64=$CPU64-$os
+
 if [ ! -d $HOME/pas/fpc-$RELEASEVERSION ] ; then
   # Installing latest Free Pascal distribution
-  FPC_RELEASE32_TAR=fpc-${RELEASEVERSION}.i386-linux.tar
-  FPC_RELEASE64_TAR=fpc-${RELEASEVERSION}.x86_64-linux.tar
+  FPC_RELEASE32_TAR=fpc-${RELEASEVERSION}.${CPUOS32}.tar
+  FPC_RELEASE64_TAR=fpc-${RELEASEVERSION}.${CPUOS64}.tar
   if [ ! -f $FPC_RELEASE32_TAR ] ; then
-    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/i386-linux/$FPC_RELEASE32_TAR
+    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/${CPUOS32}/$FPC_RELEASE32_TAR
+    tar32ok=$?
   fi
   if [ ! -f $FPC_RELEASE64_TAR ] ;then
-    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/x86_64-linux/$FPC_RELEASE64_TAR
+    wget ftp://ftp.freepascal.org/pub/fpc/dist/$RELEASEVERSION/${CPUOS64}/$FPC_RELEASE64_TAR
+    tar64ok=$?
   fi
-  tar -xvf $FPC_RELEASE32_TAR
-  tar -xvf $FPC_RELEASE64_TAR
-  cd ${FPC_RELEASE32_TAR/.tar/}
-  ./install.sh 
-  cd ../${FPC_RELEASE64_TAR/.tar/}
-  ./install.sh 
+  if [ $tar32ok -eq 0 ] ; then
+    tar -xvf $FPC_RELEASE32_TAR
+    tar32ok=$?
+  fi
+  if [ $tar64ok -eq 0 ] ; then
+    tar -xvf $FPC_RELEASE64_TAR
+    tar64ok=$?
+  fi
+  if [ $tar32ok -eq 0 ] ; then
+    cd ${FPC_RELEASE32_TAR/.tar/}
+    ./install.sh
+    echo "${FPC_RELEASE32_TAR} installation finished, res=$?"
+    cd ..
+  fi
+  if [ $tar64ok -eq 0 ] ; then
+    cd ${FPC_RELEASE64_TAR/.tar/}
+    ./install.sh 
+    echo "${FPC_RELEASE64_TAR} installation finished, res=$?"
+    cd ..
+  fi
   cd $HOME
   RELEASEVERSION_REGEX=${RELEASEVERSION//\./\\.}
   echo "Substituting $RELEASEVERSION_REGEX"
@@ -84,7 +126,7 @@ if [ ! -d $TRUNKDIRNAME ] ; then
   svn checkout https://svn.freepascal.org/svn/fpcbuild/$TRUNKDIRNAME
 else
   if [ ! -d trunk ] ; then
-    ln -s $FIXES_BRANCH trunk
+    ln -s $$TRUNKDIRNAME trunk
   fi
   cd trunk
   svn cleanup
