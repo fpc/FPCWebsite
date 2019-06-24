@@ -11,6 +11,9 @@
 #################################################################
 export RELEASEVERSION=3.0.4
 
+# List of versions still accessible on main ftp server
+RELEASE_VERSION_LIST="3.0.4 3.0.2 3.0.0 2.6.4 2.6.2 2.6.0 2.4.2 2.4.2 2.2.4 2.2.2"
+
 #################################################################
 ## Free Pascal trunk and fixes versions
 #################################################################
@@ -52,8 +55,23 @@ INSTALLFPCDIRPREFIX=${HOME}/pas/fpc-
 INSTALLTRUNKDIR=${INSTALLFPCDIRPREFIX}${TRUNKVERSION}
 INSTALLFIXESDIR=${INSTALLFPCDIRPREFIX}${FIXESVERSION}
 
+INSTALLRELEASEDIR=${INSTALLFPCDIRPREFIX}${RELEASEVERSION}
+
+if [ ! -d ${INSTALLRELEASEDIR} ] ; then
+  for test_version in $RELEASE_VERSION_LIST ; do
+    test_dir=${INSTALLFPCDIRPREFIX}${test_version}
+    if [ -d $test_dir ] ; then
+      export RELEASEVERSION=${test_version}
+      INSTALLRELEASEDIR=${test_dir}
+      break
+    fi
+  done
+fi
+
+export INSTALLRELEASEDIR
+
 #################################################################
-## Free Pascal mainn directory for log files
+## Free Pascal main directory for log files
 #################################################################
 if [ -z "$FPCLOGDIR" ] ; then
   if [ -d $HOME/logs ] ; then
