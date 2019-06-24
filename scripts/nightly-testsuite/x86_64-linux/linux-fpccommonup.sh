@@ -131,10 +131,11 @@ function gen_ppu_diff ()
 }
 
 STARTDIR=`pwd`
-export report=`pwd`/report${SUFFIX}.txt 
-export svnlog=`pwd`/svnlog${SUFFIX}.txt 
-export cleanlog=`pwd`/cleanlog${SUFFIX}.txt 
-export makelog=`pwd`/makelog${SUFFIX}.txt 
+logdir=~/logs/$SVNDIRNAME
+export report=$logdir/report${SUFFIX}.txt 
+export svnlog=$logdir/svnlog${SUFFIX}.txt 
+export cleanlog=$logdir/cleanlog${SUFFIX}.txt 
+export makelog=$logdir/makelog${SUFFIX}.txt 
 
 echo "Starting $0 on $HOSTNAME" > $report
 Start_version=`$FPCBIN -iV`
@@ -152,15 +153,15 @@ if [ -d fpcsrc ]; then
 fi
 
 set_log $cleanlog
-add_log "Start $MAKE distclean `$DATE`"
+add_log "Start $MAKE distclean"
 ${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
 makeres=$?
 add_log "End $MAKE distclean; result=${makeres}"
 set_log $makelog
-add_log "Start $MAKE all `$DATE`"
+add_log "Start $MAKE all"
 ${MAKE} all $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
-add_log "End $MAKE all `$DATE`, res=$makeres"
+add_log "End $MAKE all, res=$makeres"
 if [ $makeres -ne 0 ] ; then
   add_log "${MAKE} distclean all failed result=${makeres}"
   tail -30 ${makelog} >> $report
@@ -172,10 +173,10 @@ fi
 
 if [ ! -f ./compiler/$FPCBIN ] ; then
   # Try a simple cycle in compiler subdirectory
-  add_log "Start $MAKE -C compiler distclean cycle  `$DATE`"
+  add_log "Start $MAKE -C compiler distclean cycle"
   ${MAKE} -C compiler distclean cycle $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
   makeres=$?
-  add_log "End $MAKE -C compiler distclean cycle  `$DATE`, result=$makeres"
+  add_log "End $MAKE -C compiler distclean cycle, result=$makeres"
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
@@ -217,9 +218,9 @@ if [ $NewBinary -eq 1 ] ; then
     add_log "Start $MAKE install"
     ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
     makeres=$?
-    add_log "End ${MAKE} install failed `$DATE`, res=${makeres}"
+    add_log "End ${MAKE} install, res=${makeres}"
   else
-    add_log "Skipping ${MAKE} install, because '$MAKE all' failed `$DATE`, res=${makeres}"
+    add_log "Skipping ${MAKE} install, because '$MAKE all' failed, res=${makeres}"
     makeres=1
   fi
 
@@ -228,10 +229,10 @@ if [ $NewBinary -eq 1 ] ; then
       add_log "Start $MAKE install in dir $dir"
       ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
       makeres=$?
-      add_log "End $MAKE -C ./$dir install;`$DATE` result=${makeres}"
+      add_log "End $MAKE -C ./$dir install; result=${makeres}"
     done
   else
-    add_log "Ending $MAKE install;`$DATE` result=${makeres}"
+    add_log "Ending $MAKE install; result=${makeres}"
   fi
 
   # fullinstall in compiler
