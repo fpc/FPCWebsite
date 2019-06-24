@@ -97,6 +97,39 @@ function set_log ()
   currentlog=$1
 }
 
+function gen_ppu_log ()
+{
+  dir="$1"
+  ppufilename="$2"
+  ppusuff="$3"
+  ppu="$dir/$ppufilename"
+  logfile="$logdir/${ppufilename}${ppusuff}"
+  if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+    echo "/home/${USER}/pas/fpc-${Build_version}/bin/ppudump \"$ppu\" > \"$logfile\"" >> $makelog
+    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > "$logfile"
+    grep -E "(^Analysing|Checksum)" "$logfile" > "$logfile"-short 2>&1
+  fi
+}
+
+function gen_ppu_diff ()
+{
+  ppufilename="$1"
+  ppusuff1="$2"
+  ppusuff2="$3"
+  ppu1="$logdir/$ppufilename$ppusuff1"
+  ppu2="$logdir/$ppufilename$ppusuff2"
+  difffile="$logdir/${ppufilename}.ppudiffs"
+  echo "diff -c \"${ppu1}\" \"${ppu2}\" > \"${difffile}\"" >> $makelog
+  diff -c "${ppu1}" "${ppu2}" > "${difffile}"
+  diffres=$?
+  if [ $diffres -ne 0 ] ; then
+    echo "ppudump output changed" >> $report
+    cat "${difffile}" >> $report
+    echo "Cleaning packages to be sure" >> $report
+    make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  fi
+}
+
 STARTDIR=`pwd`
 export report=`pwd`/report${SUFFIX}.txt 
 export svnlog=`pwd`/svnlog${SUFFIX}.txt 
@@ -166,11 +199,10 @@ if [ $NewBinary -eq 1 ] ; then
   add_log "New $FPCBIN version is ${Build_version} ${Build_date}"
   NEW_UNITDIR=`./compiler/$FPCBIN -iTP`-`./compiler/$FPCBIN -iTO`
 
-  # Register system.ppu state
-  if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
-    add_log "system ppu checksums stored to $STARTDIR/${NEW_UNITDIR}-system.ppu-log1"
-    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_UNITDIR}/system.ppu | grep -E "(^Analysing|Checksum)" > $STARTDIR/${NEW_UNITDIR}-system.ppu-log1 2>&1
-  fi
+  # Register system, objpas and sysutils ppu state
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} system.ppu -log1
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log1
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log1
 
   add_log "Start $MAKE installsymlink in compiler dir"
   ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
@@ -208,21 +240,16 @@ if [ $NewBinary -eq 1 ] ; then
   makeres=$?
   add_log "End $MAKE fullinstall; result=${makeres}"
 
-  # Check if system.ppu changed
-  if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
-    add_log "New system ppu checksums stored to $STARTDIR/${NEW_UNITDIR}-system.ppu-log2"
-    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump rtl/units/${NEW_UNITDIR}/system.ppu | grep -E "(^Analysing|Checksum)" > $STARTDIR/${NEW_UNITDIR}-system.ppu-log2 2>&1
-    cmp  $STARTDIR/${NEW_UNITDIR}-system.ppu-log1 $STARTDIR/${NEW_UNITDIR}-system.ppu-log2 > $STARTDIR/${NEW_UNITDIR}-system.ppu-logdiffs
-    cmpres=$?
-    if [ $cmpres -ne 0 ] ; then
-      add_log "ppudump output for system.ppu changed"
-      cat rtl/units/${NEW_UNITDIR}/system.ppu-logdiffs >> $report
-      add_log "Cleaning packages to be sure"
-      ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
-      add_log "Reinstalling packages as system.ppu has changed"
-      ${MAKE} -C packages $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=/home/${USER}/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
-    fi
-  fi
+  # Register system, objpas and sysutils new ppu state
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} system.ppu -log2
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log2
+  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log2
+
+  # Compare system, objpas and sysutils old versus new ppu state
+  gen_ppu_diff system.ppu -log1 -log2
+  gen_ppu_diff objpas.ppu -log1 -log2
+  gen_ppu_diff sysutils.ppu -log1 -log2
+
   # Add new bin dir as first in PATH
   export PATH=/home/${USER}/pas/fpc-${Build_version}/bin:${PATH}
   add_log "Using new PATH=\"${PATH}\""
