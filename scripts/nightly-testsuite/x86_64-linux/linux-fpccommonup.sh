@@ -199,7 +199,7 @@ if [ $NewBinary -eq 1 ] ; then
       add_log "End $MAKE -C ./$dir install;`$DATE` result=${makeres}"
     done
   else
-    add_log "Ending $MAKE install;`$DATE` result=${makeres}"i
+    add_log "Ending $MAKE install;`$DATE` result=${makeres}"
   fi
 
   # fullinstall in compiler
