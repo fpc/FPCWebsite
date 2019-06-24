@@ -13,6 +13,14 @@ fi
 # Keep only first part of machine name
 export HOSTNAME=${HOSTNAME//.*/}
 
+if [ -d $HOME/scripts ] ; then
+  SCRIPTDIR=$HOME/scripts
+elif [ -d $HOME/pas/scripts ] ; then
+  SCRIPTDIR=$HOME/pas/scripts
+else
+  SCRIPTDIR=
+fi
+
 check_cross_fixes=0
 check_cross_trunk=0
 gen_snapshot_fixes=0
@@ -110,7 +118,7 @@ fi
 
 if [ $gen_source_zips -eq 1 ] ; then
   # Update source on fpcftp machine
-  . $HOME/scripts/allsourcezips
+  . $SCRIPTDIR/allsourcezips
 fi
 
 if [ $gen_cross_snapshots_trunk -eq 1 ] ; then
@@ -158,29 +166,27 @@ TODAY=`date +%Y-%m-%d`
 
 today_trunk_sources=`ssh fpcftp "find ftp/snapshot/trunk/source -newermt $TODAY" 2> /dev/null `
 today_fixes_sources=`ssh fpcftp "find ftp/snapshot/fixes/source -newermt $TODAY" 2> /dev/null `
+
 if [ -z "$today_trunk_sources$today_fixes_sources" ] ; then
   # Update source on fpcftp machine
-  . $HOME/scripts/allsourcezips
+  . $SCRIPTDIR/allsourcezips
 fi
 
 # Check if script directory exists
 SVNLOGFILE=$HOME/logs/svn-scripts.log
-if [ -d $HOME/scripts ] ; then
-  SCRIPTDIR=$HOME/scripts
-elif [ -d $HOME/pas/scripts ] ; then
-  SCRIPTDIR=$HOME/pas/scripts
-else
-  SCRIPTDIR=
-fi
-
 if [ -n "$SCRIPTDIR" ] ; then
   cd $SCRIPTDIR
   svn cleanup > $SVNLOGFILE 2>&1
   svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
   cd $HOME
-elif [ -d $HOME/pas/scripts ] ; then
-  cd $HOME/pas/scripts
-  svn cleanup > $SVNLOGFILE 2>&1
+else
+  if [ ! -d $HOME/pas/scripts ] ; then
+    cd $HOME/pas
+    svn checkout https://svn.freepascal.org/svn/html/scripts > $SVNLOGFILE 2>&1
+  else
+    cd $HOME/pas/scripts
+    svn cleanup > $SVNLOGFILE 2>&1
+  fi
   svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
   cd $HOME
 fi
