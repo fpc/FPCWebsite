@@ -106,7 +106,7 @@ function gen_ppu_log ()
   logfile="$logdir/${ppufilename}${ppusuff}"
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
     echo "/home/${USER}/pas/fpc-${Build_version}/bin/ppudump \"$ppu\" > \"$logfile\"" >> $makelog
-    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > "$logfile"
+    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > "$logfile" 2>&1
     grep -E "(^Analysing|Checksum)" "$logfile" > "$logfile"-short 2>&1
   fi
 }
@@ -120,18 +120,18 @@ function gen_ppu_diff ()
   ppu2="$logdir/$ppufilename$ppusuff2"
   difffile="$logdir/${ppufilename}.ppudiffs"
   echo "diff -c \"${ppu1}\" \"${ppu2}\" > \"${difffile}\"" >> $makelog
-  diff -c "${ppu1}" "${ppu2}" > "${difffile}"
+  diff -c "${ppu1}" "${ppu2}" > "${difffile}" 2>&1 
   diffres=$?
   if [ $diffres -ne 0 ] ; then
-    echo "ppudump output changed" >> $report
-    cat "${difffile}" >> $report
+    echo "ppudump output changed for $ppufilename" >> $report
+    head -33 "${difffile}" >> $report
     echo "Cleaning packages to be sure" >> $report
     make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   fi
 }
 
 STARTDIR=`pwd`
-logdir=~/logs/$SVNDIRNAME
+export logdir=$HOME/logs/$SVNDIRNAME
 export report=$logdir/report${SUFFIX}.txt 
 export svnlog=$logdir/svnlog${SUFFIX}.txt 
 export cleanlog=$logdir/cleanlog${SUFFIX}.txt 
@@ -180,10 +180,15 @@ if [ ! -f ./compiler/$FPCBIN ] ; then
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
-  Build_version=`./compiler/$FPCBIN -iV`
-  Build_date=`./compiler/$FPCBIN -iD`
+  NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
+  Build_version=`$NEW_PPC_BIN -iV`
+  Build_date=`$NEW_PPC_BIN -iD`
+  NEW_OS_TARGET=`$NEW_PPC_BIN -iTO`
+  NEW_CPU_TARGET=`$NEW_PPC_BIN -iTP`
+  NEW_UNITDIR=${NEW_CPU_TARGET}-${NEW_OS_TARGET}
+
   NewBinary=1
-  add_log "New binary ./compiler/$FPCBIN, version=$Build_version, date=$Build_date"
+  add_log "New binary $NEW_PPC_BIN, version=$Build_version, date=$Build_date, OS=$NEW_OS_TARGET, CPU=$NEW_CPU_TARGET"
 else
   NewBinary=0
   add_log "No new binary ./compiler/$FPCBIN"
@@ -198,15 +203,14 @@ fi
 
 if [ $NewBinary -eq 1 ] ; then
   add_log "New $FPCBIN version is ${Build_version} ${Build_date}"
-  NEW_UNITDIR=`./compiler/$FPCBIN -iTP`-`./compiler/$FPCBIN -iTO`
 
   # Register system, objpas and sysutils ppu state
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} system.ppu -log1
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log1
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log1
+  gen_ppu_log rtl/units/${NEW_UNITDIR} system.ppu -log1
+  gen_ppu_log rtl/units/${NEW_UNITDIR} objpas.ppu -log1
+  gen_ppu_log rtl/units/${NEW_UNITDIR} sysutils.ppu -log1
 
   add_log "Start $MAKE installsymlink in compiler dir"
-  ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     add_log "End ${MAKE} -C compiler installsymlink failed res=${makeres}"
@@ -216,7 +220,7 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $make_all_success -eq 1 ] ; then
     add_log "Start $MAKE install"
-    ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+    ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
     makeres=$?
     add_log "End ${MAKE} install, res=${makeres}"
   else
@@ -227,7 +231,7 @@ if [ $NewBinary -eq 1 ] ; then
   if [ $makeres -ne 0 ] ; then
     for dir in rtl compiler packages utils ; do
       add_log "Start $MAKE install in dir $dir"
-      ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+      ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
       makeres=$?
       add_log "End $MAKE -C ./$dir install; result=${makeres}"
     done
@@ -237,14 +241,15 @@ if [ $NewBinary -eq 1 ] ; then
 
   # fullinstall in compiler
   add_log "Start $MAKE fullinstall in compiler"
-  ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+  NEW_PPC_BIN=~/pas/fpc-${Build_version}/bin/$FPCBIN
+  ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   add_log "End $MAKE fullinstall; result=${makeres}"
 
   # Register system, objpas and sysutils new ppu state
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} system.ppu -log2
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log2
-  gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log2
+  gen_ppu_log rtl/units/${NEW_UNITDIR} system.ppu -log2
+  gen_ppu_log rtl/units/${NEW_UNITDIR} objpas.ppu -log2
+  gen_ppu_log rtl/units/${NEW_UNITDIR} sysutils.ppu -log2
 
   # Compare system, objpas and sysutils old versus new ppu state
   gen_ppu_diff system.ppu -log1 -log2
