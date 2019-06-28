@@ -139,6 +139,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   RECOMPILE_FULL_OPT="-CriotR"
   USE_RELEASE_MAKEFILE_VARIABLE=1
 elif [ "X$machine_host" == "Xgcc113" ] ; then
+  DO_FPC_INSTALL=1
   DO_RECOMPILE_FULL=1
   test_utils=1
   test_utils_ppudump=1
@@ -1203,11 +1204,13 @@ check_target i8086 msdos "-n -CX -XX -Wmsmall"
 check_target i8086 win16 "-n -CX -XX -Wmhuge"
 
 # m68k 
+export ASPROG_LOCAL=m68k-amiga-vasmm68k_std
 check_target m68k amiga "-n -Avasm" "" "-vasm"
-export ASPROG_LOCAL="m68k-atari-as --register-prefix-optional" 
+export ASPROG_LOCAL=m68k-atari-vasmm68k_std 
 check_target m68k atari "-n -Avasm"
-export ASPROG_LOCAL=
+export ASPROG_LOCAL=m68k-linux-vasmm68k_std
 check_target m68k linux "-n -Avasm" "" "-vasm"
+export ASPROG_LOCAL=
 ## Disabled: -Avasm is not supported for macos
 ## check_target m68k macos "-n -Avasm" "" "-vasm"
 # palmos requires -CX -XX otherwise section overflow errors appear
