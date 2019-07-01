@@ -13,7 +13,6 @@ export MUTTATTACH=
 export RECOMPILE_COMPILER_FIRST=0
 
 export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin"
-
 if [ "X$PPCCPU" == "X" ] ; then
   export PPCCPU=fpc
 fi
@@ -39,7 +38,6 @@ if [ "$SOURCE_OS" != "$TARGET_OS" ] ; then
   RECOMPILE_COMPILER_FIRST=1
   echo "Re-compiling compiler first because $PPCCPU is cross-os compiler" >> $LOGFILE
 fi
-
 
 echo "Running 32-bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
 NATIVE_OPT32="-ao-32"
@@ -144,7 +142,10 @@ STARTPPNAME=`basename $STARTPP`
 
 if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
   make -C $FPCSRCDIR/compiler distclean cycle OS_TARGET=$TARGET_OS CPU_TARGET=$TARGET_CPU FPC=fpc OPT=-n
-  make -C $FPCSRCDIR/compiler installsymlink FPC=`pwd`/$FPCSRCDIR/compiler/$STARTPPNAME
+  NEW_FPC=`pwd`/$FPCSRCDIR/compiler/$STARTPPNAME
+  export TARGET_VERSION=`$NEW_FPC -iV`
+  export INSTALL_PREFIX=${HOME}/pas/fpc-${TARGET_VERSION}
+  make -C $FPCSRCDIR/compiler installsymlink FPC=$NEW_FPC
 fi
 
 if [ "X${GDBMI}" == "X" ]; then
