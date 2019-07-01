@@ -1,6 +1,11 @@
 #!/bin/bash
 . $HOME/bin/fpc-versions.sh
-if [ "X$FIXES" == "X" ] ; then
+
+if [ -z "$FIXES" ] ; then
+  FIXES=0
+fi
+
+if [ "X$FIXES" == "X0" ] ; then
   export SVNDIR=$TRUNKDIR
   export SVNDIRNAME=$TRUNKDIRNAME
   export TARGET_VERSION=$TRUNKVERSION
