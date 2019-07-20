@@ -18,6 +18,24 @@
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 
 <p>
+ <trn locale="en_US" key="website.frontpage.helpersattributesllvm">
+  <p>
+    <em>July 20, 2019</em>
+  </p>
+    FPC has gained several new features lately:
+    <ul>
+      <li>Multiple helper types can now be <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">active at the same time</a></li>
+      <li>Support has been added for <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">custom attributes</a></li>
+      <li>The compiler can now generate <a href="https://wiki.freepascal.org/LLVM">LLVM bitcode</a> for select platforms (Darwin/x86-64, Linux/x86-64, Linux/AArch64, Linux/ARMHF)</li>
+    </ul>
+    The next FPC release, version 3.2, is planned for later this year. While it will not have support for the above list, it will have <a href="https://wiki.freepascal.org/FPC_New_Features_3.2">its own collection of new features</a> and fixes!
+  <p>
+
+  </p>
+ </trn>
+</p>
+
+<p>
  <trn locale="en_US" key="website.frontpage.fpc25">
   <p>
     <em>June 8, 2018</em>
