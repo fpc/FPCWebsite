@@ -109,7 +109,7 @@
 </div>
 
 <div id="footer">
-  <a href="@maindir@privacy@x@">Privacy statement</a>. Copyright Free Pascal team 1993-2018.<br>
+  <a href="@maindir@privacy@x@">Privacy statement</a>. Copyright Free Pascal team 1993-2019.<br>
   Page design by <a href="http://www.sixshootermedia.com">6ix Shooter Media</a>, additional modifications by Pos3idon<.
 </div>
 </body></html>
