@@ -72,7 +72,7 @@ if [ "X${SCP_EXTRA}" == "X" ] ; then
     SCP_EXTRA="-i $HOME/.ssh/freepascal"
 fi
 
-PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:${HOME}/pas/fpc-${RELEASEVERSION}/bin"
+PATH="${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin:/bin:/usr/bin:/usr/local/bin"
 (
 date=`date "+%Y-%m-%d %H:%M" `
 echo $date
