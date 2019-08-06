@@ -13,6 +13,10 @@ if [ -z "$generate_snapshots" ] ; then
   generate_snapshots=0
 fi
 
+if [ -z "$generate_arm_snapshots" ] ; then
+  generate_arm_snapshots=0
+fi
+
 if [ $generate_snapshots -eq 1 ] ; then
   export LOG=~/logs/last-makesnapshot-fixes
   echo "Starting makesnapshot-fixes at `date`" >> $HOME/.lastfpcfixesup
@@ -30,3 +34,9 @@ else
   echo "Finished check-all-rtl.sh at `date`" >> $HOME/.lastfpcfixesup
 fi
 
+if [ $generate_arm_snapshots -eq 1 ] ; then
+  export LOG=~/logs/last-makesnapshot32-fixes
+  echo "Starting makesnapshot32-fixes at `date`" >> $HOME/.lastfpcfixesup
+  $HOME/bin/makesnapshot32-fixes.sh 1> ${LOG} 2>&1
+  echo "Finished makesnapshot32-fixes at `date`" >> $HOME/.lastfpcfixesup
+fi
