@@ -35,8 +35,17 @@ else
 fi
 
 
-FPC_CPU=aarch64
-FPC_CPUSUF=a64
+if [ -z "$FPC_CPU" ] ; then
+  FPC_CPU=aarch64
+fi
+if [ "$FPC_CPU" == "aarch64" ] ; then
+  FPC_CPUSUF=a64
+elif [ "$FPC_CPU" == "arm" ] ; then
+  FPC_CPUSUF=arm
+else
+  echo "Unsupported CPU $FPC_CPU"
+  exit
+fi
 
 FPC_OS=linux
 FPC_BIN=ppc${FPC_CPUSUF}
@@ -57,11 +66,11 @@ date=`date +%Y-%m-%d`
 
 cd $HOME/pas/$SVNDIR
 
-cat > README <<EOF
+cat > README-${FPC_CPUOS} <<EOF
 This snapshot was generated ${date} using:
 ${MAKE} ${MAKE_OPTIONS}
 started using ${FPC}
-ppc${FPC_CPU} -iVDW output is: `${FPC} -iVDW`
+${FPC_BIN} -iVDW output is: `${FPC} -iVDW`
 
 uname -a of the machine is:
 `uname -a`
@@ -86,7 +95,7 @@ ${MAKE} ${MAKE_OPTIONS} | tee $HOME/logs/${SVNDIR}/makesnapshot-{$FPC_CPUOS}-${d
 
 
 if [ -f ${TAR} ]; then
-  scp ${TAR} README fpcftp:ftp/snapshot/${SVNDIR}/${FPC_CPUOS}
+  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/${SVNDIR}/${FPC_CPUOS}
   res=$?
   if [ $res -ne 0 ] ; then
     echo "Error uploading ${TAR} for ${SVNDIR}"
