@@ -109,6 +109,10 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
   else 
     export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
   fi
+  RELEASE_FPC=ppcarm
+  FPC_CROSS=ppcrossa64
+  FPC_NATIVE=ppca64
+  FULLPATH_RELEASE_FPC=$HOME/pas/fpc-$RELEASEVER/bin/$RELEASE_FPC
 fi
 
 if [ "$MAKE" == "" ]; then
@@ -136,9 +140,11 @@ export testslog=$LOGDIR/tests${LOGSUF}.txt
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+echo "FIXES=$FIXES, SVBDIR=$SVNDIR, FPCBIN=$FPCBIN" >> $report
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
 echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
+echo "Start FPCBIN full info: `$FPCBIN -iVDWSOSPTOTP`" >> $report
 echo "with  OPT=\"$OPT\"" >> $report
 svn cleanup 1>> $report 2>&1
 svn up --force --accept theirs-conflict  1>> $report 2>&1
@@ -159,37 +165,37 @@ find . -name fpmake | xargs rm -Rf
 # 2.6.4 ppcarm binary
 if [ $NO_RELEASE -eq 1 ]; then
   cd compiler
-  if [ -e ./new-ppcarm ] ; then
-    rm ./new-ppcarm
+  if [ -e ./new-$RELEASE_FPC ] ; then
+    rm ./new-$RELEASE_FPC
   fi
-  if [ -e ./new-ppcrossa64 ] ; then
-    rm ./new-ppcrossa64
+  if [ -e ./new-$FPC_CROSS ] ; then
+    rm ./new-$FPC_CROSS
   fi
-  make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
-  make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=ppcarm >> ${makelog} 2>&1
+  make distclean rtlclean OPT="-n" BINUTILSPREFIX=arm-linux-  DEBUG=1 FPC=$FULLPATH_RELEASE_FPC >> ${makelog} 2>&1
+  make cycle OPT="-n" BINUTILSPREFIX=arm-linux- DEBUG=1 FPC=$FULLPATH_RELEASE_FPC >> ${makelog} 2>&1
   res=$?
   if [ $res -eq 0 ] ; then
-    cp ./ppcarm ./new-ppcarm
-    make install FPC=`pwd`/ppcarm INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
+    cp ./$RELEASE_FPC ./new-$RELEASE_FPC
+    make install FPC=`pwd`/$RELEASE_FPC INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
     # This one might fail as 3.0.0 arm relase fpcmake binary crashes
-    make -C ../rtl install FPC=`pwd`/ppcarm INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
+    make -C ../rtl install FPC=`pwd`/$RELEASE_FPC INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
   else
     echo "Error: no new arm native ppcarm" >> $report
     mutt -x -s "Free Pascal failure on ${HOST_PC}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
     exit
   fi
-  make distclean rtlclean CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-ppcarm >> ${makelog} 2>&1
+  make distclean rtlclean CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
   # rtl and all targets cannot be combinedc into a single make call,
   # because UNITDIR_RTL doesn't get updated after rtl compilation
-  make rtl CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-ppcarm >> ${makelog} 2>&1
-  make all CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-ppcarm >> ${makelog} 2>&1
+  make rtl CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
+  make all CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
   res=$?
   if [ $res -eq 0 ] ; then
-    if [ -e ./ppca64 ] ; then
-      cp ./ppca64 ./new-ppcrossa64
-    elif [ -e ./ppcrossa64 ] ; then
-      cp ./ppcrossa64 ./new-ppcrossa64
+    if [ -e ./$FPC_NATIVE ] ; then
+      cp ./$FPC_NATIVE ./new-$FPC_CROSS
+    elif [ -e ./$FPC_CROSS ] ; then
+      cp ./$FPC_CROSS ./new-$FPC_CROSS
     else
       echo "Error: no new arm -> aarch64 cross compiler" >> $report
       mutt -x -s "Free Pascal failure on ${HOST_PC}" \
@@ -202,22 +208,22 @@ if [ $NO_RELEASE -eq 1 ]; then
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
     exit
   fi
-  make distclean rtlclean OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-ppcrossa64 >> ${makelog} 2>&1
+  make distclean rtlclean OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-$FPC_CROSS >> ${makelog} 2>&1
   # rtl and all targets cannot be combinedc into a single make call,
   # because UNITDIR_RTL doesn't get updated after rtl compilation
-  make rtl OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-ppcrossa64 >> ${makelog} 2>&1
-  make all OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-ppcrossa64 >> ${makelog} 2>&1
+  make rtl OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-$FPC_CROSS >> ${makelog} 2>&1
+  make all OPT="-n -XP" ASNAME=as DEBUG=1 FPC=`pwd`/new-$FPC_CROSS >> ${makelog} 2>&1
   if [ ! -d ${HOME}/pas/temp ] ; then
     mkdir -p ${HOME}/pas/temp
   fi
-  if [ -e ./ppca64 ] ; then
-    cp ./ppca64 ${HOME}/pas/temp/ppca64
-    FPCRELEASEBIN=${HOME}/pas/temp/ppca64
-  elif [ -e ./ppcrossa64 ] ; then
-    cp ./ppcrossa64 ${HOME}/pas/temp/ppca64
-    FPCRELEASEBIN=${HOME}/pas/temp/ppca64
+  if [ -e ./$FPC_NATIVE ] ; then
+    cp ./$FPC_NATIVE ${HOME}/pas/temp/$FPC_NATIVE
+    FPCRELEASEBIN=${HOME}/pas/temp/$FPC_NATIVE
+  elif [ -e ./$FPC_CROSS ] ; then
+    cp ./$FPC_CROSS ${HOME}/pas/temp/$FPC_NATIVE
+    FPCRELEASEBIN=${HOME}/pas/temp/$FPC_NATIVE
   else
-    echo"Error: no new ppca64 binary" >> $report
+    echo"Error: no new $FPC_NATIVE binary" >> $report
     mutt -x -s "Free Pascal failure on ${HOST_PC}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
     exit
