@@ -2,5 +2,5 @@
 
 . $HOME/bin/fpc-versions.sh
 
-export FIXES=1
-$HOME/bin/makesnapshot-common.shENDIAN=`readelf -h /bin/sh | grep endian`
+export FIXES=0
+$HOME/bin/makesnapshot-common.sh
