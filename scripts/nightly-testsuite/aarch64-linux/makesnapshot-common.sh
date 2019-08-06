@@ -9,13 +9,9 @@ echo "ENDIAN is $ENDIAN"
 if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
   echo " Big endian machine"
   ENDIAN=big
-  FPC_CPU=mips
-  FPC_CPUSUF=mips
 else
   echo "Little endian machine"
   ENDIAN=little
-  FPC_CPU=mipsel
-  FPC_CPUSUF=mipsel
 fi
 
 if [ -z "$FIXES" ] ; then
@@ -80,17 +76,21 @@ Pierre Muller
 EOF
 
 
-TAR=./fpc-${FPC_VER}.${FPC_CPUOS}.tar.gz
+TAR=`ls -t1 ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz | head -1 `
 
-if [ -f ${TAR} ] ; then
-  mv -f  ${TAR} ${TAR}.old
+if [ -f "${TAR}" ] ; then
+  mv -f  "${TAR}" "${TAR}.old"
 fi
 
-${MAKE} ${MAKE_OPTIONS} | tee $HOME/logs/makesnapshot-${date}.txt
+${MAKE} ${MAKE_OPTIONS} | tee $HOME/logs/${SVNDIR}/makesnapshot-{$FPC_CPUOS}-${date}.txt
 
 
 if [ -f ${TAR} ]; then
-  scp ${TAR} README fpcftp:ftp/snapshot/trunk/${FPC_CPUOS}
+  scp ${TAR} README fpcftp:ftp/snapshot/${SVNDIR}/${FPC_CPUOS}
+  res=$?
+  if [ $res -ne 0 ] ; then
+    echo "Error uploading ${TAR} for ${SVNDIR}"
+  fi
 else
-  echo Failed to created ${TAR} file
+  echo "Failed to created ${TAR} file"
 fi
