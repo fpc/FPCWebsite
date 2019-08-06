@@ -103,7 +103,12 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
   # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
   # instead of supplied libbfd.a from GDB compilation.
   export SPECIALLINK="-Xd"
-  export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
+  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
+  if [ -d /usr/lib/gcc/aarch64-linux-gnu/$gcc_version ] ; then
+    export OPT="$OPT -Fl/usr/lib/gcc/aarch64-linux-gnu/$gcc_version"
+  else 
+    export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
+  fi
 fi
 
 if [ "$MAKE" == "" ]; then
