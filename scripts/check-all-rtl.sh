@@ -649,8 +649,8 @@ function check_target ()
     fi
   elif [ "$CPU_TARG_LOCAL" == "i8086" ] ; then
     ASSEMBLER=nasm
-  elif [ "X${OPT_LOCAL//Avasm/}" != "X$OPT_LOCAL" ] ; then
-    # -Avasm is only used for m68k vasm assmebler 
+  elif [ "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ] ; then
+    # -Avasm is only used for m68k vasm assembler 
     ASSEMBLER=vasmm68k_std
   elif [[ ("$OS_TARG_LOCAL" == "macos") && ("$CPU_TARG_LOCAL" == "powerpc") ]] ; then
     ASSEMBLER=PPCAsm
@@ -1208,8 +1208,11 @@ export ASPROG_LOCAL=m68k-amiga-vasmm68k_std
 check_target m68k amiga "-n -Avasm" "" "-vasm"
 export ASPROG_LOCAL=m68k-atari-vasmm68k_std 
 check_target m68k atari "-n -Avasm"
-export ASPROG_LOCAL=m68k-linux-vasmm68k_std
-check_target m68k linux "-n -Avasm" "" "-vasm"
+## Disabled vasm support for m68k-linux removed
+## in commit #42597 as vasm does not support .hidden directive
+## now required for linux assembler
+## export ASPROG_LOCAL=m68k-linux-vasmm68k_std
+## check_target m68k linux "-n -Avasm" "" "-vasm"
 export ASPROG_LOCAL=
 ## Disabled: -Avasm is not supported for macos
 ## check_target m68k macos "-n -Avasm" "" "-vasm"
