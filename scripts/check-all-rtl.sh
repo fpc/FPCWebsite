@@ -751,7 +751,7 @@ function check_target ()
     res=$?
     if [ $res -eq 0 ] ; then
       # Now recompile compiler, using CPC_TARGET, so that clean removes the old stuff
-      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
+      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL PPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
       res=$?
     fi
     if [ $res -ne 0 ] ; then
@@ -1167,7 +1167,7 @@ export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
-export RECOMPILE_OPT="-dFPC_ARMEB -ao-meabi=5"
+export RECOMPILE_OPT="-dFPC_ARMEB"
 export RECOMPILE_INSTALL_NAME=ppcarmeb
 export CROSSASTARGET="-march=armv5 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caarmeb -Cfsoft" "" "-armeb"
