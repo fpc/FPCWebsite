@@ -135,8 +135,8 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   DO_FPC_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
-  # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT="-CriotR"
+  RECOMPILE_FULL_OPT_O="-04"
   USE_RELEASE_MAKEFILE_VARIABLE=1
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_INSTALL=1
@@ -331,7 +331,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
   mecho "Recompiling native compiler"
-  make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink OPT="-n -gl $RECOMPILE_FULL_OPT $RECOMPILE_FULL_OPT_O" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Second try for native compiler, using FPCCPUOPT=\"-O-\""
@@ -344,7 +344,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
     exit
   fi
   mecho "Recompiling cross-compilers"
-  make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+  make rtlclean rtl fullinstallsymlink OPT="-n -gl $RECOMPILE_FULL_OPT $RECOMPILE_FULL_OPT_O" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Second try for cross-compilers, using FPCCPUOPT=\"-O-\""
