@@ -172,7 +172,7 @@ The sources of docs are in a separate repository called &quot;fpcdocs&quot;, so 
 svn checkout https://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
 </pre>
 
-[B>
+<p>
 If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a>,
 which is also available online in different formats for free.
 </p>
