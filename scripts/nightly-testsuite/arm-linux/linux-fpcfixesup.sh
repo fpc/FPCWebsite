@@ -19,12 +19,7 @@ if [ "X$FPCBIN" == "Xppcarm" ] ; then
   fi
 fi
 export MAKE=make
-if [ "${HOSTNAME}" == "vadmin" ]; then
-  HOST_PC=PC_AFM
-  USER=vadmin
-else
-  HOST_PC=${HOSTNAME}
-fi
+HOST_PC=${HOSTNAME}
 
 if [ "$USER" == "" ]; then
   USER=$LOGNAME
@@ -35,12 +30,12 @@ FPCRELEASEVERSION=$RELEASEVERSION
 
 export PATH=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 echo "PATH is $PATH"
-cd $FIXESDIR 
+cd $FIXESDIR
 
-export report=`pwd`/report.txt 
-export report2=`pwd`/report2.txt 
-export makelog=`pwd`/make.txt 
-export testslog=`pwd`/tests.txt 
+export report=`pwd`/report.txt
+export makelog=`pwd`/make.txt
+export testslog=`pwd`/tests.txt
+export tests2log=`pwd`/tests-2.txt
 
 echo "Starting $0" > $report
 Start_version=`$FPCBIN -iV`
@@ -93,27 +88,26 @@ testsres=$?
 echo "Ending make distclean fulldb; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 
-tail -30 $testslog >> $report
-
-
-mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
 
 TEST_OPT="-Cg $NEEDED_OPT"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" > ${report2}
+echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "`$DATE`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} OPT="$NEEDED_OPT" \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $tests2log 2>&1
 testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 echo "`$DATE`" >> $report
 
-tail -30 $testslog >> $report2
+if [ $testsres -ne 0 ] ; then
+  tail -30 $tests2log >> $report
+fi
 
-
-mutt -x -s "Free Pascal results on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
-     -i $report2 -- pierre@freepascal.org < /dev/null >  ${report}.log
+mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
+     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 
 # Cleanup
