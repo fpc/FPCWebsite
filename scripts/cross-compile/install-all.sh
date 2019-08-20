@@ -42,8 +42,8 @@ function maybe_add_symlink ()
   fi
 }
 
-cpu=`uname -p`
-os=`uname -s`
+cpu=`uname -p | tr [[:upper:]] [[:lower:]] `
+os=`uname -s | tr [[:upper:]] [[:lower:]] `
 echo "cpu=$cpu, os=$os"
 
 case "$os" in
