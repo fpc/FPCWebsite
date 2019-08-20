@@ -96,6 +96,9 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   if [ -n "$REQUIRED_ARM_OPT" ] ; then
     export OPT="$OPT $REQUIRED_ARM_OPT"
   fi
+  if [ -d "$HOME/sys-root/arm-linux-gnueabihf/lib" ] ; then
+    export OPT="$OPT -Fl$HOME/sys-root/arm-linux-gnueabihf/lib"
+  fi
   export FPCMAKEOPT="-gl -XParm-linux- $REQUIRED_ARM_OPT"
 elif [ "$FPCBIN" == "ppca64" ] ; then
   export NO_RELEASE=1
@@ -103,11 +106,17 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
   # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
   # instead of supplied libbfd.a from GDB compilation.
   export SPECIALLINK="-Xd"
-  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
-  if [ -d /usr/lib/gcc/aarch64-linux-gnu/$gcc_version ] ; then
-    export OPT="$OPT -Fl/usr/lib/gcc/aarch64-linux-gnu/$gcc_version"
-  else 
-    export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
+  LIBGCC_NAME=`gcc -print-libgcc-file-name`
+  if [ -f "$LIBGCC_NAME" ] ; then
+    LIBGCC_DIR=`dirname $LIBGCC_NAME`
+    export OPT="$OPT -Fl$LIBGCC_DIR"
+  else
+    gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
+    if [ -d /usr/lib/gcc/aarch64-linux-gnu/$gcc_version ] ; then
+      export OPT="$OPT -Fl/usr/lib/gcc/aarch64-linux-gnu/$gcc_version"
+    else 
+      export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
+    fi
   fi
   RELEASE_FPC=ppcarm
   FPC_CROSS=ppcrossa64
