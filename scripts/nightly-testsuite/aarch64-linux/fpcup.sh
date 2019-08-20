@@ -11,19 +11,24 @@ if [ "$HOSTNAME" == "gcc115" ] ; then
   export generate_snapshots=1
   export generate_arm_snapshots=0
   export ARM_ABI=gnueabihf
-  export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
+  export REQUIRED_ARM_OPT="-dFPC_ARMHF -Cparmv7a"
 elif [ "$HOSTNAME" == "gcc113" ] ; then
   export generate_snapshots=0
   export generate_arm_snapshots=1
   export ARM_ABI=gnueabihf
-  export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
+  export REQUIRED_ARM_OPT="-dFPC_ARMHF -Cparmv7a"
 elif [ "$HOSTNAME" == "gcc118" ] ; then
   export generate_snapshots=0
   export generate_arm_snapshots=0
   export ARM_ABI=gnueabihf
-  export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
+  export REQUIRED_ARM_OPT="-dFPC_ARMHF -Cparmv7a"
 else
   export generate_snapshots=0
+fi
+if [ -d "/usr/arm-linux-$ARM_ABI/lib" ] ; then
+  export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/arm-linux-$ARM_ABI/lib"
+elif [ -d "$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ] ; then
+  export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib"
 fi
 $HOME/bin/fpctrunkup.sh
 $HOME/bin/fpcfixesup.sh
