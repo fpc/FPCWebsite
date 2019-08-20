@@ -4,7 +4,8 @@
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
-ulimit -d 65536 -s 8192 -t 2400
+#ulimit -d 65536 -s 8192 -t 2400
+ulimit -t 2400
 
 processor=`uname -p`
 
@@ -83,7 +84,7 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
     export ARM_ABI=gnueabihf
   fi  
   if [ -z "$REQUIRED_ARM_OPT" ] ; then
-    export REQUIRED_ARM_OPT=" -dFPC_ARMHF -Cparmv7a -Fl/usr/arm-linux-$ARM_ABI/lib"
+    export REQUIRED_ARM_OPT="-dFPC_ARMHF -Cparmv7a"
   fi
   export TEST_BINUTILSPREFIX=arm-linux-
   export BINUTILSPREFIX=arm-linux-
@@ -92,12 +93,16 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
   if [ -d /usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
     export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+  elif [ -d $HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
+    export OPT="$OPT -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+  fi
+  if [ -d "/usr/arm-linux-$ARM_ABI/lib" ] ; then
+    export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/arm-linux-$ARM_ABI/lib"
+  elif [ -d "$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ] ; then
+    export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib"
   fi
   if [ -n "$REQUIRED_ARM_OPT" ] ; then
     export OPT="$OPT $REQUIRED_ARM_OPT"
-  fi
-  if [ -d "$HOME/sys-root/arm-linux-gnueabihf/lib" ] ; then
-    export OPT="$OPT -Fl$HOME/sys-root/arm-linux-gnueabihf/lib"
   fi
   export FPCMAKEOPT="-gl -XParm-linux- $REQUIRED_ARM_OPT"
 elif [ "$FPCBIN" == "ppca64" ] ; then
@@ -117,6 +122,9 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
     else 
       export OPT="${OPT} -Fl/usr/lib/gcc/aarch64-linux-gnu/4.8"
     fi
+  fi
+  if [ -d /usr/lib64 ] ; then
+    export OPT="$OPT -Fl/usr/lib64"
   fi
   RELEASE_FPC=ppcarm
   FPC_CROSS=ppcrossa64
@@ -195,7 +203,7 @@ if [ $NO_RELEASE -eq 1 ]; then
     exit
   fi
   make distclean rtlclean CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
-  # rtl and all targets cannot be combinedc into a single make call,
+  # rtl and all targets cannot be combined into a single make call,
   # because UNITDIR_RTL doesn't get updated after rtl compilation
   make rtl CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
   make all CPC_TARGET=aarch64 OPT="-n -XParm-linux-" ASNAME=arm-linux-as DEBUG=1 FPC=`pwd`/new-$RELEASE_FPC >> ${makelog} 2>&1
