@@ -3,6 +3,7 @@
 force=0
 local_links=0
 
+while [ "${1:0:1}" = "-" ] ; do
 if [ "$1" == "-f" ] ; then
   force=1
   shift
@@ -20,6 +21,21 @@ else
   get_all=0
 fi
 
+if [ "$1" == "-32" ] ; then
+  get_32=1
+  shift
+else
+  get_32=0
+fi
+
+if [ "$1" == "-64" ] ; then
+  get_64=1
+  shift
+else
+  get_64=0
+fi
+done
+
 machine=$1
 
 
@@ -31,6 +47,8 @@ if [ $local_links -eq 0 ]; then
     echo "-f can be added to allow writing into existing directory"
     echo "-l can be added to generate local links (to facilitate move to another machine)"
     echo "-all can be added to keep both 32 and 64-bit libraries"
+    echo "-32 can be added to keep only 32-bit libraries"
+    echo "-64 can be added to keep only 64-bit libraries"
     exit
   fi
 fi
@@ -109,6 +127,16 @@ esac
 
 if [ $get_all -eq 1 ] ; then
   is_32bit=1
+  is_64bit=1
+fi
+
+if [ $get_32 -eq 1 ] ; then
+  is_32bit=1
+  is_64bit=0
+fi
+
+if [ $get_64 -eq 1 ] ; then
+  is_32bit=0
   is_64bit=1
 fi
 
