@@ -149,7 +149,7 @@ export testslog=$LOGDIR/tests${LOGSUF}.txt
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-echo "FIXES=$FIXES, SVBDIR=$SVNDIR, FPCBIN=$FPCBIN" >> $report
+echo "FIXES=$FIXES, SVNDIR=$SVNDIR, FPCBIN=$FPCBIN" >> $report
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
 echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
@@ -366,7 +366,10 @@ cd tests
 
   echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
-  mutt -x -s "Free Pascal results on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
+  TARGET_CPU=`$FPC -iTP`
+  TARGET_OS=`$FPC -iTO`
+
+  mutt -x -s "Free Pascal results on ${HOST_PC} ${TARGET_CPU}-${TARGET_OS} ${SVNDIR}, ${Build_version} ${Build_date}" \
        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 fi
