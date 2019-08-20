@@ -136,8 +136,9 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   RECOMPILE_FULL_OPT="-CriotR"
-  RECOMPILE_FULL_OPT_O="-04"
+  RECOMPILE_FULL_OPT_O="-O4"
   USE_RELEASE_MAKEFILE_VARIABLE=1
+  MAKEJOPT="-j 2"
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_INSTALL=1
   DO_RECOMPILE_FULL=1
