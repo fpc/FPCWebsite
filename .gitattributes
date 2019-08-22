@@ -637,6 +637,7 @@ scripts/proctestsuitediff.pp svneol=native#text/plain
 scripts/readcfg.sh svneol=native#text/plain
 scripts/release/generate-release-3.0.4-steps.sh svneol=native#text/plain
 scripts/release/generate-release-3.2.0-steps.sh svneol=native#text/plain
+scripts/test_packages.sh svneol=native#text/plain
 scripts/updatearchive svneol=native#text/plain
 scripts/updatehtml svneol=native#text/plain
 scripts/updatelists svneol=native#text/plain
