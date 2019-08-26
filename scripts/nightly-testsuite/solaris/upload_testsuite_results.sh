@@ -3,6 +3,10 @@
 DB_HOST=fpc@www.freepascal.org
 DB_UPLOADDIR=testsuite/incoming
 DB_SSH_EXTRA="-i $HOME/.ssh/old-freepascal"
+FTP_HOST=fpcftp
+DIRECT_FTP=0
+GCC_HOST=gcc70
+GCC_UPLOAD_DIR=logs/to_upload/to_ftp
 
 VERBOSE=0
 if [ "X$1" == "X--verbose" ] ; then
@@ -19,7 +23,7 @@ for file in *.tar.gz ; do
       echo "`date +%Y-%m-%d-%H:%M` Trying to upload file $file" >> $LOGFILE
     fi
     t_ok=0
-    scp -q ${DB_SSH_EXTRA} ${file} ${DB_HOST}:${DB_UPLOADDIR}/${file}.part >> $LOGFILE 2>&1
+    scp -pq ${DB_SSH_EXTRA} ${file} ${DB_HOST}:${DB_UPLOADDIR}/${file}.part >> $LOGFILE 2>&1
     resscp=$?
     if [ $resscp -eq 0 ] ; then
       ssh ${DB_SSH_EXTRA} ${DB_HOST} "mv ${DB_UPLOADDIR}/${file}.part ${DB_UPLOADDIR}/${file}" >> $LOGFILE 2>&1
@@ -48,13 +52,37 @@ if [ -d to_ftp ] ; then
   cd to_ftp
   for file in */*/* ; do
     if [ -f $file ] ; then
-      scp $file fpcftp:ftp/snapshot/$file
-      resscp=$?
-      if [ $resscp -eq 0 ] ; then
+      if [ $DIRECT_FTP -eq 1 ] ; then
         if [ $VERBOSE -ne 0 ] ; then
-          echo "`date +%Y-%m-%d-%H:%M` Transfer of $file succeeded" >> $LOGFILE
+          echo "`date +%Y-%m-%d-%H:%M` Starting transfer to fpcftp of file $file" >> $LOGFILE
         fi
-        rm $file
+        scp -p $file fpcftp:ftp/snapshot/$file >> $LOGFILE 2>&1
+        resscp=$?
+        if [ $resscp -eq 0 ] ; then
+          if [ $VERBOSE -ne 0 ] ; then
+            echo "`date +%Y-%m-%d-%H:%M` Transfer of $file succeeded" >> $LOGFILE
+          fi
+          rm $file
+        else
+          echo "Transfer to fpcftp failed, res=$resscp" >> $LOGFILE
+        fi
+      else
+        resscp=1
+      fi
+      if [ $resscp -ne 0 ] ; then
+        if [ $VERBOSE -ne 0 ] ; then
+          echo "`date +%Y-%m-%d-%H:%M` Starting transfer to $GCC_HOST of file $file" >> $LOGFILE
+        fi
+        dir=`dirname $file`
+        ssh $GCC_HOST mkdir -p $GCC_UPLOAD_DIR/$dir >> $LOGFILE 2>&1
+        scp -p $file $GCC_HOST:$GCC_UPLOAD_DIR/$file >> $LOGFILE 2>&1
+        resscp=$?
+        if [ $resscp -eq 0 ] ; then
+          if [ $VERBOSE -ne 0 ] ; then
+            echo "`date +%Y-%m-%d-%H:%M` Transfer to $GCC_HOST of $file succeeded" >> $LOGFILE
+          fi
+          rm $file
+        fi
       fi
     fi
   done
