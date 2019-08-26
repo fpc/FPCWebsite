@@ -213,6 +213,10 @@ if [ "X$MAKE" == "X" ] ; then
   fi
 fi
 
+if [ -z "$USER" ]; then
+  USER=$LOGNAME
+fi
+
 # Use a fake install directory to avoid troubles
 if [ ! -z "$DO_FPC_INSTALL" ] ; then
   export LOCAL_INSTALL_PREFIX=$HOME/pas/fpc-$FPCVERSION
