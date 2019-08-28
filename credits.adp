@@ -1,8 +1,9 @@
 <master>
-<property name="title">Free Pascal - Credits</property>
+<property name="title"><trn key="website.credits.title" locale="en_US">Free Pascal - Credits</trn></property>
 <property name="entry">credits</property>
-<property name="header">Credits</property>
+<property name="header"><trn key="website.credits.header" locale="en_US">Credits</trn></property>
 
+<trn key="website.credits.note" locale="en_US">
 <p> This page lists some of the people who have contributed to the
 Free Pascal compiler project. Of course, the list is not complete,
 as many, many people have used and helped us in the development
@@ -10,7 +11,9 @@ of Free Pascal. We would like to thank all of you who submit
 bug reports (as well as patches) and generally encourage
 us to continue our work. Its all very appreciated.
 </p>
+</trn>
 
+<trn key="website.credits.contributions" locale="en_US">
 <h3>Direct contributions</h3>
 
 <p> The following people made direct improvements
@@ -39,7 +42,9 @@ to the compiler / runtime library and associated software.
 <li>Gertjan Schouten : Sysutils unit (rtl) </li>
 <li>Karoly Balogh : MorphOS port (rtl)</li>
 </ul>
+</trn>
 
+<trn key="website.credits.thanks" locale="en_US">
 <h3>Thanks / Indirect contributions</h3>
 
 <p> The following people helped us in a technical way </p>
@@ -60,7 +65,7 @@ farm hosting.  Specially I'd like to thank
 	 <li>Marc Olzheim</li>
 	 <li>Jilles Tjoelker</li>
 	 <li>Janjaap van Velthooven</li>
-	 <li>Serge van den Boom</li>	
+	 <li>Serge van den Boom</li>
 	 <li>Jan-Willem Knopper</li>
 	 <li>Nick Brok</li>
 	</ul>
@@ -68,4 +73,6 @@ farm hosting.  Specially I'd like to thank
 <li>Menno Victor van der star : Original floodfill algorithm (graph unit)</li>
 <li>Rolf Jansen : XCode integration kit, Mac OS Universal Interfaces</li>
 </ul>
+</trn>
+
 

@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download DOS (GO32v2) version</property>
+<property name="title"><trn key="website.down.i386.go32v2.title" locale="en_US">Free Pascal - Download DOS (GO32v2) version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download DOS (GO32v2)</property>
+<property name="header"><trn key="website.down.i386.go32v2.header" locale="en_US">Download DOS (GO32v2)</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -14,6 +14,7 @@
 <trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>. <trn key="website.old_windows_only" locale="en_US"> Please keep in mind that this package
 isn't supposed to work in Windows NT/2000/XP.</trn>
 
+<trn key="website.down.i386.go32v2.download" locale="en_US">
 <h3>Download as one file</h3>
 <ul>
 <li>
@@ -23,10 +24,15 @@ or you can download a file that contains the same, only without sources and docu
 <a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos304.zip">dos304.zip</a> (21 MB).
 <!-- <li>Alternatively, you can download individual packages from <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate">here</a>. -->
 </ul>
+</trn>
 
+<trn key="website.down.i386.go32v2.note" locale="en_US">
 <h3> <a name="dossep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
+</trn>
 <OL>
+
+<trn key="website.down.i386.go32v2.install" locale="en_US">
 <li> <b>Mandatory files:</b>
 <ul>
 <li> Install program: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.exe">install.exe</a> (352 kB)
@@ -34,6 +40,9 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Base files (program and units): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/basedos.zip">basedos.zip</a> (4 MB)
 <li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/aslddos.zip">aslddos.zip</a> (1 MB)
 </ul>
+</trn>
+
+<trn key="website.down.i386.go32v2.optional" locale="en_US">
 <li> <b>Optional files:</b>
 <ul>
 <li> The readme file: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/readme.txt">readme.txt</a> (15 kB)
@@ -64,6 +73,9 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Symbolic (unit for parsing and evaluating expressions): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/usymbdos.zip">usymbdos.zip</a> (62 kB)
 <li> Demo files: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/demo.zip">demo.zip</a> (245 kB)
 </ul>
+</trn>
+
+<trn key="website.down.i386.go32v2.source" locale="en_US">
 <li>
 <b>Optional source files:</b>
 <ul>
@@ -96,10 +108,17 @@ You can download the contents of the above zip files as separate files:<br>
 <li> GD library interface units sources: <a href="@mirror_url@dist/@latestversion@/source/short/separate/ulgdsrc.zip">ulgdsrc.zip</a> (17 kB)
 <li> Symbolic (unit for parsing and evaluating expressions) sources: <a href="@mirror_url@dist/@latestversion@/source/short/separate/usymbsrc.zip">usymbsrc.zip</a> (56 kB)
 <li> Sources of units required for building fpmake.exe: <a href="@mirror_url@dist/@latestversion@/source/short/separate/ufpmksrc.zip">ufpmksrc.zip</a> (38 kB)
-</ul>You should download all these files in 1 directory, and then run the install
+</ul>
+</trn>
+
+<trn key="website.down.i386.go32v2.directory" locale="en_US">
+You should download all these files in 1 directory, and then run the install
 program in this directory. It will detect which files you downloaded, and
 offer to install only those files actually present. Therefore, you cannot
 change the name of the files!
+</trn>
+
+<trn key="website.down.i386.go32v2.make" locale="en_US">
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities:
@@ -110,10 +129,11 @@ change the name of the files!
 <li>Floating point processor emulator:
 <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (60 kB)
 </ul>
+</trn>
 </OL>
 
 <hr>
 <p>
-<a href="go32v2@x@">Back to mirror list</a><br/>
-<a href="../../download@x@">Back to general download page</a>
+<a href="go32v2@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

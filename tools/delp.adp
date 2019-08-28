@@ -1,10 +1,12 @@
 <master>
-<property name="title">Free Pascal - Tools</property>
+<property name="title"><trn key="website.tools.delp.title" locale="en_US">Free Pascal - Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">delp</property>
 <property name="maindir">../</property>
-<property name="header">delp</property>
+<property name="header"><trn key="website.tools.delp.header" locale="en_US">delp</trn></property>
+
+<trn key="website.tools.delp.man" locale="en_US">
 <h1>DELP - Free Pascal file deletion tool.</h1>
 What follows is the Free Pascal File deletion tool manual page. If you have
 the manual pages installed, you can view them using the <b>man</b> command.
@@ -142,3 +144,4 @@ FreePascal                 12 Dec 1999                          2
 
 
 </PRE>
+</trn>

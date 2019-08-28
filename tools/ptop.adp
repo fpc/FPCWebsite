@@ -1,11 +1,12 @@
 <master>
-<property name="title">Free Pascal - Tools</property>
+<property name="title"><trn key="website.tools.ptop.title" locale="en_US">Free Pascal - Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ptop</property>
 <property name="maindir">../</property>
-<property name="header">ptop</property>
+<property name="header"><trn key="website.tools.ptop.header" locale="en_US">ptop</trn></property>
 
+<trn key="website.tools.ptop.man" locale="en_US">
 <h1>PTOP - Free Pascal source formatter</h1>
 What follows below is the man page of <b>ptop</b> and the description of the
 configuration file. If you have installed the man pages then you can view
@@ -345,3 +346,4 @@ FreePascal                 31 may 1999                          3
 
 
 </PRE>
+</trn>

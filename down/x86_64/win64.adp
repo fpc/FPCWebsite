@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download x86_64 Win64 version</property>
+<property name="title"><trn key="website.down.x86_64.win64.title" locale="en_US">Free Pascal - Download x86_64 Win64 version</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_win64_x86_64" locale="en_US">Download x86_64 Win64</trn></property>
 <property name="modify"></property>
@@ -23,7 +23,7 @@
 <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe">fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe</a> (26 MB)
 <p><trn key="website.Download_win32_win64_cross_installer" locale="en_US">Contains the installer with the win32 to x86_64-Win64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.</trn></p>
 </ul>
- 
+
 <hr>
 <p>
 <a href="wince@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br>

@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Nintendo Wii version</property>
+<property name="title"><trn key="website.down.powerpc.wii.title" locale="en_US">Free Pascal - Download Nintendo Wii version</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_powerpc_wii" locale="en_US">Download Nintendo Wii</trn></property>
 <property name="modify"></property>

@@ -1,10 +1,11 @@
 <master>
-<property name="title">Free Pascal - Programming Tools</property>
+<property name="title"><trn key="website.tools.tools.title" locale="en_US">Free Pascal - Programming Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="maindir">../</property>
-<property name="header">Tools that come with FPC</property>
+<property name="header"><trn key="website.tools.tools.header" locale="en_US">Tools that come with FPC</trn></property>
 
+<trn key="website.tools.tools.list" locale="en_US">
 <h1><a href="tools.var">Tools that come with Free Pascal</a></h1>
 Free Pascal comes with several command-line tools that you can use to ease
 your programming. The following tools are available:
@@ -41,3 +42,4 @@ by the compiler to some other format. (GNU gettext at the moment)
 HREF="mailto:ag@muwiinfa.geschichte.uni-mainz.de">Albert Graef</a>. It can be used
 to create pascal units from a Lex vocabulary and Yacc grammar.
 </OL>
+</trn>

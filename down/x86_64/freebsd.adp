@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download AMD64/x86_64 FreeBSD version</property>
+<property name="title"><trn key="website.down.x86_64.freebsd.title" locale="en_US">Free Pascal - Download AMD64/x86_64 FreeBSD version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download FreeBSD AMD64/x86_64</property>
+<property name="header"><trn key="website.down.x86_64.freebsd.title" locale="en_US">Download FreeBSD AMD64/x86_64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

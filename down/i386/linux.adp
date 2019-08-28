@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Linux</property>
+<property name="title"><trn key="website.down.i386.linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Intel/i386 Linux</trn></property>
 <property name="modify"></property>
@@ -31,7 +31,7 @@ It is available in different formats:
 <li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">fpc-@latestversion@.i386-linux.tar</a> (53 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script.
-  After untarring the archive into a temporary location, you can run the install script 
+  After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 </trn></li>
 <li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (22 MB)
@@ -66,7 +66,7 @@ It is available in different formats:
 <h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.</trn></em>
 <ul>
-<li><b>Deb archives for @latestversion@ are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
+<li><b><trn key="website.down.i386.linux.archives" locale="en_US">Deb archives for @latestversion@ are not available from us. Please refer to the official Debian experimental repository instead.</trn></b><br>
 </ul>
 
 <hr>

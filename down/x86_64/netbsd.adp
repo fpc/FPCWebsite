@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download NetBSD</property>
+<property name="title"><trn key="website.down.x86_64.netbsd.title" locale="en_US">Free Pascal - Download NetBSD</trn></property>
 <property name="entry">download</property>
-<property name="header">Download NetBSD AMD64/x86_64</property>
+<property name="header"><trn key="website.down.x86_64.netbsd.header" locale="en_US">Download NetBSD AMD64/x86_64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

@@ -1,10 +1,11 @@
 <master>
-<property name="title">Free Pascal - About us</property>
+<property name="title"><trn key="website.aboutus.title" locale="en_US">Free Pascal - About us</trn></property>
 <property name="entry">moreinfo</property>
-<property name="header">Free Pascal development team</property>
+<property name="header"><trn key="website.aboutus.header" locale="en_US">Free Pascal development team</trn></property>
 
 <ul>
 <h4>Carl Eric Cod&egrave;re</h4>
+<trn key="website.aboutus.developer.carl" locale="en_US">
 <IMG SRC="pic/cc.jpg" ALT="picture of Carl" HEIGHT=175 WIDTH=176>
 <p>
 Year of birth: 1975<br>
@@ -18,10 +19,12 @@ Contributed the following work to the project (now a sleeping member):
   <li>680x0/RISC porter.maintainer</li>
 </ul>
 <address>Email: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
+</trn>
 
 
 <hr>
 <h4>Dani&euml;l Mantione</h4>
+<trn key="website.aboutus.developer.daniel" locale="en_US">
 <IMG SRC="pic/dm.jpg" ALT="picture of Daniel" HEIGHT=199 WIDTH=167>
 <p>
 Year of birth: 1977<br>
@@ -37,10 +40,12 @@ Contributes the following work to the project:
   <li>i386 compiler development</li>
 </ul>
 <address>Email: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
-
+<address>Email: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
+</trn>
 
 <hr>
 <h4>Florian Kl&auml;mpfl</h4>
+<trn key="website.aboutus.developer.florian" locale="en_US">
 Year of birth: 1975<br>
 Job: Working at the university Erlangen-N&uuml;rnberg and preparing a PhD
 <p>
@@ -53,10 +58,11 @@ Contributes the following work to the project:
   <li>i386 compiler coordination</li>
 </ul>
 <address>Email: <a href="mailto:florian&#x040;freepascal.org">florian&#x040;freepascal.org</a></address>
-
+</trn>
 
 <hr>
 <h4>Jonas Maebe</h4>
+<trn key="website.aboutus.developer.jonas" locale="en_US">
 <IMG SRC="pic/jm.jpg" ALT="picture of Jonas" HEIGHT=175>
 <p>
 Year of birth: 1979<br>
@@ -70,10 +76,11 @@ Contributes the following work to the project:
   <li>Compiler and rtl development</li>
 </ul>
 <address>Email: <a href="mailto:jonas&#x040;SPAM.freepascal.ME.org.NOT">jonas&#x040;SPAM.freepascal.ME.org.NOT</a></address>
-
+</trn>
 
 <hr>
 <h4>Michael Van Canneyt</h4>
+<trn key="website.aboutus.developer.michael" locale="en_US">
 (no picture)
 <p>
 Year of birth: 1970<br>
@@ -89,10 +96,11 @@ Contributes the following work to the project:
   <li>Some general Run-Time-Library maintainance/coordination</li>
 </ul>
 <address>Email: <a href="mailto:michael&#x040;freepascal.org">michael&#x040;freepascal.org</a></address>
-
+</trn>
 
 <hr>
 <h4>Peter Vreman</h4>
+<trn key="website.aboutus.developer.peter" locale="en_US">
 (no picture)
 <p>
 Year of birth: 1976<br>
@@ -105,10 +113,11 @@ Contributes the following work to the project:
   <li>runtime library development</li>
 </ul>
 <address>Email: <a href="mailto:peter&#x040;freepascal.org">peter&#x040;freepascal.org</a></address>
-
+</trn>
 
 <hr>
 <h4>Pierre Muller</h4>
+<trn key="website.aboutus.developer.muller" locale="en_US">
 (no picture)
 <p>
 Year of birth: 1965<br>
@@ -124,9 +133,11 @@ Contributes the following work to the project:
   <li>runtime library coordination</li>
 </ul>
 <address>Email: <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
+</trn>
 
 <hr>
 <h4>Marco van de Voort</h4>
+<trn key="website.aboutus.developer.marco" locale="en_US">
 <IMG SRC="pic/marco1.jpg" ALT="picture of Marco" HEIGHT=163 WIDTH=162>
 <p>
 Year of birth: 1973<br>
@@ -140,6 +151,7 @@ Contributes the following work to the project:
   <li>Developping BSD port</li>
 </ul>
 <address>Email: <a href="mailto:marco&#x040;freepascal.org">marco&#x040;freepascal.org</a></address>
+</trn>
 </ul>
 
 <hr>

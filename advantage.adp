@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Advantages of programming in Pascal and Free Pascal</property>
+<property name="title"><trn key="website.advantage.title" locale="en_US">Free Pascal - Advantages of programming in Pascal and Free Pascal</trn></property>
 <property name="entry">advantage</property>
 <property name="header"><trn key="website.Advantages_title" locale="en_US">Advantages of Free Pascal</trn></property>
 
@@ -41,7 +41,7 @@
       has been able to make Pascal one of the fastest languages there are.
       Further, Free Pascal programs tend to use little memory.
       For comparison with other languages we suggest the
-      <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark</A> 
+      <A href='http://shootout.alioth.debian.org/gp4/benchmark.php?test=all&lang=all'>Shootout benchmark</A>
       and recommend you modify the weights to your own taste.
     </trn>
     <li><trn key="website.adv_IDE" locale="en_US">
@@ -91,6 +91,6 @@
       compatible with it than any other Pascal compiler. We are almost completely
       compatible with Turbo Pascal and quite well compatible with Delphi source
       code. If you have code in another language, like C or assembler, just
-      use favorite compiler for it and call it from Free Pascal. 
+      use favorite compiler for it and call it from Free Pascal.
     </trn>
 </ul>

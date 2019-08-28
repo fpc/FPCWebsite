@@ -1,7 +1,9 @@
 <master>
-<property name="title">Free Pascal - Development</property>
+<property name="title"><trn key="website.develop.title" locale="en_US">Free Pascal - Development</trn></property>
 <property name="entry">develop</property>
-<property name="header">Development</property>
+<property name="header"><trn key="website.develop.header" locale="en_US">Development</trn></property>
+
+<trn key="website.develop.note" locale="en_US">
 <p>
 Free Pascal is always under development. If you want to see how the
 development is progressing you can take a peek at the developer versions.</p>
@@ -10,11 +12,13 @@ development is progressing you can take a peek at the developer versions.</p>
 <p><b>Note:</b> Always <b>start using the latest official release</b> when compiling a development version. Any other starting compiler is not guaranteed to work.</p>
 
 <p>You have the following options:</p>
+</trn>
 
 <hr>
 
 <a name="sourcesv21"></a>
 <a name="sourcestrunk"></a>
+<trn key="website.develop.tree" locale="en_US">
 <h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
 You can download today's development (trunk - currently v3.1.x) sources in the form
@@ -30,9 +34,11 @@ Furthermore, there is an even larger archive including the fpc sources together
 with documentation sources and release-building-related files in the same directory -
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/source/fpcbuild.zip">fpcbuild.zip</a>.
 </p>
+</trn>
 
 <a name="sourcesv20"></a>
 <a name="sourcesfixes"></a>
+<trn key="website.develop.snapshot" locale="en_US">
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
 You can download today's fixes branch (currently v3.0.x) sources in the form
@@ -49,6 +55,7 @@ Furthermore, there is an even larger archive including the fpc sources together
 with docs sources and release building related files in the same directory -
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/source/fpcbuild.zip">fpcbuild.zip</a>.
 </p>
+</trn>
 
 <br>
 
@@ -57,6 +64,7 @@ with docs sources and release building related files in the same directory -
 
 <a name="snapshotsv21"></a>
 <a name="snapshotstrunk"></a>
+<trn key="website.develop.daily" locale="en_US">
 <h3>Download Daily Update of Development Tree (trunk)</h3>
 <p>
 These compiled snapshots contain the latest development updates and bug fixes. There is no
@@ -65,9 +73,12 @@ is bugfree.
 </p>
 <p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/trunk/">ftp site</a> and mirrors.
 </p>
+</trn>
 
 <a name="snapshotsv20"></a>
 <a name="snapshotsfixes"></a>
+
+<trn key="website.develop.fixes" locale="en_US">
 <h3>Download Daily Update of the Fixes Tree</h3>
 <p>
 These compiled snapshots contain the latest bug fixes, without major new
@@ -77,11 +88,12 @@ snapshots are bug free.
 </p>
 <p>The files are available from our <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/fixes/">ftp site</a> and mirrors.
 </p>
+</trn>
 
 <br>
 
 <hr>
-
+<trn key="website.develop.svn" locale="en_US">
 <a name="svn"></a><h3>Connect to Source Repository with SVN</h3>
 <p>
 As an alternative to the daily zip files of the SVN sources,
@@ -98,7 +110,9 @@ How do you obtain the sources via SVN? Generally, you need 3 steps:<br>
 (once you have SVN installed, of course. Look <a href="http://subversion.tigris.org">here</a> for instructions on
 how to do that.)
 </p>
+</trn>
 
+<trn key="website.develop.fpc" locale="en_US">
 <OL>
 <li> To retrieve the full fpc source repository,
 type
@@ -143,6 +157,9 @@ You can repeat this step whenever you want to update your sources. It is by
 far the most economic way to remain up-to-date in terms of bandwidth.
 
 </OL>
+</trn>
+
+<trn key="website.develop.fixes30x" locale="en_US">
 <p>
 <b>Fixes to 3.0.x </b>
 </p>
@@ -176,9 +193,11 @@ svn checkout https://svn.freepascal.org/svn/fpcdocs/trunk fpcdocs
 If you want to learn more about subversion, read this excellent <a href="http://svnbook.red-bean.com/">Subversion book</a>,
 which is also available online in different formats for free.
 </p>
+</trn>
 
 <hr>
 
+<trn key="website.develop.repositories" locale="en_US">
 <a name="morerepos"></a><h3>Other repositories</h3>
 The fpc svn server hosts more repositories than only the fpc repository. You can check them out using
 svn co https://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt; is:<br>
@@ -189,18 +208,22 @@ svn co https://svn.freepascal.org/svn/&lt;repository&gt; where &lt;repository&gt
 <b>fpcbuild</b> Everything needed to build fpc releases. This links
 to several other repositories, so this checkout is really big.<br>
 <b>logs</b> Log files of the repositories mentioned above.<br>
+</trn>
 
 <hr>
 
+<trn key="website.develop.browse" locale="en_US">
 <a name="svnweb"></a><h3>Browse the Source Repository with a Web Browser</h3>
 
 <p>
 The contents of the SVN archive can also be browsed with your web-browser
 through this <a href="https//www.freepascal.org/cgi-bin/viewcvs.cgi/?root=fpc">viewcvs</a> interface.
 </p>
+</trn>
 
 <hr>
 
+<trn key="website.develop.future" locale="en_US">
 <a name="future"></a><h3>Bugs and the Future</h3>
 <p>
 A list of known bugs is available <a href="https://bugs.freepascal.org/set_project.php?project_id=6">here</a>.<br>
@@ -208,3 +231,4 @@ Future plans for Free Pascal can be viewed <a href="future@x@">here</a>.<br>
 If you are interested in FPC development, you may also be interested in the
 <a href="http://wiki.freepascal.org/">wiki</a>.
 </p>
+</trn>

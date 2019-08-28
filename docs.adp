@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Online documentation</property>
+<property name="title"><trn key="website.docs.title" locale="en_US">Free Pascal - Online documentation</trn></property>
 <property name="entry">docs</property>
 <property name="header"><trn locale="en_US" key="website.Online_documentation">Online documentation</trn></property>
 
@@ -9,8 +9,9 @@
 </trn>
 <p>
 <h3><trn locale="en_US" key="website.PDFs_available">The following documents are online available:</trn></h3>
+
 <table summary="" width="75%" rules="none" cellspacing="0" cellpadding="3" border="1">
-<tr><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th><th WIDTH="90%" ALIGN=LEFT>Document</th></tr>
+<tr><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th><th WIDTH="90%" ALIGN=LEFT><trn key="website.docs.documents" locale="en_US">Document</trn></th></tr>
 
 <tr>
     <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/user.pdf">PDF</a></td>
@@ -48,6 +49,7 @@
      <td><trn locale="en_US" key="website.Doc_refchart">Reference chart with all compiler options and switches (PDF only)</trn> </td>
 </tr>
 </table>
+
 </p>
 
 <p>
@@ -63,21 +65,24 @@
 </trn>
 </p>
 
-<h3>User contributed documentation</h3>
+<h3><trn key="website.docs.contributed" locale="en_US">User contributed documentation</trn></h3>
 <p>
 <trn locale="en_US" key="website.User_contributed_documents">The following user contributed documents are available</trn>:
 </p>
 <p>
+
+<trn key="website.docs.contributed" locale="en_US">
 <table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
 <tr><th WIDTH="30%" ALIGN=LEFT>Document</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
-<tr><td>class chart in PDF format(Thanks to Tiziano!)</td> 
+<tr><td>class chart in PDF format(Thanks to Tiziano!)</td>
    <td><a href="http://www.freepascal.org/docs/ClassChart3.pdf">PDF</a></td>
    <td>-</td>
 </tr>
 </table>
+</trn>
 </p>
 
-<h3>More information</h3>
+<h3><trn key="website.docs.information" locale="en_US">More information</trn></h3>
 <trn locale="en_US" key="website.moreinfo">
   Additional information, user contributed documentation and links can be found on the <a href="moreinfo@x@">More Information</a> page.
 </trn>

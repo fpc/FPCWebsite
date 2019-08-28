@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Android version</property>
+<property name="title"><trn key="website.down.android.title" locale="en_US">Free Pascal - Download Android version</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_android" locale="en_US">Download Android</trn></property>
 <property name="modify"></property>

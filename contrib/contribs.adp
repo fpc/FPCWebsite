@@ -1,7 +1,7 @@
 <master>
 <property name="picdir">../pic</property>
 <property name="maindir">../</property>
-<property name="title">Free Pascal - Contributions</property>
+<property name="title"><trn key="website.contribs.title" locale="en_US">Free Pascal - Contributions</trn></property>
 <property name="entry">Contributions</property>
 <property name="header">Contributions</property>
 <property name="headmatter">
@@ -26,11 +26,12 @@
 .description { padding-top: 5px; padding-left: 5px; padding-right: 20px; padding-bottom: 5px}
 </style>
 </property>
-
+<trn key="website.contribs.list" locale="en_US">
   Below is the list of contributions by various FPC users. You can add an entry if you have a community account.<p>
   The column titles in the grid can be used to sort entries or filter them.<p>
+</trn>
   <div ID="contribs" style="overflow:hidden">
-    
+
  </div>
 </div>
 

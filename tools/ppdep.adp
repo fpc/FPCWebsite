@@ -1,12 +1,14 @@
 <master>
-<property name="title">Free Pascal - Tools</property>
+<property name="title"><trn key="website.tools.ppdep.title" locale="en_US">Free Pascal - Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ppdep</property>
 <property name="maindir">../</property>
-<property name="header">ppdep</property>
+<property name="header"><trn key="website.tools.ppdep.header" locale="en_US">ppdep</trn></property>
+
+<trn key="website.tools.ppdep.man" locale="en_US">
 <h1>PPDEP - Free Pascal unit dependency lister</h1>
-What follows below is the contents of the manual page of <b>ppdep</b>. 
+What follows below is the contents of the manual page of <b>ppdep</b>.
 If you have installed the man pages then you can view them with the <b>man</b> command.
 <hr>
 <PRE>
@@ -143,4 +145,5 @@ FreePascal                 9 June 1999                          2
 
 
 </PRE>
+</trn>
 </html>

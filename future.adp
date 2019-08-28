@@ -1,20 +1,22 @@
 <master>
-<property name="title">Free Pascal - Future Plans</property>
+<property name="title"><trn key="website.future.title" locale="en_US">Free Pascal - Future Plans</trn></property>
 <property name="entry">develop</property>
 <property name="subentry">future</property>
-<property name="header">Future Plans</property>
+<property name="header"><trn key="website.future.title" locale="en_US">Future Plans</trn></property>
 
 <ul>
 
-<li><h3>Planned for next versions</h3></li>
+<li><h3><trn key="website.future.planned" locale="en_US">Planned for next versions</trn></h3></li>
 <p>
 <ul>
- <li><b>Next major Version</b></li>
+
+ <li><b><trn key="website.future.major" locale="en_US">Next major Version</trn></b></li>
   <ul>
-   <li>New implemented features are tracked on <a href="http://wiki.freepascal.org/FPC_New_Features_Trunk">the Wiki</a>.
+   <li><trn key="website.future.tracked" locale="en_US">New implemented features are tracked on <a href="http://wiki.freepascal.org/FPC_New_Features_Trunk">the Wiki</trn></a>.
 </ul>
 <p>
 
+<trn key="website.future.later" locale="en_US">
 <li><h3>Planned for later versions</h3></li>
   <ul>
     <li>Linking with C++ code</li>
@@ -26,11 +28,16 @@
     <li>Better support for dynamic linking and packages</li>
     <li>Support for sets with more than 256 elements</li>
   </ul>
+</trn>
+
+<trn key="website.future.maintenance" locale="en_US">
   <p>
 <li><h3>Maintenance tasks still open (Junior developer tasks)</h3></li>
 
 Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
+</trn>
 
+<trn key="website.future.list" locale="en_US">
 <ul>
   <li>Rework and check the windows unit (macro parameter problem)(<b>3</b>)</li>
   <li>More Windows API units (<b>4</b>) </li>
@@ -46,7 +53,7 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
   <li>Generating high quality feedback (bugreports with 100 lines max demo programs)</li>
   <li>More demos and examples(<b>2-4</b>)</li>
   <li>Documentation, tutorials</li>
-  <li>Improve the database support 
+  <li>Improve the database support
   <ul>
     <li>Improve basic custom variants support (TInvokableVariant, TPublishableVariant) (<b>4-6</b>)</li>
     <li>Improve TDataSet compability (implement missing methods)  (<b>4-6</b>)	</li>
@@ -66,3 +73,4 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
     </ul>
   </li>
 </ul>
+</trn>

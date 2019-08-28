@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Getting the website in your language</property>
+<property name="title"><trn key="website.lang_howto.title" locale="en_US">Free Pascal - Getting the website in your language</trn></property>
 <property name="entry">lang_howto</property>
-<property name="header">Getting the website in your language</property>
+<property name="header"><trn key="website.lang_howto.header" locale="en_US">Getting the website in your language</trn></property>
 
 <h2><trn key="website.config_browser_t" locale="en_US">Configuring your browser</trn></h2>
 <trn key="website.config_browser_d" locale="en_US">

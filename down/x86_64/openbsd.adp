@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download OpenBSD</property>
+<property name="title"><trn key="website.down.x86_64.openbsd.title" locale="en_US">Free Pascal - Download OpenBSD</trn></property>
 <property name="entry">download</property>
-<property name="header">Download OpenBSD AMD64/x86_64</property>
+<property name="header"><trn key="website.down.x86_64.openbsd.header" locale="en_US">Download OpenBSD AMD64/x86_64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

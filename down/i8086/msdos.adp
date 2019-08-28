@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download i8086 MS-DOS version</property>
+<property name="title"><trn key="website.down.i8086.msdos.title" locale="en_US">Free Pascal - Download i8086 MS-DOS version</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_i8086_msdos" locale="en_US">Download i8086 MS-DOS</trn></property>
 <property name="modify"></property>
@@ -26,20 +26,20 @@
     <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (22 MB)
     <p><trn key="website.Download_linux_i386_msdos_cross_installer" locale="en_US">Contains a tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">native Linux/i386 compiler</a> (42.8 MB) to be able to work. You can install it like the native compiler.</trn></p>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-@latestversion@.x86_64-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.x86_64-linux.cross.i8086-msdos.tar.xz</a> (25 MB) 
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-@latestversion@.x86_64-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.x86_64-linux.cross.i8086-msdos.tar.xz</a> (25 MB)
     <p><trn key="website.Download_linux_x86_64_msdos_cross_installer" locale="en_US">Contains a tar file with the Linux/x86_64 to MS-DOS (real mode, i8086) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/x86_64-linux/fpc-@latestversion@.x86_64-linux.tar">native Linux/x86_64 compiler</a> to be able to work. You can install it like the native compiler.</trn></p>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@-1.i686.rpm</a> (25 MB) 
-    <p><trn key="website.Download_linux_i386_msdos_cross_rpm" locale="en_US">A addon RPM to install i386-linux to i8086 msdos crosscompilation
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@-1.i686.rpm</a> (25 MB)
+    <p><trn key="website.Download_linux_i386_msdos_cross_rpm" locale="en_US">A addon RPM to install i386-linux to i8086 msdos crosscompilation</trn></p>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB)  
-    <p><trn key="website.Download_linux_i386_msdos_cross_srpm" locale="en_US">The associated i386 to i8086 SRPM
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.i686.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB)
+    <p><trn key="website.Download_linux_i386_msdos_cross_srpm" locale="en_US">The associated i386 to i8086 SRPM</trn></p>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.rpm">fpc-i8086-msdos-@latestversion@-1.x86_64.rpm</a> (27 MB)  
-    <p><trn key="website.Download_linux_x86_64_msdos_cross_rpm" locale="en_US">A addon RPM to install x86_64-linux to i8086 msdos crosscompilation
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.rpm">fpc-i8086-msdos-@latestversion@-1.x86_64.rpm</a> (27 MB)
+    <p><trn key="website.Download_linux_x86_64_msdos_cross_rpm" locale="en_US">A addon RPM to install x86_64-linux to i8086 msdos crosscompilation</trn></p>
   <li>
-    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB) 
-    <p><trn key="website.Download_linux_x86_64_msdos_cross_srpm" locale="en_US">The associated x86_64 to i8086 SRPM
+    <a href="@mirror_url@dist/@latestversion@/i8086-msdos/fpc-i8086-msdos-@latestversion@-1.x86_64.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (65 MB)
+    <p><trn key="website.Download_linux_x86_64_msdos_cross_srpm" locale="en_US">The associated x86_64 to i8086 SRPM</trn></p>
 </ul>
 
 <hr>

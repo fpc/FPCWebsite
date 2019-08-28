@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Game Boy Advance version</property>
+<property name="title"><trn key="website.down.gba.title" locale="en_US">Free Pascal - Download Game Boy Advance version</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_arm_gba" locale="en_US">Download Game Boy Advance</trn></property>
 <property name="modify"></property>

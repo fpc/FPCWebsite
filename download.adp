@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download</property>
+<property name="title"><trn key="website.download.title" locale="en_US">Free Pascal - Download</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.Download" locale="en_US">Download</trn></property>
 
@@ -38,17 +38,17 @@
 
   <li>Intel/i386
     <ul>
-      <li><a href="down/i386/go32v2@x@">Dos</a> (GO32v2 extender)
+      <li><a href="down/i386/go32v2@x@">Dos</a> (<trn key="website.down_i386_dos_note" locale="en_US">GO32v2 extender</trn>)
       <li><a href="down/i386/freebsd@x@">FreeBSD</a>
       <li><a href="down/i386/linux@x@">Linux</a>
-      <li><a href="down/i386/macosx@x@">Mac OS X</a> (and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android).
+      <li><a href="down/i386/macosx@x@">Mac OS X</a> (<trn key="website.down_i386_macx_dos_note" locale="en_US">and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
       <li><a href="down/i386/haiku@x@">Haiku</a>
 <!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
 -->
-      <li><a href="down/i386/os2@x@">OS/2 (and eComStation)</a>
+      <li><a href="down/i386/os2@x@">OS/2 (<trn key="website.down_i386_OS2_note" locale="en_US">and eComStation</trn>)</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Windows 32-bit</a> (and a cross-compiler ARM/MIPS/i386-Android)
+      <li><a href="down/i386/win32@x@">Windows 32-bit</a> (<trn key="website.down_i386_win32_note" locale="en_US">and a cross-compiler ARM/MIPS/i386-Android</trn>)
       <li><a href="down/android/android@x@">Android</a>
    <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
     </ul>
@@ -92,7 +92,7 @@
     </ul>
   <li>MIPSEL
     <ul>
-      <li><a href="down/mipsel/linux@x@">Linux</a> (Experimental, not tested)
+      <li><a href="down/mipsel/linux@x@">Linux</a> (<trn key="website.down_mipsel_linux_note" locale="en_US">Experimental, not tested</trn>)
     </ul>
 </ul>
 
@@ -113,12 +113,12 @@
   </trn>
 
 <!--
-<a name="other"></a><h3>Other downloads</h3>
+<a name="other"></a><h3><trn key="website.down_other_down" locale="en_US">Other downloads</trn></h3>
 <p>
 <p>
-  Furthermore, you can download the following:
+  <trn key="website.down_furthermore" locale="en_US">Furthermore, you can download the following:</trn>
 <ul>
-  <li>There are some third party <a href="down-utils@x@">utilities</a> that can be used with Free Pascal.
+  <li><trn key="website.down_party" locale="en_US">There are some third party <a href="down-utils@x@">utilities</a> that can be used with Free Pascal.</trn>
 </ul>
 -->
 
@@ -141,7 +141,7 @@
     </ul>
   <li>intel/i386
     <ul>
-      <li><a href="down2/i386/go32v2@x@">Dos</a> (GO32v2 extender)
+      <li><a href="down2/i386/go32v2@x@">Dos</a> (<trn key="website.down_i386_dos_note" locale="en_US">GO32v2 extender</trn>)
       <li><a href="down2/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
       <li><a href="down2/i386/linux@x@">Linux</a>
       <li><a href="down2/i386/macosx@x@">Mac OS X</a>
@@ -163,7 +163,7 @@
     </ul>
 </ul>
 <p>
-  Furthermore, you can download the following:
+  <trn key="website.down_furthermore" locale="en_US">Furthermore, you can download the following:</trn>
 <ul>
   <li><trn key="website.Documentation_in_diff_formats" locale="en_US"><a href="down2/docs/docs@x@">Documentation</a> in different formats</trn>
   <li><a href="down2/source/sources@x@"><trn key="website.Sources" locale="en_US">Sources</trn></a>

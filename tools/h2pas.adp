@@ -1,12 +1,14 @@
 <master>
-<property name="title">Free Pascal - Tools</property>
+<property name="title"><trn key="website.tools.h2pas.title" locale="en_US">Free Pascal - Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">h2pas</property>
 <property name="maindir">../</property>
-<property name="header">h2pas</property>
+<property name="header"><trn key="website.tools.h2pas.header" locale="en_US">h2pas</trn></property>
+
+<trn key="website.tools.h2pas.man" locale="en_US">
 <h1>H2PAS - Free Pascal C header to pascal unit translator.</h1>
-What follows below is the man page of h2pas. 
+What follows below is the man page of h2pas.
 If you have installed the man pages then you can view them with the <b>man</b> command.
 <hr>
 
@@ -276,3 +278,4 @@ FreePascal                 12 Dec 1999                          4
 
 
 </PRE>
+</trn>

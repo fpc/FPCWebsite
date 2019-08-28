@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Linux</property>
+<property name="title"><trn key="website.down.x86_64.linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Linux AMD64/x86_64</property>
+<property name="header"><trn key="website.down.x86_64.linux.header" locale="en_US">Download Linux AMD64/x86_64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -31,7 +31,7 @@ It is available in different formats:
 <li><a href="@mirror_url@dist/@latestversion@/x86_64-linux/fpc-@latestversion@.x86_64-linux.tar">fpc-@latestversion@.x86_64-linux.tar</a> (47 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script<br>
-  After untarring the archive into a temporary location, you can run the install script 
+  After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 </trn>
 </ul>
@@ -62,7 +62,7 @@ It is available in different formats:
 
 
 <h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
-<em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)</trn></em> 
+<em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)</trn></em>
 <ul>
 <li><b>Deb archives for 3.0.2 are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
   </trn>
@@ -70,6 +70,6 @@ It is available in different formats:
 
 <hr>
 <p>
-<a href="linux@x@">Back to mirror list</a><br/>
-<a href="../../download@x@">Back to general download page</a>
+<a href="linux@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

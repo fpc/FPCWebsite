@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Linux</property>
+<property name="title"><trn key="website.down.armlinux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Linux ARM</trn></property>
 <property name="modify"></property>
@@ -16,12 +16,15 @@
 </trn>
 
 <h1>@latestversion@</h1>
+<trn key="website.down.armlinux.latestversion" locale="en_US">
 The FPC @latestversion@ package for arm-linux is available in two to choose format:
 <ul>
   <li> <a href="#linuxbig302eabi">Everything in 1 big package for eabi ABI</a>
   <li> <a href="#linuxbig302eabihf">Everything in 1 big package for eabihf ABI for raspberry</a>
 </ul>
+</trn>
 
+<trn key="website.down.armlinux.linuxbig302eabi" locale="en_US">
 <h3><a name="linuxbig302eabi"></a>Download in 1 big file:</h3>
 <p>The distribution in the archive below is for EABI abi, compiled for armv3 CPU (release 3.0.2 only).</p>
 <ul>
@@ -31,7 +34,9 @@ contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
+</trn>
 
+<trn key="website.down.armlinux.linuxbig302eabihf" locale="en_US">
 <h3><a name="linuxbig302eabihf"></a>Download in 1 big file:</h3>
 <p>The distribution in the archive below is for an EABIHF, compiled on RaspBerry 1 arm-linux system (for armv6 cpu).</p>
 <ul>
@@ -41,6 +46,7 @@ contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
+</trn>
 
 <hr>
 <p>

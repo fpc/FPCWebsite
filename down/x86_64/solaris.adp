@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Solaris</property>
+<property name="title"><trn key="website.down.x86_64.solaris.title" locale="en_US">Free Pascal - Download Solaris</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Solaris Intel x86_64</property>
+<property name="header"><trn key="website.down.x86_64.solaris.header" locale="en_US">Download Solaris Intel x86_64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -17,8 +17,8 @@
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 <li> <a href="@mirror_url@dist/@latestversion@/x86_64-solaris/fpc-@latestversion@.x86_64-solaris.tar">fpc-@latestversion@.x86_64-solaris.tar</a> (50 MB)</li>
-<li> <a href="@mirror_url@dist/@latestversion@/x86_64-solaris/readme.txt">readme.txt for this release</a>  </li>
-<li> <a href="@mirror_url@dist/@latestversion@/x86_64-solaris/readme-x86_64-solaris.txt">readme-x86_64-solaris.txt for this release</a>  </li>
+<li> <a href="@mirror_url@dist/@latestversion@/x86_64-solaris/readme.txt"><trn key="website.down.x86_64.solaris.readme.txt" locale="en_US">readme.txt for this release</trn></a>  </li>
+<li> <a href="@mirror_url@dist/@latestversion@/x86_64-solaris/readme-x86_64-solaris.txt"><trn key="website.down.x86_64.solaris.readme.solaris.txt" locale="en_US">readme-x86_64-solaris.txt for this release</trn></a>  </li>
 </ul>
 <trn key="website.x86_64-solaris_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>

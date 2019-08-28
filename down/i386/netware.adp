@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Netware version</property>
+<property name="title"><trn key="website.down.i386.netware.title" locale="en_US">Free Pascal - Download Netware version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Netware (4.x and higher)</property>
+<property name="header"><trn key="website.down.i386.netware.header" locale="en_US">Download Netware (4.x and higher)</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -10,9 +10,9 @@
                                   Netware
 *****************************************************************************
 -->
+<trn key="website.down.i386.netware.released" locale="en_US">The latest released version is <b>2.0.0</b>.</trn>
 
-The latest released version is <b>2.0.0</b>.
-
+<trn key="website.down.i386.netware.clib" locale="en_US">
 <h3>Netware clib</h3>
 <ul>
 <li>
@@ -25,7 +25,9 @@ Units:
 Readme:
 <a href="@mirror_url@dist/i386-netware-2.0.0/readme.netware">readme.netware</a> (12 kB)
 </ul>
+</trn>
 
+<trn key="website.down.i386.netware.libc" locale="en_US">
 <h3>Netware libc</h3>
 <ul>
 <li>
@@ -38,9 +40,10 @@ Units:
 Readme:
 <a href="@mirror_url@dist/i386-netwlibc-2.0.0/readme.netware">readme.netware</a> (12 kB)
 </ul>
+</trn>
 
 <hr>
 <p>
-<a href="netware@x@">Back to mirror list</a><BR/>
-<a href="../../download@x@">Back to general download page</a>
+<a href="netware@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

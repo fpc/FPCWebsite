@@ -1,8 +1,10 @@
 <master>
-<property name="title">Free Pascal - Porting Turbo Pascal Applications</property>
+<property name="title"><trn key="website.port.title" locale="en_US">Free Pascal - Porting Turbo Pascal Applications</trn></property>
 <property name="entry">moreinfo</property>
 <property name="subentry">moreinfo</property>
-<property name="header">Porting Turbo Pascal to Free Pascal</property>
+<property name="header"><trn key="website.port.header" locale="en_US">Porting Turbo Pascal to Free Pascal</trn></property>
+
+<trn key="website.port.document" locale="en_US">
 <p>
 This document contains some information about differences between Free Pascal
 and Turbo Pascal 7.0 (and to some extent Delphi). This list is not complete.
@@ -14,7 +16,9 @@ More documentation can be found in the <a href="http://wiki.freepascal.org/Mode_
 href="http://wiki.freepascal.org/Porting_low-level_DOS_code_for_TP/BP_to_GO32v2_with_FPC">Wiki</a>,
 and the documentation.
 </p>
+</trn>
 
+<trn key="website.port.assembler" locale="en_US">
 <h3>Assembler</h3>
 <ul>
   <li>The default assembler uses another syntax, but you can turn on the
@@ -22,7 +26,9 @@ and the documentation.
       command line option or by adding <TT>{$asmmode intel}</TT> in your source.</li>
   <li>The 32 bit memory model requires a complete recoding of your assembler blocks in case you come from TP.</li>
 </ul>
+</trn>
 
+<trn key="website.port.runtime" locale="en_US">
 <h3>Run time library</h3>
 <ul>
   <li>The <TT>swap()</TT>, <TT>lo()</TT> and <TT>hi()</TT> intrinsics are overloaded
@@ -39,7 +45,9 @@ and the documentation.
   <li>Turbo Vision support is provided by Free Vision; a clone because the original
 	Turbo Vision is still not freely available (copyright not released by Borland)</li>
 </ul>
+</trn>
 
+<trn key="website.port.preprocessor" locale="en_US">
 <h3>Preprocessor/Syntax</h3>
 <ul>
   <li>If you use the -So command line switch (or add <TT>{$mode TP}</TT>in your source),
@@ -48,7 +56,9 @@ and the documentation.
       enable better compatibility with Turbo Pascal.
   <li>Nested comments are allowed, but give a Warning when found (disabled in TP mode)</li>
 </ul>
+</trn>
 
+<trn key="website.port.syntax" locale="en_US">
 <h3>Syntax</h3>
 <ul>
   <li><TT>FAR</TT> and <TT>NEAR</TT> are ignored</li>
@@ -65,7 +75,7 @@ and the documentation.
         proc:=&#x040;p;
       end;
       </PRE>
-  <li><TT>INLINE</TT> is supported by the compiler, but is used to inline Pascal code 
+  <li><TT>INLINE</TT> is supported by the compiler, but is used to inline Pascal code
       rather than machine code. </li>
   <li>The headers of forward declared functions/procedures always have to be completely
       rewritten in the definition, otherwise the compiler thinks that they are
@@ -73,8 +83,9 @@ and the documentation.
   <li>There are some extra reserved words</li>
   <li>Most Delphi extensions up to Delphi 7 are supported (and also some from later Delphi versions)</li>
  </ul>
+</trn>
 
-
+<trn key="website.port.semantics" locale="en_US">
 <h3>Semantics</h3>
 <ul>
 </li>
@@ -151,8 +162,9 @@ work on non-Intel processors (and will slow down data access in all cases).</li>
          end;
        </PRE>
 </ul>
+</trn>
 
-
+<trn key="website.port.others" locale="en_US">
 <h3>Others</h3>
 <ul>
   <li>The command line parameters are different</li>
@@ -174,3 +186,4 @@ work on non-Intel processors (and will slow down data access in all cases).</li>
  to release some resource.
 </li>
 </ul>
+</trn>

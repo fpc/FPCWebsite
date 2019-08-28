@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Advanced open source Pascal compiler for Pascal and Object Pascal - Home Page</property>
+<property name="title"><trn key="website.fpc.title" locale="en_US">Free Pascal - Advanced open source Pascal compiler for Pascal and Object Pascal - Home Page</trn></property>
 <property name="entry">fpc</property>
 <property name="header"><trn locale="en_US" key="website.Introduction">Introduction</trn></property>
 
@@ -67,7 +67,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
    FPC version 3.0.4 has been released!
    <p>
     This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority. 
+     some of which are high priority.
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.

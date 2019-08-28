@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Known problems</property>
+<property name="title"><trn key="website.probs.title" locale="en_US">Free Pascal - Known problems</trn></property>
 <property name="entry">bugs</property>
 <property name="header"><trn key="website.Known_Problems" locale="en_US">Known problems</trn></property>
 <ol>
@@ -15,7 +15,7 @@
 <li><h3><trn key="website.Delphi_known_incompat" locale="en_US">Known incompabilities with Delphi</trn></h3>
 <ul>
      <li><trn key="website.Delphi_extern_implementation" locale="en_US">Due to use of an external linker and out of multiplatform concerns,
-	  it is not possible to declare a function in an interface of an unit, 
+	  it is not possible to declare a function in an interface of an unit,
           and redeclare it as external in the implemention. An external function must be fully defined
 	  by the interface, and the interface only.
       </trn>

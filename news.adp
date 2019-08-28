@@ -1,13 +1,15 @@
 <master>
-<property name="title">Free Pascal - News</property>
+<property name="title"><trn key="website.news.title" locale="en_US">Free Pascal - News</trn></property>
 <property name="entry">news</property>
-<property name="header">What's new</property>
+<property name="header"><trn key="website.news.header" locale="en_US">What's new</trn></property>
 <p>
+<trn key="website.news.subscribed" locale="en_US">
   If you aren't subscribed to the mailing list, you can read all the important
   news here.
+</trn>
 </p>
 
-<h3>Previous news (continued from hope page)</h3>
+<h3><trn key="website.news.previous" locale="en_US">Previous news (continued from hope page)</trn></h3>
 
 <ul>
 
@@ -20,7 +22,7 @@
    FPC version 3.0.4 has been released!
    <p>
     This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority. 
+     some of which are high priority.
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
@@ -86,7 +88,7 @@
    FPC version 3.0.4 has been released!
    <p>
     This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority. 
+     some of which are high priority.
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
@@ -148,7 +150,7 @@
   <li>
    FPC 3.0.0-rc2 has been released!
    <p>
-    The most important change since the first release candidate is a change in the 
+    The most important change since the first release candidate is a change in the
     unicode resource-string handling. There is also a new Windows to Android cross-compiler installer.
    </p>
    <p>
@@ -213,6 +215,7 @@ Support for the iOS/AArch64 platform has been added to svn trunk. More
 information can be found in the <a href="http://lists.freepascal.org/pipermail/fpc-devel/2015-February/035397.html">announcement</a> posted to the fpc-devel mailing list.
   </li>
  </ul>
+ </trn>
  <trn locale="en_US" key="website.news_headline_20141015">
  <li>
 <em>October 15, 2014</em>
@@ -274,7 +277,8 @@ changes to existing code is also <a href="http://wiki.freepascal.org/User_Change
  </ul>
 </trn>
 
- <li><trn locale="en_US" key="website.news_headline_20130223">
+<trn locale="en_US" key="website.news_headline_20130223">
+ <li>
 <em>February 23, 2013</em>
  </li>
  <ul>
@@ -309,7 +313,7 @@ The new features include, amongst others:
     </ul>
    </ul>
 See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
-bugs which have been fixed in this release. 
+bugs which have been fixed in this release.
   </li>
   <li>
 Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
@@ -422,7 +426,7 @@ platforms. The new features include, amongst others:
 manifest.</li>
    </ul>
 See the <a href="http://bugs.freepascal.org/changelog_page.php">changelog</a> for the list of reported
-bugs which have been fixed in this release. 
+bugs which have been fixed in this release.
   </li>
   <li>
 Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
@@ -488,7 +492,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
     <li>Fixes for multi-threading support in OS/2 RTL.</li>
    </ul>
     See http://bugs.freepascal.org/changelog_page.php for the list of reported
-    bugs which have been fixed in this release. 
+    bugs which have been fixed in this release.
   </li>
   <li>
     Downloads are available from the <a href="download@x@">download page</A> (mirrors should follow soon).
@@ -504,7 +508,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  <li>
 <em>November 12, 2010</em>
  </li>
- <ul> 
+ <ul>
   <li>
     A new release 2.4.2 is available from our sites. 2.4.2 is the first fixes release from the 2.4 series.
     Improvements, amongst others:
@@ -542,7 +546,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
     <li>Dwarf debug information improvements,</li>
     <li>Several new targets
      <ul>
-      <li>64-bit Mac OS X (x86_64/ppc64)</li> 
+      <li>64-bit Mac OS X (x86_64/ppc64)</li>
       <li>iPhone (Mac OS X/Arm)</li>
       <li>Haiku (from the BeOS family)</li>
       <li>Improved ARM EABI support</li>
@@ -606,7 +610,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  <ul>
   <li>
     The <a href="http://www.ioi2009.org/">2009 International Olympiad in Informatics</a>
-    has been won by the 14 years old Henadzi Karatkevich using Free Pascal. For this 
+    has been won by the 14 years old Henadzi Karatkevich using Free Pascal. For this
     contest only the gcc and Free Pascal compilers were allowed. Lazarus was
     available as editor.
   </li>
@@ -619,7 +623,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  </li>
  <ul>
   <li>
-    During the last months a lot of work on the embedded support of Free Pascal has been done. 
+    During the last months a lot of work on the embedded support of Free Pascal has been done.
     FPC can be used now to program microcontrollers without any operating system.
     The current status, an explanation how to use it and the supported controllers (only a few so far)
    can be found at the <a href="http://wiki.freepascal.org/Embedded">FPC Wiki</a>.
@@ -645,8 +649,8 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  <ul>
   <li>
     Computer &amp; Literatur Verlag has translated the Free Pascal manuals to German and bound them
-    in a <a href="http://www.cul.de/prog.html">book</a>. The book also contains the reference guide 
-    for the 17 most important units distributed with Free Pascal. It should be available in 
+    in a <a href="http://www.cul.de/prog.html">book</a>. The book also contains the reference guide
+    for the 17 most important units distributed with Free Pascal. It should be available in
     book shops in the German-speaking countries in Europe.
   </li>
  </ul>
@@ -675,7 +679,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
 </trn>
 
  <li>
-<em>September 10, 2007</em>
+<trn locale="en_US" key="website.news_headline_20070910b_date_fixed"><em>September 10, 2007</em></trn>
  </li>
  <ul>
   <li>
@@ -713,19 +717,20 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
     aka <em>2.2.0-beta</em> is <a href="download@x@#beta">released</a>.
     The beta will be available for about two months whereafter 2.2.0 will be released. We ask all
     our users to test this release, and report bugs on <a href="http://bugs.freepascal.org/set_project.php?project_id=6">
-    the bug-tracker</a>. If you want to know if your bug is already solved, you can look it up in 
+    the bug-tracker</a>. If you want to know if your bug is already solved, you can look it up in
     <a href="http://bugs.freepascal.org/set_project.php?project_id=6">mantis</a>, or
     try one of the daily snapshots, based on the fixes_2_2 branch. So please help us make version
-    2.2.0 the most stable version of Free Pascal to date. List of changes can be found 
+    2.2.0 the most stable version of Free Pascal to date. List of changes can be found
     <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/whatsnew.txt">here</a>.
     The <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_1_4/install/doc/readme.txt">
-    release notes</a> are also available. Please note that there are some intentional incompatibilities 
+    release notes</a> are also available. Please note that there are some intentional incompatibilities
     with previous versions, for an overview click <a href="http://wiki.freepascal.org/User_Changes_2.2.0">
     here</a>.
   </li>
  </ul>
 </trn>
 
+<trn locale="en_US" key="website.news_headline_20070328">
  <li>
 <em>March 28, 2007</em>
  </li>
@@ -735,7 +740,9 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
     to create the backend.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20070201">
  <li>
 <em>February 1, 2007</em>
  </li>
@@ -745,7 +752,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
 <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&c=3'>sign up now</a>!
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20070127">
  <li>
 <em>January 27, 2007</em>
  </li>
@@ -757,7 +766,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
     for this milestone.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20070115">
  <li>
 <em>January 15, 2007</em>
  </li>
@@ -767,7 +778,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
     Can you write a game with Free Pascal? You might win several prizes. More information will follow.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20061224">
  <li>
 <em>December 24, 2006</em>
  </li>
@@ -776,7 +789,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
     The 270 pages book teaches the Pascal language from the start and also covers the advanced language features.
   </li>
 </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20061214">
  <li>
 <em>December 14, 2006</em>
  </li>
@@ -784,7 +799,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
   <li>Ido Kanner will be giving an FPC lecture at <a href="http://haifux.org/future.html">HAIFUX</a>, which is a Linux club at the Technion University in Haifa, on Monday, January 15, 2007. This lecture will be repeated at <a href="http://www.cs.tau.ac.il/lin-club/">Telux</a>, a (University) Linux club in Tel Aviv.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20061125">
  <li>
 <em>November 25-26, 2006</em>
  </li>
@@ -792,7 +809,9 @@ write a game that combines multiple game genres. Can you write a game in Free Pa
   <li>Lazarus and FPC will be on the HCC in Utrecht, Netherlands in the HCC Pascal booth.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060927">
  <li>
 <em>September 27, 2006</em>
  </li>
@@ -802,7 +821,9 @@ We will try to be there on all 5 days. You can find more information about the S
 <a href="http://www.systems-world.de/id/7672/">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060925">
  <li>
 <em>September 25, 2006</em>
  </li>
@@ -811,7 +832,9 @@ We will try to be there on all 5 days. You can find more information about the S
 extensive guide how to develop games on the Game Boy Advance</a> using Free Pascal.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060920">
  <li>
 <em>September 20, 2006</em>
  </li>
@@ -822,7 +845,9 @@ available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
 <a href="download.html">download page</a> to select your nearest mirror.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060828">
  <li>
 <em>August 28, 2006</em>
  </li>
@@ -837,7 +862,9 @@ can be found
 <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_0_4/install/doc/whatsnew.txt">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060810">
  <li>
 <em>August 10, 2006</em>
  </li>
@@ -845,7 +872,9 @@ can be found
   <li>The Free Pascal compiler (version 2.1.1) first compiled itself on <a href="http://os4.hyperion-entertainment.biz">AmigaOS 4.0</a> (PowerPC).
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060719">
  <li>
 <em>July 19 2006</em>
  </li>
@@ -855,7 +884,9 @@ bug-fixing branch. Release candidate 2 cycle is running at the moment, final
 release is expected during August.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060601">
  <li>
 <em>June 1 2006</em>
  </li>
@@ -865,14 +896,18 @@ release is expected during August.
   download it <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/arm-gba/fpc4gba.zip">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_200606_summary">
  <li>
 <em>April 2006 summary</em>
  </li>
  <ul>
   <li>The first <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/x86_64-win64/fpc-2.1.1.x86_64-win64.zip">WIN64 Snapshot</a> has been uploaded to the FTP site.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_200603_summary">
  <li>
 <em>March 2006 summary</em>
  </li>
@@ -890,16 +925,20 @@ release is expected during August.
   are expected in the coming weeks.</li>
   </ul>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060215">
  <li>
 <em>February 15, 2006</em>
  </li>
  <ul>
-  <li>An FPC port for Solaris/Sparc has been created. Get a snapshot 
+  <li>An FPC port for Solaris/Sparc has been created. Get a snapshot
 <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v21/sparc-solaris">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060207">
  <li>
 <em>February 7, 2006</em>
  </li>
@@ -909,7 +948,9 @@ Free Pascal to the Game Boy Advance</a>. Checkout <a href='http://www.pascalgame
 this forum thread on Pascal Game Development</a> to see some screenshots.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060206">
  <li>
 <em>February 6, 2006</em>
  </li>
@@ -917,7 +958,9 @@ this forum thread on Pascal Game Development</a> to see some screenshots.
   <li>Free Pascal has been ported to <a href='http://www.skyos.org'>SkyOS</a>! A proof of concept can be downloaded
 <a href='http://www.skyos.org/software/fpc.zip'>here</a>.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20060110">
  <li>
 <em>January 10, 2006</em>
  </li>
@@ -926,7 +969,9 @@ this forum thread on Pascal Game Development</a> to see some screenshots.
 <a href='http://www.pascalgamedevelopment.com/competitions.php?p=details&amp;c=1'>Then join the competition!</a>
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20051208">
  <li>
 <em>December 8, 2005</em>
  </li>
@@ -934,7 +979,9 @@ this forum thread on Pascal Game Development</a> to see some screenshots.
   <li>FPC 2.0.2 is ready for download. 2.0.2 is mainly a bug fix release for 2.0.0. The whatsnew.txt can be found
 <a href="ftp://ftp.freepascal.org/pub/fpc/dist/whatsnew.txt">here</a>.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050922">
  <li>
 <em>September 22, 2005</em>
  </li>
@@ -945,7 +992,9 @@ which works on <a href="http://www.kanzelsberger.com/pixel/?page_id=5">8 platfor
 even programs like GIMP, PaintShop Pro and PhotoImpact according to a <a href="http://www.kanzelsberger.com/pixel/?p=33">
 recent test</a> of a Czech Computer magazin. Today, version 1.0 beta 5 was released.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050822">
  <li>
 <em>August 22, 2005</em>
  </li>
@@ -955,12 +1004,14 @@ develop games for the Gameboy Advance. See the
 <a href="http://fpc4gba.pascalgamedevelopment.com/">Pascal Game Development</a> site for more information.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050818">
  <li>
 <em>August 18, 2005</em>
  </li>
  <ul>
-  <li>Free Pascal can be installed on Fedora from the Fedora Extras. To do so, 
+  <li>Free Pascal can be installed on Fedora from the Fedora Extras. To do so,
    add Extras to your Yum-repository (see <a href="http://www.fedoraproject.org/wiki/Extras">here</a> for instructions)
    and then install using
 <pre>
@@ -973,7 +1024,9 @@ yum install fpc-src
 </pre>
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050516">
  <li>
 <em>16 May 2005</em>
  </li>
@@ -984,7 +1037,9 @@ yum install fpc-src
      developer Dani&euml;l Mantione today.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050515">
  <li>
 <em>15 May 2005</em>
  </li>
@@ -995,7 +1050,9 @@ yum install fpc-src
       vastly superior to version 1.0 and has everything in it to belong to the select group of big compilers.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050330">
  <li>
 <em>30 March 2005</em>
  </li>
@@ -1008,7 +1065,9 @@ yum install fpc-src
        to the <a href="http://www.freepascal.org/maillist.html">fpc-devel mailing list</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050224">
  <li>
 <em>24 February 2005</em>
  </li>
@@ -1018,7 +1077,9 @@ yum install fpc-src
         has been released as version 1.9.8. <a href="ftp://ftp.freepascal.org/pub/fpc/beta/whatsnew.txt">Read more</a>. <a href="download@x@">Get it</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050210">
  <li>
 <em>10 February 2005</em>
  </li>
@@ -1028,7 +1089,9 @@ yum install fpc-src
 	will take a couple of days until things settle down again.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050101b">
  <li>
 <em>1 January 2005</em>
  </li>
@@ -1038,7 +1101,9 @@ yum install fpc-src
         has been released as version 1.9.6. <a href="ftp://ftp.freepascal.org/pub/fpc/beta/whatsnew.txt">Read more</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20050101">
  <li>
 <em>1 January 2005</em>
  </li>
@@ -1047,7 +1112,9 @@ yum install fpc-src
         For the first time there is a Free Pascal beta release for classic Mac OS.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20041105">
  <li>
 <em>5 November 2004</em>
  </li>
@@ -1058,7 +1125,9 @@ yum install fpc-src
         <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v19/arm-linux/arm-linux-fpc.i386-linux.tar.gz">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20041103">
  <li>
 <em>3 November 2004</em>
  </li>
@@ -1069,7 +1138,9 @@ yum install fpc-src
       <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v19/linux-x86_64/fpc-1.9.5.x86_64.tar.gz">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20040922">
  <li><em>22 September 2004</em>
  </li>
  <ul>
@@ -1082,7 +1153,9 @@ yum install fpc-src
       <a href="ftp://ftp.freepascal.org/pub/fpc/snapshot/v19/sparc-linux/fpc.sparc-linux.tar.gz">here</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20040606">
  <li>
 <em>6 June 2004</em>
  </li>
@@ -1092,7 +1165,9 @@ yum install fpc-src
       running <a href="http://www.morphos-team.net">MorphOS</a>.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20040531">
  <li>
 <em>31 May 2004</em>
  </li>
@@ -1102,7 +1177,9 @@ yum install fpc-src
      PowerPC is stable and has now also support for Mac OS X.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20040502">
  <li>
 <em>2 May 2004</em>
  </li>
@@ -1113,7 +1190,9 @@ yum install fpc-src
      AMD64 type.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20040316">
  <li>
 <em>16 March 2004</em>
  </li>
@@ -1123,7 +1202,9 @@ yum install fpc-src
      of the AmigaOS, Solaris, QNX and BeOS compilers. Sorry for the late delay (Carl).
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030130">
  <li>
 <em>30 January 2003</em>
  </li>
@@ -1133,7 +1214,9 @@ yum install fpc-src
      running FPC and FPC compiled programs!
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030111">
  <li>
 <em>11 January 2004</em>
  </li>
@@ -1143,7 +1226,9 @@ yum install fpc-src
 	release. This release is also the first where the x86 codegenerator has register parameters.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20031105">
  <li>
 <em>5 November 2003</em>
  </li>
@@ -1157,7 +1242,9 @@ yum install fpc-src
         ultimately in the 2.0 release.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20031021">
  <li>
 <em>21 October 2003</em>
  </li>
@@ -1172,7 +1259,9 @@ yum install fpc-src
     release is released, the version will be changed to 2.0.0.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030925">
  <li>
 <em>25 September 2003</em>
  </li>
@@ -1184,7 +1273,9 @@ yum install fpc-src
 	about what to expect for the 2.0 series of compilers.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030901">
  <li>
 <em>1 September 2003</em>
  </li>
@@ -1198,7 +1289,9 @@ yum install fpc-src
      delayed</a> till 22nd September and several politicians are opening their eyes. Thanks for your understanding!
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030711">
  <li>
 <em>11 July 2003</em>
  </li>
@@ -1212,7 +1305,9 @@ yum install fpc-src
         progress has been made lately (SPARC and PPC ports).
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030707">
  <li>
 <em>7 July 2003</em>
  </li>
@@ -1222,7 +1317,9 @@ yum install fpc-src
         Linux/SPARC. This means the SPARC code generator is now minimally working!
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030525">
  <li>
 <em>25 May 2003</em>
  </li>
@@ -1235,16 +1332,20 @@ yum install fpc-src
         something distributable in the next few weeks!
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030124">
  <li>
 <em>24 January 2003</em>
  </li>
  <ul>
   <li>
          The mailing lists are now working again.
-  </li>    
+  </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030122">
  <li>
 <em>22 January 2003</em>
  </li>
@@ -1255,7 +1356,9 @@ yum install fpc-src
          server on Friday, so the mailing lists will be back at weekend.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030119">
  <li>
 <em>19 January 2003</em>
  </li>
@@ -1265,7 +1368,9 @@ yum install fpc-src
          available from the freepascal ftp site.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20030112">
  <li>
 <em>12 January 2003</em>
  </li>
@@ -1280,7 +1385,9 @@ yum install fpc-src
          allocator scheme is being designed to help optimize register usage.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20021017">
  <li>
 <em>17 October 2002</em>
  </li>
@@ -1290,7 +1397,9 @@ yum install fpc-src
       An amiga-m68k snapshot (version 1.0.7) should follow soon.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020924">
  <li>
 <em>24 September 2002</em>
  </li>
@@ -1306,7 +1415,9 @@ yum install fpc-src
 	    become reality.</b>
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020923">
  <li>
 <em>23 September 2002</em>
  </li>
@@ -1315,7 +1426,9 @@ yum install fpc-src
       in a usable state.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020906">
  <li>
 <em>6 September 2002</em>
  </li>
@@ -1326,7 +1439,9 @@ yum install fpc-src
       crash :), but we're making progress. The Darwin RTL has also
       been started.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020710">
  <li>
 <em>10 July 2002</em>
  </li>
@@ -1335,7 +1450,9 @@ yum install fpc-src
       and Windows (Win95/98/Me). These are now fixed in the FPC 1.0.6 distributions.
       Sorry for the inconveniences.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020524">
  <li>
 <em>24 May 2002</em>
  <ul>
@@ -1346,7 +1463,9 @@ yum install fpc-src
       which is located on the FTP site (that one should really now be the 1.0.6 release).
       Sorry for the inconveniences.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020504">
  <li>
 <em>4 May 2002</em>
  </li>
@@ -1354,21 +1473,27 @@ yum install fpc-src
   <li>QNX version has been released, based on the 1.0.6a source. 1.0.6a is similar to
       version 1.0.6, except for patches applied to make the QNX version compile.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020430">
  <li>
 <em>30 April 2002</em>
  </li>
  <ul>
   <li>After some weeks of pre-release testing, 1.0.6 is finally released.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20020227">
  <li>
 <em>27 Februrary 2002</em>
  </li>
  <ul>
   <li>The Freepascal site was down for a few days, due to an ISP change.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20011217">
  <li>
 <em>17 December 2001</em>
  </li>
@@ -1377,14 +1502,18 @@ yum install fpc-src
       be downloaded in the development section.</li>
   <li>System unit of BeOS is now called system instead of sysbeos.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20011115">
  <li>
 <em>15 November 2001</em>
  </li>
  <ul>
   <li>New FAQ which is more comprehensive.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20010919">
  <li>
 <em>19 September 2001</em>
  </li>
@@ -1396,7 +1525,9 @@ yum install fpc-src
 cycle itself on linux-m68k).</li>
   <li>Version 1.1 of Freepascal is still being worked on, stay tuned for more information.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20010823">
  <li>
 <em>23 August 2001</em>
  </li>
@@ -1407,7 +1538,9 @@ cycle itself on linux-m68k).</li>
   <li>A short description can be found
      <a href="ftp://ftp.freepascal.org/fpc/dist/palmos-1.0.5/readme.txt">here</a>.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20010521">
  <li>
 <em>21 May 2001</em>
  </li>
@@ -1416,7 +1549,9 @@ cycle itself on linux-m68k).</li>
       there is no new release and we're working mainly on the 1.1 development branch.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20001231">
  <li>
 <em>31 December 2000</em>
  </li>
@@ -1426,7 +1561,9 @@ cycle itself on linux-m68k).</li>
           to you to download your copy.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20001107">
  <li>
 <em>7 November 2000</em>
  </li>
@@ -1435,14 +1572,18 @@ cycle itself on linux-m68k).</li>
   <li>A post 1.0.2 snapshot that addresses some problems with terminals
         is available on the FTP site.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20001019">
  <li>
 <em>19 October 2000</em>
  </li>
  <ul>
   <li>The OS/2 version 1.0.2 is now also available for download.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20001012">
  <li>
 <em>12 October 2000</em>
  </li>
@@ -1452,7 +1593,9 @@ cycle itself on linux-m68k).</li>
           to you to download your copy.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000912">
  <li>
 <em>12 September 2000</em>
  </li>
@@ -1462,7 +1605,9 @@ cycle itself on linux-m68k).</li>
           expand the community site.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000903">
  <li>
 <em>3 September 2000</em>
  </li>
@@ -1470,7 +1615,9 @@ cycle itself on linux-m68k).</li>
   <li>The (online) HTML documentation now also contains the examples, just like
       the PDF documentation.</li>
  </ul>
+ </trn>
 
+<trn locale="en_US" key="website.news_headline_20000731">
  <li>
 <em>31 July 2000</em>
  </li>
@@ -1483,7 +1630,9 @@ cycle itself on linux-m68k).</li>
           <a href="faq@x@#instal10NT">this</a> FAQ question.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000712">
  <li>
 <em>12 July 2000</em>
  </li>
@@ -1493,7 +1642,9 @@ cycle itself on linux-m68k).</li>
          to you to download your copy.
   </li>
  </ul>
+ </trn>
 
+<trn locale="en_US" key="website.news_headline_20000416">
  <li>
 <em>16 April 2000</em>
  </li>
@@ -1503,7 +1654,9 @@ cycle itself on linux-m68k).</li>
           to the FreePascal ftp site when important features are implemented or fixed.
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000225">
  <li>
 <em>25 February 2000</em>
  </li>
@@ -1515,7 +1668,9 @@ cycle itself on linux-m68k).</li>
           can be found in the <a href="links@x@">links</a> section).
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000222">
  <li>
 <em>22 February 2000</em>
  </li>
@@ -1524,7 +1679,9 @@ cycle itself on linux-m68k).</li>
             translation of the free pascal manuals. German users can order the book from
             from the <a href="http://www.cul.de/freepascal.html">C&amp;L website</a>.</li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000207">
  <li>
 <em>7 February 2000</em>
  </li>
@@ -1547,7 +1704,9 @@ cycle itself on linux-m68k).</li>
       </ul>
   </li>
  </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000204">
  <li>
 <em>4 February 2000</em>
  </li>
@@ -1558,7 +1717,9 @@ cycle itself on linux-m68k).</li>
           can be found in the <a href="links@x@">links</a> section).
      </li>
    </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000131">
  <li>
 <em>31 January 2000</em>
  </li>
@@ -1568,7 +1729,9 @@ cycle itself on linux-m68k).</li>
           This version will fix the problem with the wrong symlink and sources.tar typo.
      </li>
    </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000127">
  <li>
 <em>27 January 2000</em>
  </li>
@@ -1577,7 +1740,9 @@ cycle itself on linux-m68k).</li>
           at one of the <a href="download@x@">mirrors</a>! (USA mirrors of the FTP site only
           can be found in the <a href="links@x@">links</a> section).</li>
    </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_20000107">
  <li>
 <em>7 January 2000</em>
  </li>
@@ -1588,12 +1753,14 @@ cycle itself on linux-m68k).</li>
           for version 1.0. Some weeks later, we'll (finally) release version 1.0.</li>
      <li>As always, you can get the latest compiler and RTL in the form of
           a snapshot in the <a href="develop@x@">development section</a> if you
-          want to see what we've done since the last official release.</li>     
+          want to see what we've done since the last official release.</li>
      <li>A new section has been added: <a href="prog@x@">programmer tools</a>.
           It contains documentation for all helper programs included with FPC.
           Check it out!</li>
   </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_19990726">
  <li>
 <em>26 July 1999</em>
  </li>
@@ -1601,10 +1768,12 @@ cycle itself on linux-m68k).</li>
      <li>Bugfix version 0.99.12b has been released for Dos,Win32 and Linux. You can
           download it <a href="download@x@">here</a>.</li>
      <li>For linux the source rpm's and debian sources are also available on
-          ftp and <a href="download@x@">download</a> page.</li>     
+          ftp and <a href="download@x@">download</a> page.</li>
      <li>Default documentation is now in PDF format which looks much better.</li>
   </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_19990625">
  <li>
 <em>25 June 1999</em>
  </li>
@@ -1614,7 +1783,9 @@ cycle itself on linux-m68k).</li>
           can be found in the <a href="links@x@">links</a> section).</li>
      <li>The Free Pascal newsletter <a href="news9906.html">06/99</a> is available.</li>
   </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_19990409">
  <li>
 <em>9 April 1999</em>
  </li>
@@ -1624,14 +1795,18 @@ cycle itself on linux-m68k).</li>
       <li>If you want to use the daily source packages you also need
       the "base" package, installation notes are included in that package.</li>
   </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_19990115">
  <li>
 <em>15 January 1999</em>
  </li>
   <ul>
       <li>0.99.10 for OS/2 &amp; Dos released</li>
   </ul>
+</trn>
 
+<trn locale="en_US" key="website.news_headline_19981223">
  <li>
 <em>23 December 1998</em>
  </li>
@@ -1639,4 +1814,5 @@ cycle itself on linux-m68k).</li>
   <li>Released Version 0.99.10 (aka 1.0 beta 2).</li>
   <li>The IDE is progressing nicely and will be included with the next version.</li>
  </ul>
+</trn>
 </ul>

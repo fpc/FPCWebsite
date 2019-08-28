@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Solaris</property>
+<property name="title"><trn key="website.down.sparc.solaris.title" locale="en_US">Free Pascal - Download Solaris</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Solaris Sparc</property>
+<property name="header"><trn key="website.down.sparc.solaris.header" locale="en_US">Download Solaris Sparc</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

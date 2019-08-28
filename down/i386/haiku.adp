@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Haiku Intel x86 version</property>
+<property name="title"><trn key="website.down.i386.haiku.title" locale="en_US">Free Pascal - Download Haiku Intel x86 version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Haiku Intel x86</property>
+<property name="header"><trn key="website.down.i386.haiku.header" locale="en_US">Download Haiku Intel x86</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

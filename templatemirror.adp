@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Select download mirror</property>
+<property name="title"><trn key="website.templatemirror.title" locale="en_US">Free Pascal - Select download mirror</trn></property>
 <property name="entry">download</property>
 <property name="subentry">platform</property>
 <property name="header"><trn key="website.Select_download_mirror" locale="en_US">Select download mirror</trn></property>

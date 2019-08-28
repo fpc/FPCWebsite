@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<!-- Web Page Design by James Koster - http://www.jameskoster.co.uk  and Marko Mihelèiæ - http://www.mcville.net-->
+<!-- Web Page Design by James Koster - http://www.jameskoster.co.uk  and Marko Mihelèi?- http://www.mcville.net-->
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=@output_encoding@">
@@ -24,7 +24,7 @@
  <img src="@maindir@pic/logo.gif" alt="FPC Logo" width="133" height="63" >
  <div class="spacer"></div>
  <h1>free pascal</h1>
- <h2>Open source compiler for Pascal and Object Pascal</h2>
+ <h2><trn locale="en_US" key="website.open.source.compiler">Open source compiler for Pascal and Object Pascal</trn></h2>
 </div>
 
 <div id="content">
@@ -33,20 +33,20 @@
   <div class="submenu">
    <a href="@maindir@"><trn locale="en_US" key="website.Home">Home</trn></a>
    <a href="@maindir@news@x@"><trn locale="en_US" key="website.News">News</trn></a>
-   <a href="@maindir@download@x@"><trn locale="en_US" key="website.Download">Download</trn></a> 
+   <a href="@maindir@download@x@"><trn locale="en_US" key="website.Download">Download</trn></a>
    <a href="http://wiki.freepascal.org/"><trn locale="en_US" key="website.Wiki">Wiki</trn></a>
-   <a href="http://forum.lazarus.freepascal.org/index.php?action=forum"><trn locale="en_US" key="website.Community">Forum</trn></a> 
-   <a href="@maindir@docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a> 
-   <a href="http://bugs.freepascal.org/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a> 
+   <a href="http://forum.lazarus.freepascal.org/index.php?action=forum"><trn locale="en_US" key="website.Community">Forum</trn></a>
+   <a href="@maindir@docs@x@"><trn locale="en_US" key="website.Documentation">Documentation</trn></a>
+   <a href="http://bugs.freepascal.org/set_project.php?project_id=6"><trn locale="en_US" key="website.Bugtracker">Bug tracker</trn></a>
   </div>
-			
+
   <h1><trn locale="en_US" key="website.Coding">Coding</trn></h1>
    <div class="submenu">
-    <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>				  
+    <a href="@maindir@develop@x@"><trn locale="en_US" key="website.Development">Development</trn></a>
     <a href="@maindir@future@x@"><trn locale="en_US" key="website.Future_Plans">Future Plans</trn></a>
     <a href="@maindir@probs@x@"><trn locale="en_US" key="website.Known_Problems">Known Problems</trn></a>
 
-    <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>				  
+    <a href="@maindir@faq@x@"><trn locale="en_US" key="website.FAQ">FAQ</trn></a>
     <a href="@maindir@contrib/contribs.html"><trn locale="en_US" key="website.Contributed_Units">Contributed Units</trn></a>
     <a href="@maindir@moreinfo@x@"><trn locale="en_US" key="website.More_information">More information</trn></a>
     <a href="@maindir@maillist@x@"><trn locale="en_US" key="website.Mailinglists">Mailing Lists</trn></a>
@@ -55,7 +55,7 @@
     <a href="@maindir@credits@x@"><trn locale="en_US" key="website.Credits">Credits</trn></a>
     <a href="@maindir@links@x@"><trn locale="en_US" key="website.Links_mirrors">Links/mirrors</trn></a>
    </div>
-					
+
   <h1><trn locale="en_US" key="website.Tools">Tools</trn></h1>
    <div class="submenu">
     <a href="@maindir@tools/tools@x@"><trn locale="en_US" key="website.Tools">Tools</trn></a>
@@ -78,8 +78,8 @@
   <trn locale="en_US" key="freepascal.searchwhat">Search documentation, forums &amp; mailing lists.</trn>
   <form action="http://forum.lazarus.freepascal.org/index.php?action=search" method="get">
    <p><input type="text" name="q" size="20" maxlength="256"></p>
-   <p><input type="submit" value="Search" name="t">
-    <input type="submit" value="Feeling Lucky" name="t">
+   <p><trn locale="en_US" key="freepascal.searchbtn.submit"><input type="submit" value="Search" name="t"></trn>
+    <trn locale="en_US" key="freepascal.searchbtn.lucky"><input type="submit" value="Feeling Lucky" name="t"></trn>
    </p>
   </form>
 
@@ -89,7 +89,7 @@
    <p><a href="http://sourceforge.net"><img src="https://sourceforge.net/sflogo.php?group_id=2174&amp;type=1" width="88" height="31" alt="SourceForge.net Logo" ></a></p>
   </div>
  </div>
-				
+
  <div id="mainbar">
   <h1>@header@</h1>
   <slave>

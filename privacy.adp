@@ -1,14 +1,17 @@
 <master>
-<property name="title">Free Pascal - Privacy statement</property>
+<property name="title"><trn key="website.privacy.title" locale="en_US">Free Pascal - Privacy statement</trn></property>
 <property name="entry">Privacy</property>
-<property name="header">Privacy Policy</property>
+<property name="header"><trn key="website.privacy.header" locale="en_US">Privacy Policy</trn></property>
+<trn key="website.privacy.gdpr" locale="en_US">
 <p>
 The Free Pascal servers are located in the EU, and so are most of the core
 contributors to Free Pascal. This means we are subject to the stipulations
 of the <a href="https://gdpr-info.eu/">GDPR</a> (General Data Protection Regulation), which requires us to
 inform you about our privacy policy, and about which data we collect about you.
 </p>
+</trn>
 
+<trn key="website.privacy.about" locale="en_US">
 <h2>What data do we collect about you?</h2>
 
 <p>
@@ -32,13 +35,13 @@ time, as they are needed for the functioning of these communication systems.
 </p>
 <p>
 The web server's log files of these systems contain the IP address from all
-requests. Occasionally they also contain a name or email address. 
+requests. Occasionally they also contain a name or email address.
 The log files are deleted after 2 days, unless we need to
 analyse some problem with the server. In such cases the relevant log file
 may be kept longer, but will be deleted after being used.
 </p>
 <p>
-The collected data is not communicated or sold to other parties in any way, 
+The collected data is not communicated or sold to other parties in any way,
 other than what is accessible publicly through the public user interface.
 </p>
 <p>
@@ -50,24 +53,33 @@ Note that because some information is displayed publicly, it can be therefore
 be downloaded to other servers beyond our control (such as mailing list
 archives).
 </p>
+</trn>
 
+<trn key="website.privacy.used" locale="en_US">
 <h2>For what is this data used?</h2>
 The data is only used to be able contact you through the public websites or by email
 in case of bugreports.
+</trn>
 
+<trn key="website.privacy.information" locale="en_US">
 <h2>Where can you see this information?</h2>
 All recorded information is publicly accessible when you log into one of
 these systems, you can consult therefor all information we have on the
 respective websites listed above.
+</trn>
 
+<trn key="website.privacy.exercise" locale="en_US">
 <h2>What to do if you want to exercise your right to be forgotten?</h2>
 Send a mail to gdpr at freepascal.org with the request. Please include the
 necessary information we need to find your data in your request: that
 includes username, email. We will get back to you when we process your request.
+</trn>
 
+<trn key="website.privacy.cookies" locale="en_US">
 <h2>Use of cookies</h2>
 The bugtracker, WIKI and forum use cookies to maintain a session for your
-activities in the respective sites. They do not use third-party cookies, 
-and the cookies needed to make the website work are not transmitted to 
+activities in the respective sites. They do not use third-party cookies,
+and the cookies needed to make the website work are not transmitted to
 other parties.
+</trn>
 

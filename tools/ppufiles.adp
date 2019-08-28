@@ -1,13 +1,14 @@
 <master>
-<property name="title">Free Pascal - Tools</property>
+<property name="title"><trn key="website.tools.ppufiles.title" locale="en_US">Free Pascal - Tools</trn></property>
 <property name="entry">prog</property>
 <property name="subentry">tools</property>
 <property name="subsubentry">ppufiles</property>
 <property name="maindir">../</property>
-<property name="header">ppufiles</property>
+<property name="header"><trn key="website.tools.ppufiles.header" locale="en_US">ppufiles</trn></property>
 
+<trn key="website.tools.ppufiles.man" locale="en_US">
 <h1>PPUFILES - Free Pascal object file lister.</h1>
-What follows below is the contents of the manual page of <b>ppufiles</b>. 
+What follows below is the contents of the manual page of <b>ppufiles</b>.
 If you have installed the man pages then you can view them with the <b>man</b> command.
 <hr>
 <PRE>
@@ -78,3 +79,4 @@ FreePascal                 9 June 1999                          1
 
 
 </PRE>
+</trn>
