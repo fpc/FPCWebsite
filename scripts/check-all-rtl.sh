@@ -164,7 +164,7 @@ elif [ "X$machine_host" == "Xgcc202" ] ; then
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
-  MAKEJOPT="-j 16"
+  MAKEJOPT="-j 32"
 fi
 
 if [ "X$USE_RELEASE_MAKEFILE_VARIABLE" == "X1" ] ; then
@@ -1064,27 +1064,27 @@ function check_target ()
       $MAKE $MAKEJOPT -C $utilsdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
     fi
     if [ $test_utils_ppudump -eq 1 ] ; then
-      echo "$MAKE $MAKEJOPT -C $utilsdir testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_PACKAGES_PPU
-      $MAKE $MAKEJOPT -C $utilsdir testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_PACKAGES_PPU 2>&1
+      echo "$MAKE $MAKEJOPT -C $utilsdir testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_UTILS_PPU
+      $MAKE $MAKEJOPT -C $utilsdir testppudump CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_UTILS_PPU 2>&1
       res=$?
       if [ $res -ne 0 ] ; then
         utils_ppu_failure=`expr $utils_ppu_failure + 1 `
         utils_ppu_list="$utils_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
         lecho "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-        lecho "Failure: See $LOGFILE_PACKAGES_PPU for details"
+        lecho "Failure: See $LOGFILE_UTILS_PPU for details"
       else
         lecho "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
-      LOGFILEPPUNAME=`basename $LOGFILE_PACKAGES_PPU`
+      LOGFILEPPUNAME=`basename $LOGFILE_UTILS_PPU`
       IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
       if [ ! -z "$IS_HUGE" ] ; then
-        echo "$LOGFILE_PACKAGES_PPU is huge: `wc -c $LOGFILE_PACKAGES_PPU`"
-        echo "Original $LOGFILE_PACKAGES_PPU was huge: `wc -c $LOGFILE_PACKAGES_PPU`" > ${LOGFILE_PACKAGES_PPU}-tmp
-        head -110 $LOGFILE_PACKAGES_PPU >> ${LOGFILE_PACKAGES_PPU}-tmp
-        echo "%%%%% File size reduced %%%%"  >> ${LOGFILE_PACKAGES_PPU}-tmp
-        tail -110 $LOGFILE_PACKAGES_PPU >> ${LOGFILE_PACKAGES_PPU}-tmp
-        rm -Rf $LOGFILE_PACKAGES_PPU
-        mv ${LOGFILE_PACKAGES_PPU}-tmp ${LOGFILE_PACKAGES_PPU}
+        echo "$LOGFILE_UTILS_PPU is huge: `wc -c $LOGFILE_UTILS_PPU`"
+        echo "Original $LOGFILE_UTILS_PPU was huge: `wc -c $LOGFILE_UTILS_PPU`" > ${LOGFILE_UTILS_PPU}-tmp
+        head -110 $LOGFILE_UTILS_PPU >> ${LOGFILE_UTILS_PPU}-tmp
+        echo "%%%%% File size reduced %%%%"  >> ${LOGFILE_UTILS_PPU}-tmp
+        tail -110 $LOGFILE_UTILS_PPU >> ${LOGFILE_UTILS_PPU}-tmp
+        rm -Rf $LOGFILE_UTILS_PPU
+        mv ${LOGFILE_UTILS_PPU}-tmp ${LOGFILE_UTILS_PPU}
       fi
     fi
   fi
