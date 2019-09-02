@@ -273,6 +273,7 @@ fi
 LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
 LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
+LISTOLDLOGFILE=$LOGDIR/list-all-${name}-${svnname}-check-changes.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
 if [ -z "$PREVIOUS_SUFFIX" ] ; then
   PREVIOUS_SUFFIX=.previous
@@ -297,10 +298,13 @@ if [ -f $LISTLOGFILE ] ; then
   if [ $verbose -eq 1 ] ; then
     echo "Previous failure list is $prev_failure_list"
   fi
+  echo "Previous failure list renamed:" > $LISTOLDLOGFILE
   for file in $prev_failure_list ; do
     if [ -f "$file" ] ; then
-      echo "Previous failure in $file renamed to ${file/.txt/}.last-failure-txt"
+      echo "Previous failure in $file renamed to ${file/.txt/}.last-failure-txt" >> $LISTOLDLOGFILE
       mv -f $file ${file/.txt/}.last-failure-txt
+    else
+      echo "Previous failure in $file not found" >> $LISTOLDLOGFILE
     fi
   done
 fi
