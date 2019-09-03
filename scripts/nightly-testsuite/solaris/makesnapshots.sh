@@ -15,6 +15,7 @@ if [ "$CPU" == "sparc" ] ; then
   LOGFILE=~/logs/makesnapshot-trunk-sparc.log
   FTPDIR=fpcftp:ftp/snapshot/trunk/sparc-solaris
   STARTPP=ppcsparc
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   if [ ! -z "$SPARC64_SNAPSHOT" ] ; then
     echo "Generating trunk snapshot for sparc64" > $LOCKFILE
@@ -22,6 +23,7 @@ if [ "$CPU" == "sparc" ] ; then
     LOGFILE=~/logs/makesnapshot-trunk-sparc64.log
     FTPDIR=fpcftp:ftp/snapshot/trunk/sparc64-solaris
     STARTPP=ppcsparc64
+    FPC_TARGET_CPU=
     . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   fi
   rm -f $LOCKFILE
@@ -36,6 +38,7 @@ if [ "$CPU" == "sparc" ] ; then
   LOGFILE=~/logs/makesnapshot-fixes-sparc.log
   FTPDIR=fpcftp:ftp/snapshot/fixes/sparc-solaris
   STARTPP=ppcsparc
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   rm -f $LOCKFILE
 fi
@@ -52,11 +55,13 @@ if [ "$CPU" == "i386" ] ; then
   LOGFILE=~/logs/makesnapshot-trunk-i386.log
   FTPDIR=fpcftp:ftp/snapshot/trunk/i386-solaris
   STARTPP=ppc386
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   echo "Generating trunk snapshot for x86_64" > $LOCKFILE
   LOGFILE=~/logs/makesnapshot-trunk-x86_64.log
   FTPDIR=fpcftp:ftp/snapshot/trunk/x86_64-solaris
   STARTPP=ppcx64
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   rm -f $LOCKFILE
 
@@ -71,11 +76,13 @@ if [ "$CPU" == "i386" ] ; then
   LOGFILE=~/logs/makesnapshot-fixes-i386.log
   FTPDIR=fpcftp:ftp/snapshot/fixes/i386-solaris
   STARTPP=ppc386
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   echo "Generating fixes snapshot for x86_64" > $LOCKFILE
   LOGFILE=~/logs/makesnapshot-fixes-x86_64.log
   FTPDIR=fpcftp:ftp/snapshot/fixes/x86_64-solaris
   STARTPP=ppcx64
+  FPC_TARGET_CPU=
   . $HOME/bin/makesnapshot.sh > $LOGFILE 2>&1
   rm -f $LOCKFILE
 fi
