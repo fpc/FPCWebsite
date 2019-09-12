@@ -2,27 +2,100 @@
 
 . $HOME/bin/fpc-versions.sh 
 
-# Limit resources (64mb data, 8mb stack, 40 minutes)
-
-if [ "X$FPCBIN" == "X" ] ; then
-  FPCBIN=ppcx64
+if [ -z "$USER" ]; then
+  USER=$LOGNAME
 fi
 
-if [ "X$FPCBIN" == "Xppc386" ] ; then
-  NEEDED_OPT="-Fl/usr/lib32 -Fl/usr/local/lib32 -Fl/lib32"
-  SUFFIX=-32
+if [ "X$USE_DEBUG" == "X1" ] ; then
+  MAKEDEBUG="DEBUG=1"
 else
-  NEEDED_OPT=
-  SUFFIX=-64
+  MAKEDEBUG=
+fi
+
+if [ -z "$FPCBIN" ] ; then
+  FPCBIN=ppcx64
 fi
 
 if [ -z "$MAKE" ] ; then
   export MAKE=make
 fi
 
+if [ -z "$SVNDIRNAME" ] ; then
+  if [ "x$FIXES" == "x1" ] ; then
+    SVNDIRNAME=$FIXESDIRNAME
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=fixes
+    fi
+  else
+    SVNDIRNAME=$TRUNKDIRNAME
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=trunk
+    fi
+  fi
+fi
+
+if [ -z "$NEEDED_OPT" ] ; then
+  NEEDED_OPT=
+fi
+
+if [ -z "$MAKE_TESTS_TARGET" ] ; then
+  # Default $MAKE tests target is 'fulldb' 
+  # which also means upload to testuite database
+  # export with value full to avoid upload
+  MAKE_TESTS_TARGET=fulldb
+fi
+
+export HOSTNAME=${HOSTNAME//.*/}
+
+current_log=
+
+set -u
+
+FPCRELEASEVERSION=$RELEASEVERSION
+# Prepend release binary path and local $HOME/bin to PATH
+export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+
+# Limit resources (64mb data, 8mb stack, 40 minutes)
+
+add_to_log=""
+
+if [ "X$FPCBIN" == "Xppc386" ] ; then
+  NEEDED_OPT="$NEEDED_OPT -Xd"
+  if [ -d "/usr/lib32" ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/usr/lib32"
+  fi
+  if [ -d "/usr/local/lib32" ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/usr/local/lib32"
+  fi
+  if [ -d "/lib32" ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/lib32"
+  fi
+  gnu_ld_version=`ld --version 2> /dev/null`
+  if [ "${gnu_ld_version/2.31.1/}" != "$gnu_ld_version" ] ; then
+    add_to_log="Warning: this GNU linker has a bug for i386 emulation"
+    gnu_i386_linux_ld_version=`i386-linux-ld --version 2> /dev/null`
+    if [ -z "$gnu_i386_linux_ld_version" ] ; then
+      echo "$add_to_log Unable to find i386-linux-ld"
+      exit
+    elif [ "${gnu_i386_linux_ld_version/2.31.1/}" != "$gnu_i386_linux_ld_version" ] ; then
+      add_to_log="$add_to_log Warning: this GNU i386-linux linker has a bug for i386 emulation"
+    else
+      add_to_log="$add_to_log Using i386-linux-ld instead"
+      export BINUTILSPREFIX=i386-linux-
+      NEEDED_OPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
+    fi
+  fi
+  SUFFIX=-32
+else
+  NEEDED_OPT=
+  SUFFIX=-64
+fi
+
 if [ "$HOSTNAME" == "CFARM-IUT-TLSE3" ] ; then
   export HOSTNAME=gcc21
 fi
+
+MAKE_J_OPT=""
 
 if [ "$HOSTNAME" == "gcc21" ] ; then
   export do_run_tests=1
@@ -47,35 +120,8 @@ if [ "$HOSTNAME" == "gcc20" ] ; then
   cleantests=1
 fi
 
-if [ "$USER" == "" ]; then
-  USER=$LOGNAME
-fi
-
-if [ "X$USE_DEBUG" == "X1" ] ; then
-  MAKEDEBUG="DEBUG=1"
-else
-  MAKEDEBUG=
-fi
-
 DATE="date +%Y-%m-%d-%H-%M-%S"
 TODAY=`date +%Y-%m-%d`
-FPCRELEASEVERSION=$RELEASEVERSION
-
-export PATH=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-if [ -z "$SVNDIRNAME" ] ; then
-  if [ "x$FIXES" == "x1" ] ; then
-    SVNDIRNAME=$FIXESDIRNAME
-    if [ -z "$SVNDIRNAME" ] ; then
-      SVNDIRNAME=fixes
-    fi
-  else
-    SVNDIRNAME=$TRUNKDIRNAME
-    if [ -z "$SVNDIRNAME" ] ; then
-      SVNDIRNAME=trunk
-    fi
-  fi
-fi
 
 if [ -d "$HOME/pas/${SVNDIRNAME}" ] ; then
   cd "$HOME/pas/${SVNDIRNAME}"
@@ -83,6 +129,8 @@ else
   echo "Directory $HOME/pas/${SVNDIRNAME} not found, skipping"
   exit
 fi
+
+currentlog=""
 
 function add_log ()
 {
@@ -103,11 +151,11 @@ function gen_ppu_log ()
   ppufilename="$2"
   ppusuff="$3"
   ppu="$dir/$ppufilename"
-  logfile="$logdir/${ppufilename}${ppusuff}"
-  if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
-    echo "/home/${USER}/pas/fpc-${Build_version}/bin/ppudump \"$ppu\" > \"$logfile\"" >> $makelog
-    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > "$logfile" 2>&1
-    grep -E "(^Analysing|Checksum)" "$logfile" > "$logfile"-short 2>&1
+  logfile="$logdir/${ppufilename}${ppusuff}$SUFFIX"
+  if [ -f ${HOME}/pas/fpc-${Build_version}/bin/ppudump ] ; then
+    echo "${HOME}/pas/fpc-${Build_version}/bin/ppudump $ppu > $logfile" >> $makelog
+    ${HOME}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > $logfile 2>&1
+    grep -E "(^Analysing|Checksum)" $logfile > ${logfile}-short 2>&1
   fi
 }
 
@@ -116,15 +164,18 @@ function gen_ppu_diff ()
   ppufilename="$1"
   ppusuff1="$2"
   ppusuff2="$3"
-  ppu1="$logdir/$ppufilename$ppusuff1"
-  ppu2="$logdir/$ppufilename$ppusuff2"
-  difffile="$logdir/${ppufilename}.ppudiffs"
-  echo "diff -c \"${ppu1}\" \"${ppu2}\" > \"${difffile}\"" >> $makelog
-  diff -c "${ppu1}" "${ppu2}" > "${difffile}" 2>&1 
+  ppu1="$logdir/$ppufilename$ppusuff1${SUFFIX}"
+  ppu2="$logdir/$ppufilename$ppusuff2${SUFFIX}"
+  difffile="$logdir/${ppufilename}.ppudiffs${SUFFIX}"
+  echo "diff -c \"${ppu1}\" \"${ppu2}\" > ${difffile}" >> $makelog
+  diff -c "${ppu1}" "${ppu2}" > ${difffile} 2>&1 
   diffres=$?
   if [ $diffres -ne 0 ] ; then
     echo "ppudump output changed for $ppufilename" >> $report
+    wc -l "${difffile}" >> $report
+    echo "First 99 lines of ${difffile}" >> $report
     head -99 "${difffile}" >> $report
+    echo "End of first 99 lines of ${difffile}" >> $report
     echo "Cleaning packages to be sure" >> $report
     make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   fi
@@ -137,7 +188,12 @@ export svnlog=$logdir/svnlog${SUFFIX}.txt
 export cleanlog=$logdir/cleanlog${SUFFIX}.txt 
 export makelog=$logdir/makelog${SUFFIX}.txt 
 
+set_log $report
 echo "Starting $0 on $HOSTNAME" > $report
+if [ -n "${add_to_log}" ] ; then
+  add_log "${add_to_log}"
+fi
+
 Start_version=`$FPCBIN -iV`
 Start_date=`$FPCBIN -iD`
 add_log "Start $FPCBIN version is ${Start_version} ${Start_date}"
@@ -191,14 +247,8 @@ if [ -f ./compiler/$FPCBIN ] ; then
   add_log "New binary $NEW_PPC_BIN, version=$Build_version, date=$Build_date, OS=$NEW_OS_TARGET, CPU=$NEW_CPU_TARGET"
 else
   NewBinary=0
+  NEW_UNITDIR=""
   add_log "No new binary ./compiler/$FPCBIN"
-fi
-
-if [ -z "$MAKE_TESTS_TARGET" ] ; then
-  # Default $MAKE tests target is 'fulldb' 
-  # which also means upload to testuite database
-  # export with value full to avoid upload
-  MAKE_TESTS_TARGET=fulldb
 fi
 
 if [ $NewBinary -eq 1 ] ; then
@@ -257,7 +307,7 @@ if [ $NewBinary -eq 1 ] ; then
   gen_ppu_diff sysutils.ppu -log1 -log2
 
   # Add new bin dir as first in PATH
-  export PATH=/home/${USER}/pas/fpc-${Build_version}/bin:${PATH}
+  export PATH=${HOME}/pas/fpc-${Build_version}/bin:${PATH}
   add_log "Using new PATH=\"${PATH}\""
   NEWFPC=`which $FPCBIN`
   add_log "Using new binary \"${NEWFPC}\""
@@ -278,19 +328,30 @@ if [ $NewBinary -eq 1 ] ; then
 
   function run_tests ()
   {
-    MIN_OPT="$1"
-    DIR_OPT=${MIN_OPT// /}
-    TEST_OPT="$NEEDED_OPT $1"
-    MAKE_OPTS="$2"
+    if [ $# -ge 1 ] ; then
+      MIN_OPT="$1"
+      DIR_OPT=${MIN_OPT// /}
+      TEST_OPT="$NEEDED_OPT $1"
+    else
+      MIN_OPT=""
+      DIR_OPT=""
+      TEST_OPT=""
+    fi
+
+    if [ $# -ge 2 ] ; then
+      MAKE_OPTS="$2"
+    else
+      MAKE_OPTS=""
+    fi
     logdir=~/logs/$SVNDIRNAME/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
     testslog=~/pas/$SVNDIRNAME/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
     cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
     set_log $testslog
     add_log "Starting $MAKE -C ../rtl distclean"
     TIME=`date +%H-%M-%S`
-    ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleantestslog 2>&1
+    ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" > $cleantestslog 2>&1
     add_log "Starting $MAKE -C ../packages distclean"
-    ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleantestslog 2>&1
+    ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" >> $cleantestslog 2>&1
     add_log  "Starting $MAKE distclean"
     ${MAKE} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
