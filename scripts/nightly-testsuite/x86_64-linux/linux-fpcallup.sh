@@ -32,7 +32,8 @@ test_msdos_trunk=0
 test_msdos_fixes=0
 test_go32v2_trunk=0
 test_go32v2_fixes=0
-do_i386=1
+do_trunk_i386=1
+do_fixes_i386=1
 do_x86_64=1
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
@@ -49,13 +50,15 @@ elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
 elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
-  do_i386=0
+  do_trunk_i386=0
+  do_fixes_i386=0
   export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
   gen_cross_snapshots_fixes=1
   gen_cross_snapshots_trunk=1
+  do_fixes_i386=0
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
@@ -80,10 +83,13 @@ elif [ "X$HOSTNAME" == "Xgcc70" ] ; then
 fi
 
 # Do the same with ppc386
-if [ $do_i386 -eq 1 ] ; then
+if [ $do_trunk_i386 -eq 1 ] ; then
   export FPCBIN=ppc386
   export FIXES=0
   $HOME/bin/linux-fpccommonup.sh
+fi
+if [ $do_fixes_i386 -eq 1 ] ; then
+  export FPCBIN=ppc386
   export FIXES=1
   $HOME/bin/linux-fpccommonup.sh
 fi
