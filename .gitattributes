@@ -625,6 +625,7 @@ scripts/nightly-testsuite/x86_64-freebsd/i386-freebsd-as svneol=native#text/plai
 scripts/nightly-testsuite/x86_64-freebsd/i386-freebsd-ld svneol=native#text/plain
 scripts/nightly-testsuite/x86_64-freebsd/update_rsync_dir.sh svneol=native#text/plain
 scripts/nightly-testsuite/x86_64-linux/all-snapshots.sh svneol=native#text/plain
+scripts/nightly-testsuite/x86_64-linux/check-CriotR.sh svneol=native#text/plain
 scripts/nightly-testsuite/x86_64-linux/crontab.txt svneol=native#text/plain
 scripts/nightly-testsuite/x86_64-linux/linux-fpcallup.sh svneol=native#text/plain
 scripts/nightly-testsuite/x86_64-linux/linux-fpccommonup.sh svneol=native#text/plain
