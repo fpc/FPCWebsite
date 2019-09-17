@@ -124,11 +124,11 @@ function set_fpc_local ()
   # Always add -vx to get exact command line used when
   # calling GNU assembler/clang/java ...
   LOCAL_OPT="$3 -vx $GLOBAL_OPT"
-  MAKEEXTRA="$4"
+  MAKE_EXTRA="$4"
 
   EXTRASUFFIX=$5
 
-  echo "Testing rtl for $CPU_TARGET $OS_TARGET, with OPT=\"$LOCAL_OPT\" and MAKEEXTRA=\"$MAKEEXTRA\""
+  echo "Testing rtl for $CPU_TARGET $OS_TARGET, with OPT=\"$LOCAL_OPT\" and MAKE_EXTRA=\"$MAKE_EXTRA\""
   date "+%Y-%m-%d %H:%M:%S"
   already_tested=`grep " $CPU_TARGET-${OS_TARGET}$EXTRASUFFIX," $LISTLOGFILE `
   if [ "X$already_tested" != "X" ] ; then
@@ -178,7 +178,7 @@ function set_fpc_local ()
   elif [ "X${LOCAL_OPT//Avasm/}" != "X$LOCAL_OPT" ] ; then
     # -Avasm is only used for m68k vasm assembler 
     ASSEMBLER=vasmm68k_std
-    MAKEEXTRA="$MAKEEXTRA AS=$ASSEMBLER"
+    MAKE_EXTRA="$MAKE_EXTRA AS=$ASSEMBLER"
     BINUTILSPREFIX=
   else
     ASSEMBLER=as
@@ -280,6 +280,7 @@ function set_fpc_local ()
     export LOGFILE=$LOGDIR/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
     FPC_PREV=$FPC 
     export FPC=$fpc_local_exe
+    export MAKE_EXTRA
     $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
     res=$?
     if [ $res -ne 0 ] ; then
@@ -396,11 +397,11 @@ export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 # msdos targets
-run_one_snapshot i8086 msdos "-n -Wmtiny -CX -XX" "-Wmtiny"
-run_one_snapshot i8086 msdos "-n -Wmcompat -CX -XX" "-Wmcompact"
-run_one_snapshot i8086 msdos "-n -Wmmedium -CX -XX" "-Wmmedium"
-run_one_snapshot i8086 msdos "-n -Wmlarge -CX -XX" "-Wmlarge"
-run_one_snapshot i8086 msdos "-n -Wmhuge -CX -XX" "-Wmhuge"
+run_one_snapshot i8086 msdos "-n -Wmtiny -CX -XX" "" "-Wmtiny"
+run_one_snapshot i8086 msdos "-n -Wmcompact -CX -XX" "" "-Wmcompact"
+run_one_snapshot i8086 msdos "-n -Wmmedium -CX -XX" "" "-Wmmedium"
+run_one_snapshot i8086 msdos "-n -Wmlarge -CX -XX" "" "-Wmlarge"
+run_one_snapshot i8086 msdos "-n -Wmhuge -CX -XX" "" "-Wmhuge"
 run_one_snapshot i8086 msdos "-n -Wmsmall -CX -XX"
 
 # Targets that use internal linker can be built with BUILDFULLNATIVE=1
@@ -408,11 +409,13 @@ export BUILDFULLNATIVE=1
 run_one_snapshot i386 win32 "-n -gl" 
 run_one_snapshot i386 go32v2 "-n -gl" 
 run_one_snapshot x86_64 win64 "-n -gl" 
+run_one_snapshot mips linux "-n -gwl -ao-xgot -fPIC"
+run_one_snapshot mipsel linux "-n -gwl -ao-xgot -fPIC"
 export BUILDFULLNATIVE=
 # nativvent has no lineinfo unit support
 run_one_snapshot i386 nativent "-n -g" 
 run_one_snapshot arm aros "-n -g"
-run_one_snapshot x86_64 aros "-n -g"
+run_one_snapshot x86_64 aros "-n -gw"
 
 
 list_os ppcarm arm "-n -gl"
