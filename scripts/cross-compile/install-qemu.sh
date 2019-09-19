@@ -14,10 +14,14 @@ fi
 
 echo "Unpacking qemu version $QEMU_VERSION"
 tar xvJf qemu-$QEMU_VERSION.tar.xz
-cd qemu-$QEMU_VERSION
+if [ -d build-qemu-$QEMU_VERSION ] ; then
+  rm -Rf build-qemu-$QEMU_VERSION
+fi
+mkdir build-qemu-$QEMU_VERSION
+cd build-qemu-$QEMU_VERSION
 echo "Configuring qemu version $QEMU_VERSION"
-export CFLAGS="-gdwarf-4 -I$HOME/gnu/include -L$HOMR/gnu/lib" 
-./configure --prefix=$HOME/sys-root --enable-curses --extra-cflags="$CFLAGS"
+export CFLAGS="-gdwarf-4 -I$HOME/gnu/include -L$HOME/gnu/lib" 
+../qemu-$QEMU_VERSION/configure --prefix=$HOME/sys-root --enable-curses --extra-cflags="$CFLAGS"
 echo "Making qemu version $QEMU_VERSION"
 make
 res=$?
