@@ -247,7 +247,12 @@ if [ -f ./compiler/$FPCBIN ] ; then
   add_log "New binary $NEW_PPC_BIN, version=$Build_version, date=$Build_date, OS=$NEW_OS_TARGET, CPU=$NEW_CPU_TARGET"
 else
   NewBinary=0
-  NEW_UNITDIR=""
+  Build_version=`$FPCBIN -iV`
+  Build_date=`$FPCBIN -iD`
+  NEW_OS_TARGET=`$FPCBIN -iTO`
+  NEW_CPU_TARGET=`$FPCBIN -iTP`
+  NEW_UNITDIR=${NEW_CPU_TARGET}-${NEW_OS_TARGET}
+
   add_log "No new binary ./compiler/$FPCBIN"
 fi
 
@@ -423,7 +428,6 @@ if [ $NewBinary -eq 1 ] ; then
   fi
 
   ) >> $report 2>&1
-
 fi # NewBinary -eq 1
 
 mutt -x -s "Free Pascal results on ${HOST_PC} ${NEW_UNITDIR} ${Build_version} ${Build_date}" \
