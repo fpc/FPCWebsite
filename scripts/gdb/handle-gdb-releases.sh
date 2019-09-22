@@ -253,6 +253,8 @@ handle_release gdb-8.1.tar.gz
 handle_release gdb-8.1.1.tar.gz
 handle_release gdb-8.2.tar.gz
 handle_release gdb-8.2.1.tar.gz
+handle_release gdb-8.3.tar.gz
+handle_release gdb-8.3.1.tar.gz
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
