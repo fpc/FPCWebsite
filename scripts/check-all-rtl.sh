@@ -116,7 +116,10 @@ fi
 
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
-if [ "X$machine_host" == "Xgcc20" ] ; then
+if [ "X$machine_host" == "Xgcc10" ] ; then
+  DO_FPC_INSTALL=1
+  MAKEJOPT="-j 5"
+elif [ "X$machine_host" == "Xgcc20" ] ; then
   DO_FPC_INSTALL=1
 elif [ "X$machine_host" == "Xgcc21" ] ; then
   DO_FPC_INSTALL=1
