@@ -35,6 +35,7 @@ test_go32v2_fixes=0
 do_trunk_i386=1
 do_fixes_i386=1
 do_x86_64=1
+do_docs=0
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
@@ -80,6 +81,9 @@ elif [ "X$HOSTNAME" == "Xgcc70" ] ; then
   test_msdos_fixes=0
   test_go32v2_trunk=0
   test_go32v2_fixes=0
+elif [ "X$HOSTNAME" == "Xgcc10" ] ; then
+  do_docs=1
+  check_cross_trunk=1
 fi
 
 # Do the same with ppc386
@@ -166,6 +170,11 @@ if [ $test_go32v2_fixes -eq 1 ] ; then
   # Test go32v2 
   $HOME/bin/test-go32v2.sh
 fi
+
+if [ $do_docs -eq 1 ] ; then
+  $HOME/bin/check-docs.sh
+fi
+
 
 # Check if latest source was uploaded
 TODAY=`date +%Y-%m-%d`
