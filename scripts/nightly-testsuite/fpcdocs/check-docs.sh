@@ -23,7 +23,11 @@ if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
+# Prepend release binary path and local $HOME/bin to PATH
+export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+# Prepend current version binary path
 export PATH=$HOME/pas/fpc-$CURVER/bin:$PATH
+
 
 FPC_DATE=`$FPCBIN -iD`
 today=`date "+%Y/%m/%d"`
@@ -162,6 +166,12 @@ pdf_listing=`ls -1 doc-pdf.* 2> /dev/null `
 
 uploaded=0
 
+
+today_docs=`ssh ${UPLOAD_LOGIN}@${UPLOAD_HOST} "find ${UPLOAD_DIR} -newermt $TODAY" 2> /dev/null `
+
+if [ -n "$today_docs" ] ; then
+  echo "Files are on sever: $today_docs"
+else
 if [ -n "$pdf_listing" ] ; then
   echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
   res=1
@@ -180,6 +190,7 @@ if [ -n "$pdf_listing" ] ; then
       uploaded=1
     fi
   done  
+fi
 fi
 
 # installed TeX is pdftex, so no html possible
