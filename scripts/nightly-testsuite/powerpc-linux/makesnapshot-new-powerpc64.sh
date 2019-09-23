@@ -11,11 +11,13 @@ if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
   ENDIAN=big
   FPC_CPU=powerpc64
   FPC_CPUSUF=ppc64
+  FTP_SUBDIR=powerpc64-linux
 else
   echo "Little endian machine"
   ENDIAN=little
   FPC_CPU=powerpc64
   FPC_CPUSUF=ppc64
+  FTP_SUBDIR=powerpc64le-linux
 fi
 GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
 
@@ -87,7 +89,8 @@ ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" FPC=${FPC} > makesnapshot-${FPC_CPUOS}-${F
 TAR=`ls -1tr $TAR_PATTERN | tail -1`
 
 if [ -f ${TAR} ]; then
-  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FPC_CPUOS}
+  echo "scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FTP_SUBDIR}"
+  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FTP_SUBDIR}
 else
   echo "Failed to created ${TAR_PATTERN} file"
 fi
