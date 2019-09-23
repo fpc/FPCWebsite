@@ -1,8 +1,12 @@
 #!/bin/bash
 # arm32 libs not present ...
 echo "Starting $0 at `date`" > $HOME/.lastfpcfixesup
-export LOG=~/logs/last32-fpcfixesup
-$HOME/bin/linux32-fpcfixesup.sh 1> $LOG 2>&1
+
+if [ "$skip_arm" != "1" ] ; then
+  export LOG=~/logs/last32-fpcfixesup
+  $HOME/bin/linux32-fpcfixesup.sh 1> $LOG 2>&1
+  generate_arm_snapshots=0
+fi
 
 export LOG=~/logs/last-fpcfixesup
 $HOME/bin/linux64-fpcfixesup.sh 1> ${LOG} 2>&1

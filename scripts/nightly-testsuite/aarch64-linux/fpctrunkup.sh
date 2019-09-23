@@ -1,8 +1,13 @@
 #!/bin/bash
 # arm32 libs not present ...
 echo "Starting $0 at `date`" > $HOME/.lastfpctrunkup
-export LOG=~/logs/last-32-fpctrunkup
-$HOME/bin/linux32-fpctrunkup.sh 1> $LOG 2>&1
+
+if [ "$skip_arm" != "1" ] ; then
+  export LOG=~/logs/last-32-fpctrunkup
+  $HOME/bin/linux32-fpctrunkup.sh 1> $LOG 2>&1
+  generate_arm_snapshots=0
+fi
+
 export LOG=~/logs/last-fpctrunkup
 $HOME/bin/linux64-fpctrunkup.sh 1> ${LOG} 2>&1
 echo "res=$?" >> $HOME/.lastfpctrunkup
