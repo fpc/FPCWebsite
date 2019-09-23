@@ -27,19 +27,29 @@ if [ "$RELEASEVER" == "" ]; then
 fi
 
 if [ "$FPCBIN" == "" ]; then
-  if [ "${processor}" == "ppc64" ] ; then
+  if [ "${processor}" = "ppc64le" ] ; then
     FPCBIN=ppcppc64
-  fi
-  if [ "${processor}" == "ppc" ] ; then
+  elif [ "${processor}" = "ppc64" ] ; then
+    FPCBIN=ppcppc64
+  elif [ "${processor}" = "ppc" ] ; then
     FPCBIN=ppcppc
   fi
+fi
+if [ "${processor}" = "ppc64le" ] ; then
+  TEST_ABI=le
+  MAKE_J_OPT="-j 16"
+  export FPMAKEOPT="-T 16"
+else
+  TEST_ABI=
+  MAKE_J_OPT="-j 8"
+  export FPMAKEOPT="-T 8"
 fi
 
 # If using 32-bit version of compiler
 # special as is needed with -a32 option.
 # this is in ~/bin/powerpc-as
 # ~/bin/powerpc-ld has no option
-if [ "$FPCBIN" == "ppcppc" ]; then
+if [ "$FPCBIN" = "ppcppc" ]; then
   export TEST_BINUTILSPREFIX=powerpc-
   export BINUTILSPREFIX=powerpc-
   GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
@@ -68,6 +78,11 @@ if [ "$MAKE" == "" ]; then
 fi
 
 HOST_PC=${HOSTNAME%%\.*}
+if [ "$HOST_PC" = "gcc2-power8" ] ; then
+  HOST_PC=gcc2-power8-ppc64le
+  export OVERRIDEVERSIONCHECK=1
+fi
+
 export TEST_USER=pierre
 FPCRELEASEBINDIR=/home/${USER}/pas/fpc-${RELEASEVER}/bin
 
@@ -76,6 +91,8 @@ export PATH=/home/${USER}/pas/fpc-${CURVER}/bin:/home/${USER}/bin:/usr/local/sbi
 FPCRELEASEBIN=${FPCRELEASEBINDIR}/${FPCBIN}
 
 cd $FPCSVNDIR
+
+LOGDIR=$HOME/logs
 
 export report=`pwd`/report.txt 
 export makelog=`pwd`/make.txt 
@@ -185,10 +202,13 @@ export TEST_OPT="${OPT}"
 echo "New FPC is ${FPC}" >> $report
 
 
-echo "Starting make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"" >> $report
-${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+echo "Starting make distclean fulldb, TEST_OPT=\"${TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> $report
+${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+${MAKE} ${MAKE_J_OPT} fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
+  TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
+  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
 testsres=$?
 echo "Ending make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"; result=${testsres}" >> $report
 
@@ -196,11 +216,14 @@ tail -30 $testslog >> $report
 echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
 TEST_OPT="-O3 -Cg ${TEST_OPT}"
-echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "Starting make clean fulldb with TEST_OPT=\"${TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> ${report}
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
-  TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
+${MAKE} ${MAKE_J_OPT} fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
+  TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
+  TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
 testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 
