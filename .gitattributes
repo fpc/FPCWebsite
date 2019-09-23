@@ -450,6 +450,7 @@ scripts/dbdigest.cfg.example svneol=native#text/plain
 scripts/fpc-versions.sh svneol=native#text/plain
 scripts/gdb/handle-gdb-releases.sh svneol=native#text/plain
 scripts/gdb/test-gdb-releases.sh svneol=native#text/plain
+scripts/generate-cross-sfpux80.sh svneol=native#text/plain
 scripts/mailtestresults.sh svneol=native#text/plain
 scripts/makereleasezips svneol=native#text/plain
 scripts/makesnapshot svneol=native#text/plain
