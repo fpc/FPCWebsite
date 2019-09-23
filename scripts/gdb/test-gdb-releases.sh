@@ -33,7 +33,8 @@ function compile_ide_with_libgdb ()
   fi
 
   make -C ../../packages all DEBUG=1 >> $log 2>&1
-  make -C ../../packages/gdbint distclean all OPT="-n -gl" >> $log 2>&1
+  rm -Rf ../../packages/gdbint/units
+  make -C ../../packages/gdbint distclean all DEBUG=1 OPT="-n -gl -vwnihc" FPMAKEOPT=-v >> $log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "Error: Compilation of gdbint for fp-$release failed, res=$res"
@@ -42,8 +43,8 @@ function compile_ide_with_libgdb ()
     echo "Compilation of gdbint of fp-$release OK"
   fi
 
-  make distclean all OPT="-n -gl -k-Map -kfp-$release.map -dUSE_FPBASENAME" \
-    FPBASENAME=fp-$release >> $log 2>&1
+  make distclean all NOGDBMI=1 DEBUG=1 OPT="-n -gl -v0wnih -k-Map -kfp-$release.map -dUSE_FPBASENAME" \
+    FPBASENAME=fp-$release FPMAKEOPT=-v >> $log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "Error: Make call for fp-$release failed, res=$res"
@@ -67,6 +68,12 @@ function compile_ide_with_libgdb ()
 
 libgdb_dir_list=`ls -1d $PASCALMAINDIR/libgdb/ | sed "s:gdb-::" `
 
+if [ -n "$1" ] ; then
+  for arg in $* ; do
+    compile_ide_with_libgdb $arg
+  done
+  exit
+fi
 
 (
 compile_ide_with_libgdb 4.18
