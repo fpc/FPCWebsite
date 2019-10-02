@@ -49,12 +49,12 @@ call %ADDRELEASEPATH%
 rem
 rem Wait for lock
 rem
-:waitlock
+:waitlock2
 set LOCKFILE=%FPC_SOURCE_DIR%\lock
-if not exist %LOCKFILE% goto lockok
+if not exist %LOCKFILE% goto lockok2
 call wait.bat 10
-goto waitlock
-:lockok
+goto waitlock2
+:lockok2
 echo Running %MAKECMD% > %LOCKFILE%
 if "%FPC_SKIP%" == "1" goto skipmake
 rem
@@ -115,6 +115,7 @@ echo Using pscp to upload %ZIPFILE%
 if "%FPC_SKIPUPLOAD" == "1" set PSCP=echo pscp
 %PSCP% -p -load fpcftp  %ZIPFILEONFTP% %READMEONFTP% ftpmaster.freepascal.org:ftp/snapshot/%DEFAULT_SUBDIR%/%FPC_SNAPSHOT_TARGET%/ >> %FPCLOG%
 if ERRORLEVEL 1 goto pscperror
+echo Upload of %ZIPFILE% succeeded
 :noupload
 goto end
 :makeerror
