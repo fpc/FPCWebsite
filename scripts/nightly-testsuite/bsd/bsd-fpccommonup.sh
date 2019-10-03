@@ -76,6 +76,10 @@ HOSTNAME=${HOSTNAME/.*/}
 if [ "$HOSTNAME" == "gcc300" ] ; then
   cleantests=1
   export run_tests=0
+elif [ "$HOSTNAME" == "OpenBSD386" ] ; then
+  # VM inside gcc123, skip test runs
+  cleantests=1
+  export run_tests=0
 else
   export run_tests=1
 fi
