@@ -119,6 +119,8 @@ fi
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_INSTALL=1
   MAKEJOPT="-j 5"
+  test_utils=1
+  test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc20" ] ; then
   DO_FPC_INSTALL=1
 elif [ "X$machine_host" == "Xgcc21" ] ; then
