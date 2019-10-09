@@ -276,6 +276,7 @@ if [ -z "$global_sysroot" ] ; then
 fi
 
 LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
+LOCKFILE=$LOGDIR/all-${name}-${svnname}-checks.lock
 LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
 LISTOLDLOGFILE=$LOGDIR/list-all-${name}-${svnname}-check-changes.log
@@ -332,6 +333,15 @@ function lecho ()
   echo "$*" >> $LISTLOGFILE
 }
 
+function rm_lockfile ()
+{
+  if [ -f "$LOCKFILE" ] ; then
+    rm -f $LOCKFILE
+  fi
+}
+
+echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
+
 rm -f $LOGFILE $LISTLOGFILE $EMAILFILE
 
 mecho "$0 for $svnname, version $FPCVERSION starting at `date`"
@@ -355,6 +365,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   fi
   if [ $makeres -ne 0 ] ; then
     mecho "Generating new native compiler failed, see $fullcyclelog for details"
+    rm_lockfile
     exit
   fi
   mecho "Recompiling cross-compilers"
@@ -368,6 +379,7 @@ if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
   fi
   if [ $makeres -ne 0 ] ; then
     mecho "Generating new cross-compilers failed, see $fullcyclelog for details"
+    rm_lockfile
     exit
   else
     # Using new temp installation bin dir
@@ -1137,6 +1149,7 @@ if [ "X$1" != "X" ] ; then
   echo "Testing single configuration $0 $*"
   echo "check_target cpu=\"$1\" os=\"$2\" opts=\"$3\" make args=\"$4\" suffix=\"$5\""
   check_target "$1" "$2" "$3" "$4" "$5"
+  rm_lockfile
   exit
 fi
 
@@ -1598,4 +1611,5 @@ mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `d
 if [ -z "$DO_FPC_INSTALL" ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
 fi
+
 
