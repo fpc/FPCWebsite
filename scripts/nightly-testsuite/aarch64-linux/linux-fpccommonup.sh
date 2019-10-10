@@ -193,7 +193,7 @@ if [ $NO_RELEASE -eq 1 ]; then
   res=$?
   if [ $res -eq 0 ] ; then
     cp ./$RELEASE_FPC ./new-$RELEASE_FPC
-    make install FPC=`pwd`/$RELEASE_FPC INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
+    make installsymlink FPC=`pwd`/$RELEASE_FPC INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
     # This one might fail as 3.0.0 arm relase fpcmake binary crashes
     make -C ../rtl install FPC=`pwd`/$RELEASE_FPC INSTALL_PREFIX=$HOME/pas/fpc-$CURVER$INSTALL_SUFFIX >> ${makelog} 2>&1
   else
@@ -300,7 +300,7 @@ fi
 if [ ${makeres} -ne 0 ] ; then
   echo "Make all or install failed, trying to install new by parts" >> $report
   INSTALLSRC=compiler
-  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  ${MAKE} -C ${INSTALLSRC} installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=rtl
