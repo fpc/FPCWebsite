@@ -2,6 +2,18 @@
 
 . $HOME/bin/fpc-versions.sh
 
+verbose=0
+
+if [ "$DO_VERBOSE" == "1" ] ; then
+  verbose=1
+fi
+
+if [ ! -z "$NO_UPLOAD" ] ; then
+  do_upload=0
+else
+  do_upload=1
+fi
+
 if [ -z "$SVNDIR" ] ; then
   if [ "$FIXES" == "1" ] ; then
     SVNDIR=fixes
@@ -31,7 +43,6 @@ fi
 if [ -z "$FPCLOGDIR" ] ; then
   FPCLOGDIR=$HOME/logs
 fi
-export MAKEFULLOPT=-j5
 
 NATIVEPP=ppcx64
 CROSSPP=ppc8086
@@ -39,7 +50,9 @@ export NEWNATIVEFPC=$FPCDIR/compiler/${NATIVEPP}-safe
 export NEWCROSSFPC=$FPCDIR/compiler/${CROSSPP}-safe
 
 export TEST_TARGET=msdos
-export MSDOSOPT="-CX -XX"
+if [ -z "$MSDOSOPT" ] ; then
+  export MSDOSOPT="-CX -XX"
+fi
 
 # Avoid fpcmake not found problem,
 # expects it in utils/fpcm directory, but generated in utils/fpcm/bbin/$fpctarget
@@ -47,7 +60,7 @@ export FPCMAKE=`which fpcmake`
 # export FPCMAKE=$FPCDIR/utils/fpcm/fpcmake
 # We use our own dosbox, modified for
 # copy of output to file if
-# section [dos] contians an entry called
+# section [dos] contains an entry called
 # copy_con_to_file, with the name of the file to write to.
 if [ -z "$DOSBOX" ] ; then
   export DOSBOX=$HOME/bin/dosbox
@@ -96,8 +109,8 @@ if [ $res -ne 0 ] ; then
   echo "Recompiling native utils failed, res=$res"
   return 1
 fi
-echo "Recompiling i8086 compiler"
-make -C $FPCDIR/compiler clean i8086 OPT="-n -gl" FPC=$NEWNATIVEFPC
+echo "Recompiling i8086 compiler using CROSSOPT=\"$CROSSOPT\""
+make -C $FPCDIR/compiler clean i8086 OPT="-n -gl $CROSSOPT" FPC=$NEWNATIVEFPC
 res=$?
 if [ $res -ne 0 ] ; then
   echo "Recompiling i8086 compiler failed, res=$res"
@@ -132,6 +145,9 @@ DIR_OPT=opt${TEST_OPT// /_}
 export logdir=$FPCLOGDIR/$SVNDIR/$TODAY/$TEST_TARGET/$DIR_OPT
 mkdir -p $logdir
 LOGFILE=$logdir/$TEST_TARGET-${DIR_OPT}.log
+if [ $verbose -eq 1 ] ; then
+  echo "Log file is $LOGFILE"
+fi
 
 TEST_OPT="$TEST_OPT $NEEDED_OPTS"
 
@@ -171,7 +187,9 @@ if [ $res -ne 0 ] ; then
   echo "Running testsuite failed, res=$res"
   return 1
 else
-  make uploadrun FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
+  if [ $do_upload -eq 1 ] ; then
+    make uploadrun FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper
+  fi
 fi
 cp output/$TEST_TARGET/faillist $logdir
 cp output/$TEST_TARGET/longlog $logdir
@@ -183,14 +201,30 @@ cp output/$TEST_TARGET/log $logdir
 PREPARELOGFILE=$FPCLOGDIR/test-prepare-$TEST_TARGET-$SVNDIR.log
 
 if [ "X$1" != "X" ] ; then
+  verbose=1
+  export TEST_VERBOSE=1
+  export V=1
+  export TEST_BENCH=1
   if [ "X$1" == "X-prep" ] ; then
     shift
+    date
+    echo "Running prepare_msdos with CROSSOPT=\"$CROSSOPT\""
     prepare_msdos > $PREPARELOGFILE 2>&1
   fi
-  MAKEFULLOPT= 
-  run_one_model $1
+  export MAKEFULLOPT=-j5
+  date
+  while [ "X$1" != "X" ] ; do
+    arg="$1"
+    shift
+    echo "Running run_one_model with medium model and OPT=\"$arg\""
+    run_one_model medium "$arg"
+    date
+  done
 else
+  export CORSSOPT=
   prepare_msdos > $PREPARELOGFILE 2>&1
+  export DOSBOX=$HOME/bin/dosbox-svn
+  export MAKEFULLOPT=-j5
   run_one_model tiny
   run_one_model small
   run_one_model medium
@@ -198,5 +232,20 @@ else
   run_one_model large
   if [ "$SVNDIR" == "trunk" ] ; then
     run_one_model huge
+  fi
+  if [ "$SVNDIR" == "trunk" ] ; then
+    # Testing smart link sections
+    export CROSSOPT="-dI8086_SMARTLINK_SECTIONS -di8086_link_intern_debuginfo"
+    # MSDOSOPT should not be needed anymore
+    export MSDOSOPT=" "
+    export NEWCROSSFPC=$FPCDIR/compiler/${CROSSPP}-sls-safe
+    prepare_msdos > $PREPARELOGFILE.smartlink_sections 2>&1
+    run_one_model medium "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model tiny "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model small "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model medium "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model compact "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model large "-dTEST_I8086_SMARTLINK_SECTIONS"
+    run_one_model huge "-dTEST_I8086_SMARTLINK_SECTIONS"
   fi
 fi

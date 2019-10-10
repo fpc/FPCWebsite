@@ -71,7 +71,6 @@ DJGPP_DIR=$HOME/sys-root/djgpp
 DJGPP_GCC_VERSION=6.10
 
 export NEEDED_OPTS="-Fl${DJGPP_DIR}/lib -Fl${DJGPP_DIR}/lib/gcc/djgpp/${DJGPP_GCC_VERSION}"
-# export MAKEFULLOPT=-j5
 
 function prepare_go32v2 ()
 {
@@ -169,6 +168,7 @@ echo "Running $TEST_TARGET testsuite with OPT=\"$1\""
 export TEST_BINUTILSPREFIX=i386-go32v2-
 make distclean testprep FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=$TEST_TARGET TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper OPT=-gwl
 res=$?
+export   MAKEFULLOPT=-j5
 if [ $res -eq 0 ] ; then
   make $MAKEFULLOPT full FPCFPMAKE=$NEWNATIVEFPC TEST_FPC=$NEWCROSSFPC TEST_OPT="$TEST_OPT" TEST_OS_TARGET=$TEST_TARGET TEST_USER=pierre EMULATOR=$FPCDIR/tests/utils/dosbox/dosbox_wrapper OPT=-gwl
   res=$?
@@ -205,4 +205,6 @@ else
   run_one_opt -O4
   run_one_opt -Criot
   run_one_opt "-Criot -O4"
+  export DOSBOX=dosbox-svn
+  run_one_opt "-O- -dDOSBOX_SVN"
 fi

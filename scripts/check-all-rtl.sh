@@ -1612,4 +1612,5 @@ if [ -z "$DO_FPC_INSTALL" ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
 fi
 
+rm_lockfile
 
