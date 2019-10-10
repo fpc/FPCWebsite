@@ -292,14 +292,14 @@ if [ -f $LOGFILE ] ; then
   if [ $verbose -eq 1 ] ; then
     echo "moving $LOGFILE to ${PREVLOGFILE}"
   fi
-  mv -f $LOGFILE ${PREVLOGFILE}
+  cp -f $LOGFILE ${PREVLOGFILE}
 fi
 
 if [ -f $LISTLOGFILE ] ; then
   if [ $verbose -eq 1 ] ; then
     echo "moving $LISTLOGFILE to ${PREVLISTLOGFILE}"
   fi
-  mv -f $LISTLOGFILE ${PREVLISTLOGFILE}
+  cp -f $LISTLOGFILE ${PREVLISTLOGFILE}
   prev_failure_list=` sed -n "s|Failure: See \(${LOGDIR}/.*.txt\) for details.*|\1|p" ${PREVLISTLOGFILE}`
   if [ $verbose -eq 1 ] ; then
     echo "Previous failure list is $prev_failure_list"
@@ -308,11 +308,13 @@ if [ -f $LISTLOGFILE ] ; then
   for file in $prev_failure_list ; do
     if [ -f "$file" ] ; then
       echo "Previous failure in $file renamed to ${file/.txt/}.last-failure-txt" >> $LISTOLDLOGFILE
-      mv -f $file ${file/.txt/}.last-failure-txt
+      cp -f $file ${file/.txt/}.last-failure-txt
     else
       echo "Previous failure in $file not found" >> $LISTOLDLOGFILE
     fi
   done
+else
+  prev_failure_list=""
 fi
 
 # echo to LOGFILE, LISTLOGFILE and EMAILFILE
@@ -343,6 +345,11 @@ function rm_lockfile ()
 echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
 
 rm -f $LOGFILE $LISTLOGFILE $EMAILFILE
+
+# Remove all failure files
+for file in $prev_failure_list ; do
+  rm -f $file
+done
 
 mecho "$0 for $svnname, version $FPCVERSION starting at `date`"
 mecho "Machine info: $machine_info"
