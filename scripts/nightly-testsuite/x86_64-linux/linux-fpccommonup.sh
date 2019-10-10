@@ -49,6 +49,15 @@ export HOSTNAME=${HOSTNAME//.*/}
 
 current_log=
 
+# Evaluate all arguments containing an equal sign
+# as variable definition
+while [ "$1" != "" ] ; do
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    shift
+  fi
+done
+
 set -u
 
 FPCRELEASEVERSION=$RELEASEVERSION
