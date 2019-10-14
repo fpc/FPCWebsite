@@ -2,6 +2,15 @@
 
 . $HOME/bin/fpc-versions.sh
 
+# Evaluate all arguments containing an equal sign
+# as variable definition
+while [ "$1" != "" ] ; do
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    shift
+  fi
+done
+
 # Add FPC release bin and $HOME/bin directories to PATH
 if [ -d $HOME/bin ] ; then
   PATH=$HOME/bin:$PATH
@@ -219,8 +228,8 @@ function set_fpc_local ()
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="vasm"
   elif [ "$ASSEMBLER" == "java" ] ; then
-    ASSEMBLER_VER_OPT=--version
-    ASSEMBLER_VER_REGEXPR="java"
+    ASSEMBLER_VER_OPT=-version
+    ASSEMBLER_VER_REGEXPR="version"
   else
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="gnu assembler"
@@ -404,6 +413,13 @@ run_one_snapshot i8086 msdos "-n -Wmlarge -CX -XX" "" "-Wmlarge"
 run_one_snapshot i8086 msdos "-n -Wmhuge -CX -XX" "" "-Wmhuge"
 run_one_snapshot i8086 msdos "-n -Wmsmall -CX -XX"
 
+# List separately cases for which special parameters are required
+run_one_snapshot arm embedded "-n" "SUBARCH=armv4t"
+run_one_snapshot avr embedded "-n" "SUBARCH=avr25" "-avr25"
+run_one_snapshot avr embedded "-n" "SUBARCH=avr4" "-avr4"
+run_one_snapshot avr embedded "-n" "SUBARCH=avr6"
+run_one_snapshot mipsel embedded "-n" "SUBARCH=pic32mx"
+
 # Targets that use internal linker can be built with BUILDFULLNATIVE=1
 export BUILDFULLNATIVE=1
 run_one_snapshot i386 win32 "-n -gl" 
@@ -412,11 +428,14 @@ run_one_snapshot x86_64 win64 "-n -gl"
 run_one_snapshot mips linux "-n -gwl -ao-xgot -fPIC"
 run_one_snapshot mipsel linux "-n -gwl -ao-xgot -fPIC"
 export BUILDFULLNATIVE=
-# nativvent has no lineinfo unit support
+# nativent has no lineinfo unit support
 run_one_snapshot i386 nativent "-n -g" 
+# aros also has no lineinfo support for arm and x86_64
 run_one_snapshot arm aros "-n -g"
 run_one_snapshot x86_64 aros "-n -gw"
-
+# haiku needs explicit debug information type
+run_one_snapshot i386 aros "-n -gl"
+run_one_snapshot x86_64 aros "-n -gwl"
 
 list_os ppcarm arm "-n -gl"
 list_os ppcavr avr "-n -gl"
