@@ -88,34 +88,25 @@ fi
 
 # Do the same with ppc386
 if [ $do_trunk_i386 -eq 1 ] ; then
-  export FPCBIN=ppc386
-  export FIXES=0
-  $HOME/bin/linux-fpccommonup.sh
+  $HOME/bin/linux-fpccommonup.sh FPCBIN=ppc386 FIXES=0
 fi
 if [ $do_fixes_i386 -eq 1 ] ; then
-  export FPCBIN=ppc386
-  export FIXES=1
-  $HOME/bin/linux-fpccommonup.sh
+  $HOME/bin/linux-fpccommonup.sh FPCBIN=ppc386 FIXES=1
 fi
 
 # By default use ppcx64
 if [ $do_x86_64 -eq 1 ] ; then
-  export FPCBIN=ppcx64
-  export FIXES=0
-  $HOME/bin/linux-fpccommonup.sh
-  export FIXES=1
-  $HOME/bin/linux-fpccommonup.sh
+  $HOME/bin/linux-fpccommonup.sh FPCBIN=ppcx64 FIXES=0
+  $HOME/bin/linux-fpccommonup.sh FPCBIN=ppcx64 FIXES=1
 fi
 
 if [ $check_cross_fixes -eq 1 ] ; then
   # Test all RTL compilations
-  export FIXES=1
-  $HOME/bin/check-all-rtl.sh
+  $HOME/bin/check-all-rtl.sh FIXES=1
 fi
 
 if [ $check_cross_trunk -eq 1 ] ; then
-  export FIXES=0
-  $HOME/bin/check-all-rtl.sh
+  $HOME/bin/check-all-rtl.sh FIXES=0
 fi
 
 if [ $gen_snapshot_fixes -eq 1 ] ; then
