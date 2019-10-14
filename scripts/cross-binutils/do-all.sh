@@ -53,7 +53,16 @@ export BINUTILS_RELEASE="2.14-palmos"
 export BINUTILS_RELEASE=
 
 ## system_arm_symbian,        { 60 }
-./do-one.sh arm-symbian arm-unknown-symbian
+## Configuration taken from 
+## https://github.com/fedor4ever/GCC-4-Symbian
+export BINUTILS_RELEASE="2.29.1"
+export config_option="--disable-option-checking \
+--enable-ld --enable-gold --enable-lto --enable-vtable-verify \
+--enable-werror=no --without-headers --disable-nls --disable-shared \
+--disable-libquadmath --enable-plugins --enable-multilib"
+./do-one.sh arm-symbian arm-none-symbianelf
+export config_option=
+export BINUTILS_RELEASE=
 ## system_arm_wince,          { 38 }
 ./do-one.sh arm-wince arm-wince-pe
 
@@ -123,7 +132,14 @@ export CC=
 ## system_i386_solaris,       { 15 }
 ./do-one.sh i386-solaris i386-unknown-solaris2.10
 ## system_i386_symbian,       { 59 }
-./do-one.sh i386-symbian i386-unknown-symbian
+export BINUTILS_RELEASE="2.29.1"
+export config_option="--disable-option-checking --enable-obsolete \
+--enable-ld --enable-gold --enable-lto --enable-vtable-verify \
+--enable-werror=no --without-headers --disable-nls --disable-shared \
+--disable-libquadmath --enable-plugins --enable-multilib"
+./do-one.sh i386-symbian i386-none-symbianelf
+export config_option=
+export BINUTILS_RELEASE=
 ## system_i386_watcom,        { 32 }
 ./do-one.sh i386-watcom i386-unknown-watcom
 ## system_i386_wdosx,         { 21 }
