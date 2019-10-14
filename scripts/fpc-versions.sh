@@ -126,7 +126,7 @@ if [ -d "$NDK_BASE_DIR" ] ; then
     if [ -z "$NDK" ] ; then
       export NDK=$ANDROID_NDK_ROOT
       # In r18, versions 20 and 25 are absent, removed here also
-      NDK_VERSION_LIST="9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 26 27 28"
+      NDK_VERSION_LIST="9 10 11 12 13 14 15 16 17 18 19 21 22 23 24 26 27 28 29"
       for ndk_ver in $NDK_VERSION_LIST ; do
         # aarch64 is present since android-21
         if [ -z "$AARCH64_ANDROID_ROOT" ] ; then
@@ -157,7 +157,6 @@ if [ -d "$NDK_BASE_DIR" ] ; then
           fi
         fi
         # x86_64 is present since android-21
-        export X86_64_ANDROID_ROOT=$NDK/platforms/android-21/arch-x86_64
         if [ -z "$X86_64_ANDROID_ROOT" ] ; then
           if [ -d "$NDK/platforms/android-$ndk_ver/arch-x86_64" ] ; then
             export X86_64_ANDROID_VERSION=$ndk_ver
