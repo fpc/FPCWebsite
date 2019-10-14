@@ -53,7 +53,7 @@ elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   check_cross_fixes=1
   do_trunk_i386=0
   do_fixes_i386=0
-  export MAKE_TESTS_TARGET=full
+  # export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
