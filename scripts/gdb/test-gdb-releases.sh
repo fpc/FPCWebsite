@@ -43,7 +43,7 @@ function compile_ide_with_libgdb ()
     echo "Compilation of gdbint of fp-$release OK"
   fi
 
-  make distclean all NOGDBMI=1 DEBUG=1 OPT="-n -gl -v0wnih -k-Map -kfp-$release.map -dUSE_FPBASENAME" \
+  make distclean all NOGDBMI=1 DEBUG=1 OPT="-n -gl -v0wnih -k-Map -kfp-$release.map -k--exclude-libs -kreadline,history,bfd -dUSE_FPBASENAME" \
     FPBASENAME=fp-$release FPMAKEOPT=-v >> $log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
