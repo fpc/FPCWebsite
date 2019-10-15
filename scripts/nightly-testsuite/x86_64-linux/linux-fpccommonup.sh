@@ -2,6 +2,15 @@
 
 . $HOME/bin/fpc-versions.sh 
 
+# Evaluate all arguments containing an equal sign
+# as variable definition
+while [ "$1" != "" ] ; do
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    shift
+  fi
+done
+
 if [ -z "$USER" ]; then
   USER=$LOGNAME
 fi
@@ -48,15 +57,6 @@ fi
 export HOSTNAME=${HOSTNAME//.*/}
 
 current_log=
-
-# Evaluate all arguments containing an equal sign
-# as variable definition
-while [ "$1" != "" ] ; do
-  if [ "${1/=/_}" != "$1" ] ; then
-    eval export "$1"
-    shift
-  fi
-done
 
 set -u
 
