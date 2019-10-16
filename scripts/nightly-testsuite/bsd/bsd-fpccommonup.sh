@@ -139,7 +139,11 @@ fi
 
 cd  ~/pas/$SVNDIR
 
-LOGDIR=`pwd`
+LOGDIR=$HOME/logs/$SVNDIR
+if [ ! -d $LOGDIR ] ; then
+  mkdir -p $LOGDIR
+fi
+
 export report=$LOGDIR/report${SUFFIX}.txt 
 export svnlog=$LOGDIR/svnlog${SUFFIX}.txt 
 export cleanlog=$LOGDIR/cleanlog${SUFFIX}.txt 
@@ -352,12 +356,15 @@ if [ $NewBinary -eq 1 ] ; then
   function run_tests ()
   {
     MIN_OPT="$1"
-    DIR_OPT=${MIN_OPT// /}
+    DIR_OPT=${MIN_OPT// /_}
     TEST_OPT="$NEEDED_OPT $1"
     MAKE_OPTS="$2"
-    logdir=~/logs/$SVNDIR/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
-    testslog=~/pas/$SVNDIR/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
-    cleantestslog=~/pas/$SVNDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
+    LOGSUBDIR=$LOGDIR/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
+    if [ ! -d $LOGSUBDIR ] ; then
+      mkdir -p $LOGSUBDIR
+    fi
+    testslog=$LOGSUBDIR/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
+    cleantestslog=$LOGSUBDIR/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
 
     echo "Starting make distclean fulldb" >> $report
     echo "${MAKE} ${MAKE_J_OPT} distclean followed by fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
@@ -380,24 +387,21 @@ if [ $NewBinary -eq 1 ] ; then
       echo "Last 30 lines of testslog" >> $report
       tail -30 $testslog >> $report
     else
-      if [ ! -d $logdir ] ; then
-	mkdir -p $logdir
-      fi
-      cp output/$NEW_UNITDIR/faillist $logdir/faillist-$TIME
-      cp output/$NEW_UNITDIR/log $logdir/log-$TIME 
-      cp output/$NEW_UNITDIR/longlog $logdir/longlog-$TIME
-      cp ${testslog} $logdir/tests-${DIR_OPT}-$TIME
+      cp output/$NEW_UNITDIR/faillist $LOGSUBDIR/faillist-$TIME
+      cp output/$NEW_UNITDIR/log $LOGSUBDIR/log-$TIME 
+      cp output/$NEW_UNITDIR/longlog $LOGSUBDIR/longlog-$TIME
+      cp ${testslog} $LOGSUBDIR/tests-${DIR_OPT}-$TIME
       if [ ${cleantests} -ne 1 ] ; then
 	if [ -d output-${SVNDIR}-${DIR_OPT} ] ; then
 	  rm -Rf output-${SVNDIR}-${DIR_OPT}
 	fi
-	cp -Rf output output-${SVNDIR}-${DIR_OPT}
+	mv -f output output-${SVNDIR}-${DIR_OPT}
       fi
     fi
   }
 
-  cp ${svnlog} ~/pas/$SVNDIR/svnlog-${NEW_UNITDIR}.txt
-  cp ${makelog} ~/pas/$SVNDIR/makelog-${NEW_UNITDIR}.txt
+  cp ${svnlog} $LOGSUBDIR/svnlog-${NEW_UNITDIR}.txt
+  cp ${makelog} $LOGSUBDIR/makelog-${NEW_UNITDIR}.txt
 
   echo "begin end." > test_empty.pp
   PIC_DEFAULT=`$NEWFPC $FPCMAKEOPT -va test_empty.pp 2>&1 | grep -i "Macro defined.* FPC_PIC" `
