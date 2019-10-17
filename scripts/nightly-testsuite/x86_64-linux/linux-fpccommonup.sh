@@ -3,11 +3,14 @@
 . $HOME/bin/fpc-versions.sh 
 
 # Evaluate all arguments containing an equal sign
-# as variable definition
+# as variable definition, stop as soon as
+# one argument does not contain an equal sign
 while [ "$1" != "" ] ; do
   if [ "${1/=/_}" != "$1" ] ; then
     eval export "$1"
     shift
+  else
+    break
   fi
 done
 
