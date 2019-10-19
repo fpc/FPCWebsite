@@ -28,19 +28,29 @@ while [ "$1" != "" ] ; do
   if [ "${1/=/_}" != "$1" ] ; then
     eval export "$1"
     shift
+  else
+    break
   fi
 done
 
 if [ -n "$1" ] ; then
+  selected_cpu="$1"
   if [ -n "$2" ] ; then
     dir_name_suffix="$dir_name_suffix-$1-$2"
+    selected_os="$2"
   else
     dir_name_suffix="$dir_name_suffix-$1"
+    selected_os=""
   fi
+else
+  selected_cpu=""
+  selected_os=""
 fi
 
+set -u
+
 if [ -z "$dir_name_suffix" ] ; then
-  if [ -n "$GLOBAL_OPT" ] ; then
+  if [ -n "${GLOBAL_OPT:=}" ] ; then
     dir_name_suffix=${GLOBAL_OPT// /_}
     if [ $verbose -eq 1 ] ; then
       echo "Using dir name suffix $dir_name_suffix"
@@ -68,7 +78,7 @@ machine_os=`uname -s`
 machine_info="$machine_host $machine_cpu $machine_os"
 
 # Allows to restrict checks to rtl only
-if [ "X$TEST_PACKAGES" == "X0" ] ; then
+if [ "X${TEST_PACKAGES:-1}" == "X0" ] ; then
   test_packages=0
   OK_REGEXP="OK:.*2nd rtl"
   name=target-rtl
@@ -79,11 +89,11 @@ else
 fi
 
 # Allows to disable testing ppudump
-if [ "X$TEST_PPUDUMP" == "X0" ] ; then
+if [ "X${TEST_PPUDUMP:-1}" == "X0" ] ; then
   test_ppudump=0
 else
   test_ppudump=1
-  if [ "X$TEST_PACKAGES" == "X0" ] ; then
+  if [ "X${TEST_PACKAGES:-1}" == "X0" ] ; then
     OK_REGEXP="OK:.*ppudump of rtl"
   else
     OK_REGEXP="OK:.*ppudump of packages"
@@ -91,11 +101,11 @@ else
 fi
 
 # Allows to enable testing utils 
-if [ "X$TEST_UTILS" == "X1" ] ; then
+if [ "X${TEST_UTILS:-0}" == "X1" ] ; then
   test_utils=1
   if [ $test_ppudump -eq 1 ] ; then
     test_utils_ppudump=1
-    OK_REGEXP="OK:.*ppudump for utils"
+    OK_REGEXP="OK:.*ppudump of utils"
   else
     test_utils_ppudump=0
     OK_REGEXP="OK:.*utils"
@@ -105,7 +115,7 @@ else
   test_utils_ppudump=0
 fi
 
-if [ -z "$FPC" ] ; then
+if [ -z "${FPC:-}" ] ; then
   FPC=ppc$machine_cpu
   case $machine_cpu in
     aarch64|arm64) FPC=ppca64 ;;
@@ -179,13 +189,15 @@ elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
   MAKEJOPT="-j 32"
+else
+  echo "Unknown machine $machine_host"
 fi
 
-if [ "X$USE_RELEASE_MAKEFILE_VARIABLE" == "X1" ] ; then
+if [ "X${USE_RELEASE_MAKEFILE_VARIABLE:-0}" == "X1" ] ; then
   export RELEASE=1
 fi
 
-if [ "X$FIXES" == "X1" ] ; then
+if [ "X${FIXES:-0}" == "X1" ] ; then
   CHECKOUTDIR=$FIXESDIR
   svnname=fixes
   FPCVERSION=$FIXESVERSION
@@ -218,7 +230,7 @@ if [ -d /opt/cfarm/clang-release/bin ] ; then
   PATH=$PATH:/opt/cfarm/clang-release/bin
 fi
 
-if [ "X$MAKE" == "X" ] ; then
+if [ "X${MAKE:-}" == "X" ] ; then
   GMAKE=`which gmake 2> /dev/null`
   if [ ! -z "$GMAKE" ] ; then
     MAKE=$GMAKE
@@ -227,19 +239,19 @@ if [ "X$MAKE" == "X" ] ; then
   fi
 fi
 
-if [ -z "$USER" ]; then
-  USER=$LOGNAME
+if [ -z "${USER:-}" ]; then
+  USER=${LOGNAME:-Unknown}
 fi
 
 # Use a fake install directory to avoid troubles
-if [ ! -z "$DO_FPC_INSTALL" ] ; then
+if [ ! -z "${DO_FPC_INSTALL:-}" ] ; then
   export LOCAL_INSTALL_PREFIX=$HOME/pas/fpc-$FPCVERSION
 else
-  if [ ! -z "$XDG_RUNTIME_DIR" ] ; then
+  if [ ! -z "${XDG_RUNTIME_DIR:-}" ] ; then
     export LOCAL_INSTALL_PREFIX=$XDG_RUNTIME_DIR/pas/fpc-$FPCVERSION
-  elif [ ! -z "$TMP" ] ; then
+  elif [ ! -z "${TMP:-}" ] ; then
     export LOCAL_INSTALL_PREFIX=$TMP/$USER/pas/fpc-$FPCVERSION
-  elif [ ! -z "$TEMP" ] ; then
+  elif [ ! -z "${TEMP:-}" ] ; then
     export LOCAL_INSTALL_PREFIX=$TEMP/$USER/pas/fpc-$FPCVERSION
   else	
     export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
@@ -265,7 +277,20 @@ svn_rtl_version=`svnversion -c rtl`
 svn_compiler_version=`svnversion -c compiler`
 svn_packages_version=`svnversion -c packages`
 svn_utils_version=`svnversion -c utils`
-
+script_dir=`dirname "$0"`
+if [ -z "$script_dir" ] ; then
+  script_name=`which "$0"`
+else
+  script_name="$0"
+fi
+script_source=`realpath "$script_name"`
+if [ -f "$script_source" ] ; then
+  svn_script_version=` svnversion -c "$script_source"`
+  script_date=` find "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
+else
+  svn_script_version=Unknown
+  script_date=Unknown
+fi
 
 # This variable is reset after
 # all -T"OS" have been parsed
@@ -280,7 +305,7 @@ if [ ! -d $LOGDIR ] ; then
   mkdir -p $LOGDIR
 fi
 
-if [ -z "$global_sysroot" ] ; then
+if [ -z "${global_sysroot:-}" ] ; then
   global_sysroot=$HOME/sys-root
 fi
 
@@ -290,21 +315,21 @@ LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
 LISTOLDLOGFILE=$LOGDIR/list-all-${name}-${svnname}-check-changes.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
-if [ -z "$PREVIOUS_SUFFIX" ] ; then
+if [ -z "${PREVIOUS_SUFFIX:-}" ] ; then
   PREVIOUS_SUFFIX=.previous
 fi
 
 PREVLOGFILE=${LOGFILE}${PREVIOUS_SUFFIX}
 PREVLISTLOGFILE=${LISTLOGFILE}${PREVIOUS_SUFFIX}
 
-if [ -f $LOGFILE ] ; then
+if [ -f "$LOGFILE" ] ; then
   if [ $verbose -eq 1 ] ; then
     echo "moving $LOGFILE to ${PREVLOGFILE}"
   fi
-  cp -f -p $LOGFILE ${PREVLOGFILE}
+  cp -f -p "$LOGFILE" "${PREVLOGFILE}"
 fi
 
-if [ -f $LISTLOGFILE ] ; then
+if [ -f "$LISTLOGFILE" ] ; then
   if [ $verbose -eq 1 ] ; then
     echo "moving $LISTLOGFILE to ${PREVLISTLOGFILE}"
   fi
@@ -355,7 +380,8 @@ echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
 
 rm -f $LOGFILE $LISTLOGFILE $EMAILFILE
 
-# Remove all failure files
+# Remove all failure files, which have been copied before to avoid
+# problems
 for file in $prev_failure_list ; do
   rm -f $file
 done
@@ -366,8 +392,9 @@ mecho "RTL svn version: $svn_rtl_version"
 mecho "Compiler svn version: $svn_compiler_version"
 mecho "Packages svn version: $svn_packages_version"
 mecho "Utils svn version: $svn_utils_version"
+mecho "Script svn version: $svn_script_version ($script_date)"
 
-if [ "X$DO_RECOMPILE_FULL" == "X1" ] ; then
+if [ "X${DO_RECOMPILE_FULL:-0}" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
   mecho "Recompiling native compiler"
@@ -439,6 +466,7 @@ export NATIVE_OS=`fpc -iSO`
 export NATIVE_DATE=`fpc -iD`
 export NATIVE_VERSION=`fpc -iV`
 export NATIVE_FULLVERSION=`fpc -iW`
+export NATIVE_FPCBIN=`fpc -PB`
 
 if [ "$FPCVERSION" != "$NATIVE_VERSION" ] ; then
   echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $LOGFILE
@@ -643,18 +671,21 @@ function check_target ()
   # Third argument: optional extra OPT value
   # Always add -vx to get exact command line used when
   # calling GNU assembler/clang/java ...
-  OPT_LOCAL="$3 -vx $GLOBAL_OPT"
+  OPT_LOCAL="${3:-} -vx ${GLOBAL_OPT:-}"
 
   if [[ ("$NATIVE_OS" == "$OS_TARG_LOCAL") && ("$NATIVE_CPU" == "$CPU_TARG_LOCAL") ]] ; then
     echo "Adding NATIVE_OPT \"$NATIVE_OPT\""
     OPT_LOCAL="$OPT_LOCAL $NATIVE_OPT"
   fi
 
+  if [ -z "${FPCFPMAKE:-}" ] ; then
+    export FPCFPMAKE="${NATIVE_FPCBIN}"
+  fi
   # Fourth argument: Global extra MAKE parameter
-  MAKEEXTRA="$4"
+  MAKEEXTRA="${4:-}"
 
   # Fifth argument: log file name suffix
-  EXTRASUFFIX=$5
+  EXTRASUFFIX=${5:-}
 
   echo "Testing rtl for $CPU_TARG_LOCAL $OS_TARG_LOCAL, with OPT=\"$OPT_LOCAL\" and MAKEEXTRA=\"$MAKEEXTRA\""
   date "+%Y-%m-%d %H:%M:%S"
@@ -667,9 +698,9 @@ function check_target ()
   fi
 
   # Try to set BINUTILSPREFIX 
-  if [ "X${BINUTILSPREFIX}X" == "XresetX" ] ; then
+  if [ "X${BINUTILSPREFIX:-}X" == "XresetX" ] ; then
     BINUTILSPREFIX_LOCAL=
-  elif [ "X$BINUTILSPREFIX" == "X" ] ; then
+  elif [ "X${BINUTILSPREFIX:-}" == "X" ] ; then
     BINUTILSPREFIX_LOCAL=not_set
   fi
   # Reset BINUTILSPREFIX here, to avoid troybles with fpmake compilation
@@ -710,27 +741,27 @@ function check_target ()
      if [ "${OS_TARG_LOCAL}" == "android" ] ; then
        if [ "${CPU_TARG_LOCAL}" == "aarch64" ] ; then
          TRY_BINUTILSPREFIX='aarch64-linux-android-'
-         if [ -n "$AARCH64_ANDROID_ROOT" ] ; then
+         if [ -n "${AARCH64_ANDROID_ROOT:-}" ] ; then
            OPT_LOCAL="$OPT_LOCAL -k--sysroot=$AARCH64_ANDROID_ROOT -Fl$AARCH64_ANDROID_ROOT"
          fi
        elif [ "${CPU_TARG_LOCAL}" == "arm" ] ; then
          TRY_BINUTILSPREFIX='arm-linux-androideabi-'
-         if [ -n "$ARM_ANDROID_ROOT" ] ; then
+         if [ -n "${ARM_ANDROID_ROOT:-}" ] ; then
            OPT_LOCAL="$OPT_LOCAL -k--sysroot=$ARM_ANDROID_ROOT -Fl$ARM_ANDROID_ROOT"
          fi
        elif [ "${CPU_TARG_LOCAL}" == "i386" ] ; then
          TRY_BINUTILSPREFIX='i686-linux-android-'
-         if [ -n "$I386_ANDROID_ROOT" ] ; then
+         if [ -n "${I386_ANDROID_ROOT:-}" ] ; then
            OPT_LOCAL="$OPT_LOCAL -k--sysroot=$I386_ANDROID_ROOT -Fl$I386_ANDROID_ROOT"
          fi
        elif [ "${CPU_TARG_LOCAL}" == "mipsel" ] ; then
          TRY_BINUTILSPREFIX='mipsel-linux-android-'
-         if [ -n "$MIPSEL_ANDROID_ROOT" ] ; then
+         if [ -n "${MIPSEL_ANDROID_ROOT:-}" ] ; then
            OPT_LOCAL="$OPT_LOCAL -k--sysroot=$MIPSEL_ANDROID_ROOT -Fl$MIPSEL_ANDROID_ROOT"
          fi
        elif [ "${CPU_TARG_LOCAL}" == "x86_64" ] ; then
          TRY_BINUTILSPREFIX='x86_64-linux-android-'
-         if [ -n "$X86_64_ANDROID_ROOT" ] ; then
+         if [ -n "${X86_64_ANDROID_ROOT:-}" ] ; then
            OPT_LOCAL="$OPT_LOCAL -k--sysroot=$X86_64_ANDROID_ROOT -Fl$X86_64_ANDROID_ROOT"
          fi
        fi
@@ -786,7 +817,7 @@ function check_target ()
     assembler_version=` $target_as $ASSEMBLER_VER_OPT < /dev/null 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
-  if [ -n "$RECOMPILE_OPT" ] ; then
+  if [ -n "${RECOMPILE_OPT:-}" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
     # First recompile rtl
     make -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
@@ -809,15 +840,15 @@ function check_target ()
   else
     fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   fi
-  export ASTARGET="$CROSSASTARGET"
+  export ASTARGET="${CROSSASTARGET:-}"
 
-  if [ -z "$fpc_local_exe" ] ; then
+  if [ -z "${fpc_local_exe}" ] ; then
     lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not found"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
-  if [ ! -x "$fpc_local_exe" ] ; then
+  if [ ! -x "${fpc_local_exe}" ] ; then
     lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" ${FPC_LOCAL} not executable"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
@@ -857,7 +888,7 @@ function check_target ()
     extra_text="$extra_text no rtl/$OS_TARG_LOCAL found"
   fi
 
-  if [ ! -z "$ASPROG_LOCAL" ] ; then
+  if [ -n "${ASPROG_LOCAL:-}" ] ; then
     export ASPROG="$ASPROG_LOCAL"
   fi
 
@@ -1023,7 +1054,9 @@ function check_target ()
   fi
   if [ $test_packages -eq 1 ] ; then
     echo "Re-compiling native rtl to allow for fpmake compilation"
-    $MAKE $MAKEJOPT -C rtl FPC=$NATIVEFPC OPT="$NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
+    $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="$NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
+    echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation"
+    $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="$NATIVE_OPT" >> $LOGFILE_NATIVE_RTL 2>&1
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
     $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
@@ -1033,6 +1066,9 @@ function check_target ()
         export BUILDFULLNATIVE=
         echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE $MAKEJOPT -C $packagesdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
+        # Warning, we need to re-compile bootstrap in fmpkunit after that clean, otherwise compilation of fpmake in utils might fail
+        echo "Re-compiling bootstrap in packages/fpmkunit for fpmake compilation in utils"
+        $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVEFPC OPT="$NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
         $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         res=$?
       fi
@@ -1046,7 +1082,7 @@ function check_target ()
       return 3
     fi
     lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    if [ "$DO_FPC_PACKAGES_INSTALL" == "1" ] ; then
+    if [ "${DO_FPC_PACKAGES_INSTALL:-0}" == "1" ] ; then
       echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     fi
@@ -1098,7 +1134,7 @@ function check_target ()
       return 3
     fi
     lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    if [ "$DO_FPC_UTILS_INSTALL" == "1" ] ; then
+    if [ "${DO_FPC_UTILS_INSTALL:=0}" == "1" ] ; then
       echo "Testing installation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $utilsdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
     fi
@@ -1141,16 +1177,16 @@ function list_os ()
 {
   CPU_TARG_LOCAL=$1
   set_fpc_local $CPU_TARG_LOCAL
-  list_os_OPT="$2"
-  list_os_MAKEEXTRA="$3"
+  list_os_OPT="${2:-}"
+  list_os_MAKEEXTRA="${3-}"
   fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
   if [ -z "$fpc_local_exe" ] ; then
     echo "No $FPC_LOCAL found"
     return
   fi
   fpc_version_local=`$FPC_LOCAL -iV`
-  if [ "$FPC_VERSION" != "$fpc_version_local" ] ; then
-    echo "Warning: $FPC_LOCAL binary reports version $fpc_version_local, while $FPC_VERSION is expected"
+  if [ "$FPCVERSION" != "$fpc_version_local" ] ; then
+    echo "Warning: $FPC_LOCAL binary reports version $fpc_version_local, while $FPCVERSION is expected"
   fi
 
   fpc_fullversion_local=`$FPC_LOCAL -iW`
@@ -1163,10 +1199,10 @@ function list_os ()
   done
 }
 
-if [ "X$1" != "X" ] ; then
+if [ "X$selected_cpu" != "X" ] ; then
   echo "Testing single configuration $0 $*"
-  echo "check_target cpu=\"$1\" os=\"$2\" opts=\"$3\" make args=\"$4\" suffix=\"$5\""
-  check_target "$1" "$2" "$3" "$4" "$5"
+  echo "check_target cpu=\"$selected_cpu\" os=\"$selected_os\" opts=\"${3:-}\" make args=\"${4:-}\" suffix=\"${5:-}\""
+  check_target "$selected_cpu" "$selected_os" "${3:-}" "${4:-}" "${5:-}"
   rm_lockfile
   exit
 fi
@@ -1411,51 +1447,43 @@ function prev_ ()
   true
 }
 
+function get_prev_var_value ()
+{
+  var_name=$1
+  prev_value="prev_` grep "^$var_name=" $PREVLOGFILE `"
+  if [ "$prev_value" == "prev_" ] ; then
+    eval "prev_$var_name=\"\""
+  else
+    eval "$prev_value"
+  fi
+}
+  
 if [ -f $PREVLOGFILE ] ; then
-  prev_dummy_count_new_val=prev_` grep "^dummy_count=" $PREVLOGFILE `
-  eval $prev_dummy_count_new_val
-  prev_skipped_count_new_val=prev_` grep "^skipped_count=" $PREVLOGFILE `
-  eval $prev_skipped_count_new_val
-  prev_run_fpcmake_first_failure_new_val=prev_` grep "^run_fpcmake_first_failure=" $PREVLOGFILE `
-  eval $prev_run_fpcmake_first_failure_new_val
-  prev_os_target_not_supported_failure_new_val=prev_` grep "^os_target_not_supported_failure=" $PREVLOGFILE `
-  eval $prev_os_target_not_supported_failure_new_val
-  prev_rtl_1_failure_new_val=prev_` grep "^rtl_1_failure=" $PREVLOGFILE `
-  eval $prev_rtl_1_failure_new_val
-  prev_rtl_2_failure_new_val=prev_` grep "^rtl_2_failure=" $PREVLOGFILE `
-  eval $prev_rtl_2_failure_new_val
-  prev_rtl_ppu_failure_new_val=prev_` grep "^rtl_ppu_failure=" $PREVLOGFILE `
-  eval $prev_rtl_ppu_failure_new_val
-  prev_packages_failure_new_val=prev_` grep "^packages_failure=" $PREVLOGFILE `
-  eval $prev_packages_failure_new_val
-  prev_packages_ppu_failure_new_val=prev_` grep "^packages_ppu_failure=" $PREVLOGFILE `
-  eval $prev_packages_ppu_failure_new_val
-  prev_utils_failure_new_val=prev_` grep "^utils_failure=" $PREVLOGFILE `
-  eval $prev_utils_failure_new_val
-  prev_utils_ppu_failure_new_val=prev_` grep "^utils_ppu_failure=" $PREVLOGFILE `
-  eval $prev_utils_ppu_failure_new_val
-  prev_dummy_list_new_val=prev_` grep "^dummy_list=" $PREVLOGFILE `
-  eval $prev_dummy_list_new_val
-  prev_skipped_list_new_val=prev_` grep "^skipped_list=" $PREVLOGFILE `
-  eval $prev_skipped_list_new_val
-  prev_run_fpcmake_first_list_new_val=prev_` grep "^run_fpcmake_first_list=" $PREVLOGFILE `
-  eval $prev_run_fpcmake_first_list_new_val
-  prev_os_target_not_supported_list_new_val=prev_` grep "^os_target_not_supported_list=" $PREVLOGFILE `
-  eval $prev_os_target_not_supported_list_new_val
-  prev_rtl_1_list_new_val=prev_` grep "^rtl_1_list=" $PREVLOGFILE `
-  eval $prev_rtl_1_list_new_val
-  prev_rtl_2_list_new_val=prev_` grep "^rtl_2_list=" $PREVLOGFILE `
-  eval $prev_rtl_2_list_new_val
-  prev_rtl_ppu_list_new_val=prev_` grep "^rtl_ppu_list=" $PREVLOGFILE `
-  eval $prev_rtl_ppu_list_new_val
-  prev_packages_list_new_val=prev_` grep "^packages_list=" $PREVLOGFILE `
-  eval $prev_packages_list_new_val
-  prev_packages_ppu_list_new_val=prev_` grep "^packages_ppu_list=" $PREVLOGFILE `
-  eval $prev_packages_ppu_list_new_val
-  prev_utils_list_new_val=prev_` grep "^utils_list=" $PREVLOGFILE `
-  eval $prev_utils_list_new_val
-  prev_utils_ppu_list_new_val=prev_` grep "^utils_ppu_list=" $PREVLOGFILE `
-  eval $prev_utils_ppu_list_new_val
+  prev_var_list=`sed -n "s:^\([a-zA-Z0-9_]*\)=\(.*\)$:prev_\1=\"\2\";:p" $PREVLOGFILE `
+  eval $prev_var_list ;
+  lecho "prev_var_list=\"$prev_var_list\"" 
+  get_prev_var_value dummy_count
+  get_prev_var_value skipped_count
+  get_prev_var_value run_fpcmake_first_failure
+  get_prev_var_value os_target_not_supported_failure
+  get_prev_var_value rtl_1_failure
+  get_prev_var_value rtl_2_failure
+  get_prev_var_value rtl_ppu_failure
+  get_prev_var_value packages_failure
+  get_prev_var_value packages_ppu_failure
+  get_prev_var_value utils_failure
+  get_prev_var_value utils_ppu_failure
+  get_prev_var_value dummy_list
+  get_prev_var_value skipped_list
+  get_prev_var_value run_fpcmake_first_list
+  get_prev_var_value os_target_not_supported_list
+  get_prev_var_value rtl_1_list
+  get_prev_var_value rtl_2_list
+  get_prev_var_value rtl_ppu_list
+  get_prev_var_value packages_list
+  get_prev_var_value packages_ppu_list
+  get_prev_var_value utils_list
+  get_prev_var_value utils_ppu_list
   prev_date_new_val="prev_date='` sed -n 's:Ending at ::p' $PREVLOGFILE`'"
   eval $prev_date_new_val
   prev_ok_count=` grep "$OK_REGEXP" $PREVLISTLOGFILE | wc -l `
@@ -1510,7 +1538,7 @@ if [ $rtl_1_failure -gt 0 ] ; then
   echo "$rtl_1_failure rtl level 1 failure(s), $rtl_1_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$rtl_1_list" != "$prev_rtl_1_list" ] ; then
+  if [ "$rtl_1_list" != "${prev_rtl_1_list:-}" ] ; then
     echo "Previous $prev_rtl_1_failure rtl level 1 failure(s), $prev_rtl_1_list" >> $EMAILFILE
   fi
 fi
@@ -1518,7 +1546,7 @@ if [ $rtl_2_failure -gt 0 ] ; then
   echo "$rtl_2_failure rtl level 2 failure(s), $rtl_2_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$rtl_2_list" != "$prev_rtl_2_list" ] ; then
+  if [ "$rtl_2_list" != "${prev_rtl_2_list:-}" ] ; then
     echo "Previous $prev_rtl_2_failure rtl level 2 failure(s), $prev_rtl_2_list" >> $EMAILFILE
   fi
 fi
@@ -1526,7 +1554,7 @@ if [ $rtl_ppu_failure -gt 0 ] ; then
   echo "$rtl_ppu_failure rtl ppudump failure(s), $rtl_ppu_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$rtl_ppu_list" != "$prev_rtl_ppu_list" ] ; then
+  if [ "$rtl_ppu_list" != "${prev_rtl_ppu_list:-}" ] ; then
     echo "iPrevious $prev_rtl_ppu_failure rtl ppudump failure(s), $prev_rtl_ppu_list" >> $EMAILFILE
   fi
 fi
@@ -1534,7 +1562,7 @@ if [ $packages_failure -gt 0 ] ; then
   echo "$packages_failure packages failure(s), $packages_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$packages_list" != "$prev_packages_list" ] ; then
+  if [ "$packages_list" != "${prev_packages_list:-}" ] ; then
     echo "Previous $prev_packages_failure packages failure(s), $prev_packages_list" >> $EMAILFILE
   fi
 fi
@@ -1542,7 +1570,7 @@ if [ $packages_ppu_failure -gt 0 ] ; then
   echo "$packages_ppu_failure packages ppudump failure(s), $packages_ppu_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$packages_ppu_list" != "$prev_packages_ppu_list" ] ; then
+  if [ "$packages_ppu_list" != "${prev_packages_ppu_list:-}" ] ; then
     echo "Previous $prev_packages_ppu_failure packages ppudump failure(s), $prev_packages_ppu_list" >> $EMAILFILE
   fi
 fi
@@ -1550,7 +1578,7 @@ if [ $utils_failure -gt 0 ] ; then
   echo "$utils_failure utils failure(s), $utils_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$utils_list" != "$prev_utils_list" ] ; then
+  if [ "$utils_list" != "${prev_utils_list:-}" ] ; then
     echo "Previous $prev_utils_failure utils failure(s), $prev_utils_list" >> $EMAILFILE
   fi
 fi
@@ -1558,7 +1586,7 @@ if [ $utils_ppu_failure -gt 0 ] ; then
   echo "$utils_ppu_failure utils ppudump failure(s), $utils_ppu_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$utils_ppu_list" != "$prev_utils_ppu_list" ] ; then
+  if [ "$utils_ppu_list" != "${prev_utils_ppu_list:-}" ] ; then
     echo "Previous $prev_utils_ppu_failure utils ppudump failure(s), $prev_utils_ppu_list" >> $EMAILFILE
   fi
 fi
@@ -1566,7 +1594,7 @@ if [ $skipped_count -gt 0 ] ; then
   echo "$skipped_count skipped target(s), $skipped_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$skipped_list" != "$prev_skipped_list" ] ; then
+  if [ "$skipped_list" != "${prev_skipped_list:-}" ] ; then
     echo "Previous $prev_skipped_count skipped target(s), $prev_skipped_list" >> $EMAILFILE
   fi
 fi
@@ -1574,7 +1602,7 @@ if [ $dummy_count -gt 0 ] ; then
   echo "$dummy_count target(s) using dummy assembler, $dummy_list" >> $EMAILFILE
 fi
 if [ -n "$prev_date" ] ; then
-  if [ "$dummy_list" != "$prev_dummy_list" ] ; then
+  if [ "$dummy_list" != "${prev_dummy_list:-}" ] ; then
     echo "Previous $prev_dummy_count target(s) using dummy assembler, $prev_dummy_list" >> $EMAILFILE
   fi
 fi
@@ -1613,10 +1641,10 @@ echo "###############################" >> $EMAILFILE
 echo "" >> $EMAILFILE
 cat $LISTLOGFILE >> $EMAILFILE
 
-if [ -n "$RECOMPILE_FULL_OPT" ] ; then
-  FPC_INFO="$FPC_VERSION, compilers compiled with $RECOMPILE_FULL_OPT,"
+if [ -n "${RECOMPILE_FULL_OPT:-}" ] ; then
+  FPC_INFO="$FPCVERSION, compilers compiled with $RECOMPILE_FULL_OPT,"
 else
-  FPC_INFO="$FPC_VERSION"
+  FPC_INFO="$FPCVERSION"
 fi
 
 # Add $HOME/bin directory if it exists at start of PATH to use custom mutt
@@ -1626,7 +1654,7 @@ fi
 
 mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
-if [ -z "$DO_FPC_INSTALL" ] ; then
+if [ -z "${DO_FPC_INSTALL:-}" ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
 fi
 
