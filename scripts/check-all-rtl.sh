@@ -570,7 +570,7 @@ function add_dir ()
       # AIX puts 32 and 64 bit versions into the same library
       use_file=1
     fi
-    echo "file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
+    echo "add_dir found file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
     if [ $use_file -eq 1 ] ; then
       file_dir=`dirname $file`
       echo "Adding $file_dir"
