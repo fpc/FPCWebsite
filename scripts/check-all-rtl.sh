@@ -135,6 +135,15 @@ fi
 
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
+MAKEJOPT=
+DO_FPC_INSTALL=0
+DO_FPC_PACKAGES_INSTALL=0
+DO_FPC_UTILS_INSTALL=0
+DO_RECOMPILE_FULL=0
+RECOMPILE_OPT=
+RECOMPILE_FULL_OPT=
+RECOMPILE_FULL_OPT_O=
+
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_INSTALL=1
   MAKEJOPT="-j 5"
@@ -244,7 +253,7 @@ if [ -z "${USER:-}" ]; then
 fi
 
 # Use a fake install directory to avoid troubles
-if [ ! -z "${DO_FPC_INSTALL:-}" ] ; then
+if [ ! -z "${DO_FPC_INSTALL}" ] ; then
   export LOCAL_INSTALL_PREFIX=$HOME/pas/fpc-$FPCVERSION
 else
   if [ ! -z "${XDG_RUNTIME_DIR:-}" ] ; then
@@ -394,16 +403,16 @@ mecho "Packages svn version: $svn_packages_version"
 mecho "Utils svn version: $svn_utils_version"
 mecho "Script svn version: $svn_script_version ($script_date)"
 
-if [ "X${DO_RECOMPILE_FULL:-0}" == "X1" ] ; then
+if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   cd compiler
   fullcyclelog=$LOGDIR/full-cycle.log
   mecho "Recompiling native compiler"
-  make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT:-} ${RECOMPILE_FULL_OPT_O:-}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Second try for native compiler, using FPCCPUOPT=\"-O-\""
     export FPCCPUOPT="-O-"
-    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT:-}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
@@ -412,12 +421,12 @@ if [ "X${DO_RECOMPILE_FULL:-0}" == "X1" ] ; then
     exit
   fi
   mecho "Recompiling cross-compilers"
-  make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT:-} ${RECOMPILE_FULL_OPT_O:-}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+  make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Second try for cross-compilers, using FPCCPUOPT=\"-O-\""
     export FPCCPUOPT="-O-"
-    make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT:-}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
@@ -817,7 +826,7 @@ function check_target ()
     assembler_version=` $target_as $ASSEMBLER_VER_OPT < /dev/null 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
-  if [ -n "${RECOMPILE_OPT:-}" ] ; then
+  if [ -n "${RECOMPILE_OPT}" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
     # First recompile rtl
     make -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
@@ -1082,7 +1091,7 @@ function check_target ()
       return 3
     fi
     lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    if [ "${DO_FPC_PACKAGES_INSTALL:-0}" == "1" ] ; then
+    if [ "${DO_FPC_PACKAGES_INSTALL}" == "1" ] ; then
       echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     fi
@@ -1134,7 +1143,7 @@ function check_target ()
       return 3
     fi
     lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    if [ "${DO_FPC_UTILS_INSTALL:=0}" == "1" ] ; then
+    if [ "${DO_FPC_UTILS_INSTALL}" == "1" ] ; then
       echo "Testing installation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $utilsdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
     fi
