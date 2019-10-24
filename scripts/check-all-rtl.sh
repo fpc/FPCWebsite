@@ -132,6 +132,7 @@ if [ -z "${FPC:-}" ] ; then
   esac
   export FPC
 fi
+cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc x86_64"
 
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
@@ -430,9 +431,24 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
-    mecho "Generating new cross-compilers failed, see $fullcyclelog for details"
+    mecho "Generating all cross-compilers failed, see $fullcyclelog for details"
+    export FPCCPUOPT="-O-"
+    mecho "Recompiling rtl"
+    make rtlclean rtl OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    mecho "Generating new native compiler failed, see $fullcyclelog for details"
     rm_lockfile
     exit
+  fi
+    for cpu in $cpu_list ; do
+      mecho "Compiling compiler for $cpu"
+      make $cpu ${cpu}_exe_install OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+      makeres=$?
+      if [ $makeres -ne 0 ] ; then
+        mecho "Generating $cpu cross-compiler failed, see $fullcyclelog for details"
+      fi
+    done
   else
     # Using new temp installation bin dir
     export PATH=$LOCAL_INSTALL_PREFIX/bin:$PATH
