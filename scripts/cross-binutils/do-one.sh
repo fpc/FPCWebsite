@@ -2,11 +2,12 @@
 
 . $HOME/bin/fpc-versions.sh
 
-# Latest binutils release version is 2.32 (2019/02/02)
+# Latest binutils release version is 2.33.1 (2019/10/12)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.32
+  BINUTILS_RELEASE=2.33.1
 fi
 
+BINUTILS_2_33_1_BZ2_MD5SUM=56a3be5f8f8ee874417a4f19ef3f10c8
 BINUTILS_2_32_BZ2_MD5SUM=64f8ea283e571200f8b2b7f66fe8a0d6
 
 # Latest installed Free Pascal release
