@@ -1485,7 +1485,7 @@ function get_prev_var_value ()
   
 if [ -f $PREVLOGFILE ] ; then
   prev_var_list=`sed -n "s:^\([a-zA-Z0-9_]*\)=\(.*\)$:prev_\1=\"\2\";:p" $PREVLOGFILE `
-  eval $prev_var_list ;
+  # eval $prev_var_list ;
   lecho "prev_var_list=\"$prev_var_list\"" 
   get_prev_var_value dummy_count
   get_prev_var_value skipped_count
