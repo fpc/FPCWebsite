@@ -881,14 +881,14 @@ function check_target ()
   fi
   CROSS_VERSION=`$fpc_local_exe -iV` 
   if [ "$FPCVERSION" != "$CROSS_VERSION" ] ; then
-    lecho "Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected"
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Version from $fpc_local_exe binary is $CROSS_VERSION, $FPCVERSION was expected"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
   fi
   CROSS_DATE=`$fpc_local_exe -iD` 
   if [ "$system_date" != "$CROSS_DATE" ] ; then
-    lecho "Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date"
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
