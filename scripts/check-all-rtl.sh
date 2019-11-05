@@ -273,6 +273,8 @@ if [ $verbose -eq 1 ] ; then
   echo "Using PATH=$PATH"
 fi
 
+START_DIR=`pwd`
+
 cd $CHECKOUTDIR
 
 if [ -d fpcsrc ] ; then
@@ -293,7 +295,11 @@ if [ -z "$script_dir" ] ; then
 else
   script_name="$0"
 fi
-script_source=`realpath "$script_name"`
+script_source=`realpath "$script_name" 2> /dev/null `
+if [ -z "$script_source" ] ; then
+  script_source=`realpath "$START_DIR/$script_name" 2> /dev/null `
+fi
+
 if [ -f "$script_source" ] ; then
   svn_script_version=` svnversion -c "$script_source"`
   script_date=` find "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
