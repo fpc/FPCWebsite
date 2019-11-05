@@ -17,7 +17,7 @@ echo "Snapshot generation in progress for %WANTED_VERSION%" > %GLOCKFILE%
 e:\pas\fpc-3.0.4\bin\i386-win32\gecho -n "Starting at " > %GLOGFILE%
 e:\pas\fpc-3.0.4\bin\i386-win32\gdate +%%Y-%%m-%%d-%%H-%%M >> %GLOGFILE%
 call createsnapshot-win32.bat >> %GLOGFILE%
-call createsnapshot-go32v2-native.bat >> %GLOGFILE%
+call createsnapshot-go32v2.bat >> %GLOGFILE%
 call createsnapshot-win64.bat >> %GLOGFILE%
 call createsnapshots-msdos.bat >> %GLOGFILE%
 e:\pas\fpc-3.0.4\bin\i386-win32\gecho -n "Ending at " >> %GLOGFILE%
