@@ -137,7 +137,8 @@ cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 risc
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
 MAKEJOPT=
-DO_FPC_INSTALL=0
+DO_FPC_BINARY_INSTALL=0
+DO_FPC_RTL_INSTALL=0
 DO_FPC_PACKAGES_INSTALL=0
 DO_FPC_UTILS_INSTALL=0
 DO_RECOMPILE_FULL=0
@@ -146,14 +147,15 @@ RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
   MAKEJOPT="-j 5"
   test_utils=1
   test_utils_ppudump=1
 elif [ "X$machine_host" == "Xgcc20" ] ; then
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
 elif [ "X$machine_host" == "Xgcc21" ] ; then
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
 elif [ "X$machine_host" == "Xgcc67" ] ; then
   test_utils=1
@@ -166,7 +168,8 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   test_utils_ppudump=1
   # Temp mount is too small, don't use it
   XDG_RUNTIME_DIR=
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   RECOMPILE_FULL_OPT="-CriotR"
@@ -174,7 +177,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 2"
 elif [ "X$machine_host" == "Xgcc113" ] ; then
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
   DO_RECOMPILE_FULL=1
   test_utils=1
   test_utils_ppudump=1
@@ -185,7 +188,8 @@ elif [ "X$machine_host" == "Xgcc121" ] ; then
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
-  DO_FPC_INSTALL=1
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   # RECOMPILE_FULL_OPT=-CriotR
@@ -254,7 +258,7 @@ if [ -z "${USER:-}" ]; then
 fi
 
 # Use a fake install directory to avoid troubles
-if [ ! -z "${DO_FPC_INSTALL}" ] ; then
+if [ ${DO_FPC_BINARY_INSTALL} -ne 0 ] ; then
   export LOCAL_INSTALL_PREFIX=$HOME/pas/fpc-$FPCVERSION
 else
   if [ ! -z "${XDG_RUNTIME_DIR:-}" ] ; then
@@ -707,6 +711,9 @@ function check_target ()
   if [[ ("$NATIVE_OS" == "$OS_TARG_LOCAL") && ("$NATIVE_CPU" == "$CPU_TARG_LOCAL") ]] ; then
     echo "Adding NATIVE_OPT \"$NATIVE_OPT\""
     OPT_LOCAL="$OPT_LOCAL $NATIVE_OPT"
+    IS_NATIVE=1
+  else
+    IS_NATIVE=0
   fi
 
   if [ -z "${FPCFPMAKE:-}" ] ; then
@@ -1037,8 +1044,13 @@ function check_target ()
   lecho "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
   echo "Re-running make should do nothing"
   MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
-  echo "$MAKE -C $rtldir all install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL_2
-  $MAKE -C $rtldir all install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_RTL_2 2>&1
+  if [ $DO_FPC_RTL_INSTALL -eq 1 ] ; then
+    rtl_make_target="all install"
+  else
+    rtl_make_target="all"
+  fi
+  echo "$MAKE -C $rtldir $rtl_make_target CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL_2
+  $MAKE -C $rtldir $rtl_make_target CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_RTL_2 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     rtl_2_failure=`expr $rtl_2_failure + 1 `
@@ -1113,7 +1125,7 @@ function check_target ()
       return 3
     fi
     lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    if [ "${DO_FPC_PACKAGES_INSTALL}" == "1" ] ; then
+    if [[ ( ${DO_FPC_PACKAGES_INSTALL} -eq 1 ) || (( ${IS_NATIVE} -eq 1 ) && ( ${DO_FPC_RTL_INSTALL} -eq 1 )) ]] ; then
       echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     fi
@@ -1685,7 +1697,7 @@ fi
 
 mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
-if [ -z "${DO_FPC_INSTALL:-}" ] ; then
+if [ ${DO_FPC_BINARY_INSTALL} -eq 0 ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
 fi
 
