@@ -37,8 +37,8 @@ if [ "$1" == "--force" ] ; then
   FPC_DATE=today
 fi
   
-logfile=$HOME/logs/fpcsrc-$SVNNAME.log
-report=$HOME/logs/report-$SVNNAME.txt
+logfile=$HOME/logs/fpcsrc-docs-$SVNNAME.log
+report=$HOME/logs/report-docs-$SVNNAME.txt
 
 cd $SVNDIR
 
@@ -104,6 +104,9 @@ svn up >> $report 2>&1
 
 logfile=$HOME/logs/fpcdocs-$SVNNAME.log
 pdflogfile=$HOME/logs/pdfdocs-$SVNNAME.log
+htmllogfile=$HOME/logs/htmldocs-$SVNNAME.log
+scppdflogfile=$HOME/logs/scp-pdfdocs-$SVNNAME.log
+scphtmllogfile=$HOME/logs/scp-htmldocs-$SVNNAME.log
 rtlinclogfile=$HOME/logs/rtlinc-$SVNNAME.log
 
 ulimit -t 1200
@@ -144,6 +147,19 @@ else
   echo "make pdfinstall success, new files:" >> $report
   ls -ltr doc-pdf.* >> $report
 fi
+echo "Starting 'make htmlinstall htmlzip htmltar USEL2H=1' at fpcdocs level" >> $report
+make htmlinstall htmlzip htmltar USEL2H=1 FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $htmllogfile 2>&1
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "make htmlinstall failed, res=$res" >> $report
+  tail -30 $htmllogfile >> $report
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, html generation failed" \
+       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+  exit
+else
+  echo "make htmlinstall success, new files:" >> $report
+  ls -ltr doc-html.* >> $report
+fi
 res=1
 max_trial=10
 let trial=1
@@ -163,6 +179,7 @@ while [ $res -ne 0 ] ; do
 done
 
 pdf_listing=`ls -1 doc-pdf.* 2> /dev/null `
+html_listing=`ls -1 doc-html.* 2> /dev/null `
 
 uploaded=0
 
@@ -170,14 +187,35 @@ uploaded=0
 today_docs=`ssh ${UPLOAD_LOGIN}@${UPLOAD_HOST} "find ${UPLOAD_DIR} -newermt $TODAY" 2> /dev/null `
 
 if [ -n "$today_docs" ] ; then
-  echo "Files are on sever: $today_docs"
+  echo "Files are on server: $today_docs"
 else
 if [ -n "$pdf_listing" ] ; then
   echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
+  echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scppdflogfile
   res=1
   let trial=1
   while [ $res -ne 0 ] ; do 
-    scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}
+    scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scppdflogfile
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "scp upload error error $res, nb=$trial" >> $report
+      tail -11 $logfile >> $report
+      let trial++
+      if [ $trial -gt $max_trial ] ; then
+        res=0
+      fi
+    else
+      uploaded=1
+    fi
+  done  
+fi
+if [ -n "$html_listing" ] ; then
+  echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
+  echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scphtmllogfile
+  res=1
+  let trial=1
+  while [ $res -ne 0 ] ; do 
+    scp $UPLOAD_SSH_KEY $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scphtmllogfile
     res=$?
     if [ $res -ne 0 ] ; then
       echo "scp upload error error $res, nb=$trial" >> $report
@@ -203,6 +241,8 @@ make distclean all execute FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $
 if [ $res -ne 0 ] ; then
   echo "make all execute in demo failed, res=$res" >> $report
   tail -30 $logfile >> $report
+else
+  echo "make all execute in demo finished without error" >> $report
 fi
 
 if [ $uploaded -eq 0 ] ; then
