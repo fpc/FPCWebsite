@@ -331,6 +331,7 @@ if [ "$BUILDFULLNATIVE" == "1" ] ; then
     export BUILDFULLNATIVE=
     export MAKE_EXTRA=
     CROSSOPT="$CROSSOPT_ORIG"
+    export OPTLEVEL3="$CROSSOPT"
     echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
     make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
     echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" >> $LONGLOGFILE
