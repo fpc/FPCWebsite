@@ -103,8 +103,11 @@ fi
 
 # Run cvs update
 cd $CHECKOUTDIR
-svn cleanup
-svn up
+
+if [ -z "${SKIP_SVN}" ] ; then
+  svn cleanup
+  svn up
+fi
 
 if [ "X${GDBMI}" == "X" ] ; then
 # add needed files (libgdb.a)

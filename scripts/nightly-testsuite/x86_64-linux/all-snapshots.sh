@@ -293,6 +293,8 @@ function set_fpc_local ()
     FPC_PREV=$FPC 
     export FPC=$fpc_local_exe
     export MAKE_EXTRA
+    # Avoid updating svn tree to have all snpashots on same revision
+    export SKIP_SVN=1
     $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
     res=$?
     if [ $res -ne 0 ] ; then
