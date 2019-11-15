@@ -72,11 +72,15 @@ cd $SVN_DIR
 
 logdir=$HOME/logs/$BRANCH
 
+if [ ! -d $logdir ] ; then
+  mkdir -p $logdir
+fi
+
 DATESUF=`date +%Y-%m-%d`
 
-export report=${logdir}/report-${SUFF}.txt 
-export makelog=${logdir}/make-${SUFF}.txt 
-export testslog=${logdir}/tests-${SUFF}.txt 
+export report=${logdir}/report${SUFF}.txt 
+export makelog=${logdir}/make${SUFF}.txt 
+export testslog=${logdir}/tests${SUFF}.txt 
 skiptests=0
 
 echo "Starting $0" > $report
