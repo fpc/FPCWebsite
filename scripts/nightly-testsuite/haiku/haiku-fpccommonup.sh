@@ -4,7 +4,7 @@
 
 export MAKE=make
 if [ "${HOSTNAME}" == "shredder" ]; then
-  HOST_PC=OldDell
+  HOST_PC=gcc123-VM
 else
   HOST_PC=PC_AFM
 fi
@@ -22,9 +22,11 @@ else
     NO_RELEASE=1
   fi
 fi
+HOST_PC="$HOST_PC$SUFF"
 
 if [ -n "$NO_RELEASE" ] ; then
   export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$RELEASEVERSION
+  export OVERRIDEVERSIONCHECK=1
 else
   export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
 fi
@@ -68,7 +70,8 @@ NEWBIN=/not/existing/path/$HOST_FPC
 
 cd $SVN_DIR
 
-logdir=$HOME/logs
+logdir=$HOME/logs/$BRANCH
+
 DATESUF=`date +%Y-%m-%d`
 
 export report=${logdir}/report-${SUFF}.txt 
@@ -80,6 +83,13 @@ echo "Starting $0" > $report
 Start_version=`$HOST_FPC -iV`
 Start_date=`$HOST_FPC -iD`
 echo "Start $HOST_FPC version is ${Start_version} ${Start_date}" >> $report
+env >> $report
+echo "Start dir is `pwd`" >> $report
+
+if [ ! -d $logdir ] ; then
+  mkdir -p $logdir >> $report 2>&1
+fi
+
 svn cleanup 1>> $report 2>&1
 svn up --accept theirs-conflict 1>> $report 2>&1
 
@@ -94,7 +104,7 @@ makeres=$?
 if [ ${makeres} != 0 ]; then
   echo "Make distclean all failed" >> $report
   tail -60 ${makelog} >> $report
-  cd compiler 
+  cd compiler 2>&1 >> $report
   echo "Starting make cycle in compiler dir with $STARTFPC " >> $report
   ${MAKE} distclean cycle OPT=-gl FPC=$STARTFPC 1>> ${makelog} 2>&1
   makeres=$?
