@@ -54,8 +54,8 @@ function gen_ppu_log ()
   ppu="$dir/$ppufilename"
   logfile="$logdir/${ppufilename}${ppusuff}"
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
-    echo "/home/${USER}/pas/fpc-${Build_version}/bin/ppudump \"$ppu\" > \"$logfile\"" >> $makelog
-    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > "$logfile"
+    echo "/home/${USER}/pas/fpc-${Build_version}/bin/ppudump -VA \"$ppu\" > \"$logfile\"" >> $makelog
+    /home/${USER}/pas/fpc-${Build_version}/bin/ppudump -VA "$ppu" > "$logfile"
     grep -E "(^Analysing|Checksum)" "$logfile" > "$logfile"-short 2>&1
   fi
 }
