@@ -2,6 +2,12 @@
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
+. $HOME/bin/fpc-versions.sh
+
+export FIXES=0
+export CURVER=$TRUNKVERSION
+export FPCSVNDIR=$TRUNKDIR
+
 processor=`uname -p`
 
 if [ "${processor}" = "unknown" ] ; then
@@ -15,12 +21,25 @@ fi
 
 export LANG=en_US.UTF-8
 
+if [ -z "$FIXES" ] ; then
+  export FIXES=0
+fi
+
 if [ -z "$CURVER" ]; then
-  export CURVER=3.3.1
+  if [ $FIXES -eq 1 ] ; then
+    export CURVER=$FIXESVERSION
+  else
+    export CURVER=$TRUNKVERSION
+  fi
 fi
 
 if [ -z "$FPCSVNDIR" ] ; then
   export FPCSVNDIR=$HOME/pas/trunk
+  if [ $FIXES -eq 1 ] ; then
+    export FPCSVNDIR=$FIXESDIR
+  else
+    export FPCSVNDIR=$TRUNKDIR
+  fi
 fi
 
 if [ -z "$FPCSVNDIRNAME" ] ; then
@@ -29,7 +48,7 @@ fi
 
 if [ -z "$RELEASEVER" ]; then
   # export RELEASEVER=2.6.4
-  export RELEASEVER=3.0.4
+  export RELEASEVER=$RELERASEVERSION
 fi
 
 if [ -z "$FPCBIN" ]; then
