@@ -2,9 +2,11 @@
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
-ulimit -d 65536 -s 8192 -t 2400
-
 processor=`uname -p`
+
+if [ "${processor}" = "unknown" ] ; then
+  processor=`uname -m `
+fi
 
 # Use same TimeZone as defined inside cron
 if [ "X$CRON_TZ" != "X" ] ; then
@@ -13,7 +15,7 @@ fi
 
 export LANG=en_US.UTF-8
 
-if [ "$CURVER" == "" ]; then
+if [ -z "$CURVER" ]; then
   export CURVER=3.3.1
 fi
 
@@ -21,28 +23,41 @@ if [ -z "$FPCSVNDIR" ] ; then
   export FPCSVNDIR=$HOME/pas/trunk
 fi
 
-if [ "$RELEASEVER" == "" ]; then
+if [ -z "$FPCSVNDIRNAME" ] ; then
+  export FPCSVNDIRNAME=`basename $FPCSVNDIR `
+fi
+
+if [ -z "$RELEASEVER" ]; then
   # export RELEASEVER=2.6.4
   export RELEASEVER=3.0.4
 fi
 
-if [ "$FPCBIN" == "" ]; then
+if [ -z "$FPCBIN" ]; then
   if [ "${processor}" = "ppc64le" ] ; then
     FPCBIN=ppcppc64
   elif [ "${processor}" = "ppc64" ] ; then
     FPCBIN=ppcppc64
   elif [ "${processor}" = "ppc" ] ; then
     FPCBIN=ppcppc
+  elif [ "${processor}" = "m68k" ] ; then
+    FPCBIN=ppc68k
   fi
 fi
 if [ "${processor}" = "ppc64le" ] ; then
   TEST_ABI=le
   MAKE_J_OPT="-j 16"
   export FPMAKEOPT="-T 16"
+  ulimit -d 65536 -s 8192 -t 2400
+elif [ "${processor}" = "m68k" ] ; then
+  TEST_ABI=
+  MAKE_J_OPT=
+  export FPMAKEOPT=
+  ulimit -s 8192 -t 2400
 else
   TEST_ABI=
   MAKE_J_OPT="-j 8"
   export FPMAKEOPT="-T 8"
+  ulimit -d 65536 -s 8192 -t 2400
 fi
 
 # If using 32-bit version of compiler
@@ -64,6 +79,14 @@ if [ "$FPCBIN" = "ppcppc" ]; then
     export GDBMI=1
   fi
   export FPMAKE_SKIP_CONFIG="-n -XPpowerpc-"
+elif [ "$FPCBIN" = "ppc68k" ] ; then
+  GCC_DIR=` gcc -print-libgcc-file-name | xargs dirname`
+  export FPMAKE_SKIP_CONFIG="-n -Fl$GCC_DIR"
+  export OPT="$OPT -Fl$GCC_DIR"
+  # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
+  # instead of supplied libbfd.a from GDB compilation.
+  export SPECIALLINK="-Xd"
+  export FPCCPUOPT=-O1
 else
   GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
   export FPMAKE_SKIP_CONFIG="-n -Fl$GCC_DIR"
@@ -75,6 +98,10 @@ fi
 
 if [ "$MAKE" == "" ]; then
   MAKE=make
+fi
+
+if [ -n "$FPCCPUOPT" ] ; then
+  MAKE="$MAKE \"FPCCPUOPT=$FPCCPUOPT\""
 fi
 
 HOST_PC=${HOSTNAME%%\.*}
@@ -92,12 +119,16 @@ FPCRELEASEBIN=${FPCRELEASEBINDIR}/${FPCBIN}
 
 cd $FPCSVNDIR
 
-LOGDIR=$HOME/logs
+LOGDIR=$HOME/logs/$FPCSVNDIRNAME
 
-export report=`pwd`/report.txt 
-export makelog=`pwd`/make.txt 
-export makecleanlog=`pwd`/makeclean.txt 
-export testslog=`pwd`/tests.txt 
+if [ ! -d "$LOGDIR" ] ; then
+  mkdir -p $LOGDIR
+fi
+
+export report=$LOGDIR/report.txt 
+export makelog=$LOGDIR/make.txt 
+export makecleanlog=$LOGDIR/makeclean.txt 
+export testslog=$LOGDIR/tests.txt 
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
