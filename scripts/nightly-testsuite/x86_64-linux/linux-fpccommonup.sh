@@ -312,7 +312,23 @@ if [ $NewBinary -eq 1 ] ; then
   ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   add_log "End $MAKE fullinstall; result=${makeres}"
-
+  if [ $makeres -ne 0 ] ; then
+    add_log "Generating all cross-compilers failed, see $makelog for details"
+    add_log "Recompiling rtl"
+    ${MAKE} -C compiler $MAKEDEBUG rtlclean rtl OPT="-n $NEEDED_OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_FPC_BIN >> $makelog 2>&1
+    makeres=$?
+    if [ $makeres -ne 0 ] ; then
+      add_log "Generating new native compiler failed, see $makelog for details"
+    fi
+    for cpu in $cpu_list ; do
+      add_log "Compiling compiler for $cpu"
+      ${MAKE} -C compiler $MAKEDEBUG $cpu ${cpu}_exe_install OPT="-n $NEEDED_OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_FPC_BIN >> $makelog 2>&1
+      makeres=$?
+      if [ $makeres -ne 0 ] ; then
+        add_log "Generating $cpu cross-compiler failed, see $makelog for details"
+      fi
+    done
+  fi
   # Register system, objpas and sysutils new ppu state
   gen_ppu_log rtl/units/${NEW_UNITDIR} system.ppu -log2
   gen_ppu_log rtl/units/${NEW_UNITDIR} objpas.ppu -log2
