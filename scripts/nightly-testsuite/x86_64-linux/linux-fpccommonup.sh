@@ -98,6 +98,10 @@ if [ "X$FPCBIN" == "Xppc386" ] ; then
     fi
   fi
   SUFFIX=-32
+  export FPCFPMAKE=`which ppcx64`
+  # Avoid usage of ppc386 to compile fpmake,
+  # as this hangs on exit
+  export FPCFPMAKENEW=`which ppcx64`
 else
   NEEDED_OPT=
   SUFFIX=-64
@@ -296,6 +300,12 @@ if [ $NewBinary -eq 1 ] ; then
   fi
 
   if [ $makeres -ne 0 ] ; then
+    if [ -n "$FPCFPMAKE" ] ; then
+      add_log "Compiling rtl for $FPCFPMAKE"
+      ${MAKE} -C ./rtl FPC="$FPCFPMAKE" OPT="-n"
+      add_log "Compiling bootstrap for $FPCFPMAKE"
+      ${MAKE} -C ./packages/fpmkunit bootstrap FPC="$FPCFPMAKE"
+    fi
     for dir in rtl compiler packages utils ; do
       add_log "Start $MAKE install in dir $dir"
       ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
