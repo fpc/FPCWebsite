@@ -411,17 +411,26 @@ export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_OPT=
 
 # msdos targets
+export MAKESNAPSHOT_SUFFIX=-tiny
 run_one_snapshot i8086 msdos "-n -Wmtiny -CX -XX" "" "-Wmtiny"
+export MAKESNAPSHOT_SUFFIX=-compact
 run_one_snapshot i8086 msdos "-n -Wmcompact -CX -XX" "" "-Wmcompact"
+export MAKESNAPSHOT_SUFFIX=-medium
 run_one_snapshot i8086 msdos "-n -Wmmedium -CX -XX" "" "-Wmmedium"
+export MAKESNAPSHOT_SUFFIX=-large
 run_one_snapshot i8086 msdos "-n -Wmlarge -CX -XX" "" "-Wmlarge"
+export MAKESNAPSHOT_SUFFIX=-huge
 run_one_snapshot i8086 msdos "-n -Wmhuge -CX -XX" "" "-Wmhuge"
+export MAKESNAPSHOT_SUFFIX=
 run_one_snapshot i8086 msdos "-n -Wmsmall -CX -XX"
 
 # List separately cases for which special parameters are required
 run_one_snapshot arm embedded "-n" "SUBARCH=armv4t"
+export MAKESNAPSHOT_SUFFIX=-avr25
 run_one_snapshot avr embedded "-n" "SUBARCH=avr25" "-avr25"
+export MAKESNAPSHOT_SUFFIX=-avr4
 run_one_snapshot avr embedded "-n" "SUBARCH=avr4" "-avr4"
+export MAKESNAPSHOT_SUFFIX=
 run_one_snapshot avr embedded "-n" "SUBARCH=avr6"
 run_one_snapshot mipsel embedded "-n" "SUBARCH=pic32mx"
 
