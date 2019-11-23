@@ -19,7 +19,7 @@ fi
 
 if [ -n "$RSYNC" ] ; then
   USE_RSYNC=1
-  RSYNC_SERVER=gcc220
+  RSYNC_SERVER=gcc121
   RSYNC_SERVER_FPC_RELEASE_VERSION=3.0.0
   RSYNC_SERVER_BASE_DIR=pas/rsync
 
@@ -34,24 +34,38 @@ if [ -n "$RSYNC" ] ; then
   echo "update_rsync_dir called, check_dir_exists=\"$check_dir_exists\""
   if [ -n "$check_dir_exists" ] ; then
     cd $local_dir
-    $MAKE distclean FPC=$FPC
+    if [ -f Makefile ] ; then
+      $MAKE distclean FPC=$FPC
+      run_distclean=1
+    else
+      run_distclean=0
+    fi
     if [ -d fpcsrc ] ; then
       cd fpcsrc
     fi
-    $MAKE -C tests distclean FPC=$FPC TEST_FPC=$FPC
-    $RSYNC -avus $local_dir $RSYNC_SERVER:pas/rsync
+    if [ -f tests/Makefile ] ; then
+      $MAKE -C tests distclean FPC=$FPC TEST_FPC=$FPC
+      run_tests_distclean=1
+    else
+      run_tests_distclean=0
+    fi
+    $RSYNC -avus --exclude=.svn/ $local_dir $RSYNC_SERVER:pas/rsync
     ssh $RSYNC_SERVER "cd $RSYNC_SERVER_BASE_DIR/$local_dirname ; svn cleanup ; svn up  --non-interactive --accept theirs-conflict"
-    ssh $RSYNC_SERVER "cd $RSYNC_SERVER_BASE_DIR/$local_dirname ; gmake distclean FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc"
+    if [ $run_distclean -eq 1 ] ; then
+      ssh $RSYNC_SERVER "cd $RSYNC_SERVER_BASE_DIR/$local_dirname ; gmake distclean FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc"
+    fi
     check_fpcsrc_dir_exists=`ssh $RSYNC_SERVER "ls -ld $RSYNC_SERVER_BASE_DIR/$local_dirname/fpcsrc 2> /dev/null"`
     if [ -n "$check_fpcsrc_dir_exists" ] ; then
       RSYNC_SERVER_FPCSRC=fpcsrc
     else
       RSYNC_SERVER_FPCSRC=.
     fi
-    ssh $RSYNC_SERVER "cd $RSYNC_SERVER_BASE_DIR/$local_dirname/$RSYNC_SERVER_FPCSRC/tests ; \
-        gmake distclean FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc \
-        TEST_FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc"
-    $RSYNC -avus --exclude=.svn $RSYNC_SERVER:$RSYNC_SERVER_BASE_DIR/$local_dirname $local_updir
+    if [ $run_tests_distclean -eq 1 ] ; then
+      ssh $RSYNC_SERVER "cd $RSYNC_SERVER_BASE_DIR/$local_dirname/$RSYNC_SERVER_FPCSRC/tests ; \
+          gmake distclean FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc \
+          TEST_FPC=\$HOME/pas/fpc-$RSYNC_SERVER_FPC_RELEASE_VERSION/bin/fpc"
+    fi
+    $RSYNC -avus --exclude=.svn/ $RSYNC_SERVER:$RSYNC_SERVER_BASE_DIR/$local_dirname $local_updir
   else
     echo "dir not found on server"
   fi

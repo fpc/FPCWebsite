@@ -70,7 +70,7 @@ RSYNC=`which rsync 2> /dev/null`
 
 if [ -n "$RSYNC" ] ; then
   USE_RSYNC=1
-  RSYNC_SERVER=gcc220
+  RSYNC_SERVER=gcc121
   RSYNC_SERVER_BASE_DIR=pas/rsync
 fi
 
