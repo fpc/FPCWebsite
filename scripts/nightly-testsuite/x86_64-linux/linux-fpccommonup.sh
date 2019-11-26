@@ -301,10 +301,10 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $makeres -ne 0 ] ; then
     if [ -n "$FPCFPMAKE" ] ; then
-      add_log "Compiling rtl for $FPCFPMAKE"
+      add_log "Compiling rtl with $FPCFPMAKE"
       ${MAKE} -C ./rtl FPC="$FPCFPMAKE" OPT="-n"
-      add_log "Compiling bootstrap for $FPCFPMAKE"
-      ${MAKE} -C ./packages/fpmkunit bootstrap FPC="$FPCFPMAKE"
+      add_log "Compiling bootstrap with $FPCFPMAKE"
+      ${MAKE} -C ./packages/fpmkunit bootstrap OPT="-n" FPC="$FPCFPMAKE"
     fi
     for dir in rtl compiler packages utils ; do
       add_log "Start $MAKE install in dir $dir"
