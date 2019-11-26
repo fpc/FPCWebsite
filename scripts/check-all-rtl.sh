@@ -289,6 +289,18 @@ fi
 # leads to errors at packages bootstrap stage
 export FPCDIR=`pwd`
 
+function generate_local_diff_file ()
+{
+  subdir=$1
+  svn_version_name=svn_${subdir}_version
+  svn_version=${!svn_version_name}
+  if [ "${svn_version/M/}" != "${svn_version}" ] ; then
+    cd $subdir
+    svn diff > $logdir/svn_diff_${subdir}.patch
+    cd ..
+  fi
+}
+
 svn_rtl_version=`svnversion -c rtl`
 svn_compiler_version=`svnversion -c compiler`
 svn_packages_version=`svnversion -c packages`
@@ -325,6 +337,26 @@ if [ ! -d $LOGDIR ] ; then
   mkdir -p $LOGDIR
 fi
 
+function generate_local_diff_file ()
+{
+  subdir=$1
+  svn_version_name=svn_${subdir}_name
+  svn_version=${!svn_version_name:-}
+  if [ "${svn_version/M/}" != "${svn_version}" ] ; then
+    cd $subdir
+    svn diff > $LOGDIR/svn_diff_${subdir}.patch 2>&1
+    cd ..
+    eval "svn_${subdir}_modified=1"
+  else
+    eval "svn_${subdir}_modified=0"
+  fi
+}
+
+generate_local_diff_file rtl
+generate_local_diff_file compiler
+generate_local_diff_file packages
+generate_local_diff_file utils
+
 if [ -z "${global_sysroot:-}" ] ; then
   global_sysroot=$HOME/sys-root
 fi
@@ -333,6 +365,7 @@ LOGFILE=$LOGDIR/all-${name}-${svnname}-checks.log
 LOCKFILE=$LOGDIR/all-${name}-${svnname}-checks.lock
 LOGFILE_NATIVE_RTL=$LOGDIR/native-rtl-${name}-${svnname}.log
 LISTLOGFILE=$LOGDIR/list-all-${name}-${svnname}-checks.log
+TIMEDLISTLOGFILE=$LOGDIR/timed-list-all-${name}-${svnname}-checks.log
 LISTOLDLOGFILE=$LOGDIR/list-all-${name}-${svnname}-check-changes.log
 EMAILFILE=$LOGDIR/check-${name}-${svnname}-log.txt
 if [ -z "${PREVIOUS_SUFFIX:-}" ] ; then
@@ -371,11 +404,23 @@ else
   prev_failure_list=""
 fi
 
+start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
+last_time_in_secs=`date --utc +%s`
+
+function time_since_last ()
+{
+  now_time_in_secs=`date --utc +%s`
+  diffSec=$((now_time_in_secs - last_time_in_secs))
+  last_time_in_secs=$now_time_in_secs
+  echo $diffSec
+}
+
 # echo to LOGFILE, LISTLOGFILE and EMAILFILE
 function mecho ()
 {
   echo "$*" >> $LOGFILE
   echo "$*" >> $LISTLOGFILE
+  echo "`time_since_last` `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
   echo "$*" >> $EMAILFILE
   if [ $verbose -eq 1 ] ; then
   echo "$*"
@@ -387,6 +432,7 @@ function lecho ()
 {
   echo "$*"
   echo "$*" >> $LISTLOGFILE
+  echo "`time_since_last` `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
 }
 
 function rm_lockfile ()
@@ -398,7 +444,7 @@ function rm_lockfile ()
 
 echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
 
-rm -f $LOGFILE $LISTLOGFILE $EMAILFILE
+rm -f $LOGFILE $LISTLOGFILE $TIMEDLISTLOGFILE $EMAILFILE
 
 # Remove all failure files, which have been copied before to avoid
 # problems
