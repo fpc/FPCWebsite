@@ -25,10 +25,10 @@ fi
 HOST_PC="$HOST_PC$SUFF"
 
 if [ -n "$NO_RELEASE" ] ; then
-  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$RELEASEVERSION
+  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
   export OVERRIDEVERSIONCHECK=1
 else
-  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
+  export FPC_RELEASE_INSTALLDIR=$HOME/pas/fpc-$RELEASEVERSION
 fi
 export FPC_TRUNK_INSTALLDIR=$HOME/pas/fpc-$TRUNKVERSION
 export FPC_FIXES_INSTALLDIR=$HOME/pas/fpc-$FIXESVERSION
@@ -163,7 +163,7 @@ if [ $skipsnapshot -eq 0 ] ; then
   if [ $makeres -ne 0 ] ; then
    tail -30 ${makelog} >> $report
   else
-   scp -p fpc*gz readme fpcftp:ftp/snapshot/$BRANCH/$FULL_TARGET/
+   scp -p fpc*gz readme fpcftp:ftp/snapshot/$BRANCH/$FULL_TARGET/ > ${makelog} 2>&1
   fi
 fi
 
