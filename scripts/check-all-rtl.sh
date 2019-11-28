@@ -420,7 +420,8 @@ function mecho ()
 {
   echo "$*" >> $LOGFILE
   echo "$*" >> $LISTLOGFILE
-  echo "`time_since_last` `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
+  time_since_last > /dev/null
+  echo "$diffSec `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
   echo "$*" >> $EMAILFILE
   if [ $verbose -eq 1 ] ; then
   echo "$*"
@@ -432,7 +433,8 @@ function lecho ()
 {
   echo "$*"
   echo "$*" >> $LISTLOGFILE
-  echo "`time_since_last` `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
+  time_since_last > /dev/null
+  echo "$diffSec `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
 }
 
 function rm_lockfile ()
