@@ -289,18 +289,6 @@ fi
 # leads to errors at packages bootstrap stage
 export FPCDIR=`pwd`
 
-function generate_local_diff_file ()
-{
-  subdir=$1
-  svn_version_name=svn_${subdir}_version
-  svn_version=${!svn_version_name}
-  if [ "${svn_version/M/}" != "${svn_version}" ] ; then
-    cd $subdir
-    svn diff > $logdir/svn_diff_${subdir}.patch
-    cd ..
-  fi
-}
-
 svn_rtl_version=`svnversion -c rtl`
 svn_compiler_version=`svnversion -c compiler`
 svn_packages_version=`svnversion -c packages`
@@ -336,26 +324,6 @@ if [ ! -d $LOGDIR ] ; then
   echo "Creating directory $LOGDIR"
   mkdir -p $LOGDIR
 fi
-
-function generate_local_diff_file ()
-{
-  subdir=$1
-  svn_version_name=svn_${subdir}_name
-  svn_version=${!svn_version_name:-}
-  if [ "${svn_version/M/}" != "${svn_version}" ] ; then
-    cd $subdir
-    svn diff > $LOGDIR/svn_diff_${subdir}.patch 2>&1
-    cd ..
-    eval "svn_${subdir}_modified=1"
-  else
-    eval "svn_${subdir}_modified=0"
-  fi
-}
-
-generate_local_diff_file rtl
-generate_local_diff_file compiler
-generate_local_diff_file packages
-generate_local_diff_file utils
 
 if [ -z "${global_sysroot:-}" ] ; then
   global_sysroot=$HOME/sys-root
@@ -444,6 +412,22 @@ function rm_lockfile ()
   fi
 }
 
+function generate_local_diff_file ()
+{
+  subdir=$1
+  svn_version=$2
+  if [ "${svn_version/M/}" != "${svn_version}" ] ; then
+    SVNLOGFILE=$LOGDIR/svn_diff_${subdir}.patch
+    mecho "${subdir} is locally modified, saving into $SVNLOGFILE"
+    cd $subdir
+    svn diff > $SVNLOGFILE 2>&1
+    cd ..
+    eval "svn_${subdir}_modified=1"
+  else
+    eval "svn_${subdir}_modified=0"
+  fi
+}
+
 echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
 
 rm -f $LOGFILE $LISTLOGFILE $TIMEDLISTLOGFILE $EMAILFILE
@@ -457,10 +441,21 @@ done
 mecho "$0 for $svnname, version $FPCVERSION starting at `date`"
 mecho "Machine info: $machine_info"
 mecho "RTL svn version: $svn_rtl_version"
+generate_local_diff_file rtl $svn_rtl_version
 mecho "Compiler svn version: $svn_compiler_version"
+generate_local_diff_file compiler $svn_compiler_version
 mecho "Packages svn version: $svn_packages_version"
+generate_local_diff_file packages $svn_packages_version
 mecho "Utils svn version: $svn_utils_version"
+generate_local_diff_file utils $svn_utils_version
 mecho "Script svn version: $svn_script_version ($script_date)"
+if [ -f "$script_source" ] ; then
+  if [ "${svn_script_version/M/}" != "${svn_script_version}" ] ; then
+    SVNLOGFILE=$LOGDIR/svn_diff_script_source.patch
+    mecho "${script_source} is locally modified, saving into $SVNLOGFILE"
+    svn diff "$script_source" > $SVNLOGFILE 2>&1
+  fi
+fi 
 
 if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   cd compiler
