@@ -301,7 +301,7 @@ else
 fi
 script_source=`realpath "$script_name" 2> /dev/null `
 if [ -z "$script_source" ] ; then
-  script_source=`realpath "$START_DIR/$script_name" 2> /dev/null `
+  script_source=`readlink "$START_DIR/$script_name" 2> /dev/null `
 fi
 
 if [ -f "$script_source" ] ; then
@@ -1547,7 +1547,7 @@ function get_prev_var_value ()
 if [ -f $PREVLOGFILE ] ; then
   prev_var_list=`sed -n "s:^\([a-zA-Z0-9_]*\)=\(.*\)$:prev_\1=\"\2\";:p" $PREVLOGFILE `
   # eval $prev_var_list ;
-  lecho "prev_var_list=\"$prev_var_list\"" 
+  lecho "prev_var_list=\"$prev_var_list\"" >> $LOGFILE
   get_prev_var_value dummy_count
   get_prev_var_value skipped_count
   get_prev_var_value run_fpcmake_first_failure
