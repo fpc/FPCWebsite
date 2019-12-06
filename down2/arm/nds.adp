@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Nintendo DS</property>
+<property name="title"><trn key="website.down2.arm.nds.title" locale="en_US">Free Pascal - Download Nintendo DS</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_linux_nds" locale="en_US">Download Nintendo DS</trn></property>
 <property name="modify"></property>

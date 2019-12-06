@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download FreeBSD</property>
+<property name="title"><trn key="website.down2.i386freebsd.title" locale="en_US">Free Pascal - Download FreeBSD</trn></property>
 <property name="entry">download</property>
-<property name="header">Download FreeBSD Intel x86</property>
+<property name="header"><trn key="website.down2.i386freebsd.header" locale="en_US">Download FreeBSD Intel x86</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

@@ -173,8 +173,9 @@ english: output_directory all_en_pages
 	echo >> sources.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down2/source/sources-hungary.html.bg ../..//down2/source/sources-hungary.html.en ../..//down2/source/sources-hungary.html.fi ../..//down2/source/sources-hungary.html.fr ../..//down2/source/sources-hungary.html.id ../..//down2/source/sources-hungary.html.it ../..//down2/source/sources-hungary.html.nl ../..//down2/source/sources-hungary.html.po ../..//down2/source/sources-hungary.html.sl ../..//down2/source/sources-hungary.html.ru ../..//down2/source/sources-hungary.html.zh-CN ../..//down2/source/sources-hungary.var ../..//down2/source/sources.html.bg ../..//down2/source/sources.html.en ../..//down2/source/sources.html.fi ../..//down2/source/sources.html.fr ../..//down2/source/sources.html.id ../..//down2/source/sources.html.it ../..//down2/source/sources.html.nl ../..//down2/source/sources.html.po ../..//down2/source/sources.html.sl ../..//down2/source/sources.html.ru ../..//down2/source/sources.html.zh-CN ../..//down2/source/sources.var
 all_en_pages: mirrors.dat ../..//down2/source/sources-hungary.html ../..//down2/source/sources.html

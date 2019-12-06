@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Win32 version</property>
+<property name="title"><trn key="website.down2.i386win32.title" locale="en_US">Free Pascal - Download Win32 version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Win32</property>
+<property name="header"><trn key="website.down2.i386win32.header" locale="en_US">Download Win32</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

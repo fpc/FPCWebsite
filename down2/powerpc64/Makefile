@@ -173,8 +173,9 @@ english: output_directory all_en_pages
 	echo >> linux.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down2/powerpc64/linux-hungary.html.bg ../..//down2/powerpc64/linux-hungary.html.en ../..//down2/powerpc64/linux-hungary.html.fi ../..//down2/powerpc64/linux-hungary.html.fr ../..//down2/powerpc64/linux-hungary.html.id ../..//down2/powerpc64/linux-hungary.html.it ../..//down2/powerpc64/linux-hungary.html.nl ../..//down2/powerpc64/linux-hungary.html.po ../..//down2/powerpc64/linux-hungary.html.sl ../..//down2/powerpc64/linux-hungary.html.ru ../..//down2/powerpc64/linux-hungary.html.zh-CN ../..//down2/powerpc64/linux-hungary.var ../..//down2/powerpc64/linux.html.bg ../..//down2/powerpc64/linux.html.en ../..//down2/powerpc64/linux.html.fi ../..//down2/powerpc64/linux.html.fr ../..//down2/powerpc64/linux.html.id ../..//down2/powerpc64/linux.html.it ../..//down2/powerpc64/linux.html.nl ../..//down2/powerpc64/linux.html.po ../..//down2/powerpc64/linux.html.sl ../..//down2/powerpc64/linux.html.ru ../..//down2/powerpc64/linux.html.zh-CN ../..//down2/powerpc64/linux.var
 all_en_pages: mirrors.dat ../..//down2/powerpc64/linux-hungary.html ../..//down2/powerpc64/linux.html

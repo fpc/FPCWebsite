@@ -743,6 +743,8 @@ begin
       slave_html:=adp_parse(slave_html)
     else
       slave_html:='';
+    { fix /down/old/i386-beos.adp site-master.adp file not found by wangyouworld }
+    if ((master_template <> '') and not FileExists(master_template)) then master_template := ExtractFilePath(ParamStr(0))+master_template;
     fn:=master_template;
   until master_template='';
   generate_page:=slave_html;
@@ -895,6 +897,13 @@ begin
     begin
       mode:=process_catalog;
       generate_page(catalogfile);
+    end
+    else
+    begin
+        { Fix catalogfile notfound by wangyouworld }
+        catalogfile := ExtractFilePath(ParamStr(0))+catalogfile;
+        mode:=process_catalog;
+        generate_page(catalogfile);
     end;
 
   {Process page.}
@@ -906,7 +915,7 @@ begin
   else
     begin
       if (LangName<>'') then
-        outputfile:=outputfile+'.'+langname;
+        outputfile:=outputfile+'.'+LangName;
       assign(htmlfile,outputfile);
 
       rewrite(htmlfile);
@@ -925,7 +934,7 @@ Type
 Const
   LangNames : TLangarray = ('bg','en','fi','fr','id','it','nl','po','sl','ru','zh-CN');
   LangContent : TLangarray = ('bg','en','fi','fr','id','it','nl','pl','sl','ru','zh-CN');
-  LangEncoding : TLangarray = ('iso-8859-5','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-2','iso-8859-2','iso-8859-5','utf-16');
+  LangEncoding : TLangarray = ('iso-8859-5','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-1','iso-8859-2','iso-8859-2','iso-8859-5','utf-8');
 
 
 Var

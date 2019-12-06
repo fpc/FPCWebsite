@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> docs.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/docs/docs-hungary.html.bg ../..//down/docs/docs-hungary.html.en ../..//down/docs/docs-hungary.html.fi ../..//down/docs/docs-hungary.html.fr ../..//down/docs/docs-hungary.html.id ../..//down/docs/docs-hungary.html.it ../..//down/docs/docs-hungary.html.nl ../..//down/docs/docs-hungary.html.po ../..//down/docs/docs-hungary.html.sl ../..//down/docs/docs-hungary.html.ru ../..//down/docs/docs-hungary.html.zh-CN ../..//down/docs/docs-hungary.var ../..//down/docs/docs-canada.html.bg ../..//down/docs/docs-canada.html.en ../..//down/docs/docs-canada.html.fi ../..//down/docs/docs-canada.html.fr ../..//down/docs/docs-canada.html.id ../..//down/docs/docs-canada.html.it ../..//down/docs/docs-canada.html.nl ../..//down/docs/docs-canada.html.po ../..//down/docs/docs-canada.html.sl ../..//down/docs/docs-canada.html.ru ../..//down/docs/docs-canada.html.zh-CN ../..//down/docs/docs-canada.var ../..//down/docs/docs.html.bg ../..//down/docs/docs.html.en ../..//down/docs/docs.html.fi ../..//down/docs/docs.html.fr ../..//down/docs/docs.html.id ../..//down/docs/docs.html.it ../..//down/docs/docs.html.nl ../..//down/docs/docs.html.po ../..//down/docs/docs.html.sl ../..//down/docs/docs.html.ru ../..//down/docs/docs.html.zh-CN ../..//down/docs/docs.var
 all_en_pages: mirrors.dat ../..//down/docs/docs-hungary.html ../..//down/docs/docs-canada.html ../..//down/docs/docs.html

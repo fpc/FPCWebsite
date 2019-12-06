@@ -13,7 +13,7 @@ hour.
 </trn>
 
 <h2> <trn key="website.mirrors.account" locale="en_US">Using the mirror account</trn></h2>
-<trn key="website.mirrors.ftp" locale="en_US">
+<trn key="website.mirrors.ftp.user" locale="en_US">
 Since the FTP site restricts the number of simultaneous connections, we've
 set up a mirror account which can be used by mirrors, so they are not
 counted in the <I>anonymous</I> users count.
@@ -55,7 +55,7 @@ directory tree (with the exception of the images, maybe).
 <trn key="website.mirrors.ftp.using" locale="en_US">Mirroring the FTP site can be done using:</trn>
 
 <OL>
-<trn key="website.mirrors.ftp.using" locale="en_US">
+<trn key="website.mirrors.ftp.using.info" locale="en_US">
 <li> the <a href="ftp://ftp.freepascal.org/pub/fpc/mirror/mirror-2.9-wuftpd-patched.tar.gz">mirror</a>
 perl script.
 There is also a <a href="ftp://ftp.freepascal.org/pub/fpc/mirror/www.freepascal.org">configuration
@@ -85,7 +85,7 @@ for push-mirroring!
 </trn>
 </OL>
 <p>
-<a href="links.html"><trn key="website.mirrors.back.links" locale="en_US">Back to links page.</trn></a>
+<a href="links@x@"><trn key="website.mirrors.back.links" locale="en_US">Back to links page.</trn></a>
 <p>
 </html>
 

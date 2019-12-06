@@ -173,8 +173,9 @@ english: output_directory all_en_pages
 	echo >> docs.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down2/docs/docs-hungary.html.bg ../..//down2/docs/docs-hungary.html.en ../..//down2/docs/docs-hungary.html.fi ../..//down2/docs/docs-hungary.html.fr ../..//down2/docs/docs-hungary.html.id ../..//down2/docs/docs-hungary.html.it ../..//down2/docs/docs-hungary.html.nl ../..//down2/docs/docs-hungary.html.po ../..//down2/docs/docs-hungary.html.sl ../..//down2/docs/docs-hungary.html.ru ../..//down2/docs/docs-hungary.html.zh-CN ../..//down2/docs/docs-hungary.var ../..//down2/docs/docs.html.bg ../..//down2/docs/docs.html.en ../..//down2/docs/docs.html.fi ../..//down2/docs/docs.html.fr ../..//down2/docs/docs.html.id ../..//down2/docs/docs.html.it ../..//down2/docs/docs.html.nl ../..//down2/docs/docs.html.po ../..//down2/docs/docs.html.sl ../..//down2/docs/docs.html.ru ../..//down2/docs/docs.html.zh-CN ../..//down2/docs/docs.var
 all_en_pages: mirrors.dat ../..//down2/docs/docs-hungary.html ../..//down2/docs/docs.html

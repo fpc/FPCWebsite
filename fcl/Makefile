@@ -102,8 +102,9 @@ english: output_directory all_en_pages
 	echo >> fcl.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ..//fcl/fcl.html.bg ..//fcl/fcl.html.en ..//fcl/fcl.html.fi ..//fcl/fcl.html.fr ..//fcl/fcl.html.id ..//fcl/fcl.html.it ..//fcl/fcl.html.nl ..//fcl/fcl.html.po ..//fcl/fcl.html.sl ..//fcl/fcl.html.ru ..//fcl/fcl.html.zh-CN ..//fcl/fcl.var
 all_en_pages: mirrors.dat ..//fcl/fcl.html

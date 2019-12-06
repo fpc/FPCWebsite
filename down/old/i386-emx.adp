@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - download EMX version</property>
+<property name="title"><trn key="website.down.old.i386emx.title" locale="en_US">Free Pascal - download EMX version</trn></property>
 <property name="modify"></property>
-<property name="header">Download old EMX (i386)</header>
+<property name="header"><trn key="website.down.old.i386emx.header" locale="en_US">Download old EMX (i386)</trn></property>
 <property name="maindir">../../</property>
 <property name="entry">emx</property>
 <!--
@@ -11,6 +11,7 @@
 -->
 
 <hr>
+<trn key="website.down.old.i386emx.info" locale="en_US">
 <h1><a name="OS2EMX"></a>OS/2 &amp; DOS (EMX)</h1>
 <hr>
 
@@ -19,7 +20,9 @@ that there is a newer fully supported version for the OS/2 platform available
 from the main download page. The only potential reason for using this one
 instead would be the possibility to run the same compiled binaries natively
 under both OS/2 and DOS (with EMX extender).
+</trn>
 
+<trn key="website.down.old.i386emx.download" locale="en_US">
 <h3>Download in 1 big file:</h3>
 <ul>
 <li> <A
@@ -28,10 +31,16 @@ contains all archives and installation program<br>
 <li>Or you can download a file that contains the same, only without sources,gdb and gnu utils:
 <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010.zip">os21010.zip</a> (17.2 MB)
 </ul>
+</trn>
 
-<h3> <a name="os2emxsep"></a>Download as separate files</h3>
+
+<trn key="website.down.old.i386emx.files" locale="en_US">
+<h3><a name="os2emxsep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
+</trn>
+
 <OL>
+<trn key="website.down.old.i386emx.mandatory" locale="en_US">
 <li> <b>Mandatory files:</b>
 <ul>
 <li> Install program: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.exe">install.exe</a> (286 kB)
@@ -57,6 +66,9 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
   and gnudev2.zip.
 </ul>
 </ul>
+</trn>
+
+<trn key="website.down.old.i386emx.optional" locale="en_US">
 <li> <b>Optional files:</b>
 <ul>
 <li> The readme file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/readme.txt">readme.txt</a> (12 kB)
@@ -72,6 +84,10 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
 <li> Documentation in PDF: <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/docs-pdf.zip">docs-pdf.zip</a> (3.45 MB)
 <li> Documentation in HTML (needed for IDE help): <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">doc-htm.zip</a> (6.7 Mb)
 </ul>
+</trn>
+
+
+<trn key="website.down.old.i386emx.source" locale="en_US">
 <li> <b>Optional source files:</b>
 <ul>
 <li> Sources base (required): <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/basesrc.zip">basesrc.zip</a> (49 kB)
@@ -90,6 +106,9 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
 program in this directory. It will detect which files you downloaded, and
 offer to install only those files actually present. Therefore, you cannot
 change the name of the files!
+</trn>
+
+<trn key="website.down.old.i386emx.these" locale="en_US">
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities (for re-compilation of the compiler and RTL among others):
@@ -99,12 +118,13 @@ change the name of the files!
 <li>EMX wrapper DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
 <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emxwrap.dll">emxwrap.dll</a> (16Kb)
 </ul>
+</trn>
 </OL>
 <p>
 
 <hr>
 <p>
-<a href="i386-emx@x@">Back to mirror list</a><BR/>
-<a href="down-@mirrorsuffix@@x@">Back to all old releases</a>
-<a href="../../download@x@">Back to general download page</a>
+<a href="i386-emx@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
+<a href="down-@mirrorsuffix@@x@"><trn key="website.Back_to_old_mirrorlist" locale="en_US">Back to all old releases</trn></a><BR/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

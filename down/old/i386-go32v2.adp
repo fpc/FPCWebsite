@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - download GO32v2 version</property>
+<property name="title"><trn key="website.down.old.i386go32v2.title" locale="en_US">Free Pascal - download GO32v2 version</trn></property>
 <property name="modify"></property>
-<property name="header">Download old GO32v2 (i386)</header>
+<property name="header"><trn key="website.down.old.i386go32v2.header" locale="en_US">Download old GO32v2 (i386)</trn></property>
 <property name="maindir">../../</property>
 <property name="entry">go32v2</property>
 <!--
@@ -11,6 +11,8 @@
 -->
 
 <hr>
+
+<trn key="website.down.old.i386go32v2.files" locale="en_US">
 <h1><a name="DOS"></a>GO32v2</h1>
 <hr>
 
@@ -25,10 +27,17 @@ This is version <b>1.0.10</b> (not supported any more).
 <li>Or you can download the whole package including win32 files in 1 big zipped file:
 <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/dosw321010full.zip">dosw321010full.zip</a> (40.0 MB)
 </ul>
+</trn>
 
+
+<trn key="website.down.old.i386go32v2.separate" locale="en_US">
 <h3> <a name="dossep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
+</trn>
+
 <OL>
+
+<trn key="website.down.old.i386go32v2.mandatory" locale="en_US">
 <li> <b>Mandatory files:</b>
 <ul>
 <li> Install program: <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/install.exe">install.exe</a> (296 kB)
@@ -36,6 +45,9 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Base files (program and units): <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/basego32.zip">basego32.zip</a> (1.48 MB)
 <li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/asldgo32.zip">asldgo32.zip</a> (566 kB)
 </ul>
+</trn>
+
+<trn key="website.down.old.i386go32v2.optional" locale="en_US">
 <li> <b>Optional files:</b>
 <ul>
 <li> The readme file: <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/readme.txt">readme.txt</a> (12 kB)
@@ -52,7 +64,10 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Documentation in PDF: <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/docs-pdf.zip">docs-pdf.zip</a> (3.45 MB)
 <li> Documentation in HTML (needed for IDE help): <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">doc-htm.zip</a> (6.7 Mb)
 </ul>
-<li> 
+</trn>
+
+<trn key="website.down.old.i386go32v2.source" locale="en_US">
+<li>
 <b>Optional source files:</b>
 <ul>
 <li> Sources base (required): <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/basesrc.zip">basesrc.zip</a> (49 kB)
@@ -67,10 +82,18 @@ You can download the contents of the above zip files as separate files:<br>
 <li> Installer sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/instsrc.zip">instsrc.zip</a> (31 kB)
 <li> Documentation sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/docsrc.zip">docsrc.zip</a> (2.14 MB)
 <li> IDE sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/idesrc.zip">idesrc.zip</a> (456 kB)
-</ul>You should download all these files in 1 directory, and then run the install
+</ul>
+</trn>
+
+<trn key="website.down.old.i386go32v2.directory" locale="en_US">
+You should download all these files in 1 directory, and then run the install
 program in this directory. It will detect which files you downloaded, and
 offer to install only those files actually present. Therefore, you cannot
 change the name of the files!
+</trn>
+
+
+<trn key="website.down.old.i386go32v2.3files" locale="en_US">
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities:
@@ -80,12 +103,14 @@ change the name of the files!
 <li>Floating point processor emulator:
 <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/wemu386.dxe">wemu386.dxe</a> (20Kb)
 </ul>
+</trn>
+
 </OL>
 <p>
 
 <hr>
 <p>
-<a href="i386-go32v2@x@">Back to mirror list</a><BR/>
-<a href="down-@mirrorsuffix@@x@">Back to all old releases</a>
-<a href="../../download@x@">Back to general download page</a>
+<a href="i386-go32v2@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
+<a href="down-@mirrorsuffix@@x@"><trn key="website.Back_to_old_mirrorlist" locale="en_US">Back to all old releases</trn></a>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

@@ -1,10 +1,11 @@
 <master>
-<property name="title">Free Pascal - Unsupported versions</property>
+<property name="title"><trn key="website.down.old.down.title" locale="en_US">Free Pascal - Unsupported versions</trn></property>
 <property name="modify"></property>
-<property name="header">Download of unsupported versions</header>
+<property name="header"><trn key="website.down.old.down.header" locale="en_US">Download of unsupported versions</trn></property>
 <property name="maindir">../../</property>
 <property name="entry">Unsupported</property>
 <a name="release"></a>
+<trn key="website.down.old.down.releases" locale="en_US">
 <h1>Old releases</h1>
 <p>
   These are ready made packages, together with an install program, to
@@ -31,16 +32,19 @@
   <li><a href="i386-qnx-@mirrorsuffix@@x@">QNX (Intel x86)</a>
   <li><a href="m68k-amiga-@mirrorsuffix@@x@">Amiga (Motorola 68k)</a>
 </ul>
+</trn>
 
+<trn key="website.down.old.down.documentation" locale="en_US">
 <p>
 Furthermore, you can download the following:
 <ul>
 <li><a href="docs-@mirrorsuffix@@x@">Documentation</a> for this (old) version 1.0.10
 in different formats.
 </ul>
+</trn>
 
 <hr>
 <p>
-<a href="down@x@">Back to mirror list</a><BR/>
-<a href="../../download@x@">Back to the general download page</a>
+<a href="down@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to the general download page</trn></a>
 <p>

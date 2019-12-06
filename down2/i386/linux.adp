@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Linux</property>
+<property name="title"><trn key="website.down2.i386linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Intel/i386 Linux</trn></property>
 <property name="modify"></property>
@@ -27,7 +27,7 @@ It is available in different formats:
 <ul>
 <li><trn key="website.i386-linux_1_file_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/i386-linux/fpc-2.1.4a.i386-linux.tar">fpc-2.1.4a.i386-linux.tar</a> (30 MB)
   contains a standard tar archive, with an install script<br>
-  After untarring the archive into a temporary location, you can run the install script 
+  After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 </trn>
 </ul>

@@ -3,7 +3,7 @@
 <property name="maindir">../</property>
 <property name="title"><trn key="website.contribs.title" locale="en_US">Free Pascal - Contributions</trn></property>
 <property name="entry">Contributions</property>
-<property name="header">Contributions</property>
+<property name="header"><trn key="website.contribs.header" locale="en_US">Contributions</trn></property>
 <property name="headmatter">
 <link href="/css/fp.css" rel="stylesheet" type="text/css" />
 <link href="/css/fp-navl.css" rel="alternate stylesheet" type="text/css" title="Nav-Left" />
@@ -13,7 +13,7 @@
 <script src="https://extjs.cachefly.net/ext-3.3.1/adapter/ext/ext-base.js"></script>
 <script src="https://extjs.cachefly.net/ext-3.3.1/ext-all.js"></script>
 <script src="https://extjs.cachefly.net/ext-3.3.1/examples/ux/ux-all.js"></script>
-<script src="contribs.cgi/contribs/API"></script>
+<script src="//www.freepascal.org/contribs.cgi/contribs/API"></script>
 <script src="contribs.js"></script>
 <script>
   Ext.onReady(function() {

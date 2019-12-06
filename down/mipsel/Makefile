@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> linux.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html.bg ../..//down/mipsel/linux-hungary.html.en ../..//down/mipsel/linux-hungary.html.fi ../..//down/mipsel/linux-hungary.html.fr ../..//down/mipsel/linux-hungary.html.id ../..//down/mipsel/linux-hungary.html.it ../..//down/mipsel/linux-hungary.html.nl ../..//down/mipsel/linux-hungary.html.po ../..//down/mipsel/linux-hungary.html.sl ../..//down/mipsel/linux-hungary.html.ru ../..//down/mipsel/linux-hungary.html.zh-CN ../..//down/mipsel/linux-hungary.var ../..//down/mipsel/linux-canada.html.bg ../..//down/mipsel/linux-canada.html.en ../..//down/mipsel/linux-canada.html.fi ../..//down/mipsel/linux-canada.html.fr ../..//down/mipsel/linux-canada.html.id ../..//down/mipsel/linux-canada.html.it ../..//down/mipsel/linux-canada.html.nl ../..//down/mipsel/linux-canada.html.po ../..//down/mipsel/linux-canada.html.sl ../..//down/mipsel/linux-canada.html.ru ../..//down/mipsel/linux-canada.html.zh-CN ../..//down/mipsel/linux-canada.var ../..//down/mipsel/linux.html.bg ../..//down/mipsel/linux.html.en ../..//down/mipsel/linux.html.fi ../..//down/mipsel/linux.html.fr ../..//down/mipsel/linux.html.id ../..//down/mipsel/linux.html.it ../..//down/mipsel/linux.html.nl ../..//down/mipsel/linux.html.po ../..//down/mipsel/linux.html.sl ../..//down/mipsel/linux.html.ru ../..//down/mipsel/linux.html.zh-CN ../..//down/mipsel/linux.var
 all_en_pages: mirrors.dat ../..//down/mipsel/linux-hungary.html ../..//down/mipsel/linux-canada.html ../..//down/mipsel/linux.html

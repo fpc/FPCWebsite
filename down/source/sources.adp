@@ -9,6 +9,7 @@
 <p>
 <trn key="website.down.source.sources.formats" locale="en_US">The complete sources can be downloaded in the following formats:</trn>
 <p>
+<trn key="website.down.source.sources.formats.list" locale="en_US">The complete sources can be downloaded in the following formats:</trn>
 <DL>
   <DT>Zip file:</DT>
   <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</DD>
@@ -19,6 +20,7 @@
   <DT>Gzipped Tar file:</DT>
   <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (38 MB)</DD>
 </DL>
+</trn>
 <trn key="website.down.source.sources.archive" locale="en_US">
 The fpc archive files contain the full sources of:
 <ul>

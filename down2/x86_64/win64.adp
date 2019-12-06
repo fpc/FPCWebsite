@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Win64 version</property>
+<property name="title"><trn key="website.down2.x8664win64.title" locale="en_US">Free Pascal - Download Win64 version</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Win64</property>
+<property name="header"><trn key="website.down2.x8664win64.header" locale="en_US">Download Win64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

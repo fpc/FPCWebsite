@@ -100,7 +100,7 @@ installing the 2.0 package again. <br>
 as well as for other targets. <br>
 <br>
 This means Free Pascal for the mac is not considered beta anymore.
-Get it on one of the <a href="download.html"> mirror download sites</a>. <br>
+Get it on one of the <a href="download@x@"> mirror download sites</a>. <br>
 <br>
 </trn>
 
@@ -163,7 +163,7 @@ downloaded here.</a></p>
     Both can be downloaded for free from Apple, but requires that you
     register yourself as a member of Apple Developer Connection.
     Both are also included in the Mac OS X bundle.</p>
-<p>To download, go to the <a href="download.html">Download page</a>,
+<p>To download, go to the <a href="download@x@">Download page</a>,
     and choose a mirror site near you (to limit net traffic).
     The documentation is included, but can also be downloaded separatelly.
     If you want the source code, it has to be downloaded separatelly.</p>
@@ -191,7 +191,7 @@ Look at the step-by-step instruction of how to download and install the <A href 
     However it has only been tested on Mac OS 9 and Mac OS X classic environment.</p>
 <p>It requires that you have installed Macinstosh Programmers Workshop (MPW)
     which can be <a href="http://developer.apple.com/tools/mpw-tools/"> downloaded for free from Apple</a>.</p>
-<p>To download, go to the <a href="download.html">Download page</a>,
+<p>To download, go to the <a href="download@x@">Download page</a>,
     and choose a mirror site near you (to limit net traffic).
     The documentation, as well as the source code (if you need it),
     has to be downloaded separatelly.</p>

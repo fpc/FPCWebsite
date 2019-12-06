@@ -1,5 +1,5 @@
 <master>
-<property name="title">Free Pascal - Download Windows CE</property>
+<property name="title"><trn key="website.down2.arm.wince.title" locale="en_US">Free Pascal - Download Windows CE</trn></property>
 <property name="entry">download</property>
 <property name="header"><trn key="website.down_wince_arm" locale="en_US">Download Windows CE ARM</trn></property>
 <property name="modify"></property>

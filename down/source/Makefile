@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> sources.var
 
 mirrors.dat:
-	$(shell echo 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/source/sources-hungary.html.bg ../..//down/source/sources-hungary.html.en ../..//down/source/sources-hungary.html.fi ../..//down/source/sources-hungary.html.fr ../..//down/source/sources-hungary.html.id ../..//down/source/sources-hungary.html.it ../..//down/source/sources-hungary.html.nl ../..//down/source/sources-hungary.html.po ../..//down/source/sources-hungary.html.sl ../..//down/source/sources-hungary.html.ru ../..//down/source/sources-hungary.html.zh-CN ../..//down/source/sources-hungary.var ../..//down/source/sources-canada.html.bg ../..//down/source/sources-canada.html.en ../..//down/source/sources-canada.html.fi ../..//down/source/sources-canada.html.fr ../..//down/source/sources-canada.html.id ../..//down/source/sources-canada.html.it ../..//down/source/sources-canada.html.nl ../..//down/source/sources-canada.html.po ../..//down/source/sources-canada.html.sl ../..//down/source/sources-canada.html.ru ../..//down/source/sources-canada.html.zh-CN ../..//down/source/sources-canada.var ../..//down/source/sources.html.bg ../..//down/source/sources.html.en ../..//down/source/sources.html.fi ../..//down/source/sources.html.fr ../..//down/source/sources.html.id ../..//down/source/sources.html.it ../..//down/source/sources.html.nl ../..//down/source/sources.html.po ../..//down/source/sources.html.sl ../..//down/source/sources.html.ru ../..//down/source/sources.html.zh-CN ../..//down/source/sources.var
 all_en_pages: mirrors.dat ../..//down/source/sources-hungary.html ../..//down/source/sources-canada.html ../..//down/source/sources.html

@@ -33,7 +33,6 @@ and that the file install/makepack had to be modified to generate it.
 For more information, please read:
 </trn>
  <a href="@mirror_url@dist/@latestversion@/mipsel-linux/readme-mipsel-linux.tar">readme-mipsel-linux.tar</a>
-c
 </ul>
 
 <hr>

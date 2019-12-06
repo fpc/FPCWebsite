@@ -1,7 +1,7 @@
 <master>
-<property name="title">Free Pascal - Download Linux</property>
+<property name="title"><trn key="website.down2.sparclinux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header">Download Linux Sparc</property>
+<property name="header"><trn key="website.down2.sparclinux.header" locale="en_US">Download Linux Sparc</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -21,7 +21,7 @@
 
 <hr>
 <p>
-<a href="linux@x@">Back to mirror list</a><br/>
-<a href="../../download@x@">Back to general download page</a>
+<a href="linux@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><br/>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>
 

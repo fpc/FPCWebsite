@@ -59,7 +59,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
 </p>
 
 <p>
- <trn locale="en_US" key="website.frontpage.news_headline_20171127">
+ <trn locale="en_US" key="website.frontpage.news_headline_20171127_index">
  <p>
   <em>November 28th, 2017</em>
  </p>
@@ -82,7 +82,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
 
 
 <p>
- <trn locale="en_US" key="website.frontpage.news_headline_20170215">
+ <trn locale="en_US" key="website.frontpage.news_headline_20170215_index">
  <p>
   <em>February 15th, 2017</em>
  </p>
@@ -104,7 +104,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
 
 
 <p>
- <trn locale="en_US" key="website.frontpage.news_headline_20151125">
+ <trn locale="en_US" key="website.frontpage.news_headline_20151125_index">
  <p>
   <em>November 25th, 2015</em>
  </p>
@@ -125,7 +125,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
 </p>
 
 <p>
-<a href="news@x@">Older news...</a>
+<a href="news@x@"><trn locale="en_US" key="website.fpc.older_news">Older news...</trn></a>
 </p>
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
