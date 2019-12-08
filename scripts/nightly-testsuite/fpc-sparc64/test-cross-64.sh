@@ -83,11 +83,11 @@ fi
 export logfile=$HOME/logs/cross-$SVNDIRNAME-64bit.log
 export report=$HOME/logs/cross-$SVNDIRNAME-64bit-report.log
 export MAKEJOPT="-j 10"
+# Add a time limit
+ulimit -t 240
 
 function run_test ()
 {
-# Add a time limit
-ulimit -t 240
 # Run the cross-tests
 echo "Starting sparc64 run_test TEST_OPT=\"$TEST_OPT\" using cross compiler" >> $report
 $DATE >> $report
