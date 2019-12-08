@@ -58,11 +58,6 @@ if [ -z "$dir_name_suffix" ] ; then
   fi
 fi
 
-# Some programs might freeze
-# like i386-darwin-as...
-
-ulimit -t 300 2> /dev/null
-
 FPCRELEASEVERSION=$RELEASEVERSION
 export GREP_CONTEXT_LINES=6
 
@@ -145,6 +140,7 @@ DO_RECOMPILE_FULL=0
 RECOMPILE_OPT=
 RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
+ULIMIT_TIME=333
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -203,6 +199,7 @@ elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
   MAKEJOPT="-j 32"
+  ULIMIT_TIME=999
 else
   echo "Unknown machine $machine_host"
 fi
@@ -220,6 +217,11 @@ else
   svnname=trunk
   FPCVERSION=$TRUNKVERSION
 fi
+
+# Some programs might freeze
+# like i386-darwin-as...
+
+ulimit -t $ULIMIT_TIME 2> /dev/null
 
 # Add current FPC (trunk or fixes) bin directory to PATH
 if [ -d ${HOME}/pas/fpc-${FPCVERSION}/bin ] ; then
@@ -373,6 +375,7 @@ else
 fi
 
 start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
+export start_system_date=`date +%Y/%m/%d`
 last_time_in_secs=`date --utc +%s`
 
 function time_since_last ()
@@ -550,10 +553,9 @@ if [ "$FPCVERSION" != "$NATIVE_VERSION" ] ; then
   echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $LOGFILE
   echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $EMAILFILE
 fi
-system_date=`date +%Y/%m/%d`
-if [ "$system_date" != "$NATIVE_DATE" ] ; then
-  echo "Date from native fpc binary is $NATIVE_DATE, date returns $system_date" >> $LOGFILE
-  echo "Date from native fpc binary is $NATIVE_DATE, date returns $system_date" >> $EMAILFILE
+if [ "$start_system_date" != "$NATIVE_DATE" ] ; then
+  echo "Date from native fpc binary is $NATIVE_DATE, date returns $start_system_date" >> $LOGFILE
+  echo "Date from native fpc binary is $NATIVE_DATE, date returns $start_system_date" >> $EMAILFILE
 fi
 
 if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
@@ -943,8 +945,8 @@ function check_target ()
     return
   fi
   CROSS_DATE=`$fpc_local_exe -iD` 
-  if [ "$system_date" != "$CROSS_DATE" ] ; then
-    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $system_date"
+  if [ "$start_system_date" != "$CROSS_DATE" ] ; then
+    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $start_system_date"
     skipped_count=`expr $skipped_count + 1 `
     skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     return
