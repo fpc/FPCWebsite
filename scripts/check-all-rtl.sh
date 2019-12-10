@@ -303,7 +303,7 @@ else
 fi
 script_source=`realpath "$script_name" 2> /dev/null `
 if [ -z "$script_source" ] ; then
-  script_source=`readlink "$START_DIR/$script_name" 2> /dev/null `
+  script_source=`readlink "$script_name" 2> /dev/null `
 fi
 
 if [ -f "$script_source" ] ; then
@@ -900,6 +900,7 @@ function check_target ()
     assembler_version=` $target_as $ASSEMBLER_VER_OPT < /dev/null 2>&1 | grep -i "$ASSEMBLER_VER_REGEXPR" | head -1 `
   fi
 
+  export ASTARGET=""
   if [ -n "${RECOMPILE_OPT}" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
     # First recompile rtl
