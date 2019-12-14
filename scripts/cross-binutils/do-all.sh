@@ -99,7 +99,7 @@ export HOST=
 ## system_i386_GO32V2,        { 2 }
 ./do-one.sh i386-go32v2 i686-pc-msdosdjgpp
 ## system_i386_haiku,         { 63 }
-./do-one.sh i386-haiku i386-unknown-haiku
+./do-one.sh i386-haiku i586-pc-haiku
 ## system_i386_iphonesim,     { 69 }
 ./do-one.sh i386-iphonesim i386-unknown-iphonesim
 ## system_i386_linux,         { 3 }
@@ -300,7 +300,7 @@ export BINUTILS_RELEASE=
 ## system_x86_64_freebsd,     { 34 }
 ./do-one.sh x86_64-freebsd amd64-unknown-freebsd11
 ## system_x86_64_haiku,       { 102 }
-./do-one.sh x86_64-haiku amd64-unknown-haiku
+./do-one.sh x86_64-haiku x86_64-unknown-haiku
 ## system_x86_64_iphonesim,   { 87 }
 ## same as system_x86_64_darwin
 ## system_x86_64_linux,       { 26 }
