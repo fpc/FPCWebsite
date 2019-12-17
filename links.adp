@@ -146,6 +146,7 @@ your chances to contact them ;-).
 <trn key="website.links.otherpascal" locale="en_US">
 <h2>Other Pascal Pages:</h2>
 <ul>
+  <li><a href="https://www.udemy.com/topic/pascal-programming-language/'>Udemy</a> has some courses on Pascal that use free pascal.</li>
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>, where you can find a lot of info on Pascal
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
