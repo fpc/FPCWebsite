@@ -4,7 +4,6 @@
 
 . $HOME/bin/fpc-versions.sh
 
-export FIXES=0
 export CURVER=$TRUNKVERSION
 export FPCSVNDIR=$TRUNKDIR
 
