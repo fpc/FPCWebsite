@@ -4,9 +4,6 @@
 
 . $HOME/bin/fpc-versions.sh
 
-export CURVER=$TRUNKVERSION
-export FPCSVNDIR=$TRUNKDIR
-
 processor=`uname -p`
 
 if [ "${processor}" = "unknown" ] ; then
