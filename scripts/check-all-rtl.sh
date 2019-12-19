@@ -1021,8 +1021,9 @@ function check_target ()
       fi
     fi
     if [ $dir_found -eq 1 ] ; then
-      echo "Trying to build using BUILDFULLNATIVE=1"
+      echo "Trying to build ${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX} using BUILDFULLNATIVE=1"
       export BUILDFULLNATIVE=1
+      export buildfullnative_text="with BUILDFULLNATIVE=1"
       OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
       # -Xr is not supported for AIX OS
       if [ "${OS_TARG_LOCAL}" != "aix" ] ; then
@@ -1031,9 +1032,11 @@ function check_target ()
       echo "OPT_LOCAL set to \"$OPT_LOCAL\""
     else
       export BUILDFULLNATIVE=
+      export buildfullnative_text=""
     fi
   else
     export BUILDFULLNATIVE=
+    export buildfullnative_text=""
   fi
 
   if [ $test_add_dir -eq 1 ] ; then
@@ -1146,13 +1149,14 @@ function check_target ()
     $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="$NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
     echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation"
     $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="$NATIVE_OPT" >> $LOGFILE_NATIVE_RTL 2>&1
-    echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
+    echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+    echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
     $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
+	export buildfullnative_text=""
         echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE $MAKEJOPT -C $packagesdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         # Warning, we need to re-compile bootstrap in fmpkunit after that clean, otherwise compilation of fpmake in utils might fail
@@ -1166,13 +1170,13 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       packages_failure=`expr $packages_failure + 1 `
       packages_list="$packages_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      lecho "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_PACKAGES for details"
       return 3
     fi
-    lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+    lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     if [[ ( ${DO_FPC_PACKAGES_INSTALL} -eq 1 ) || (( ${IS_NATIVE} -eq 1 ) && ( ${DO_FPC_RTL_INSTALL} -eq 1 )) ]] ; then
-      echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+      echo "Testing installation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $packagesdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     fi
     if [ $test_ppudump -eq 1 ] ; then
@@ -1182,10 +1186,10 @@ function check_target ()
       if [ $res -ne 0 ] ; then
         packages_ppu_failure=`expr $packages_ppu_failure + 1 `
         packages_ppu_list="$packages_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        lecho "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "Failure: ppudump for $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         lecho "Failure: See $LOGFILE_PACKAGES_PPU for details"
       else
-        lecho "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_PACKAGES_PPU`
       IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
@@ -1201,13 +1205,14 @@ function check_target ()
     fi
   fi
   if [ $test_utils -eq 1 ] ; then
-    echo "Testing compilation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-    echo "Testing compilation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_UTILS
+    echo "Testing compilation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+    echo "Testing compilation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_UTILS
     $MAKE $MAKEJOPT -C $utilsdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         export BUILDFULLNATIVE=
+        export buildfullnative_text=""
         echo "Testing second compilation in $utilsdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE $MAKEJOPT -C $utilsdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
         $MAKE $MAKEJOPT -C $utilsdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
@@ -1218,11 +1223,11 @@ function check_target ()
     if [ $res -ne 0 ] ; then
       utils_failure=`expr $utils_failure + 1 `
       utils_list="$utils_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-      lecho "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+      lecho "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_UTILS for details"
       return 3
     fi
-    lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+    lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     if [ "${DO_FPC_UTILS_INSTALL}" == "1" ] ; then
       echo "Testing installation in $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with CROSSOPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       $MAKE $MAKEJOPT -C $utilsdir install CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL CROSSOPT="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_UTILS 2>&1
@@ -1234,10 +1239,10 @@ function check_target ()
       if [ $res -ne 0 ] ; then
         utils_ppu_failure=`expr $utils_ppu_failure + 1 `
         utils_ppu_list="$utils_ppu_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        lecho "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "Failure: ppudump for $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         lecho "Failure: See $LOGFILE_UTILS_PPU for details"
       else
-        lecho "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
+        lecho "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_UTILS_PPU`
       IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
@@ -1594,7 +1599,7 @@ pb_count=` grep "Failure: See.*" $LISTLOGFILE | wc -l `
 total_count=`expr $pb_count + $ok_count `
 
 if [ -n "$prev_date" ] ; then
-  diff_output=` diff $PREVLISTLOGFILE $LISTLOGFILE `
+  diff_output=` diff -b $PREVLISTLOGFILE $LISTLOGFILE `
   if [ -z "$diff_output" ] ; then
     echo "No diff to previous list" >> $EMAILFILE
   else
