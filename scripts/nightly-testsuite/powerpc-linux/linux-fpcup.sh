@@ -17,8 +17,19 @@ fi
 
 export LANG=en_US.UTF-8
 
-if [ -z "$FIXES" ] ; then
-  export FIXES=0
+if [ -z "$FPCSVNDIR" ] ; then
+  if [ "$FIXES" = "1" ] ; then
+    export FPCSVNDIR=$FIXESDIR
+  else
+    export FPCSVNDIR=$TRUNKDIR
+    FIXES=0
+  fi
+else
+  if [ "${FPCSVNDIR/fixes/}" != "${FPCSVNDIR}" ] ; then
+    FIXES=1
+  else
+    FIXES=0
+  fi
 fi
 
 if [ -z "$CURVER" ]; then
@@ -29,22 +40,12 @@ if [ -z "$CURVER" ]; then
   fi
 fi
 
-if [ -z "$FPCSVNDIR" ] ; then
-  export FPCSVNDIR=$HOME/pas/trunk
-  if [ $FIXES -eq 1 ] ; then
-    export FPCSVNDIR=$FIXESDIR
-  else
-    export FPCSVNDIR=$TRUNKDIR
-  fi
-fi
-
 if [ -z "$FPCSVNDIRNAME" ] ; then
   export FPCSVNDIRNAME=`basename $FPCSVNDIR `
 fi
 
 if [ -z "$RELEASEVER" ]; then
-  # export RELEASEVER=2.6.4
-  export RELEASEVER=$RELERASEVERSION
+  export RELEASEVER=$RELEASEVERSION
 fi
 
 if [ -z "$FPCBIN" ]; then
