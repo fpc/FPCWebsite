@@ -56,6 +56,7 @@ ENDIAN=`readelf -h /bin/sh | grep endian`
 MACHINE=`uname -n`
 MUTT=/home/fpcdevel/bin/mutt
 
+
 function run_testsuite {
   localtestslog=$1
   if [ "${localtestslog}" = "" ] ; then
@@ -160,7 +161,9 @@ else
     make install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n PREFIX=$FPCBASEDIR
     res=$?
     if [ $res -eq 0 ] ; then
-      make -C ../rtl/linux install FPC=`pwd`/$FPCEXE OPT=-n PREFIX=$FPCBASEDIR
+      # Removing the DEBUG=1 generates a problem for cpall.o and syscall.o
+      # Until this is fixed also use DEBUG=1 here
+      make -C ../rtl/linux clean install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n PREFIX=$FPCBASEDIR
       res=$?
     fi
   fi ; } 1> $cyclelog 2>&1
@@ -204,7 +207,7 @@ else
             fi
           done
           if [ $res -ne 0 ] ; then
-            decho "make -C $dir failed $trial times"
+            decho "make -C $dir  with $ADDOPT failed $trial times"
             let allres++
           else
             decho "make -C $dir succeeded after $trial trials"
@@ -265,11 +268,8 @@ FPC_DATE=`$FPCBIN -iD`
 $MUTT -s "Free Pascal results on $MACHINE for $ENDIAN mips $script script result $FPC_VERSION $FPC_DATE" -i $log $attach -- pierre@freepascal.org < /dev/null
 }
 
-function wait_for_lock ()
+function set_lock ()
 {
-  while [ -e $LOCKFILE ] ; do
-    sleep 60
-  done
   echo "new-fullcycle.sh started at `date`" > $LOCKFILE
 }
 
@@ -279,7 +279,24 @@ function release_lock ()
   mv -f $LOCKFILE $OLDLOCKFILE
 }
 
-wait_for_lock
+function handle_debug_trap ()
+{
+  echo "`date `: DEBUG $*" >> $LOCKFILE
+}
+
+function handle_trap ()
+{
+  echo "Signal $1 recieved" >> $LOCKFILE
+  release_lock
+  exit
+}
+
+set_lock
+
+trap  handle_trap SIGINT
+trap  handle_trap SIGQUIT
+trap  handle_trap SIGTERM
+trap  handle_debug_trap DEBUG
 
 TEST_OPT=""
 ORIGPATH=${PATH} 
