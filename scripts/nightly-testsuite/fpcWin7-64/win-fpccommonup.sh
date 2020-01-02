@@ -491,7 +491,8 @@ export TEST_OPT="-gl -Aas -al -O3"
 run_tests
 export TEST_OPT="-gl -Criot"
 run_tests
-if [[ ( "${FPCBIN}" == "ppc386" ) && ( "${SVNDIRNAME}" == "trunk" ) ]] ; then
+if [ "${FPCBIN}" == "ppc386" ) ] ; then
+ if [ "${SVNDIRNAME/fixes/}" != "$SVNDIRNAME" ] ; then
   sehlog=`pwd`/make-seh-compiler.log
   echo "Running make -C ../compiler cycle OPT=\"-n -gsl -dTEST_WIN32_SEH\" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}" >> ${report}
   make -C ../compiler cycle OPT="-n -gsl -dTEST_WIN32_SEH" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} > ${sehlog} 2>&1
@@ -511,6 +512,26 @@ if [[ ( "${FPCBIN}" == "ppc386" ) && ( "${SVNDIRNAME}" == "trunk" ) ]] ; then
       run_tests
     fi
   fi
+ else
+  disabled_sehlog=`pwd`/make-disabled-seh-compiler.log
+  echo "Running make -C ../compiler cycle OPT=\"-n -gsl -dDISABLE_WIN32_SEH\" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}" >> ${report}
+  make -C ../compiler cycle OPT="-n -gsl -dDISABLE_WIN32_SEH" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} > ${disabled_sehlog} 2>&1
+  res=$?
+  if [ $res -ne 0 ] ; then
+    echo "make disabled_seh compiler failed, res=$res" >> ${report}
+  else
+    echo "make disabled_seh compiler finished, res=$res" >> ${report}
+    echo "${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386-disabled-seh.exe" >> ${report}
+    ${CYGCP} ../compiler/ppc386.exe ${CYGWIN_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386-disabled-seh.exe
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "copy of disabled_seh compiler failed, res=$res" >> ${report}
+    else
+      export FULLFPCBIN=${MINGW_FPCDIR}/fpc-${FPC_VER}/bin/i386-win32/ppc386-disabled-seh.exe
+      export TEST_OPT="-dDISABLE_WIN32_SEH"
+      run_tests
+    fi
+ fi
 fi
 ) 1>> ${report} 2>&1
 
