@@ -491,7 +491,7 @@ export TEST_OPT="-gl -Aas -al -O3"
 run_tests
 export TEST_OPT="-gl -Criot"
 run_tests
-if [ "${FPCBIN}" == "ppc386" ) ] ; then
+if [ "${FPCBIN}" == "ppc386" ] ; then
  if [ "${SVNDIRNAME/fixes/}" != "$SVNDIRNAME" ] ; then
   sehlog=`pwd`/make-seh-compiler.log
   echo "Running make -C ../compiler cycle OPT=\"-n -gsl -dTEST_WIN32_SEH\" FPC=${FPCBIN} INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}" >> ${report}
@@ -531,6 +531,7 @@ if [ "${FPCBIN}" == "ppc386" ) ] ; then
       export TEST_OPT="-dDISABLE_WIN32_SEH"
       run_tests
     fi
+  fi
  fi
 fi
 ) 1>> ${report} 2>&1
