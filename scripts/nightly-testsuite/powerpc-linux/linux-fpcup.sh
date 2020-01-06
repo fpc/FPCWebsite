@@ -209,18 +209,23 @@ if [ ${makeres} -eq 0 ] ; then
 else
   echo "Make all failed, trying to install new by parts" >> $report
   INSTALLSRC=compiler
+  echo "Starting make install in $INSTALLSRC" >> $report
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=rtl
+  echo "Starting make install in $INSTALLSRC" >> $report
+  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  makeres=$?
+  echo "Starting make install in $INSTALLSRC" >> $report
+  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
+  INSTALLSRC=packages
+  echo "Starting make install in $INSTALLSRC" >> $report
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=utils
-  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
-  makeres=$?
-  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
-  INSTALLSRC=packages
+  echo "Starting make install in $INSTALLSRC" >> $report
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
