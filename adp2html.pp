@@ -29,13 +29,13 @@ Type
   TOptionsParser = class
                        inputfile,outputfile,catalogfile:ansistring;
                        datasource_prefix : ansistring;
-                       fallback_locale   : string;
+                       fallback_locale   : ansistring;
                        input_encoding    : ansistring; // ='ISO-8859-1';
                        output_encoding   : ansistring; // ='ISO-8859-1';
                        catalog_encoding  : ansistring; //='UTF-8';
                        default_master    : ansistring; // ='default-master.adp';
                        output_prefix     : ansistring;
-                       locale     : string;
+                       locale     : ansistring;
                        Defines    : TStringList;
                        masterpath : ansistring;
                        configfn   : ansistring;
@@ -885,14 +885,9 @@ var last_expr_result:boolean;
 
   var p,key,value:Unicodestring;
       datasource:ansistring;
-      datafile:text;
-      s,t:ansistring;
-
-      colnames:array[1..32] of ansistring;
-      ncols,i,n:longint;
+      i,n:longint;
       lst : TStringListList;
       hdr,row : TStringlist;
-
 
   begin
     do_multiple_tag:='';
@@ -1127,8 +1122,7 @@ type  Tstate=(s_default,s_read_property,s_outputfile,
 var ignore_options:boolean;
     i:longint;
     state:Tstate;
-    s,key,value:ansistring;
-    p:byte;
+    s :ansistring;
 
 begin
   ignore_options:=false;
@@ -1388,24 +1382,18 @@ end;
 
 const allowedextensions : array[0..8] of string = ('.html','.var','.gif','.png','.css','.jpg','.ico','.css','.js');
 
-Type TAFile = Class
-               dir,name : string;
-               end;
-
 procedure findfile(startpath:string;lst:TStringList);
 var Rec : TSearchRec;
-    ext,Path,s: string;
+    ext,Path: string;
     dirs:Tstringlist;
     i: Integer;
-    x :TAFile;
-    lpth : string;
     add : boolean;
 
 begin
  if startpath<>'' then
    Path := IncludeTrailingPathDelimiter(startpath)
-   else
-     path:=startpath;
+ else
+   Path := startpath;
 
  dirs:=Tstringlist.Create;
  if FindFirst (path+'*', faAnyFile, Rec) = 0 then
@@ -1453,9 +1441,6 @@ end;
 
 procedure CreateZip(const fname:ansistring;filelist:TstringList);
 var azipper:TZipper;
-    strm:TMemoryStream;
-    s : string;
-    entry:TZipFileEntry;
 begin
   azipper:=TZipper.Create;
   try
@@ -1612,8 +1597,7 @@ begin
 end;
 
 Var
-  ifn,ofn : string;
-  L : TStringList;
+  ifn : string;
   i : Integer;
   opt:TOptionsParser;
 begin
