@@ -151,9 +151,24 @@ function copytofpcbin ()
     fi
   fi
 
+  patchfile=""
   if [ ! -d ../${binutilsdir} ] ; then
-    tarfile=` cd .. ; ls -1 *${binutilsdir}* | grep -e ".*tar" -e "*gz" -e "*.bz2" -e "*.xz" | head -1 `
+    tarfile=` cd .. ; ls -1 *${binutilsdir}* | grep -e "*\.tar" -e "*gz" -e "*\.bz2" -e "*\.xz" | head -1 `
     if [ ! -f ../${tarfile} ] ; then
+      difffile=` cd .. ; ls -1t *{binutilsdir}* | grep -e "*\.patch" -e "*\.diff" | head -1 `
+      if [ -f "${difffile}" ] ; then
+	binutilsdir_off= ` echo ${binutilsdir} | sed "s:.*\(binutils-[0-9.]*\).*:\1:" `
+        tarfile=` cd .. ; ls -1 *${binutilsdir_off}* | grep -e "*\.tar" -e "*gz" -e "*\.bz2" -e "*\.xz" | head -1 `
+	if [ -d "${binutilsdir_off}" ] ; then
+          cp -Rpf  ${binutilsdir_off} ${binutilsdir}
+          echo "Applying patch file ${difffile} to ../${binutilsdir}"
+	  ( cd ../${binutilsdir} ; patch -p 1 -i ../${difffile} )
+	else
+	  patchfile=${difffile}
+	  local_binutilsdir=$binutilsdir
+	  binutilsdir=${binutilsdir_off}
+	fi
+      fi
       echo "No ${binutilsdir} package found, trying to upload from ftp.gnu.org depository"
       # Should have all from 2.7 to 2.29 (somaetimes with 'a' suffix
       echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2"
@@ -187,7 +202,7 @@ function copytofpcbin ()
     elif [ "$tarsuffix" == "bz2" ] ; then
       taropt=j
       MD5SUM=BINUTILS_${BINUTILS_RELEASE//./_}_BZ2_MD5SUM
-      MD5SUM_VAL=${!MD5SUM}
+      MD5SUM_VAL=${!MD5SUM:-}
       if  [ -n "${MD5SUM_VAL}" ] ; then
         MD5SUM=`which md5sum 2> /dev/null`
         AWK=`which gawk 2> /dev/null`
@@ -219,6 +234,13 @@ function copytofpcbin ()
     if [ ! -d ../${binutilsdir} ] ; then
       echo "Failed to upload/untar sources for ${BINUTILS_RELEASE}"
       exit 1
+    fi
+    if [ -f "../${patchfile}" ] ; then
+      echo "Copying ${binutilsdir} to ../${binutilsdir_local}"
+      cp -Rpf  ../${binutilsdir} ../${binutilsdir_local}
+      binutilsdir=${binutilsdir_local}
+      echo "Applying patch file ${patchfile} to ../${binutilsdir}"
+      ( cd ../${binutilsdir} ; patch -p 1 -i ../${patchfile} )
     fi
   fi
   if [ ! -d ${prefix} ] ; then
