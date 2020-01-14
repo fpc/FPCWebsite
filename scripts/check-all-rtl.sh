@@ -691,6 +691,18 @@ function set_fpc_local ()
   esac
 }
 
+function list_used_binaries ()
+{
+  LOG=${LOGFILE_USED_BINARIES:-}
+  if [ -f "$LOG" ] ; then
+    used_binaries=`sed -n -e 's:^Executing "\([^ "]*\).*:\1:p' -e 's,.* \([^: ]*\): Command not found.*,\1,p' ${LOGFILE_LIST} | sort | uniq `
+    for bin in $used_binaries ; do
+      echo "> $bin --version" >> $LOG
+      $bin --version < /dev/null  >> $LOG
+    done
+  fi
+}
+
 ######################################
 ## check_target function
 ## ARG1: target CPU
@@ -1051,6 +1063,9 @@ function check_target ()
   LOGFILE_PACKAGES_PPU=${LOGPREFIX}-packages-ppudump-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE_UTILS=${LOGPREFIX}-utils-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
   LOGFILE_UTILS_PPU=${LOGPREFIX}-utils-ppudump-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
+  LOGFILE_USED_BINARIES=${LOGPREFIX}-used-binaries-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
+
+  LOGFILE_LIST="$LOGFILE_RTL $LOGFILE_RTL_2 $LOGFILE_RTL_PPU $LOGFILE_PACKAGES $LOGFILE_PACKAGES_PPU $LOGFILE_UTILS $LOGFILE_UTILS_PPU"
 
   previous_target_failures=`sed -n "s|^Failure:.*See .*\(${LOGPREFIX}.*-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt\).*|\1|p" ${PREVLISTLOGFILE} `
 
@@ -1063,6 +1078,8 @@ function check_target ()
   $MAKE $MAKEJOPT -C $utilsdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
   $MAKE $MAKEJOPT -C $utilsdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
 
+  echo "$MAKE $MAKEJOPT -C $rtldir info CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_USED_BINARIES
+  $MAKE $MAKEJOPT -C $rtldir info CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_USED_BINARIES 2>&1
   echo "$MAKE $MAKEJOPT -C $rtldir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL
   $MAKE $MAKEJOPT -C $rtldir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_RTL 2>&1
   res=$?
@@ -1086,6 +1103,7 @@ function check_target ()
       lecho "Failure: Testing rtl for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_RTL for details"
     fi
+    list_used_binaries
     return 1
   else
     let ++step_ok_count
@@ -1106,6 +1124,7 @@ function check_target ()
     rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     lecho "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
     lecho "Failure: See $LOGFILE_RTL_2 for details"
+    list_used_binaries
     return 2
   fi
   fpc_called=`grep -E "(^|[^=])$FPC_LOCAL" $LOGFILE_RTL_2 `
@@ -1114,6 +1133,7 @@ function check_target ()
     rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
     lecho "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again"
     lecho "Failure: See $LOGFILE_RTL_2 for details"
+    list_used_binaries
     return 2
   else
     let ++step_ok_count
@@ -1172,6 +1192,7 @@ function check_target ()
       packages_list="$packages_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       lecho "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_PACKAGES for details"
+      list_used_binaries
       return 3
     fi
     lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
@@ -1225,6 +1246,7 @@ function check_target ()
       utils_list="$utils_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       lecho "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_UTILS for details"
+      list_used_binaries
       return 3
     fi
     lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
@@ -1265,6 +1287,7 @@ function check_target ()
   OPT=
   OPT_LOCAL=
   MAKEEXTRA=
+  LOGFILE_USED_BINARIES=
 }
 
 function list_os ()
