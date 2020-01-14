@@ -1312,6 +1312,7 @@ check_target avr embedded "-n" "SUBARCH=avr25" "-avr25"
 check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
 check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
+check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
 
 # Darwin OS check both clang and GNU binutils
 # Known to be broken, disabled
