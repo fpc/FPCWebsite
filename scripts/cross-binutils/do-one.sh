@@ -155,9 +155,12 @@ function copytofpcbin ()
   if [ ! -d ../${binutilsdir} ] ; then
     tarfile=` cd .. ; ls -1 *${binutilsdir}* | grep -e "*\.tar" -e "*gz" -e "*\.bz2" -e "*\.xz" | head -1 `
     if [ ! -f ../${tarfile} ] ; then
-      difffile=` cd .. ; ls -1t *{binutilsdir}* | grep -e "*\.patch" -e "*\.diff" | head -1 `
-      if [ -f "${difffile}" ] ; then
-	binutilsdir_off= ` echo ${binutilsdir} | sed "s:.*\(binutils-[0-9.]*\).*:\1:" `
+      difffile=` cd .. ; ls -1t *${binutilsdir}* | grep -e "\.patch" -e "\.diff" | head -1 `
+      if [ -f "../${difffile}" ] ; then
+        echo "File ../${difffile} found"
+	BINUTILS_RELEASE=${BINUTILS_RELEASE/-*/}
+        echo "Looking for release version $BINUTILS_RELEASE"
+        binutilsdir_off=binutils-${BINUTILS_RELEASE}
         tarfile=` cd .. ; ls -1 *${binutilsdir_off}* | grep -e "*\.tar" -e "*gz" -e "*\.bz2" -e "*\.xz" | head -1 `
 	if [ -d "${binutilsdir_off}" ] ; then
           cp -Rpf  ${binutilsdir_off} ${binutilsdir}
