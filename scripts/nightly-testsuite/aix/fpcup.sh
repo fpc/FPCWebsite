@@ -2,6 +2,20 @@
 env > $HOME/.env.txt
 date >> $HOME/.env.txt
 
+machine=`uname -n`
+
+if [ "$machine" = "powerpc-aix" ] ; then
+  do_trunk=1
+  do_fixes=1
+  gen_snapshots=1
+  use_git=0
+else
+  do_trunk=1
+  do_fixes=0
+  gen_snapshots=0
+  use_git=1
+fi
+
 if [ -z "$MAKE" ]; then
   MAKE=` which gmake 2> /dev/null `
   if [ -z "$MAKE" ] ; then
@@ -9,39 +23,32 @@ if [ -z "$MAKE" ]; then
   fi
 fi
 export MAKE
-GLOGFILE=$HOME/logs/fpcup.log
-function decho ()
-{
-  echo "`gdate +%Y-%m-%d-%H:%M`: $*"
-}
-
-(
-decho "Script $0 started"
-decho $HOME/bin/fpcfixesup.sh
-$HOME/bin/fpcfixesup.sh
-
-decho $HOME/bin/fpctrunkup.sh
-$HOME/bin/fpctrunkup.sh
 
 # Ensure correct GNU diffutils cmp is found
 if [ -d $HOME/bin ] ; then
   export PATH=$HOME/bin:$PATH
 fi
 
-export FIXES=0
-export FPC_BIN=ppcppc
-decho $HOME/bin/makesnapshot-aix.sh for trunk ppcppc
-$HOME/bin/makesnapshot-aix.sh
-export FPC_BIN=ppcppc64
-decho $HOME/bin/makesnapshot-aix.sh for trunk ppcppc64
-$HOME/bin/makesnapshot-aix.sh
+if [ $do_fixes -eq 1 ] ; then
+  $HOME/bin/fpcfixesup.sh
+fi
+if [ $do_trunk -eq 1 ] ; then
+  $HOME/bin/fpctrunkup.sh
+fi
 
-export FIXES=1
-export FPC_BIN=ppcppc
-decho $HOME/bin/makesnapshot-aix.sh for fixes ppcppc
-$HOME/bin/makesnapshot-aix.sh
-export FPC_BIN=ppcppc64
-decho $HOME/bin/makesnapshot-aix.sh for fixes ppcppc64
-$HOME/bin/makesnapshot-aix.sh
-decho "Script $0 finished"
-) > $GLOGFILE 2>&1
+if [ $gen_snapshots -eq 1 ] ; then
+  if [ $do_trunk -eq 1 ] ; then
+    export FIXES=0
+    export FPC_BIN=ppcppc
+    $HOME/bin/makesnapshot-aix.sh
+    export FPC_BIN=ppcppc64
+    $HOME/bin/makesnapshot-aix.sh
+  fi
+  if [ $do_fixes -eq 1 ] ; then
+    export FIXES=1
+    export FPC_BIN=ppcppc
+    $HOME/bin/makesnapshot-aix.sh
+    export FPC_BIN=ppcppc64
+    $HOME/bin/makesnapshot-aix.sh
+  fi
+fi
