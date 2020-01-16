@@ -7,6 +7,7 @@
 ulimit -d 65536 -s 8192 -t 2400
 
 processor=`uname -p`
+machine=`uname -n`
 
 if [ "$processor" == "unknown" ] ; then
   processor=`/usr/bin/uname -p`
@@ -25,6 +26,9 @@ if [ "$RELEASEVER" == "" ]; then
   export RELEASEVER=$RELEASEVERSION
 fi
 
+if [ "${LANG/UTF/}" = "$LANG" ] ; then
+  export LANG=en_US.UTF-8
+fi
 if [ -z "$LC_ALL" ] ; then
   export LC_ALL=en_US.UTF-8
 fi
@@ -89,8 +93,15 @@ echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
 echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
-svn cleanup 1>> $report 2>&1
-svn up --force --accept theirs-conflict  1>> $report 2>&1
+if [ "${use_git:-0}" = "1" ] ; then
+  git stash save 1>> $report 2>&1
+  git pull --ff 1>> $report 2>&1
+  git stash pop 1>> $report 2>&1
+else
+  svn cleanup 1>> $report 2>&1
+  svn up --force --accept theirs-conflict  1>> $report 2>&1
+fi
+
 
 if [ -d fpcsrc ]; then
   cd fpcsrc
