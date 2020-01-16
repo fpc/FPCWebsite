@@ -696,11 +696,14 @@ function list_used_binaries ()
 {
   LOG=${LOGFILE_USED_BINARIES:-}
   if [ -f "$LOG" ] ; then
-    used_binaries=`sed -n -e 's:^Executing "\([^ "]*\).*:\1:p' -e 's,.* \([^: ]*\): Command not found.*,\1,p' ${LOGFILE_LIST} | sort | uniq `
-    for bin in $used_binaries ; do
-      echo "> $bin --version" >> $LOG
-      $bin --version < /dev/null  >> $LOG
-    done
+    log_file_list=`ls -1 ${LOGFILE_LIST} 2> /dev/null`
+    if [ -n "$log_file_list" ] ; then
+      used_binaries=`sed -n -e 's:^Executing "\([^ "]*\).*:\1:p' -e 's,.* \([^: ]*\): Command not found.*,\1,p' ${LOGFILE_LIST} | sort | uniq `
+      for bin in $used_binaries ; do
+        echo "> $bin --version" >> $LOG
+        $bin --version < /dev/null  >> $LOG
+      done
+    fi
   fi
 }
 
