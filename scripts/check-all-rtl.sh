@@ -478,6 +478,7 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
     rm_lockfile
     exit
   fi
+  native_cpu=`$LOCAL_INSTALL_PREFIX/bin/$FPC -iSP`
   mecho "Recompiling cross-compilers"
   make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
   makeres=$?
@@ -499,6 +500,9 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
     exit
   fi
     for cpu in $cpu_list ; do
+      if [ "$cpu" = "$native_cpu" ] ; then
+        continue
+      fi
       mecho "Compiling compiler for $cpu"
       make $cpu ${cpu}_exe_install OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
       makeres=$?
