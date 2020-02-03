@@ -2,11 +2,12 @@
 
 . $HOME/bin/fpc-versions.sh
 
-# Latest binutils release version is 2.33.1 (2019/10/12)
+# Latest binutils release version is 2.34 (2020/02/01)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.33.1
+  BINUTILS_RELEASE=2.34
 fi
 
+BINUTILS_2_34_BZ2_MD5SUM=b0afc4d29db31ee6fdf3ebc34e85e482
 BINUTILS_2_33_1_BZ2_MD5SUM=56a3be5f8f8ee874417a4f19ef3f10c8
 BINUTILS_2_32_BZ2_MD5SUM=64f8ea283e571200f8b2b7f66fe8a0d6
 
