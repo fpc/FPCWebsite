@@ -15,9 +15,11 @@ export HOST_CPU=`uname -p`
 if [ "$HOST_CPU" == "x86" ] ; then
   HOST_FPC=ppc386
   SUFF=-32
+  DEF_OPT=-gl
 else
   HOST_FPC=ppcx64
   SUFF=-64
+  DEF_OPT=-gwl
   if [ "$RELEASEVERSION" == "3.0.4" ] ; then
     NO_RELEASE=1
   fi
@@ -110,7 +112,7 @@ if [ ${makeres} != 0 ]; then
   tail -60 ${makelog} >> $report
   cd compiler 2>&1 >> $report
   echo "Starting make cycle in compiler dir with $STARTFPC " >> $report
-  ${MAKE} distclean cycle OPT=-gl FPC=$STARTFPC 1>> ${makelog} 2>&1
+  ${MAKE} distclean cycle OPT="$DEF_OPT" FPC=$STARTFPC 1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "Cycle failed" >> $report
@@ -175,7 +177,7 @@ echo "New $HOST_FPC version is ${Build_version} ${Build_date}" >> $report
 cd tests
 export TEST_DELTEMP=1
 export TEST_DELBEFORE=1
-export TEST_OPT=-gl
+export TEST_OPT="$DEF_OPT"
 echo "Starting make distclean fulldb with TEST_OPT=$TEST_OPT" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_OPT="$TEST_OPT" \
   TEST_FPC=$NEWBIN DB_SSH_EXTRA=" -i $SSHKEY" 1> $testslog 2>&1
