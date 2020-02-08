@@ -50,7 +50,7 @@ all_pages: $(GENVARFILE) $(ADP2HTML) mirrors.dat $(HTMLPAGES)
 
 
 #adp2html tool
-$(ADP2HTML): adp2html.pp
+$(ADP2HTML): adp2html.pp adpconverter.pp adputils.pp adpdata.pp
 	$(PP) $(OPT) -Xs adp2html.pp
 
 $(GENVARFILE): genvarfile.pp

@@ -2,6 +2,9 @@
 /Makefile svneol=native#text/plain
 /aboutus.adp svneol=native#text/plain
 /adp2html.pp svneol=native#text/x-pascal
+/adpconverter.pp svneol=native#text/plain
+/adpdata.pp svneol=native#text/plain
+/adputils.pp svneol=native#text/plain
 /advantage.adp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html
 /bugs.html svneol=native#text/plain

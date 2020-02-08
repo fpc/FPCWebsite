@@ -30,29 +30,29 @@ default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
 ..//tools/delp.html.bg: delp.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//delp.html.bg -oe iso-8859-5 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//delp.html.bg -e iso-8859-5 delp.adp
 ..//tools/delp.html.en: delp.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//delp.html.en -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//delp.html.en -e iso-8859-1 delp.adp
 ..//tools/delp.html.fi: delp.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//delp.html.fi -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//delp.html.fi -e iso-8859-1 delp.adp
 ..//tools/delp.html.fr: delp.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//delp.html.fr -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//delp.html.fr -e iso-8859-1 delp.adp
 ..//tools/delp.html.id: delp.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//delp.html.id -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//delp.html.id -e iso-8859-1 delp.adp
 ..//tools/delp.html.it: delp.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//delp.html.it -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//delp.html.it -e iso-8859-1 delp.adp
 ..//tools/delp.html.nl: delp.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//delp.html.nl -oe iso-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//delp.html.nl -e iso-8859-1 delp.adp
 ..//tools/delp.html.po: delp.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//delp.html.po -oe iso-8859-2 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//delp.html.po -e iso-8859-2 delp.adp
 ..//tools/delp.html.sl: delp.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//delp.html.sl -oe iso-8859-2 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//delp.html.sl -e iso-8859-2 delp.adp
 ..//tools/delp.html.ru: delp.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//delp.html.ru -oe iso-8859-5 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//delp.html.ru -e iso-8859-5 delp.adp
 ..//tools/delp.html.zh-CN: delp.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//delp.html.zh-CN -oe UTF-8 delp.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//delp.html.zh-CN -e UTF-8 delp.adp
 ..//tools/delp.html: delp.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//delp.html -oe ISO-8859-1 delp.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//delp.html -e ISO-8859-1 delp.adp
 
 ..//tools/delp.var: gen_makefile.conf
 	echo > delp.var
@@ -101,29 +101,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//delp.var
 	echo >> delp.var
 ..//tools/fpcmake.html.bg: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//fpcmake.html.bg -oe iso-8859-5 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//fpcmake.html.bg -e iso-8859-5 fpcmake.adp
 ..//tools/fpcmake.html.en: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//fpcmake.html.en -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//fpcmake.html.en -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.fi: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//fpcmake.html.fi -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//fpcmake.html.fi -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.fr: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//fpcmake.html.fr -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//fpcmake.html.fr -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.id: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//fpcmake.html.id -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//fpcmake.html.id -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.it: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//fpcmake.html.it -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//fpcmake.html.it -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.nl: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//fpcmake.html.nl -oe iso-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//fpcmake.html.nl -e iso-8859-1 fpcmake.adp
 ..//tools/fpcmake.html.po: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//fpcmake.html.po -oe iso-8859-2 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//fpcmake.html.po -e iso-8859-2 fpcmake.adp
 ..//tools/fpcmake.html.sl: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//fpcmake.html.sl -oe iso-8859-2 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//fpcmake.html.sl -e iso-8859-2 fpcmake.adp
 ..//tools/fpcmake.html.ru: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//fpcmake.html.ru -oe iso-8859-5 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//fpcmake.html.ru -e iso-8859-5 fpcmake.adp
 ..//tools/fpcmake.html.zh-CN: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//fpcmake.html.zh-CN -oe UTF-8 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//fpcmake.html.zh-CN -e UTF-8 fpcmake.adp
 ..//tools/fpcmake.html: fpcmake.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//fpcmake.html -oe ISO-8859-1 fpcmake.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//fpcmake.html -e ISO-8859-1 fpcmake.adp
 
 ..//tools/fpcmake.var: gen_makefile.conf
 	echo > fpcmake.var
@@ -172,29 +172,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//fpcmake.var
 	echo >> fpcmake.var
 ..//tools/h2pas.html.bg: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//h2pas.html.bg -oe iso-8859-5 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//h2pas.html.bg -e iso-8859-5 h2pas.adp
 ..//tools/h2pas.html.en: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//h2pas.html.en -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//h2pas.html.en -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.fi: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//h2pas.html.fi -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//h2pas.html.fi -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.fr: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//h2pas.html.fr -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//h2pas.html.fr -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.id: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//h2pas.html.id -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//h2pas.html.id -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.it: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//h2pas.html.it -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//h2pas.html.it -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.nl: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//h2pas.html.nl -oe iso-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//h2pas.html.nl -e iso-8859-1 h2pas.adp
 ..//tools/h2pas.html.po: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//h2pas.html.po -oe iso-8859-2 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//h2pas.html.po -e iso-8859-2 h2pas.adp
 ..//tools/h2pas.html.sl: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//h2pas.html.sl -oe iso-8859-2 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//h2pas.html.sl -e iso-8859-2 h2pas.adp
 ..//tools/h2pas.html.ru: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//h2pas.html.ru -oe iso-8859-5 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//h2pas.html.ru -e iso-8859-5 h2pas.adp
 ..//tools/h2pas.html.zh-CN: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//h2pas.html.zh-CN -oe UTF-8 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//h2pas.html.zh-CN -e UTF-8 h2pas.adp
 ..//tools/h2pas.html: h2pas.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//h2pas.html -oe ISO-8859-1 h2pas.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//h2pas.html -e ISO-8859-1 h2pas.adp
 
 ..//tools/h2pas.var: gen_makefile.conf
 	echo > h2pas.var
@@ -243,29 +243,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//h2pas.var
 	echo >> h2pas.var
 ..//tools/ppdep.html.bg: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppdep.html.bg -oe iso-8859-5 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppdep.html.bg -e iso-8859-5 ppdep.adp
 ..//tools/ppdep.html.en: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppdep.html.en -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppdep.html.en -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.fi: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppdep.html.fi -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppdep.html.fi -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.fr: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppdep.html.fr -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppdep.html.fr -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.id: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppdep.html.id -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppdep.html.id -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.it: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppdep.html.it -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppdep.html.it -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.nl: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppdep.html.nl -oe iso-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppdep.html.nl -e iso-8859-1 ppdep.adp
 ..//tools/ppdep.html.po: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppdep.html.po -oe iso-8859-2 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppdep.html.po -e iso-8859-2 ppdep.adp
 ..//tools/ppdep.html.sl: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppdep.html.sl -oe iso-8859-2 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppdep.html.sl -e iso-8859-2 ppdep.adp
 ..//tools/ppdep.html.ru: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppdep.html.ru -oe iso-8859-5 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppdep.html.ru -e iso-8859-5 ppdep.adp
 ..//tools/ppdep.html.zh-CN: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppdep.html.zh-CN -oe UTF-8 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppdep.html.zh-CN -e UTF-8 ppdep.adp
 ..//tools/ppdep.html: ppdep.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppdep.html -oe ISO-8859-1 ppdep.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppdep.html -e ISO-8859-1 ppdep.adp
 
 ..//tools/ppdep.var: gen_makefile.conf
 	echo > ppdep.var
@@ -314,29 +314,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppdep.var
 	echo >> ppdep.var
 ..//tools/ppudump.html.bg: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppudump.html.bg -oe iso-8859-5 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppudump.html.bg -e iso-8859-5 ppudump.adp
 ..//tools/ppudump.html.en: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppudump.html.en -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppudump.html.en -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.fi: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppudump.html.fi -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppudump.html.fi -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.fr: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppudump.html.fr -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppudump.html.fr -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.id: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppudump.html.id -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppudump.html.id -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.it: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppudump.html.it -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppudump.html.it -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.nl: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppudump.html.nl -oe iso-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppudump.html.nl -e iso-8859-1 ppudump.adp
 ..//tools/ppudump.html.po: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppudump.html.po -oe iso-8859-2 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppudump.html.po -e iso-8859-2 ppudump.adp
 ..//tools/ppudump.html.sl: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppudump.html.sl -oe iso-8859-2 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppudump.html.sl -e iso-8859-2 ppudump.adp
 ..//tools/ppudump.html.ru: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppudump.html.ru -oe iso-8859-5 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppudump.html.ru -e iso-8859-5 ppudump.adp
 ..//tools/ppudump.html.zh-CN: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppudump.html.zh-CN -oe UTF-8 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppudump.html.zh-CN -e UTF-8 ppudump.adp
 ..//tools/ppudump.html: ppudump.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppudump.html -oe ISO-8859-1 ppudump.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppudump.html -e ISO-8859-1 ppudump.adp
 
 ..//tools/ppudump.var: gen_makefile.conf
 	echo > ppudump.var
@@ -385,29 +385,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppudump.var
 	echo >> ppudump.var
 ..//tools/ppufiles.html.bg: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppufiles.html.bg -oe iso-8859-5 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppufiles.html.bg -e iso-8859-5 ppufiles.adp
 ..//tools/ppufiles.html.en: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppufiles.html.en -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppufiles.html.en -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.fi: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppufiles.html.fi -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppufiles.html.fi -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.fr: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppufiles.html.fr -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppufiles.html.fr -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.id: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppufiles.html.id -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppufiles.html.id -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.it: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppufiles.html.it -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppufiles.html.it -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.nl: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppufiles.html.nl -oe iso-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppufiles.html.nl -e iso-8859-1 ppufiles.adp
 ..//tools/ppufiles.html.po: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppufiles.html.po -oe iso-8859-2 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppufiles.html.po -e iso-8859-2 ppufiles.adp
 ..//tools/ppufiles.html.sl: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppufiles.html.sl -oe iso-8859-2 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppufiles.html.sl -e iso-8859-2 ppufiles.adp
 ..//tools/ppufiles.html.ru: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppufiles.html.ru -oe iso-8859-5 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppufiles.html.ru -e iso-8859-5 ppufiles.adp
 ..//tools/ppufiles.html.zh-CN: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppufiles.html.zh-CN -oe UTF-8 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppufiles.html.zh-CN -e UTF-8 ppufiles.adp
 ..//tools/ppufiles.html: ppufiles.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppufiles.html -oe ISO-8859-1 ppufiles.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppufiles.html -e ISO-8859-1 ppufiles.adp
 
 ..//tools/ppufiles.var: gen_makefile.conf
 	echo > ppufiles.var
@@ -456,29 +456,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppufiles.var
 	echo >> ppufiles.var
 ..//tools/ppumove.html.bg: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppumove.html.bg -oe iso-8859-5 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ppumove.html.bg -e iso-8859-5 ppumove.adp
 ..//tools/ppumove.html.en: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppumove.html.en -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppumove.html.en -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.fi: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppumove.html.fi -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ppumove.html.fi -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.fr: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppumove.html.fr -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ppumove.html.fr -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.id: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppumove.html.id -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ppumove.html.id -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.it: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppumove.html.it -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ppumove.html.it -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.nl: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppumove.html.nl -oe iso-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ppumove.html.nl -e iso-8859-1 ppumove.adp
 ..//tools/ppumove.html.po: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppumove.html.po -oe iso-8859-2 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ppumove.html.po -e iso-8859-2 ppumove.adp
 ..//tools/ppumove.html.sl: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppumove.html.sl -oe iso-8859-2 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ppumove.html.sl -e iso-8859-2 ppumove.adp
 ..//tools/ppumove.html.ru: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppumove.html.ru -oe iso-8859-5 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ppumove.html.ru -e iso-8859-5 ppumove.adp
 ..//tools/ppumove.html.zh-CN: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppumove.html.zh-CN -oe UTF-8 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ppumove.html.zh-CN -e UTF-8 ppumove.adp
 ..//tools/ppumove.html: ppumove.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppumove.html -oe ISO-8859-1 ppumove.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ppumove.html -e ISO-8859-1 ppumove.adp
 
 ..//tools/ppumove.var: gen_makefile.conf
 	echo > ppumove.var
@@ -527,29 +527,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ppumove.var
 	echo >> ppumove.var
 ..//tools/ptop.html.bg: ptop.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ptop.html.bg -oe iso-8859-5 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//ptop.html.bg -e iso-8859-5 ptop.adp
 ..//tools/ptop.html.en: ptop.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ptop.html.en -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ptop.html.en -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.fi: ptop.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ptop.html.fi -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//ptop.html.fi -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.fr: ptop.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ptop.html.fr -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//ptop.html.fr -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.id: ptop.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ptop.html.id -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//ptop.html.id -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.it: ptop.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ptop.html.it -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//ptop.html.it -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.nl: ptop.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ptop.html.nl -oe iso-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//ptop.html.nl -e iso-8859-1 ptop.adp
 ..//tools/ptop.html.po: ptop.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ptop.html.po -oe iso-8859-2 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//ptop.html.po -e iso-8859-2 ptop.adp
 ..//tools/ptop.html.sl: ptop.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ptop.html.sl -oe iso-8859-2 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//ptop.html.sl -e iso-8859-2 ptop.adp
 ..//tools/ptop.html.ru: ptop.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ptop.html.ru -oe iso-8859-5 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//ptop.html.ru -e iso-8859-5 ptop.adp
 ..//tools/ptop.html.zh-CN: ptop.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ptop.html.zh-CN -oe UTF-8 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//ptop.html.zh-CN -e UTF-8 ptop.adp
 ..//tools/ptop.html: ptop.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ptop.html -oe ISO-8859-1 ptop.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//ptop.html -e ISO-8859-1 ptop.adp
 
 ..//tools/ptop.var: gen_makefile.conf
 	echo > ptop.var
@@ -598,29 +598,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//ptop.var
 	echo >> ptop.var
 ..//tools/rstconv.html.bg: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//rstconv.html.bg -oe iso-8859-5 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//rstconv.html.bg -e iso-8859-5 rstconv.adp
 ..//tools/rstconv.html.en: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//rstconv.html.en -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//rstconv.html.en -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.fi: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//rstconv.html.fi -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//rstconv.html.fi -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.fr: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//rstconv.html.fr -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//rstconv.html.fr -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.id: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//rstconv.html.id -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//rstconv.html.id -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.it: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//rstconv.html.it -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//rstconv.html.it -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.nl: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//rstconv.html.nl -oe iso-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//rstconv.html.nl -e iso-8859-1 rstconv.adp
 ..//tools/rstconv.html.po: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//rstconv.html.po -oe iso-8859-2 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//rstconv.html.po -e iso-8859-2 rstconv.adp
 ..//tools/rstconv.html.sl: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//rstconv.html.sl -oe iso-8859-2 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//rstconv.html.sl -e iso-8859-2 rstconv.adp
 ..//tools/rstconv.html.ru: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//rstconv.html.ru -oe iso-8859-5 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//rstconv.html.ru -e iso-8859-5 rstconv.adp
 ..//tools/rstconv.html.zh-CN: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//rstconv.html.zh-CN -oe UTF-8 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//rstconv.html.zh-CN -e UTF-8 rstconv.adp
 ..//tools/rstconv.html: rstconv.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//rstconv.html -oe ISO-8859-1 rstconv.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//rstconv.html -e ISO-8859-1 rstconv.adp
 
 ..//tools/rstconv.var: gen_makefile.conf
 	echo > rstconv.var
@@ -669,29 +669,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//rstconv.var
 	echo >> rstconv.var
 ..//tools/tools.html.bg: tools.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tools.html.bg -oe iso-8859-5 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tools.html.bg -e iso-8859-5 tools.adp
 ..//tools/tools.html.en: tools.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tools.html.en -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tools.html.en -e iso-8859-1 tools.adp
 ..//tools/tools.html.fi: tools.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//tools.html.fi -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//tools.html.fi -e iso-8859-1 tools.adp
 ..//tools/tools.html.fr: tools.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//tools.html.fr -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//tools.html.fr -e iso-8859-1 tools.adp
 ..//tools/tools.html.id: tools.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//tools.html.id -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//tools.html.id -e iso-8859-1 tools.adp
 ..//tools/tools.html.it: tools.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//tools.html.it -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//tools.html.it -e iso-8859-1 tools.adp
 ..//tools/tools.html.nl: tools.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//tools.html.nl -oe iso-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//tools.html.nl -e iso-8859-1 tools.adp
 ..//tools/tools.html.po: tools.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//tools.html.po -oe iso-8859-2 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//tools.html.po -e iso-8859-2 tools.adp
 ..//tools/tools.html.sl: tools.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//tools.html.sl -oe iso-8859-2 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//tools.html.sl -e iso-8859-2 tools.adp
 ..//tools/tools.html.ru: tools.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tools.html.ru -oe iso-8859-5 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tools.html.ru -e iso-8859-5 tools.adp
 ..//tools/tools.html.zh-CN: tools.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tools.html.zh-CN -oe UTF-8 tools.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tools.html.zh-CN -e UTF-8 tools.adp
 ..//tools/tools.html: tools.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tools.html -oe ISO-8859-1 tools.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tools.html -e ISO-8859-1 tools.adp
 
 ..//tools/tools.var: gen_makefile.conf
 	echo > tools.var
@@ -740,29 +740,29 @@ english: output_directory all_en_pages
 	echo 'Content-type: text/html; charset=UTF-8' >> ..//tools//tools.var
 	echo >> tools.var
 ..//tools/tply.html.bg: tply.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tply.html.bg -oe iso-8859-5 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//tools//tply.html.bg -e iso-8859-5 tply.adp
 ..//tools/tply.html.en: tply.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tply.html.en -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tply.html.en -e iso-8859-1 tply.adp
 ..//tools/tply.html.fi: tply.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//tply.html.fi -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//tools//tply.html.fi -e iso-8859-1 tply.adp
 ..//tools/tply.html.fr: tply.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//tply.html.fr -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//tools//tply.html.fr -e iso-8859-1 tply.adp
 ..//tools/tply.html.id: tply.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//tply.html.id -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//tools//tply.html.id -e iso-8859-1 tply.adp
 ..//tools/tply.html.it: tply.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//tply.html.it -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//tools//tply.html.it -e iso-8859-1 tply.adp
 ..//tools/tply.html.nl: tply.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//tply.html.nl -oe iso-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//tools//tply.html.nl -e iso-8859-1 tply.adp
 ..//tools/tply.html.po: tply.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//tply.html.po -oe iso-8859-2 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//tools//tply.html.po -e iso-8859-2 tply.adp
 ..//tools/tply.html.sl: tply.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//tply.html.sl -oe iso-8859-2 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//tools//tply.html.sl -e iso-8859-2 tply.adp
 ..//tools/tply.html.ru: tply.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tply.html.ru -oe iso-8859-5 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//tools//tply.html.ru -e iso-8859-5 tply.adp
 ..//tools/tply.html.zh-CN: tply.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tply.html.zh-CN -oe UTF-8 tply.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//tools//tply.html.zh-CN -e UTF-8 tply.adp
 ..//tools/tply.html: tply.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tply.html -oe ISO-8859-1 tply.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//tools//tply.html -e ISO-8859-1 tply.adp
 
 ..//tools/tply.var: gen_makefile.conf
 	echo > tply.var
