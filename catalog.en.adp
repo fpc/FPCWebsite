@@ -719,9 +719,6 @@ Contains a zip file with the win32 to arm-gba cross-compiler. Extract the zip in
 <TRN locale="en_US" key="website.down.armlinux.title">
 Free Pascal - Download Linux
 </TRN>
-<TRN locale="en_US" key="website.down_linux_arm">
-Download Linux ARM
-</TRN>
 <TRN locale="en_US" key="website.down.armlinux.latestversion">
 
 The FPC @latestversion@ package for arm-linux is available in two to choose format:
@@ -796,7 +793,7 @@ Download documentation
 
 </TRN>
 <TRN locale="en_US" key="website.down.docs.format">
-(Default and Preferred format)
+(Default and preferred format)
 </TRN>
 <TRN locale="en_US" key="website.down.docs.unix">
 (for Unix platforms)
@@ -983,7 +980,7 @@ Download in 1 big file
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_1_file_download_descr">
 
-  contains a standard tar archive, with an install script.
+  contains a standard tar archive, with an install script<br>
   After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 
@@ -998,7 +995,7 @@ RPM (Redhat Package Manager) Packages
 Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.
 </TRN>
 <TRN locale="en_US" key="website.Binary_packages">
-i8086 MS-DOS cross binary Packages
+Binary Packages
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_rpm_download_descr">
 
@@ -1235,7 +1232,7 @@ Download cross-compilers for other targets
 These cross-compilers are add-ons to the native compiler and do not work stand-alone.
 </TRN>
 <TRN locale="en_US" key="website.Download_win32_win64_cross_installer">
-Contains the installer with the win32 to win64 cross-compiler.
+Contains the installer with the win32 to x86_64-Win64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.
 </TRN>
 <TRN locale="en_US" key="website.Download_win32_msdos_cross_installer">
 Contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler.
@@ -1338,6 +1335,7 @@ Free Pascal - download old documentation
 Download old documentation
 </TRN>
 <TRN locale="en_US" key="website.down.old.docs.releases">
+
 The documentation for old 1.0.10(a) releases (not supported any more) can be
 downloaded in the following formats:
 
@@ -4363,6 +4361,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
  
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20171127_index">
+
  <p>
   <em>November 28th, 2017</em>
  </p>
@@ -4383,6 +4382,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
  
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20170215_index">
+
  <p>
   <em>February 15th, 2017</em>
  </p>
@@ -4402,6 +4402,7 @@ and FPC still does not only exists, but is more alive and kicking than ever!
  
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20151125_index">
+
  <p>
   <em>November 25th, 2015</em>
  </p>
@@ -5074,7 +5075,7 @@ your chances to contact them ;-).
 <ul>
   <li><a href="http://www.pascalgamedevelopment.com">Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
-<!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil tamb閙 ?OpenSource!</a> -->
+<!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil també–™ ?OpenSource!</a> -->
   <li><a href="http://www.freepascal.ru">FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
 <!--    <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a> -->
   <li><a href="http://yann.merignac.free.fr/fpc-and-lazarus-for-slackware.html">Script for converting FPC &amp;&nbsp;Lazarus
@@ -5101,9 +5102,9 @@ your chances to contact them ;-).
 
 </TRN>
 <TRN locale="en_US" key="website.links.otherpascal">
-
 <h2>Other Pascal Pages:</h2>
 <ul>
+  <li><a href="https://www.udemy.com/topic/pascal-programming-language/">Udemy</a> has some courses on Pascal that use free pascal.</li>
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>, where you can find a lot of info on Pascal
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
@@ -5340,6 +5341,7 @@ directory tree (with the exception of the images, maybe).
 
 </TRN>
 <TRN locale="en_US" key="website.mirrors.ftp.using.info">
+
 <li> the <a href="ftp://ftp.freepascal.org/pub/fpc/mirror/mirror-2.9-wuftpd-patched.tar.gz">mirror</a>
 perl script.
 There is also a <a href="ftp://ftp.freepascal.org/pub/fpc/mirror/www.freepascal.org">configuration
@@ -6192,6 +6194,7 @@ extensive guide how to develop games on the Game Boy Advance</a> using Free Pasc
 
 </TRN>
 <TRN locale="en_US" key="website.news_headline_20060920">
+
  <li>
 <em>September 20, 2006</em>
  </li>
@@ -6199,7 +6202,7 @@ extensive guide how to develop games on the Game Boy Advance</a> using Free Pasc
   <li>In addition to the originally published builds
 for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made
 available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
-<a href="download.var">download page</a> to select your nearest mirror.
+<a href="download@x@">download page</a> to select your nearest mirror.
   </li>
  </ul>
 
@@ -7543,7 +7546,7 @@ other parties.
 Free Pascal - Known problems
 </TRN>
 <TRN locale="en_US" key="website.Known_Problems">
-Known problems
+Known Problems
 </TRN>
 <TRN locale="en_US" key="website.Delphi_unimplemented">
 The following Delphi functionality is as of yet not implemented
@@ -9610,19 +9613,23 @@ Free Pascal - download Beos version
 Download old Beos (i386)
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386beos.beos">
+
 <h1><a name="BeOS"></a>BeOS</h1>
 <hr>
 This is version <b>1.0.10a</b> (not supported any more). This version
 differs with 1.0.10 in that a Delphi mode bug has been fixed, and a few patches
 for sysutils (specific to this port) have also been applied.
 <p>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386beos.download">
+
 <h3><a name="freebeosbig"></a>Download as one big (zip) file</h3>
 <ul>
 <li><a href="@mirror_url@/olddist/1.0.10/beos-1.0.10a/fpc-1.0.10a-ELF.zip">BeOS installation zip</a> (15 MB)
 </ul>
 <p>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.title">
 Free Pascal - download EMX version
@@ -9631,6 +9638,7 @@ Free Pascal - download EMX version
 Download old EMX (i386)
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.info">
+
 <h1><a name="OS2EMX"></a>OS/2 &amp; DOS (EMX)</h1>
 <hr>
 
@@ -9639,8 +9647,10 @@ that there is a newer fully supported version for the OS/2 platform available
 from the main download page. The only potential reason for using this one
 instead would be the possibility to run the same compiled binaries natively
 under both OS/2 and DOS (with EMX extender).
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.download">
+
 <h3>Download in 1 big file:</h3>
 <ul>
 <li> <A
@@ -9649,12 +9659,16 @@ contains all archives and installation program<br>
 <li>Or you can download a file that contains the same, only without sources,gdb and gnu utils:
 <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010.zip">os21010.zip</a> (17.2 MB)
 </ul>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.files">
+
 <h3><a name="os2emxsep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.mandatory">
+
 <li> <b>Mandatory files:</b>
 <ul>
 <li> Install program: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.exe">install.exe</a> (286 kB)
@@ -9680,8 +9694,10 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
   and gnudev2.zip.
 </ul>
 </ul>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.optional">
+
 <li> <b>Optional files:</b>
 <ul>
 <li> The readme file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/readme.txt">readme.txt</a> (12 kB)
@@ -9697,8 +9713,10 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
 <li> Documentation in PDF: <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/docs-pdf.zip">docs-pdf.zip</a> (3.45 MB)
 <li> Documentation in HTML (needed for IDE help): <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">doc-htm.zip</a> (6.7 Mb)
 </ul>
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.source">
+
 <li> <b>Optional source files:</b>
 <ul>
 <li> Sources base (required): <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/basesrc.zip">basesrc.zip</a> (49 kB)
@@ -9717,8 +9735,10 @@ and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/insta
 program in this directory. It will detect which files you downloaded, and
 offer to install only those files actually present. Therefore, you cannot
 change the name of the files!
+
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386emx.these">
+
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities (for re-compilation of the compiler and RTL among others):
@@ -9728,8 +9748,10 @@ change the name of the files!
 <li>EMX wrapper DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
 <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emxwrap.dll">emxwrap.dll</a> (16Kb)
 </ul>
+
 </TRN>
 <TRN locale="en_US" key="website.down.source.sources.formats.list">
+
 <DL>
   <DT>Zip file:</DT>
   <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</DD>
@@ -9740,25 +9762,31 @@ change the name of the files!
   <DT>Gzipped Tar file:</DT>
   <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (38 MB)</DD>
 </DL>
+
 </TRN>
 <TRN locale="en_US" key="website.DEB_packages.note">
+
 <li><b>Deb archives for 3.0.2 are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
+  
 </TRN>
 <TRN locale="en_US" key="website.native_compiler_nat_available_x86_64">
 There is no native compiler available for x86_64 Win64. You have to use a cross-compiler.
 </TRN>
 <TRN locale="en_US" key="website.mirrors.ftp.user">
+
 Since the FTP site restricts the number of simultaneous connections, we've
 set up a mirror account which can be used by mirrors, so they are not
 counted in the <I>anonymous</I> users count.
 If you want to mirror our site and want use to the mirror account, mail
 <a href="mailto:mirrors&#x040;freepascal.org">us</a> to obtain the password for
 the mirroring account.
+
 </TRN>
 <TRN locale="en_US" key="website.mirrors.ftp.using">
 Mirroring the FTP site can be done using:
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20171127">
+
  <li>
   <em>November 28th, 2017</em>
  </li>
@@ -9778,8 +9806,10 @@ Mirroring the FTP site can be done using:
    </p>
    </li>
  </ul>
+ 
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20170215">
+
  <li>
   <em>Februari 15th, 2017</em>
  </li>
@@ -9798,8 +9828,10 @@ Mirroring the FTP site can be done using:
    </p>
    </li>
  </ul>
+ 
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20151125">
+
  <li>
   <em>November 25th, 2015</em>
  </li>
@@ -9817,7 +9849,43 @@ Mirroring the FTP site can be done using:
    </p>
   </li>
  </ul>
+ 
 </TRN>
 <TRN locale="en_US" key="website.contribs.header">
 Contributions
+</TRN>
+<TRN locale="en_US" key="website.powerpc_wii_file_download_descr">
+Contains a zip file with the win32 to PowerPC Wii cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.
+</TRN>
+<TRN locale="en_US" key="website.down2.arm.gba.header">
+Download Game Boy Advance
+</TRN>
+<TRN locale="en_US" key="website.down2.arm.linux.header">
+Download Linux ARM
+</TRN>
+<TRN locale="en_US" key="website.down2.i386linux.header">
+Download Intel/i386 Linux
+</TRN>
+<TRN locale="en_US" key="website.sparc-linux_deb_download_descr_beta">
+<a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">This directory</a> contains
+     the unofficial debian .deb packages.<br>
+  
+</TRN>
+<TRN locale="en_US" key="website.down_linux_arm_header">
+Download Linux ARM
+</TRN>
+<TRN locale="en_US" key="website.down.i386.linux.header">
+Download Intel/i386 Linux
+</TRN>
+<TRN locale="en_US" key="website.i8086_cross_Binary_packages">
+i8086 MS-DOS cross binary Packages
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_wince_cross_installer_desc">
+Contains the installer with the win32 to arm-wince cross-compiler.
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_win64_cross_installer_desc">
+Contains the installer with the win32 to win64 cross-compiler.
+</TRN>
+<TRN locale="en_US" key="website.DEB_compatibility_x86_64_linux">
+Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)
 </TRN>

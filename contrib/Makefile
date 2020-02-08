@@ -30,29 +30,29 @@ default: all
 all: output_directory all_pages
 english: output_directory all_en_pages
 ..//contrib/contribs.html.bg: contribs.adp ../default-master.adp ../site-master.adp ../catalog.bg.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-5 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.bg.adp -l bg_BG -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-5 contribs.adp
 ..//contrib/contribs.html.en: contribs.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.fi: contribs.adp ../default-master.adp ../site-master.adp ../catalog.fi.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fi.adp -l fi_FI -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.fr: contribs.adp ../default-master.adp ../site-master.adp ../catalog.fr.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.fr.adp -l fr_FR -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.id: contribs.adp ../default-master.adp ../site-master.adp ../catalog.id.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.id.adp -l id_ID -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.it: contribs.adp ../default-master.adp ../site-master.adp ../catalog.it.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.it.adp -l it_IT -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.nl: contribs.adp ../default-master.adp ../site-master.adp ../catalog.nl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.nl.adp -l nl_NL -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-1 contribs.adp
 ..//contrib/contribs.html.po: contribs.adp ../default-master.adp ../site-master.adp ../catalog.pl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-2 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.pl.adp -l pl_PL -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-2 contribs.adp
 ..//contrib/contribs.html.sl: contribs.adp ../default-master.adp ../site-master.adp ../catalog.sl.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-2 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.sl.adp -l sl_SI -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-2 contribs.adp
 ..//contrib/contribs.html.ru: contribs.adp ../default-master.adp ../site-master.adp ../catalog.ru.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//contrib//contribs.html -oe iso-8859-5 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.ru.adp -l ru_RU -m ../default-master.adp -o ..//contrib//contribs.html -e iso-8859-5 contribs.adp
 ..//contrib/contribs.html.zh-CN: contribs.adp ../default-master.adp ../site-master.adp ../catalog.zh-CN.adp
-	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//contrib//contribs.html -oe UTF-8 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION) -c ../catalog.zh-CN.adp -l zh_CN -m ../default-master.adp -o ..//contrib//contribs.html -e UTF-8 contribs.adp
 ..//contrib/contribs.html: contribs.adp ../default-master.adp ../site-master.adp ../catalog.en.adp
-	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//contrib//contribs.html -oe ISO-8859-1 contribs.adp
+	../adp2html -p x=$(URL_EXTENSION_EN) -c ../catalog.en.adp -l en_US -m ../default-master.adp -o ..//contrib//contribs.html -e ISO-8859-1 contribs.adp
 
 ..//contrib/contribs.var: gen_makefile.conf
 	echo > contribs.var

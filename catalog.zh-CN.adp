@@ -708,9 +708,6 @@ Free Pascal - 下载 Game Boy Advance 版本
 <TRN locale="zh-CN" key="website.down.armlinux.title">
 Free Pascal - 下载 Linux
 </TRN>
-<TRN locale="zh-CN" key="website.down_linux_arm">
-下载 Linux ARM
-</TRN>
 <TRN locale="zh-CN" key="website.down.armlinux.latestversion">
 
 用于 arm-linux 的 FPC @latestversion@ 软件包有两种格式可以选择：
@@ -766,8 +763,7 @@ Free Pascal - 下载 Windows CE 版本
 没有适用于 Windows CE 的本地编译器。你必须使用交叉编译器。
 </TRN>
 <TRN locale="zh-CN" key="website.Download_win32_wince_cross_installer">
-
- 仅包含 win32 到  arm-wince 交叉编译器的安装程序。
+包含 win32 到 arm-wince 交叉编译器的安装程序。 需要<a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">本地 Win32 编译器</a>（39 MB）才能工作。
 
 </TRN>
 <TRN locale="zh-CN" key="website.down.docs.title">
@@ -1236,9 +1232,7 @@ Free Pascal - 下载 Win32 版本
 这些交叉编译器是本地编译器的附加组件，不能单独运行。
 </TRN>
 <TRN locale="zh-CN" key="website.Download_win32_win64_cross_installer">
-
- 仅包含 win32 到 win64 交叉编译器的安装程序。
-
+包含带有 win32 到 x86_64-Win64 交叉编译器的安装程序。它需要<a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">本地 Win32 编译器</a>（39 MB）才能工作。
 </TRN>
 <TRN locale="zh-CN" key="website.Download_win32_msdos_cross_installer">
 包含带有 Win32 到 MS-DOS（真实模式，i8086）交叉编译器的安装程序。
@@ -4207,11 +4201,9 @@ DOS（16 和 32 位）、Win32、Win64、WinCE、OS/2、MorphOS、Nintendo GBA�
 
 </TRN>
 <TRN locale="zh-CN" key="website.Current_Version_text">
-
-
-    <em>2.2.0</em> 是 Free Pascal 的最新稳定版本。
+    <em>3.0.4</em> 是 Free Pascal 的最新稳定版本。
     点击<a href="download@x@">下载</a>链接并选择较近镜像下载副本。
-    开发版的版本号为 <EM>2.3.x</EM>。请参阅<a href="develop@x@">开发</a>页面，了解如何获取最新的源代码并支持开发。
+    开发版的版本号为 <EM>3.1.x</EM>。请参阅<a href="develop@x@">开发</a>页面，了解如何获取最新的源代码并支持开发。
 
 
 </TRN>
@@ -4823,9 +4815,9 @@ Free Pascal - 链接
 
 </TRN>
 <TRN locale="zh-CN" key="website.links.otherpascal">
-
-<h2>其他Pascal页面：</h2>
+<h2>其他 Pascal 页面：</h2>
 <ul>
+  <li><a href="https://www.udemy.com/topic/pascal-programming-language/">Udemy</a> 上有一些使用 free pascal 的 pascal 教程。</li>
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>，在那里你可以找到在 Mac 进行 Pascal 编程的信息，但也有相当多的通用 Pascal 链接。
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal 编译器页面</a>： 项目将 FPC 移植到 MacOS/PowerPC 平台 -->
   <li>有关 pascal  yacc 和 lex 程序的信息，请访问 <a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">pascal  Yacc 和 Lex 的主页</a>。
@@ -5781,7 +5773,7 @@ FPC 2.2.4 已通过 Mac OS X 10.6（Snow Leopard）测试，并且运行正常�
  <ul>
   <li>除了最初发布的 2.0.4 版本之外，
     powerpc-macos 和 x86_64-linux 的 .deb 软件包已经发布（感谢 Olle Raab 和 Stefan Kisdaroczi）。
-    同样的，请到<a href="download.var">下载页</a>选择最近的镜像下载。
+    同样的，请到<a href="download@x@">下载页</a>选择最近的镜像下载。
   </li>
  </ul>
 
@@ -8926,4 +8918,37 @@ HREF="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/installd.exe">installd.exe
 </TRN>
 <TRN locale="zh-CN" key="website.contribs.header">
 贡献
+</TRN>
+<TRN locale="zh-CN" key="website.powerpc_wii_file_download_descr">
+包含 win32 到 PowerPC Wii 交叉编辑器的 zip 文件。解压到由<a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">本地 Win32 编译器</a>创建的 fpc目录中（31.4 MB）。有关更多说明，请参见附带的自述文件。
+</TRN>
+<TRN locale="zh-CN" key="website.down2.arm.gba.header">
+下载 Game Boy Advance
+</TRN>
+<TRN locale="zh-CN" key="website.down2.arm.linux.header">
+下载 Linux ARM
+</TRN>
+<TRN locale="zh-CN" key="website.down2.i386linux.header">
+下载 Intel/i386 Linux
+</TRN>
+<TRN locale="zh-CN" key="website.sparc-linux_deb_download_descr_beta">
+<a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">这个目录</a>包含非官方的 debian .deb 包。<br>
+</TRN>
+<TRN locale="zh-CN" key="website.down_linux_arm_header">
+下载 Linux ARM
+</TRN>
+<TRN locale="zh-CN" key="website.down.i386.linux.header">
+下载 Intel/i386 Linux
+</TRN>
+<TRN locale="zh-CN" key="website.i8086_cross_Binary_packages">
+i8086 MS-DOS  交叉二进制包
+</TRN>
+<TRN locale="zh-CN" key="website.Download_win32_wince_cross_installer_desc">
+包含 win32 到 arm-wince 交叉编译器的安装程序。
+</TRN>
+<TRN locale="zh-CN" key="website.Download_win32_win64_cross_installer_desc">
+包含 win32 到 win64 交叉编译器的安装程序。
+</TRN>
+<TRN locale="zh-CN" key="website.DEB_compatibility_x86_64_linux">
+我们的 DEB 包与所有基于 DEB 的发行版兼容，包括 Debian、Linspire 和 Ubuntu。（目前仍为 2.4.2）
 </TRN>
