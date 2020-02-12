@@ -68,6 +68,18 @@ function run_testsuite {
   decho "Using TEST_OPT=\"$TEST_OPT\" for tests" >> $localtestslog
   make -C ../rtl distclean > /dev/null
   make -C ../packages distclean > /dev/null
+  make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" distclean testprep 1>> $localtestslog 2>&1
+  res=$?
+  if [ $res -ne 0 ] ; then
+    decho "testprep failed with TEST_OPT=\"$TEST_OPT\"" >> $localtestslog
+    decho "Using TEST_OPT=\"-n -gl\" for testprep" >> $localtestslog
+    make TEST_FPC="$TEST_FPC" TEST_OPT="-n -gl" distclean testprep 1>> $localtestslog 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      decho "testprep also failed with TEST_OPT=\"-n -gl\"" >> $localtestslog
+      return
+    fi
+  fi  
   make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" distclean allexectests \
     uploadrun DB_SSH_EXTRA="-i ~/.ssh/freepascal" 1>> $localtestslog 2>&1
   res=$?
