@@ -73,6 +73,8 @@ function run_testsuite {
   if [ $res -ne 0 ] ; then
     decho "testprep failed with TEST_OPT=\"$TEST_OPT\"" >> $localtestslog
     decho "Using TEST_OPT=\"-n -gl\" for testprep" >> $localtestslog
+    make -C ../rtl distclean > /dev/null
+    make -C ../packages distclean > /dev/null
     make TEST_FPC="$TEST_FPC" TEST_OPT="-n -gl" distclean testprep 1>> $localtestslog 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
@@ -206,15 +208,17 @@ else
         decho "WARNING: make all failed, trying by sub-directories"
         for dir in rtl packages packages/ide utils ; do
           trial=1
+          ok_trial=0
           max_trial=5
           while [ $trial -lt $max_trial ] ; do
             decho "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
             make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
             res=$?
             if [ $res -ne 0 ] ; then
-              decho "make install in $dir failed, res=$res, retrying"
+              decho "make install in $dir failed, res=$res, trial=$trial, retrying"
               let trial++
             else
+              let ok_trial=$trial
               let trial=$max_trial
             fi
           done
@@ -222,7 +226,7 @@ else
             decho "make -C $dir  with $ADDOPT failed $trial times"
             let allres++
           else
-            decho "make -C $dir succeeded after $trial trials"
+            decho "make -C $dir succeeded after $ok_trial trials"
           fi
         done
       fi
