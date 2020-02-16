@@ -87,6 +87,9 @@ function run_testsuite {
   res=$?
   decho "Finished tests, res=$res"
   decho "Finished tests, res=$res" >> $localtestslog
+  cp output/$SRC_CPU/faillist ${localtestslog}-faillist
+  cp output/$SRC_CPU/log ${localtestslog}-log
+  cp output/$SRC_CPU/longlog ${localtestslog}-longlog
   if [ $res -ne 0 ]; then
     decho "Tests failed $res"
     attach="$attach -a ${localtestslog}"
@@ -115,11 +118,13 @@ if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
   # fpcmips32 machine
   ENDIAN=big
   FPCEXE=ppcmips
+  SRC_CPU=mips
   export LANG=en_US.utf8
 else
   decho "Little endian machine"
   ENDIAN=little
   FPCEXE=ppcmipsel
+  SRC_CPU=mipsel
   if [ "${MACHINE}" = "n16" ] ; then
     # fpcmipsel32 machine
     export LANG=en_GB.utf8
