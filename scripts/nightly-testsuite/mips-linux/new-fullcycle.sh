@@ -87,9 +87,9 @@ function run_testsuite {
   res=$?
   decho "Finished tests, res=$res"
   decho "Finished tests, res=$res" >> $localtestslog
-  cp output/$SRC_CPU/faillist ${localtestslog}-faillist
-  cp output/$SRC_CPU/log ${localtestslog}-log
-  cp output/$SRC_CPU/longlog ${localtestslog}-longlog
+  cp output/$SRC_FULL/faillist ${localtestslog}-faillist
+  cp output/$SRC_FULL/log ${localtestslog}-log
+  cp output/$SRC_FULL/longlog ${localtestslog}-longlog
   if [ $res -ne 0 ]; then
     decho "Tests failed $res"
     attach="$attach -a ${localtestslog}"
@@ -135,6 +135,9 @@ else
     svnup_option="--non-interactive"
   fi
 fi
+SRC_OS=linux
+SRC_FULL=${SRC_CPU}-${SRC_OS}
+
 if [ "${PATH//pas\/fpc/}" == "${PATH}" ] ; then
   decho "Adding $FPCBASEDIR/bin to PATH"
   export PATH=$FPCBASEDIR/bin:~/bin:$PATH
