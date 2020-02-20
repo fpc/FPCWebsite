@@ -225,6 +225,17 @@ if [ -d fpcsrc ]; then
 fi
 
 set_log $cleanlog
+# Remove any existing fpmake binary
+add_log "Looking for existing fpmake binaries"
+fpmake_binaries=`find . -name fpmake 2> /dev/null`
+if [ -n "$fpmake_binaries" ] ; then
+  add_log "fpmake binaries found: $fpmake_binaries"
+  for bin in $fpmake_binaries ; do
+    rm -Rf $bin
+  done
+else
+  add_log "No fpmake binaries found"
+fi
 add_log "Start $MAKE distclean"
 ${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
 makeres=$?
