@@ -224,18 +224,25 @@ if [ -d fpcsrc ]; then
   cd fpcsrc
 fi
 
+start_dir=`pwd`
+
+function remove_all_fpmake_binaries ()
+{
+  # Remove any existing fpmake binary
+  add_log "Looking for existing fpmake binaries"
+  fpmake_binaries=`find . -name fpmake 2> /dev/null`
+  if [ -n "$fpmake_binaries" ] ; then
+    add_log "fpmake binaries found: $fpmake_binaries"
+    for bin in $fpmake_binaries ; do
+      rm -Rf $bin
+    done
+  else
+    add_log "No fpmake binaries found"
+  fi
+}
+
 set_log $cleanlog
-# Remove any existing fpmake binary
-add_log "Looking for existing fpmake binaries"
-fpmake_binaries=`find . -name fpmake 2> /dev/null`
-if [ -n "$fpmake_binaries" ] ; then
-  add_log "fpmake binaries found: $fpmake_binaries"
-  for bin in $fpmake_binaries ; do
-    rm -Rf $bin
-  done
-else
-  add_log "No fpmake binaries found"
-fi
+remove_all_fpmake_binaries
 add_log "Start $MAKE distclean"
 ${MAKE} distclean $MAKEDEBUG OPT="-n $NEEDED_OPT" FPC=$FPCBIN 1>> ${cleanlog} 2>&1
 makeres=$?
@@ -312,6 +319,7 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $makeres -ne 0 ] ; then
     if [ -n "$FPCFPMAKE" ] ; then
+      remove_all_fpmake_binaries
       add_log "Compiling rtl with $FPCFPMAKE"
       ${MAKE} -C ./rtl FPC="$FPCFPMAKE" OPT="-n" >> ${makelog} 2>&1
       add_log "Compiling bootstrap with $FPCFPMAKE"
@@ -403,6 +411,7 @@ if [ $NewBinary -eq 1 ] ; then
     set_log $testslog
     add_log "Starting $MAKE -C ../rtl distclean"
     TIME=`date +%H-%M-%S`
+    remove_all_fpmake_binaries
     ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" > $cleantestslog 2>&1
     add_log "Starting $MAKE -C ../packages distclean"
     ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" >> $cleantestslog 2>&1
@@ -415,6 +424,7 @@ if [ $NewBinary -eq 1 ] ; then
       DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" "
     ${MAKE} $MAKE_J_OPT $MAKE_TESTS_TARGET $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
+      FPCFPMAKE=$FPCFPMAKE FPCFPMAKENEW=$FPCFPMAKENEW \ 
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
     testsres=$?
     add_log "Ending $MAKE distclean $MAKE_TESTS_TARGET; result=${testsres}"
