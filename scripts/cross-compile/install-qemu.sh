@@ -2,7 +2,7 @@
 
 QEMU_VERSION="$1"
 if [ -z "$QEMU_VERSION" ] ; then
-  QEMU_VERSION=4.1.0
+  QEMU_VERSION=4.2.0
 fi
 if [ ! -f qemu-$QEMU_VERSION.tar.xz ] ; then
   echo "Downloading qemu version $QEMU_VERSION"
@@ -27,6 +27,6 @@ make
 res=$?
 
 if [ $res -eq 0 ] ; then
-  echo "Make finished OK, you can install using \"make install\""
+  echo "Make finished OK for QEMU version $QEMU_VERSION, you can install using \"make install\""
 fi
 
