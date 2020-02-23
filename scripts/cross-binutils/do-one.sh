@@ -256,6 +256,7 @@ function copytofpcbin ()
   if [ -z "$copy_only" ]; then
     export "$LOCAL_CFLAGS"
     export LDFLAGS="${LDFLAGS}"
+    echo "Starting: ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot --disable-intl --disable-libtool --disable-werror"
     ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot --disable-intl --disable-libtool --disable-werror 2>&1 | tee $LOGFILE
     configres=$?
     if [ $configres -ne 0 ] ; then
