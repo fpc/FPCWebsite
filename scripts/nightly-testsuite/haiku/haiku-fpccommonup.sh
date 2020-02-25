@@ -122,12 +122,35 @@ if [ ${makeres} != 0 ]; then
   cp ./$HOST_FPC ./ppstart
   ${MAKE} distclean cycle DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR FPC=`pwd`/ppstart  1>> ${makelog} 2>&1
   makeres=$?
+  if  [ ${makeres} != 0 ]; then
+    echo "Second cycle with FPC=`pwd`/ppstart failed" >> $report
+    tail -60 ${makelog} >> $report
+    exit
+  fi
   cd ../rtl
   ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  makeres=$?
+  if  [ ${makeres} != 0 ]; then
+    echo "make install in rtl failed" >> $report
+    tail -60 ${makelog} >> $report
+    exit
+  fi
   cd ../packages
   ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  makeres=$?
+  if  [ ${makeres} != 0 ]; then
+    echo "make install in packages failed" >> $report
+    tail -60 ${makelog} >> $report
+    exit
+  fi
   cd ../utils
   ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  makeres=$?
+  if  [ ${makeres} != 0 ]; then
+    echo "make install in utils failed" >> $report
+    tail -60 ${makelog} >> $report
+    exit
+  fi
   cd ..
 fi
 
