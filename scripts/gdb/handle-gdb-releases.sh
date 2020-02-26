@@ -17,12 +17,26 @@ if [ "X$1" == "X--help" ] ; then
   echo "if configure suceeds, it will launch \"make all-gdb\""
   echo "if a new gdb executable is produced, it will be stored as $HOME/bin/gdb-X.Y.Z"
   echo "After, it will try to use the script from pas/trunk/fpcsrc/packages/gdbint directory"
-  echo "Called gen-gdblib-inc.sh and stored the new libgdb produced into dorectory"
+  echo "Called gen-gdblib-inc.sh and stored the new libgdb produced into directory"
   echo "$PASCALMAINDIR/libgdb/gdb-X.Y.Z"
   echo "If MAILTO env variable is set, an email will be sent to this address with"
   echo "a short report about script results"
   echo "Individual GDB version change be tested using command line parameter"
+  echo "If parameters are provided, the first parameter is assumed to be"
+  echo "the archive file containing a specific GDB version,"
+  echo "the optional second parameter is passed as it to configure script"
+  echo "Special --all option adds \"--enable-targets=all --enable-64-bit-bfd\""
+  echo "to configure call"
   exit
+fi
+
+if [ "X$1" == "X--all" ] ; then
+  default_config_options="--enable-targets=all --enable-64-bit-bfd"
+  build_variant=-all
+  shift
+else
+  default_config_options=
+  build_variant=
 fi
 
 # Function handling a single source tarball
@@ -37,12 +51,16 @@ function handle_release ()
   # Extract compression type
   compression=${zipname//*.}
 
-  config_options="$2 --disable-werror -with-python=no"
+  config_options="$2 $default_config_options --disable-werror -with-python=no"
 
   if [ ! -f $zipname ] ; then
     echo "Trying to download $zipname from ftp://ftp.gnu.org/gnu/gdb/"
     wget -t 5 ftp://ftp.gnu.org/gnu/gdb/$zipname
   fi
+  if [ ! -f sha512.sum ] ; then
+    wget -t 5 ftp://sourceware.org/pub/gdb/releases/sha512.sum
+  fi
+
   if [ ! -f $zipname ] ; then
     echo "Trying to download $zipname from ftp://sourceware.org/pub/gdb/old-releases/"
     wget -t 5 ftp://sourceware.org/pub/gdb/old-releases/$zipname
@@ -66,7 +84,7 @@ function handle_release ()
     return
   fi
   dirname=gdb-${release}
-  builddir=build-gdb-${release}
+  builddir=build-gdb-${release}${build_variant}
 
 
   if [ -d $dirname ] ; then
@@ -255,6 +273,7 @@ handle_release gdb-8.2.tar.gz
 handle_release gdb-8.2.1.tar.gz
 handle_release gdb-8.3.tar.gz
 handle_release gdb-8.3.1.tar.gz
+handle_release gdb-9.1.tar.gz
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
