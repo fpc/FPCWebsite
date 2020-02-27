@@ -55,8 +55,14 @@ echo "Starting with release compiler $start_compiler" >> $readme
 echo "$start_compiler -iVDWSOSPTOTP:" >> $readme
 $start_compiler -iVDWSOSPTOTP >> $readme
 
-echo "$MAKE cycle OPT=\"-n -gl\" FPC=$start_compiler BINUTILSPREFIX=${start_full}-" >> $readme
-$MAKE cycle OPT="-n -gl" FPC=$start_compiler BINUTILSPREFIX=${start_full}-
+if [ "${target_full}" != "${start_full}" ] ; then
+  BINUTILSPREFIX_MAKE_OPT="BINUTILSPREFIX=${start_full}-"
+else
+  BINUTILSPREFIX_MAKE_OPT=
+fi
+
+echo "$MAKE cycle OPT=\"-n -gl\" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT" >> $readme
+$MAKE cycle OPT="-n -gl" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "$start_full cycle failed" >> $readme
@@ -67,8 +73,8 @@ echo "cp ${start_compiler} ${start_compiler}-${release_version}" >> $readme
 cp ${start_compiler} ${start_compiler}-${release_version}
 NEW_FPC=`pwd`/${start_compiler}-${release_version}
 
-echo "$MAKE ${target_cpu} FPC=$NEW_FPC" >> $readme
-$MAKE ${target_cpu} FPC=$NEW_FPC
+echo "$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT" >> $readme
+$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "$MAKE cross ${target_cpu} failed" >> $readme
