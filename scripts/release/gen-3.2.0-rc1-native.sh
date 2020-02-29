@@ -39,7 +39,11 @@ target_full=${target_cpu}-${target_os}
 start_full=${start_cpu}-${start_os}
 
 if [ -z "$MAKE" ] ; then
-  MAKE=make
+  MAKE=`which gmake`
+fi
+
+if [ -z "$MAKE" ] ; then
+  MAKE=`which make`
 fi
 
 set -u
@@ -85,8 +89,8 @@ if [ "$target_compiler" != "$start_compiler" ] ; then
   echo "cp ./${target_compiler} ./${target_compiler}-cross-${release_version}" >> $readme
   cp ./${target_compiler} ./${target_compiler}-cross-${release_version}
   CROSS_FPC=`pwd`/${target_compiler}-cross-${release_version}
-  echo "$MAKE distclean rtlclean rtl aarch64  FPC=$CROSS_FPC OPT=\"-n -gl\"" >> $readme
-  $MAKE distclean rtlclean rtl aarch64  FPC=$CROSS_FPC OPT="-n -gl"
+  echo "$MAKE distclean rtlclean rtl $target_cpu  FPC=$CROSS_FPC OPT=\"-n -gl\"" >> $readme
+  $MAKE distclean rtlclean rtl $target_cpu  FPC=$CROSS_FPC OPT="-n -gl"
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "$MAKE native ${target_cpu} failed" >> $readme
