@@ -34,6 +34,17 @@ start_os=`$FPC -iSO`
 set_cpu_suffix ${start_cpu}
 start_compiler_suffix=$cpu_suffix
 start_compiler=ppc$start_compiler_suffix
+cycle_compiler=$start_compiler
+
+if [ "${FPC/fpc/}" != "$FPC" ] ; then
+  FPC=`$FPC -PB`
+fi
+if [ "${FPC/${start_compiler}/}" == "$FPC" ] ; then
+  echo "$FPC and $start_compiler are not compatible"
+  exit
+else
+  start_compiler=$FPC
+fi
 
 target_full=${target_cpu}-${target_os}
 start_full=${start_cpu}-${start_os}
@@ -46,7 +57,38 @@ if [ -z "$MAKE" ] ; then
   MAKE=`which make`
 fi
 
+if [ -z "$NEEDED_OPT" ] ; then
+  NEEDED_OPT=
+fi
+
 set -u
+
+if [ "$target_cpu" == "sparc" ] ; then
+  # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+  NATIVE_OPT32="-ao-32 -Xd -vx"
+  if [ -d /lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
+  fi
+  if [ -d /usr/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+  fi
+  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
+  fi
+  if [ -d /usr/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+  fi
+  if [ -d $HOME/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+  fi
+  NEEDED_OPT="$NEEDED_OPT $NATIVE_OPT32"
+fi
 
 basedir=`pwd`
 readme=$basedir/readme.${target_full}
@@ -66,16 +108,16 @@ else
 fi
 
 echo "$MAKE cycle OPT=\"-n -gl\" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT" >> $readme
-$MAKE cycle OPT="-n -gl" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT
+$MAKE cycle OPT="-n -gl $NEEDED_OPT" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "$start_full cycle failed" >> $readme
   exit
 fi
 
-echo "cp ${start_compiler} ${start_compiler}-${release_version}" >> $readme
-cp ${start_compiler} ${start_compiler}-${release_version}
-NEW_FPC=`pwd`/${start_compiler}-${release_version}
+NEW_FPC=`pwd`/${cycle_compiler}-${release_version}
+echo "cp ./${cycle_compiler} $NEW_FPC" >> $readme
+cp ./${cycle_compiler} $NEW_FPC
 
 echo "$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT" >> $readme
 $MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT
@@ -85,7 +127,7 @@ if [ $makeres -ne 0 ] ; then
   exit
 fi
 
-if [ "$target_compiler" != "$start_compiler" ] ; then
+if [ "$target_compiler" != "$cycle_compiler" ] ; then
   echo "cp ./${target_compiler} ./${target_compiler}-cross-${release_version}" >> $readme
   cp ./${target_compiler} ./${target_compiler}-cross-${release_version}
   CROSS_FPC=`pwd`/${target_compiler}-cross-${release_version}
@@ -111,6 +153,7 @@ fi
 echo "Running 'pyacc h2pas.y h2pas.pas' in fpcsrc/utils/h2pas"
 (cd fpcsrc/utils/h2pas ; pyacc h2pas.y h2pas.pas )
 
+export OPT="-n -gl $NEEDED_OPT"
 echo "Starting ./install/makepack" >> $readme
 
 ./install/makepack $target_full
