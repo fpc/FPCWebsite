@@ -119,15 +119,15 @@ NEW_FPC=`pwd`/${cycle_compiler}-${release_version}
 echo "cp ./${cycle_compiler} $NEW_FPC" >> $readme
 cp ./${cycle_compiler} $NEW_FPC
 
-echo "$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT" >> $readme
-$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT
-makeres=$?
-if [ $makeres -ne 0 ] ; then
-  echo "$MAKE cross ${target_cpu} failed" >> $readme
-  exit
-fi
-
 if [ "$target_compiler" != "$cycle_compiler" ] ; then
+  echo "$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT" >> $readme
+  $MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT
+  makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "$MAKE cross ${target_cpu} failed" >> $readme
+    exit
+  fi
+
   echo "cp ./${target_compiler} ./${target_compiler}-cross-${release_version}" >> $readme
   cp ./${target_compiler} ./${target_compiler}-cross-${release_version}
   CROSS_FPC=`pwd`/${target_compiler}-cross-${release_version}
@@ -141,19 +141,26 @@ if [ "$target_compiler" != "$cycle_compiler" ] ; then
 fi
 
 echo "cp ./${target_compiler} ./${target_compiler}-${release_version}" >> $readme
-cp ./${target_compiler} ./${target_compiler}-${release_version}
+cp -fp ./${target_compiler} ./${target_compiler}-${release_version}
 
 cd $basedir
 
 export FPC=`pwd`/fpcsrc/compiler/${target_compiler}-${release_version}
 if [ ! -f doc-pdf.tar.gz ] ; then
-  scp fpcftp:ftp/beta/3.2.0-rc1/docs/doc-pdf.tar.gz .
+  pdf_doc=`find .. -name "doc-pdf.tar.gz" 2> /dev/null | xargs ls -1tr | head -1`
+  if [ -f "../$pdf_doc" ] ; then
+    echo "copying $pdf_doc to here"
+    cp -fp "`pwd`/../$pdf_doc" .
+  else
+    echo "Uploading doc-pdf.tar.gz from fpcftp server to here"
+    scp fpcftp:ftp/beta/$release_version/docs/doc-pdf.tar.gz .
+  fi
 fi
 
 echo "Running 'pyacc h2pas.y h2pas.pas' in fpcsrc/utils/h2pas"
 (cd fpcsrc/utils/h2pas ; pyacc h2pas.y h2pas.pas )
 
-export OPT="-n -gl $NEEDED_OPT"
+export EXTRAOPT="-n -gl $NEEDED_OPT"
 echo "Starting ./install/makepack" >> $readme
 
 ./install/makepack $target_full
