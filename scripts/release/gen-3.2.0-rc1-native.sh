@@ -36,7 +36,8 @@ start_compiler_suffix=$cpu_suffix
 start_compiler=ppc$start_compiler_suffix
 cycle_compiler=$start_compiler
 
-if [ "${FPC/fpc/}" != "$FPC" ] ; then
+FPCNAME=`basename $FPC`
+if [ "${FPCNAME/fpc/}" != "$FPCNAME" ] ; then
   FPC=`$FPC -PB`
 fi
 if [ "${FPC/${start_compiler}/}" == "$FPC" ] ; then
@@ -50,11 +51,11 @@ target_full=${target_cpu}-${target_os}
 start_full=${start_cpu}-${start_os}
 
 if [ -z "$MAKE" ] ; then
-  MAKE=`which gmake`
+  MAKE=`which gmake 2> /dev/null`
 fi
 
 if [ -z "$MAKE" ] ; then
-  MAKE=`which make`
+  MAKE=`which make 2> /dev/null`
 fi
 
 if [ -z "$NEEDED_OPT" ] ; then
