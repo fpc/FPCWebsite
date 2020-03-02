@@ -95,7 +95,17 @@ readme=$basedir/readme.${target_full}
 echo "Special method used to generate ${target_full} ${release_version} distribution" > $readme
 
 cd fpcsrc/compiler/
-export PATH=$HOME/pas/fpc-3.0.4/bin:$PATH
+if [ "$start_os" == "solaris" ] ; then
+  if [ "$start_cpu" == "sparc" ] ; then
+    export PATH=$HOME/pas/sparc/fpc-3.0.4/bin:$PATH
+  elif [ "$start_cpu" == "i386" ] ; then
+    export PATH=$HOME/pas/i386/fpc-3.0.4/bin:$PATH
+  elif [ "$start_cpu" == "x86_64" ] ; then
+    export PATH=$HOME/pas/x86_64/fpc-3.0.4/bin:$PATH
+  fi
+else
+  export PATH=$HOME/pas/fpc-3.0.4/bin:$PATH
+fi
 echo "Starting with release compiler $start_compiler" >> $readme
 
 echo "$start_compiler -iVDWSOSPTOTP:" >> $readme
