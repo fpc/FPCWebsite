@@ -4,7 +4,9 @@
 # These might need to be updated
 # after a release
 
-. $HOME/bin/fpc-versions.sh
+if [ -z "$INSTALLFPCDIRPREFIX" ] ; then
+  . $HOME/bin/fpc-versions.sh
+fi
 
 FPC_CURRENT_RELEASE_VERSION=$RELEASEVERSION
 FPC_CURRENT_TRUNK_VERSION=$TRUNKVERSION
@@ -20,6 +22,7 @@ fi
 
 echo "Running $0 on $HOSTNAME"
 pref=$HOSTNAME
+MAKE_OPT=""
 
 if [ "${HOSTNAME/unstable/}" != "${HOSTNAME}" ] ; then
   HOST_PC=opencsw
@@ -27,6 +30,7 @@ if [ "${HOSTNAME/unstable/}" != "${HOSTNAME}" ] ; then
   echo "$pref: Using special opencsw buildfarm configuration"
   # We need /opt/csw/bin in path
   WITHCSW=1
+  MAKE_OPT="-j 4"
 else
 if [ "${HOSTNAME}" == "Oracle" ]; then
   HOST_PC=E6510_Muller
@@ -155,10 +159,16 @@ function test_tmt1_kill {
 
 cd ${FPCPASDIR}/${SVNDIR}
 
-export report=`pwd`/report-${FPC_TARGET_CPU}.txt 
-export makelog=`pwd`/make-${FPC_TARGET_CPU}.txt 
-export makecleanlog=`pwd`/make-clean-${FPC_TARGET_CPU}.txt 
-export testslog=`pwd`/tests-${FPC_TARGET_CPU}.txt 
+LOGDIR=${HOME}/logs/${SVNDIR}
+
+if [ ! -d ${LOGDIR} ] ; then
+  mkdir -p ${LOGDIR}
+fi
+
+export report=${LOGDIR}/report-${FPC_TARGET_CPU}.txt 
+export makelog=${LOGDIR}/make-${FPC_TARGET_CPU}.txt 
+export makecleanlog=${LOGDIR}/make-clean-${FPC_TARGET_CPU}.txt 
+export testslog=${LOGDIR}/tests-${FPC_TARGET_CPU}.txt 
 export DATETIMESTAMP="date +%Y-%m-%d-%H:%M"
 
 echo "`$DATETIMESTAMP` Starting $0" > $report
@@ -243,7 +253,7 @@ if [ -z "$SKIPMAKE" ] ; then
     # Try again only compiler level
     echo "`$DATETIMESTAMP`  Try again only compiler level with release compiler" >> $report
     STOREFPCBIN=${FPCBIN}
-    FPCBIN=~/pas/fpc-${FPC_CURRENT_RELEASE_VERSION}/bin/${FPCBIN}
+    FPCBIN=${FPCPASINSTALLDIR}/fpc-${FPC_CURRENT_RELEASE_VERSION}/bin/${FPCBIN}
     run_make "distclean cycle" "OPT=-gl FPC=${FPCBIN}"
     FPCBIN=${STOREFPCBIN}
     if [ "${makeres}" == "0" ]; then
@@ -274,16 +284,18 @@ function run_tests ()
   echo "${MAKE} info TEST_USER=pierre TEST_FPC=`which ${FPCBIN}` FPC=`which ${FPCBIN}` TEST_OPT=\"$TEST_OPT\" DB_SSH_EXTRA=\" -i ~/.ssh/freepascal-oracle\"" >> $report
   ${MAKE} info TEST_USER=pierre TEST_FPC=`which ${FPCBIN}` FPC=`which ${FPCBIN}` TEST_OPT="$TEST_OPT" DB_SSH_EXTRA=" -i ~/.ssh/freepascal-oracle" >> $testslog 2>&1
   echo "${MAKE} distclean $FULL TEST_USER=pierre TEST_FPC=`which ${FPCBIN}` FPC=`which ${FPCBIN}` TEST_OPT=\"$TEST_OPT\" DB_SSH_EXTRA=\" -i ~/.ssh/freepascal-oracle\"" >> $report
-  ${MAKE} distclean $FULL TEST_USER=pierre TEST_FPC=`which ${FPCBIN}` \
-    FPC=`which ${FPCBIN}` TEST_OPT="$TEST_OPT" \
-    DB_SSH_EXTRA=" -i ~/.ssh/freepascal-oracle" >> $testslog 2>&1
-  testsres=$?
+  for rule in distclean $FULL ; do
+    ${MAKE} ${MAKE_OPT} $rule TEST_USER=pierre TEST_FPC=`which ${FPCBIN}` \
+      FPC=`which ${FPCBIN}` TEST_OPT="$TEST_OPT" \
+      DB_SSH_EXTRA=" -i ~/.ssh/freepascal-oracle" >> $testslog 2>&1
+    testsres=$?
+    if [ $testsres -ne 0 ] ; then
+      echo "Error in rule $rule res=$testsres, echoing 30 last lines of $testslog" >> $report
+      tail -30 $testslog >> $report
+      echo "End of $testslog" >> $report
+    fi
+  done
   echo "`$DATETIMESTAMP` Ending make distclean $FULL; result=${testsres}" >> $report
-  if [ $testsres -ne 0 ] ; then
-    echo "echoing 30 last lines of $testslog" >> $report
-    tail -30 $testslog >> $report
-    echo "End of $testslog" >> $report
-  fi
   if [ $do_upload -eq 0 ] ; then
     echo "`$DATETIMESTAMP` cp output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/" >> $report
     cp output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/ >> $report 2>&1
@@ -337,9 +349,9 @@ if [ -f ./compiler/${FPCBIN} ]; then
   run_tests "-Agas"
   test_tmt1_kill
 
-  testslog=${testslog/-3.txt/-4.txt}
-  run_tests "-Agas -Xn"
-  test_tmt1_kill
+# testslog=${testslog/-3.txt/-4.txt}
+# run_tests "-Agas -Xn"
+# test_tmt1_kill
 
   mutt -x -s "Free Pascal results on ${HOSTNAME} ${Build_target_cpu}-${Build_target_os}, ${Build_version} ${Build_date}, on host $HOST_PC" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
