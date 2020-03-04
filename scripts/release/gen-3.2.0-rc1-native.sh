@@ -95,6 +95,8 @@ basedir=`pwd`
 readme=$basedir/readme.${target_full}
 echo "Special method used to generate ${target_full} ${release_version} distribution" > $readme
 
+cyclelog=$basedir/cycle.log
+
 cd fpcsrc/compiler/
 if [ "$start_os" == "solaris" ] ; then
   if [ "$start_cpu" == "sparc" ] ; then
@@ -119,7 +121,7 @@ else
 fi
 
 echo "$MAKE cycle OPT=\"-n -gl\" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT" >> $readme
-$MAKE cycle OPT="-n -gl $NEEDED_OPT" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT
+$MAKE cycle OPT="-n -gl $NEEDED_OPT" FPC=$start_compiler $BINUTILSPREFIX_MAKE_OPT > $cyclelog 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "$start_full cycle failed" >> $readme
@@ -132,7 +134,7 @@ cp ./${cycle_compiler} $NEW_FPC
 
 if [ "$target_compiler" != "$cycle_compiler" ] ; then
   echo "$MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT" >> $readme
-  $MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT
+  $MAKE ${target_cpu} FPC=$NEW_FPC $BINUTILSPREFIX_MAKE_OPT >> $cyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "$MAKE cross ${target_cpu} failed" >> $readme
@@ -143,7 +145,7 @@ if [ "$target_compiler" != "$cycle_compiler" ] ; then
   cp ./${target_compiler} ./${target_compiler}-cross-${release_version}
   CROSS_FPC=`pwd`/${target_compiler}-cross-${release_version}
   echo "$MAKE distclean rtlclean rtl $target_cpu  FPC=$CROSS_FPC OPT=\"-n -gl\"" >> $readme
-  $MAKE distclean rtlclean rtl $target_cpu  FPC=$CROSS_FPC OPT="-n -gl"
+  $MAKE distclean rtlclean rtl $target_cpu  FPC=$CROSS_FPC OPT="-n -gl" >> $cyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "$MAKE native ${target_cpu} failed" >> $readme
@@ -157,27 +159,36 @@ cp -fp ./${target_compiler} ./${target_compiler}-${release_version}
 cd $basedir
 
 export FPC=`pwd`/fpcsrc/compiler/${target_compiler}-${release_version}
+
 if [ ! -f doc-pdf.tar.gz ] ; then
-  pdf_doc=`find .. -name "doc-pdf.tar.gz" 2> /dev/null | xargs ls -1tr | head -1`
-  if [ -f "../$pdf_doc" ] ; then
-    echo "copying $pdf_doc to here"
-    cp -fp "`pwd`/../$pdf_doc" .
+  cd ..
+  pdf_doc=`find . -name "doc-pdf.tar.gz" 2> /dev/null | xargs ls -1tr | head -1`
+  if [ -f "$pdf_doc" ] ; then
+    echo "copying $pdf_doc to $basedir"
+    cp -fp "$pdf_doc" $basedir
   else
     echo "Uploading doc-pdf.tar.gz from fpcftp server to here"
     scp fpcftp:ftp/beta/$release_version/docs/doc-pdf.tar.gz .
   fi
 fi
 
+cd $basedir
+
 echo "Running 'pyacc h2pas.y h2pas.pas' in fpcsrc/utils/h2pas"
 (cd fpcsrc/utils/h2pas ; pyacc h2pas.y h2pas.pas )
 
 export EXTRAOPT="-n -gl $NEEDED_OPT"
-echo "Starting ./install/makepack" >> $readme
 
-./install/makepack $target_full
+echo "Starting ./install/makepack $target_full"
+echo "Starting ./install/makepack $target_full" >> $readme
+
+logfile=`pwd`/makepack-$target_full.log
+bash -v ./install/makepack $target_full > $logfile 2>&1
+
 makepackres=$?
 if [ $makepackres -ne 0 ] ; then
-  echo "install/makepack ${target_full} failed" >> $readme
+  echo "install/makepack ${target_full} failed, logfile is $logfile"
+  echo "install/makepack ${target_full} failed, logfile is $logfile" >> $readme
   exit
 fi
 ssh fpcftp "cd ftp/beta/${release_version} ; mkdir -p ${target_full}"
