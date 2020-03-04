@@ -14,7 +14,7 @@ fi
  
 export MAKE=gmake
 
-if [ "$STARTPP" == "" ] ; then
+if [ -z "$STARTPP" ] ; then
   if [ "`uname -p`" == "sparc" ] ; then
     STARTPP=ppcsparc
   else
@@ -30,7 +30,7 @@ else
   SVNVER=$TRUNKVERSION
 fi
 
-if [ "$FTPDIR" == "" ] ; then
+if [ -z "$FTPDIR" ] ; then
   if [ "$STARTPP" == "ppc386" ] ; then
     FTPDIR=fpcftp:ftp/snapshot/$SVNDIR/i386-solaris
   fi
@@ -48,7 +48,7 @@ if [ "$FTPDIR" == "" ] ; then
   fi
 fi
 
-if [ "$CHECKOUTDIR" == "" ]; then
+if [ -z "$CHECKOUTDIR" ]; then
   CHECKOUTDIR=~/pas/$SVNDIR
 fi
 
@@ -74,19 +74,16 @@ fi
 FPC_TARGET=${FPC_TARGET_CPU}-solaris
 FPCPASDIR=$HOME/pas
 
-if [ -z "$FPCPASINSTALLDIR" ] ; then
-  if [ "$HOST_PC" == "opencsw" ] ; then
-    if [ -z "$FPC_SOURCE_CPU" ] ; then
-      FPCPASINSTALLDIR=$FPCPASDIR/$FPC_TARGET_CPU
-    else
-      FPCPASINSTALLDIR=$FPCPASDIR/$FPC_SOURCE_CPU
-    fi
+if [ "$HOST_PC" == "opencsw" ] ; then
+  if [ -z "$FPC_SOURCE_CPU" ] ; then
+    FPCPASINSTALLDIR=$FPCPASDIR/$FPC_TARGET_CPU
   else
-    FPCPASINSTALLDIR=$FPCPASDIR
+    FPCPASINSTALLDIR=$FPCPASDIR/$FPC_SOURCE_CPU
   fi
+else
+  FPCPASINSTALLDIR=$FPCPASDIR
 fi
 
-export FPCPASINSTALLDIR
 export SVNVER
 
 if [ -z "$LOGFILE" ] ; then
@@ -96,27 +93,32 @@ fi
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 ulimit -d 65536 -s 8192 -t 2400
 
+function decho ()
+{
+  echo "`date +%Y-%m-%d-%H-%M`: $*"
+}
+
 (
+decho "Starting $0"
+uname -a
 # PATH=".:${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/ccs/bin:/opt/csw/bin:/opt/sfw/bin"
 PATH=$PATH:/opt/csw/bin
 if [ -d "$FPCPASINSTALLDIR/fpc-$RELEASEVERSION/bin" ] ; then
   PATH=$FPCPASINSTALLDIR/fpc-$RELEASEVERSION/bin:$PATH
-  echo "Adding release $RELEASEVERSION Free Pascal binary directory to PATH"
+  decho "Adding release $FPCPASINSTALLDIR/fpc-$RELEASEVERSION/bin Free Pascal binary directory to PATH"
 else
   if [ -d "$FPCPASINSTALLDIR/fpc-$SVNVER/bin" ] ; then
     PATH=$FPCPASINSTALLDIR/fpc-$SVNVER/bin:$PATH
-    echo "Adding $SVNVER Free Pascal binary directory to PATH"
+    decho "Adding $FPCPASINSTALLDIR/fpc-$SVNVER/bin Free Pascal binary directory to PATH"
     export OVERRIDEVERSIONCHECK=1
   else
-    echo "Problem with PATH"
+    decho "Problem with PATH"
   fi
 fi
 
 export PATH
 
-date
-uname -a
-echo "Start PATH is \"$PATH\""
+decho "Start PATH is \"$PATH\""
 #env
 set | grep PAS
 
@@ -124,76 +126,68 @@ set | grep PAS
 cd $CHECKOUTDIR
 rm -rf libgdb
 rm -f *.tar.gz
-$MAKE distclean TEST_FPC=$STARTPP || true
+decho "$MAKE distclean TEST_FPC=$STARTPP"
+$MAKE distclean TEST_FPC=$STARTPP
+res=$?
+decho "$MAKE distclean TEST_FPC=$STARTPP finished res=$res"
 # $MAKE -C tests distclean TEST_FPC=$STARTPP || true
 
 # Run cvs update
 cd $CHECKOUTDIR
+decho "Starting svn cleanup"
 svn cleanup
+decho "Starting svn up"
 svn up
 
 # add needed files (libgdb.a)
 if [ "$LIBGDBZIP" != "" ]; then
         cd $CHECKOUTDIR
+        decho "Unzipping ${LIBGDBZIP}"
         unzip -o ${LIBGDBZIP}
 fi
 
-# Copy fv, not needed anymore for 1.9.x
-#cd $CHECKOUTDIR/../fv
-#cvs up -CPd
-#cd $CHECKOUTDIR
-#cp -a ../fv $CHECKOUTDIR
-
 # make the snapshot!
+decho "cd $CHECKOUTDIR"
 cd $CHECKOUTDIR
-$MAKE singlezipinstall OS_TARGET=linux SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
+decho "pwd=`pwd`"
+README=readme
 
-if [ "$PPCCPU" == "" ]; then
-  PPCCPU=ppc386
+echo "Starting $0 at `date +%Y-%m-%d-%H-%M`" > $README
+echo "Main svn version: `svnversion -c .`" >> $README
+if [ -d fpcsrc ] ; then
+  echo "fpcsrc svn version: `svnversion -c fpcsrc`" >> $README
 fi
 
-# copy current compiler to bin dir
-cp $CHECKOUTDIR/compiler/$PPCCPU $INSTALLCOMPILER
+echo "Starting $MAKE singlezipinstall OS_TARGET=solaris SNAPSHOT=1 PP=$STARTPP $EXTRAOPT" >> $README
+decho "Starting $MAKE singlezipinstall OS_TARGET=solaris SNAPSHOT=1 PP=$STARTPP $EXTRAOPT"
+$MAKE singlezipinstall OS_TARGET=solaris SNAPSHOT=1 PP=$STARTPP $EXTRAOPT
+res=$?
+echo "Finished $MAKE singlezipinstall OS_TARGET=solaris SNAPSHOT=1 PP=$STARTPP $EXTRAOPT, res=$res" >> $README
+decho "Finished $MAKE singlezipinstall OS_TARGET=solaris SNAPSHOT=1 PP=$STARTPP $EXTRAOPT, res=$res"
 
-# move snapshot
-if [ ! -d $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET ] ; then
-  mkdir -p $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET
+if [ $res -ne 0 ] ; then
+  decho "Failed to generate new snapshot"
+else
+  decho "$MAKE singlezipinstall finished OK"
+  # move snapshot
+  if [ ! -d $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET ] ; then
+    decho "mkdir -p $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET"
+    mkdir -p $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET
+  fi
+
+  for file in *${FPC_TARGET}*gz $README ; do
+    decho "cp -fp $file $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/"
+    cp -fp $file $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/
+  done
 fi
-cp -fp *${FPC_TARGET}*gz $HOME/logs/to_upload/to_ftp/$SVNDIR/$FPC_TARGET/
-
-# if [ "$FTPDIR" != "" ]; then
-#  cd $CHECKOUTDIR
-#  if [ $? = 0 ]; then
-#     #  FTP machine must trust this account. Copy public key to that machine
-#     # if needed Everything is set
-#     ssh ${FTPDIR/:*/} ls -l ${FTPDIR/*:/}
-#     res=$?
-#     if [ $res -ne 0 ] ; then
-#       ssh $FTPSITE mkdir -p ${FTPDIR/*:/}
-#     fi
-#     scp *.tar.gz ${FTPDIR}
-#     if [ $? = 0 ]; then   
-#       set ERRORMAILADDR = ""
-#     fi
-#  fi
-#fi
-
-# run testsuite and store results in database
-#cd $CHECKOUTDIR/tests
-# fpc -iV returns exitcode 1, workaround with || true
-#FPCVERSION=0
-#[ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-#for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
-#  $MAKE clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER DIGESTVER=$FPCVERSION DIGEST=$HOME/bin/digest DOTEST=$HOME/bin/dotest TEST_OPT="${TESTSUITEOPTS[TESTOPTS]}" TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" V=1 TEST_VERBOSE=1
-#done
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR
 rm -rf libgdb
-$MAKE distclean || true
-#$MAKE -C tests distclean TEST_FPC=$INSTALLCOMPILER || true
-
-date
+decho "$MAKE distclean"
+$MAKE distclean
+res=$?
+decho "$MAKE distclean finished, res=$res"
 ) > $LOGFILE 2>&1 </dev/null
 
 # send result to webmaster
