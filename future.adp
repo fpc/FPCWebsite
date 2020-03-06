@@ -40,6 +40,7 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
 <trn key="website.future.list" locale="en_US">
 <ul>
   <li>Rework and check the windows unit (macro parameter problem)(<b>3</b>)</li>
+  <li>Rework, reorganize, re-sort the FPC compiler parameter handling and use long options</li>
   <li>More Windows API units (<b>4</b>) </li>
   <li>A set of cross platform and architecture basic networking components (difficulty: <b>5</b> work: <b>7-8</b>)</li>
   <li>Porting Delphi source for projects/contrib (<b>3-6</b>, depending on package)</li>
