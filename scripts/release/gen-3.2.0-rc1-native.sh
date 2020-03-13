@@ -178,9 +178,11 @@ echo "Running 'pyacc h2pas.y h2pas.pas' in fpcsrc/utils/h2pas"
 (cd fpcsrc/utils/h2pas ; pyacc h2pas.y h2pas.pas )
 
 export EXTRAOPT="-n -gl $NEEDED_OPT"
-
+echo "Generated on machine: `uname -a`" >> $readme
 echo "Starting ./install/makepack $target_full"
 echo "Starting ./install/makepack $target_full" >> $readme
+echo "with FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\""
+echo "with FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" >> $readme
 
 logfile=`pwd`/makepack-$target_full.log
 bash -v ./install/makepack $target_full > $logfile 2>&1
