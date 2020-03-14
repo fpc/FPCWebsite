@@ -107,7 +107,12 @@ if [ "$start_os" == "solaris" ] ; then
     export PATH=$HOME/pas/x86_64/fpc-3.0.4/bin:$PATH
   fi
 else
-  export PATH=$HOME/pas/fpc-3.0.4/bin:$PATH
+  fpc_dir="`dirname $FPC 2> /dev/null`"
+  if [ -d "$fpc_dir" ] ; then
+    export PATH=$fpc_dir:$HOME/pas/fpc-3.0.4/bin:$PATH
+  else
+    export PATH=$HOME/pas/fpc-3.0.4/bin:$PATH
+  fi
 fi
 echo "Starting with release compiler $start_compiler" >> $readme
 
