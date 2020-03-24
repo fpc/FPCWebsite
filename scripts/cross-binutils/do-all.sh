@@ -316,6 +316,9 @@ export BINUTILS_RELEASE=
 ## system_x86_64_win64,       { 37 }
 ./do-one.sh x86_64-win64 x86_64-w64-mingw32
 
+## xtensa CPU
+## system_xtensa_embedded,    { 103 }
+./do-one.sh xtensa-embedded xtensa-none-elf
 
 ## List was generated using
 ## sed -n "s:^ *\(system_.*\)$:## \1:p" ~/pas/trunk/fpcsrc/compiler/systems.inc  | sort
