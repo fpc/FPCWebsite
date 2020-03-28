@@ -4,6 +4,7 @@
 /adp2html.pp svneol=native#text/x-pascal
 /adpconverter.pp svneol=native#text/plain
 /adpdata.pp svneol=native#text/plain
+/adpparser.pp svneol=native#text/plain
 /adputils.pp svneol=native#text/plain
 /advantage.adp svneol=native#text/plain
 /advantage.fr.fp svneol=native#text/html

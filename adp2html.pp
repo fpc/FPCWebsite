@@ -15,7 +15,7 @@ Type
   TADP2HTMLapplication = Class(TCustomApplication)
   Private
     Fopt : TOptions;
-    procedure DoonePage(const outfn: AnsiString; args: array of ansistring);
+    procedure DoonePage(const outfn: AnsiString; args: array of ansistring; datasources : TDatasources);
     procedure RunOnce;
   Public
     procedure Usage(Const Msg : string);
@@ -57,11 +57,26 @@ procedure TADP2HTMLapplication.Usage(Const Msg : string);
 begin
   if Msg<>'' then
     Writeln('Error : ',Msg);
-  writeln('Usage: adp2html [-ce catalog_encoding] \');
-  writeln('                [-d datasource_prefix] [-ie input_encoding ] \');
-  writeln('                [-l locale] [-lb fallback_locale] \');
-  writeln('                [-m default_master] [-p key=value] \');
-  writeln('                [-o outputfile]  <filename>');
+  writeln('Usage: adp2html [options] ');
+  Writeln('Where option is one or more of:');
+  writeln('-d --data-prefix=PREFIX   set data filename prefix to PREFIX');
+  writeln('-o --output-file=FILE     set output file to FILE');
+  writeln('-f --config=FIILE         set config file to FILE (run in auto mode)');
+  writeln('-C --catalog-encoding=ENC set catalog file encoding.');
+  writeln('-e --output-encoding=ENC  set output file encoding.');
+  writeln('-E --input-encoding=ENC   set input file encoding.');
+  writeln('-l --locale=LOC           set locale to use when looking up messages');
+  writeln('-b --fallback-locale=LOC  set fallback locale to use when looking up messages (default: en)');
+  writeln('-p --property=Name=Value  set a property value, used when substituting');
+  writeln('-m --master=NAME          set master file location (default: default-master.adp)');
+  writeln('-P --output-prefix=NAME   set prefix for output files to NAME');
+  writeln('-B --multilang            generate files for multiple languages');
+  writeln('-M --no-multilang         disable multi-language feature');
+  writeln('-a --auto-driver          run in auto mode, using default file website.conf');
+  writeln('-t --tar                  create a tar file of generated files.');
+  writeln('-t --no-tar               do not create a tar file of generated files');
+  writeln('-z --zip                  create a zip file of generated files');
+  writeln('-Z --no-zip               do not create a zip file of generated files');
   halt(Ord(Msg<>''));
 end;
 
@@ -91,18 +106,22 @@ begin
     outputFile:=GetOptionValue('o','output-file');
     datasource_prefix:=GetOptionValue('d','data-prefix');
     output_Prefix:=GetOptionValue('P','output-prefix');
-    output_encoding:=GetOptionValue('e','output-encoding');
-    input_encoding:=GetOptionValue('E','input-encoding');
-    catalog_encoding:=GetOptionValue('C','catalog-encoding');
+    if HasOption('e','output-encoding') then
+      output_encoding:=GetOptionValue('e','output-encoding');
+    if HasOption('E','input-encoding') then
+      input_encoding:=GetOptionValue('E','input-encoding');
+    if HasOption('C','catalog-encoding') then
+      catalog_encoding:=GetOptionValue('C','catalog-encoding');
     locale:=GetOptionValue('l','locale');
     fallback_locale:=GetOptionValue('b','fallback-locale');
-    default_master:=GetOptionValue('m','master');
+    if HasOption('m','master') then
+      default_master:=GetOptionValue('m','master');
     if HasOption('f','config') then
       begin
        autoDriver:=true;
        configfn:=GetOptionValue('f','config');
       end;
-    if HasOption('a','auto') then
+    if HasOption('a','auto-driver') then
       begin
       autoDriver:=true;
       configfn:='website.conf';
@@ -122,7 +141,7 @@ end;
 
 // kind of the actual generation that scripts using other routines.
 
-procedure TADP2HTMLapplication.DoonePage(const outfn: AnsiString; args:array of ansistring);
+procedure TADP2HTMLapplication.DoonePage(const outfn: AnsiString; args:array of ansistring; datasources : TDatasources);
 
 var
   i,langnr : integer;
@@ -131,15 +150,15 @@ var
 begin
   write(' ',outfn,' ');
   fopt.outputfile:=changefileext(outfn,'.html');
-  With TPageConverter.Create(fopt) do
+  With TPageConverter.Create(fopt,datasources) do
      begin
        options.checkprefix; // prefixes outfile with output prefix if applicable
        if high(args)>0 then
          for i:=0 to (( high(args)+1) div 2)-1 do
-            property_set(args[i*2],args[i*2+1]);
+            fProperties.Write(UTF8Decode(args[i*2]),UTF8Decode(args[i*2+1]));
          try
            Execute('.html','','iso-8859-1');
-           ifn:=outputfile; // save full output path for genvarfile if needed.
+           ifn:=options.outputfile; // save full output path for genvarfile if needed.
          finally
            Free;
          end;
@@ -152,12 +171,12 @@ begin
          if langcatalogok[langnr] then
           begin
              fopt.outputfile:=changefileext(outfn,'.html'); // execute appends country code (langnames)
-             With TPageConverter.Create(fopt) do
+             With TPageConverter.Create(fopt,datasources) do
                 begin
                   options.checkprefix;
                   if high(args)>0 then
                     for i:=0 to (( high(args)+1) div 2)-1 do
-                       property_set(args[i*2],args[i*2+1]);
+                       fProperties.Write(UTF8Decode(args[i*2]),UTF8Decode(args[i*2+1]));
                     try
                       Execute('.var',langnames[langnr],langencoding[langnr]);
                     finally
@@ -202,7 +221,7 @@ begin
      begin
        fopt.inputfile:=changefileext(fn,'.adp');
        afn:=changefileext(fn,'.html');
-       DoOnePage(afn,[]);
+       DoOnePage(afn,[],confdata.datasources);
      end;
     // download dir
     for locs in confdata.downdirs do // for every dir in down/ dir
@@ -218,9 +237,9 @@ begin
                         fn:=IncludeTrailingPathDelimiter(location)+addfnsuffix(name,'-'+lowercase(mname));
                         fopt.inputfile:=changefileext(IncludeTrailingPathDelimiter(location)+name,'.adp');
                         fn:=changefileext(fn,'.html');
-                        DoonePage(fn,[  'mirror_url',url,
-                                            'mirrorsuffix',lowercase(mname),
-                                            'latestversion',version]);
+                        DoonePage(fn,['mirror_url',url,
+                                      'mirrorsuffix',lowercase(mname),
+                                      'latestversion',version],confdata.Datasources);
 
                      end;
                   end;
@@ -229,7 +248,7 @@ begin
                  fn:=changefileext(IncludeTrailingPathDelimiter(location)+name,'.html');
                  DoonePage(fn,[  'latestversion',version,
                                      'pagename',changefileext(name,''),
-                                     'sourceforgepath',os]);
+                                     'sourceforgepath',os],confdata.Datasources);
              end;
      end;
   finally
@@ -244,6 +263,7 @@ procedure TADP2HTMLapplication.DoRun;
 Var
   I : integer;
   ifn : string;
+  DS : TDataSources;
 
 begin
   Terminate; // Make sure we stop
@@ -252,31 +272,35 @@ begin
     RunOnce
   else
     begin
-    if Fopt.multilang then
-      For I:=1 to LangCount do
-        With TPageConverter.Create(fopt) do
-          try
-            Execute('.var',LangNames[i],LangEncoding[i]);
-            ifn:=Fopt.OutputFile;
-            genvarfile(ifn);
-          finally
-            Free;
-          end;
-    // Do this also if multilang ?
-    With TPageConverter.Create(fopt) do
-      try
-        Execute('.html','','iso-8859-1');
-        ifn:=Fopt.OutputFile;
-        genvarfile(ifn);
-      finally
-        Free;
-      end;
+    DS:=TDataSources.Create(fopt.datasource_prefix);
+    try
+      if Fopt.multilang then
+        For I:=1 to LangCount do
+          With TPageConverter.Create(fopt,DS) do
+            try
+              Execute('.var',LangNames[i],LangEncoding[i]);
+              ifn:=Fopt.OutputFile;
+              genvarfile(ifn);
+            finally
+              Free;
+            end;
+      // Do this also if multilang ?
+      With TPageConverter.Create(fopt,ds) do
+        try
+          Execute('.html','','iso-8859-1');
+          ifn:=Fopt.OutputFile;
+          genvarfile(ifn);
+        finally
+          Free;
+        end;
+    finally
+      ds.Free;
+    end;
     end;
 end;
 
 Var
   Application:TADP2HTMLapplication;
-
 
 begin
   Application:=TADP2HTMLapplication.Create(Nil);

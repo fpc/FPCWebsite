@@ -29,6 +29,7 @@ var
   langcatalogok: array [1..langcount] of boolean;
 
 Type
+  TWebsiteData = Class;
 
   { TStringListList }
 
@@ -64,9 +65,26 @@ Type
     destructor Destroy;override;
   end;
 
-  TLoadDataSourceCallback = Procedure (datasource:String; aList : TStringListList) of object;
+
+  { TDatasources }
+
+  TDatasources = Class
+  private
+    FPrefix: string;
+  Public
+    Constructor Create (aPrefix : String);
+    procedure Loaddatasource(datasource: string; out aList :TStringListList); virtual;
+    Property Prefix : string read FPrefix;
+  end;
+
+  { TOptions }
 
   TOptions = class
+  private
+    flocale     : ansistring;
+    FULocale : UnicodeString;
+    procedure SetLocale(AValue: ansistring);
+  public
     inputfile,outputfile,catalogfile:ansistring;
     datasource_prefix : ansistring;
     fallback_locale   : ansistring;
@@ -75,7 +93,6 @@ Type
     catalog_encoding  : ansistring; //='UTF-8';
     default_master    : ansistring; // ='default-master.adp';
     output_prefix     : ansistring;
-    locale     : ansistring;
     Defines    : TStringList;
     masterpath : ansistring;
     configfn   : ansistring;
@@ -85,9 +102,21 @@ Type
     Constructor Create;
     Destructor Destroy; override ;
     procedure checkprefix;
-    Procedure defaultloaddatasource(datasource: string; aList :TStringListList);
+    Property Locale : ansistring read FLocale Write SetLocale;
+    Property ULocale : Unicodestring read FULocale;
   end;
 
+
+  { TWebsiteDatasources }
+
+  TWebsiteDatasources = Class (TDatasources)
+  private
+    FWebsiteData: TWebsiteData;
+  public
+    Constructor Create(aPrefix : string; aWebSite : TWebSiteData);
+    procedure Loaddatasource(datasource: string; out aList :TStringListList); override;
+    Property WebsiteData : TWebsiteData read FWebsiteData;
+  end;
 
   { TWebsiteData }
 
@@ -97,33 +126,42 @@ Type
     downdirs : TObjectlist;
     Cache : TStringlist; // <string,tstringlistlist>
     Fopts : TOptions;
+    datasources : TWebsiteDatasources;
     constructor Create(aOpts : TOptions);
     destructor Destroy; override;
     procedure load(configfn:String='website.conf');
     function ParseFile (FileName : String):TJsonData;
     procedure Dump;
-    function loaddatasource(datasource:string):TStringListList;
+
   end;
+
 
 
 implementation
 
+{ TDatasources }
 
-Procedure TOptions.defaultloaddatasource(datasource: string; aList :TStringListList);
+constructor TDatasources.Create(aPrefix: String);
+begin
+  FPrefix:=aPrefix;
+end;
+
+procedure TDatasources.Loaddatasource(datasource: string; out aList: TStringListList);
 
 var
   datafile : text;
-  t,s : string;
+  t,s : unicodestring;
   i,n:  integer;
   rows,
   colnames : Tstringlist;
 begin
-//   result:=TStringListList.create;
+   // Writeln('TOptions.defaultloaddatasource',datasource);
+   alist:=TStringListList.create;
    aList.strs:=tobjectlist.create(true);
    colnames:=aList.add;
 
    {Open the datasource.}
-    assign(datafile,datasource_prefix+datasource+'.dat');
+    assign(datafile,Prefix+datasource+'.dat');
     reset(datafile);
 
     {Read the column header.}
@@ -131,10 +169,10 @@ begin
     repeat
       i:=pos(#9,s);
       if i=0 then
-        colnames.add(s)
+        colnames.add(UTF8Encode(s))
       else
         begin
-          colnames.add(copy(s,1,i-1));
+          colnames.add(UTF8Encode(copy(s,1,i-1)));
           delete(s,1,i);
         end;
     until i=0;
@@ -150,10 +188,10 @@ begin
 
           i:=pos(#9,t);
           if i=0 then
-            rows.add(UTF8Decode(t))
+            rows.add(UTF8Encode(t))
           else
             begin
-              rows.add(UTF8Decode(copy(t,1,i-1)));
+              rows.add(UTF8Encode(copy(t,1,i-1)));
               delete(t,1,i);
             end;
           inc(n);
@@ -247,6 +285,7 @@ begin
   globalfiles:=TStringlist.Create;
   Cache:=tstringlist.create;
   cache.OwnsObjects:=true;
+  datasources:=TWebsiteDatasources.Create(aopts.datasource_prefix,Self);
 end;
 
 destructor TWebsiteData.Destroy;
@@ -255,14 +294,16 @@ begin
   downdirs.free;
   globalfiles.free;
   cache.free;
+  datasources.Free;
 end;
 
 procedure TWebsiteData.load(configfn:String='website.conf');
-var Conf : TJSonData;
-    Mirrorlist,
-    downdirlist ,
-    globalfileslist : TJsonArray;
-    obj : TJSONEnum;
+var
+  Conf : TJSonData;
+  Mirrorlist,
+  downdirlist ,
+  globalfileslist : TJsonArray;
+  obj : TJSONEnum;
 
 begin
   Conf:=ParseFile(configfn);
@@ -338,42 +379,56 @@ begin
      end;
 end;
 
-function TWebsiteData.loaddatasource(datasource: string):TStringListList;
+{ TWebsiteDatasources }
+
+constructor TWebsiteDatasources.Create(aPrefix : string; aWebSite: TWebSiteData);
+begin
+  inherited create(aPrefix);
+  FWebsiteData:=aWebsite;
+end;
+
+procedure TWebsiteDatasources.Loaddatasource(datasource: string; out aList: TStringListList);
+
 var j : integer;
     lststr : Tstringlist;
     p : pointer;
 begin
-  j:=cache.indexof(datasource);
-  if j=-1 then
-    begin
-      if datasource='mirrors' then
-        begin
-          result:=TStringListList.Create;
-          lststr:=result.Add;
-          lststr.add('name');
-          lststr.add('namel');
-          lststr.add('url');
-          for p in self.mirrors do
-            with tmirror(p) do
-              begin
-                lststr:=result.add;
-                lststr.Add(mname);
-                lststr.Add(lowercase(mname));
-                lststr.Add(url);
-              end;
-        end
-      else
-        begin
-        result:=TstringListList.Create;
-        Fopts.defaultloaddatasource(datasource,Result);
-        end;
-      cache.AddObject(datasource,result);
-    end
+  // Writeln('TWebsiteData.loaddatasource: ',Datasource);
+  j:=websitedata.cache.indexof(datasource);
+  if j<>-1 then
+    alist:=TStringListList(WebsiteData.cache.objects[j])
   else
-    result:=TStringListList(cache.objects[j]);
+    begin
+    if datasource='mirrors' then
+      begin
+      alist:=TStringListList.Create;
+      lststr:=aList.Add;
+      lststr.add('name');
+      lststr.add('namel');
+      lststr.add('url');
+      for p in websitedata.mirrors do
+        with tmirror(p) do
+          begin
+            lststr:=alist.add;
+            lststr.Add(mname);
+            lststr.Add(lowercase(mname));
+            lststr.Add(url);
+          end;
+      end
+    else
+      Inherited loaddatasource(datasource,aList);
+    WebsiteData.cache.AddObject(datasource,aList);
+    end
 end;
 
 { TOptions }
+
+procedure TOptions.SetLocale(AValue: ansistring);
+begin
+  if FLocale=AValue then Exit;
+  FLocale:=AValue;
+  FULocale:=UTF8Decode(FLocale);
+end;
 
 constructor TOptions.Create;
 
