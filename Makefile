@@ -33,9 +33,12 @@ endif
 
 default: all
 
-all: english output_directory contrib_all
+all: english output_directory contrib_all index.html
 
-english: all_pages down_all_en down2_all_en fcl_all_en tools_all_en output_directory contrib_all
+index.html: fpc.html
+	ln -s fpc.html index.html
+
+english: all_pages down_all_en  fcl_all_en tools_all_en output_directory contrib_all
 
 %.html: %.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -m default-master.adp -o $@ $<
