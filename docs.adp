@@ -51,6 +51,11 @@
 </table>
 
 </p>
+<p>
+<trn locale="en_US" key="website.search_docs">
+  You can also <a href="docsearch/docsearch.var">search the documentation</a>.
+</trn>
+</p>
 
 <p>
 <trn locale="en_US" key="website.alternative_doc_formats">
