@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> linux.var
 
 mirrors.dat:
-	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/m68k/linux-hungary.html.bg ../..//down/m68k/linux-hungary.html.en ../..//down/m68k/linux-hungary.html.fi ../..//down/m68k/linux-hungary.html.fr ../..//down/m68k/linux-hungary.html.id ../..//down/m68k/linux-hungary.html.it ../..//down/m68k/linux-hungary.html.nl ../..//down/m68k/linux-hungary.html.po ../..//down/m68k/linux-hungary.html.sl ../..//down/m68k/linux-hungary.html.ru ../..//down/m68k/linux-hungary.html.zh-CN ../..//down/m68k/linux-hungary.var ../..//down/m68k/linux-canada.html.bg ../..//down/m68k/linux-canada.html.en ../..//down/m68k/linux-canada.html.fi ../..//down/m68k/linux-canada.html.fr ../..//down/m68k/linux-canada.html.id ../..//down/m68k/linux-canada.html.it ../..//down/m68k/linux-canada.html.nl ../..//down/m68k/linux-canada.html.po ../..//down/m68k/linux-canada.html.sl ../..//down/m68k/linux-canada.html.ru ../..//down/m68k/linux-canada.html.zh-CN ../..//down/m68k/linux-canada.var ../..//down/m68k/linux.html.bg ../..//down/m68k/linux.html.en ../..//down/m68k/linux.html.fi ../..//down/m68k/linux.html.fr ../..//down/m68k/linux.html.id ../..//down/m68k/linux.html.it ../..//down/m68k/linux.html.nl ../..//down/m68k/linux.html.po ../..//down/m68k/linux.html.sl ../..//down/m68k/linux.html.ru ../..//down/m68k/linux.html.zh-CN ../..//down/m68k/linux.var
 all_en_pages: mirrors.dat ../..//down/m68k/linux-hungary.html ../..//down/m68k/linux-canada.html ../..//down/m68k/linux.html

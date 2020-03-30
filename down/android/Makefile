@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> android.var
 
 mirrors.dat:
-	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/android/android-hungary.html.bg ../..//down/android/android-hungary.html.en ../..//down/android/android-hungary.html.fi ../..//down/android/android-hungary.html.fr ../..//down/android/android-hungary.html.id ../..//down/android/android-hungary.html.it ../..//down/android/android-hungary.html.nl ../..//down/android/android-hungary.html.po ../..//down/android/android-hungary.html.sl ../..//down/android/android-hungary.html.ru ../..//down/android/android-hungary.html.zh-CN ../..//down/android/android-hungary.var ../..//down/android/android-canada.html.bg ../..//down/android/android-canada.html.en ../..//down/android/android-canada.html.fi ../..//down/android/android-canada.html.fr ../..//down/android/android-canada.html.id ../..//down/android/android-canada.html.it ../..//down/android/android-canada.html.nl ../..//down/android/android-canada.html.po ../..//down/android/android-canada.html.sl ../..//down/android/android-canada.html.ru ../..//down/android/android-canada.html.zh-CN ../..//down/android/android-canada.var ../..//down/android/android.html.bg ../..//down/android/android.html.en ../..//down/android/android.html.fi ../..//down/android/android.html.fr ../..//down/android/android.html.id ../..//down/android/android.html.it ../..//down/android/android.html.nl ../..//down/android/android.html.po ../..//down/android/android.html.sl ../..//down/android/android.html.ru ../..//down/android/android.html.zh-CN ../..//down/android/android.var
 all_en_pages: mirrors.dat ../..//down/android/android-hungary.html ../..//down/android/android-canada.html ../..//down/android/android.html

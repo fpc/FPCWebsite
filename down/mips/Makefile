@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> linux.var
 
 mirrors.dat:
-	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/mips/linux-hungary.html.bg ../..//down/mips/linux-hungary.html.en ../..//down/mips/linux-hungary.html.fi ../..//down/mips/linux-hungary.html.fr ../..//down/mips/linux-hungary.html.id ../..//down/mips/linux-hungary.html.it ../..//down/mips/linux-hungary.html.nl ../..//down/mips/linux-hungary.html.po ../..//down/mips/linux-hungary.html.sl ../..//down/mips/linux-hungary.html.ru ../..//down/mips/linux-hungary.html.zh-CN ../..//down/mips/linux-hungary.var ../..//down/mips/linux-canada.html.bg ../..//down/mips/linux-canada.html.en ../..//down/mips/linux-canada.html.fi ../..//down/mips/linux-canada.html.fr ../..//down/mips/linux-canada.html.id ../..//down/mips/linux-canada.html.it ../..//down/mips/linux-canada.html.nl ../..//down/mips/linux-canada.html.po ../..//down/mips/linux-canada.html.sl ../..//down/mips/linux-canada.html.ru ../..//down/mips/linux-canada.html.zh-CN ../..//down/mips/linux-canada.var ../..//down/mips/linux.html.bg ../..//down/mips/linux.html.en ../..//down/mips/linux.html.fi ../..//down/mips/linux.html.fr ../..//down/mips/linux.html.id ../..//down/mips/linux.html.it ../..//down/mips/linux.html.nl ../..//down/mips/linux.html.po ../..//down/mips/linux.html.sl ../..//down/mips/linux.html.ru ../..//down/mips/linux.html.zh-CN ../..//down/mips/linux.var
 all_en_pages: mirrors.dat ../..//down/mips/linux-hungary.html ../..//down/mips/linux-canada.html ../..//down/mips/linux.html

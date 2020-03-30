@@ -244,9 +244,9 @@ english: output_directory all_en_pages
 	echo >> msdos.var
 
 mirrors.dat:
-	$(shell echo -e 'name\tnamel\turl' > mirrors.dat)
-	$(shell echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
-	$(shell echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'name\tnamel\turl' > mirrors.dat)
+	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
+	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
 all_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html.bg ../..//down/i8086/msdos-hungary.html.en ../..//down/i8086/msdos-hungary.html.fi ../..//down/i8086/msdos-hungary.html.fr ../..//down/i8086/msdos-hungary.html.id ../..//down/i8086/msdos-hungary.html.it ../..//down/i8086/msdos-hungary.html.nl ../..//down/i8086/msdos-hungary.html.po ../..//down/i8086/msdos-hungary.html.sl ../..//down/i8086/msdos-hungary.html.ru ../..//down/i8086/msdos-hungary.html.zh-CN ../..//down/i8086/msdos-hungary.var ../..//down/i8086/msdos-canada.html.bg ../..//down/i8086/msdos-canada.html.en ../..//down/i8086/msdos-canada.html.fi ../..//down/i8086/msdos-canada.html.fr ../..//down/i8086/msdos-canada.html.id ../..//down/i8086/msdos-canada.html.it ../..//down/i8086/msdos-canada.html.nl ../..//down/i8086/msdos-canada.html.po ../..//down/i8086/msdos-canada.html.sl ../..//down/i8086/msdos-canada.html.ru ../..//down/i8086/msdos-canada.html.zh-CN ../..//down/i8086/msdos-canada.var ../..//down/i8086/msdos.html.bg ../..//down/i8086/msdos.html.en ../..//down/i8086/msdos.html.fi ../..//down/i8086/msdos.html.fr ../..//down/i8086/msdos.html.id ../..//down/i8086/msdos.html.it ../..//down/i8086/msdos.html.nl ../..//down/i8086/msdos.html.po ../..//down/i8086/msdos.html.sl ../..//down/i8086/msdos.html.ru ../..//down/i8086/msdos.html.zh-CN ../..//down/i8086/msdos.var
 all_en_pages: mirrors.dat ../..//down/i8086/msdos-hungary.html ../..//down/i8086/msdos-canada.html ../..//down/i8086/msdos.html
