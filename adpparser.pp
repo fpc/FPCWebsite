@@ -389,14 +389,14 @@ end;
 
 function TADPParser.do_multiple_tag(const params,content : Unicodestring):Unicodestring;
 
-var p,key,value:Unicodestring;
+var l,p,key,value:Unicodestring;
     datasource:ansistring;
     i,n:longint;
     lst : TStringListList;
     hdr,row : TStringlist;
 
 begin
-  do_multiple_tag:='';
+  Result:='';
   p:=params;
   while p<>'' do
     begin
@@ -414,7 +414,8 @@ begin
       row:=tstringlist(lst.strs[i]);
       for n:=0 to hdr.count-1 do
         FProperties.Write(UTF8Decode(datasource+'.'+hdr[n]),UTF8Decode(row[n]));
-      do_multiple_tag:=do_multiple_tag+FProperties.ReplaceInString(content);
+      l:=FProperties.ReplaceInString(content);
+      Result:=Result+l;
     end;
 end;
 
