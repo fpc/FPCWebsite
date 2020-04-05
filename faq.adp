@@ -971,7 +971,7 @@
 	    not willing to implement it yourself, submit patches and maintain
 	    it in the future,
 	    chances are slim.  Remarks as &quot;this will attract a lot of
-	    users because...&quot; are considered with a lot of scepsis, since
+	    users because...&quot; are considered with a lot of scepticism, since
 	    that applies to any new development.
 	  </TRN>
    </OL>
