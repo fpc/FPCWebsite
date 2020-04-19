@@ -86,6 +86,7 @@ function set_fpc_local ()
     sparc64)   FPC_LOCAL=ppcsparc64;;
     vis)       FPC_LOCAL=ppcvis;;
     x86_64)    FPC_LOCAL=ppcx64;;
+    xtensa)    FPC_LOCAL=ppcxtensa;;
     *)         FPC_LOCAL=ppc$CPU_TARGET;;
   esac
 
@@ -433,6 +434,8 @@ run_one_snapshot avr embedded "-n" "SUBARCH=avr4" "-avr4"
 export MAKESNAPSHOT_SUFFIX=
 run_one_snapshot avr embedded "-n" "SUBARCH=avr6"
 run_one_snapshot mipsel embedded "-n" "SUBARCH=pic32mx"
+
+run_one_snapshot xtensa embedded "-n" "SUBARCH=esp32"
 
 # Targets that use internal linker can be built with BUILDFULLNATIVE=1
 export BUILDFULLNATIVE=1
