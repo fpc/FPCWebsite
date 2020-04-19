@@ -124,6 +124,7 @@ if [ -z "${FPC:-}" ] ; then
     riscv32) FPC=ppcrv32 ;;
     riscv64) FPC=ppcrv64 ;;
     x86_64|amd64) FPC=ppcx64 ;;
+    xtensa) FPC=ppcxtensa ;;
   esac
   export FPC
 fi
@@ -692,6 +693,7 @@ function set_fpc_local ()
     sparc64)   FPC_LOCAL=ppcsparc64;;
     vis)       FPC_LOCAL=ppcvis;;
     x86_64)    FPC_LOCAL=ppcx64;;
+    xtensa)    FPC_LOCAL=ppcxtensa;;
     *)         FPC_LOCAL=ppc$LOC_CPU_TARGET;;
   esac
 }
@@ -1344,6 +1346,7 @@ check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
 check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
+check_target xtensa embedded "-n" "SUBARCH=esp32"
 
 # Darwin OS check both clang and GNU binutils
 # Known to be broken, disabled
