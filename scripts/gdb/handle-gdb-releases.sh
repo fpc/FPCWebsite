@@ -112,6 +112,13 @@ function handle_release ()
     echo "Error: tar did not expand into $dirname"
   else
     cd $dirname
+    if [ "$release" == "6.8" ] ; then
+      exec_c_includes_arch_utils_c=`grep '#include "arch-utils.c"' gdb/exec.c`
+      if [ -n "$exec_c_includes_arch_utils_c" ] ; then
+	echo "Fixing error in gdb/exec.c include"
+        sed -i "s:arch-utils\.c:arch-utils.h:" gdb/exec.c
+      fi
+    fi
     if [ -f gdb/linux-nat.h ] ; then
       has_siginfo=`grep "struct *siginfo " gdb/linux-nat.h`
       if [ "X$has_siginfo" != "X" ]; then
