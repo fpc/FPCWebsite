@@ -87,6 +87,7 @@ function set_fpc_local ()
     vis)       FPC_LOCAL=ppcvis;;
     x86_64)    FPC_LOCAL=ppcx64;;
     xtensa)    FPC_LOCAL=ppcxtensa;;
+    z80)       FPC_LOCAL=ppcz80;;
     *)         FPC_LOCAL=ppc$CPU_TARGET;;
   esac
 
@@ -478,6 +479,9 @@ list_os ppcppc64 powerpc64 "-n -gl"
 list_os ppcsparc sparc "-n -gl"
 list_os ppcsparc64 sparc64 "-n -gl"
 list_os ppcx64 x86_64 "-n -gl"
+list_os ppcxtensa xtensa "-n"
+list_os ppcz80 z80 "-n"
+
 listed=0
 index_cpu_os_list=`sed -n "s:^[[:space:]]*system_\([a-zA-Z0-9_]*\)_\([a-zA-Z0-9]*\) *[,]* *{ *\([0-9]*\).*:\3;\1,\2:p" compiler/systems.inc`
 
