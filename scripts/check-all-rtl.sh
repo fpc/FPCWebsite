@@ -836,6 +836,8 @@ function check_target ()
     ASSEMBLER=PPCAsm
   elif [ "$OS_TARG_LOCAL" == "watcom" ] ; then
     ASSEMBLER=wasm
+  elif [ "$CPU_TARG_LOCAL" == "z80" ] ; then
+    ASSEMBLER=sdasz80
   else
     ASSEMBLER=as
   fi
@@ -1430,6 +1432,23 @@ export ASPROG_LOCAL=
 ## check_target m68k macos "-n -Avasm" "" "-vasm"
 # palmos requires -CX -XX otherwise section overflow errors appear
 check_target m68k palmos "-n -CX -XX"
+
+# FreeRTOS 
+
+check_target xtensa freertos "-n" "SUBARCH=esp32"
+check_target arm freertos "-n" "SUBARCH=armv6m"
+
+# z80 cpu, also test alternative assemblers
+export ASPROG_LOCAL=z80asm
+check_target z80 embedded "-n -Az80asm -Cfsoft" "" "-z80asm"
+export ASPROG_LOCAL=vasmz80_std
+check_target z80 embedded "-n -Avasm -Cfsoft" "" "-vasmz80"
+check_target z80 zxspectrum "-n -Avasm -Cfsoft" "" "-vasmz80"
+export ASPROG_LOCAL=
+# Test with -Cfsoft option
+check_target z80 embedded "-n -Cfsoft" "" "-Cfsoft"
+check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
+
 
 ## Obsolete since fixes_3_2 branch
 ##if [ "$svnname" == "fixes" ] ; then
