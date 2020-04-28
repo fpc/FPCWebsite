@@ -830,14 +830,19 @@ function check_target ()
   elif [ "$CPU_TARG_LOCAL" == "i8086" ] ; then
     ASSEMBLER=nasm
   elif [ "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ] ; then
-    # -Avasm is only used for m68k vasm assembler 
-    ASSEMBLER=vasmm68k_std
+    # -Avasm can be used for arm, m68k or z80 vasm assembler 
+    ASSEMBLER=vasm${CPU_TARGET_LOCAL}_std
   elif [[ ("$OS_TARG_LOCAL" == "macos") && ("$CPU_TARG_LOCAL" == "powerpc") ]] ; then
     ASSEMBLER=PPCAsm
   elif [ "$OS_TARG_LOCAL" == "watcom" ] ; then
     ASSEMBLER=wasm
   elif [ "$CPU_TARG_LOCAL" == "z80" ] ; then
-    ASSEMBLER=sdasz80
+    if [ "X${OPT_LOCAL//-Az80asm/}" != "X$OPT_LOCAL" ] ; then
+      # -Avasm can be used for arm, m68k or z80 vasm assembler 
+      ASSEMBLER=z80asm
+    else
+      ASSEMBLER=sdasz80
+    fi
   else
     ASSEMBLER=as
   fi
