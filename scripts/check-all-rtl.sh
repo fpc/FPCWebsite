@@ -1355,7 +1355,8 @@ check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
 check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
-check_target xtensa embedded "-n" "SUBARCH=esp32"
+check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
+check_target xtensa embedded "-n" "SUBARCH=lx106"
 
 # Darwin OS check both clang and GNU binutils
 # Known to be broken, disabled
@@ -1440,7 +1441,8 @@ check_target m68k palmos "-n -CX -XX"
 
 # FreeRTOS 
 
-check_target xtensa freertos "-n" "SUBARCH=esp32"
+check_target xtensa freertos "-n" "SUBARCH=lx6" "-lx6"
+check_target xtensa freertos "-n" "SUBARCH=lx106"
 check_target arm freertos "-n" "SUBARCH=armv6m"
 
 # z80 cpu, also test alternative assemblers
