@@ -435,8 +435,13 @@ run_one_snapshot avr embedded "-n" "SUBARCH=avr4" "-avr4"
 export MAKESNAPSHOT_SUFFIX=
 run_one_snapshot avr embedded "-n" "SUBARCH=avr6"
 run_one_snapshot mipsel embedded "-n" "SUBARCH=pic32mx"
+run_one_snapshot xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
+run_one_snapshot xtensa embedded "-n" "SUBARCH=lx106" 
 
-run_one_snapshot xtensa embedded "-n" "SUBARCH=esp32"
+# FreeRTOS 
+run_one_snapshot xtensa freertos "-n" "SUBARCH=lx6" "-lx6"
+run_one_snapshot xtensa freertos "-n" "SUBARCH=lx106"
+run_one_snapshot arm freertos "-n" "SUBARCH=armv6m"
 
 # Targets that use internal linker can be built with BUILDFULLNATIVE=1
 export BUILDFULLNATIVE=1
