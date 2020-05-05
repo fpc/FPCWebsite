@@ -40,7 +40,7 @@ make > make-$QEMU_VERSION.log 2>&1
 res=$?
 cd ..
 if [ $res -eq 0 ] ; then
-  echo "Make finished OK for QEMU version $QEMU_VERSION, you can install using \"make -C ./qemu-$QEMU_VERSION install\""
+  echo "Make finished OK for QEMU version $QEMU_VERSION, you can install using \"make -C ./build-qemu-$QEMU_VERSION install\""
 else
   echo "make failed, res=$res, details are in ./qemu-$QEMU_VERSION/make-$QEMU_VERSION.log file"
 fi
