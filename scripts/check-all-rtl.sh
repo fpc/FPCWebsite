@@ -139,6 +139,7 @@ DO_FPC_RTL_INSTALL=0
 DO_FPC_PACKAGES_INSTALL=0
 DO_FPC_UTILS_INSTALL=0
 DO_RECOMPILE_FULL=0
+DO_CHECK_LLVM=0
 RECOMPILE_OPT=
 RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
@@ -191,6 +192,7 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_RTL_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
+  DO_CHECK_LLVM=1
   # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT=
   USE_RELEASE_MAKEFILE_VARIABLE=1
@@ -496,11 +498,11 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
     mecho "Recompiling rtl"
     make rtlclean rtl OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
-  if [ $makeres -ne 0 ] ; then
-    mecho "Generating new native compiler failed, see $fullcyclelog for details"
-    rm_lockfile
-    exit
-  fi
+    if [ $makeres -ne 0 ] ; then
+      mecho "Generating new native rtl failed, see $fullcyclelog for details"
+      rm_lockfile
+      exit
+    fi
     for cpu in $cpu_list ; do
       if [ "$cpu" = "$native_cpu" ] ; then
         continue
@@ -698,6 +700,9 @@ function set_fpc_local ()
     z80)       FPC_LOCAL=ppcz80;;
     *)         FPC_LOCAL=ppc$LOC_CPU_TARGET;;
   esac
+  if [ -n "${FPC_LOCAL_SUFFIX:-}" ] ; then
+    FPC_LOCAL=${FPC_LOCAL}${FPC_LOCAL_SUFFIX}
+  fi
 }
 
 function list_used_binaries ()
@@ -1456,6 +1461,40 @@ export ASPROG_LOCAL=
 check_target z80 embedded "-n -Cfsoft" "" "-Cfsoft"
 check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
 
+# LLVM compiler trials
+if [ $DO_CHECK_LLVM -eq 1 ] ; then
+  # List comes from fpcsrc/compiler/Makefile.fpc
+  llvm_cpu_list="aarch64 arm x86_64"
+  llvm_os_list="darwin iphonesim linux"
+  for cpu in $llvm_cpu_list ; do
+    set_fpc_local $cpu
+    LLVM_FPC=`pwd`/compiler/${FPC_LOCAL}-llvm
+    llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
+    echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
+    ${MAKE} -C compiler clean rtlclean CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler rtl CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler ${cpu}_exe LLVM=1 >> $llvmlogfile 2>&1
+    llvm_res=$?
+    if [ $llvm_res -ne 0 ] ; then
+      echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile" >> $llvmlogfile
+      echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile"
+    fi
+    echo "cp ./compiler/${FPC_LOCAL} ${LLVM_FPC}" >> $llvmlogfile
+    cp ./compiler/${FPC_LOCAL} ${LLVM_FPC}
+    res=$?
+    if [ $res -ne 0 ] ; then
+      echo "Copying LLVM version of compiler for $cpu failed" >> $llvmlogfile
+      echo "Copying LLVM version of compiler for $cpu failed"
+    fi
+
+
+    for os in $llvm_os_list ; do
+      export FPC_LOCAL_SUFFIX=-llvm
+      check_target $cpu $os "-n" "LLVM=1" "-llvm"
+      export FPC_LOCAL_SUFFIX=
+    done
+  done
+fi
 
 ## Obsolete since fixes_3_2 branch
 ##if [ "$svnname" == "fixes" ] ; then
