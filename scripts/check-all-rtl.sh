@@ -1472,8 +1472,8 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
     llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
     echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
     ${MAKE} -C compiler clean rtlclean CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler rtl CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler ${cpu}_exe LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler rtl LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler  CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
     llvm_res=$?
     if [ $llvm_res -ne 0 ] ; then
       echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile" >> $llvmlogfile
@@ -1486,7 +1486,6 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
       echo "Copying LLVM version of compiler for $cpu failed" >> $llvmlogfile
       echo "Copying LLVM version of compiler for $cpu failed"
     fi
-
 
     for os in $llvm_os_list ; do
       export FPC_LOCAL_SUFFIX=-llvm
