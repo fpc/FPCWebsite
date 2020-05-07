@@ -44,15 +44,16 @@ if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   test_msdos_trunk=1
   test_msdos_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc68" ] ; then
+  # gcc68 is probably not going to be fixed
   check_cross_trunk=1
-  gen_snapshot_trunk=1
+  # gen_snapshot_trunk=1 moved to gcc10
   test_go32v2_trunk=1
   test_go32v2_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
-  do_trunk_i386=0
-  do_fixes_i386=0
+  do_trunk_i386=1
+  do_fixes_i386=1
   do_docs=1
   # export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
@@ -60,6 +61,7 @@ elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_fixes=1
   gen_cross_snapshots_fixes=1
   gen_cross_snapshots_trunk=1
+  do_trunk_i386=0
   do_fixes_i386=0
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
@@ -83,6 +85,7 @@ elif [ "X$HOSTNAME" == "Xgcc70" ] ; then
   test_go32v2_trunk=0
   test_go32v2_fixes=0
 elif [ "X$HOSTNAME" == "Xgcc10" ] ; then
+  gen_snapshot_trunk=1
   check_cross_trunk=1
 fi
 
