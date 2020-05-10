@@ -9,7 +9,7 @@
 </trn>
 </p>
 
-<h3><trn key="website.news.previous" locale="en_US">Previous news (continued from hope page)</trn></h3>
+<h3><trn key="website.news.previous" locale="en_US">Previous news (continued from home page)</trn></h3>
 
 <ul>
 
@@ -26,10 +26,10 @@
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.4 documentation</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.4 documentation</a>.
    </p>
    <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
   </li>
  </ul>
@@ -48,10 +48,10 @@
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.2 documentation</a>.
    </p>
    <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
   </li>
  </ul>
@@ -70,10 +70,10 @@
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.4 documentation</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.4 documentation</a>.
    </p>
    <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
    </li>
  </ul>
@@ -91,10 +91,10 @@
    </p>
    <p>
     There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.2 documentation</a>.
    </p>
    <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
    </li>
  </ul>
@@ -112,9 +112,9 @@
    </p>
    <p>
     We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
-    Finally, you can view the <a href="http://www.freepascal.org/docs-html/3.0/">FPC 3.0.0 documentation</a>.
+    Finally, you can view the <a href="https://www.freepascal.org/docs-html/3.0/">FPC 3.0.0 documentation</a>.
    </p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
   </li>
  </ul>
@@ -547,7 +547,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  <ul>
   <li>
     The <a href="http://lists.freepascal.org/lists/fpc-devel/2009-November/018272.html">first FPC 2.4.0 release candidate</a> has been posted, please give your feedback! While FPC 2.4.0 will
-    primarily offer under-the-hood changes and bug fixes, the current <a href="develop.var">svn trunk</a> has seen
+    primarily offer under-the-hood changes and bug fixes, the current <a href="develop.html">svn trunk</a> has seen
     quite some work recently on the new features front:
    <ul>
     <li><a href="http://wiki.freepascal.org/for-in_loop">For..in-loops</a>
@@ -615,7 +615,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  </li>
  <ul>
   <li>
-    The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <a href="http://wiki.freepascal.org/fppkg_field_test">here</a>
+    The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.html">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <a href="http://wiki.freepascal.org/fppkg_field_test">here</a>
   </li>
  </ul>
 </trn>
@@ -651,7 +651,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  </li>
  <ul>
   <li>
-    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation. A list of changes that may require changes to existing code is available <a href="http://wiki.freepascal.org/User_Changes_2.2.2">here</a>.
+    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.html">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation. A list of changes that may require changes to existing code is available <a href="http://wiki.freepascal.org/User_Changes_2.2.2">here</a>.
   </li>
  </ul>
 </trn>
@@ -680,7 +680,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
    The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
   </li>
   <li>
-  Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
+  Downloads are available at <a href="download.html">https://www.freepascal.org/download.html</a>
   </li>
   </trn>
  </ul>
