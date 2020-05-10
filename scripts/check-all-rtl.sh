@@ -1468,19 +1468,20 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
   llvm_os_list="darwin iphonesim linux"
   for cpu in $llvm_cpu_list ; do
     set_fpc_local $cpu
-    LLVM_FPC=`pwd`/compiler/${FPC_LOCAL}-llvm
+    LLVM_FPC=${FPC_LOCAL}-llvm
     llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
     echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
-    ${MAKE} -C compiler clean rtlclean CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler rtlclean >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler clean PPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
     ${MAKE} -C compiler rtl LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler  CPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler PPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
     llvm_res=$?
     if [ $llvm_res -ne 0 ] ; then
       echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile" >> $llvmlogfile
       echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile"
     fi
-    echo "cp ./compiler/${FPC_LOCAL} ${LLVM_FPC}" >> $llvmlogfile
-    cp ./compiler/${FPC_LOCAL} ${LLVM_FPC}
+    echo "cp ./compiler/${FPC_LOCAL} $HOME/pas/fpc-$FPCVERSION/bin/${LLVM_FPC}" >> $llvmlogfile
+    cp ./compiler/${FPC_LOCAL} $HOME/pas/fpc-$FPCVERSION/bin/${LLVM_FPC}
     res=$?
     if [ $res -ne 0 ] ; then
       echo "Copying LLVM version of compiler for $cpu failed" >> $llvmlogfile
