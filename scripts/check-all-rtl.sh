@@ -1465,16 +1465,23 @@ check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
   # List comes from fpcsrc/compiler/Makefile.fpc
   llvm_cpu_list="aarch64 arm x86_64"
-  llvm_os_list="darwin iphonesim linux"
+  llvm_os_list[aarch64]="linux"
+  llvm_os_list[arm]="linux"
+  llvm_os_list[x86_64]="darwin linux"
   for cpu in $llvm_cpu_list ; do
     set_fpc_local $cpu
     LLVM_FPC=${FPC_LOCAL}-llvm
+    if [ "$cpu" == "arm" ] ; then
+      LLVM_COMPILE_OPT="-n -dFPC_ARMHF"
+    else
+      LLVM_COMPILE_OPT="-n"
+    fi
     llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
     echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
     ${MAKE} -C compiler rtlclean >> $llvmlogfile 2>&1
     ${MAKE} -C compiler clean PPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler rtl LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler PPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler rtl LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlogfile 2>&1
+    ${MAKE} -C compiler PPC_TARGET=${cpu} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlogfile 2>&1
     llvm_res=$?
     if [ $llvm_res -ne 0 ] ; then
       echo "Recompilation of LLVM version of compiler for $cpu failed, see details in $llvmlogfile" >> $llvmlogfile
@@ -1488,9 +1495,14 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
       echo "Copying LLVM version of compiler for $cpu failed"
     fi
 
-    for os in $llvm_os_list ; do
+    for os in ${llvm_os_list[$cpu]} ; do
       export FPC_LOCAL_SUFFIX=-llvm
-      check_target $cpu $os "-n" "LLVM=1" "-llvm"
+      if [ "$cpu" == "arm" ] ; then
+        LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+      else
+        LLVM_OPT=""
+      fi
+      check_target $cpu $os "-n $LLVM_OPT" "LLVM=1" "-llvm"
       export FPC_LOCAL_SUFFIX=
     done
   done
