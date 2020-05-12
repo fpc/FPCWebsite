@@ -1465,9 +1465,9 @@ check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
   # List comes from fpcsrc/compiler/Makefile.fpc
   llvm_cpu_list="aarch64 arm x86_64"
-  llvm_os_list[aarch64]="linux"
-  llvm_os_list[arm]="linux"
-  llvm_os_list[x86_64]="darwin linux"
+  llvm_os_list_aarch64="linux"
+  llvm_os_list_arm="linux"
+  llvm_os_list_x86_64="darwin linux"
   for cpu in $llvm_cpu_list ; do
     set_fpc_local $cpu
     LLVM_FPC=${FPC_LOCAL}-llvm
@@ -1494,16 +1494,23 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
       echo "Copying LLVM version of compiler for $cpu failed" >> $llvmlogfile
       echo "Copying LLVM version of compiler for $cpu failed"
     fi
-
-    for os in ${llvm_os_list[$cpu]} ; do
+    llvm_os_list_name=llvm_os_list_${cpu}
+    for os in ${!llvm_os_list_name} ; do
       export FPC_LOCAL_SUFFIX=-llvm
       if [ "$cpu" == "arm" ] ; then
         LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
       else
         LLVM_OPT=""
       fi
+      # We need to handle native case specially
+      if [[ ( "$NATIVE_OS" == "$os" ) && ( "$NATIVE_CPU" == "$cpu" ) ]] ; then
+	export FPCFPMAKE=${LLVM_FPC}
+	export FPCFPMAKENEW=${LLVM_FPC}
+      fi
       check_target $cpu $os "-n $LLVM_OPT" "LLVM=1" "-llvm"
       export FPC_LOCAL_SUFFIX=
+      export FPCFPMAKE=
+      export FPCFPMAKENEW=
     done
   done
 fi
