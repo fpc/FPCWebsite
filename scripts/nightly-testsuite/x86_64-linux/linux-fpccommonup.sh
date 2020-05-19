@@ -131,6 +131,9 @@ elif [ "$HOSTNAME" == "gcc121" ] ; then
 elif [ "$HOSTNAME" == "gcc123" ] ; then
   export do_run_tests=1
   export MAKE_J_OPT="-j 15"
+  if [ "X$FPCBIN" == "Xppcx64" ] ; then
+    do_run_llvm_tests=1
+  fi
 elif [ -z "${do_run_tests:-}" ] ; then
   export do_run_tests=0
 fi
