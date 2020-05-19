@@ -59,7 +59,7 @@ fi
 
 export HOSTNAME=${HOSTNAME//.*/}
 
-current_log=
+currentlog=""
 
 set -u
 
@@ -107,17 +107,27 @@ if [ "$HOSTNAME" == "CFARM-IUT-TLSE3" ] ; then
   export HOSTNAME=gcc21
 fi
 
-MAKE_J_OPT=""
+if [ -z "${MAKE_J_OPT:-}" ] ; then
+  MAKE_J_OPT=""
+fi
+
+if [ -z "${do_run_llvm_tests:-}" ] ; then
+  do_run_llvm_tests=0
+fi
+
+if [ -z "${do_run_tests:-}" ] ; then
+  do_run_tests=0
+fi
 
 if [ "$HOSTNAME" == "gcc21" ] ; then
-  export do_run_tests=1
-  export MAKE_J_OPT="-j 5"
+  do_run_tests=1
+  MAKE_J_OPT="-j 5"
 elif [ "$HOSTNAME" == "gcc20" ] ; then
-  export do_run_tests=1
-  export MAKE_J_OPT="-j 5"
+  do_run_tests=1
+  MAKE_J_OPT="-j 5"
 elif [ "$HOSTNAME" == "gcc121" ] ; then
-  export do_run_tests=1
-  export MAKE_J_OPT="-j 15"
+  do_run_tests=1
+  MAKE_J_OPT="-j 15"
 elif [ "$HOSTNAME" == "gcc123" ] ; then
   export do_run_tests=1
   export MAKE_J_OPT="-j 15"
@@ -142,11 +152,9 @@ else
   exit
 fi
 
-currentlog=""
-
 function add_log ()
 {
-  log_string=$1
+  log_string="$1"
   echo "##`$DATE`: $log_string" >> $report
   if [ -n "$currentlog" ] ; then
     echo "##`$DATE`: $log_string" >> $currentlog
@@ -199,8 +207,14 @@ export report=$logdir/report${SUFFIX}.txt
 export svnlog=$logdir/svnlog${SUFFIX}.txt 
 export cleanlog=$logdir/cleanlog${SUFFIX}.txt 
 export makelog=$logdir/makelog${SUFFIX}.txt 
+export llvmlog=$logdir/llvmlog${SUFFIX}.txt
 
-set_log $report
+for f in $svnlog $cleanlog $makelog $llvmlog ; do
+  if [ -f $f ] ; then
+    rm -f $f
+  fi
+done
+
 echo "Starting $0 on $HOSTNAME" > $report
 if [ -n "${add_to_log}" ] ; then
   add_log "${add_to_log}"
@@ -403,7 +417,13 @@ if [ $NewBinary -eq 1 ] ; then
     fi
     logdir=~/logs/$SVNDIRNAME/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
     testslog=~/pas/$SVNDIRNAME/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
-    cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt 
+    cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt
+    if [ -f $testslog ] ; then
+      rm -f $testslog
+    fi 
+    if [ -f $cleantestslog ] ; then
+      rm -f $cleantestslog
+    fi 
     set_log $testslog
     add_log "Starting $MAKE -C ../rtl distclean"
     TIME=`date +%H-%M-%S`
@@ -450,6 +470,8 @@ if [ $NewBinary -eq 1 ] ; then
   if [ $do_run_tests -eq 1 ] ; then
     run_tests ""
     run_tests "-Cg"
+    run_tests "-O2"
+    run_tests "-O3"
     run_tests "-O4"
     run_tests "-gwl"
     run_tests "-Cg -gwl"
@@ -464,6 +486,33 @@ if [ $NewBinary -eq 1 ] ; then
       # This freezes on trwsync and tw3695 tests
       # run_tests "-ghc"
     fi
+  fi
+
+   if [ $do_run_llvm_tests -eq 1 ] ; then
+    set_log $llvmlog
+    add_log "Starting compilation of compiler with LLVM=1 for $NEW_CPU_TARGET"
+    LLVM_FPC=${FPCBIN}-llvm
+    ${MAKE} -C compiler rtlclean >> $llvmlog 2>&1
+    ${MAKE} -C compiler clean PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 >> $llvmlog 2>&1
+    ${MAKE} -C compiler rtl LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
+    ${MAKE} -C compiler PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
+    llvm_res=$?
+    if [ $llvm_res -ne 0 ] ; then
+      add_log "Recompilation of LLVM version of compiler for $NEW_CPU_TARGET failed, see details in $llvmlogfile"
+    fi
+    export NEWFPC=$HOME/pas/fpc-$FPCVERSION/bin/${LLVM_FPC}
+    add_log "cp ./compiler/${FPCBIN} ${NEWPC}"
+    cp ./compiler/${FPCBIN} ${NEWFPC}
+    export FPCFPMAKE=${NEWFPC}
+    export FPCFPMAKENEW=${NEWFPC}
+    run_tests "-dWITH_LLVM" "LLVM=1"
+    run_tests "-O2 -dWITH_LLVM" "LLVM=1"
+    run_tests "-O3 -dWITH_LLVM" "LLVM=1"
+    run_tests "-O4 -dWITH_LLVM" "LLVM=1"
+    run_tests "-Clflto -dWITH_LLVM" "LLVM=1"
+    export FPCFPMAKE=
+    export FPCFPMAKENEW=
+    export NEWFPC=
   fi
 
   # Cleanup
