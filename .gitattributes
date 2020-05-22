@@ -644,6 +644,7 @@ scripts/nightly-testsuite/x86_64-linux/test-msdos.sh svneol=native#text/plain
 scripts/proctestsuitediff.pp svneol=native#text/plain
 scripts/readcfg.sh svneol=native#text/plain
 scripts/release/check-diff-with-fixes-snapshots.sh svneol=native#text/plain
+scripts/release/gen-3.2.0-dist-native.sh svneol=native#text/plain
 scripts/release/gen-3.2.0-rc1-native-aarch64-compiler.sh svneol=native#text/plain
 scripts/release/gen-3.2.0-rc1-native-arm-compiler-on-aarch64.sh svneol=native#text/plain
 scripts/release/gen-3.2.0-rc1-native.sh svneol=native#text/plain
