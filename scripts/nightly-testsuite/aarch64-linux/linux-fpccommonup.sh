@@ -321,6 +321,22 @@ if [ -z "$SKIP_TESTS" ] ; then
   SKIP_TESTS=0
 fi
 
+function run_tests ()
+{
+TEST_OPT="$1"
+testslog=$LOGDIR/test-${TEST_OPT// /_}.txt
+echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
+    TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
+    TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+testsres=$?
+echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+
+tail -30 $testslog >> $report
+}
+
 if [ $SKIP_TESTS -eq 0 ] ; then
 # Start the testsuite generation part
 cd tests
@@ -339,38 +355,14 @@ cd tests
     exit
   fi
 
-  export TEST_OPT="${OPT}"
   echo "New FPC is ${FPC}" >> $report
 
-
-  echo "Starting make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"" >> $report
-  ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
-    TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
-    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
-  testsres=$?
-  echo "Ending make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"; result=${testsres}" >> $report
-
-  tail -30 $testslog >> $report
-  echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-
-
-  #mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
-  #     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
-
-  TEST_OPT="-O3 -Cg ${TEST_OPT}"
-  export testslog=$LOGDIR/tests-O3${LOGSUF}.txt 
-
-  echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-  echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-  ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
-    TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
-    TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
-  testsres=$?
-  echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
-
-  tail -30 $testslog >> $report
+  run_tests "${OPT}"
+  run_tests "-Cg ${OPT}"
+  run_tests "-O1 ${OPT}"
+  run_tests "-O2 ${OPT}"
+  run_tests "-O3 ${OPT}"
+  run_tests "-O4 ${OPT}"
 
   echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
