@@ -362,6 +362,7 @@ if [ $NewBinary -eq 1 ] ; then
     if [ $makeres -ne 0 ] ; then
       add_log "Generating new native compiler failed, see $makelog for details"
     fi
+    cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
     for cpu in $cpu_list ; do
       add_log "Compiling compiler for $cpu"
       ${MAKE} -C compiler $MAKEDEBUG $cpu ${cpu}_exe_install OPT="-n $NEEDED_OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_FPC_BIN >> $makelog 2>&1
