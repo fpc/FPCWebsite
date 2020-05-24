@@ -57,10 +57,6 @@ function handle_release ()
     echo "Trying to download $zipname from ftp://ftp.gnu.org/gnu/gdb/"
     wget -t 5 ftp://ftp.gnu.org/gnu/gdb/$zipname
   fi
-  if [ ! -f sha512.sum ] ; then
-    wget -t 5 ftp://sourceware.org/pub/gdb/releases/sha512.sum
-  fi
-
   if [ ! -f $zipname ] ; then
     echo "Trying to download $zipname from ftp://sourceware.org/pub/gdb/old-releases/"
     wget -t 5 ftp://sourceware.org/pub/gdb/old-releases/$zipname
@@ -86,6 +82,22 @@ function handle_release ()
   dirname=gdb-${release}
   builddir=build-gdb-${release}${build_variant}
 
+  if [[ ( ! -f sha512.sum ) || ( $zipname -nt sha512.sum ) ]] ; then
+    wget -t 5 ftp://sourceware.org/pub/gdb/releases/sha512.sum
+  fi
+
+  if [ -f sha512.sum ] ; then
+    sha_line=`grep -w $zipname sha512.sum`
+    if [ -n "$sha_line" ] ; then
+      sha_out=`echo $sha_line | sha512sum -c`
+      sha_res=$?
+      if [ $sha_res -ne 0 ] ; then
+        echo "Warning sha512sum failed: $sha_out, res=$sha_res"
+      fi
+    else
+      echo "Warning: file $zipname not found in sha512.sum"
+    fi
+  fi
 
   if [ -d $dirname ] ; then
     echo "Deleting dir $dirname"
@@ -281,6 +293,7 @@ handle_release gdb-8.2.1.tar.gz
 handle_release gdb-8.3.tar.gz
 handle_release gdb-8.3.1.tar.gz
 handle_release gdb-9.1.tar.gz
+handle_release gdb-9.2.tar.gz
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
