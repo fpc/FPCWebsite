@@ -99,7 +99,6 @@
     <li><a href="#os2-dll"><trn key="website.faq.os2.dll" locale="en_US">Dynamic libraries</trn></a>
     <li><a href="#os2-profile"><trn key="website.faq.os2.profile" locale="en_US">Profiling</trn></a>
     <li><a href="#os2-dos"><trn key="website.faq.os2.dos" locale="en_US">Using DOS generated applications under OS/2</trn></a>
-    <li><a href="#instal106os2"><trn key="website.faq.os2.instal106os2" locale="en_US">INSTALL.EXE complains about a missing TZ variable under OS/2</trn></a>
     <li><a href="#instal106os2"><trn key="website.faq.os2.instal106os2a" locale="en_US">INSTALL.EXE of version 1.0.6 or below returns an unknown error (-1) under OS/2</trn></a>
     <br><trn key="website.faq.os2.instal106os2or" locale="en_US">or</trn><br>
     <a href="#instal106os2"><trn key="website.faq.os2.instal106os2" locale="en_US">INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</trn></a>
