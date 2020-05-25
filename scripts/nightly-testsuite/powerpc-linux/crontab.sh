@@ -47,3 +47,32 @@ if [ $gen_32bit -eq 1 ] ; then
   . ~/bin/makesnapshot-new-powerpc.sh
 fi
 
+# Check if script directory exists
+SVNLOGFILE=$HOME/logs/svn-scripts.log
+
+if [ -d $HOME/scripts ] ; then
+  SCRIPTDIR=$HOME/scripts
+elif [ -d $HOME/pas/scripts ] ; then
+  SCRIPTDIR=$HOME/pas/scripts
+else
+  SCRIPTDIR=
+fi
+
+if [ -n "$SCRIPTDIR" ] ; then
+  cd $SCRIPTDIR
+  svn cleanup > $SVNLOGFILE 2>&1
+  svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
+  cd $HOME
+else
+  if [ ! -d $HOME/pas/scripts ] ; then
+    cd $HOME/pas
+    svn checkout https://svn.freepascal.org/svn/html/scripts > $SVNLOGFILE 2>&1
+  else
+    cd $HOME/pas/scripts
+    svn cleanup > $SVNLOGFILE 2>&1
+  fi
+  svn up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
+  cd $HOME
+fi
+
+
