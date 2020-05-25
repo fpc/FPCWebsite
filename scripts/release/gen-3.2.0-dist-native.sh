@@ -24,25 +24,26 @@ function set_cpu_suffix ()
   local cpu
   cpu="$1"
   case $cpu in
-   alpha) cpu=alpha ; is_32bit=1 ;;
-   aarch64) cpu=a64 ; is_64bit=1 ;;
-   arm|armeb) cpu=arm ; is_32bit=1 ;;
-   avr) cpu=avr ;;
-   m68k) cpu=68k ; is_32bit=1 ;;
-   mips) is_32bit=1 ;;
-   mipsel) is_32bit=1 ;;
-   i386) cpu=386 ; is_32bit=1 ;;
-   i8086) cpu=8086 ;;
-   jvm) cpu=jvm ; is_32bit=1 ;;
-   x86_64) cpu=x64 ; is_64bit=1 ;;
-   powerpc) cpu=ppc ; is_32bit=1 ;;
-   powerpc64) cpu=ppc64 ; is_64bit=1 ;;
-   riscv32) cpu=rv32 ; is_32bit=1 ;;
-   riscv64) cpu=rv64 ; is_64bit=1 ;;
-   sparc) cpu=sparc ; is_32bit=1 ;;
-   sparc64) cpu=sparc64 ; is_64bit=1 ;;
-   xtensa) cpu=xtensa ; is_32bit=1 ;;
-   zx) cpu=zx ;;
+   alpha) cpu=alpha ; is_32bit=1 ; is_little_endian=0 ;;
+   aarch64) cpu=a64 ; is_64bit=1 ; is_little_endian=1 ;;
+   arm) cpu=arm ; is_32bit=1 ; is_little_endian=1 ;;
+   armeb) cpu=arm ; is_32bit=1 ; is_little_endian=0 ;;
+   avr) cpu=avr ; is_little_endian=1 ;;
+   m68k) cpu=68k ; is_32bit=1 ; is_little_endian=0 ;;
+   mips) is_32bit=1 ; is_little_endian=0 ;;
+   mipsel) is_32bit=1 ; is_little_endian=1 ;;
+   i386) cpu=386 ; is_32bit=1 ; is_little_endian=1 ;;
+   i8086) cpu=8086 ; is_little_endian=1 ;;
+   jvm) cpu=jvm ; is_32bit=1 ; is_little_endian=0 ;;
+   x86_64) cpu=x64 ; is_64bit=1 ; is_little_endian=1 ;;
+   powerpc) cpu=ppc ; is_32bit=1 ; is_little_endian=0 ;;
+   powerpc64) cpu=ppc64 ; is_64bit=1 ; is_little_endian=0 ;;
+   riscv32) cpu=rv32 ; is_32bit=1 ; is_little_endian=1 ;;
+   riscv64) cpu=rv64 ; is_64bit=1 ; is_little_endian=1 ;;
+   sparc) cpu=sparc ; is_32bit=1 ; is_little_endian=0 ;;
+   sparc64) cpu=sparc64 ; is_64bit=1 ; is_little_endian=0 ;;
+   xtensa) cpu=xtensa ; is_32bit=1 ; is_little_endian=1 ;;
+   zx) cpu=zx ; is_little_endian=1 ;;
   esac
   cpu_suffix=$cpu
 }
@@ -52,6 +53,15 @@ target_os=`$FPC -iTO`
 set_cpu_suffix $target_cpu
 target_compiler_suffix=${cpu_suffix}
 target_compiler=ppc$target_compiler_suffix
+
+machine=`uname -m`
+
+if [ "$machine" = "ppc64le" ] ; then
+  is_64bit=1
+  is_32bit=0
+  is_little_endian=1
+  ftp_target_cpu=powerpc64le
+fi
 
 start_cpu=`$FPC -iSP`
 start_os=`$FPC -iSO`
@@ -72,6 +82,15 @@ else
 fi
 
 target_full=${target_cpu}-${target_os}
+if [ -z "${ftp_target_cpu:-}" ] ; then
+  ftp_target_cpu=$target_cpu
+fi
+
+if [ -z "${ftp_target_os:-}" ] ; then
+  ftp_target_os=$target_os
+fi
+
+ftp_target_full=${ftp_target_cpu}-${ftp_target_os}
 start_full=${start_cpu}-${start_os}
 
 if [ -z "$MAKE" ] ; then
@@ -172,7 +191,7 @@ if [ $is_64bit -eq 1 ] ; then
 fi
 
 basedir=`pwd`
-readme=$basedir/readme.${target_full}
+readme=$basedir/readme.${ftp_target_full}
 echo "Special method used to generate ${target_full} ${release_version} distribution" > $readme
 
 cyclelog=$basedir/cycle.log
@@ -296,11 +315,18 @@ if [ $makepackres -ne 0 ] ; then
   echo "install/makepack ${target_full} failed, logfile is $logfile" >> $readme
   exit
 fi
-ssh fpcftp "cd ${ftpdir} ; mkdir -p ${target_full}"
+ssh fpcftp "cd ${ftpdir} ; mkdir -p ${ftp_target_full}"
 
 TARFILE=`ls -1tr *${target_full}*.tar | tail -1 `
 
 if [ -f "$TARFILE" ] ; then
+  if [ "${ftp_target_full}" != "${target_full}" ] ; then
+    NEWTARFILE=${TARFILE//${target_full}/${ftp_target_full}}
+    if [ "$TARFILE" != "$NEWTARFILE" ] ; then
+      cp -f $TARFILE $NEWTARFILE
+      TARFILE=$NEWTARFILE
+    fi
+  fi
   echo "Files $readme and $TARFILE uploaded" >> $readme
   echo "Used slightly modifed svn checkout" >> $readme
   echo "svn st -q" >> $readme
@@ -310,7 +336,7 @@ if [ -f "$TARFILE" ] ; then
   echo "svn diff fpcsrc" >> $readme
   svn diff fpcsrc >> $readme
 
-  scp $readme *${target_full}*.tar fpcftp:${ftpdir}/${target_full}/
+  scp $readme $TARFILE fpcftp:${ftpdir}/${ftp_target_full}/
 else
   echo "No tar file found"
   ls -1tr *${target_full}*.tar
