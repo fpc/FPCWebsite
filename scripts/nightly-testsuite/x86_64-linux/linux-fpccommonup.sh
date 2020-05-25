@@ -72,7 +72,8 @@ export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 add_to_log=""
 
 if [ "X$FPCBIN" == "Xppc386" ] ; then
-  NEEDED_OPT="$NEEDED_OPT -Xd"
+  #NEEDED_OPT="$NEEDED_OPT -Xd"
+  # Use of -Xd prevents correct linking of fpmake
   if [ -d "/usr/lib32" ] ; then
     NEEDED_OPT="$NEEDED_OPT -Fl/usr/lib32"
   fi
@@ -200,7 +201,7 @@ function gen_ppu_diff ()
     head -99 "${difffile}" >> $report
     echo "End of first 99 lines of ${difffile}" >> $report
     echo "Cleaning packages to be sure" >> $report
-    make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+    make -C packages distclean FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
   fi
 }
 
@@ -283,15 +284,15 @@ if [ ! -f ./compiler/$FPCBIN ] ; then
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
-  NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
-  Build_version=`$NEW_PPC_BIN -iV`
-  Build_date=`$NEW_PPC_BIN -iD`
-  NEW_OS_TARGET=`$NEW_PPC_BIN -iTO`
-  NEW_CPU_TARGET=`$NEW_PPC_BIN -iTP`
+  NEW_FPC_BIN=`pwd`/compiler/$FPCBIN
+  Build_version=`$NEW_FPC_BIN -iV`
+  Build_date=`$NEW_FPC_BIN -iD`
+  NEW_OS_TARGET=`$NEW_FPC_BIN -iTO`
+  NEW_CPU_TARGET=`$NEW_FPC_BIN -iTP`
   NEW_UNITDIR=${NEW_CPU_TARGET}-${NEW_OS_TARGET}
 
   NewBinary=1
-  add_log "New binary $NEW_PPC_BIN, version=$Build_version, date=$Build_date, OS=$NEW_OS_TARGET, CPU=$NEW_CPU_TARGET"
+  add_log "New binary $NEW_FPC_BIN, version=$Build_version, date=$Build_date, OS=$NEW_OS_TARGET, CPU=$NEW_CPU_TARGET"
 else
   NewBinary=0
   Build_version=`$FPCBIN -iV`
@@ -302,7 +303,15 @@ else
 
   add_log "No new binary ./compiler/$FPCBIN"
 fi
-
+NEW_INSTALL_PREFIX=$HOME/pas/fpc-${Build_version}
+if [ "$SUFFIX" == "-32" ] ; then
+  if [ -d "${NEW_INSTALL_PREFIX}-32" ] ; then
+    NEW_INSTALL_PREFIX=$HOME/pas/fpc-${Build_version}-32
+    export FPCMAKEOPT="$NEEDED_OPT"
+  fi
+fi
+add_log "Installing to directory $NEW_INSTALL_PREFIX"
+    
 if [ $NewBinary -eq 1 ] ; then
   add_log "New $FPCBIN version is ${Build_version} ${Build_date}"
 
@@ -312,7 +321,7 @@ if [ $NewBinary -eq 1 ] ; then
   gen_ppu_log rtl/units/${NEW_UNITDIR} sysutils.ppu -log1
 
   add_log "Start $MAKE installsymlink in compiler dir"
-  ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG installsymlink INSTALL_PREFIX=$NEW_INSTALL_PREFIX OPT="-n $NEEDED_OPT" FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     add_log "End ${MAKE} -C compiler installsymlink failed res=${makeres}"
@@ -322,7 +331,7 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $make_all_success -eq 1 ] ; then
     add_log "Start $MAKE install"
-    ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+    ${MAKE} $MAKEDEBUG install INSTALL_PREFIX=$NEW_INSTALL_PREFIX OPT="-n $NEEDED_OPT" FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
     makeres=$?
     add_log "End ${MAKE} install, res=${makeres}"
   else
@@ -340,7 +349,7 @@ if [ $NewBinary -eq 1 ] ; then
     fi
     for dir in rtl compiler packages utils ; do
       add_log "Start $MAKE install in dir $dir"
-      ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+      ${MAKE} -C ./$dir install $MAKEDEBUG INSTALL_PREFIX=$NEW_INSTALL_PREFIX OPT="-n $NEEDED_OPT" FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
       makeres=$?
       add_log "End $MAKE -C ./$dir install; result=${makeres}"
     done
@@ -350,14 +359,14 @@ if [ $NewBinary -eq 1 ] ; then
 
   # fullinstall in compiler
   add_log "Start $MAKE fullinstall in compiler"
-  NEW_PPC_BIN=~/pas/fpc-${Build_version}/bin/$FPCBIN
-  ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  NEW_FPC_BIN=${NEW_INSTALL_PREFIX}/bin/$FPCBIN
+  ${MAKE} -C compiler $MAKEDEBUG cycle installsymlink fullinstallsymlink INSTALL_PREFIX=$NEW_INSTALL_PREFIX OPT="-n $NEEDED_OPT" FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   add_log "End $MAKE fullinstall; result=${makeres}"
   if [ $makeres -ne 0 ] ; then
     add_log "Generating all cross-compilers failed, see $makelog for details"
     add_log "Recompiling rtl"
-    ${MAKE} -C compiler $MAKEDEBUG rtlclean rtl OPT="-n $NEEDED_OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_FPC_BIN >> $makelog 2>&1
+    ${MAKE} -C compiler $MAKEDEBUG rtlclean rtl OPT="-n $NEEDED_OPT" INSTALL_PREFIX=$NEW_INSTALL_PREFIX FPC=$NEW_FPC_BIN >> $makelog 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       add_log "Generating new native compiler failed, see $makelog for details"
@@ -365,7 +374,7 @@ if [ $NewBinary -eq 1 ] ; then
     cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
     for cpu in $cpu_list ; do
       add_log "Compiling compiler for $cpu"
-      ${MAKE} -C compiler $MAKEDEBUG $cpu ${cpu}_exe_install OPT="-n $NEEDED_OPT" INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_FPC_BIN >> $makelog 2>&1
+      ${MAKE} -C compiler $MAKEDEBUG $cpu ${cpu}_exe_install OPT="-n $NEEDED_OPT" INSTALL_PREFIX=$NEW_INSTALL_PREFIX FPC=$NEW_FPC_BIN >> $makelog 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         add_log "Generating $cpu cross-compiler failed, see $makelog for details"
@@ -383,7 +392,7 @@ if [ $NewBinary -eq 1 ] ; then
   gen_ppu_diff sysutils.ppu -log1 -log2
 
   # Add new bin dir as first in PATH
-  export PATH=${HOME}/pas/fpc-${Build_version}/bin:${PATH}
+  export PATH=${NEW_INSTALL_PREFIX}/bin:${PATH}
   add_log "Using new PATH=\"${PATH}\""
   NEWFPC=`which $FPCBIN`
   add_log "Using new binary \"${NEWFPC}\""
