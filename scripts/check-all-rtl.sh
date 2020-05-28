@@ -1844,7 +1844,7 @@ rmprog=`which rm`
 for file in $error_file_list ; do
   echo "###############################" >> $EMAILFILE
   echo "Error in file $index $file" >> $EMAILFILE
-  output=`grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal)" $file | grep -v "^[0-9 ]*-$rmprog" `
+  output=`grep -nC3  -E "(Fatal:|Error:|make.*Error|make.*Fatal|External command.*failed with exit code)" $file | grep -v "^[0-9 ]*-$rmprog" `
   if [ "X$output" == "X" ] ; then
     echo "No error pattern found in $file" >> $EMAILFILE
     cat $file  | grep -v "^$rmprog" | tail -20 >> $EMAILFILE
