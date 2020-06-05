@@ -132,9 +132,9 @@ if [ $is_32bit -eq 1 ] ; then
   if [ -d /usr/lib32 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
   fi
-  libgcc_file_name=`gcc -m32 -print-libgc-file-name 2> /dev/null`
+  libgcc_file_name=`gcc -m32 -print-libgcc-file-name 2> /dev/null`
   if [ -f "$libgcc_file_name" ] ; then
-    libgcc_dirname=`dirname $llibgcc_file_name 2> /dev/null`
+    libgcc_dirname=`dirname $libgcc_file_name 2> /dev/null`
     if [ -d "$libgcc_dirname" ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl$libgcc_dirname"
     fi
@@ -152,6 +152,9 @@ if [ $is_32bit -eq 1 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
   fi
   NEEDED_OPT="$NEEDED_OPT $NATIVE_OPT32"
+  if [ "$target_cpu" == "sparc" ] ; then
+    FPCMAKEOPT="$NEEDED_OPT"
+  fi
 fi
 
 if [ $is_64bit -eq 1 ] ; then
