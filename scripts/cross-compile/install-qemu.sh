@@ -13,7 +13,7 @@ if [ -d qemu-$QEMU_VERSION ] ; then
 fi
 
 echo "Unpacking qemu version $QEMU_VERSION"
-tar xvJf qemu-$QEMU_VERSION.tar.xz
+tar xvJf qemu-$QEMU_VERSION.tar.xz > tar-qemu-$QEMU_VERSION.log
 if [ -f qemu-$QEMU_VERSION.patch ] ; then
   cd qemu-$QEMU_VERSION
   echo "Applying patch ../qemu-$QEMU_VERSION.patch"
