@@ -161,8 +161,8 @@ if [ $is_64bit -eq 1 ] ; then
   NATIVE_OPT64=""
   if [ "$target_cpu" == "sparc64" ] ; then
     NATIVE_OPT64="-ao-64 -Xd -vx"
-    if [ -d /usr/sparc64-linux-gnu/lib ] ; then
-      NATIVE_OPT64="$NATIVE_OPT64 -Fl/usr/sparc64-linux-gnu/lib64"
+    if [ -d /usr/lib/sparc64-linux-gnu ] ; then
+      NATIVE_OPT64="$NATIVE_OPT64 -Fl/usr/lib/sparc64-linux-gnu"
     fi
   fi
   if [ -d /lib64 ] ; then
@@ -181,7 +181,7 @@ if [ $is_64bit -eq 1 ] ; then
   if [ -d /usr/local/lib64 ] ; then
     NATIVE_OPT64="$NATIVE_OPT64 -Fl/usr/local/lib64"
   fi
-  if [ -d $HOME/lib64 ] ; then
+  if [ -d $HOME/gnu/lib64 ] ; then
     NATIVE_OPT64="$NATIVE_OPT64 -Fl$HOME/gnu/lib64"
   fi
   if [ -d $HOME/lib64 ] ; then
@@ -191,6 +191,9 @@ if [ $is_64bit -eq 1 ] ; then
     NATIVE_OPT64="$NATIVE_OPT64 -Fl$HOME/local/lib64"
   fi
   NEEDED_OPT="$NEEDED_OPT $NATIVE_OPT64"
+  if [ "$target_cpu" == "sparc64" ] ; then
+    FPCMAKEOPT="$NEEDED_OPT"
+  fi
 fi
 
 basedir=`pwd`
