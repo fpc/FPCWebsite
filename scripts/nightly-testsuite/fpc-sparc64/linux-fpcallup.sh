@@ -9,7 +9,7 @@ if [ "$machine_host" == "stadler" ] ; then
   enable_64bit_tests=1
   run_check_all_rtl=1
   export FPMAKEOPT=
-  #was export FPMAKEOPT="-T 16", which seems to have problems
+  export INCREASE_ULIMIT_NB_FILES=1
 fi
 
 . $HOME/bin/fpc-versions.sh
@@ -23,6 +23,10 @@ fi
 # Make sure ${HOME}/bin is in PATH
 if [ -d ${HOME}/bin ] ; then
   export PATH=${PATH}:${HOME}/bin
+fi
+
+if [ "${INCREASE_ULIMIT_NB_FILES:-}" == "1" ] ; then
+  ulimit -n 8192
 fi
 
 DO_SNAPSHOTS=1
