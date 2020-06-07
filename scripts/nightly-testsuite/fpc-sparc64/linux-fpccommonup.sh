@@ -2,29 +2,30 @@
 
 . $HOME/bin/fpc-versions.sh
 
-  # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
-  NATIVE_OPT32="-ao-32"
-  if [ -d /lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
-  fi
-  if [ -d /usr/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
-  fi
-  if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
-  fi
-  if [ -d /usr/local/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
-  fi
-  if [ -d $HOME/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
-  fi
-  if [ -d $HOME/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
-  fi
-  if [ -d $HOME/local/lib32 ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
-  fi
+NATIVE_OPT64=""
+# echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+NATIVE_OPT32="-ao-32"
+if [ -d /lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
+fi
+if [ -d /usr/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+fi
+if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
+fi
+if [ -d /usr/local/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+fi
+if [ -d $HOME/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+fi
+if [ -d $HOME/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+fi
+if [ -d $HOME/local/lib32 ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+fi
 
 # Set main variables
 export MAKE=make
@@ -67,6 +68,29 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
 else
   HOST_PC=${HOSTNAME}
   export DO_TESTS=0
+fi
+
+export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT32="$NATIVE_OPT32 "
+if [ -n "$gcc_libs_32" ] ; then
+  for dir in $gcc_libs_32 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
+        NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+      fi
+    fi
+  done
+fi
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" != "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir"
+      fi
+    fi
+  done
 fi
 
 if [ "X$USER" == "X" ]; then
