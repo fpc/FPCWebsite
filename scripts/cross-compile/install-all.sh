@@ -233,47 +233,48 @@ if [ ! -f $HOME/bin/clang ] ; then
   cd $HOME/bin
   if [ -n "`which clang`" ] ; then
    ln -s `which clang`
-cat /home/muller/bin/aarch64-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/aarch64-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=aarch64-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=aarch64-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/aarch64-iphonesim-clang <<HERE_SCRIPT
+cat > $HOME/bin/aarch64-iphonesim-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=aarch64-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=aarch64-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/arm-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/arm-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=arm-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=arm-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/arm-iphonesim-clang <<HERE_SCRIPT
+cat > $HOME/bin/arm-iphonesim-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=arm-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=arm-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/i386-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/i386-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=i386-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=i386-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/i386-iphonesim-clang <<HERE_SCRIPT
+cat > $HOME/bin/i386-iphonesim-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=i386-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=i386-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/powerpc64-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/powerpc64-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=powerpc64-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=powerpc64-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/powerpc-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/powerpc-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=powerpc-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=powerpc-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/x86_64-darwin-clang <<HERE_SCRIPT
+cat > $HOME/bin/x86_64-darwin-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=x86_64-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=x86_64-apple-darwin-macho \$*
 HERE_SCRIPT
-cat /home/muller/bin/x86_64-iphonesim-clang <<HERE_SCRIPT
+cat > $HOME/bin/x86_64-iphonesim-clang <<HERE_SCRIPT
 #!/usr/bin/env bash
-clang$CLANG_VERSION --target=x86_64-apple-darwin-macho $*
+clang\$CLANG_VERSION --target=x86_64-apple-darwin-macho \$*
 HERE_SCRIPT
   fi
+  chmod u+x $HOME/bin/*-*-clang
 fi
 
 # Add vasm assembler
