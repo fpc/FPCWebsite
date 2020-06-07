@@ -23,6 +23,8 @@ else
   custom=0
 fi
 
+NATIVE_OPT64=""
+
 # Set main variables
 export MAKE=make
 if [ "${HOSTNAME}" == "gcc202" ]; then
@@ -63,6 +65,29 @@ else
   export DO_TESTS=0
 fi
 
+export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT32="$NATIVE_OPT32 "
+if [ -n "$gcc_libs_32" ] ; then
+  for dir in $gcc_libs_32 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
+        NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+      fi
+    fi
+  done
+fi
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" != "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir"
+      fi
+    fi
+  done
+fi
+
 if [ "X$USER" == "X" ]; then
   USER=$LOGNAME
 fi
@@ -89,6 +114,7 @@ ulimit -t 240
 function run_test ()
 {
 # Run the cross-tests
+TEST_OPT="$NATIVE_OPT64 $1"
 echo "Starting sparc64 run_test TEST_OPT=\"$TEST_OPT\" using cross compiler" >> $report
 $DATE >> $report
 echo "make ${MAKEJOPT} full DB_SSH_EXTRA=\"-i ~/.ssh/freepascal\"  TEST_FPC=$CROSSFPC FPCMAKEOPT=\"$NATIVE_OPT -vx\" OPT=\"$NATIVE_OPT -vx\" \
@@ -220,7 +246,7 @@ if [ $SEND_MULTIPLE -eq 1 ] ; then
        -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
 fi
 
-run_test
+run_test "$TEST_OPT"
 
 if [ $custom -eq 0 ] ; then
   if [ $SEND_MULTIPLE -eq 1 ] ; then
@@ -232,7 +258,7 @@ if [ $custom -eq 0 ] ; then
     mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
          -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
   fi
-  run_test
+  run_test "$TEST_OPT"
   if [ $SEND_MULTIPLE -eq 1 ] ; then
     mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
          -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
@@ -250,7 +276,7 @@ if [ $custom -eq 0 ] ; then
       mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
            -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
     fi
-    run_test
+    run_test "$TEST_OPT"
     if [ $SEND_MULTIPLE -eq 1 ] ; then
       mutt -x -s "free pascal results finished for sparc64 on ${host_pc}, with option \"${TEST_OPT}\", ${build_version} ${build_date}" \
            -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
@@ -261,7 +287,7 @@ if [ $custom -eq 0 ] ; then
       mutt -x -s "Free Pascal results starting for sparc64 on ${HOST_PC}, with option \"${TEST_OPT}\", ${Build_version} ${Build_date}" \
            -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log 2>&1
     fi
-    run_test
+    run_test "$TEST_OPT"
   fi  
 fi
 echo "Finishing cross 64bit testsuite at: `$DATE`" >> $report
