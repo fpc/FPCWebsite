@@ -1370,7 +1370,7 @@ check_target xtensa embedded "-n" "SUBARCH=lx106"
 
 # Darwin OS check both clang and GNU binutils
 # Known to be broken, disabled
-check_target i386 darwin "-n -Aas-darwin" "" "-with-darwin-as"
+# check_target i386 darwin "-n -Aas-darwin" "" "-with-darwin-as"
 # check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
 # Default run using clang (unique executable)
 export BINUTILSPREFIX=reset
