@@ -1458,13 +1458,17 @@ check_target arm freertos "-n" "SUBARCH=armv6m"
 # z80 cpu, also test alternative assemblers
 export ASPROG_LOCAL=z80asm
 check_target z80 embedded "-n -Az80asm -Cfsoft" "" "-z80asm"
+check_target z80 zxspectrum "-n -Az80asm -Cfsoft" "" "-z80asm"
+check_target z80 msxdos "-n -Az80asm -Cfsoft" "" "-z80asm"
 export ASPROG_LOCAL=vasmz80_std
 check_target z80 embedded "-n -Avasm -Cfsoft" "" "-vasmz80"
 check_target z80 zxspectrum "-n -Avasm -Cfsoft" "" "-vasmz80"
+check_target z80 msxdos "-n -Avasm -Cfsoft" "" "-vasmz80"
 export ASPROG_LOCAL=
 # Test with -Cfsoft option
 check_target z80 embedded "-n -Cfsoft" "" "-Cfsoft"
 check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
+check_target z80 msxdos "-n -Cfsoft" "" "-Cfsoft"
 
 # LLVM compiler trials
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
