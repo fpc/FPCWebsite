@@ -205,6 +205,8 @@ elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils_ppudump=1
   MAKEJOPT="-j 32"
   ULIMIT_TIME=999
+  # Force use of 32-bit version compiler
+  export FPC=ppcsparc
 else
   echo "Unknown machine $machine_host"
 fi
