@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-export FPC_RELEASE_VERSION=3.2.0-rc1
-export FPC_RELEASE_VERSION_IN_TAR=3.2.0rc1
+export FPC_RELEASE_VERSION=3.2.0
+export FPC_RELEASE_VERSION_LAST_RC=3.2.0-rc1
+export FPC_RELEASE_VERSION_IN_TAR=3.2.0
 export FPC_START_VERSION=3.0.4
-export FPC_RELEASE_SVN_DIR=release_3_2_0_rc1
+export FPC_RELEASE_SVN_DIR=release_3_2_0
 
 export BUILDFULLNATIVE_OS_LIST="win32 win64"
 
@@ -105,7 +106,7 @@ if [ -d $FPC_RELEASE_SVN_DIR ] ; then
 
   # Check for local modifications
   svnstatus=`svn status | grep -n "^M" `
-  res=$?
+  res=${PIPESTATUS[0]}
   if [ "X$svnstatus" != "X" ] ; then
     # echo "Erasing $FPC_RELEASE_SVN_DIR to avoid local changes"
     echo "Locally modified files: $svnstatus" > $local_svn_diff
@@ -292,28 +293,33 @@ else
 fi
 
 # ssh  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org ls -altr $ftpdir/${FPC_RELEASE_VERSION}/docs
-if [ -d $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION} ] ; then
-  if [ ! -f $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz ] ; then
-    echo "Erasing directory docs-$FPC_RELEASE_VERSION"
-    rm -Rf $BASE_PAS_DIR/docs-$FPC_RELEASE_VERSION
-    mkdir $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
+if [ ! -d $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION} ] ; then
+  mkdir -p $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
+fi
+if [ ! -f $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz ] ; then
+  echo "Erasing directory docs-$FPC_RELEASE_VERSION"
+  rm -Rf $BASE_PAS_DIR/docs-$FPC_RELEASE_VERSION
+  mkdir $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
 
-    cd $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
-    echo "Copying doc files to docs-$FPC_RELEASE_VERSION"
+  cd $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
+  echo "Copying doc files to docs-$FPC_RELEASE_VERSION"
+  scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/*  .
+  res=$?
+  if [[ ( $res -ne 0 ) || ( ! -f doc-pdf.tar.gz ) ]] ; then
+    scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:ftp/beta/${FPC_RELEASE_VERSION_LAST_RC}/docs/*  .
+    res=$?
+  fi
+  if [ $res -ne 0 ] ; then
+    # Using previous RC
     scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/*  .
     res=$?
     if [ $res -ne 0 ] ; then
-      # Using previous RC
-      scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/*  .
-      res=$?
-      if [ $res -ne 0 ] ; then
-        echo "Failed to download docs"
-        let failure_count++
-        failure_list="$failure_list $TARGETCPU-$TARGETOS"
-        return 1
-      else
-        echo "Docs copied to `pwd`"
-      fi
+      echo "Failed to download docs"
+      let failure_count++
+      failure_list="$failure_list $TARGETCPU-$TARGETOS"
+      return 1
+    else
+      echo "Docs copied to `pwd`"
     fi
   fi
 fi
@@ -476,8 +482,9 @@ cp -fp $BASE_PAS_DIR/docs-$FPC_RELEASE_VERSION/* .
 
 export STARTFPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN
 if [ "`dirname $FPC`" = "." ] ; then
-  export FPC=$FPC_TMP_INSTALL/bin/$FPC
+  FPC=$FPC_TMP_INSTALL/bin/$FPC
 fi
+export FPC
 if [ ! -x "$FPC" ] ; then
   echo "Compiler $FPC is not executable"
   echo "Compiler $FPC is not executable" > $start_tty
