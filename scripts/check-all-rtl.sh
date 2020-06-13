@@ -219,6 +219,8 @@ if [ "X${FIXES:-0}" == "X1" ] ; then
   CHECKOUTDIR=$FIXESDIR
   svnname=fixes
   FPCVERSION=$FIXESVERSION
+  # LLVM is trunk only for now
+  DO_CHECK_LLVM=0
 else
   CHECKOUTDIR=$TRUNKDIR
   svnname=trunk
