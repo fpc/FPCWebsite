@@ -76,9 +76,9 @@ Pierre Muller
 EOF
 
 TAR_PATTERN="fpc-${CURVER}*.${FPC_CPUOS}.tar.gz"
-TAR=`ls -1tr $TAR_PATTERN | tail -1`
+TAR=`ls -1tr $TAR_PATTERN 2> /dev/null | tail -1`
 
-if [ -f ${TAR} ] ; then
+if [ -f "${TAR}" ] ; then
   mv -f  ${TAR} ${TAR}.old
 fi
 
@@ -86,9 +86,9 @@ echo "${MAKE} ${MAKE_OPTIONS} OPT=\"${OPTS}\" FPC=${FPC} > makesnapshot-${FPC_CP
 ${MAKE} ${MAKE_OPTIONS} OPT="${OPTS}" FPC=${FPC} > makesnapshot-${FPC_CPUOS}-${FPC_BRANCH}-${date}.txt 2>&1
 
 
-TAR=`ls -1tr $TAR_PATTERN | tail -1`
+TAR=`ls -1tr $TAR_PATTERN 2> /dev/null | tail -1`
 
-if [ -f ${TAR} ]; then
+if [ -f "${TAR}" ]; then
   echo "scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FTP_SUBDIR}"
   scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/$FTP_SNAPSHOT_DIR/${FTP_SUBDIR}
 else
