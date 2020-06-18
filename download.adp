@@ -32,8 +32,14 @@
       <li><a href="down/arm/gba@x@">Game Boy Advance</a>
       <li><a href="down/arm/nds@x@">Nintendo DS</a>
       <li><a href="down/arm/linux@x@">Linux</a>
+      <li><a href="down/arm/android@x@">Android</a>
       <li><a href="down/arm/wince@x@">Windows CE</a>
-      <li><a href="down/android/android@x@">Android</a>
+   </ul>
+
+    <li>ARM64 (aarch64)
+    <ul>
+      <li><a href="down/aarch64/linux@x@">Linux</a>
+      <li><a href="down/aarch64/android@x@">Android</a>
    </ul>
 
   <li>Intel/i386
@@ -49,7 +55,6 @@
       <li><a href="down/i386/os2@x@">OS/2 (<trn key="website.down_i386_OS2_note" locale="en_US">and eComStation</trn>)</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
       <li><a href="down/i386/win32@x@">Windows 32-bit</a> (<trn key="website.down_i386_win32_note" locale="en_US">and a cross-compiler ARM/MIPS/i386-Android</trn>)
-      <li><a href="down/android/android@x@">Android</a>
    <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
     </ul>
   <li>PowerPC
@@ -87,7 +92,6 @@
     </ul>
   <li>MIPS
     <ul>
-      <li><a href="down/android/android@x@">Android</a>
       <li><a href="down/mips/linux@x@">Linux</a>
     </ul>
   <li>MIPSEL
