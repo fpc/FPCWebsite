@@ -100,6 +100,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-hungary.var
 	echo 'Content-type: text/html; charset=UTF-8' >> linux-hungary.var
 	echo >> linux-hungary.var
+../..//down/arm/android-hungary.html.bg: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.bg -e iso-8859-5 android.adp
+../..//down/arm/android-hungary.html.en: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.en -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.fi: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.fi -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.fr: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.fr -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.id: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.id -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.it: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.it -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.nl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.nl -e iso-8859-1 android.adp
+../..//down/arm/android-hungary.html.po: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.po -e iso-8859-2 android.adp
+../..//down/arm/android-hungary.html.sl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.sl -e iso-8859-2 android.adp
+../..//down/arm/android-hungary.html.ru: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.ru -e iso-8859-5 android.adp
+../..//down/arm/android-hungary.html.zh-CN: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//android-hungary.html.zh-CN -e UTF-8 android.adp
+../..//down/arm/android-hungary.html: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//android-hungary.html -e ISO-8859-1 android.adp
+
+../..//down/arm/android-hungary.var: gen_makefile.conf
+	echo > android-hungary.var
+	echo 'URI: android-hungary.html.bg' >> android-hungary.var
+	echo 'Content-language: bg' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.en' >> android-hungary.var
+	echo 'Content-language: en' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.fi' >> android-hungary.var
+	echo 'Content-language: fi' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.fr' >> android-hungary.var
+	echo 'Content-language: fr' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.id' >> android-hungary.var
+	echo 'Content-language: id' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.it' >> android-hungary.var
+	echo 'Content-language: it' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.nl' >> android-hungary.var
+	echo 'Content-language: nl' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.po' >> android-hungary.var
+	echo 'Content-language: pl' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.sl' >> android-hungary.var
+	echo 'Content-language: sl' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.ru' >> android-hungary.var
+	echo 'Content-language: ru' >> android-hungary.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android-hungary.var
+	echo >> android-hungary.var
+	echo 'URI: android-hungary.html.zh-CN' >> android-hungary.var
+	echo 'Content-language: zh-CN' >> android-hungary.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android-hungary.var
+	echo >> android-hungary.var
 ../..//down/arm/gba-hungary.html.bg: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://ftp.hu.freepascal.org/pub/fpc/ -p mirrorsuffix=hungary -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//gba-hungary.html.bg -e iso-8859-5 gba.adp
 ../..//down/arm/gba-hungary.html.en: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -384,6 +455,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux-canada.var
 	echo 'Content-type: text/html; charset=UTF-8' >> linux-canada.var
 	echo >> linux-canada.var
+../..//down/arm/android-canada.html.bg: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//android-canada.html.bg -e iso-8859-5 android.adp
+../..//down/arm/android-canada.html.en: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//android-canada.html.en -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.fi: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o ../..//down/arm//android-canada.html.fi -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.fr: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o ../..//down/arm//android-canada.html.fr -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.id: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o ../..//down/arm//android-canada.html.id -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.it: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o ../..//down/arm//android-canada.html.it -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.nl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o ../..//down/arm//android-canada.html.nl -e iso-8859-1 android.adp
+../..//down/arm/android-canada.html.po: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o ../..//down/arm//android-canada.html.po -e iso-8859-2 android.adp
+../..//down/arm/android-canada.html.sl: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o ../..//down/arm//android-canada.html.sl -e iso-8859-2 android.adp
+../..//down/arm/android-canada.html.ru: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o ../..//down/arm//android-canada.html.ru -e iso-8859-5 android.adp
+../..//down/arm/android-canada.html.zh-CN: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o ../..//down/arm//android-canada.html.zh-CN -e UTF-8 android.adp
+../..//down/arm/android-canada.html: android.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp ../..//down/arm/
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o ../..//down/arm//android-canada.html -e ISO-8859-1 android.adp
+
+../..//down/arm/android-canada.var: gen_makefile.conf
+	echo > android-canada.var
+	echo 'URI: android-canada.html.bg' >> android-canada.var
+	echo 'Content-language: bg' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.en' >> android-canada.var
+	echo 'Content-language: en' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.fi' >> android-canada.var
+	echo 'Content-language: fi' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.fr' >> android-canada.var
+	echo 'Content-language: fr' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.id' >> android-canada.var
+	echo 'Content-language: id' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.it' >> android-canada.var
+	echo 'Content-language: it' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.nl' >> android-canada.var
+	echo 'Content-language: nl' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.po' >> android-canada.var
+	echo 'Content-language: pl' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.sl' >> android-canada.var
+	echo 'Content-language: sl' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.ru' >> android-canada.var
+	echo 'Content-language: ru' >> android-canada.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android-canada.var
+	echo >> android-canada.var
+	echo 'URI: android-canada.html.zh-CN' >> android-canada.var
+	echo 'Content-language: zh-CN' >> android-canada.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android-canada.var
+	echo >> android-canada.var
 ../..//down/arm/gba-canada.html.bg: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p mirror_url=ftp://mirror.freemirror.org/pub/fpc/ -p mirrorsuffix=canada -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o ../..//down/arm//gba-canada.html.bg -e iso-8859-5 gba.adp
 ../..//down/arm/gba-canada.html.en: gba.adp ../../default-master.adp ../../site-master.adp ../../catalog.en.adp
@@ -599,29 +741,29 @@ english: output_directory all_en_pages
 	echo >> wince-canada.var
 
 ../..//down/arm/linux.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -e iso-8859-5 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o linux.html.bg -e iso-8859-5 ../../templatemirror.adp
 ../..//down/arm/linux.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html.en -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html.en -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o linux.html.fi -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o linux.html.fi -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o linux.html.fr -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o linux.html.fr -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o linux.html.id -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o linux.html.id -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o linux.html.it -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o linux.html.it -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl -e iso-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o linux.html.nl -e iso-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o linux.html.po -e iso-8859-2 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o linux.html.po -e iso-8859-2 ../../templatemirror.adp
 ../..//down/arm/linux.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o linux.html.sl -e iso-8859-2 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o linux.html.sl -e iso-8859-2 ../../templatemirror.adp
 ../..//down/arm/linux.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -e iso-8859-5 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o linux.html.ru -e iso-8859-5 ../../templatemirror.adp
 ../..//down/arm/linux.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
-	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o linux.html.zh-CN -e UTF-8 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o linux.html.zh-CN -e UTF-8 ../../templatemirror.adp
 ../..//down/arm/linux.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
-	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=linux -p sourceforgepath="Linux" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -e ISO-8859-1 ../../templatemirror.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=linux -p sourceforgepath="linux" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o linux.html -e ISO-8859-1 ../../templatemirror.adp
 ../..//down/arm/linux.var: gen_makefile.conf
 	echo > linux.var
 	echo 'URI: linux.html.bg' >> linux.var
@@ -668,6 +810,77 @@ english: output_directory all_en_pages
 	echo 'Content-language: zh-CN' >> linux.var
 	echo 'Content-type: text/html; charset=UTF-8' >> linux.var
 	echo >> linux.var
+
+../..//down/arm/android.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o android.html.bg -e iso-8859-5 ../../templatemirror.adp
+../..//down/arm/android.html.en: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o android.html.en -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.fi: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fi.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.fi.adp -l fi_FI -m ../../default-master.adp -o android.html.fi -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.fr: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.fr.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.fr.adp -l fr_FR -m ../../default-master.adp -o android.html.fr -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.id: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.id.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.id.adp -l id_ID -m ../../default-master.adp -o android.html.id -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.it: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.it.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.it.adp -l it_IT -m ../../default-master.adp -o android.html.it -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.nl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.nl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.nl.adp -l nl_NL -m ../../default-master.adp -o android.html.nl -e iso-8859-1 ../../templatemirror.adp
+../..//down/arm/android.html.po: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.pl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.pl.adp -l pl_PL -m ../../default-master.adp -o android.html.po -e iso-8859-2 ../../templatemirror.adp
+../..//down/arm/android.html.sl: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.sl.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.sl.adp -l sl_SI -m ../../default-master.adp -o android.html.sl -e iso-8859-2 ../../templatemirror.adp
+../..//down/arm/android.html.ru: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.ru.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.ru.adp -l ru_RU -m ../../default-master.adp -o android.html.ru -e iso-8859-5 ../../templatemirror.adp
+../..//down/arm/android.html.zh-CN: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.zh-CN.adp
+	../../adp2html -p x=$(URL_EXTENSION) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.zh-CN.adp -l zh_CN -m ../../default-master.adp -o android.html.zh-CN -e UTF-8 ../../templatemirror.adp
+../..//down/arm/android.html: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.en.adp
+	../../adp2html -p x=$(URL_EXTENSION_EN) -p pagename=android -p sourceforgepath="android" -p latestversion="3.0.4" -c ../../catalog.en.adp -l en_US -m ../../default-master.adp -o android.html -e ISO-8859-1 ../../templatemirror.adp
+../..//down/arm/android.var: gen_makefile.conf
+	echo > android.var
+	echo 'URI: android.html.bg' >> android.var
+	echo 'Content-language: bg' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.en' >> android.var
+	echo 'Content-language: en' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.fi' >> android.var
+	echo 'Content-language: fi' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.fr' >> android.var
+	echo 'Content-language: fr' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.id' >> android.var
+	echo 'Content-language: id' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.it' >> android.var
+	echo 'Content-language: it' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.nl' >> android.var
+	echo 'Content-language: nl' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-1' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.po' >> android.var
+	echo 'Content-language: pl' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.sl' >> android.var
+	echo 'Content-language: sl' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-2' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.ru' >> android.var
+	echo 'Content-language: ru' >> android.var
+	echo 'Content-type: text/html; charset=iso-8859-5' >> android.var
+	echo >> android.var
+	echo 'URI: android.html.zh-CN' >> android.var
+	echo 'Content-language: zh-CN' >> android.var
+	echo 'Content-type: text/html; charset=UTF-8' >> android.var
+	echo >> android.var
 
 ../..//down/arm/gba.html.bg: ../../templatemirror.adp mirrors.dat ../../default-master.adp ../../catalog.bg.adp
 	../../adp2html -p x=$(URL_EXTENSION) -p pagename=gba -p sourceforgepath="GBA" -p latestversion="3.0.0" -c ../../catalog.bg.adp -l bg_BG -m ../../default-master.adp -o gba.html.bg -e iso-8859-5 ../../templatemirror.adp
@@ -887,8 +1100,8 @@ mirrors.dat:
 	$(shell echo 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat)
 	$(shell echo 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat)
 
-all_pages: mirrors.dat ../..//down/arm/linux-hungary.html.bg ../..//down/arm/linux-hungary.html.en ../..//down/arm/linux-hungary.html.fi ../..//down/arm/linux-hungary.html.fr ../..//down/arm/linux-hungary.html.id ../..//down/arm/linux-hungary.html.it ../..//down/arm/linux-hungary.html.nl ../..//down/arm/linux-hungary.html.po ../..//down/arm/linux-hungary.html.sl ../..//down/arm/linux-hungary.html.ru ../..//down/arm/linux-hungary.html.zh-CN ../..//down/arm/linux-hungary.var ../..//down/arm/gba-hungary.html.bg ../..//down/arm/gba-hungary.html.en ../..//down/arm/gba-hungary.html.fi ../..//down/arm/gba-hungary.html.fr ../..//down/arm/gba-hungary.html.id ../..//down/arm/gba-hungary.html.it ../..//down/arm/gba-hungary.html.nl ../..//down/arm/gba-hungary.html.po ../..//down/arm/gba-hungary.html.sl ../..//down/arm/gba-hungary.html.ru ../..//down/arm/gba-hungary.html.zh-CN ../..//down/arm/gba-hungary.var ../..//down/arm/nds-hungary.html.bg ../..//down/arm/nds-hungary.html.en ../..//down/arm/nds-hungary.html.fi ../..//down/arm/nds-hungary.html.fr ../..//down/arm/nds-hungary.html.id ../..//down/arm/nds-hungary.html.it ../..//down/arm/nds-hungary.html.nl ../..//down/arm/nds-hungary.html.po ../..//down/arm/nds-hungary.html.sl ../..//down/arm/nds-hungary.html.ru ../..//down/arm/nds-hungary.html.zh-CN ../..//down/arm/nds-hungary.var ../..//down/arm/wince-hungary.html.bg ../..//down/arm/wince-hungary.html.en ../..//down/arm/wince-hungary.html.fi ../..//down/arm/wince-hungary.html.fr ../..//down/arm/wince-hungary.html.id ../..//down/arm/wince-hungary.html.it ../..//down/arm/wince-hungary.html.nl ../..//down/arm/wince-hungary.html.po ../..//down/arm/wince-hungary.html.sl ../..//down/arm/wince-hungary.html.ru ../..//down/arm/wince-hungary.html.zh-CN ../..//down/arm/wince-hungary.var ../..//down/arm/linux-canada.html.bg ../..//down/arm/linux-canada.html.en ../..//down/arm/linux-canada.html.fi ../..//down/arm/linux-canada.html.fr ../..//down/arm/linux-canada.html.id ../..//down/arm/linux-canada.html.it ../..//down/arm/linux-canada.html.nl ../..//down/arm/linux-canada.html.po ../..//down/arm/linux-canada.html.sl ../..//down/arm/linux-canada.html.ru ../..//down/arm/linux-canada.html.zh-CN ../..//down/arm/linux-canada.var ../..//down/arm/gba-canada.html.bg ../..//down/arm/gba-canada.html.en ../..//down/arm/gba-canada.html.fi ../..//down/arm/gba-canada.html.fr ../..//down/arm/gba-canada.html.id ../..//down/arm/gba-canada.html.it ../..//down/arm/gba-canada.html.nl ../..//down/arm/gba-canada.html.po ../..//down/arm/gba-canada.html.sl ../..//down/arm/gba-canada.html.ru ../..//down/arm/gba-canada.html.zh-CN ../..//down/arm/gba-canada.var ../..//down/arm/nds-canada.html.bg ../..//down/arm/nds-canada.html.en ../..//down/arm/nds-canada.html.fi ../..//down/arm/nds-canada.html.fr ../..//down/arm/nds-canada.html.id ../..//down/arm/nds-canada.html.it ../..//down/arm/nds-canada.html.nl ../..//down/arm/nds-canada.html.po ../..//down/arm/nds-canada.html.sl ../..//down/arm/nds-canada.html.ru ../..//down/arm/nds-canada.html.zh-CN ../..//down/arm/nds-canada.var ../..//down/arm/wince-canada.html.bg ../..//down/arm/wince-canada.html.en ../..//down/arm/wince-canada.html.fi ../..//down/arm/wince-canada.html.fr ../..//down/arm/wince-canada.html.id ../..//down/arm/wince-canada.html.it ../..//down/arm/wince-canada.html.nl ../..//down/arm/wince-canada.html.po ../..//down/arm/wince-canada.html.sl ../..//down/arm/wince-canada.html.ru ../..//down/arm/wince-canada.html.zh-CN ../..//down/arm/wince-canada.var ../..//down/arm/linux.html.bg ../..//down/arm/linux.html.en ../..//down/arm/linux.html.fi ../..//down/arm/linux.html.fr ../..//down/arm/linux.html.id ../..//down/arm/linux.html.it ../..//down/arm/linux.html.nl ../..//down/arm/linux.html.po ../..//down/arm/linux.html.sl ../..//down/arm/linux.html.ru ../..//down/arm/linux.html.zh-CN ../..//down/arm/linux.var ../..//down/arm/gba.html.bg ../..//down/arm/gba.html.en ../..//down/arm/gba.html.fi ../..//down/arm/gba.html.fr ../..//down/arm/gba.html.id ../..//down/arm/gba.html.it ../..//down/arm/gba.html.nl ../..//down/arm/gba.html.po ../..//down/arm/gba.html.sl ../..//down/arm/gba.html.ru ../..//down/arm/gba.html.zh-CN ../..//down/arm/gba.var ../..//down/arm/nds.html.bg ../..//down/arm/nds.html.en ../..//down/arm/nds.html.fi ../..//down/arm/nds.html.fr ../..//down/arm/nds.html.id ../..//down/arm/nds.html.it ../..//down/arm/nds.html.nl ../..//down/arm/nds.html.po ../..//down/arm/nds.html.sl ../..//down/arm/nds.html.ru ../..//down/arm/nds.html.zh-CN ../..//down/arm/nds.var ../..//down/arm/wince.html.bg ../..//down/arm/wince.html.en ../..//down/arm/wince.html.fi ../..//down/arm/wince.html.fr ../..//down/arm/wince.html.id ../..//down/arm/wince.html.it ../..//down/arm/wince.html.nl ../..//down/arm/wince.html.po ../..//down/arm/wince.html.sl ../..//down/arm/wince.html.ru ../..//down/arm/wince.html.zh-CN ../..//down/arm/wince.var
-all_en_pages: mirrors.dat ../..//down/arm/linux-hungary.html ../..//down/arm/gba-hungary.html ../..//down/arm/nds-hungary.html ../..//down/arm/wince-hungary.html ../..//down/arm/linux-canada.html ../..//down/arm/gba-canada.html ../..//down/arm/nds-canada.html ../..//down/arm/wince-canada.html ../..//down/arm/linux.html ../..//down/arm/gba.html ../..//down/arm/nds.html ../..//down/arm/wince.html
+all_pages: mirrors.dat ../..//down/arm/linux-hungary.html.bg ../..//down/arm/linux-hungary.html.en ../..//down/arm/linux-hungary.html.fi ../..//down/arm/linux-hungary.html.fr ../..//down/arm/linux-hungary.html.id ../..//down/arm/linux-hungary.html.it ../..//down/arm/linux-hungary.html.nl ../..//down/arm/linux-hungary.html.po ../..//down/arm/linux-hungary.html.sl ../..//down/arm/linux-hungary.html.ru ../..//down/arm/linux-hungary.html.zh-CN ../..//down/arm/linux-hungary.var ../..//down/arm/android-hungary.html.bg ../..//down/arm/android-hungary.html.en ../..//down/arm/android-hungary.html.fi ../..//down/arm/android-hungary.html.fr ../..//down/arm/android-hungary.html.id ../..//down/arm/android-hungary.html.it ../..//down/arm/android-hungary.html.nl ../..//down/arm/android-hungary.html.po ../..//down/arm/android-hungary.html.sl ../..//down/arm/android-hungary.html.ru ../..//down/arm/android-hungary.html.zh-CN ../..//down/arm/android-hungary.var ../..//down/arm/gba-hungary.html.bg ../..//down/arm/gba-hungary.html.en ../..//down/arm/gba-hungary.html.fi ../..//down/arm/gba-hungary.html.fr ../..//down/arm/gba-hungary.html.id ../..//down/arm/gba-hungary.html.it ../..//down/arm/gba-hungary.html.nl ../..//down/arm/gba-hungary.html.po ../..//down/arm/gba-hungary.html.sl ../..//down/arm/gba-hungary.html.ru ../..//down/arm/gba-hungary.html.zh-CN ../..//down/arm/gba-hungary.var ../..//down/arm/nds-hungary.html.bg ../..//down/arm/nds-hungary.html.en ../..//down/arm/nds-hungary.html.fi ../..//down/arm/nds-hungary.html.fr ../..//down/arm/nds-hungary.html.id ../..//down/arm/nds-hungary.html.it ../..//down/arm/nds-hungary.html.nl ../..//down/arm/nds-hungary.html.po ../..//down/arm/nds-hungary.html.sl ../..//down/arm/nds-hungary.html.ru ../..//down/arm/nds-hungary.html.zh-CN ../..//down/arm/nds-hungary.var ../..//down/arm/wince-hungary.html.bg ../..//down/arm/wince-hungary.html.en ../..//down/arm/wince-hungary.html.fi ../..//down/arm/wince-hungary.html.fr ../..//down/arm/wince-hungary.html.id ../..//down/arm/wince-hungary.html.it ../..//down/arm/wince-hungary.html.nl ../..//down/arm/wince-hungary.html.po ../..//down/arm/wince-hungary.html.sl ../..//down/arm/wince-hungary.html.ru ../..//down/arm/wince-hungary.html.zh-CN ../..//down/arm/wince-hungary.var ../..//down/arm/android-canada.html.bg ../..//down/arm/android-canada.html.en ../..//down/arm/android-canada.html.fi ../..//down/arm/android-canada.html.fr ../..//down/arm/android-canada.html.id ../..//down/arm/android-canada.html.it ../..//down/arm/android-canada.html.nl ../..//down/arm/android-canada.html.po ../..//down/arm/android-canada.html.sl ../..//down/arm/android-canada.html.ru ../..//down/arm/android-canada.html.zh-CN ../..//down/arm/android-canada.var ../..//down/arm/gba-canada.html.bg ../..//down/arm/gba-canada.html.en ../..//down/arm/gba-canada.html.fi ../..//down/arm/gba-canada.html.fr ../..//down/arm/gba-canada.html.id ../..//down/arm/gba-canada.html.it ../..//down/arm/gba-canada.html.nl ../..//down/arm/gba-canada.html.po ../..//down/arm/gba-canada.html.sl ../..//down/arm/gba-canada.html.ru ../..//down/arm/gba-canada.html.zh-CN ../..//down/arm/gba-canada.var ../..//down/arm/nds-canada.html.bg ../..//down/arm/nds-canada.html.en ../..//down/arm/nds-canada.html.fi ../..//down/arm/nds-canada.html.fr ../..//down/arm/nds-canada.html.id ../..//down/arm/nds-canada.html.it ../..//down/arm/nds-canada.html.nl ../..//down/arm/nds-canada.html.po ../..//down/arm/nds-canada.html.sl ../..//down/arm/nds-canada.html.ru ../..//down/arm/nds-canada.html.zh-CN ../..//down/arm/nds-canada.var ../..//down/arm/wince-canada.html.bg ../..//down/arm/wince-canada.html.en ../..//down/arm/wince-canada.html.fi ../..//down/arm/wince-canada.html.fr ../..//down/arm/wince-canada.html.id ../..//down/arm/wince-canada.html.it ../..//down/arm/wince-canada.html.nl ../..//down/arm/wince-canada.html.po ../..//down/arm/wince-canada.html.sl ../..//down/arm/wince-canada.html.ru ../..//down/arm/wince-canada.html.zh-CN ../..//down/arm/wince-canada.var ../..//down/arm/android.html.bg ../..//down/arm/android.html.en ../..//down/arm/android.html.fi ../..//down/arm/android.html.fr ../..//down/arm/android.html.id ../..//down/arm/android.html.it ../..//down/arm/android.html.nl ../..//down/arm/android.html.po ../..//down/arm/android.html.sl ../..//down/arm/android.html.ru ../..//down/arm/android.html.zh-CN ../..//down/arm/android.var ../..//down/arm/gba.html.bg ../..//down/arm/gba.html.en ../..//down/arm/gba.html.fi ../..//down/arm/gba.html.fr ../..//down/arm/gba.html.id ../..//down/arm/gba.html.it ../..//down/arm/gba.html.nl ../..//down/arm/gba.html.po ../..//down/arm/gba.html.sl ../..//down/arm/gba.html.ru ../..//down/arm/gba.html.zh-CN ../..//down/arm/gba.var ../..//down/arm/nds.html.bg ../..//down/arm/nds.html.en ../..//down/arm/nds.html.fi ../..//down/arm/nds.html.fr ../..//down/arm/nds.html.id ../..//down/arm/nds.html.it ../..//down/arm/nds.html.nl ../..//down/arm/nds.html.po ../..//down/arm/nds.html.sl ../..//down/arm/nds.html.ru ../..//down/arm/nds.html.zh-CN ../..//down/arm/nds.var ../..//down/arm/wince.html.bg ../..//down/arm/wince.html.en ../..//down/arm/wince.html.fi ../..//down/arm/wince.html.fr ../..//down/arm/wince.html.id ../..//down/arm/wince.html.it ../..//down/arm/wince.html.nl ../..//down/arm/wince.html.po ../..//down/arm/wince.html.sl ../..//down/arm/wince.html.ru ../..//down/arm/wince.html.zh-CN ../..//down/arm/wince.var
+all_en_pages: mirrors.dat ../..//down/arm/linux-hungary.html ../..//down/arm/android-hungary.html ../..//down/arm/gba-hungary.html ../..//down/arm/nds-hungary.html ../..//down/arm/wince-hungary.html ../..//down/arm/linux-canada.html ../..//down/arm/android-canada.html ../..//down/arm/gba-canada.html ../..//down/arm/nds-canada.html ../..//down/arm/wince-canada.html ../..//down/arm/linux.html ../..//down/arm/android.html ../..//down/arm/gba.html ../..//down/arm/nds.html ../..//down/arm/wince.html
 
 
 # clean

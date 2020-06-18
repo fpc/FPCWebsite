@@ -3,7 +3,7 @@
 #
 export EXE inlinux PWD MV RM 
 # Put m68k directory as last because it generates an error
-DIRS=arm i386 powerpc powerpc64 sparc x86_64 docs old source i8086 android mips mipsel m68k
+DIRS=aarch64 arm i386 powerpc powerpc64 sparc x86_64 docs old source i8086 mips mipsel m68k
 .PHONY: $(DIRS) all clean makefiles
 default: all
 
