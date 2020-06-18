@@ -65,7 +65,7 @@ It is available in different formats:
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)</trn></em>
 <ul>
 <trn key="website.DEB_packages.note" locale="en_US">
-<li><b>Deb archives for 3.0.2 are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
+<li><b>Deb archives for @latestversion@ are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
   </trn>
 </ul>
 
