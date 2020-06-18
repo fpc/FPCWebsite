@@ -324,7 +324,15 @@ fi
 function run_tests ()
 {
 TEST_OPT="$1"
-testslog=$LOGDIR/test-${TEST_OPT// /_}.txt
+test_opt_name=""
+for opt in $TEST_OPT ; do
+  # Only keep options which do not contain a directory sepearator
+  # This remove -Fl or -Fu options
+  if [ "${opt/\//_}" == "$opt" ] ; then
+    test_opt_name="$test_opt_name $opt"
+  fi
+done
+testslog=$LOGDIR/test-${test_opt_name// /_}.txt
 echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
