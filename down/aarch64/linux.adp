@@ -20,7 +20,7 @@
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">fpc-3.0.2.arm-linux-eabi.tar</a> (55 MB)
+href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar/a> (55 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
