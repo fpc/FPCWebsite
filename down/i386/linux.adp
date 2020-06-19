@@ -28,31 +28,33 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">fpc-@latestversion@.i386-linux.tar</a> (53 MB)
+<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">fpc-@latestversion@.i386-linux.tar</a> (147 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script.
   After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 </trn></li>
-<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (22 MB)
+<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (160 MB)
 <trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler only. You can install it like the main package.</trn></li>
+<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.x86_64-linux.tar">fpc-@latestversion@.i386-linux.cross.x86_64-linux.tar</a> (104 MB)
+<trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to x86_64-linux cross-compiler only. You can install it like the main package.</trn></li>
 </ul>
 
 <h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
 <em><trn key="website.RPM_compatibility" locale="en_US">Our RPM packages are compatible with all RPM based distributions, including Red Hat, Fedora, SuSE, Mandriva.</trn></em>
 <ul>
 <li> <b><trn key="website.Binary_packages" locale="en_US">Binary Packages</trn></b>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-@latestversion@-1.i686.rpm">fpc-@latestversion@-1.i686.rpm</a> (22 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-@latestversion@-1.i686.rpm">fpc-@latestversion@-1.i686.rpm</a> (44 MB)
      <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        contains the compiler, utils, RTL and all units. <br>
      </trn>
 <li> <b><trn key="website.Source_packages" locale="en_US">Source Packages</trn></b>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-@latestversion@-1.src.rpm">fpc-@latestversion@-1.src.rpm</a> (3i6 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-@latestversion@-1.src.rpm">fpc-@latestversion@-1.src.rpm</a> (53 MB)
      <trn key="website.i386-linux_rpm_src_download_descr" locale="en_US">
        contains the sources.<br>
      </trn>
 <li> <b><trn key="website.Binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@i-1.i686.rpm</a> (22 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@i-1.i686.rpm</a> (176 MB)
      <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        contains the cross-compiler, RTL and all units for MS-DOS target. <br>
      </trn>
