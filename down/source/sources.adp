@@ -12,13 +12,13 @@
 <trn key="website.down.source.sources.formats.list" locale="en_US">The complete sources can be downloaded in the following formats:</trn>
 <DL>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</DD>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (86 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.tar.gz">fpcbuild-@latestversion@.tar.gz</a> (67MB)</DD>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.tar.gz">fpcbuild-@latestversion@.tar.gz</a> (77MB)</DD>
   <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.zip">fpc-@latestversion@.source.zip</a> (45 MB)</DD>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.zip">fpc-@latestversion@.source.zip</a> (58 MB)</DD>
   <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (38 MB)</DD>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (50 MB)</DD>
 </DL>
 </trn>
 <trn key="website.down.source.sources.archive" locale="en_US">
