@@ -19,9 +19,9 @@ isn't supposed to work in Windows NT/2000/XP.</trn>
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos304full.zip">dos304full.zip</a> (48 MB),<br>
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos320full.zip">dos320full.zip</a> (75 MB),<br>
 or you can download a file that contains the same, only without sources and documentation:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos304.zip">dos304.zip</a> (21 MB).
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos320.zip">dos320.zip</a> (33 MB).
 <!-- <li>Alternatively, you can download individual packages from <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate">here</a>. -->
 </ul>
 </trn>
@@ -35,10 +35,10 @@ You can download the contents of the above zip files as separate files:<br>
 <trn key="website.down.i386.go32v2.install" locale="en_US">
 <li> <b>Mandatory files:</b>
 <ul>
-<li> Install program: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.exe">install.exe</a> (352 kB)
-<li> ...and its data file <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.dat">install.dat</a> (24 kB)
-<li> Base files (program and units): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/basedos.zip">basedos.zip</a> (4 MB)
-<li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/aslddos.zip">aslddos.zip</a> (1 MB)
+<li> Install program: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.exe">install.exe</a> (205 kB)
+<li> ...and its data file <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.dat">install.dat</a> (42 kB)
+<li> Base files (program and units): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/basedos.zip">basedos.zip</a> (4.7 MB)
+<li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/aslddos.zip">aslddos.zip</a> (1.2 MB)
 </ul>
 </trn>
 
@@ -122,12 +122,12 @@ change the name of the files!
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/makedos.zip">makedos.zip</a> (1.4 MB)
-<li> Units required for building fpmake.exe: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/ufpmkdos.zip">ufpmkdos.zip</a> (188 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/makedos.zip">makedos.zip</a> (1.1 MB)
+<li> Units required for building fpmake.exe: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/ufpmkdos.zip">ufpmkdos.zip</a> (250 kB)
 <li>CWSDPMI (necessary for running the installer unless some DPMI runtime already present):
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (20 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (21 kB)
 <li>Floating point processor emulator:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (60 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (26 kB)
 </ul>
 </trn>
 </OL>
