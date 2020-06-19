@@ -16,6 +16,29 @@
 </p>
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
+<p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20200619">
+ <li>
+  <em>June 19th, 2020</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.2.0 has been released!
+   <p>
+    This version is a major new release and contains bugfixes and updates packages, <a href="http://wiki.freepascal.org/FPC_New_Features_3.2">new features</a>  and new targets. Due to the
+    age of the FPC 3.0 branch (5 years!) it is recommended to upgrade as soon as possible.
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.2.0">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.2.0 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>. Some links might be stale but will be updated in the coming days.
+   </p>
+  </li>
+ </ul>
+ </trn>
+</p>
 
 <p>
  <trn locale="en_US" key="website.frontpage.helpersattributesllvm">
