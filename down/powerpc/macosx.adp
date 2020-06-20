@@ -17,7 +17,7 @@
 
 <h3><a name="macosxdmg"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc-macosx/fpc-@latestversion@.powerpc-macosx.dmg">fpc-@latestversion@.powerpc-macosx.dmg</a> (73 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc-macosx/fpc-@latestversion@.powerpc-macosx.dmg">fpc-@latestversion@.powerpc-macosx.dmg</a> (151s MB)
 <trn key="website.down.powerpc.macosx.information" locale="en_US">
 contains an installation package for compiling PowerPC (32 bit and 64 bit) programs.
 </trn>
