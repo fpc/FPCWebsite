@@ -169,9 +169,13 @@ begin
     repeat
       i:=pos(#9,s);
       if i=0 then
+        begin
+        // Writeln('Adding col',S);
         colnames.add(UTF8Encode(s))
+        end
       else
         begin
+          // Writeln('Adding col',UTF8Encode(copy(s,1,i-1)));
           colnames.add(UTF8Encode(copy(s,1,i-1)));
           delete(s,1,i);
         end;
@@ -188,9 +192,13 @@ begin
 
           i:=pos(#9,t);
           if i=0 then
+            begin
+            // Writeln('Adding last value : ',UTF8Encode(t));
             rows.add(UTF8Encode(t))
+            end
           else
             begin
+              // Writeln('Adding value : ',UTF8Encode(copy(t,1,i-1)));
               rows.add(UTF8Encode(copy(t,1,i-1)));
               delete(t,1,i);
             end;

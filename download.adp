@@ -115,64 +115,7 @@
     The documentation can be downloaded in several formats from one of our
     <a href="down/docs/docs@x@">download sites</a>.
   </trn>
-
-<!--
-<a name="other"></a><h3><trn key="website.down_other_down" locale="en_US">Other downloads</trn></h3>
-<p>
-<p>
-  <trn key="website.down_furthermore" locale="en_US">Furthermore, you can download the following:</trn>
-<ul>
-  <li><trn key="website.down_party" locale="en_US">There are some third party <a href="down-utils@x@">utilities</a> that can be used with Free Pascal.</trn>
-</ul>
--->
-
-<!--
-<a name="beta"></a><h2>Official beta releases</h2>
-
-<p>
-  <trn key="website.latest_beta" locale="en_US">The latest beta is <b>2.1.4</b></trn>.
-<p>
-  <trn key="website.can_download_for_platform_beta" locale="en_US">
-    You can download the 2.1.4 release for the following operating systems:
-  </trn>
-<ul>
-    <li>arm
-    <ul>
-      <li><a href="down2/arm/gba@x@">Game Boy Advance</a>
-      <li><a href="down2/arm/linux@x@">Linux</a>
-      <li><a href="down2/arm/nds@x@">Nintendo DS</a>
-      <li><a href="down2/arm/wince@x@">Windows CE</a>
-    </ul>
-  <li>intel/i386
-    <ul>
-      <li><a href="down2/i386/go32v2@x@">Dos</a> (<trn key="website.down_i386_dos_note" locale="en_US">GO32v2 extender</trn>)
-      <li><a href="down2/i386/freebsd@x@">FreeBSD</a> (<trn key="website.down_i386_freebsd_note" locale="en_US">FreeBSD 4.x and probably 5.x too</trn>)
-      <li><a href="down2/i386/linux@x@">Linux</a>
-      <li><a href="down2/i386/macosx@x@">Mac OS X</a>
-      <li><a href="down2/i386/win32@x@">Win32</a> (Windows 95, 98, ME, NT, 2000, XP)
-    </ul>
-  <li>powerpc
-    <ul>
-      <li><a href="down2/powerpc/linux@x@">Linux</a>
-      <li><a href="down2/powerpc/macosx@x@">Mac OS X</a>
-    </ul>
-  <li>sparc
-    <ul>
-      <li><a href="down2/sparc/linux@x@">Linux</a>
-    </ul>
-  <li>amd64/x86_64
-    <ul>
-      <li><a href="down2/x86_64/linux@x@">Linux</a>
-      <li><a href="down2/x86_64/win64@x@">Win64</a>
-    </ul>
-</ul>
-<p>
-  <trn key="website.down_furthermore" locale="en_US">Furthermore, you can download the following:</trn>
-<ul>
-  <li><trn key="website.Documentation_in_diff_formats" locale="en_US"><a href="down2/docs/docs@x@">Documentation</a> in different formats</trn>
-  <li><a href="down2/source/sources@x@"><trn key="website.Sources" locale="en_US">Sources</trn></a>
-</ul>
--->
+</p>
 
 
 <h2><trn key="website.snapshots" locale="en_US">Snapshots</trn></h2>

@@ -24,6 +24,7 @@ GENVARFILE=./genvarfile$(EXE)
 
 PAGES:=aboutus advantage credits develop download docs faq fpc fpcmac future lang_howto links maillist mirrors moreinfo news port prog probs units unitsrtl privacy
 HTMLPAGES=$(addsuffix .html,$(PAGES))
+ADPPAGES=$(addsuffix .adp,$(PAGES))
 
 ifndef PP
  PP=fpc
@@ -33,12 +34,12 @@ endif
 
 default: all
 
-all: english output_directory contrib_all index.html
+all: english output_directory index.html
 
 index.html: fpc.html
 	ln -s fpc.html index.html
 
-english: all_pages down_all_en  fcl_all_en tools_all_en output_directory contrib_all
+english: all_pages
 
 %.html: %.adp default-master.adp site-master.adp ./catalog.bg.adp
 	./adp2html -m default-master.adp -o $@ $<
@@ -47,10 +48,10 @@ english: all_pages down_all_en  fcl_all_en tools_all_en output_directory contrib
 mirrors.dat:
 	echo -e 'name\tnamel\turl' > mirrors.dat
  	echo -e 'Hungary\thungary\tftp://ftp.hu.freepascal.org/pub/fpc/' >> mirrors.dat
-    echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat
+	echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat
 
-all_pages: $(GENVARFILE) $(ADP2HTML) mirrors.dat $(HTMLPAGES)
-
+all_pages: $(GENVARFILE) $(ADP2HTML) mirrors.dat
+	adp2html -a 
 
 #adp2html tool
 $(ADP2HTML): adp2html.pp adpconverter.pp adputils.pp adpdata.pp
@@ -59,39 +60,25 @@ $(ADP2HTML): adp2html.pp adpconverter.pp adputils.pp adpdata.pp
 $(GENVARFILE): genvarfile.pp
 	$(PP) $(OPT) -Xs genvarfile.pp
 
-#output directory
-output_directory:
-	mkdir -p ./
-
-# down subdir
-
-contrib_all:
-	$(MAKE) -C contrib all
-
-down_all_en:
-	$(MAKE) -C down english
-
-down2_all_en:
-	$(MAKE) -C down2 english
-
-fcl_all_en:
-	$(MAKE) -C fcl english
-
-tools_all_en:
-	$(MAKE) -C tools english
-
 # clean
-clean: clean_down clean_fcl clean_tools
-	rm -f *.html.* *.html *.var mirrors.dat adp2html
+clean: clean_down clean_fcl clean_tools clean_contribs clean_docsearch
+	rm -f *.html.* *.html *.var mirrors.dat $(ADP2HTML)
+	rm -f *.o *.ppu
 
 clean_down:
-	$(MAKE) -C down clean
+	rm -f down/*.html* down/*/*.html* down/*.var down/*/*.var
 
 clean_fcl:
-	$(MAKE) -C fcl clean
+	rm -f fcl/*.html* */*.bat
 
 clean_tools:
-	$(MAKE) -C tools clean
+	rm -f tools/*.html* tools/*.var
+
+clean_contribs:
+	rm -f contrib/*.html* contrib/*.var contrib/*.cgi contrib/*.o contrib/*.ppu
+
+clean_docsearch:
+	rm -f docsearch/*.html* docsearch/*.var  
 
 # archives (unix only)
 tar: all
