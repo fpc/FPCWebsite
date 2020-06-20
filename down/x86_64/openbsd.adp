@@ -17,7 +17,7 @@
 
 <h3><a name="openbsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/3.0.0/x86_64-openbsd/fpc-3.0.0.x86_64-openbsd.tar">fpc-3.0.0.x86_64-openbsd.tar</a> (44 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/x86_64-openbsd/fpc-@latestversion@.x86_64-openbsd.tar">fpc-@latestversion@.x86_64-openbsd.tar</a> (164 MB)
 </ul>
 <trn key="website.x86_64-openbsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>

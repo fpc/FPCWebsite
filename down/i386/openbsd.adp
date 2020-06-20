@@ -17,8 +17,8 @@
 
 <h3><a name="openbsdbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/2.6.4/i386-openbsd/readme.txt">readme.txt</a>
-<li> <a href="@mirror_url@dist/2.6.4/i386-openbsd/fpc-2.6.4.i386-openbsd.tar">fpc-2.6.4.i386-openbsd.tar</a> (42 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-openbsd/readme.txt">readme.txt</a>
+<li> <a href="@mirror_url@dist/@latestversion@/i386-openbsd/fpc-@latestversion@.i386-openbsd.tar">fpc-@latestversion@.i386-openbsd.tar</a> (182 MB)
 </ul>
 <trn key="website.i386-openbsd_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
