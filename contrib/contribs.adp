@@ -13,7 +13,7 @@
 <script src="https://extjs.cachefly.net/ext-3.3.1/adapter/ext/ext-base.js"></script>
 <script src="https://extjs.cachefly.net/ext-3.3.1/ext-all.js"></script>
 <script src="https://extjs.cachefly.net/ext-3.3.1/examples/ux/ux-all.js"></script>
-<script src="//www.freepascal.org/contribs.cgi/contribs/API"></script>
+<script src="//www.freepascal.org/contrib/contribs.cgi/contribs/API"></script>
 <script src="contribs.js"></script>
 <script>
   Ext.onReady(function() {
