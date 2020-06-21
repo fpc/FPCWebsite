@@ -39,8 +39,8 @@
      <td><trn locale="en_US" key="website.Doc_fclurm">Free Component Library (FCL) units reference manual</trn></td>
 </tr>
 <tr>
-     <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fcl-res.pdf">PDF</a></td>
-     <td><a HREF="docs-html/current/fcl-res/index.html">HTML</a></td>
+     <td><a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/fclres.pdf">PDF</a></td>
+     <td><a HREF="docs-html/current/fclres/index.html">HTML</a></td>
      <td><trn locale="en_US" key="website.Doc_fclresurm">Free Component Library (FCL) Resource units reference manual</trn></td>
 </tr>
 <tr>
