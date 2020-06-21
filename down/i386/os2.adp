@@ -20,15 +20,15 @@
   The FPC package for OS/2 and eComStation is available in the following options:
 </trn>
 <ul>
-<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2304full.zip">os2304full.zip</a> (84 MB) - <trn key="website.down.i386.os2.fullpackage" locale="en_US">full package (recommended)</trn></li>
-<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2304.zip">os2304.zip</a> (31 MB) - <trn key="website.down.i386.os2.binaries" locale="en_US">binaries without sources and documentation</trn></li>
+<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2320full.zip">os2320full.zip</a> (116 MB) - <trn key="website.down.i386.os2.fullpackage" locale="en_US">full package (recommended)</trn></li>
+<li><a href="@mirror_url@dist/@latestversion@/i386-os2/os2320.zip">os2320.zip</a> (43 MB) - <trn key="website.down.i386.os2.binaries" locale="en_US">binaries without sources and documentation</trn></li>
 </ul>
 
 <h3><trn key="website.Sources" locale="en_US">Sources</trn></h3>
 <ul>
 <li>
 <trn key="website.One_archive_individual_sources" locale="en_US">You can download one archive containing individual source packages:</trn>
-<a href="@mirror_url@dist/@latestversion@/source/short/src304.zip">src304.zip</a> (23 MB) <trn key="website.down.i386.os2.or" locale="en_US">or</trn></li>
+<a href="@mirror_url@dist/@latestversion@/source/short/src320.zip">src320.zip</a> (41 MB) <trn key="website.down.i386.os2.or" locale="en_US">or</trn></li>
 <li><trn key="website.down.i386.os2.source" locale="en_US">you can download the full source repository used for building the release</trn> - <a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</li>
 </ul>
 
