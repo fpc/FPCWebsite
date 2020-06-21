@@ -124,6 +124,7 @@ down/source/sources.adp svneol=native#text/plain
 down/sparc/linux.adp svneol=native#text/plain
 down/sparc/solaris.adp svneol=native#text/plain
 down/x86_64/freebsd.adp svneol=native#text/plain
+down/x86_64/haiku.adp svneol=native#text/plain
 down/x86_64/linux.adp svneol=native#text/plain
 down/x86_64/netbsd.adp svneol=native#text/plain
 down/x86_64/openbsd.adp svneol=native#text/plain

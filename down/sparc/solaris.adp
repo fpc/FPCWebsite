@@ -17,7 +17,7 @@
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/sparc-solaris/fpc-@latestversion@.sparc-solaris.tar">fpc-@latestversion@.sparc-solaris.tar</a> (52.6 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/sparc-solaris/fpc-@latestversion@.sparc-solaris.tar">fpc-@latestversion@.sparc-solaris.tar</a> (136 MB)
 </ul>
 <trn key="website.sparc-solaris_1_file_download_descr" locale="en_US">
   Contains a standard tar archive, with an install script.<br>
