@@ -74,6 +74,10 @@
       <li><a href="down/powerpc64/linux@x@">Linux</a>
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>
+  <li>PowerPC64 Little Endian
+    <ul>
+      <li><a href="down/powerpc64le/linux@x@">Linux</a>
+   </ul> 
   <li>SPARC
     <ul>
       <li><a href="down/sparc/linux@x@">Linux</a>

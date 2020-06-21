@@ -21,7 +21,7 @@
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc-linux/fpc-@latestversion@.powerpc-linux.tar">fpc-@latestversion@.powerpc-linux.tar</a> (52 MB)
+href="@mirror_url@dist/@latestversion@/powerpc-linux/fpc-@latestversion@.powerpc-linux.tar">fpc-@latestversion@.powerpc-linux.tar</a> (147 MB)
 <trn key="website.down.powerpc.linux.information" locale="en_US">
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created

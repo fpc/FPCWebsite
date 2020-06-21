@@ -120,6 +120,7 @@ down/powerpc/morphos.adp svneol=native#text/plain
 down/powerpc/wii.adp svneol=native#text/plain
 down/powerpc64/aix.adp svneol=native#text/plain
 down/powerpc64/linux.adp svneol=native#text/html
+down/powerpc64le/linux.adp svneol=native#text/plain
 down/source/sources.adp svneol=native#text/plain
 down/sparc/linux.adp svneol=native#text/plain
 down/sparc/solaris.adp svneol=native#text/plain

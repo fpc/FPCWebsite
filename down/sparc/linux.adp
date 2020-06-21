@@ -20,7 +20,7 @@
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/sparc-linux/fpc-@latestversion@.sparc-linux.tar">fpc-@latestversion@.sparc-linux.tar</a> (54 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/sparc-linux/fpc-@latestversion@.sparc-linux.tar">fpc-@latestversion@.sparc-linux.tar</a> (146 MB)
 <trn key="website.down.sparc.linux.information" locale="en_US">
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
