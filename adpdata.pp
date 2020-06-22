@@ -277,9 +277,9 @@ begin
         end;
     end;
   i:=1;
-  while (i<=length(version)) and (version[i] in ['0'..'9','.']) do
+  while (i<=length(version))  do
     begin
-      if version[i]<>'.' then
+      if not (version[i] in ['.','-']) then
         shortversion:=shortversion+version[i];
       inc(i);
     end;
