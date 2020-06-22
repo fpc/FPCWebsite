@@ -191,7 +191,6 @@ begin
   writeln;
 end;
 
-
 procedure TADP2HTMLapplication.RunOnce;
 
 var
@@ -239,7 +238,8 @@ begin
                         fn:=changefileext(fn,'.html');
                         DoonePage(fn,['mirror_url',url,
                                       'mirrorsuffix',lowercase(mname),
-                                      'latestversion',version],confdata.Datasources);
+                                      'latestversion',version,
+                                      'shortversion',shortversion],confdata.Datasources);
 
                      end;
                   end;
@@ -247,8 +247,9 @@ begin
                  Fopt.inputfile:='templatemirror.adp';
                  fn:=changefileext(IncludeTrailingPathDelimiter(location)+name,'.html');
                  DoonePage(fn,[  'latestversion',version,
-                                     'pagename',changefileext(name,''),
-                                     'sourceforgepath',os],confdata.Datasources);
+                                 'shortversion',shortversion,
+                                 'pagename',changefileext(name,''),
+                                 'sourceforgepath',os],confdata.Datasources);
              end;
      end;
   finally

@@ -52,6 +52,7 @@ Type
     name,    // target/adp name and stem for "pagename"
     os,      // os specific part of sourceforge link
     version, // current version in this (arch)directory
+    shortversion,   // automatically calculated out of version for dos/os2 versions.  3.2.0-beta -> 320
     sfname:string; // unused. turned out os field is used for sf url part. reserved for cases where pagename<>name ?
     constructor Create(obj:TJsonObject);
   end;
@@ -258,7 +259,7 @@ end;
 { TDownPage }
 
 constructor TDownPage.Create(obj: TJsonObject);
-var j: integer;
+var i,j: integer;
 begin
   name:=obj.Get('name','');
   os:=obj.Get('OS','');
@@ -274,6 +275,13 @@ begin
         begin
           sfname[j]:='B'; sfname[j+1]:='S'; sfname[j+2]:='D';
         end;
+    end;
+  i:=1;
+  while (i<=length(version)) and (version[i] in ['0'..'9','.']) do
+    begin
+      if version[i]<>'.' then
+        shortversion:=shortversion+version[i];
+      inc(i);
     end;
 end;
 
