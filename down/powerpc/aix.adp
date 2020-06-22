@@ -21,7 +21,7 @@
 <h3><a name="aixbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc-aix/fpc-@latestversion@.powerpc-aix.tar">fpc-@latestversion@.powerpc-aix.tar</a> (56 MB)
+href="@mirror_url@dist/@latestversion@/powerpc-aix/fpc-@latestversion@.powerpc-aix.tar">fpc-@latestversion@.powerpc-aix.tar</a> (152 MB)
 <trn key="website.down.powerpc.aix.information" locale="en_US">
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created

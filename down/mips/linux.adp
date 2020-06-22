@@ -20,7 +20,7 @@
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/mips-linux/fpc-@latestversion@.mips-linux.tar">fpc-@latestversion@.mips-linux.tar</a> (55 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/mips-linux/fpc-@latestversion@.mips-linux.tar">fpc-@latestversion@.mips-linux.tar</a> (150 MB)
 
 <trn key="website.down.mips.linux.information" locale="en_US">
 contains a standard tar archive, with an install script<br>

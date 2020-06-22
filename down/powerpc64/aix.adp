@@ -22,7 +22,7 @@
 <ul>
 <trn key="website.down.powerpc64.aix.information" locale="en_US">
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64-aix/fpc-@latestversion@.powerpc64-aix.tar">fpc-@latestversion@.powerpc64-aix.tar</a> (57 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-aix/fpc-@latestversion@.powerpc64-aix.tar">fpc-@latestversion@.powerpc64-aix.tar</a> (159 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
