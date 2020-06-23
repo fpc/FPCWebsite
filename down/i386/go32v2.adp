@@ -26,6 +26,16 @@ or you can download a file that contains the same, only without sources and docu
 </ul>
 </trn>
 
+<trn key="website.down.i386.go32v2.download" locale="en_US">
+<h3>Alternate IDEs builds</h3>
+<ul>
+<li>
+Alternative textmode IDE build (vesa, no debug etc) are bundled in one big archive:
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/idedos_alternative_builds.zip">idedos_alternative_builds.zip</a> (60 MB).
+</ul>
+</trn>
+
+
 <trn key="website.down.i386.go32v2.note" locale="en_US">
 <h3> <a name="dossep"></a>Download as separate files</h3>
 You can download the contents of the above zip files as separate files:<br>
