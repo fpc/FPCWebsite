@@ -34,18 +34,11 @@ fi
 
 set -u
 
-if [ -d $HOME/bin ] ; then
-  export PATH=$HOME/bin:$PATH
-fi
-
 export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
 
 ulimit -t 3600
-
-LOCKFILE=$HOME/pas/lock
-OLDLOCKFILE=$HOME/pas/last-lock
 
 function decho ()
 {
@@ -54,8 +47,66 @@ function decho ()
 
 ENDIAN=`readelf -h /bin/sh | grep endian`
 MACHINE=`uname -n`
+
+if [ "$MACHINE" = "erpro8-fsf1" ] ; then
+  MACHINE=gccmips64
+fi
+
+if [ "$MACHINE" = "erpro8-fsf2" ] ; then
+  MACHINE=gccmipsel64
+fi
+
 MUTT=/home/fpcdevel/bin/mutt
 
+BASEDIR=$HOME/pas
+HOMEBIN=$HOME/bin
+
+if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
+  # fpcmips32 machine
+  ENDIAN=big
+  FPCEXE=ppcmips
+  SRC_CPU=mips
+  if [ "${MACHINE}" = "wndr3800" ] ; then
+    export LANG=en_US.utf8
+  fi
+  if [ "${MACHINE}" = "gccmips64" ] ; then
+    export LANG=en_US.utf8
+    svnup_option="--non-interactive"
+    BASEDIR=$HOME/pas/mips
+    if [ -d $HOME/bin/native-mips ] ; then
+      HOMEBIN=$HOME/bin/native-mips
+    fi
+    export PACKDIR=$HOME/tmp/fpc-pack-$SRC_CPU
+  fi
+else
+  ENDIAN=little
+  FPCEXE=ppcmipsel
+  SRC_CPU=mipsel
+  if [ "${MACHINE}" = "n16" ] ; then
+    # fpcmipsel32 machine
+    export LANG=en_GB.utf8
+  fi
+  if [ "${MACHINE}" = "gccmipsel64" ] ; then
+    # gcc23 alias gccmipsel64 machine
+    export LANG=en_US.utf8
+    # older version of svn doesn't support theirs-conflict
+    svnup_option="--non-interactive"
+    BASEDIR=$HOME/pas/mipsel
+    if [ -d $HOME/bin/native-mipsel ] ; then
+      HOMEBIN=$HOME/bin/native-mipsel
+    fi
+    export PACKDIR=$HOME/tmp/fpc-pack-$SRC_CPU
+  fi
+fi
+SRC_OS=linux
+SRC_FULL=${SRC_CPU}-${SRC_OS}
+LOCKFILE=$BASEDIR/lock
+OLDLOCKFILE=$BASEDIR/last-lock
+export FIXESDIR=$BASEDIR/$FIXESDIRNAME
+export TRUNKDIR=$BASEDIR/$TRUNKDIRNAME
+if [ -d "$HOMEBIN" ] ; then
+  export PATH=$HOMEBIN:$PATH
+fi
 
 function run_testsuite {
   localtestslog=$1
@@ -81,7 +132,7 @@ function run_testsuite {
       decho "testprep also failed with TEST_OPT=\"-n -gl\"" >> $localtestslog
       return
     fi
-  fi  
+  fi
   make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" distclean allexectests \
     uploadrun DB_SSH_EXTRA="-i ~/.ssh/freepascal" 1>> $localtestslog 2>&1
   res=$?
@@ -99,11 +150,11 @@ function run_testsuite {
 function dover {
 srcdir=$1
 export FPCVERSION=$2
-log=~/logs/fullcycle-${FPCVERSION}.log
-cyclelog=~/logs/cycle-${FPCVERSION}.log
-alllog=~/logs/all-${FPCVERSION}.log
-testslog=~/logs/tests-${FPCVERSION}.log
-export FPCBASEDIR=~/pas/fpc-${FPCVERSION}
+log=~/logs/fullcycle-${SRC_CPU}-${FPCVERSION}.log
+cyclelog=~/logs/cycle-${SRC_CPU}-${FPCVERSION}.log
+alllog=~/logs/all-${SRC_CPU}-${FPCVERSION}.log
+testslog=~/logs/tests-${SRC_CPU}-${FPCVERSION}.log
+export FPCBASEDIR=$BASEDIR/fpc-${FPCVERSION}
 attach=
 res=0
 svnup_option="--accept=theirs-conflict"
@@ -113,32 +164,7 @@ echo "Start date `date +%Y-%m-%d-%H-%M`"
 
 decho "ENDIAN is $ENDIAN, MACHINE is $MACHINE"
 
-if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
-  decho "Big endian machine"
-  # fpcmips32 machine
-  ENDIAN=big
-  FPCEXE=ppcmips
-  SRC_CPU=mips
-  export LANG=en_US.utf8
-else
-  decho "Little endian machine"
-  ENDIAN=little
-  FPCEXE=ppcmipsel
-  SRC_CPU=mipsel
-  if [ "${MACHINE}" = "n16" ] ; then
-    # fpcmipsel32 machine
-    export LANG=en_GB.utf8
-  else
-    # gcc42 alias gccmips machine
-    export LANG=en_US.utf8
-    # older version of svn doesn't support theirs-conflict
-    svnup_option="--non-interactive"
-  fi
-fi
-SRC_OS=linux
-SRC_FULL=${SRC_CPU}-${SRC_OS}
-
-if [ "${PATH//pas\/fpc/}" == "${PATH}" ] ; then
+if [ "${PATH//$FPCBASEDIR/}" == "${PATH}" ] ; then
   decho "Adding $FPCBASEDIR/bin to PATH"
   export PATH=$FPCBASEDIR/bin:~/bin:$PATH
 else
@@ -146,8 +172,8 @@ else
 fi
 
 if [ "X$RELEASEVERSION" != "X" ] ; then
-  if [ -f $HOME/pas/fpc-$RELEASEVERSION/bin/$FPCEXE ] ; then
-    FPCRELEASEBIN=$HOME/pas/fpc-$RELEASEVERSION/bin/$FPCEXE
+  if [ -f $BASEDIR/fpc-$RELEASEVERSION/bin/$FPCEXE ] ; then
+    FPCRELEASEBIN=$BASEDIR/fpc-$RELEASEVERSION/bin/$FPCEXE
   fi
 fi
 
@@ -155,7 +181,13 @@ cd $srcdir
 svn cleanup
 svn up $svnup_option
 
-cd $srcdir/fpcsrc/compiler
+cd $srcdir
+
+if [ -d fpcsrc ] ; then
+  cd fpcsrc
+fi
+
+cd compiler
 
 
 FPCBIN=`which $FPCEXE`
@@ -195,7 +227,7 @@ if [ $res -ne 0 ] ; then
   decho "Starting cycle failed"
   attach="-a $cyclelog"
 else
-  export PATH="$HOME/pas/fpc-$FPCVERSION/bin:$PATH"
+  export PATH="$BASEDIR/fpc-$FPCVERSION/bin:$PATH"
   FPCBIN=`which $FPCEXE`
   decho "Using new binary $FPCBIN"
   cd ..
@@ -267,7 +299,7 @@ else
       export TEST_OPT="$TEST_OPT -Fl${LIBGCC_DIR}"
     fi
     BASE_TEST_OPT="$TEST_OPT"
-    TEST_FPC=~/pas/fpc-$FPCVERSION/bin/$FPCEXE
+    TEST_FPC=$BASEDIR/fpc-$FPCVERSION/bin/$FPCEXE
     # rm -f ${testslog}-default
     # run_testsuite ${testslog}-default
     TEST_OPT="$BASE_TEST_OPT -Cg"
@@ -323,7 +355,7 @@ trap  handle_trap SIGTERM
 trap  handle_debug_trap DEBUG
 
 TEST_OPT=""
-ORIGPATH=${PATH} 
+ORIGPATH=${PATH}
 if [ $skipfixes -eq 0 ] ; then
   dover $FIXESDIR $FIXESVERSION
 fi
@@ -344,30 +376,30 @@ if [ $skiptrunk -eq 0 ] ; then
   $HOME/bin/makesnapshot-trunk.sh
 fi
 
-if [ -f ~/pas/trunk/fpcsrc/tests/do-checks.txt ] ; then
-  doit=`cat ~/pas/trunk/fpcsrc/tests/do-checks.txt`
+if [ -f $BASEDIR/trunk/fpcsrc/tests/do-checks.txt ] ; then
+  doit=`cat $BASEDIR/trunk/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
-    export PATH=~/pas/fpc-$TRUNKVERSION/bin:$PATH
+    export PATH=$BASEDIR/fpc-$TRUNKVERSION/bin:$PATH
     $HOME/bin/check-optimizations.sh
-    rm ~/pas/trunk/fpcsrc/tests/do-checks.txt
-    echo "no" >  ~/pas/trunk/fpcsrc/tests/do-checks.txt
+    rm $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
+    echo "no" >  $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
   fi
 fi
 
-if [ -f ~/pas/fixes/fpcsrc/tests/do-checks.txt ] ; then
-  doit=`cat ~/pas/fixes/fpcsrc/tests/do-checks.txt`
+if [ -f $BASEDIR/fixes/fpcsrc/tests/do-checks.txt ] ; then
+  doit=`cat $BASEDIR/fixes/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
-    export PATH=~/pas/fpc-$FIXESVERSION/bin:$PATH
+    export PATH=$BASEDIR/fpc-$FIXESVERSION/bin:$PATH
     export FIXES=1
     $HOME/bin/check-optimizations.sh
-    rm ~/pas/fixes/fpcsrc/tests/do-checks.txt
-    echo "no" >  ~/pas/fixes/fpcsrc/tests/do-checks.txt
+    rm $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
+    echo "no" >  $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
   fi
 fi
 
 cd $HOME/scripts
 (
   svn cleanup
-  svn up ) > $HOME/logs/svn-scripts.log 2>&1
+  svn up ) > $HOME/logs/svn-scripts$SRC_FULL.log 2>&1
 
 release_lock
