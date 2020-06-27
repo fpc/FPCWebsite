@@ -18,7 +18,7 @@ RELEASE_VERSION_LIST="3.0.4 3.0.2 3.0.0 2.6.4 2.6.2 2.6.0 2.4.2 2.4.2 2.2.4 2.2.
 ## Free Pascal trunk and fixes versions
 #################################################################
 export TRUNKVERSION=3.3.1
-export FIXESVERSION=3.2.0
+export FIXESVERSION=3.2.1
 
 export FIXES_BRANCH=fixes_${FIXESVERSION:0:1}_${FIXESVERSION:2:1}
 #################################################################
