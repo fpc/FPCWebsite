@@ -211,6 +211,12 @@ if [ "$start_os" == "solaris" ] ; then
   elif [ "$start_cpu" == "x86_64" ] ; then
     export PATH=$HOME/pas/x86_64/fpc-${previous_release_version}/bin:$PATH
   fi
+elif [[ ( "$start_os" == "linux" ) && ( "$start_cpu" == "mips" || "start_cpu" == "mipsel" ) ]] ; then
+  if [ "$start_cpu" == "mips" ] ; then
+    export PATH=$HOME/pas/mips/fpc-${previous_release_version}/bin:$PATH
+  elif [ "$start_cpu" == "mipsel" ] ; then
+    export PATH=$HOME/pas/mipsel/fpc-${previous_release_version}/bin:$PATH
+  fi
 else
   fpc_dir="`dirname $FPC 2> /dev/null`"
   if [ -d "$fpc_dir" ] ; then
