@@ -3,7 +3,7 @@
 UPLOAD_HOST=ftp.freepascal.org
 UPLOAD_LOGIN=fpc
 UPLOAD_SSH_KEY="-i $HOME/.ssh/id_rsa_gcc"
-UPLOAD_DIR=ftp/beta/3.2.0-rc0/docs/
+UPLOAD_DIR=ftp/beta/3.2.2-rc0/docs/
 
 . $HOME/bin/fpc-versions.sh
 
