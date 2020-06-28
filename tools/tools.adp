@@ -38,7 +38,7 @@ for C code.
 <li> <a href="rstconv.var"><b>rstconv</b></a> is a small utility that
 converts <b>.rst</b> files (files that contain resource strings, as created
 by the compiler to some other format. (GNU gettext at the moment)
-<li> <a href="http://www.musikwissenschaft.uni-mainz.de/~ag/tply/tply.html"><b>TP Lex and Yacc</b></a>, written by <A
+<li> <a href="https://web.archive.org/web/20181116101101/http://www.musikwissenschaft.uni-mainz.de/~ag/tply/tply.html"><b>TP Lex and Yacc (Wayback, site defunct since approx. 2019-01-01)</b></a>, written by <A
 HREF="mailto:ag@muwiinfa.geschichte.uni-mainz.de">Albert Graef</a>. It can be used
 to create pascal units from a Lex vocabulary and Yacc grammar.
 </OL>
