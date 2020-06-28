@@ -12,7 +12,7 @@
 export RELEASEVERSION=3.0.4
 
 # List of versions still accessible on main ftp server
-RELEASE_VERSION_LIST="3.0.4 3.0.2 3.0.0 2.6.4 2.6.2 2.6.0 2.4.2 2.4.2 2.2.4 2.2.2"
+RELEASE_VERSION_LIST="3.2.0 3.0.4 3.0.2 3.0.0 2.6.4 2.6.2 2.6.0 2.4.2 2.4.2 2.2.4 2.2.2"
 
 #################################################################
 ## Free Pascal trunk and fixes versions
