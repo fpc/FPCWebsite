@@ -16,14 +16,17 @@ CPU64=""
 
 case "$CPU" in
   i*86) CPU32=i386;;
-  ppc64|ppc64le) CPU32=powerpc; CPU64=powerpc64 ;;
-  x86_64|amd64) CPU32=i386; CPU64=x86_64 ;;
-  ppc) CPU32=powerpc;;
-  aarch64|arm64) CPU32=arm ; CPU64=aarch64 ;;
+  ppc64le|pwerpc64le) CPU64=powerpc64le;;
+  ppc64|powerpc64) CPU32=powerpc; CPU64=powerpc64;;
+  x86_64|amd64) CPU32=i386; CPU64=x86_64;;
+  ppc*|powerpc*) CPU32=powerpc;;
+  aarch64|arm64) CPU32=arm; CPU64=aarch64;;
   arm*) CPU32=arm;;
   mipsel*) CPU32=mipsel;;
   mips*) CPU32=mips;;
   m68k) CPU32=m68k;;
+  sparc64) CPU32=sparc; CPU64=sparc64;;
+  sparc) CPU32=sparc;;
   *) echo "Unknown processor $CPU" ; exit ;;
 esac
 
