@@ -98,6 +98,7 @@ down/i386/os2.adp svneol=native#text/plain
 down/i386/solaris.adp svneol=native#text/plain
 down/i386/win32.adp svneol=native#text/plain
 down/i8086/msdos.adp svneol=native#text/plain
+down/m68k/amiga.adp svneol=native#text/plain
 down/m68k/linux.adp svneol=native#text/plain
 down/mips/linux.adp svneol=native#text/plain
 down/mipsel/linux.adp svneol=native#text/plain
