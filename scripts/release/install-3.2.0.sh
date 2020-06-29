@@ -7,14 +7,14 @@ set -u
 RELEASE=3.2.0
 
 OS=`uname -s | tr "[:upper:]" "[:lower:]" `
-CPU=`uname -s | tr "[:upper:]" "[:lower:]" `
+CPU=`uname -m | tr "[:upper:]" "[:lower:]" `
 
 echo "Trying to install Free Pascal release $RELEASE on $CPU-$OS"
 
 CPU32=""
 CPU64=""
 
-case "$CPU" :
+case "$CPU" in
   i*86) CPU32=i386;;
   ppc64|ppc64le) CPU32=powerpc; CPU64=powerpc64 ;;
   x86_64|amd64) CPU32=i386; CPU64=x86_64 ;;
@@ -104,7 +104,7 @@ fi
 if [ -n "$CPU32" ] ; then
   install_this $TARFILE32 $DIRNAME32 $HOME/pas/fpc-$RELEASE
 fi
-if [-n "$CPU64" ] ; then
+if [ -n "$CPU64" ] ; then
   install_this $TARFILE64 $DIRNAME64 $HOME/pas/fpc-$RELEASE
 fi
 
