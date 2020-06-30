@@ -67,7 +67,7 @@ else
   fi
 
   echo "Starting 'make installsymlink' at fpcsrc/compiler level" >> $report
-  make installsymlink FPC=`pwd`/ppcx64 PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
+  make installsymlink FPC=`pwd`/ppcx64 INSTALL_PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     echo "make installsymlink failed, res=$res" >> $report
@@ -77,7 +77,7 @@ else
   cd ..
   for dir in rtl packages utils ; do
     echo "Starting 'make distclean install' in fpcsrc/$dir" >> $report
-    make -C $dir distclean install FPC=$HOME/pas/fpc-$CURVER/bin/ppcx64 OPT="-n -gl" PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
+    make -C $dir distclean install FPC=$HOME/pas/fpc-$CURVER/bin/ppcx64 OPT="-n -gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER >> $logfile 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       echo "make install in fpcsrc/$dir failed, res=$res" >> $report
@@ -112,7 +112,7 @@ rtlinclogfile=$HOME/logs/rtlinc-$SVNNAME.log
 ulimit -t 1200
 
 echo "Starting 'make distclean examples' at fpcdocs level" >> $report
-make distclean examples FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
+make distclean examples FPC=fpc PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make examples failed, res=$res" >> $report
@@ -120,7 +120,7 @@ if [ $res -ne 0 ] ; then
 fi
 
 echo "Starting 'make rtl.inc' at fpcdocs level" >> $report
-make rtl.inc FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $rtlinclogfile 2>&1
+make rtl.inc FPC=fpc PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $rtlinclogfile 2>&1
 res=$?
 if [ ! -f rtl.inc ] ; then
   echo "No rtl.inc file generated" >> $report
@@ -135,7 +135,7 @@ if [ $res -ne 0 ] ; then
 fi
 
 echo "Starting 'make pdfinstall pdfzip pdftar' at fpcdocs level" >> $report
-make pdfinstall pdfzip pdftar LATEXOPT=-halt-on-error LATEXPOSTOPT=" < /dev/null" FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $pdflogfile 2>&1
+make pdfinstall pdfzip pdftar LATEXOPT=-halt-on-error LATEXPOSTOPT=" < /dev/null" FPC=fpc PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $pdflogfile 2>&1
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make pdfinstall failed, res=$res" >> $report
@@ -148,7 +148,7 @@ else
   ls -ltr doc-pdf.* >> $report
 fi
 echo "Starting 'make htmlinstall htmlzip htmltar USEL2H=1' at fpcdocs level" >> $report
-make htmlinstall htmlzip htmltar USEL2H=1 FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $htmllogfile 2>&1
+make htmlinstall htmlzip htmltar USEL2H=1 FPC=fpc PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $htmllogfile 2>&1
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make htmlinstall failed, res=$res" >> $report
@@ -237,7 +237,7 @@ cd ../demo
 logfile=$HOME/logs/fpc-demos-$SVNNAME.log
 
 echo "Starting 'make distclean all execute' at demo level" >> $report
-make distclean all execute FPC=fpc PPOPTS="-gl" PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
+make distclean all execute FPC=fpc PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $logfile 2>&1
 if [ $res -ne 0 ] ; then
   echo "make all execute in demo failed, res=$res" >> $report
   tail -30 $logfile >> $report
