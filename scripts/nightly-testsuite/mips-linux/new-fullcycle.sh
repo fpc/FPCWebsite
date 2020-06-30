@@ -56,7 +56,6 @@ if [ "$MACHINE" = "erpro8-fsf2" ] ; then
   MACHINE=gccmipsel64
 fi
 
-MUTT=/home/fpcdevel/bin/mutt
 
 BASEDIR=$HOME/pas
 HOMEBIN=$HOME/bin
@@ -73,10 +72,12 @@ if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
     export LANG=en_US.utf8
     svnup_option="--non-interactive"
     BASEDIR=$HOME/pas/mips
+    FIXESDIR=$BASEDIR/$FIXESDIRNAME
+    TRUNKDIR=$BASEDIR/$TRUNKDIRNAME
     if [ -d $HOME/bin/native-mips ] ; then
       HOMEBIN=$HOME/bin/native-mips
     fi
-    export PACKDIR=$HOME/tmp/fpc-pack-$SRC_CPU
+    export PACKDIR=$HOME/tmp/$MACHINE/fpc-pack-$SRC_CPU
   fi
 else
   ENDIAN=little
@@ -86,18 +87,21 @@ else
     # fpcmipsel32 machine
     export LANG=en_GB.utf8
   fi
-  if [ "${MACHINE}" = "gccmipsel64" ] ; then
+  if [[ ( "${MACHINE}" = "gccmipsel64" ) || ( "${MACHINE}" == "gcc24" ) ]] ; then
     # gcc23 alias gccmipsel64 machine
     export LANG=en_US.utf8
     # older version of svn doesn't support theirs-conflict
     svnup_option="--non-interactive"
     BASEDIR=$HOME/pas/mipsel
+    FIXESDIR=$BASEDIR/$FIXESDIRNAME
+    TRUNKDIR=$BASEDIR/$TRUNKDIRNAME
     if [ -d $HOME/bin/native-mipsel ] ; then
       HOMEBIN=$HOME/bin/native-mipsel
     fi
-    export PACKDIR=$HOME/tmp/fpc-pack-$SRC_CPU
+    export PACKDIR=$HOME/tmp/$MACHINE/fpc-pack-$SRC_CPU
   fi
 fi
+MUTT=$HOMEBIN/mutt
 SRC_OS=linux
 SRC_FULL=${SRC_CPU}-${SRC_OS}
 LOCKFILE=$BASEDIR/lock
@@ -170,12 +174,11 @@ echo "Start date `date +%Y-%m-%d-%H-%M`"
 
 decho "ENDIAN is $ENDIAN, MACHINE is $MACHINE"
 
-if [ "${PATH//$FPCBASEDIR/}" == "${PATH}" ] ; then
-  decho "Adding $FPCBASEDIR/bin to PATH"
-  export PATH=$FPCBASEDIR/bin:~/bin:$PATH
-else
-  decho "Start PATH is $PATH"
+if [ "${PATH//$HOMEBIN/}" == "${PATH}" ] ; then
+  decho "Adding $HOMEBIN to PATH"
+  export PATH=$HOMEBIN:$PATH
 fi
+decho "Start PATH is $PATH"
 
 if [ "X$RELEASEVERSION" != "X" ] ; then
   if [ -f $BASEDIR/fpc-$RELEASEVERSION/bin/$FPCEXE ] ; then
@@ -221,12 +224,12 @@ else
   if [ $res -ne 0 ] ; then
     decho "Cycle with release fpc failed, res=$res"
   else
-    make install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n PREFIX=$FPCBASEDIR
+    make install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n INSTALL_PREFIX=$FPCBASEDIR
     res=$?
     if [ $res -eq 0 ] ; then
       # Removing the DEBUG=1 generates a problem for cpall.o and syscall.o
       # Until this is fixed also use DEBUG=1 here
-      make -C ../rtl/linux clean install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n PREFIX=$FPCBASEDIR
+      make -C ../rtl/linux clean install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n INSTALL_PREFIX=$FPCBASEDIR
       res=$?
     fi
   fi ; } 1> $cyclelog 2>&1
@@ -249,8 +252,8 @@ else
     while [ $repeat -eq 1 ] ; do
       make distclean > /dev/null
       ADDOPT="FPCCPUOPT=$FPCCPUOPT"
-      decho "Starting make all install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1"
-      make all install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
+      decho "Starting make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1"
+      make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
       res=$?
       allres=$res
       if [ $res -ne 0 ] ; then
@@ -260,8 +263,8 @@ else
           ok_trial=0
           max_trial=5
           while [ $trial -lt $max_trial ] ; do
-            decho "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
-            make -C $dir install DEBUG=1 FPC=$FPCBIN PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
+            decho "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
+            make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
             res=$?
             if [ $res -ne 0 ] ; then
               decho "make install in $dir failed, res=$res, trial=$trial, retrying"
@@ -379,17 +382,17 @@ fi
 export PATH=${ORIGPATH}
 
 if [ $skipfixes -eq 0 ] ; then
-  $HOME/bin/makesnapshot-fixes.sh
+  $HOMEBIN/makesnapshot-fixes.sh
 fi
 if [ $skiptrunk -eq 0 ] ; then
-  $HOME/bin/makesnapshot-trunk.sh
+  $HOMEBIN/makesnapshot-trunk.sh
 fi
 
 if [ -f $BASEDIR/trunk/fpcsrc/tests/do-checks.txt ] ; then
   doit=`cat $BASEDIR/trunk/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$TRUNKVERSION/bin:$PATH
-    $HOME/bin/check-optimizations.sh
+    $HOMEBIN/check-optimizations.sh
     rm $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
     echo "no" >  $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
   fi
@@ -400,7 +403,7 @@ if [ -f $BASEDIR/fixes/fpcsrc/tests/do-checks.txt ] ; then
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$FIXESVERSION/bin:$PATH
     export FIXES=1
-    $HOME/bin/check-optimizations.sh
+    $HOMEBIN/check-optimizations.sh
     rm $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
     echo "no" >  $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
   fi
