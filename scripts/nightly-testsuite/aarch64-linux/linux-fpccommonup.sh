@@ -2,6 +2,18 @@
 
 . $HOME/bin/fpc-versions.sh
 
+# Evaluate all arguments containing an equal sign
+# as variable definition, stop as soon as
+# one argument does not contain an equal sign
+while [ "$1" != "" ] ; do
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    shift
+  else
+    break
+  fi
+done
+
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
 #ulimit -d 65536 -s 8192 -t 2400
@@ -92,19 +104,32 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   export TEST_ABI=$ARM_ABI
   gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
   if [ -d /usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
-    export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version" ) ]] ; then
+      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+    fi
   elif [ -d $HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
-    export OPT="$OPT -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version" ) ]] ; then
+      export OPT="$OPT -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+    fi
   fi
   if [ -d "/usr/arm-linux-$ARM_ABI/lib" ] ; then
-    export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/arm-linux-$ARM_ABI/lib"
+    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl/usr/arm-linux-$ARM_ABI/lib" ) ]] ; then
+      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/arm-linux-$ARM_ABI/lib"
+    fi
   elif [ -d "$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ] ; then
-    export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib"
+    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ) ]] ; then
+      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib"
+    fi
   fi
   if [ -n "$REQUIRED_ARM_OPT" ] ; then
-    export OPT="$OPT $REQUIRED_ARM_OPT"
+    export OPT="$OPT $REQUIRED_ARM_OPT -vx"
   fi
-  export FPCMAKEOPT="-gl -XParm-linux- $REQUIRED_ARM_OPT"
+  export FPCMAKEOPT="-gl -XParm-linux- -vx $REQUIRED_ARM_OPT"
+  if [ -f "$HOME/sys-root/arm-linux/lib/ld-linux-armhf.so.3" ] ; then
+    if [ ! -f "/lib/ld-linux-armhf.so.3" ] ; then
+      export FPCMAKEOPT="$FPCMAKEOPT -FL$HOME/sys-root/arm-linux/lib/ld-linux-armhf.so.3 -XR$HOME/sys-root/arm-linux/ -Fl/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8"
+    fi
+  fi
 elif [ "$FPCBIN" == "ppca64" ] ; then
   export NO_RELEASE=1
   export FPMAKE_SKIP_CONFIG="-n"
@@ -153,7 +178,6 @@ if [ ! -d $LOGDIR ] ; then
 fi
 export report=$LOGDIR/report${LOGSUF}.txt 
 export makelog=$LOGDIR/make${LOGSUF}.txt 
-export testslog=$LOGDIR/tests${LOGSUF}.txt 
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
