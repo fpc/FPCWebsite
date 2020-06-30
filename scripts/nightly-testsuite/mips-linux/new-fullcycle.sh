@@ -197,6 +197,9 @@ cd compiler
 
 
 FPCBIN=`which $FPCEXE`
+if [ ! -f "$FPCBIN" ] ; then
+  FPCBIN="$FPCRELEASEBIN"
+fi
 decho "Using binary $FPCBIN"
 
 decho "Date before cycle `date +%Y-%m-%d-%H-%M`"
