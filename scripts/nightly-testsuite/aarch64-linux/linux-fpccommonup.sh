@@ -131,7 +131,6 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
     fi
   fi
 elif [ "$FPCBIN" == "ppca64" ] ; then
-  export NO_RELEASE=1
   export FPMAKE_SKIP_CONFIG="-n"
   # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
   # instead of supplied libbfd.a from GDB compilation.
@@ -151,10 +150,15 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
   if [ -d /usr/lib64 ] ; then
     export OPT="$OPT -Fl/usr/lib64"
   fi
-  RELEASE_FPC=ppcarm
-  FPC_CROSS=ppcrossa64
-  FPC_NATIVE=ppca64
+  RELEASE_FPC=ppca64
   FULLPATH_RELEASE_FPC=$HOME/pas/fpc-$RELEASEVER/bin/$RELEASE_FPC
+  if [ ! -f "$FULLPATH_RELEASE_FPC" ] ; then
+    export NO_RELEASE=1
+    RELEASE_FPC=ppcarm
+    FPC_CROSS=ppcrossa64
+    FPC_NATIVE=ppca64
+    FULLPATH_RELEASE_FPC=$HOME/pas/fpc-$RELEASEVER/bin/$RELEASE_FPC
+  fi
 fi
 
 if [ "$MAKE" == "" ]; then
