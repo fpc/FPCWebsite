@@ -94,6 +94,10 @@
     <ul>
       <li><a href="down/i8086/msdos@x@">MS-DOS</a>
     </ul>
+  <li>m68k
+    <ul>
+      <li><a href="down/m68k/linux@x@">Linux</a>
+    </ul>
   <li>MIPS
     <ul>
       <li><a href="down/mips/linux@x@">Linux</a>
