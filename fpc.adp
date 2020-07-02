@@ -11,9 +11,9 @@
     PowerPC, PowerPC64, SPARC, SPARC64, ARM, AArch64, MIPS, Motorola 68k, AVR, and the JVM.
     Supported operating systems include Windows (32/64 bit, CE, and native NT), Linux,
     Mac OS X/iOS/iPhoneSimulator/Darwin, FreeBSD and other BSD flavors, DOS (16 bit, or 32 bit DPMI),
-    OS/2, AIX, Android, Haiku, Nintendo GBA/DS/Wii, AmigaOS, MorphOS, AROS, and Atari TOS.
-    Additionally, support for RISC-V (32/64), Xtensa, and Z80 architectures, and for the LLVM
-    compiler infrastructure is available in the development version.
+    OS/2, AIX, Android, Haiku, Nintendo GBA/DS/Wii, AmigaOS, MorphOS, AROS, Atari TOS, and various
+    embedded platforms. Additionally, support for RISC-V (32/64), Xtensa, and Z80 architectures,
+    and for the LLVM compiler infrastructure is available in the development version.
   </trn>
 </p>
 
