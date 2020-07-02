@@ -92,7 +92,24 @@ function usage ()
 
 binutilsdir=binutils-${BINUTILS_RELEASE}
 prefix=$1
+
+if [ -n "DO_ONE_PREFIX_PATTERN" ] ; then
+  prefix_matches=` echo $prefix | grep "$DO_ONE_PREFIX_PATTERN"`
+  if [ -z "$prefix_matches" ] ; then
+    echo "prefix $prefix does not match $DO_ONE_PREFIX_PATTERN, skipping"
+    exit
+  fi
+fi
+
 target=$2
+if [ -n "DO_ONE_TARGET_PATTERN" ] ; then
+  target_matches=` echo $target | grep "$DO_ONE_TARGET_PATTERN"`
+  if [ -z "$target_matches" ] ; then
+    echo "target $target does not match $DO_ONE_TARGET_PATTERN, skipping"
+    exit
+  fi
+fi
+
 
 LOGFILE=../$target.log
 

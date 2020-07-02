@@ -10,6 +10,9 @@ if [ "$1" == "--new-only" ] ; then
   shift
 fi
 
+export DO_ONE_PREFIX_PATTERN="$1"
+export DO_ONE_TARGET_PATTERN="$2"
+
 ## aarch64 CPU
 ## system_aarch64_darwin,     { 86 }
 ./do-one.sh aarch64-linux aarch64-unknown-linux-gnu
