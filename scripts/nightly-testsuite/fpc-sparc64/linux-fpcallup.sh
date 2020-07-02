@@ -10,6 +10,7 @@ if [ "$machine_host" == "stadler" ] ; then
   run_check_all_rtl=1
   export FPMAKEOPT=
   export INCREASE_ULIMIT_NB_FILES=1
+  DO_SNAPSHOTS=1
 fi
 
 . $HOME/bin/fpc-versions.sh
@@ -29,7 +30,6 @@ if [ "${INCREASE_ULIMIT_NB_FILES:-}" == "1" ] ; then
   ulimit -n 8192
 fi
 
-DO_SNAPSHOTS=1
 # Check if latest source was uploaded
 TODAY=`date +%Y-%m-%d`
 
@@ -65,6 +65,8 @@ fi
 
 export FIXES=0
 cd $HOME/pas/trunk/fpcsrc/compiler
+# regenerate native compiler for check-all-rtl.sh script, as the last one might be too old
+make distclean cycle installsymlink INSTALL_PREFIX=$HOME/pas/fpc-$TRUNKVERSION FPC=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcsparc > $HOME/logs/trunk-fullinstall.log 2>&1
 # regenerate cross-compilers for check-all-rtl.sh script
 echo "`date +%Y-%m-%d-%H:%M`: regenerate cross-compilers for trunk check-all-rtl.sh script" >> $GLOGFILE
 make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$TRUNKVERSION FPC=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcsparc > $HOME/logs/trunk-fullinstall.log 2>&1
@@ -83,7 +85,7 @@ cd $HOME/pas/fixes/fpcsrc/compiler
 echo "`date +%Y-%m-%d-%H:%M`: regenerate cross-compilers for fixes check-all-rtl.sh script" >> $GLOGFILE
 make distclean cycle installsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc > $HOME/logs/fixes-fullinstall.log 2>&1
 # regenerate cross-compilers for check-all-rtl.sh script
-make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc > $HOME/logs/fixes-fullinstall.log 2>&1
+make fullcycle fullinstallsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc >> $HOME/logs/fixes-fullinstall.log 2>&1
 # Update ppc386, ppcx64 and ppc8086 with softfpu extended emulation
 echo "`date +%Y-%m-%d-%H:%M`:  Update fixes ppc386, ppcx64 and ppc8086 with softfpu extended emulation" >> $GLOGFILE
 $HOME/bin/generate-cross-sfpux80.sh > $HOME/logs/fixes-generate-sfpux80.log 2>&1
@@ -101,6 +103,10 @@ if [ $enable_64bit_tests -eq 1 ] ; then
   if [ "$DO_SNAPSHOTS" == "1" ] ; then
     if [ -z "$today_sparc64_linux_trunk" ] ; then
       echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshottrunk64.sh" >> $GLOGFILE
+      cd $HOME/pas/trunk/fpcsrc/compiler
+      # regenerate native compiler for makesnapshottrunk64.sh script, as the last one might be too old
+      # add explicit CPU_SOURCE=sparc64 to allow cycle even if starting with a cross-compiler.
+      make distclean cycle installsymlink INSTALL_PREFIX=$HOME/pas/fpc-$TRUNKVERSION FPC=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcsparc64 CPU_SOURCE=sparc64 > $HOME/logs/trunk-fullinstall64.log 2>&1
       $HOME/bin/makesnapshottrunk64.sh
     else
       echo "`date +%Y-%m-%d-%H:%M`: Skipping makesnapshottrunk64.sh, $today_sparc64_linux_trunk" >> $GLOGFILE
@@ -111,6 +117,10 @@ if [ $enable_64bit_tests -eq 1 ] ; then
   $HOME/bin/test-cross-64.sh
   if [ "$DO_SNAPSHOTS" == "1" ] ; then
     if [ -z "$today_sparc64_linux_fixes" ] ; then
+      cd $HOME/pas/fixes/fpcsrc/compiler
+      # regenerate native compiler for makesnapshotfixes64.sh script, as the last one might be too old
+      # add explicit CPU_SOURCE=sparc64 to allow cycle even if starting with a cross-compiler.
+      make distclean cycle installsymlink INSTALL_PREFIX=$HOME/pas/fpc-$FIXESVERSION FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcsparc64 CPU_SOURCE=sparc64 > $HOME/logs/fixes-fullinstall64.log 2>&1
       echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshotfixes64.sh" >> $GLOGFILE
       $HOME/bin/makesnapshotfixes64.sh
     else
