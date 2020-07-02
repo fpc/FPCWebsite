@@ -199,7 +199,8 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
 elif [ "X$machine_host" == "Xgcc202" ] ; then
   test_utils=1
   test_utils_ppudump=1
-  MAKEJOPT="-j 16"
+  export MAKEJOPT="-j 16"
+  # export FPMAKEOPT="-T 16"
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
