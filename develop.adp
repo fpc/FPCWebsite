@@ -21,7 +21,7 @@ development is progressing you can take a peek at the developer versions.</p>
 <trn key="website.develop.tree" locale="en_US">
 <h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download today's development (trunk - currently v3.1.x) sources in the form
+You can download today's development (trunk - currently v3.3.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
 updated on a daily basis, and reflect the state of the source repository.
 </p>
@@ -41,7 +41,7 @@ with documentation sources and release-building-related files in the same direct
 <trn key="website.develop.snapshot" locale="en_US">
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download today's fixes branch (currently v3.0.x) sources in the form
+You can download today's fixes branch (currently v3.2.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
 may eventually be used to build the next stable (fixes) release. These source snapshots are updated on
 a daily basis, and reflect the state of the source repository.
@@ -159,17 +159,17 @@ far the most economic way to remain up-to-date in terms of bandwidth.
 </OL>
 </trn>
 
-<trn key="website.develop.fixes30x" locale="en_US">
+<trn key="website.develop.fixes32x" locale="en_US">
 <p>
-<b>Fixes to 3.0.x </b>
+<b>Fixes to 3.2.x </b>
 </p>
 <p>
 The sources of the fixes branch need a separate directory, so create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL https://svn.freepascal.org/svn/fpc/branches/fixes_3_0:
+the above checkout command with the URL https://svn.freepascal.org/svn/fpc/branches/fixes_3_2:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout https://svn.freepascal.org/svn/fpc/branches/fixes_3_0 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/branches/fixes_3_2 fpc
 </pre>
 
 and to update:
@@ -180,7 +180,7 @@ svn update fpc
 
 <p>
 To checkout a release, you have to checkout the tagged versions, e.g.
-svn checkout https://svn.freepascal.org/svn/fpc/tags/release_3_0_2 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/tags/release_3_2_0 fpc
 </p>
 
 <p>
