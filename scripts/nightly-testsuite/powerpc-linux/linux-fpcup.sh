@@ -59,6 +59,9 @@ if [ -z "$FPCBIN" ]; then
     FPCBIN=ppc68k
   fi
 fi
+
+TEST_OPT_2="-O3 -Cg"
+
 if [ "${processor}" = "ppc64le" ] ; then
   TEST_ABI=le
   MAKE_J_OPT="-j 16"
@@ -69,6 +72,7 @@ elif [ "${processor}" = "m68k" ] ; then
   MAKE_J_OPT=
   export FPMAKEOPT=
   ulimit -s 8192 -t 2400
+  TEST_OPT_2="-O2"
 else
   TEST_ABI=
   MAKE_J_OPT="-j 8"
@@ -288,7 +292,7 @@ echo "Ending make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"; result=${testsres}
 tail -30 $testslog >> $report
 echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 
-TEST_OPT="-O3 -Cg ${TEST_OPT}"
+TEST_OPT="${TEST_OPT_2} ${TEST_OPT}"
 echo "Starting make clean fulldb with TEST_OPT=\"${TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> ${report}
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
