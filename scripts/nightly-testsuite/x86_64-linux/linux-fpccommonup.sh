@@ -505,6 +505,7 @@ if [ $NewBinary -eq 1 ] ; then
     set_log $llvmlog
     add_log "Starting compilation of compiler with LLVM=1 for $NEW_CPU_TARGET"
     LLVM_FPC=${FPCBIN}-llvm
+    LLVM_COMPILE_OPT="-n"
     ${MAKE} -C compiler rtlclean >> $llvmlog 2>&1
     ${MAKE} -C compiler clean PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 >> $llvmlog 2>&1
     ${MAKE} -C compiler rtl LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
