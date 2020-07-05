@@ -56,9 +56,14 @@ if [ "$MACHINE" = "erpro8-fsf2" ] ; then
   MACHINE=gccmipsel64
 fi
 
+if [ "$MACHINE" = "gcc24" ] ; then
+  MACHINE=gccmipsel64-alt
+fi
+
 
 BASEDIR=$HOME/pas
 HOMEBIN=$HOME/bin
+export TEST_HOSTNAME=$MACHINE
 
 if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
   # fpcmips32 machine
@@ -87,7 +92,7 @@ else
     # fpcmipsel32 machine
     export LANG=en_GB.utf8
   fi
-  if [[ ( "${MACHINE}" = "gccmipsel64" ) || ( "${MACHINE}" == "gcc24" ) ]] ; then
+  if [[ ( "${MACHINE}" = "gccmipsel64" ) || ( "${MACHINE}" == "gccmipsel64-alt" ) ]] ; then
     # gcc23 alias gccmipsel64 machine
     export LANG=en_US.utf8
     # older version of svn doesn't support theirs-conflict
