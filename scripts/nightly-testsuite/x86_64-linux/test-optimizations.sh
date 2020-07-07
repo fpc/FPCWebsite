@@ -4,6 +4,7 @@ source $HOME/bin/fpc-versions.sh
 
 clean=0
 do_packages=0
+do_utils=0
 
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -16,6 +17,11 @@ while [ "$1" != "" ] ; do
   fi
   if [ "$1" == "--packages" ] ; then
     do_packages=1
+    shift
+    continue
+  fi
+  if [ "$1" == "--utils" ] ; then
+    do_utils=1
     shift
     continue
   fi
@@ -95,6 +101,7 @@ function gen_compiler ()
       rm -f ./$NEWBIN
     else
       echo "Using existing $NEWBIN"
+      SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
       return
     fi
   fi
@@ -118,18 +125,49 @@ for SUFFIX in $SUFFIX_LIST ; do
   echo "Testing $NEWFPC"
   NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
   $MAKE -C ../rtl distclean all FPC=$NEWFPCBIN > rtl${SUFFIX}.log 2>&1
+  makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "Warning: $MAKE failed in rtl, res=$makeres"
+  fi
   if [ -d ../rtl/units${SUFFIX} ] ; then
     rm -Rf ../rtl/units${SUFFIX}
   fi
-  mv ../rtl/units ../rtl/units${SUFFIX}
+  cp -Rf ../rtl/units ../rtl/units${SUFFIX}
   if [ $do_packages -eq 1 ] ; then
-    echo "Testing $NEWFPN in packages"
-    $MAKE -C ../packages distclean all FPC=$NEWFPCBIN > rtl${SUFFIX}.log 2>&1
+    echo "Testing $NEWFPC in packages"
+    $MAKE -C ../packages distclean all FPC=$NEWFPCBIN > packages${SUFFIX}.log 2>&1
+    makeres=$?
+    if [ $makeres -ne 0 ] ; then
+      echo "Warning: $MAKE failed in packages, res=$makeres"
+    fi
     for dir in ../packages/*/units ../packages/*/bin ; do
-      mv $dir ../rtl/units${SUFFIX}
+      if [ -d "$dir" ] ; then
+        updir=`dirname $dir`
+        package_name=`basename $updir` 
+        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name"
+        cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+      fi
+    done
+  fi
+  if [ $do_utils -eq 1 ] ; then
+    echo "Testing $NEWFPC in utils"
+    $MAKE -C ../utils distclean all FPC=$NEWFPCBIN > utils${SUFFIX}.log 2>&1
+    makeres=$?
+    if [ $makeres -ne 0 ] ; then
+      echo "Warning: $MAKE failed in utils, res=$makeres"
+    fi
+    for dir in ../utils/*/units ../utils/*/bin utils/units utils/bin ; do
+      if [ -d "$dir" ] ; then
+        updir=`dirname $dir`
+        package_name=`basename $updir` 
+        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name"
+        cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+      fi
     done
   fi
 done
+
+nb_failure=0
 
 for SUF1 in $SUFFIX_LIST ; do
   for SUF2 in $SUFFIX_LIST ; do
@@ -139,9 +177,19 @@ for SUF1 in $SUFFIX_LIST ; do
       diff -rc ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
       diffres=$?
       if [ $diffres -ne 0 ] ; then
-        echo "rtl units directories differ, see $diff_file"
+        echo "Units directories differ, see $diff_file"
+        let nb_failure++
       fi
     fi
   done
 done
 
+if [ $nb_failure -eq 0 ] ; then
+  echo "All OK, deleting generated/copied files"
+  for SUF in $SUFFIX_LIST ; do
+    rm -Rf ../rtl/units$SUF
+  done
+  rm -Rf rtl*.log packages*.log utils*.log
+else
+  echo "There are problems, generated/copied files not deleted"
+fi
