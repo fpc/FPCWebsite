@@ -70,6 +70,11 @@ function install_this ()
   tarfile=$1
   dirname=$2
   installdir=$3
+  force=${4:-}
+  if [[ ( -d "$installdir" ) && ( -z "$force" ) ]] ; then
+    echo "Directory $installdir already exists, skipping"
+    return
+  fi
   echo "Unpacking $tarfile"
   tar -xvf $tarfile 
   if [ ! -d "$dirname" ] ; then
@@ -108,7 +113,7 @@ if [ -n "$CPU32" ] ; then
   install_this $TARFILE32 $DIRNAME32 $HOME/pas/fpc-$RELEASE
 fi
 if [ -n "$CPU64" ] ; then
-  install_this $TARFILE64 $DIRNAME64 $HOME/pas/fpc-$RELEASE
+  install_this $TARFILE64 $DIRNAME64 $HOME/pas/fpc-$RELEASE force
 fi
 
 
