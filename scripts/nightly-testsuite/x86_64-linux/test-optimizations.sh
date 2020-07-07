@@ -132,6 +132,7 @@ for SUFFIX in $SUFFIX_LIST ; do
   if [ -d ../rtl/units${SUFFIX} ] ; then
     rm -Rf ../rtl/units${SUFFIX}
   fi
+  echo "Moving ../rtl/units to ../rtl/units${SUFFIX}"
   cp -Rf ../rtl/units ../rtl/units${SUFFIX}
   if [ $do_packages -eq 1 ] ; then
     echo "Testing $NEWFPC in packages"
@@ -140,12 +141,18 @@ for SUFFIX in $SUFFIX_LIST ; do
     if [ $makeres -ne 0 ] ; then
       echo "Warning: $MAKE failed in packages, res=$makeres"
     fi
+    echo "Moving packages units/bin dirs to ../rtl/units${SUFFIX}"
+    echo "Moving packages units/bin dirs to ../rtl/units${SUFFIX}" > packages-move${SUFFIX}.log
     for dir in ../packages/*/units ../packages/*/bin ; do
       if [ -d "$dir" ] ; then
         updir=`dirname $dir`
         package_name=`basename $updir` 
-        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name"
+        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> packages-move${SUFFIX}.log
         cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+        cpres=$?
+        if [ $cpres -ne 0 ] ; then
+          echo "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+        fi
       fi
     done
   fi
@@ -156,12 +163,18 @@ for SUFFIX in $SUFFIX_LIST ; do
     if [ $makeres -ne 0 ] ; then
       echo "Warning: $MAKE failed in utils, res=$makeres"
     fi
+    echo "Moving utils units/bin dirs to ../rtl/units${SUFFIX}"
+    echo "Moving utils units/bin dirs to ../rtl/units${SUFFIX}" > utils-move${SUFFIX}.log
     for dir in ../utils/*/units ../utils/*/bin utils/units utils/bin ; do
       if [ -d "$dir" ] ; then
         updir=`dirname $dir`
         package_name=`basename $updir` 
-        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name"
+        echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> utils-move${SUFFIX}.log
         cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+        cpres=$?
+        if [ $cpres -ne 0 ] ; then
+          echo "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+        fi
       fi
     done
   fi
