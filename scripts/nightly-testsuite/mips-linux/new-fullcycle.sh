@@ -148,7 +148,7 @@ function run_testsuite {
       return
     fi
   fi
-  make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" distclean allexectests \
+  make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" allexectests \
     uploadrun DB_SSH_EXTRA="-i ~/.ssh/freepascal" 1>> $localtestslog 2>&1
   res=$?
   decho "Finished tests, res=$res"
