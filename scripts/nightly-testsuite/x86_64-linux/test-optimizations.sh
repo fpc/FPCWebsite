@@ -44,6 +44,17 @@ else
 fi
 
 if [ -z "$FPCBIN" ] ; then
+  WHICH_FPC=`which fpc`
+  if [ -f "$WHICH_FPC" ] ; then
+    WHICH_FPCBIN=`$WHICH_FPC -PB`
+    if [ -f "$WHICH_FPCBIN" ] ; then
+      FPCBIN=`basename $WHICH_FPCBIN`
+      echo "Using FPCBIN=$FPCBIN"
+    fi
+  fi
+fi
+
+if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
@@ -87,12 +98,14 @@ export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 
 cd compiler
 
+COMPILER_DIR=`pwd`
+
 COMPILER_LIST=""
 SUFFIX_LIST=""
 
 function gen_compiler ()
 {
-  ADD_OPT="$1"
+  ADD_OPT="$1 ${OPT:-}"
   SUFFIX=${ADD_OPT// /_}
   cycle_file=cycle${SUFFIX}.log
   NEWBIN=${FPCBIN}${SUFFIX}
@@ -105,7 +118,7 @@ function gen_compiler ()
       return
     fi
   fi
-  echo "Generating compiler with $ADD_OPT"
+  echo "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
   $MAKE distclean cycle OPT="-n -gl $ADD_OPT" FPC=$FPCBIN > $cycle_file 2>&1
   cp ./$FPCBIN ./${NEWBIN}
   COMPILER_LIST="$COMPILER_LIST ${NEWBIN}"
