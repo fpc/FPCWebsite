@@ -354,10 +354,10 @@ if [ -f ./compiler/${FPCBIN} ]; then
 # test_tmt1_kill
 
   mutt -x -s "Free Pascal results on ${HOSTNAME} ${Build_target_cpu}-${Build_target_os}, ${Build_version} ${Build_date}, on host $HOST_PC" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+     -i $report -- pierre@freepascal.org < /dev/null 2>&1 | tee  ${report}.log
 else
   # No new compiler
-  mutt -x -s "Free Pascal compilation failed on ${HOSTNAME} in ${HOST_PC} ${FPC_TARGET_VER}" -i $report -a $makelog -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+  mutt -x -s "Free Pascal compilation failed on ${HOSTNAME} in ${HOST_PC} ${FPC_TARGET_VER}" -i $report -a $makelog -- pierre@freepascal.org < /dev/null 2>&1 | tee  ${report}.log
   # Set testsres to 1 to avoid distclean below
   testsres=1
 fi
