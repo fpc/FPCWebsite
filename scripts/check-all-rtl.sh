@@ -1368,7 +1368,7 @@ check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
 check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
 check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
-check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
+# check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
 check_target xtensa embedded "-n" "SUBARCH=lx106"
 
 # Darwin OS check both clang and GNU binutils
@@ -1460,18 +1460,18 @@ check_target arm freertos "-n" "SUBARCH=armv6m"
 
 # z80 cpu, also test alternative assemblers
 export ASPROG_LOCAL=z80asm
-check_target z80 embedded "-n -Az80asm -Cfsoft" "" "-z80asm"
-check_target z80 zxspectrum "-n -Az80asm -Cfsoft" "" "-z80asm"
-check_target z80 msxdos "-n -Az80asm -Cfsoft" "" "-z80asm"
+check_target z80 embedded "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
+check_target z80 zxspectrum "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
+check_target z80 msxdos "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 export ASPROG_LOCAL=vasmz80_std
-check_target z80 embedded "-n -Avasm -Cfsoft" "" "-vasmz80"
-check_target z80 zxspectrum "-n -Avasm -Cfsoft" "" "-vasmz80"
-check_target z80 msxdos "-n -Avasm -Cfsoft" "" "-vasmz80"
+check_target z80 embedded "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
+check_target z80 zxspectrum "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
+check_target z80 msxdos "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
 export ASPROG_LOCAL=
 # Test with -Cfsoft option
-check_target z80 embedded "-n -Cfsoft" "" "-Cfsoft"
-check_target z80 zxspectrum "-n -Cfsoft" "" "-Cfsoft"
-check_target z80 msxdos "-n -Cfsoft" "" "-Cfsoft"
+check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+check_target z80 zxspectrum "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+check_target z80 msxdos "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 
 # LLVM compiler trials
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
@@ -1554,7 +1554,7 @@ list_os sparc "-n"
 list_os sparc64 "-n"
 list_os x86_64 "-n"
 list_os xtensa "-n"
-list_os z80 "-n"
+list_os z80 "-n -CX -XX"
 
 listed=0
 
