@@ -514,7 +514,7 @@ if [ $NewBinary -eq 1 ] ; then
     if [ $llvm_res -ne 0 ] ; then
       add_log "Recompilation of LLVM version of compiler for $NEW_CPU_TARGET failed, see details in file $llvmlog"
     fi
-    export NEWFPC=$HOME/pas/fpc-$FPCVERSION/bin/${LLVM_FPC}
+    export NEWFPC=$NEW_INSTALL_PREFIX/bin/${LLVM_FPC}
     add_log "cp ./compiler/${FPCBIN} ${NEWPC}"
     cp ./compiler/${FPCBIN} ${NEWFPC}
     export FPCFPMAKE=${NEWFPC}
