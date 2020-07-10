@@ -827,8 +827,8 @@ function check_target ()
     ASSEMBLER=java
     # java is installed, no need for prefix
     BINUTILSPREFIX_LOCAL=
-  # Darwin and iphonesim targets use clang by default
-  elif [[ ("$OS_TARG_LOCAL" == "darwin") || ("$OS_TARG_LOCAL" == "iphonesim") ]] ; then
+  # Darwin, iphonesim and ios targets use clang by default
+  elif [[ ("$OS_TARG_LOCAL" == "darwin") || ("$OS_TARG_LOCAL" == "iphonesim") || ("$OS_TARG_LOCAL" == "ios") ]] ; then
     if [ "X${OPT_LOCAL//Aas/}" != "X$OPT_LOCAL" ] ; then
       ASSEMBLER=as
     else
@@ -845,7 +845,7 @@ function check_target ()
   elif [[ ("$OS_TARG_LOCAL" == "win64") && ("$CPU_TARG_LOCAL" == "aarch64") ]] ; then
     # aarch64-win64 uses clang
     ASSEMBLER=clang
-  elif [[ ("$OS_TARG_LOCAL" == "macos") && ("$CPU_TARG_LOCAL" == "powerpc") ]] ; then
+  elif [[ (("$OS_TARG_LOCAL" == "macos") || ("$OS_TARG_LOCAL" == "macosclassic")) && ("$CPU_TARG_LOCAL" == "powerpc") ]] ; then
     ASSEMBLER=PPCAsm
   elif [ "$OS_TARG_LOCAL" == "watcom" ] ; then
     ASSEMBLER=wasm
