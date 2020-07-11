@@ -27,85 +27,99 @@
   </trn>
 <p>
 <ul>
-    <li>ARM
+  <li>ARM
     <ul>
-      <li><a href="down/arm/gba@x@">Game Boy Advance</a>
-      <li><a href="down/arm/nds@x@">Nintendo DS</a>
       <li><a href="down/arm/linux@x@">Linux</a>
       <li><a href="down/arm/android@x@">Android</a>
       <li><a href="down/arm/wince@x@">Windows CE</a>
-   </ul>
+      <li><a href="down/arm/gba@x@">Game Boy Advance</a>
+      <li><a href="down/arm/nds@x@">Nintendo DS</a>
+      <li><a href="down/arm/aros@x@">AROS</a>
+    </ul>
 
-    <li>ARM64 (aarch64)
+  <li>ARM64 (aarch64)
     <ul>
       <li><a href="down/aarch64/linux@x@">Linux</a>
       <li><a href="down/aarch64/android@x@">Android</a>
-   </ul>
+    </ul>
 
-  <li>Intel/i386
+  <li>Intel x86/i386
     <ul>
-      <li><a href="down/i386/go32v2@x@">Dos</a> (<trn key="website.down_i386_dos_note" locale="en_US">GO32v2 extender</trn>)
-      <li><a href="down/i386/freebsd@x@">FreeBSD</a>
+      <li><a href="down/i386/win32@x@">Windows 32-bit</a> (<trn key="website.down_i386_win32_note" locale="en_US">and a cross-compiler ARM/MIPS/i386-Android</trn>)
+   <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
       <li><a href="down/i386/linux@x@">Linux</a>
       <li><a href="down/i386/macosx@x@">Mac OS X</a> (<trn key="website.down_i386_macx_dos_note" locale="en_US">and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
+      <li><a href="down/i386/freebsd@x@">FreeBSD</a>
+      <li><a href="down/i386/solaris@x@">Solaris</a>
+      <li><a href="down/i386/os2@x@">OS/2 (<trn key="website.down_i386_OS2_note" locale="en_US">and eComStation</trn>)</a>
+      <li><a href="down/i386/go32v2@x@">DOS</a> (<trn key="website.down_i386_dos_note" locale="en_US">GO32v2 extender</trn>)
       <li><a href="down/i386/haiku@x@">Haiku</a>
+      <li><a href="down/i386/aros@x@">AROS</a>
 <!--
       <li><a href="down/i386/netware@x@">Netware</a> (<trn key="website.down_i386_netware_note" locale="en_US">2.0.0 only</trn>)
 -->
-      <li><a href="down/i386/os2@x@">OS/2 (<trn key="website.down_i386_OS2_note" locale="en_US">and eComStation</trn>)</a>
-      <li><a href="down/i386/solaris@x@">Solaris</a>
-      <li><a href="down/i386/win32@x@">Windows 32-bit</a> (<trn key="website.down_i386_win32_note" locale="en_US">and a cross-compiler ARM/MIPS/i386-Android</trn>)
-   <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
     </ul>
+
+  <li>AMD64/Intel 64/x86_64
+    <ul>
+      <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
+      <li><a href="down/x86_64/linux@x@">Linux</a>
+      <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
+      <li><a href="down/x86_64/solaris@x@">Solaris</a>
+    </ul>
+
+  <li>Intel i8086
+    <ul>
+      <li><a href="down/i8086/msdos@x@">MS-DOS</a>
+    </ul>
+
   <li>PowerPC
     <ul>
+      <li><a href="down/powerpc/amigaos@x@">AmigaOS</a>
       <li><a href="down/powerpc/aix@x@">AIX</a>
       <li><a href="down/powerpc/linux@x@">Linux</a>
 <!--
       <li><a href="down/powerpc/macos@x@">Mac OS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
-      <li><a href="down/powerpc/morphos@x@">MorphOS</a> (<trn key="website.down_204_only_note" locale="en_US">2.0.4 only</trn>)
 -->
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
+      <li><a href="down/powerpc/morphos@x@">MorphOS</a>
       <li><a href="down/powerpc/wii@x@">Nintendo Wii</a>
     </ul>
+
   <li>PowerPC64
     <ul>
       <li><a href="down/powerpc64/aix@x@">AIX</a>
       <li><a href="down/powerpc64/linux@x@">Linux</a>
       <li><a href="down/powerpc/macosx@x@">Mac OS X</a>
     </ul>
+
   <li>PowerPC64 Little Endian
     <ul>
       <li><a href="down/powerpc64le/linux@x@">Linux</a>
    </ul> 
+
   <li>SPARC
     <ul>
       <li><a href="down/sparc/linux@x@">Linux</a>
       <li><a href="down/sparc/solaris@x@">Solaris</a>
     </ul>
-  <li>AMD64/Intel 64/x86_64
-    <ul>
-      <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
-      <li><a href="down/x86_64/linux@x@">Linux</a>
-      <li><a href="down/x86_64/solaris@x@">Solaris</a>
-      <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
-    </ul>
-  <li>i8086
-    <ul>
-      <li><a href="down/i8086/msdos@x@">MS-DOS</a>
-    </ul>
-  <li>m68k
-    <ul>
-      <li><a href="down/m68k/linux@x@">Linux</a>
-    </ul>
+
   <li>MIPS
     <ul>
       <li><a href="down/mips/linux@x@">Linux</a>
     </ul>
+
   <li>MIPSEL
     <ul>
       <li><a href="down/mipsel/linux@x@">Linux</a> (<trn key="website.down_mipsel_linux_note" locale="en_US">Experimental, not tested</trn>)
     </ul>
+
+  <li>Motorola 68k
+    <ul>
+      <li><a href="down/m68k/amiga@x@">Amiga</a>
+      <li><a href="down/m68k/linux@x@">Linux</a>
+    </ul>
+
 </ul>
 
 <p>
