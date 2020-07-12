@@ -2,6 +2,14 @@
 
 . $HOME/bin/fpc-versions.sh
 
+if [ -z "$HOMEBIN" ] ; then
+  HOMEBIN=$HOME/bin
+fi
+
+if [ -z "$BASEDIR" ] ; then
+  BASEDIR=$HOME/pas
+fi
+
 export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
@@ -37,11 +45,11 @@ else
   FTP_DIRNAME=${FPC_DIRNAME//_*/}
 fi
 
-export FPC=~/pas/fpc-${FPC_VER}/bin/${FPC_BIN}
+export FPC=$BASEDIR/fpc-${FPC_VER}/bin/${FPC_BIN}
 
 if [ "${PATH/${FPC_VER}//}" = "${PATH}" ] ; then
-  echo "Adding ${FPC_VER} binary directory"
-  export PATH=${PATH}:~/pas/fpc-${FPC_VER}/bin
+  echo "Appending ${BASEDIR}/fpc-${FPC_VER}/bin directory to PATH"
+  export PATH=${PATH}:$BASEDIR/fpc-${FPC_VER}/bin
 fi
 
 MAKE=make

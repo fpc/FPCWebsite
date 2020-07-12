@@ -106,6 +106,10 @@ else
     export PACKDIR=$HOME/tmp/$MACHINE/fpc-pack-$SRC_CPU
   fi
 fi
+
+export HOMEBIN
+export BASEDIR
+
 MUTT=$HOMEBIN/mutt
 SRC_OS=linux
 SRC_FULL=${SRC_CPU}-${SRC_OS}
@@ -307,7 +311,7 @@ else
   cd ./tests
     { 
     echo "Date before tests `date +%Y-%m-%d-%H-%M`"
-    ulimit -t 999
+    ulimit -t 90
     export FPC=$FPCBIN
     export TEST_USER=muller
     LIBGCC_PATH=`gcc -print-libgcc-file-name`
@@ -359,7 +363,7 @@ function handle_debug_trap ()
 
 function handle_trap ()
 {
-  echo "Signal $1 recieved" >> $LOCKFILE
+  echo "Signal ${1:-} recieved" >> $LOCKFILE
   release_lock
   exit
 }
