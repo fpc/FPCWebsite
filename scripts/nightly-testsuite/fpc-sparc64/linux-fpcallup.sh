@@ -15,6 +15,15 @@ fi
 
 . $HOME/bin/fpc-versions.sh
 
+BINDIRSUFFIX=
+RELEASE32BINDIR=$HOME/pas/fpc-${RELEASEVERSION}-32/bin
+if [ -d $RELEASE32BINDIR ] ; then
+  FPC32=$RELEASE32BINDIR/fpc
+  if [ -f $FPC32 ] ; then
+    BINDIRSUFFIX=-32
+  fi
+fi
+
 GLOGFILE=$HOME/logs/linux-fpcallup.log
 
 if [ -f "$GLOGFILE" ] ; then
@@ -45,10 +54,10 @@ echo "`date +%Y-%m-%d-%H:%M`: Starting fixes linux-fpccommonup.sh" >> $GLOGFILE
 $HOME/bin/linux-fpccommonup.sh
 if [ "$DO_SNAPSHOTS" == "1" ] ; then
   if [ -z "$today_sparc_linux_fixes" ] ; then
-    echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshotfixes.sh" >> $GLOGFILE
-    $HOME/bin/makesnapshotfixes.sh
+    echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshotfixes32.sh" >> $GLOGFILE
+    $HOME/bin/makesnapshotfixes32.sh
   else
-    echo "`date +%Y-%m-%d-%H:%M`: Skipping makesnapshotfixes.sh, $today_sparc_linux_fixes" >> $GLOGFILE
+    echo "`date +%Y-%m-%d-%H:%M`: Skipping makesnapshotfixes32.sh, $today_sparc_linux_fixes" >> $GLOGFILE
   fi
 fi
 export FIXES=0
@@ -56,10 +65,10 @@ echo "`date +%Y-%m-%d-%H:%M`: Starting trunk linux-fpccommonup.sh" >> $GLOGFILE
 $HOME/bin/linux-fpccommonup.sh
 if [ "$DO_SNAPSHOTS" == "1" ] ; then
   if [ -z "$today_sparc_linux_trunk" ] ; then
-    echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshottrunk.sh" >> $GLOGFILE
-    $HOME/bin/makesnapshottrunk.sh
+    echo "`date +%Y-%m-%d-%H:%M`: Starting makesnapshottrunk32.sh" >> $GLOGFILE
+    $HOME/bin/makesnapshottrunk32.sh
   else
-    echo "`date +%Y-%m-%d-%H:%M`: Skipping makesnapshottrunk.sh, $today_sparc_linux_trunk" >> $GLOGFILE
+    echo "`date +%Y-%m-%d-%H:%M`: Skipping makesnapshottrunk32.sh, $today_sparc_linux_trunk" >> $GLOGFILE
   fi
 fi
 

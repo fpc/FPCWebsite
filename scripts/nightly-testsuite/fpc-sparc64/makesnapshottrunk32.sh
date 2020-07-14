@@ -8,7 +8,7 @@ set -e
 export ERRORMAILADDR=pierre@freepascal.org
 # Checkout dir
 CHECKOUTDIR=$TRUNKDIR
-STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/fpc
+STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcsparc
 INSTALLCOMPILER=$HOME/bin/ppcsparc-trunk
 MAILFILE=$HOME/logs/snapshot-trunk.mail
 LOGFILE=$HOME/logs/snapshot-trunk.log
