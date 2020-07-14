@@ -106,7 +106,7 @@ DATESTR=`$DATE`
 # Use Free Pascal Release Version from fpc-versions script
 FPCRELEASEVERSION=$RELEASEVERSION
 
-export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}${BINDIRSUFFIX:-}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 if [ "x$FIXES" == "x1" ] ; then
   SVNDIR=fixes
