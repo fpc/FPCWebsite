@@ -132,8 +132,10 @@ elif [ "$HOSTNAME" == "gcc121" ] ; then
 elif [ "$HOSTNAME" == "gcc123" ] ; then
   export do_run_tests=1
   export MAKE_J_OPT="-j 15"
-  if [ "X$FPCBIN" == "Xppcx64" ] ; then
-    do_run_llvm_tests=1
+  if [ "$FPCBIN" == "ppcx64" ] ; then
+    if [ "$SVNDIRNAME" == "trunk" ] ; then
+      do_run_llvm_tests=1
+    fi
   fi
 elif [ -z "${do_run_tests:-}" ] ; then
   export do_run_tests=0
@@ -400,11 +402,7 @@ if [ $NewBinary -eq 1 ] ; then
   NEW_UNITDIR=`$NEWFPC -iTP`-`$NEWFPC -iTO`
 
   (
-  cd ~/pas/$SVNDIRNAME
-  if [ -d fpcsrc ] ; then
-    cd fpcsrc
-  fi
-
+  cd $start_dir
   cd tests
   # Limit resources (64mb data, 8mb stack, 4 minutes)
   testsres=0
@@ -428,6 +426,11 @@ if [ $NewBinary -eq 1 ] ; then
     else
       MAKE_OPTS=""
     fi
+
+    if [ -z "${NEW_FPC_FOR_TESTS:-}" ] ; then
+      echo "run_tests required a valid TEST_FPC, in NEW_FPC_FOR_TESTS variable"
+      return
+    fi
     logdir=~/logs/$SVNDIRNAME/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
     testslog=~/pas/$SVNDIRNAME/tests-${NEW_UNITDIR}-${DIR_OPT}.txt 
     cleantestslog=~/pas/$SVNDIRNAME/clean-${NEW_UNITDIR}-${DIR_OPT}.txt
@@ -447,7 +450,7 @@ if [ $NewBinary -eq 1 ] ; then
     add_log  "Starting $MAKE distclean"
     #  FPCFPMAKE=$FPCFPMAKE FPCFPMAKENEW=$FPCFPMAKENEW variables removed
     ${MAKE} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
+      TEST_FPC=${NEW_FPC_FOR_TESTS} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" >> $cleantestslog 2>&1
     add_log "${MAKE} $MAKE_J_OPT $MAKE_TESTS_TARGET $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT=\"$TEST_OPT\" OPT=\"$NEEDED_OPT\" TEST_USE_LONGLOG=1 \
@@ -481,6 +484,7 @@ if [ $NewBinary -eq 1 ] ; then
   cp ${makelog} ~/pas/$SVNDIRNAME/makelog-${NEW_UNITDIR}.txt
 
   if [ $do_run_tests -eq 1 ] ; then
+    NEW_FPC_FOR_TESTS=$NEWFPC
     run_tests ""
     run_tests "-Cg"
     run_tests "-O2"
@@ -501,10 +505,14 @@ if [ $NewBinary -eq 1 ] ; then
     fi
   fi
 
-   if [ $do_run_llvm_tests -eq 1 ] ; then
+function test_llvm ()
+{
+  if [ $do_run_llvm_tests -eq 1 ] ; then
+    cd $start_dir
+    PREVNEWFPC=$NEWFPC
+    LLVM_INSTALL_PREFIX=${NEW_INSTALL_PREFIX}-llvm
     set_log $llvmlog
     add_log "Starting compilation of compiler with LLVM=1 for $NEW_CPU_TARGET"
-    LLVM_FPC=${FPCBIN}-llvm
     LLVM_COMPILE_OPT="-n"
     ${MAKE} -C compiler rtlclean >> $llvmlog 2>&1
     ${MAKE} -C compiler clean PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 >> $llvmlog 2>&1
@@ -513,12 +521,23 @@ if [ $NewBinary -eq 1 ] ; then
     llvm_res=$?
     if [ $llvm_res -ne 0 ] ; then
       add_log "Recompilation of LLVM version of compiler for $NEW_CPU_TARGET failed, see details in file $llvmlog"
+      return
     fi
-    export NEWFPC=$NEW_INSTALL_PREFIX/bin/${LLVM_FPC}
-    add_log "cp ./compiler/${FPCBIN} ${NEWFPC}"
-    cp ./compiler/${FPCBIN} ${NEWFPC}
-    export FPCFPMAKE=${NEWFPC}
-    export FPCFPMAKENEW=${NEWFPC}
+    ${MAKE} -C compiler installsymlink INSTALL_PREFIX=$LLVM_INSTALL_PREFIX \
+       PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
+    export NEW_FPC_FOR_TESTS=$LLVM_INSTALL_PREFIX/bin/${FPC}
+    ${MAKE} -C compiler distclean cycle rtlinstall installsymlink INSTALL_PREFIX=$LLVM_INSTALL_PREFIX \
+       FPC=$NEW_FPC_FOR_TESTS PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
+    llvm_res=$?
+    if [ $llvm_res -ne 0 ] ; then
+      add_log "Cycling of LLVM version of compiler for $NEW_CPU_TARGET failed, see details in file $llvmlog"
+      return
+    fi
+    add_log "cp ./compiler/${FPCBIN} ${NEWFPC_FOR_TESTS}"
+    cp ./compiler/${FPCBIN} ${NEWFPC_FOR_TESTS}
+    export FPCFPMAKE=${NEWFPC_FOR_TESTS}
+    export FPCFPMAKENEW=${NEWFPC_FOR_TESTS}
+    export NEWFPC=${NEWFPC_FOR_TESTS}
     run_tests "-dWITH_LLVM" "LLVM=1"
     run_tests "-O2 -dWITH_LLVM" "LLVM=1"
     run_tests "-O3 -dWITH_LLVM" "LLVM=1"
@@ -526,8 +545,12 @@ if [ $NewBinary -eq 1 ] ; then
     run_tests "-Clflto -dWITH_LLVM" "LLVM=1"
     export FPCFPMAKE=
     export FPCFPMAKENEW=
-    export NEWFPC=
+    export NEW_FPC_FOR_TESTS=
+    export NEWFPC=$PREVNEWFPC
   fi
+}
+
+  test_llvm
 
   # Cleanup
 
@@ -537,10 +560,7 @@ if [ $NewBinary -eq 1 ] ; then
   fi
 
   if [ $cleantests -eq 1 ] ; then
-    cd ~/pas/$SVNDIRNAME
-    if [ -d fpcsrc ] ; then
-      cd fpcsrc
-    fi
+    cd $start_dir
     cd tests
     rm -Rf output* 1>> ${cleanlog} 2>&1
   fi
