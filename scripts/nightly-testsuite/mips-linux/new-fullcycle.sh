@@ -63,6 +63,7 @@ fi
 
 BASEDIR=$HOME/pas
 HOMEBIN=$HOME/bin
+REQUIRED_OPT=""
 export TEST_HOSTNAME=$MACHINE
 
 if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
@@ -76,6 +77,21 @@ if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
   if [ "${MACHINE}" = "gccmips64" ] ; then
     export LANG=en_US.utf8
     svnup_option="--non-interactive"
+    REQUIRED_OPT="$REQUIRED_OPT -k-m -kelf32btsmip"
+    o32_libgcc=`gcc -mabi=32 -print-libgcc-file-name`
+    o32_libgcc_dir=`dirname $o32_libgcc`
+    if [ -d "$o32_libgcc_dir" ] ; then
+      REQUIRED_OPT+=" -Fl$o32_libgcc_dir"
+    fi
+    if [ -d "/usr/lib32" ] ; then
+      REQUIRED_OPT+=" -Fl/usr/lib32"
+    fi
+    if [ -d "/lib32" ] ; then
+      REQUIRED_OPT+=" -Fl/lib32"
+    fi
+    if [ -d "/usr/lib/mips-linux-gnu" ] ; then
+      REQUIRED_OPT+=" -Fl/usr/lib/mips-linux-gnu"
+    fi
     BASEDIR=$HOME/pas/mips
     FIXESDIR=$BASEDIR/$FIXESDIRNAME
     TRUNKDIR=$BASEDIR/$TRUNKDIRNAME
@@ -95,6 +111,19 @@ else
   if [[ ( "${MACHINE}" = "gccmipsel64" ) || ( "${MACHINE}" == "gccmipsel64-alt" ) ]] ; then
     # gcc23 alias gccmipsel64 machine
     export LANG=en_US.utf8
+    # We need to specify the linker emulation
+    REQUIRED_OPT="$REQUIRED_OPT -k-m -kelf32ltsmip"
+    o32_libgcc=`gcc -mabi=32 -print-libgcc-file-name`
+    o32_libgcc_dir=`dirname $o32_libgcc`
+    if [ -d "$o32_libgcc_dir" ] ; then
+      REQUIRED_OPT+=" -Fl$o32_libgcc_dir"
+    fi
+    if [ -d "/usr/libo32" ] ; then
+      REQUIRED_OPT+=" -Fl/usr/libo32"
+    fi
+    if [ -d "/libo32" ] ; then
+      REQUIRED_OPT+=" -Fl/libo32"
+    fi
     # older version of svn doesn't support theirs-conflict
     svnup_option="--non-interactive"
     BASEDIR=$HOME/pas/mipsel
@@ -221,11 +250,11 @@ else
   decho "Starting cycle"
   {
   make distclean > /dev/null
-  make cycle DEBUG=1 FPC=$FPCBIN OPT=-n
+  make cycle DEBUG=1 FPC=$FPCBIN OPT="-n $REQUIRED_OPT"
   res=$?
   if [ $res -ne 0 ] ; then
     decho "Cycle failed, res=$res, trying again with $FPCRELEASEBIN"
-    make distclean cycle DEBUG=1 FPC=$FPCRELEASEBIN OPT=-n
+    make distclean cycle DEBUG=1 FPC=$FPCRELEASEBIN OPT="-n $REQUIRED_OPT"
     res=$?
   else
     decho "Cycle finished successfully"
@@ -233,12 +262,12 @@ else
   if [ $res -ne 0 ] ; then
     decho "Cycle with release fpc failed, res=$res"
   else
-    make install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n INSTALL_PREFIX=$FPCBASEDIR
+    make install DEBUG=1 FPC=`pwd`/$FPCEXE OPT="-n $REQUIRED_OPT" INSTALL_PREFIX=$FPCBASEDIR
     res=$?
     if [ $res -eq 0 ] ; then
       # Removing the DEBUG=1 generates a problem for cpall.o and syscall.o
       # Until this is fixed also use DEBUG=1 here
-      make -C ../rtl/linux clean install DEBUG=1 FPC=`pwd`/$FPCEXE OPT=-n INSTALL_PREFIX=$FPCBASEDIR
+      make -C ../rtl/linux clean install DEBUG=1 FPC=`pwd`/$FPCEXE OPT="-n $REQUIRED_OPT" INSTALL_PREFIX=$FPCBASEDIR
       res=$?
     fi
   fi ; } 1> $cyclelog 2>&1
@@ -262,7 +291,7 @@ else
       make distclean > /dev/null
       ADDOPT="FPCCPUOPT=$FPCCPUOPT"
       decho "Starting make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1"
-      make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
+      make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT="-n $REQUIRED_OPT" OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
       res=$?
       allres=$res
       if [ $res -ne 0 ] ; then
@@ -273,7 +302,7 @@ else
           max_trial=5
           while [ $trial -lt $max_trial ] ; do
             decho "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
-            make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
+            make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $REQUIRED_OPT $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
             res=$?
             if [ $res -ne 0 ] ; then
               decho "make install in $dir failed, res=$res, trial=$trial, retrying"
@@ -303,7 +332,7 @@ else
         fi
       fi
     done
-    if [ $res -ne 0 ] ; then 
+    if [ $res -ne 0 ] ; then
       attach="$attach -a $alllog"
     fi
   fi
@@ -319,7 +348,7 @@ else
     if [ "$LIBGCC_DIR" != "" ] ; then
       export TEST_OPT="$TEST_OPT -Fl${LIBGCC_DIR}"
     fi
-    BASE_TEST_OPT="$TEST_OPT"
+    BASE_TEST_OPT="$TEST_OPT $REQUIRED_OPT"
     TEST_FPC=$BASEDIR/fpc-$FPCVERSION/bin/$FPCEXE
     # rm -f ${testslog}-default
     # run_testsuite ${testslog}-default
