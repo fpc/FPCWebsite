@@ -242,8 +242,8 @@ fi
 found_fpc=`which $FPC 2> /dev/null `
 
 # Add RELEASE directory
-if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin ] ; then
-  PATH=${PATH}:${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin
+if [ -d ${HOME}/pas/fpc-${FPCRELEASEVERSION}${BINDIRSUFFIX:-}/bin ] ; then
+  PATH=${PATH}:${HOME}/pas/fpc-${FPCRELEASEVERSION}${BINDIRSUFFIX:-}/bin
 fi
 
 # Also add $HOME/bin to PATH if it exists, but as last
@@ -553,15 +553,17 @@ export utils_list=
 export utils_ppu_list=
 
 
-NATIVEFPC=fpc
+if [ -z "${NATIVEFPC:-}" ] ; then
+  NATIVEFPC=fpc
+fi
 
 export NATIVE_MACHINE=`uname -m`
-export NATIVE_CPU=`fpc -iSP`
-export NATIVE_OS=`fpc -iSO`
-export NATIVE_DATE=`fpc -iD`
-export NATIVE_VERSION=`fpc -iV`
-export NATIVE_FULLVERSION=`fpc -iW`
-export NATIVE_FPCBIN=`fpc -PB`
+export NATIVE_CPU=`$NATIVEFPC -iSP`
+export NATIVE_OS=`$NATIVEFPC -iSO`
+export NATIVE_DATE=`$NATIVEFPC -iD`
+export NATIVE_VERSION=`$NATIVEFPC -iV`
+export NATIVE_FULLVERSION=`$NATIVEFPC -iW`
+export NATIVE_FPCBIN=`$NATIVEFPC -PB`
 
 if [ "$FPCVERSION" != "$NATIVE_VERSION" ] ; then
   echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $LOGFILE
