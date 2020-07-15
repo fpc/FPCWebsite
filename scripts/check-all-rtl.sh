@@ -598,6 +598,10 @@ if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
   if [ -d $HOME/local/lib32 ] ; then
     NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
   fi
+  SPARC32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+  if [ -d "$SPARC32_GCC_DIR" ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl$SPARC32_GCC_DIR"
+  fi
   export NATIVE_OPT
 else
   export NATIVE_OPT=
@@ -1205,9 +1209,9 @@ function check_target ()
   fi
   if [ $test_packages -eq 1 ] ; then
     echo "Re-compiling native rtl to allow for fpmake compilation"
-    $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
+    $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= > $LOGFILE_NATIVE_RTL 2>&1
     echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation"
-    $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" >> $LOGFILE_NATIVE_RTL 2>&1
+    $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= >> $LOGFILE_NATIVE_RTL 2>&1
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
     $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
@@ -1220,7 +1224,7 @@ function check_target ()
         $MAKE $MAKEJOPT -C $packagesdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         # Warning, we need to re-compile bootstrap in fmpkunit after that clean, otherwise compilation of fpmake in utils might fail
         echo "Re-compiling bootstrap in packages/fpmkunit for fpmake compilation in utils"
-        $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVEFPC OPT="-n -g $NATIVE_OPT" > $LOGFILE_NATIVE_RTL 2>&1
+        $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVEFPC OPT="-n -g $NATIVE_OPT" ASTARGET= > $LOGFILE_NATIVE_RTL 2>&1
         $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         res=$?
       fi
