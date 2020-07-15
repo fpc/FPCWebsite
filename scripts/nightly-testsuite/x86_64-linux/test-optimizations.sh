@@ -5,6 +5,7 @@ source $HOME/bin/fpc-versions.sh
 clean=0
 do_packages=0
 do_utils=0
+all_variants=0
 
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -20,6 +21,11 @@ while [ "$1" != "" ] ; do
     shift
     continue
   fi
+  if [ "$1" == "--all" ] ; then
+    all_variants=1
+    shift
+    continue
+  fi
   if [ "$1" == "--utils" ] ; then
     do_utils=1
     shift
@@ -29,7 +35,8 @@ while [ "$1" != "" ] ; do
     eval export "$1"
     shift
   else
-    break
+    echo "parameter \"$1\" not handled"
+    shift
   fi
 done
 
@@ -126,9 +133,11 @@ function gen_compiler ()
 }
 
 gen_compiler "-O-"
-gen_compiler "-O1"
-gen_compiler "-O2"
-gen_compiler "-O3"
+if [ $all_variants -eq 1 ] ; then
+  gen_compiler "-O1"
+  gen_compiler "-O2"
+  gen_compiler "-O3"
+fi
 gen_compiler "-O4"
 
 COMPILER_DIR=`pwd`
