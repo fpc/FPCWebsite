@@ -26,11 +26,14 @@ if [ "$RELEASEVER" == "" ]; then
   export RELEASEVER=$RELEASEVERSION
 fi
 
-if [ "${LANG/UTF/}" = "$LANG" ] ; then
-  export LANG=en_US.UTF-8
-fi
-if [ -z "$LC_ALL" ] ; then
-  export LC_ALL=en_US.UTF-8
+locale_utf_list=`locale -a | grep -i UTF`
+if [ -n "$locale_utf_list" ] ; then
+  if [ "${LANG/UTF/}" = "$LANG" ] ; then
+    export LANG=en_US.UTF-8
+  fi
+  if [ -z "$LC_ALL" ] ; then
+    export LC_ALL=en_US.UTF-8
+  fi
 fi
 
 if [ "$FPCBIN" == "" ]; then
@@ -126,7 +129,17 @@ if [ ${makeres} -ne 0 ] ; then
   if [ ${makeres} -ne 0 ]; then
     tail -30 ${makelog} >> $report
   fi
+fi
 
+if [ ${makeres} -ne 0 ] ; then
+  echo "Starting make distclean all, using ${FPCRELEASEBIN} and FPCCPUOPT=-O1" >> $report
+    ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} FPCCPUOPT=-O1 \
+    FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" 1> ${makelog} 2>&1
+  makeres=$?
+  echo "Ending make distclean all with release binary and FPCCPUOPT=-O1; result=${makeres}" >> $report
+  if [ ${makeres} -ne 0 ]; then
+    tail -30 ${makelog} >> $report
+  fi
 fi
 
 
