@@ -5,6 +5,8 @@ echo "Starting $0 script at `date +%Y-%m-%d-%H-%M`" > $LOGFILE
 
 . ${HOME}/bin/fpc-versions.sh
 
+set -u
+
 # set correct locale for widestring tests
 export LANG=en_US.utf8
 export DB_SSH_EXTRA="-i ${HOME}/.ssh/freepascal"
@@ -13,12 +15,16 @@ export MUTTATTACH=
 export RECOMPILE_COMPILER_FIRST=0
 
 export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin"
-if [ "X$PPCCPU" == "X" ] ; then
+if [ -z "${PPCCPU:-}" ] ; then
   export PPCCPU=fpc
 fi
-if [ "X$STARTPP" != "X" ] ; then
+if [ -z "${STARTPP:-}" ] ; then
   export FPCCPU=$STARTPP
 fi
+if [ -z "${HOSTNAME:-}" ] ; then
+  HOSTNAME=`uname -n`
+fi
+
 
 if [ "X`which $PPCCPU`" == "X" ] ; then
   RECOMPILE_COMPILER_FIRST=1
@@ -62,7 +68,38 @@ fi
 if [ -d $HOME/local/lib32 ] ; then
   NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
 fi
+export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT32="$NATIVE_OPT32 "
+if [ -n "$gcc_libs_32" ] ; then
+  for dir in $gcc_libs_32 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
+        NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+      fi
+    fi
+  done
+fi
+SPARC32_GCC_DIR=` gcc -m32 -rint-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC32_GCC_DIR" ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR"
+fi
 
+NATIVE_OPT64=""
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" != "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir"
+      fi
+    fi
+  done
+fi
+SPARC64_GCC_DIR=` gcc -m64 -rint-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC64_GCC_DIR" ] ; then
+  NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR"
+fi
 
 if [ "${HOSTNAME}" == "stadler" ]; then
   HOST_PC=fpc-sparc64
@@ -70,6 +107,8 @@ if [ "${HOSTNAME}" == "stadler" ]; then
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
     export NEEDED_OPT="$NATIVE_OPT32"
+  else
+    export NEEDED_OPT="$NATIVE_OPT64"  
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -79,6 +118,8 @@ elif [ "${HOSTNAME}" == "gcc202" ]; then
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
     export NEEDED_OPT="$NATIVE_OPT32"
+  else
+    export NEEDED_OPT="$NATIVE_OPT64"  
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
@@ -88,6 +129,8 @@ elif [ "${HOSTNAME}" == "deb4g" ]; then
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then
     export ASTARGET=-32
     export NEEDED_OPT="$NATIVE_OPT32"
+  else
+    export NEEDED_OPT="$NATIVE_OPT64"  
   fi
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
