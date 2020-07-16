@@ -1,6 +1,11 @@
 #!/bin/bash
 # Generic snapshot building
 #
+
+if [ -z "$LOGFILE" ] ; then
+  LOGFILE=$HOME/logs/snapshot.log
+fi
+
 echo "Starting $0 script at `date +%Y-%m-%d-%H-%M`" > $LOGFILE
 
 . ${HOME}/bin/fpc-versions.sh
@@ -18,7 +23,7 @@ export PATH="${PATH}:${HOME}/pas/fpc-${RELEASEVERSION}/bin:${HOME}/bin"
 if [ -z "${PPCCPU:-}" ] ; then
   export PPCCPU=fpc
 fi
-if [ -z "${STARTPP:-}" ] ; then
+if [ -n "${STARTPP:-}" ] ; then
   export FPCCPU=$STARTPP
 fi
 if [ -z "${HOSTNAME:-}" ] ; then
@@ -147,7 +152,7 @@ if [ "$CHECKOUTDIR" == "" ]; then
     echo "No CHECKOUTDIR set"
     exit 1
 fi
-if [ "X$FPC" == "X" ]; then
+if [ -z "${FPC:-}" ]; then
   export FPC=$STARTPP
 fi
 
@@ -191,9 +196,9 @@ if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
   make -C $FPCSRCDIR/compiler installsymlink FPC=$NEW_FPC
 fi
 
-if [ "X${GDBMI}" == "X" ]; then
+if [ -z "${GDBMI:-}" ]; then
 # add needed files (libgdb.a)
-if [ "$LIBGDBZIP" != "" ]; then
+if [ -n "${LIBGDBZIP:-}" ]; then
         cd $CHECKOUTDIR/$FPCSRCDIR
         unzip -o ${LIBGDBZIP}
 fi
@@ -203,9 +208,10 @@ fi
 if [ "X$TARGET_CPU" == "Xsparc" ] ; then
   NEEDED_OPT="$NATIVE_OPT32"
 else
-  NEEDED_OPT=
+  NEEDED_OPT="$NATIVE_OPT64"
 fi
-EXTRA_MAKE_OPT="$EXTRA_MAKE_OPT $EXTRAOPT NOGDB=1"
+
+EXTRA_MAKE_OPT="${EXTRA_MAKE_OPT:-} ${EXTRAOPT:-} NOGDB=1"
 if [ "X$TARGET_CPU" == "Xsparc" ] ; then
   EXTRA_MAKE_OPT="$EXTRA_MAKE_OPT ASTARGET=-32"
   export ASTARGET=-32
@@ -262,7 +268,7 @@ else
 fi
 
 # move snapshot
-if [ "X$FTPDIR" == "X" ] ; then
+if [ -z "${FTPDIR:-}" ] ; then
   echo "variable FTPDIR not set"
   export MUTTATTACH="-a $LOGFILE"
 else
@@ -291,17 +297,19 @@ fi
 cd $CHECKOUTDIR/$FPCSRCDIR/tests
 # fpc -iV returns exitcode 1, workaround with || true
 FPCVERSION=0
-[ -f $INSTALLCOMPILER ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
-for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
-  if [ "x$DISTCLEAN_BEFORE_TESTS" == "x1" ] ; then
-    make -C ../rtl distclean $EXTRAOPT FPC=$INSTALLCOMPILER
-    make -C ../packages distclean $EXTRAOPT FPC=$INSTALLCOMPILER
-  fi
-  make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER $EXTRAOPT \
-    DIGESTVER=$FPCVERSION  TEST_OPT="${TESTSUITEOPTS[TESTOPTS]} $NEEDED_OPT" \
-    TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" \
-    V=1 TEST_VERBOSE=1
-done
+[ -f "${INSTALLCOMPILER:-}" ] && FPCVERSION=`$INSTALLCOMPILER -iV || true`
+if [ -n "${TESTSUITEOPTS:-}" ] ; then
+  for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
+    if [ "x$DISTCLEAN_BEFORE_TESTS" == "x1" ] ; then
+      make -C ../rtl distclean $EXTRAOPT FPC=$INSTALLCOMPILER
+      make -C ../packages distclean $EXTRAOPT FPC=$INSTALLCOMPILER
+    fi
+    make clean fulldb FPC=$STARTPP TEST_FPC=$INSTALLCOMPILER $EXTRAOPT \
+      DIGESTVER=$FPCVERSION  TEST_OPT="${TESTSUITEOPTS[TESTOPTS]} $NEEDED_OPT" \
+      TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" EMULATOR="$EMULATOR" \
+      V=1 TEST_VERBOSE=1
+  done
+fi
 
 # clean up, ignore errors... Makefile can be broken
 cd $CHECKOUTDIR/$FPCSRCDIR
