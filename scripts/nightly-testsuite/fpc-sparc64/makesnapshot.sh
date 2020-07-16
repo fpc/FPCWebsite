@@ -79,7 +79,7 @@ if [ -n "$gcc_libs_32" ] ; then
     fi
   done
 fi
-SPARC32_GCC_DIR=` gcc -m32 -rint-libgcc-file-name | xargs dirname`
+SPARC32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
 if [ -d "$SPARC32_GCC_DIR" ] ; then
   NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR"
 fi
@@ -96,7 +96,7 @@ if [ -n "$gcc_libs_64" ] ; then
     fi
   done
 fi
-SPARC64_GCC_DIR=` gcc -m64 -rint-libgcc-file-name | xargs dirname`
+SPARC64_GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
 if [ -d "$SPARC64_GCC_DIR" ] ; then
   NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR"
 fi
