@@ -81,6 +81,11 @@ if [ -n "$gcc_libs_32" ] ; then
     fi
   done
 fi
+SPARC32_GCC_DIR=` gcc -m32 -rint-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC32_GCC_DIR" ] ; then
+  NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR"
+fi
+
 export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
 NATIVE_OPT64="$NATIVE_OPT64 "
 if [ -n "$gcc_libs_64" ] ; then
@@ -91,6 +96,10 @@ if [ -n "$gcc_libs_64" ] ; then
       fi
     fi
   done
+fi
+SPARC64_GCC_DIR=` gcc -m64 -rint-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC64_GCC_DIR" ] ; then
+  NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR"
 fi
 
 if [ "X$USER" == "X" ]; then
