@@ -50,6 +50,25 @@ if [ "$SOURCE_OS" != "$TARGET_OS" ] ; then
   echo "Re-compiling compiler first because $PPCCPU is cross-os compiler" >> $LOGFILE
 fi
 
+NATIVE_OPT64=""
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir "
+      fi
+    fi
+  done
+fi
+SPARC64_LIBGCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC64_LIBGCC_DIR" ] ; then
+  if [ "${NATIVE_OPT64/-Fl${SPARC64_LIBGCC_DIR} /}" == "$NATIVE_OPT64" ] ; then
+    NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_LIBGCC_DIR "
+  fi
+fi
+
 echo "Running 32-bit sparc fpc on sparc64 machine, needs special options" >> $LOGFILE
 NATIVE_OPT32="-ao-32"
 if [ -d /lib32 ] ; then
@@ -79,31 +98,18 @@ if [ -n "$gcc_libs_32" ] ; then
   for dir in $gcc_libs_32 ; do
     if [ -d "$dir" ] ; then
       if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
-        NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+        if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+          NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+        fi
       fi
     fi
   done
 fi
-SPARC32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
-if [ -d "$SPARC32_GCC_DIR" ] ; then
-  NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR"
-fi
-
-NATIVE_OPT64=""
-export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-NATIVE_OPT64="$NATIVE_OPT64 "
-if [ -n "$gcc_libs_64" ] ; then
-  for dir in $gcc_libs_64 ; do
-    if [ -d "$dir" ] ; then
-      if [ "${NATIVE_OPT64/-Fl${dir} /}" != "$NATIVE_OPT64" ] ; then
-        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir"
-      fi
-    fi
-  done
-fi
-SPARC64_GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
-if [ -d "$SPARC64_GCC_DIR" ] ; then
-  NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR"
+SPARC32_LIBGCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC32_LIBGCC_DIR" ] ; then
+  if [ "${NATIVE_OPT32/-Fl${SPARC32_LIBGCC_DIR} /}" == "$NATIVE_OPT32" ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_LIBGCC_DIR"
+  fi
 fi
 
 if [ "${HOSTNAME}" == "stadler" ]; then
@@ -187,10 +193,10 @@ rm -f *.tar.gz
 (make -C $FPCSRCDIR/tests distclean TEST_FPC=$STARTPP || true) > /dev/null 2>&1
 
 STARTPPNAME=`basename $STARTPP`
+NEW_FPC=`pwd`/$FPCSRCDIR/compiler/$STARTPPNAME
 
 if [ $RECOMPILE_COMPILER_FIRST -eq 1 ] ; then
   make -C $FPCSRCDIR/compiler distclean cycle OS_TARGET=$TARGET_OS CPU_TARGET=$TARGET_CPU FPC=fpc OPT=-n
-  NEW_FPC=`pwd`/$FPCSRCDIR/compiler/$STARTPPNAME
   export TARGET_VERSION=`$NEW_FPC -iV`
   export INSTALL_PREFIX=${HOME}/pas/fpc-${TARGET_VERSION}
   make -C $FPCSRCDIR/compiler installsymlink FPC=$NEW_FPC
@@ -205,17 +211,20 @@ fi
 else
   EXTRAOPT="GDBMI=1"
 fi
+EXTRA_MAKE_OPT="${EXTRA_MAKE_OPT:-} ${EXTRAOPT:-} NOGDB=1"
 if [ "X$TARGET_CPU" == "Xsparc" ] ; then
   NEEDED_OPT="$NATIVE_OPT32"
+  export BINUTILSPREFIX=sparc-linux-
+  EXTRA_MAKE_OPT="$EXTRA_MAKE_OPT ASTARGET=-32"
+  export ASTARGET=-32
+  export FPCFPMAKE=ppcsparc
+  export FPCFPMAKENEW=$NEW_FPC
+  export GCCLIBDIR=$SPARC32_LIBGCC_DIR
+  export FPCMAKEGCCLIBDIR=$SPARC32_LIBGCC_DIR
 else
   NEEDED_OPT="$NATIVE_OPT64"
 fi
 
-EXTRA_MAKE_OPT="${EXTRA_MAKE_OPT:-} ${EXTRAOPT:-} NOGDB=1"
-if [ "X$TARGET_CPU" == "Xsparc" ] ; then
-  EXTRA_MAKE_OPT="$EXTRA_MAKE_OPT ASTARGET=-32"
-  export ASTARGET=-32
-fi
 export NOGDB=1
 # make the snapshot!
 cd $CHECKOUTDIR
@@ -239,9 +248,12 @@ SNAPSHOTFILE=`ls -1 *fpc-*.tar.gz 2> /dev/null`
 READMEFILE=README-${SNAPSHOTFILE/.tar.gz/}
 date=`date +%Y-%m-%d`
 
+OS_TARGET=`$NEWPPCCPU -iTO`
+CPU_TARGET=`$NEWPPCCPU -iTP`
+
 cat > $READMEFILE <<EOF
 This snapshot $SNAPSHOTFILE was generated ${date} using:
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT"
+make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="${CROSSOPT:-}" OPT="${OPT:-}"
 started using ${STARTPP}
 ${NEWPPCCPU} -iVDW output is: `${NEWPPCCPU} -iVDW`
 
@@ -259,12 +271,14 @@ EOF
 
 
 # copy current compiler to bin dir
-if [ -f $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU ] ; then
-  echo "cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER"
-  cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
-else
-  echo "New executable $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU not found" 
-  export MUTTATTACH="-a $LOGFILE"
+if [ -n "$INSTALLCOMPILER" ] ; then
+  if [ -f $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU ] ; then
+    echo "cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER"
+    cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
+  else
+    echo "New executable $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU not found" 
+    export MUTTATTACH="-a $LOGFILE"
+  fi
 fi
 
 # move snapshot
@@ -328,8 +342,11 @@ do_snapshot >> $LOGFILE 2>&1 </dev/null
 echo "Starting $0 script at `date +%Y-%m-%d-%H-%M`" >> $LOGFILE
 
 # send result to webmaster
-if [ "${ERRORMAILADDR}" != "" ]; then
+if [  -n "${ERRORMAILADDR:-}" ]; then
         # Create email
+	if [ -z "${MAILFILE:-}" ] ; then
+          MAILFILE=$HOME/logs/$0.mail
+	fi
         echo "To: ${ERRORMAILADDR}" > $MAILFILE
         echo "From: fpc@freepascal.org" >> $MAILFILE
         echo "Subject: Daily compile routine" >> $MAILFILE
@@ -341,8 +358,8 @@ if [ "${ERRORMAILADDR}" != "" ]; then
           echo "Script $0 finished successfully" >> $MAILFILE
         fi
         # sendmail -f fpc@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
-	mutt -x -s "Daily makesnapshot.sh script on ${HOST_PC} for $CHECKOUTDIR" \
-     	  -i $MAILFILE $MUTTATTACH -- ${ERRORMAILADDR}  < /dev/null | tee  ${report}.log
+	mutt -x -s "Daily makesnapshot.sh script on ${HOST_PC:-} for $CHECKOUTDIR" \
+     	  -i $MAILFILE $MUTTATTACH -- ${ERRORMAILADDR}  < /dev/null | tee  ${MAILFILE}.log
 
 fi
 
