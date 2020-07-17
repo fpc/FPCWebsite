@@ -283,7 +283,27 @@ else
     export LOCAL_INSTALL_PREFIX=${HOME}/tmp/pas/fpc-$FPCVERSION
   fi
 fi
- 
+
+
+clang_bin=`which clang`
+min_clang_major=7
+min_clang_minor=0
+
+SKIP_CLANG=1
+
+if [ -f "$clang_bin" ] ; then
+  clang_version=`$clang_bin --version | sed -n "s:^.*clang version \([^ ]*\).*:\1:p"`
+  clang_major=${clang_version/.*/}
+  clang_not_major=`echo ${clang_version} | sed "s:^[^.]*\.::" `
+  clang_minor=${clang_not_major/.*/}a
+  #echo "clang_major=\"$clang_major\""
+  #echo "clang_not_major=\"$clang_not_major\""
+  # echo "clang__minor=\"$clang_minor\"" 
+  if [[ ( $clang_major -ge $min_clang_major ) && ( $clang_minor -ge $min_clang_minor ) ]] ; then
+    SKIP_CLANG=0
+  fi
+fi
+
 export PATH
 if [ $verbose -eq 1 ] ; then
   echo "Using PATH=$PATH"
@@ -842,6 +862,13 @@ function check_target ()
     else
       # clang does not need a prefix, as it is multi-platform
       ASSEMBLER=clang
+      if [ $SKIP_CLANG -eq 1 ] ; then
+        echo "clang too old or not found, skipping"
+        skipped_count=`expr $skipped_count + 1 `
+        skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
+        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" clang not found or too old"
+        return
+      fi
       # Use symbolic links to clang with CPU-OS- prefixes
       # instead of resetting BINUTILSPREFIX=
     fi
