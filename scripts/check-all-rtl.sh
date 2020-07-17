@@ -293,9 +293,10 @@ SKIP_CLANG=1
 
 if [ -f "$clang_bin" ] ; then
   clang_version=`$clang_bin --version | sed -n "s:^.*clang version \([^ ]*\).*:\1:p"`
+  #echo "clang_version=\"$clang_version\""
   clang_major=${clang_version/.*/}
   clang_not_major=`echo ${clang_version} | sed "s:^[^.]*\.::" `
-  clang_minor=${clang_not_major/.*/}a
+  clang_minor=${clang_not_major/.*/}
   #echo "clang_major=\"$clang_major\""
   #echo "clang_not_major=\"$clang_not_major\""
   # echo "clang__minor=\"$clang_minor\"" 
