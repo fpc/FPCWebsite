@@ -37,6 +37,7 @@ set -u
 export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
+erase_fpmake=0
 
 ulimit -t 3600
 
@@ -50,14 +51,17 @@ MACHINE=`uname -n`
 
 if [ "$MACHINE" = "erpro8-fsf1" ] ; then
   MACHINE=gccmips64
+  erase_fpmake=1
 fi
 
 if [ "$MACHINE" = "erpro8-fsf2" ] ; then
   MACHINE=gccmipsel64
+  erase_fpmake=1
 fi
 
 if [ "$MACHINE" = "gcc24" ] ; then
   MACHINE=gccmipsel64-alt
+  erase_fpmake=1
 fi
 
 
@@ -232,6 +236,16 @@ cd $srcdir
 
 if [ -d fpcsrc ] ; then
   cd fpcsrc
+fi
+
+if [ $erase_fpmake -eq 1 ] ; then
+  fpmake_list=`find . -name fpmake`
+  echo "Erasing existing fpmake $fpmake_list"
+  if [ -n "$fpmake_list" ] ; then
+    for f in $fpmake_list ; do
+      rm -f $f
+    done
+  fi
 fi
 
 cd compiler
