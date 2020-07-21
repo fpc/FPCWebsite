@@ -93,6 +93,7 @@ $installdir
 
 
 HERE
+echo "Installing into $installdir, using install.sh script"
 ./install.sh < ./install-answers > ./install.log
 res=$?
 if [ $res -ne 0 ] ; then
