@@ -36,6 +36,7 @@ do_trunk_i386=1
 do_fixes_i386=1
 do_x86_64=1
 do_docs=0
+run_test_optimizations=0
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
@@ -56,6 +57,8 @@ elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   do_fixes_i386=1
   do_docs=1
   # export MAKE_TESTS_TARGET=full
+elif [ "X$HOSTNAME" == "Xgcc122" ] ; then
+  run_test_optimizations=1
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
@@ -89,7 +92,7 @@ elif [ "X$HOSTNAME" == "Xgcc10" ] ; then
   check_cross_trunk=1
 fi
 
-# Do the same with ppc386
+# Start with ppc386
 if [ $do_trunk_i386 -eq 1 ] ; then
   $HOME/bin/linux-fpccommonup.sh FPCBIN=ppc386 FIXES=0
 fi
@@ -179,6 +182,15 @@ today_fixes_sources=`ssh fpcftp "find ftp/snapshot/fixes/source -newermt $TODAY"
 if [ -z "$today_trunk_sources$today_fixes_sources" ] ; then
   # Update source on fpcftp machine
   . $SCRIPTDIR/allsourcezips
+fi
+
+if [ $run_test_optimizations -eq 1 ] ; then
+  # Start with ppc386
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=0
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=1
+  # By default use ppcx64
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=0
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=1
 fi
 
 # Check if script directory exists
