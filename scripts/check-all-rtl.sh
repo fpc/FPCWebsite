@@ -578,13 +578,18 @@ if [ -z "${NATIVEFPC:-}" ] ; then
   NATIVEFPC=fpc
 fi
 
+if [ "`basename $NATIVEFPC`" == "fpc" ] ; then
+  export NATIVE_FPCBIN=`$NATIVEFPC -PB`
+else
+  export NATIVE_FPCBIN=`which $NATIVEFPC`
+fi
+
 export NATIVE_MACHINE=`uname -m`
 export NATIVE_CPU=`$NATIVEFPC -iSP`
 export NATIVE_OS=`$NATIVEFPC -iSO`
 export NATIVE_DATE=`$NATIVEFPC -iD`
 export NATIVE_VERSION=`$NATIVEFPC -iV`
 export NATIVE_FULLVERSION=`$NATIVEFPC -iW`
-export NATIVE_FPCBIN=`$NATIVEFPC -PB`
 
 if [ "$FPCVERSION" != "$NATIVE_VERSION" ] ; then
   echo "Version from native fpc binary is $NATIVE_VERSION, $FPCVERSION was expected" >> $LOGFILE
