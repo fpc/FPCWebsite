@@ -185,6 +185,19 @@ elif [ "X$machine_host" == "Xgcc121" ] ; then
   test_utils=1
   test_utils_ppudump=1
   MAKEJOPT="-j 16"
+elif [ "X$machine_host" == "Xgcc122" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
+  # Temp mount is too small, don't use it
+  XDG_RUNTIME_DIR=
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
+  DO_FPC_PACKAGES_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  RECOMPILE_FULL_OPT="-CriotR"
+  RECOMPILE_FULL_OPT_O="-O4"
+  USE_RELEASE_MAKEFILE_VARIABLE=1
+  MAKEJOPT="-j 16"
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
