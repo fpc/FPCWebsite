@@ -11,6 +11,14 @@ all_variants=0
 # as variable definition, stop as soon as
 # one argument does not contain an equal sign
 while [ "$1" != "" ] ; do
+  if [ "$1" == "--full" ] ; then
+    clean=1
+    do_packages=1
+    do_utils=1
+    all_variants=1
+    shift
+    continue
+  fi
   if [ "$1" == "--clean" ] ; then
     clean=1
     shift
