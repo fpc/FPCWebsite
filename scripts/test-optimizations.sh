@@ -117,6 +117,7 @@ COMPILER_DIR=`pwd`
 
 COMPILER_LIST=""
 SUFFIX_LIST=""
+log_list=""
 
 function gen_compiler ()
 {
@@ -126,7 +127,9 @@ function gen_compiler ()
   NEWBIN=${FPCBIN}${SUFFIX}
   if [ -f "./$NEWBIN" ] ; then
     if [ $clean -eq 1 ] ; then
-      rm -f ./$NEWBIN
+      if [ -f "$NEWBIN" ] ; then
+        rm -f ./$NEWBIN
+      fi
     else
       echo "Using existing $NEWBIN"
       SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
@@ -135,9 +138,15 @@ function gen_compiler ()
   fi
   echo "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
   $MAKE distclean cycle OPT="-n -gl $ADD_OPT" FPC=$FPCBIN > $cycle_file 2>&1
+  res=$?
+  if [ $res -ne 0 ] ; then
+    echo "Cycle failed, see $cycle_file"
+    return
+  fi
   cp ./$FPCBIN ./${NEWBIN}
   COMPILER_LIST="$COMPILER_LIST ${NEWBIN}"
   SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
+  log_list="$log_list $cycle_file"
 }
 
 gen_compiler "-O-"
@@ -145,6 +154,7 @@ if [ $all_variants -eq 1 ] ; then
   gen_compiler "-O1"
   gen_compiler "-O2"
   gen_compiler "-O3"
+  gen_compiler "-O4 -CX -XX"
 fi
 gen_compiler "-O4"
 
@@ -159,6 +169,7 @@ for SUFFIX in $SUFFIX_LIST ; do
   if [ $makeres -ne 0 ] ; then
     echo "Warning: $MAKE failed in rtl, res=$makeres"
   fi
+  log_list="$log_list rtl${SUFFIX}.log"
   if [ -d ../rtl/units${SUFFIX} ] ; then
     rm -Rf ../rtl/units${SUFFIX}
   fi
@@ -186,6 +197,7 @@ for SUFFIX in $SUFFIX_LIST ; do
       fi
     done
   fi
+  log_list="$log_list packages${SUFFIX}.log packages-move${SUFFIX}.log"
   if [ $do_utils -eq 1 ] ; then
     echo "Testing $NEWFPC in utils"
     $MAKE -C ../utils distclean all FPC=$NEWFPCBIN > utils${SUFFIX}.log 2>&1
@@ -208,6 +220,7 @@ for SUFFIX in $SUFFIX_LIST ; do
       fi
     done
   fi
+  log_list="$log_list utils${SUFFIX}.log utils-move${SUFFIX}.log"
 done
 
 nb_failure=0
@@ -222,7 +235,9 @@ for SUF1 in $SUFFIX_LIST ; do
       if [ $diffres -ne 0 ] ; then
         echo "Units directories differ, see $diff_file"
         let nb_failure++
+        continue
       fi
+      log_list="$log_list $diff_file"
     fi
   done
 done
@@ -232,7 +247,9 @@ if [ $nb_failure -eq 0 ] ; then
   for SUF in $SUFFIX_LIST ; do
     rm -Rf ../rtl/units$SUF
   done
-  rm -Rf rtl*.log packages*.log utils*.log
+  if [ -n "$log_list" ] ; then
+    rm -Rf $log_list
+  fi
 else
   echo "There are problems, generated/copied files not deleted"
 fi
