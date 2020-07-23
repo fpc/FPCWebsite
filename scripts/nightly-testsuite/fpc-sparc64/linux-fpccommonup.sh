@@ -4,7 +4,7 @@
 
 NATIVE_OPT64=""
 # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
-NATIVE_OPT32="-ao-32"
+NATIVE_OPT32="-ao-32 -XPsparc-linux-"
 if [ -d /lib32 ] ; then
   NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
 fi
@@ -27,8 +27,52 @@ if [ -d $HOME/local/lib32 ] ; then
   NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
 fi
 
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir "
+      fi
+    fi
+  done
+fi
+SPARC64_GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC64_GCC_DIR" ] ; then
+  if [ "${NATIVE_OPT64/-Fl${SPARC64_LIBGCC_DIR} /}" == "$NATIVE_OPT64" ] ; then
+    NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR "
+  fi
+fi
+
+export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT32="$NATIVE_OPT32 "
+if [ -n "$gcc_libs_32" ] ; then
+  for dir in $gcc_libs_32 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
+	# We don't want the directories that are also for 64-bit
+        if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+          NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+        fi
+      fi
+    fi
+  done
+fi
+SPARC32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+if [ -d "$SPARC32_GCC_DIR" ] ; then
+  if [ "${NATIVE_OPT32/-Fl${SPARC32_LIBGCC_DIR} /}" == "$NATIVE_OPT32" ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR "
+  fi
+fi
+
 # Set main variables
-export MAKE=make
+if [ -z "$MAKE" ] ; then
+  MAKE=make
+fi
+
+export MAKE
+
 if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n`
 fi
@@ -70,50 +114,20 @@ else
   export DO_TESTS=0
 fi
 
-export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-NATIVE_OPT64="$NATIVE_OPT64 "
-if [ -n "$gcc_libs_64" ] ; then
-  for dir in $gcc_libs_64 ; do
-    if [ -d "$dir" ] ; then
-      if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
-        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir "
-      fi
-    fi
-  done
-fi
-SPARC64_GCC_DIR=` gcc -m64 -rint-libgcc-file-name | xargs dirname`
-if [ -d "$SPARC64_GCC_DIR" ] ; then
-  if [ "${NATIVE_OPT64/-Fl${SPARC64_LIBGCC_DIR} /}" == "$NATIVE_OPT64" ] ; then
-  NATIVE_OPT64="$NATIVE_OPT64 -Fl$SPARC64_GCC_DIR "
-fi
-
-export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
-NATIVE_OPT32="$NATIVE_OPT32 "
-if [ -n "$gcc_libs_32" ] ; then
-  for dir in $gcc_libs_32 ; do
-    if [ -d "$dir" ] ; then
-      if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
-	# We don't want the directories that are also for 64-bit
-        if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
-          NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
-        fi
-      fi
-    fi
-  done
-fi
-SPARC32_GCC_DIR=` gcc -m32 -rint-libgcc-file-name | xargs dirname`
-if [ -d "$SPARC32_GCC_DIR" ] ; then
-  if [ "${NATIVE_OPT32/-Fl${SPARC32_LIBGCC_DIR} /}" == "$NATIVE_OPT32" ] ; then
-    NATIVE_OPT32="$NATIVE_OPT32 -Fl$SPARC32_GCC_DIR "
-  fi
-fi
-
 if [ "X$USER" == "X" ]; then
   USER=$LOGNAME
 fi
 
 if [ "X$FPCBIN" == "X" ]; then
   FPCBIN=ppcsparc
+fi
+
+CPU_TARGET=`$FPCBIN -iTP`
+
+if [ "$CPU_TARGET" == "sparc64" ] ; then
+  LOGSUFFIX=-64
+else
+  LOGSUFFIX=-32
 fi
 
 DATE="date +%Y-%m-%d-%H-%M"
@@ -131,9 +145,15 @@ fi
 
 cd ~/pas/${SVNDIR}
 
-export report=`pwd`/report-${DATESTR}.txt
-export makelog=`pwd`/make-${DATESTR}.txt
-export testslog=`pwd`/tests-${DATESTR}.txt
+LOGDIR=$HOME/logs/$SVNDIR
+
+if [ ! -d $LOGDIR ] ; then
+  mkdir -p $LOGDIR
+fi
+
+export report=$LOGDIR/report-${DATESTR}${LOGSUFFIX}.txt
+export makelog=$LOGDIR/make-${DATESTR}${LOGSUFFIX}.txt
+export testslog=$LOGDIR/tests-${DATESTR}${LOGSUFFIX}.txt
 
 echo "Starting $0" > $report
 START_PPC_BIN=`which $FPCBIN 2> /dev/null`
@@ -160,38 +180,46 @@ if [ "X$NEEDED_OPT" != "X" ]; then
   export OPT="$NEEDED_OPT $OPT"
 fi
 
-${MAKE} distclean all DEBUG=1 OPT="$OPT" ASTARGET="$ASTARGET" $MAKEOPT 1> ${makelog} 2>&1
+NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
+
+${MAKE} distclean all DEBUG=1 OPT="$OPT" ASTARGET="$ASTARGET" $MAKEOPT FPC=$FPCBIN 1> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
   tail -30 ${makelog} >> $report
 else
   echo "Ending make distclean all; result=${makeres}" >> $report
+  if [ ! -f $NEW_PPC_BIN ] ; then
+    echo "No new $NEW_PPC_BIN, aborting" >> $report
+    exit
+  fi
+  Build_version=`$NEW_PPC_BIN -iV 2> /dev/null`
+  Build_date=`$NEW_PPC_BIN -iD 2> /dev/null`
+
+  echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
+
+  echo "Starting make install" >> $report
+  echo "`$DATE`" >> $report
+  ${MAKE} DEBUG=1 install OPT="$OPT" $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  makeres=$?
 fi
 
-
-NEW_PPC_BIN=./compiler/$FPCBIN
-
-if [ ! -f $NEW_PPC_BIN ] ; then
-  echo "No new $NEW_PPC_BIN, aborting" >> $report
-  exit
-fi
-
-Build_version=`$NEW_PPC_BIN -iV 2> /dev/null`
-Build_date=`$NEW_PPC_BIN -iD 2> /dev/null`
-
-echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
-
-echo "Starting make install" >> $report
-echo "`$DATE`" >> $report
-${MAKE} DEBUG=1 install OPT="$OPT" $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
-makeres=$?
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
-  for dir in rtl compiler packages utils ide ; do
+  ${MAKE} -C ./compiler rtlclean distclean cycle $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$FPCBIN 1>> ${makelog} 2>&1
+  makeres=$?
+  echo "Ending make -C ./compiler cycle; result=${makeres}" >> $report
+  if [ ! -f $NEW_PPC_BIN ] ; then
+    echo "No new $NEW_PPC_BIN, aborting" >> $report
+    exit
+  fi
+  ${MAKE} -C ./compiler rtlinstall installsymlink $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+  makeres=$?
+  echo "Ending make -C ./compiler installsymlink; result=${makeres}" >> $report
+  for dir in packages utils ide ; do
     echo "Starting install in dir $dir" >> $report
-    ${MAKE} -C ./$dir install $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} 1>> ${makelog} 2>&1
+    ${MAKE} -C ./$dir install $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
     makeres=$?
     echo "Ending make -C ./$dir install; result=${makeres}" >> $report
   done
@@ -210,97 +238,98 @@ NEW_CPU_TARGET=`$NEWFPC -iTP`
 NEW_FULL_TARGET=${NEW_CPU_TARGET}-${NEW_OS_TARGET}
 
 if [ $DO_TESTS -eq 1 ] ; then
+  if [ "$NEW_CPU_TARGET" == "sparc" ] ; then
+    export TEST_BINUTILSPREFIX=sparc-linux-
+  fi
+  cd tests
+  #Limit resources (64mb data, 8mb stack, 4 minutes)
 
-cd tests
-#Limit resources (64mb data, 8mb stack, 4 minutes)
+  #ulimit -d 65536 -s 8192 -t 240
+  ulimit -s 8192 -t 2400
 
-#ulimit -d 65536 -s 8192 -t 240
-ulimit -s 8192 -t 2400
+  TEST_OPT="$NEEDED_OPT"
+  echo "Starting make distclean" >> $report
+  echo "`$DATE`" >> $report
+  ${MAKE} -C ../rtl distclean > /dev/null 2>&1
+  ${MAKE} -C ../packages distclean > /dev/null 2>&1
+  ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
+    TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+  echo "Starting make fulldb" >> $report
+  echo "`$DATE`" >> $report
+  ${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} $MAKEOPT \
+    TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  testsres=$?
+  echo "Ending make distclean fulldb; result=${testsres}" >> $report
+  echo "`$DATE`" >> $report
+  # Just keep last sent file to database
+  TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+  if [ -n "$TARFILE" ] ; then
+    mv fpc*.tar.gz  ${LOGDIR}/fpc-${NEW_FULL_TARGET}-bare.tar.gz
+  else
+    echo "No fpc*.tar.gz found" >> $report
+  fi
 
-TEST_OPT="$NEEDED_OPT"
-echo "Starting make distclean" >> $report
-echo "`$DATE`" >> $report
-${MAKE} -C ../rtl distclean > /dev/null 2>&1
-${MAKE} -C ../packages distclean > /dev/null 2>&1
-${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make fulldb" >> $report
-echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
-testsres=$?
-echo "Ending make distclean fulldb; result=${testsres}" >> $report
-echo "`$DATE`" >> $report
-# Just keep last sent file to database
-TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
-if [ -n "$TARFILE" ] ; then
-  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-bare.tar.gz
-else
-  echo "No fpc*.tar.gz found" >> $report
-fi
+  tail -30 $testslog >> $report
+  mv $testslog ${testslog}-bare
 
-tail -30 $testslog >> $report
-mv $testslog ${testslog}-bare
+  TEST_OPT="-Cg $NEEDED_OPT"
+  echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
+  echo "`$DATE`" >> $report
+  ${MAKE} -C ../rtl distclean > /dev/null 2>&1
+  ${MAKE} -C ../packages distclean > /dev/null 2>&1
+  ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
+    TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+  echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+  echo "`$DATE`" >> $report
+  ${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
+    TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  testsres=$?
+  echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+  echo "`$DATE`" >> $report
+  # Just keep last sent file to database
+  TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+  if [ -n "$TARFILE" ] ; then
+    mv fpc*.tar.gz  ${LOGDIR}/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
+  else
+    echo "No fpc*.tar.gz found" >> $report
+  fi
 
-TEST_OPT="-Cg $NEEDED_OPT"
-echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "`$DATE`" >> $report
-${MAKE} -C ../rtl distclean > /dev/null 2>&1
-${MAKE} -C ../packages distclean > /dev/null 2>&1
-${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
-testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
-echo "`$DATE`" >> $report
-# Just keep last sent file to database
-TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
-if [ -n "$TARFILE" ] ; then
-  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-Cg.tar.gz
-else
-  echo "No fpc*.tar.gz found" >> $report
-fi
+  tail -30 $testslog >> $report
+  mv $testslog ${testslog}-Cg
 
+  TEST_OPT="-O2 $NEEDED_OPT"
+  echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
+  echo "`$DATE`" >> $report
+  ${MAKE} -C ../rtl distclean > /dev/null 2>&1
+  ${MAKE} -C ../packages distclean > /dev/null 2>&1
+  ${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
+    TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
+  echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
+  echo "`$DATE`" >> $report
+  ${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
+    TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  testsres=$?
+  echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+  echo "`$DATE`" >> $report
+  # Just keep last sent file to database
+  TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
+  if [ -n "$TARFILE" ] ; then
+    mv fpc*.tar.gz  ${LOGDIR}/fpc-${NEW_FULL_TARGET}-O2.tar.gz
+  else
+    echo "No fpc*.tar.gz found" >> $report
+  fi
 
-tail -30 $testslog >> $report
-mv $testslog ${testslog}-Cg
+  tail -30 $testslog >> $report
+  mv $testslog ${testslog}-O2
 
-TEST_OPT="-O2 $NEEDED_OPT"
-echo "Starting make distclean with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "`$DATE`" >> $report
-${MAKE} -C ../rtl distclean > /dev/null 2>&1
-${MAKE} -C ../packages distclean > /dev/null 2>&1
-${MAKE} distclean TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "`$DATE`" >> $report
-${MAKE} -j 16 fulldb TEST_USER=${USER} TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="${TEST_OPT}" OPT="$NEEDED_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
-  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
-testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
-echo "`$DATE`" >> $report
-# Just keep last sent file to database
-TARFILE=`ls -1 fpc*.tar.gz 2> /dev/null`
-if [ -n "$TARFILE" ] ; then
-  mv fpc*.tar.gz  ${HOME}/logs/fpc-${NEW_FULL_TARGET}-O2.tar.gz
-else
-  echo "No fpc*.tar.gz found" >> $report
-fi
-
-tail -30 $testslog >> $report
-mv $testslog ${testslog}-O2
-
-mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+  mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, ${Build_version} ${Build_date}" \
+       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 fi 
 
