@@ -35,6 +35,12 @@ else
 fi
 
 
+if [ "${SVNDIR/fixes/}" != "${SVNDIR}" ] ; then
+  FTP_SVNDIR=fixes
+else
+  FTP_SVNDIR=$SVNDIR
+fi
+
 if [ -z "$FPC_CPU" ] ; then
   FPC_CPU=aarch64
 fi
@@ -124,10 +130,10 @@ ${MAKE} ${MAKE_OPTIONS} OPT="$OPT" FPCMAKEOPT="$FPCMAKEOPT" | tee $HOME/logs/${S
 TAR=`ls -t1 ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz | head -1 `
 
 if [[ ( -n "${TAR}" ) && ( -f "${TAR}" ) ]]; then
-  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/${SVNDIR}/${FPC_CPUOS}/
+  scp ${TAR} README-${FPC_CPUOS} fpcftp:ftp/snapshot/${FTP_SVNDIR}/${FPC_CPUOS}/
   res=$?
   if [ $res -ne 0 ] ; then
-    echo "Error uploading ${TAR} for ${SVNDIR}"
+    echo "Error uploading ${TAR} for ${FTP_SVNDIR}"
   fi
 else
   echo "Failed to create ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz file"
