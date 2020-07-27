@@ -352,9 +352,10 @@ else
   fi
   if [ $res -eq 0 ] ; then
   cd ./tests
-    { 
+    (
     echo "Date before tests `date +%Y-%m-%d-%H-%M`"
     ulimit -t 90
+    echo "Using limits:`ulimit -a` for tests"
     export FPC=$FPCBIN
     export TEST_USER=muller
     LIBGCC_PATH=`gcc -print-libgcc-file-name`
@@ -376,9 +377,10 @@ else
     rm -f ${testslog}-O2
     run_testsuite ${testslog}-O2
     echo "Tests finished";
-    }
+    )
   fi
 fi;
+echo "Limits at end:`ulimit -a`"
 echo "Date at end `date +%Y-%m-%d-%H-%M`"
 } 1> $log 2>&1
 
