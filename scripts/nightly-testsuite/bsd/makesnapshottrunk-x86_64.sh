@@ -11,8 +11,12 @@ if [ -z "$OS" ] ; then
 fi
 
 if [ "$OS" == "openbsd" ] ; then
-  export OVERRIDEVERSIONCHECK=1
-  STARTPP=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcx64
+  if [ -f $HOME/pas/fpc-$RELEASEVERSION/bin/ppcx64 ] ; then
+    STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcx64
+  else 
+    export OVERRIDEVERSIONCHECK=1
+    STARTPP=$HOME/pas/fpc-$TRUNKVERSION/bin/ppcx64
+  fi
 else
   STARTPP=$HOME/pas/fpc-$RELEASEVERSION/bin/ppcx64
 fi
