@@ -8,6 +8,7 @@ do_packages=0
 do_utils=0
 do_tests=0
 all_variants=0
+test_failed=0
 
 function test_help ()
 {
@@ -156,6 +157,11 @@ COMPILER_LIST=""
 SUFFIX_LIST=""
 log_list=""
 
+function decho ()
+{
+  echo "`date +%Y-%m-%d-%H-%M`: $*"
+}
+
 function gen_compiler ()
 {
   ADD_OPT="$1 ${OPT:-}"
@@ -168,16 +174,16 @@ function gen_compiler ()
         rm -f ./$NEWBIN
       fi
     else
-      echo "Using existing $NEWBIN"
+      decho "Using existing $NEWBIN"
       SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
       return
     fi
   fi
-  echo "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
+  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
   $MAKE distclean cycle OPT="-n -gl $ADD_OPT" FPC=$FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
-    echo "Cycle failed, see $cycle_log"
+    decho "Cycle failed, see $cycle_log"
     return
   fi
   cp ./$FPCBIN ./${NEWBIN}
@@ -191,71 +197,71 @@ function run_compilers ()
 {
   for SUFFIX in $SUFFIX_LIST ; do
     NEWFPC=${FPCBIN}${SUFFIX}
-    echo "Testing $NEWFPC"
+    decho "Testing $NEWFPC"
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
     FULL_TARGET=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
     rtl_log=$LOGDIR/rtl${SUFFIX}.log
     $MAKE -C ../rtl distclean all FPC=$NEWFPCBIN > $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
-      echo "Warning: $MAKE failed in rtl, res=$makeres"
+      decho "Warning: $MAKE failed in rtl, res=$makeres"
     else
       log_list="$log_list $rtl_log"
     fi
     if [ -d ../rtl/units${SUFFIX} ] ; then
       rm -Rf ../rtl/units${SUFFIX}
     fi
-    echo "Moving ../rtl/units to ../rtl/units${SUFFIX}"
+    decho "Moving ../rtl/units to ../rtl/units${SUFFIX}"
     cp -Rf ../rtl/units ../rtl/units${SUFFIX}
     if [ $do_packages -eq 1 ] ; then
-      echo "Testing $NEWFPC in packages"
+      decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}.log
       $MAKE -C ../packages distclean all FPC=$NEWFPCBIN > $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
-        echo "Warning: $MAKE failed in packages, res=$makeres"
+        decho "Warning: $MAKE failed in packages, res=$makeres"
       else
         log_list="$log_list $packages_log"
       fi
       packages_move_log=$LOGDIR/packages-move${SUFFIX}.log
-      echo "Moving packages units/bin dirs to ../rtl/units${SUFFIX}"
-      echo "Moving packages units/bin dirs to ../rtl/units${SUFFIX}" > $packages_move_log
+      decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}"
+      decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}" > $packages_move_log
       for dir in ../packages/*/units ../packages/*/bin ; do
         if [ -d "$dir" ] ; then
           updir=`dirname $dir`
           package_name=`basename $updir` 
-          echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $packages_move_log
+          decho "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $packages_move_log
           cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
           cpres=$?
           if [ $cpres -ne 0 ] ; then
-            echo "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+            decho "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
           fi
         fi
       done
       log_list="$log_list $packages_move_log"
     fi
     if [ $do_utils -eq 1 ] ; then
-      echo "Testing $NEWFPC in utils"
+      decho "Testing $NEWFPC in utils"
       utils_log=$LOGDIR/utils${SUFFIX}.log
       $MAKE -C ../utils distclean all FPC=$NEWFPCBIN > $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
-        echo "Warning: $MAKE failed in utils, res=$makeres"
+        decho "Warning: $MAKE failed in utils, res=$makeres"
       else
         log_list="$log_list $utils_log"
       fi
       utils_move_log=$LOGDIR/utils-move${SUFFIX}.log
-      echo "Moving utils units/bin dirs to ../rtl/units${SUFFIX}"
-      echo "Moving utils units/bin dirs to ../rtl/units${SUFFIX}" > utils_move_log
+      decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}"
+      decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}" > utils_move_log
       for dir in ../utils/*/units ../utils/*/bin utils/units utils/bin ; do
         if [ -d "$dir" ] ; then
           updir=`dirname $dir`
           package_name=`basename $updir` 
-          echo "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $utils_move_log
+          decho "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $utils_move_log
           cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
           cpres=$?
           if [ $cpres -ne 0 ] ; then
-            echo "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+            decho "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
           fi
         fi
       done
@@ -263,18 +269,18 @@ function run_compilers ()
     fi
     if [ $do_tests -eq 1 ] ; then
       tests_log=$LOGDIR/tests${SUFFIX}.log
-      echo "Testing $NEWFPC in tests"
+      decho "Testing $NEWFPC in tests"
       $MAKE -C ../tests distclean full FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
-        echo "Warning: $MAKE full failed in tests, res=$makeres"
+        decho "Warning: $MAKE full failed in tests, res=$makeres"
       else
         log_list="$log_list $tests_log"
       fi
       tests_move_log=$LOGDIR/tests-move${SUFFIX}.log
       move_count=0
-      echo "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests"
-      echo "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests" > $tests_move_log
+      decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests"
+      decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests" > $tests_move_log
       destdir=../rtl/units${SUFFIX}/tests
       if [ ! -d $destdir ] ; then
         mkdir -p $destdir
@@ -293,19 +299,19 @@ function run_compilers ()
             cp -f $f $destdir >> $tests_move_log 2>&1
             cpres=$?
             if [ $cpres -ne 0 ] ; then
-              echo "Error moving $f to $destdir, res=$cpres"
+              decho "Error moving $f to $destdir, res=$cpres"
 	    else
 	      let move_count++
-              echo "Moved $f to $destdir" >> $tests_move_log
+              decho "Moved $f to $destdir" >> $tests_move_log
             fi
 	  fi
         done
       else
-        echo "Directory $dir not found"
-        echo "Directory $dir not found" >> $tests_move_log
+        decho "Directory $dir not found"
+        decho "Directory $dir not found" >> $tests_move_log
       fi
-      echo "Moved $move_count files from $dir to $destdir"
-      echo "Moved $move_count files from $dir to $destdir" >> $tests_move_log
+      decho "Moved $move_count files from $dir to $destdir"
+      decho "Moved $move_count files from $dir to $destdir" >> $tests_move_log
       log_list="$log_list $tests_move_log"
     fi
   done
@@ -316,12 +322,12 @@ function generate_diffs()
   for SUF1 in $SUFFIX_LIST ; do
     for SUF2 in $SUFFIX_LIST ; do
       if [[ "$SUF1" > "$SUF2" ]] ; then
-         echo "Comparing $SUF1 to $SUF2"
+        decho "Comparing $SUF1 to $SUF2"
         diff_file=$LOGDIR/diffs${SUF1}-${SUF2}.log
         diff -rc ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
         diffres=$?
         if [ $diffres -ne 0 ] ; then
-          echo "Units directories differ, see $diff_file"
+          decho "Units directories differ, see $diff_file"
           let nb_failure++
           continue
         fi
@@ -333,7 +339,7 @@ function generate_diffs()
 
 function do_all ()
 {
-  echo "Using FPCBIN=$FPCBIN"
+  decho "Using FPCBIN=$FPCBIN"
   gen_compiler "-O-"
   if [ $all_variants -eq 1 ] ; then
     gen_compiler "-O1"
@@ -349,9 +355,9 @@ function do_all ()
 
   if [ $nb_failure -eq 0 ] ; then
     if [ $keep -eq 1 ] ; then
-      echo "All OK, but keeping generated files"
+      decho "All OK, but keeping generated files"
     else
-      echo "All OK, deleting generated/copied files"
+      decho "All OK, deleting generated/copied files"
       for SUF in $SUFFIX_LIST ; do
         rm -Rf ../rtl/units$SUF
       done
@@ -363,11 +369,16 @@ function do_all ()
       fi
     fi
   else
-    echo "There are problems, generated/copied files not deleted"
+    decho "There are problems, generated/copied files not deleted"
+    test_failed=1
   fi
 }
 
 global_log=$LOGDIR/global.log
 
 do_all > $global_log 2>&1
+
+if [ $test_failed -eq 1 ] ; then
+  decho "Optimization test $0 failed"
+fi
 
