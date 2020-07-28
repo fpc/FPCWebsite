@@ -308,9 +308,8 @@ fi
 
 cd $basedir
 
-echo "Running 'pyacc h2pas.y h2pas.pas' in fpcsrc/utils/h2pas"
-(cd fpcsrc/utils/h2pas ; pyacc h2pas.y h2pas.pas )
-
+echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
+(cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
 export EXTRAOPT="-n -gl $NEEDED_OPT"
 echo "Generated on machine: `uname -a`" >> $readme
 echo "Starting ./install/makepack $target_full"
