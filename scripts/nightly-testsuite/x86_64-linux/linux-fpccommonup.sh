@@ -50,6 +50,10 @@ if [ -z "$NEEDED_OPT" ] ; then
   NEEDED_OPT=
 fi
 
+if [ -z "$VERBOSE" ] ; then
+  VERBOSE=0
+fi
+
 if [ -z "$MAKE_TESTS_TARGET" ] ; then
   # Default $MAKE tests target is 'fulldb' 
   # which also means upload to testuite database
@@ -199,9 +203,11 @@ function gen_ppu_diff ()
   if [ $diffres -ne 0 ] ; then
     echo "ppudump output changed for $ppufilename" >> $report
     wc -l "${difffile}" >> $report
-    echo "First 99 lines of ${difffile}" >> $report
-    head -99 "${difffile}" >> $report
-    echo "End of first 99 lines of ${difffile}" >> $report
+    if [ $VERBOSE -ne 0 ] ; then
+      echo "First 99 lines of ${difffile}" >> $report
+      head -99 "${difffile}" >> $report
+      echo "End of first 99 lines of ${difffile}" >> $report
+    fi
     echo "Cleaning packages to be sure" >> $report
     make -C packages distclean FPC=$NEW_FPC_BIN 1>> ${makelog} 2>&1
   fi
@@ -525,7 +531,7 @@ function test_llvm ()
     fi
     ${MAKE} -C compiler installsymlink INSTALL_PREFIX=$LLVM_INSTALL_PREFIX \
        PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
-    export NEW_FPC_FOR_TESTS=$LLVM_INSTALL_PREFIX/bin/${FPC}
+    export NEW_FPC_FOR_TESTS=$LLVM_INSTALL_PREFIX/bin/${FPCBIN}
     ${MAKE} -C compiler distclean cycle rtlinstall installsymlink INSTALL_PREFIX=$LLVM_INSTALL_PREFIX \
        FPC=$NEW_FPC_FOR_TESTS PPC_TARGET=${NEW_CPU_TARGET} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlog 2>&1
     llvm_res=$?
