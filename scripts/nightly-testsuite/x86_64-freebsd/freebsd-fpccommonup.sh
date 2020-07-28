@@ -165,8 +165,13 @@ if [ "${makeres}" != "0" ] ; then
   tail -30 ${makelog} >> $report
 fi
 
-Build_version=`./compiler/${FPCBIN} -iV`
-Build_date=`./compiler/${FPCBIN} -iD`
+if [ -f "./compiler/${FPCBIN}" ] ; then
+  Build_version=`./compiler/${FPCBIN} -iV`  
+  Build_date=`./compiler/${FPCBIN} -iD`
+else
+  Build_version=
+  Buld_date=
+fi
 
 echo "New ${FPCBIN} version is ${Build_version} ${Build_date}" >> $report
 if [ "$Build_version" == "" ] ; then
