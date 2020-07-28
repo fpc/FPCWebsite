@@ -10,8 +10,28 @@ if [ -z "$OS" ] ; then
   OS=`uname -s | tr '[:upper:]' '[:lower:]' `
   # echo "OS is $OS"
 fi
+if [ -z "$CPU" ] ; then
+  CPU=`uname -m | tr '[:upper:]' '[:lower:]' `
+fi
+
+if [ "$CPU" == "amd64" ] ; then
+  CPU=x86_64
+fi
+if [ "$CPU" == "arm64" ] ; then
+  CPU=aarch64
+fi
+
+
+run_32=1
+run_64=1
 
 if [ "$OS" == "openbsd" ] ; then
+  if [ "$CPU" == "i386" ] ; then
+    run_64=0
+  fi
+  if [ "$CPU" == "x86_64" ] ; then
+    run_32=0
+  fi
   # Last openbsd release is too old and unable to
   # compile current versions
   if [ "$RELEASEVERSION/3.0/}" != "$RELEASEVERSION" ] ; then
@@ -39,7 +59,9 @@ LOGFILE=$HOME/logs/snapshot-fixes.log
 PPCCPU=ppcx64
 FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/x86_64-$OS
 export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
-. $HOME/bin/makesnapshot.sh
+if [ $run_64 -eq 1 ] ; then
+  . $HOME/bin/makesnapshot.sh
+fi
 
 STARTPP=$STARTPP32
 INSTALLCOMPILER=$HOME/bin/ppc386-fixes
@@ -49,4 +71,6 @@ PPCCPU=ppc386
 FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/i386-$OS
 # export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
 OPT="-Fl/lib/i386 -Fl/usr/lib/i386"
-. $HOME/bin/makesnapshot.sh
+if [ $run_32 -eq 1 ] ; then
+  . $HOME/bin/makesnapshot.sh
+fi

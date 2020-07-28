@@ -25,11 +25,14 @@ if [ -z "$MAKE" ] ; then
 fi
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
-ulimit -d 65536 -s 8192 -t 2400
+# ulimit -d 65536 -s 8192 -t 2400
+ulimit -t 2400
 
 PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/pkg/bin"
 (
 date
+
+ulimit -a
 
 # Clean, ignore errors makefile can be broken
 cd $CHECKOUTDIR
