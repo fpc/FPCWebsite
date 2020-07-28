@@ -506,14 +506,16 @@ fi
 
 if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   cd compiler
+  cyclelog=$LOGDIR/native-cycle.log
   fullcyclelog=$LOGDIR/full-cycle.log
   mecho "Recompiling native compiler"
-  make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $fullcyclelog 2>&1
+  make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $cyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
-    mecho "Second try for native compiler, using FPCCPUOPT=\"-O-\""
-    export FPCCPUOPT="-O-"
-    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    RELEASE_FPC=`which $FPC`
+    mecho "Second try for native compiler, using release FPCC=\"$RELEASE_FPC\""
+    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_$FPC >> $cyclelog 2>&1
+    make installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=`pwd`/$FPC >> $cyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
@@ -523,7 +525,7 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   fi
   native_cpu=`$LOCAL_INSTALL_PREFIX/bin/$FPC -iSP`
   mecho "Recompiling cross-compilers"
-  make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+  make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Second try for cross-compilers, using FPCCPUOPT=\"-O-\""
