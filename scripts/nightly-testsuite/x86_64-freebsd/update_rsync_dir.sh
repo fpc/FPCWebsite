@@ -20,11 +20,12 @@ fi
 if [ -n "$RSYNC" ] ; then
   USE_RSYNC=1
   RSYNC_SERVER=gcc121
-  RSYNC_SERVER_FPC_RELEASE_VERSION=3.0.0
+  RSYNC_SERVER_FPC_RELEASE_VERSION=3.2.0
   RSYNC_SERVER_BASE_DIR=pas/rsync
 
   if [ -z "$1" ] ; then
     local_dir=`pwd`
+    cd ..
   else
     local_dir=$1
   fi
