@@ -81,8 +81,6 @@ if [ "${HOSTNAME}" == "gcc202" ]; then
   export HOST_PC=gcc202
   export USER=pierre
   export ASTARGET=-32
-  # We should try to use automatic output of gcc 
-  export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
   export NEEDED_OPT="$NATIVE_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
@@ -93,8 +91,6 @@ elif [ "${HOSTNAME}" == "stadler" ]; then
   export HOST_PC=fpc-sparc64
   export USER=pierre
   export ASTARGET=-32
-  # We should try to use automatic output of gcc 
-  export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
   export NEEDED_OPT="$NATIVE_OPT32"
   export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
   # Set until I find out how to cross-compile GDB for sparc32
@@ -122,6 +118,11 @@ if [ "X$FPCBIN" == "X" ]; then
   FPCBIN=ppcsparc
 fi
 
+# Use Free Pascal Release Version from fpc-versions script
+FPCRELEASEVERSION=$RELEASEVERSION
+
+export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}${BINDIRSUFFIX:-}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 CPU_TARGET=`$FPCBIN -iTP`
 
 if [ "$CPU_TARGET" == "sparc64" ] ; then
@@ -132,11 +133,6 @@ fi
 
 DATE="date +%Y-%m-%d-%H-%M"
 DATESTR=`$DATE`
-# Use Free Pascal Release Version from fpc-versions script
-FPCRELEASEVERSION=$RELEASEVERSION
-
-export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}${BINDIRSUFFIX:-}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
 if [ "x$FIXES" == "x1" ] ; then
   SVNDIR=fixes
 else
