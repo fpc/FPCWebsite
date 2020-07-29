@@ -89,6 +89,14 @@ else
   MAKEDEBUG=
 fi
 
+INSTALLRELEASEBINDIR=$INSTALLRELEASEDIR/bin
+
+if [ -d "$INSTALLRELEASEBINDIR" ] ; then
+  if [ "${PATH/$INSTALLRELEASEBINDIR/}" != "$PATH" ] ; then
+    export PATH=$PATH:$INSTALLRELEASEBINDIR
+  fi
+fi
+
 if [ -z "$FPCBIN" ] ; then
   WHICH_FPC=`which fpc`
   if [ -f "$WHICH_FPC" ] ; then
@@ -99,12 +107,23 @@ if [ -z "$FPCBIN" ] ; then
   fi
 fi
 
-if [ -z "$FPCBIN" ] ; then
-  FPCBIN=ppcx64
-fi
+FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
-OS_TARGET=`$FPCBIN -iTO`
-CPU_TARGET=`$FPCBIN -iTP`
+if [ -f "$FOUND_FPCBIN" ] ; then
+  OS_TARGET=`$FOUND_FPCBIN -iTO`
+  CPU_TARGET=`$FOUND_FPCBIN -iTP`
+  OS_SOURCE=`$FOUND_FPCBIN -iSO`
+  CPU_SOURCE=`$FOUND_FPCBIN -iSP`
+  if [[ ( "$CPU_SOURCE" != "$CPU_TARGET" ) || ( "$OS_SOURCE" != "$OS_TARGET" ) ]] ; then
+    CROSS=1
+  else
+    CROSS=0
+  fi
+else
+  OS_TARGET=`uname -s | tr '[:upper:]' '[:lower:]' `
+  CPU_TARGET=`uname -m | tr '[:upper:]' '[:lower:]' `
+  CROSS=0
+fi
 
 if [ -z "$MAKE" ] ; then
   export MAKE=make
@@ -178,6 +197,9 @@ function gen_compiler ()
       SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
       return
     fi
+  fi
+  if [ $CROSS -eq 1 ] ; then
+    export BINUTILSPREFIX="${CPU_TARGET}-${OS_TARGET}-"
   fi
   decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
   $MAKE distclean cycle OPT="-n -gl $ADD_OPT" FPC=$FPCBIN > $cycle_log 2>&1
