@@ -32,6 +32,10 @@ if [ -z "$FIXES" ] ; then
   export FIXES=0
 fi
 
+if [ -z "$VERBOSE" ] ; then
+  export VERBOSE=0
+fi
+
 if [ $FIXES -eq 1 ] ; then
   if [ "$CURVER" == "" ]; then
     export CURVER=$FIXESVERSION
@@ -70,7 +74,24 @@ if [ "$FPCBIN" == "" ]; then
   fi
 fi
 
+
+function maybe_add_arm_libdir ()
+{
+  libdir="$1"
+  sysroot_libdir="$HOME/sys-root/arm-linux/$libdir"
+  if [ -d "$libdir" ] ; then
+    if [ "${REQUIRED_ARM_OPT/ -Fl$libdir/}" == "$REQUIRED_ARM_OPT" ] ; then
+      REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$libdir"
+    fi
+  elif [ -d "$sysroot_libdir" ] ; then
+    if [ "${REQUIRED_ARM_OPT/ -Fl$sysroot_libdir/}" == "$REQUIRED_ARM_OPT" ] ; then
+      REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$sysroot_libdir"
+    fi
+  fi
+}
+
 NO_RELEASE=0
+MAKE_EXTRA=
 # If using 32-bit version of compiler
 # special as is needed with -a32 option.
 # this is in ~/bin/powerpc-as
@@ -102,25 +123,12 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   export BINUTILSPREFIX=arm-linux-
   export OPT="${OPT} -Xd"
   export TEST_ABI=$ARM_ABI
-  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
-  if [ -d /usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
-    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version" ) ]] ; then
-      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
-    fi
-  elif [ -d $HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
-    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version" ) ]] ; then
-      export OPT="$OPT -Fl$HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
-    fi
-  fi
-  if [ -d "/usr/arm-linux-$ARM_ABI/lib" ] ; then
-    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl/usr/arm-linux-$ARM_ABI/lib" ) ]] ; then
-      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl/usr/arm-linux-$ARM_ABI/lib"
-    fi
-  elif [ -d "$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ] ; then
-    if [[ ! ( "$REQUIRED_ARM_OPT" == " -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib" ) ]] ; then
-      export REQUIRED_ARM_OPT="$REQUIRED_ARM_OPT -Fl$HOME/sys-root/arm-linux/usr/arm-linux-$ARM_ABI/lib"
-    fi
-  fi
+  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' `
+  maybe_add_arm_libdir "/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+  export ARM_LIBGCCDIR="/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
+  MAKE_EXTRA="$MAKEEXTRA LIBGCCDIR=$ARM_LIBGCCDIR"
+  maybe_add_arm_libdir "/lib/arm-linux-$ARM_ABI"
+  maybe_add_arm_libdir "/usr/arm-linux-$ARM_ABI/lib"
   if [ -n "$REQUIRED_ARM_OPT" ] ; then
     export OPT="$OPT $REQUIRED_ARM_OPT -vx"
   fi
@@ -129,6 +137,10 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
     if [ ! -f "/lib/ld-linux-armhf.so.3" ] ; then
       export FPCMAKEOPT="$FPCMAKEOPT -FL$HOME/sys-root/arm-linux/lib/ld-linux-armhf.so.3 -XR$HOME/sys-root/arm-linux/ -Fl/usr/lib/gcc-cross/arm-linux-gnueabihf/4.8"
     fi
+  fi
+  if [ $VERBOSE -eq 1 ] ; then
+    echo "OPT for ppcarm is \"$OPT\""
+    echo "FPCMAKEOPT for ppcarm is \"$FPCMAKEOPT\""
   fi
 elif [ "$FPCBIN" == "ppca64" ] ; then
   export FPMAKE_SKIP_CONFIG="-n"
@@ -277,9 +289,9 @@ if [ $NO_RELEASE -eq 1 ]; then
 fi
 
 echo "Starting make distclean all" >> $report
-echo "${MAKE} distclean all DEBUG=1 FPC=${FPCBIN} OVERRIDEVERSIONCHECK=1 \
+echo "${MAKE} distclean all $MAKE_EXTRA DEBUG=1 FPC=${FPCBIN} OVERRIDEVERSIONCHECK=1 \
   FPMAKE_SKIP_CONFIG=\"${FPMAKE_SKIP_CONFIG}\" OPT=\"$OPT\" FPCMAKEOPT=\"$FPCMAKEOPT\"" >> ${report}
-${MAKE} distclean all DEBUG=1 FPC=${FPCBIN} OVERRIDEVERSIONCHECK=1 \
+${MAKE} distclean all $MAKE_EXTRA DEBUG=1 FPC=${FPCBIN} OVERRIDEVERSIONCHECK=1 \
   FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" OPT="$OPT" FPCMAKEOPT="$FPCMAKEOPT" 1>> ${makelog} 2>&1
 makeres=$?
 
@@ -290,7 +302,7 @@ fi
 
 if [ ${makeres} -ne 0 ] ; then
   echo "Starting make distclean all, using ${FPCRELEASEBIN}" >> $report
-    ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} \
+    ${MAKE} distclean all $MAKE_EXTRA DEBUG=1 FPC=${FPCRELEASEBIN} \
     FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" OPT="$OPT" FPCMAKEOPT="$FPCMAKEOPT" 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make distclean all with release binary; result=${makeres}" >> $report
@@ -317,7 +329,7 @@ echo "New ${NEWFPCBIN} version is ${Build_version} ${Build_date}" >> $report
 
 if [ ${makeres} -eq 0 ] ; then
   echo "Starting make install" >> $report
-  ${MAKE} DEBUG=1 install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN}  1>> ${makelog} 2>&1
+  ${MAKE} DEBUG=1 install $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN}  1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install; result=${makeres}" >> $report
   if [ ${makeres} -ne 0 ]; then
@@ -328,19 +340,19 @@ fi
 if [ ${makeres} -ne 0 ] ; then
   echo "Make all or install failed, trying to install new by parts" >> $report
   INSTALLSRC=compiler
-  ${MAKE} -C ${INSTALLSRC} installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  ${MAKE} -C ${INSTALLSRC} installsymlink $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=rtl
-  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  ${MAKE} -C ${INSTALLSRC} install $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=packages
-  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  ${MAKE} -C ${INSTALLSRC} install $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
   INSTALLSRC=utils
-  ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
+  ${MAKE} -C ${INSTALLSRC} install $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version}$INSTALL_SUFFIX FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
 fi
@@ -363,7 +375,7 @@ done
 testslog=$LOGDIR/test-${test_opt_name// /_}.txt
 echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+${MAKE} distclean fulldb $MAKE_EXTRA TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
     TEST_BINUTILSPREFIX="$TEST_BINUTILSPREFIX" BINUTILSPREFIX="$BINUTILSPREFIX" \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
     TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
@@ -393,6 +405,10 @@ cd tests
 
   echo "New FPC is ${FPC}" >> $report
 
+  if [ -n "$BINUTILSPREFIX" ] ; then
+    # Needed to be able to generate createlst and gparmake executables
+    OPT="$OPT -XP$BINUTILSPREFIX"
+  fi
   run_tests "${OPT}"
   run_tests "-Cg ${OPT}"
   run_tests "-O1 ${OPT}"
