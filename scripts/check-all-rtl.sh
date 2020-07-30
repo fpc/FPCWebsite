@@ -178,6 +178,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_BINARY_INSTALL=1
   DO_RECOMPILE_FULL=1
+  DO_CHECK_LLVM=1
   RECOMPILE_FULL_OPT="-dFPC_SOFT_FPUX80"
   test_utils=1
   test_utils_ppudump=1
@@ -1572,7 +1573,11 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
     for os in ${!llvm_os_list_name} ; do
       export FPC_LOCAL_SUFFIX=-llvm
       if [ "$cpu" == "arm" ] ; then
-        LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+        if [ "$NATIVE_MACHINE" == "aarch64" ] ; then
+          LLVM_OPT="-dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
+        else
+          LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+        fi
       else
         LLVM_OPT=""
       fi
