@@ -204,7 +204,6 @@ srcdir=$1
 export FPCVERSION=$2
 log=~/logs/fullcycle-${SRC_CPU}-${FPCVERSION}.log
 cyclelog=~/logs/cycle-${SRC_CPU}-${FPCVERSION}.log
-alllog=~/logs/all-${SRC_CPU}-${FPCVERSION}.log
 testslog=~/logs/tests-${SRC_CPU}-${FPCVERSION}.log
 export FPCBASEDIR=$BASEDIR/fpc-${FPCVERSION}
 attach=
@@ -302,10 +301,16 @@ else
     # -O2 option is still buggy, we need to use FPCCPUOPT=-O-, OBSOLETE?
     FPCCPUOPT=-O2
     while [ $repeat -eq 1 ] ; do
-      make distclean > /dev/null
+      alllog=~/logs/all-${FPCCPUOPT}-${SRC_CPU}-${FPCVERSION}.log
+      echo "Starting with $FPCCPUOPT=$FPCCPUOPT" > $alllog
+      make distclean FPC=$FPCBIN > /dev/null
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Warning: make distclean failed, res=$res" >> $alllog
+      fi
       ADDOPT="FPCCPUOPT=$FPCCPUOPT"
-      decho "Starting make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1"
-      make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT="-n $REQUIRED_OPT" OVERRIDEVERSIONCHECK=1 1> $alllog 2>&1
+      decho "Starting make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT=-n OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
+      make all install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR $ADDOPT OPT="-n $REQUIRED_OPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
       res=$?
       allres=$res
       if [ $res -ne 0 ] ; then
@@ -315,6 +320,10 @@ else
           ok_trial=0
           max_trial=5
           while [ $trial -lt $max_trial ] ; do
+            if [ $trial -eq 1 ] ; then
+              decho "Starting make -C $dir distclean DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
+              make -C $dir distclean DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $REQUIRED_OPT $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
+            fi
             decho "Starting make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1"
             make -C $dir install DEBUG=1 FPC=$FPCBIN INSTALL_PREFIX=$FPCBASEDIR OPT="-n $REQUIRED_OPT $FPCCPUOPT" OVERRIDEVERSIONCHECK=1 1>> $alllog 2>&1
             res=$?
@@ -335,8 +344,10 @@ else
         done
       fi
       if [ $allres -eq 0 ] ; then
+        decho "make succeeded with FPCCPUOPT=\"$FPCCPUOPT\""
         repeat=0
       else
+        decho "make failed with FPCCPUOPT=\"$FPCCPUOPT\""
         if [ "$FPCCPUOPT" == "-O2" ] ; then
           FPCCPUOPT=-O1
         elif [ "$FPCCPUOPT" == "-O1" ] ; then
@@ -347,6 +358,7 @@ else
       fi
     done
     if [ $res -ne 0 ] ; then
+      decho "make failed with FPCCPUOPT=\"$FPCCPUOPT\""
       attach="$attach -a $alllog"
     fi
   fi
