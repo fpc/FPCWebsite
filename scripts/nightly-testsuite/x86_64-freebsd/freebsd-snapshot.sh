@@ -2,6 +2,8 @@
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
+. $HOME/bin/fpc-versions.sh
+
 ulimit -d 65536 -s 8192 -t 2400
 
 if [ "`uname -s`" == "FreeBSD" ] ; then
@@ -16,14 +18,16 @@ else
   HOST_PC=${HOSTNAME%%\.*}
 fi
 
-if [ "$FIXES" == "1" ] ; then
+if [ "$FIXES" != "1" ] ; then
   export CURVER=$TRUNKVERSION
   export CURDIRNAME=$TRUNKDIRNAME
   export CURDIR=$TRUNKDIR
+  export FTP_CURDIRNAME=trunk
 else
   export CURVER=$FIXESVERSION
   export CURDIRNAME=$FIXESDIRNAME
   export CURDIR=$FIXESDIR
+  export FTP_CURDIRNAME=fixes
 fi
   
 export OVERRIDEVERSIONCHECK=1
@@ -38,11 +42,13 @@ if [ "$CPU" == "x86_64" ] ; then
   export BINUTILSPREFIX=
   export EXTRA=
   export ALL_OPT="-n -Fl/usr/local/lib"
+  export SUFFIX=-64
 elif [ "$CPU" == "i386" ] ; then
   export FPCBIN=ppc386
   export INSTALL_SUFFIX=-32
   export BINUTILSPREFIX=i386-freebsd-
   export ALL_OPT="-n -Xd"
+  export SUFFIX=-32
   if [ -d /lib32 ] ; then
     export ALL_OPT="$ALL_OPT -Fl/lib32"
   fi
@@ -95,27 +101,38 @@ fi
 export LANG
 
 export OVERRIDEVERSIONCHECK=1
-export CURVER=3.3.1
-export FPCRELEASEVERSION=3.0.4
-export FPCBIN=ppcx64
+if [ -z "$CURVER" ] ; then
+  export CURVER=3.3.1
+fi
+if [ -z "$FPCRELEASEVERSION" ] ; then
+  export FPCRELEASEVERSION=3.2.0
+fi
+if [ -z "$FPCBIN" ] ; then
+  export FPCBIN=ppcx64
+fi
+
 FPCRELEASEBINDIR=/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin
 
 export PATH=/home/${USER}/pas/fpc-${CURVER}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/${USER}/pas/fpc-${FPCRELEASEVERSION}/bin
 
 cd ~/pas/$CURDIRNAME
 
-export report=`pwd`/report.txt 
-export report2=`pwd`/report2.txt 
-export makelog=`pwd`/make.txt 
-export testslog=`pwd`/tests.txt 
+export report=`pwd`/report$SUFFIX.txt 
+export report2=`pwd`/report2$SUFFIX.txt 
+export makelog=`pwd`/make$SUFFIX.txt 
+export testslog=`pwd`/tests$SUFFIX.txt 
 
-echo "Starting $0" > $report
+echo "Starting $0 in $CURDIR" > $report
 
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
 echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
-svn cleanup 1>> $report 2>&1
-svn up --accept theirs-conflict --force 1>> $report 2>&1
+SVN=`which svn 2> /dev/null`
+
+if [ -f "$SVN" ] ; then
+  "$SVN" cleanup 1>> $report 2>&1
+  "$SVN" up --accept theirs-conflict --force 1>> $report 2>&1
+fi
 
 if [ -d fpcsrc ]; then
   has_fpcsrc=1
@@ -216,8 +233,8 @@ if [ $? -eq 0 ]; then
   echo "make singlezipinstall success" >> $report
   targzfiles=`ls -1 *${FPC_TARGET}*tar.gz`
   if [ -n "$targzfiles" ] ; then
-    scp -i ~/.ssh/freepascal $targzfiles fpc@ftpmaster.freepascal.org:ftp/snapshot/$CURDIRNAME/$FPC_TARGET/ 1>> $report 2>&1
-    scp -i ~/.ssh/freepascal ${readme} fpc@ftpmaster.freepascal.org:ftp/snapshot/$CURDIRNAME/$FPC_TARGET/ 1>> $report 2>&1
+    scp -i ~/.ssh/freepascal $targzfiles fpc@ftpmaster.freepascal.org:ftp/snapshot/$FTP_CURDIRNAME/$FPC_TARGET/ 1>> $report 2>&1
+    scp -i ~/.ssh/freepascal ${readme} fpc@ftpmaster.freepascal.org:ftp/snapshot/$FTP_CURDIRNAME/$FPC_TARGET/ 1>> $report 2>&1
   else
     echo "No tar.gz file generated" >> $report
   fi
