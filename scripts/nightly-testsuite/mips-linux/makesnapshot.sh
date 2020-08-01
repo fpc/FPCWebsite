@@ -15,15 +15,20 @@ export TEMP=$TMP
 export TMPDIR=$TMP
 ENDIAN=`readelf -h /bin/sh | grep endian`
 
-echo "ENDIAN is $ENDIAN"
+function decho ()
+{
+  echo "`date +%Y-%m-%d-%H:%M`: $*"
+}
+
+decho "Starting $0, ENDIAN is $ENDIAN"
 
 if [ "${ENDIAN//big/}" != "${ENDIAN}" ] ; then
-  echo " Big endian machine"
+  decho " Big endian machine"
   ENDIAN=big
   FPC_CPU=mips
   FPC_CPUSUF=mips
 else
-  echo "Little endian machine"
+  decho "Little endian machine"
   ENDIAN=little
   FPC_CPU=mipsel
   FPC_CPUSUF=mipsel
@@ -48,7 +53,7 @@ fi
 export FPC=$BASEDIR/fpc-${FPC_VER}/bin/${FPC_BIN}
 
 if [ "${PATH/${FPC_VER}//}" = "${PATH}" ] ; then
-  echo "Appending ${BASEDIR}/fpc-${FPC_VER}/bin directory to PATH"
+  decho "Appending ${BASEDIR}/fpc-${FPC_VER}/bin directory to PATH"
   export PATH=${PATH}:$BASEDIR/fpc-${FPC_VER}/bin
 fi
 
@@ -56,7 +61,7 @@ MAKE=make
 MAKE_OPTIONS="distclean singlezipinstall SNAPSHOT=1 NOGDB=1 DEBUG=1 NOWPOCYCLE=1"
 date=`date +%Y-%m-%d`
 start_date_time=`date +%Y-%m-%d-%H-%M`
-
+LOGFILE=${HOME}/logs/makesnapshot-${FPC_CPU}-${FPC_VER}-${date}.txt
 
 cd $FPC_DIR
 
@@ -67,24 +72,35 @@ if [[ -n "${TAR}" && -f "${TAR}" ]] ; then
   mv -f  ${TAR} ${TAR}.old
 fi
 
-${MAKE} ${MAKE_OPTIONS} > ${HOME}/logs/makesnapshot-${FPC_CPU}-${FPC_VER}-${date}.txt 2>&1
+
+decho "Starting ${MAKE} ${MAKE_OPTIONS}" > $LOGFILE
+${MAKE} ${MAKE_OPTIONS} >> $LOGFILE 2>&1
 res=$?
+decho "Ending ${MAKE} ${MAKE_OPTIONS}, res=$res" >> $LOGFILE
 
 if [ $res -ne 0 ] ; then
-  echo "Normal tar file generation error"
+  decho "Normal tar file generation error"
   MAKE_EXTRA="FPCCPUOPT=-O1"
-  ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1 > ${HOME}/logs/makesnapshot-O1-${FPC_CPU}-${FPC_VER}-${date}.txt 2>&1
+  LOGFILE=${HOME}/logs/makesnapshot-O1-${FPC_CPU}-${FPC_VER}-${date}.txt
+  decho "Starting ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1" > $LOGFILE
+  ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O1 >> $LOGFILE 2>&1
   res=$?
+  decho "Ending ${MAKE} ${MAKE_OPTIONS}, res=$res" >> $LOGFILE
   if [ $res -ne 0 ] ; then
-    echo "-O1 tar file generation error"
+    decho "-O1 tar file generation error"
     MAKE_EXTRA="FPCCPUOPT=-O-"
-    ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O- > ${HOME}/logs/makesnapshot-O--${FPC_CPU}-${FPC_VER}-${date}.txt  2>&1
+    LOGFILE=${HOME}/logs/makesnapshot-O--${FPC_CPU}-${FPC_VER}-${date}.txt
+    decho "Starting ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O-" > $LOGFILE
+    ${MAKE} ${MAKE_OPTIONS} FPCCPUOPT=-O- >> $LOGFILE 2>&1
     res=$?
+    decho "Ending ${MAKE} ${MAKE_OPTIONS}, res=$res" >> $LOGFILE
     if [ $res -ne 0 ] ; then
-      echo "-O- tar file generation error"
+      decho "-O- tar file generation error"
       exit
     fi
   fi
+else
+
 fi
 
 TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
@@ -108,10 +124,15 @@ Enjoy,
 Pierre Muller
 EOF
 
-echo "Script $0 from $start_date_time to $end_date_time"
+decho "Script $0 from $start_date_time to $end_date_time"
+decho "Script $0 from $start_date_time to $end_date_time" >> $LOGFILE
 if [[ -n "${TAR}" && -f "${TAR}" ]]; then
-  echo "scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
-  scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}
+  decho "scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
+  scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}a
+  scpres=$?
+  decho "Upload of ${TAR} and README to fpcftp server, res=$scpres"
+  decho "Upload of ${TAR} and README to fpcftp server, res=$scpres" >> $LOGFILE
 else
-  echo Failed to created ${TAR} file
+  decho "Failed to created ${TAR} file"
+  decho "Failed to created ${TAR} file" >> $LOGFILE
 fi
