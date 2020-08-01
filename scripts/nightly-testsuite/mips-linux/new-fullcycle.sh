@@ -38,6 +38,7 @@ export TMP=$HOME/tmp
 export TEMP=$TMP
 export TMPDIR=$TMP
 erase_fpmake=0
+more_tests=0
 
 ulimit -t 3600
 
@@ -52,16 +53,19 @@ MACHINE=`uname -n`
 if [ "$MACHINE" = "erpro8-fsf1" ] ; then
   MACHINE=gccmips64
   erase_fpmake=1
+  more_tests=1
 fi
 
 if [ "$MACHINE" = "erpro8-fsf2" ] ; then
   MACHINE=gccmipsel64
   erase_fpmake=1
+  more_tests=1
 fi
 
 if [ "$MACHINE" = "gcc24" ] ; then
   MACHINE=gccmipsel64-alt
   erase_fpmake=1
+  more_tests=1
 fi
 
 
@@ -161,42 +165,67 @@ if [ -d "$HOMEBIN" ] ; then
 fi
 
 function run_testsuite {
-  localtestslog=$1
+  TEST_OPT="$1"
+  localtestslog="$2"
   if [ "${localtestslog}" = "" ] ; then
     localtestslog=$testslog
   fi
   decho "Using FPC=\"$TEST_FPC\" for tests"
   decho "Using TEST_OPT=\"$TEST_OPT\" for tests"
-  decho "Using FPC=\"$TEST_FPC\" for tests" >> $localtestslog
+  decho "Using FPC=\"$TEST_FPC\" for tests" > $localtestslog
   decho "Using TEST_OPT=\"$TEST_OPT\" for tests" >> $localtestslog
-  make -C ../rtl distclean > /dev/null
-  make -C ../packages distclean > /dev/null
+  decho "Distcleaning rtl" >> $localtestslog
+  make -C ../rtl distclean > /dev/null 2>> $localtestslog
+  res=$?
+  decho "Finished distcleaning rtl, res=$res" >> $localtestslog
+  decho "Distcleaning packages" >> $localtestslog
+  make -C ../packages distclean > /dev/null 2>> $localtestslog
+  res=$?
+  decho "Finished distcleaning packages, res=$res" >> $localtestslog
+  decho "Starting 'make distclean testprep'" >> $localtestslog
   make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" distclean testprep 1>> $localtestslog 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     decho "testprep failed with TEST_OPT=\"$TEST_OPT\"" >> $localtestslog
     decho "Using TEST_OPT=\"-n -gl\" for testprep" >> $localtestslog
-    make -C ../rtl distclean > /dev/null
-    make -C ../packages distclean > /dev/null
+    decho "2nd try: Distcleaning rtl" >> $localtestslog
+    make -C ../rtl distclean > /dev/null 2>> $localtestslog
+    res=$?
+    decho "2nd try: Finished distcleaning rtl, res=$res" >> $localtestslog
+    decho "2nd try: Distcleaning packages" >> $localtestslog
+    make -C ../packages distclean > /dev/null 2>> $localtestslog
+    res=$?
+    decho "2nd try: Finished distcleaning packages, res=$res" >> $localtestslog
     make TEST_FPC="$TEST_FPC" TEST_OPT="-n -gl" distclean testprep 1>> $localtestslog 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       decho "testprep also failed with TEST_OPT=\"-n -gl\"" >> $localtestslog
       return
     fi
+  else
+    decho "Ending 'make distclean testprep' successfully" >> $localtestslog
   fi
-  make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" allexectests \
-    uploadrun DB_SSH_EXTRA="-i ~/.ssh/freepascal" 1>> $localtestslog 2>&1
+  (
+  ulimit -t 90
+  decho "Using time limit:`ulimit -t` for $TEST_OPT tests"
+  make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" allexectests 1>> $localtestslog 2>&1
   res=$?
-  decho "Finished tests, res=$res"
-  decho "Finished tests, res=$res" >> $localtestslog
+  decho "Finished TEST_OPT=\"$TEST_OPT\" allexectests, res=$res"
+  echo "Finished TEST_OPT=\"$TEST_OPT\" allexectests, res=$res" >> $localtestslog
+  if [ $res -ne 0 ]; then
+    decho "Tests TEST_OPT=\"$TEST_OPT\" failed $res"
+    attach="$attach -a ${localtestslog}"
+  else
+    echo "Uploading test results for TEST_OPT=\"$TEST_OPT\""
+    make TEST_FPC="$TEST_FPC" TEST_OPT="$TEST_OPT" \
+      uploadrun DB_SSH_EXTRA="-i ~/.ssh/freepascal" 1>> $localtestslog 2>&1
+    uploadres=$?
+    echo "Upload finished test results for TEST_OPT=\"$TEST_OPT\", res=$uploadres"
+  fi
+  )
   cp output/$SRC_FULL/faillist ${localtestslog}-faillist
   cp output/$SRC_FULL/log ${localtestslog}-log
   cp output/$SRC_FULL/longlog ${localtestslog}-longlog
-  if [ $res -ne 0 ]; then
-    decho "Tests failed $res"
-    attach="$attach -a ${localtestslog}"
-  fi
 }
 
 function dover {
@@ -363,11 +392,8 @@ else
     fi
   fi
   if [ $res -eq 0 ] ; then
-  cd ./tests
-    (
+    cd ./tests
     echo "Date before tests `date +%Y-%m-%d-%H-%M`"
-    ulimit -t 90
-    echo "Using limits:`ulimit -a` for tests"
     export FPC=$FPCBIN
     export TEST_USER=muller
     LIBGCC_PATH=`gcc -print-libgcc-file-name`
@@ -378,18 +404,25 @@ else
     BASE_TEST_OPT="$TEST_OPT $REQUIRED_OPT"
     TEST_FPC=$BASEDIR/fpc-$FPCVERSION/bin/$FPCEXE
     # rm -f ${testslog}-default
-    # run_testsuite ${testslog}-default
+    # run_testsuite "$TEST_OPT" ${testslog}-default
     TEST_OPT="$BASE_TEST_OPT -Cg"
     rm -f ${testslog}-Cg
-    run_testsuite ${testslog}-Cg
-    TEST_OPT="$BASE_TEST_OPT -O1"
-    # rm -f ${testslog}-O1
-    # run_testsuite ${testslog}-O1
+    run_testsuite "$TEST_OPT" ${testslog}-Cg
+
+    if [ $more_tests -eq 1 ] ; then
+      TEST_OPT="$BASE_TEST_OPT -O1"
+      rm -f ${testslog}-O1
+      run_testsuite "$TEST_OPT" ${testslog}-O1
+    fi
     TEST_OPT="$BASE_TEST_OPT -O2"
     rm -f ${testslog}-O2
-    run_testsuite ${testslog}-O2
+    run_testsuite "$TEST_OPT" ${testslog}-O2
+    if [ $more_tests -eq 1 ] ; then
+      TEST_OPT="$BASE_TEST_OPT -O4"
+      rm -f ${testslog}-O4
+      run_testsuite "$TEST_OPT" ${testslog}-O4
+    fi
     echo "Tests finished";
-    )
   fi
 fi;
 echo "Limits at end:`ulimit -a`"
