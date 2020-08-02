@@ -266,6 +266,8 @@ if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
 
+STARTDIR=`pwd`
+
 if [ $erase_fpmake -eq 1 ] ; then
   fpmake_list=`find . -name fpmake`
   echo "Erasing existing fpmake $fpmake_list"
@@ -275,9 +277,6 @@ if [ $erase_fpmake -eq 1 ] ; then
     done
   fi
 fi
-
-cd compiler
-
 
 FPCBIN=`which $FPCEXE`
 if [ ! -f "$FPCBIN" ] ; then
@@ -291,6 +290,7 @@ if [ $skip -eq 1 ] ; then
 else
   decho "Starting cycle"
   {
+  cd compiler
   make distclean > /dev/null
   make cycle DEBUG=1 FPC=$FPCBIN OPT="-n $REQUIRED_OPT"
   res=$?
@@ -315,6 +315,8 @@ else
   fi ; } 1> $cyclelog 2>&1
 fi
 
+cd $STARTDIR
+
 if [ $res -ne 0 ] ; then
   decho "Starting cycle failed"
   attach="-a $cyclelog"
@@ -322,7 +324,6 @@ else
   export PATH="$BASEDIR/fpc-$FPCVERSION/bin:$PATH"
   FPCBIN=`which $FPCEXE`
   decho "Using new binary $FPCBIN"
-  cd ..
   if [ $skipinstall -eq 1 ] ; then
     decho "Skipping install"
   else
@@ -331,7 +332,8 @@ else
     FPCCPUOPT=-O2
     while [ $repeat -eq 1 ] ; do
       alllog=~/logs/all-${FPCCPUOPT}-${SRC_CPU}-${FPCVERSION}.log
-      echo "Starting with $FPCCPUOPT=$FPCCPUOPT" > $alllog
+      echo "Starting with FPCCPUOPT=$FPCCPUOPT"
+      echo "Starting with FPCCPUOPT=$FPCCPUOPT" > $alllog
       make distclean FPC=$FPCBIN > /dev/null
       res=$?
       if [ $res -ne 0 ] ; then
@@ -344,6 +346,9 @@ else
       allres=$res
       if [ $res -ne 0 ] ; then
         decho "WARNING: make all failed, trying by sub-directories"
+        # First clean up at fpcsrc level
+        decho "make distclean FPC=$FPCBIN > /dev/null 2>> $alllog" >> $alllog
+        make distclean FPC=$FPCBIN > /dev/null 2>> $alllog
         for dir in rtl packages packages/ide utils ; do
           trial=1
           ok_trial=0
@@ -367,8 +372,10 @@ else
           if [ $res -ne 0 ] ; then
             decho "make -C $dir  with $ADDOPT failed $trial times"
             let allres++
+          elif [ $trial -eq 1 ] ; then
+            decho "make -C $dir succeeded at first trial"
           else
-            decho "make -C $dir succeeded after $ok_trial trials"
+            decho "make -C $dir succeeded at ${ok_trial}. trials"
           fi
         done
       fi
@@ -388,6 +395,7 @@ else
     done
     if [ $res -ne 0 ] ; then
       decho "make failed with FPCCPUOPT=\"$FPCCPUOPT\""
+      decho "make failed with FPCCPUOPT=\"$FPCCPUOPT\"" >> $alllog
       attach="$attach -a $alllog"
     fi
   fi
@@ -405,22 +413,22 @@ else
     TEST_FPC=$BASEDIR/fpc-$FPCVERSION/bin/$FPCEXE
     # rm -f ${testslog}-default
     # run_testsuite "$TEST_OPT" ${testslog}-default
-    TEST_OPT="$BASE_TEST_OPT -Cg"
+    TEST_OPT_CG="$BASE_TEST_OPT -Cg"
     rm -f ${testslog}-Cg
-    run_testsuite "$TEST_OPT" ${testslog}-Cg
+    run_testsuite "$TEST_OPT_CG" ${testslog}-Cg
 
     if [ $more_tests -eq 1 ] ; then
-      TEST_OPT="$BASE_TEST_OPT -O1"
+      TEST_OPT_O1="$BASE_TEST_OPT -O1"
       rm -f ${testslog}-O1
-      run_testsuite "$TEST_OPT" ${testslog}-O1
+      run_testsuite "$TEST_OPT_O1" ${testslog}-O1
     fi
-    TEST_OPT="$BASE_TEST_OPT -O2"
+    TEST_OPT_O2="$BASE_TEST_OPT -O2"
     rm -f ${testslog}-O2
-    run_testsuite "$TEST_OPT" ${testslog}-O2
+    run_testsuite "$TEST_OPT_O2" ${testslog}-O2
     if [ $more_tests -eq 1 ] ; then
-      TEST_OPT="$BASE_TEST_OPT -O4"
+      TEST_OPT_O4="$BASE_TEST_OPT -O4"
       rm -f ${testslog}-O4
-      run_testsuite "$TEST_OPT" ${testslog}-O4
+      run_testsuite "$TEST_OPT_O4" ${testslog}-O4
     fi
     echo "Tests finished";
   fi
