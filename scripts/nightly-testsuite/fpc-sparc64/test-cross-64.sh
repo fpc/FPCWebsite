@@ -100,7 +100,7 @@ if [ "X$FPCBIN" == "X" ]; then
 fi
 
 DATE="date +%Y-%m-%d-%H-%M"
-export PATH=/home/${USER}/pas/fpc-${TARGET_VERSION}/bin:/home/${USER}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/${USER}/pas/fpc-${RELEASEVERSION}/bin
+export PATH=${HOME}/pas/fpc-${TARGET_VERSION}/bin:${HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${HOME}/pas/fpc-${RELEASEVERSION}/bin
 
 cd $SVNDIR
 
@@ -181,6 +181,7 @@ fi
 cd tests
 
 echo "Starting cross 64bit testsuite at: `$DATE`" > $report
+echo "Start path=$PATH" >> $report
 
 FPC32=~/pas/fpc-$TARGET_VERSION/bin/ppcsparc
 CROSSFPC=~/pas/fpc-$TARGET_VERSION/bin/ppcsparc64
