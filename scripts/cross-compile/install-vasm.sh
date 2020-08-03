@@ -1,47 +1,135 @@
 #!/usr/bin/env bash
-VASM_VERSION=1_8f
-# Add vasm assembler
+if [ -z "$VASM_VERSION" ] ; then
+  VASM_VERSION=1_8f
+fi
+if [ -z "$VLINK_VERSION" ] ; then
+  VLINK_VERSION=0_18e
+fi
 
-update=0
+
+# Add vasm assembler
+z80_os_list="embedded zxspectrum msxdos amstradcpc"
+m68k_os_list="embedded macos macosclassic linux netbsd amiga atari"
+
+# Add vasm assembler
+recompile=0
 
 if [ ! -f $HOME/bin/vasmm68k_std ] ; then
-  update=1
+  recompile=1
 fi
 
-if [ "$1" == "--force" ] ; then
-  update=1
+if [ ! -f $HOME/bin/vasmz80_std ] ; then
+  recompile=1
 fi
 
-cd $HOME/gnu
-if [ ! -d vasm ] ; then
-  mkdir vasm
-  update=1
-fi
-
-cd $HOME/gnu/vasm
-if [ ! -f vasm${VASM_VERSION}.tar.gz ] ; then
-  update=1
-fi
-
-if [ $update -eq 1 ] ; then
-  if [ ! -f vasm${VASM_VERSION}.tar.gz ] ; then
-    wget http://server.owl.de/~frank/tags/vasm${VASM_VERSION}.tar.gz
+function recompile_vasm ()
+{
+  cd $HOME/gnu
+  if [ ! -d vasm ] ; then
+    mkdir vasm
   fi
-  if [ -d vasm ] ; then
-    rm -Rf vasm
+  cd vasm
+  VASM_SRC=vasm${VASM_VERSION}.tar.gz 
+
+  if [ ! -f "$VASM_SRC" ] ; then
+    if [ -d vasm ] ; then
+      rm -Rf vasm
+    fi
+    wget http://server.owl.de/~frank/tags/${VASM_SRC}
+    wget_res=$?
+    if [ $wget_res -ne 0 ] ; then
+      echo "wget failed to download $VASM_SRC"
+      return 1
+    fi
+    tar -xvzf ${VASM_SRC}
+    tar_res=$?
+    if [ $tar_res -ne 0 ] ; then
+      echo "tar failed to untar $VASM_SRC"
+      return 2
+    fi
   fi
-  tar -xvzf vasm${VASM_VERSION}.tar.gz 
   cd vasm
   make CPU=m68k SYNTAX=mot
   make CPU=m68k SYNTAX=std
   make CPU=x86 SYNTAX=std
   make CPU=ppc SYNTAX=std
   make CPU=arm SYNTAX=std
-  cp vasmm68k_mot vobjdump vasmm68k_std vasmx86_std vasmppc_std vasmarm_std $HOME/bin
-  cd $HOME/bin
-  ln -sf vasmm68k_std m68k-amiga-vasmm68k_std
-  ln -sf vasmm68k_std m68k-atari-vasmm68k_std
-  ln -sf vasmm68k_std m68k-linux-vasmm68k_std
+  make CPU=z80 SYNTAX=std
+  cp -p vasmm68k_mot vobjdump vasmm68k_std vasmx86_std vasmppc_std vasmarm_std vasmz80_std $HOME/bin
+}
+
+if [ $recompile -eq 1 ] ; then
+  echo "Trying to recompile vasm version $VASM_VERSION"
+  res=`recompile_vasm`
+  if [ $res -eq 1 ] ; then
+    VASM_VERSION=
+    echo "Trying to recompile generic vasm version"
+    recompile_vasm
+  fi
 fi
+
+for os in $z80_os_list ; do
+  z80_symlink=z80-${os}-vasmz80_std
+  if [ ! -L "$z80_symlink" ] ; then
+    echo "Adding $z80_symlink symbolic link to vasmz80_std"
+    ln -s vasmz80_std $z80_symlink
+  fi
+done
+
+for os in $m68k_os_list ; do
+  m68k_symlink=m68k-${os}-vasmm68k_std
+  if [ ! -L "$m68k_symlink" ] ; then
+    echo "Adding $m68k_symlink symbolic link to vasmm68k_std"
+    ln -s vasmm68k_std $m68k_symlink
+  fi
+done
+
+function recompile_vlink ()
+{
+  cd $HOME/gnu
+  if [ ! -d vlink ] ; then
+    mkdir vlink
+  fi
+  cd vlink
+  VLINK_SRC=vlink${VLINK_VERSION}.tar.gz
+  if [ ! -f "$VLINK_SRC" ] ; then
+    if [ -d vlink ] ; then
+      rm -Rf vlink
+    fi
+    # wget http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
+    wget http://phoenix.owl.de/tags/$VLINK_SRC
+    tar -xvzf $VLINK_SRC
+  fi
+  cd vlink
+  make
+  cp vlink $HOME/bin
+}
+
+# Add vlink linker
+if [ ! -f $HOME/bin/vlink ] ; then
+  echo "Trying to recompile vlink version $VLINK_VERSION"
+  res=`recompile_vlink`
+  if [ $res -eq 1 ] ; then
+    VLINK_VERSION=
+    echo "Trying to recompile generic vlink version"
+    recompile_vlink
+  fi
+fi
+
+for os in $z80_os_list ; do
+  z80_symlink=z80-${os}-vlink
+  if [ ! -L "$z80_symlink" ] ; then
+    echo "Adding $z80_symlink symbolic link to vlink"
+    ln -s vlink $z80_symlink
+  fi
+done
+
+for os in $m68k_os_list ; do
+  m68k_symlink=m68k-${os}-vlink
+  if [ ! -L "$m68k_symlink" ] ; then
+    echo "Adding $m68k_symlink symbolic link to vlink"
+    ln -s vlink $m68k_symlink
+  fi
+done
 
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-QEMU_VERSION="$1"
+if [ -n "$1" ] ; then
+  QEMU_VERSION="$1"
+fi
+
 if [ -z "$QEMU_VERSION" ] ; then
   QEMU_VERSION=5.0.0
 fi

@@ -18,15 +18,20 @@ if [ ! -s sys-root ] ; then
 fi
 
 if [ ! -d scripts ] ; then
-  echo "Installing Free Pascal scripts"
-  svn checkout https://svn.freepascal.org/svn/html/scripts
-else
-  cd scripts
-  echo "Updating Free Pascal scripts"
-  svn cleanup
-  svn up
-  cd ..
+  if [ ! -d pas/scripts ] ; then
+    SCRIPTDIR=$HOME/pas/scripts
+  else
+    echo "Installing Free Pascal scripts"
+    svn checkout https://svn.freepascal.org/svn/html/scripts
+    SCRIPTDIR=$HOME/scripts
+  fi
 fi
+
+cd $SCRIPTDIR
+echo "Updating Free Pascal scripts"
+svn cleanup
+svn up
+cd $HOME
 
 function maybe_add_symlink ()
 {
@@ -56,9 +61,9 @@ case "$cpu" in
   arm|aarch64|arm64) CPU32=arm; CPU64=aarch64;;
 esac
 
-script_dir=~/scripts/nightly-testsuite/$cpu-$os
+script_dir=$SCRIPTDIR/nightly-testsuite/$cpu-$os
 if [ ! -d "$script_dir" ] ; then
-  script_dir=~/scripts/nightly-testsuite/$os
+  script_dir=$SCRIPTDIR/nightly-testsuite/$os
 fi
 
 for file in $script_dir/*.sh ; do
@@ -153,19 +158,17 @@ if [ $do_update -eq 1 ] ; then
   make installsymlink FPC=`pwd`/ppc386 PREFIX=~/pas/fpc-$TRUNKVERSION
   make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppcx64
   make installsymlink FPC=`pwd`/ppcx64 PREFIX=~/pas/fpc-$TRUNKVERSION
-  cd ${HOME}/pas/fixesfpcsrc/compiler/
+  cd ${HOME}/pas/fixes/fpcsrc/compiler/
   make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppc386
-  make installsymlink FPC=`pwd`/ppc386 PREFIX=~/pas/fpc-3.2.0-beta
+  make installsymlink FPC=`pwd`/ppc386 PREFIX=~/pas/fpc-$FIXESVERSION
   make cycle OPT="-n -gl" FPC=~/pas/fpc-$RELEASEVERSION/bin/ppcx64
-  make installsymlink FPC=`pwd`/ppcx64 PREFIX=~/pas/fpc-3.2.0-beta
+  make installsymlink FPC=`pwd`/ppcx64 PREFIX=~/pas/fpc-$FIXESVERSION
   cd $HOME/pas
-  if [ ! -d fpc-3.2.0 ] ; then
-    ln -s fpc-3.2.0-beta fpc-3.2.0
-  fi
 fi
 
 # install home mutt script 
-cd
+cd $HOME
+
 if [ ! -d mutt ] ; then
   mkdir mutt
   echo 0 > mutt/last
@@ -174,20 +177,6 @@ if [ ! -d gnu ] ; then
   mkdir gnu
 fi
 cd gnu
-
-if [ ! -f $HOME/sys-root/bin/qemu-arm ] ; then
-  if [ ! -d qemu ] ; then
-    mkdir qemu
-  fi
-  cd qemu
-
-  # Install qemu
-  wget https://download.qemu.org/qemu-$QEMU_VERSION.tar.xz
-  tar xvJf qemu-$QEMU_VERSION.tar.xz
-  cd qemu-$QEMU_VERSION
-  ./configure --prefix=$HOME/sys-root
-  make all install
-fi
 
 # Install cross-binutils
 if [ ! -d $HOME/gnu/binutils/build ] ; then
@@ -200,34 +189,17 @@ if [ ! -d $HOME/gnu/binutils/build ] ; then
     mkdir build
   fi
   cd build
-  ln -s ~/scripts/cross-binutils/do-all.sh
-  ln -s ~/scripts/cross-binutils/do-one.sh
+  ln -s $SCRIPTDIR/cross-binutils/do-all.sh
+  ln -s $SCRIPTDIR/cross-binutils/do-one.sh
   screen  ./do-all.sh
 fi
 
-if [ ! -f $HOME/bin/nasm ] ; then
-  cd $HOME/gnu
-  if [ ! -d nasm ] ; then
-    mkdir nasm
-  fi
+CROSS_COMPILE_DIR="$SCRIPTDIR/cross-compile"
 
- cd nasm
+. $CROSS_COMPILE_DIR/install-qemu.sh
 
-  wget https://www.nasm.us/pub/nasm/releasebuilds/$NASM_VERSION/nasm-$NASM_VERSION.tar.gz
-  tar -xvzf nasm-$NASM_VERSION.tar.gz
-  cd nasm-$NASM_VERSION
-  ./configure --prefix=$HOME/gnu
-  make all install
-  cd $HOME/bin
-  ln -s $HOME/gnu/bin/nasm nasm
-  ln -s nasm i8086-msdos-nasm
-  ln -s nasm i8086-embedded-nasm
-  ln -s nasm i8086-win32-nasm
-  ln -s nasm i386-go32v2-nasm
-  ln -s nasm i386-win32-nasm
-  ln -s nasm i386-linux-nasm
-  ln -s nasm i386-embedded-nasm
-fi
+. $CROSS_COMPILE_DIR/install-nasm.sh
+
 
 # Add clang symlinks
 if [ ! -f $HOME/bin/clang ] ; then
@@ -278,47 +250,7 @@ HERE_SCRIPT
   chmod u+x $HOME/bin/*-*-clang
 fi
 
-# Add vasm assembler
-if [ ! -f $HOME/bin/vasmm68k_std ] ; then
-  cd $HOME/gnu
-  mkdir vasm
-  cd vasm
 
-  wget http://server.owl.de/~frank/tags/vasm${VASM_VERSION}.tar.gz
-  tar -xvzf vasm${VASM_VERSION}.tar.gz 
-  cd vasm
-  make CPU=m68k SYNTAX=mot
-  make CPU=m68k SYNTAX=std
-  make CPU=x86 SYNTAX=std
-  make CPU=ppc SYNTAX=std
-  make CPU=arm SYNTAX=std
-  make CPU=z80 SYNTAX=std
-  cp vasmm68k_mot vobjdump vasmm68k_std vasmx86_std vasmppc_std vasmarm_std vasmz80_std $HOME/bin
-fi
+. $CROSS_COMPILE_DIR/install-vasm.sh
 
-# Add vlink linker
-if [ ! -f $HOME/bin/vlink ] ; then
-  cd $HOME/gnu
-  mkdir vlink
-  cd vlink
-  # wget http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
-  wget http://phoenix.owl.de/tags/vlink${VLINK_VERSION}.tar.gz
-  tar -xvzf vlink${VLINK_VERSION}.tar.gz 
-  cd vlink
-  make
-  cp vlink $HOME/bin
-fi
-
-# Add z80 assembler and symbolic links
-if [ ! -f $HOME/bin/sdasz80 ] ; then
-  cd $HOME/gnu
-  mkdir sdcc
-  cd sdcc
-  echo "Uploading sdcc version $SDCC_VERSION"
-  wget https://sourceforge.net/projects/sdcc/files/sdcc/$SDCC_VERSION/sdcc-src-$SDCC_VERSION.tar.bz2 .
-  tar -xvjf sdcc-src-$SDCC_VERSION.tar.bz2
-  mkdir build-sdcc
-  cd build-sdcc
-  ../sdcc/configure
-  make
-fi
+. $CROSS_COMPILE_DIR/install-z80.sh
