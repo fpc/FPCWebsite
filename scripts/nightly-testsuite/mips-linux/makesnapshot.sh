@@ -99,8 +99,6 @@ if [ $res -ne 0 ] ; then
       exit
     fi
   fi
-else
-
 fi
 
 TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
