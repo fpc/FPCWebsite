@@ -28,6 +28,12 @@ if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
+FPCBINNAME=`basename $FPCBIN`
+if [ "${FPCBINNAME}" == "fpc" ] ; then
+  FPCCPUBIN=`$FPCBIN -PB`
+  FPCBINNAME=`basename $FPCCPUBIN`
+fi
+
 if [ -z "$MAKE" ] ; then
   export MAKE=make
 fi
@@ -75,18 +81,80 @@ export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 
 add_to_log=""
 
-if [ "X$FPCBIN" == "Xppc386" ] ; then
-  #NEEDED_OPT="$NEEDED_OPT -Xd"
-  # Use of -Xd prevents correct linking of fpmake
-  if [ -d "/usr/lib32" ] ; then
-    NEEDED_OPT="$NEEDED_OPT -Fl/usr/lib32"
+NATIVE_OPT64=""
+NATIVE_OPT32=""
+
+WHICH_FPCBIN=`which $FPCBIN 2> /dev/null`
+
+if [ -f "$WHICH_FPCBIN" ] ; then
+  START_OS_TARGET=`$WHICH_FPCBIN -iTO`
+  START_CPU_TARGET=`$WHICH_FPCBIN -iTP`
+else
+  echo "Start $FPCBIN cannot be found"
+  exit
+fi
+
+export gcc_libs_64=` gcc -m64 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+NATIVE_OPT64="$NATIVE_OPT64 "
+if [ -n "$gcc_libs_64" ] ; then
+  for dir in $gcc_libs_64 ; do
+    if [ -d "$dir" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT64="$NATIVE_OPT64 -Fl$dir "
+      fi
+    fi
+  done
+fi
+X86_64_GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
+if [ -d "$X86_64_GCC_DIR" ] ; then
+  if [ "${NATIVE_OPT64/-Fl${X86_64_GCC_DIR} /}" == "$NATIVE_OPT64" ] ; then
+    NATIVE_OPT64="$NATIVE_OPT64 -Fl$X86_64_GCC_DIR "
   fi
-  if [ -d "/usr/local/lib32" ] ; then
-    NEEDED_OPT="$NEEDED_OPT -Fl/usr/local/lib32"
+fi
+
+if [ "${FPCBINNAME/ppc386/}" != "${FPCBINNAME}" ] ; then
+  if [ -d /lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
   fi
-  if [ -d "/lib32" ] ; then
-    NEEDED_OPT="$NEEDED_OPT -Fl/lib32"
+  if [ -d /usr/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
   fi
+  if [ -d /usr/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
+  fi
+  if [ -d $HOME/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/lib32"
+  fi
+  if [ -d $HOME/local/lib32 ] ; then
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+  fi
+
+  export gcc_libs_32=` gcc -m32 -print-search-dirs | sed -n "s;libraries: =;;p" | sed "s;:; ;g" | xargs realpath -m | sort | uniq | xargs  ls -1d 2> /dev/null `
+  NATIVE_OPT32="$NATIVE_OPT32 "
+  if [ -n "$gcc_libs_32" ] ; then
+    for dir in $gcc_libs_32 ; do
+      if [ -d "$dir" ] ; then
+        if [ "${NATIVE_OPT32/-Fl${dir} /}" == "$NATIVE_OPT32" ] ; then
+  	  # We don't want the directories that are also for 64-bit
+          if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+            NATIVE_OPT32="$NATIVE_OPT32-Fl$dir "
+          fi
+        fi
+      fi
+    done
+  fi
+  I386_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+  if [ -d "$I386_GCC_DIR" ] ; then
+    if [ "${NATIVE_OPT32/-Fl${I386_GCC_DIR} /}" == "$NATIVE_OPT32" ] ; then
+      if [ "${NATIVE_OPT64/-Fl${dir} /}" == "$NATIVE_OPT64" ] ; then
+        NATIVE_OPT32="$NATIVE_OPT32 -Fl$I386_GCC_DIR "
+      fi
+    fi
+  fi
+
   gnu_ld_version=`ld --version 2> /dev/null`
   if [ "${gnu_ld_version/2.31.1/}" != "$gnu_ld_version" ] ; then
     add_to_log="Warning: this GNU linker has a bug for i386 emulation"
@@ -98,13 +166,15 @@ if [ "X$FPCBIN" == "Xppc386" ] ; then
       add_to_log="$add_to_log Warning: this GNU i386-linux linker has a bug for i386 emulation"
     else
       add_to_log="$add_to_log Using i386-linux-ld instead"
+  # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
       export BINUTILSPREFIX=i386-linux-
-      NEEDED_OPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
+      NATIVE_OPT32="$NATIVE_OPT32 -XP$BINUTILSPREFIX"
     fi
   fi
+  NEEDED_OPT="$NATIVE_OPT32"
   SUFFIX=-32
 else
-  NEEDED_OPT=
+  NEEDED_OPT="$NATIVE_OPT64"
   SUFFIX=-64
 fi
 
@@ -434,7 +504,7 @@ if [ $NewBinary -eq 1 ] ; then
     fi
 
     if [ -z "${NEW_FPC_FOR_TESTS:-}" ] ; then
-      echo "run_tests required a valid TEST_FPC, in NEW_FPC_FOR_TESTS variable"
+      add_log "run_tests required a valid TEST_FPC, in NEW_FPC_FOR_TESTS variable"
       return
     fi
     logdir=~/logs/$SVNDIRNAME/$TODAY/$NEW_UNITDIR/opts-${DIR_OPT}
@@ -509,6 +579,8 @@ if [ $NewBinary -eq 1 ] ; then
       # This freezes on trwsync and tw3695 tests
       # run_tests "-ghc"
     fi
+  else
+    add_log "No tests run on $HOSTNAME"
   fi
 
 function test_llvm ()
