@@ -2,6 +2,41 @@
 
 . $HOME/bin/fpc-versions.sh
 
+notests=1
+clear_tests=0
+
+# Evaluate all arguments containing an equal sign
+# as variable definition, stop as soon as
+# one argument does not contain an equal sign
+while [ "$1" != "" ] ; do
+  if [ "$1" == "--withtests" ] ; then
+    notests=0
+    shift
+    continue
+  fi
+  if [ "$1" == "--clear" ] ; then
+    clear_tests=1
+    shift
+    continue
+  fi
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    shift
+  else
+    break
+  fi
+done
+
+
+if [ -z "$MAKE" ] ; then
+  MAKE=`which gmake 2> /dev/null`
+  if [ -z "$MAKE" ] ; then
+    MAKE=make
+  fi
+fi
+
+set -u
+
 cd $TRUNKDIR
 if [ -d fpcsrc ] ; then
   cd fpcsrc
@@ -14,18 +49,20 @@ if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
 
+if [ $clear_tests -eq 1 ] ; then
+  clear=1
+  shift
+  rm tests/pristine-* 2> /dev/null
+  rm tests/modified-* 2> /dev/null
+else
+  clear=0
+fi
+
 FPCBASEDIR=`pwd`
 
 COMMITFILE=$FPCBASEDIR/commit.txt
 PRISTINELOG=$FPCBASEDIR/pristine.log
 MODIFIEDLOG=$FPCBASEDIR/modified.log
-
-if [ -z "$MAKE" ] ; then
-  MAKE=`which gmake 2> /dev/null`
-  if [ -z "$MAKE" ] ; then
-    MAKE=make
-  fi
-fi
 
 MAKE_OPT="-j 8"
 
@@ -46,14 +83,7 @@ if [ -s ./tests/modified-log ] ; then
   fi
 fi
 
-if [ "$1" == "-clear" ] ; then
-  clear=1
-  shift
-  rm tests/pristine-* 2> /dev/null
-  rm tests/modified-* 2> /dev/null
-else
-  clear=0
-fi
+all_args=""
 
 if [ $has_local_mods -eq 0 ] ; then
   all_args="$*"
@@ -75,24 +105,26 @@ if [ $clear -eq 1 ] ; then
   echo "Merge of revisions $merge_list from trunk to fixes_3_2" > $COMMITFILE
 fi
 
-if [ ! -s ./tests/pristine-log ] ; then
-  echo "Generating pristine testsuite results"
-  (
-  $MAKE distclean
-  cd compiler
-  export INSTALL_PREFIX=$HOME/pas/fpc-$FIXESERSION
+if [ $notests -eq 0 ] ; then
+  if [ ! -s ./tests/pristine-log ] ; then
+    echo "Generating pristine testsuite results"
+    (
+    $MAKE distclean
+    cd compiler
+    export INSTALL_PREFIX=$HOME/pas/fpc-$FIXESERSION
 
-  $MAKE cycle installsymlink rtlinstall OPT="-n -gl"
-  cd ..
-  $MAKE distclean install OPT="-n -gl"
-  cd tests
-  $MAKE distclean TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
-  $MAKE $MAKE_OPT full TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
-  cp output/x86_64-linux/log pristine-log
-  cp output/x86_64-linux/longlog pristine-longlog
-  cp output/x86_64-linux/faillist pristine-faillist
-  cd ..
-  ) > $PRISTINELOG 2>&1
+    $MAKE cycle installsymlink rtlinstall OPT="-n -gl"
+    cd ..
+    $MAKE distclean install OPT="-n -gl"
+    cd tests
+    $MAKE distclean TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
+    $MAKE $MAKE_OPT full TEST_OPT="-n -gl" TEST_FPC=$HOME/pas/fpc-$FIXESVERSION/bin/ppcx64
+    cp output/x86_64-linux/log pristine-log
+    cp output/x86_64-linux/longlog pristine-longlog
+    cp output/x86_64-linux/faillist pristine-faillist
+    cd ..
+    ) > $PRISTINELOG 2>&1
+  fi
 fi
 
 echo "Merging $merge_list"
@@ -106,8 +138,9 @@ for rev in $merge_list ; do
 done
 
 
-# Build new compiler
-echo "Generating modified testsuite results"
+if [ $notests -eq 0 ] ; then
+  # Build new compiler
+  echo "Generating modified testsuite results"
   (
   cd $FPCBASEDIR
   $MAKE distclean
@@ -121,6 +154,25 @@ echo "Generating modified testsuite results"
   cp output/x86_64-linux/faillist modified-faillist
   cd ..
   ) > $MODIFIEDLOG 2>&1
+fi
 
+if [ $notests -eq 0 ] ; then
+  diff -c tests/pristine-faillist tests/modified-faillist
+  res=$?
+  if [ $res -eq 0 ] ; then
+    echo "No change detected in native testsuite"
+    ready=1
+  else
+    ready=0
+  fi
+else
+  ready=1
+fi
 
-diff -c tests/pristine-faillist tests/modified-faillist
+if [ $ready -eq 1 ] ; then
+  echo "Ready to commit change:"
+  cat commit.txt
+  echo "Run 'svn commit -F commit.txt'"
+else
+  echo "Set of merges generate changes to native testsuite..."
+fi
