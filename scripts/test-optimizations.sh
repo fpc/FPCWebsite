@@ -109,6 +109,16 @@ fi
 
 FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
+NATIVE_MACHINE=`uname -m`
+
+case $NATIVE_MACHINE in
+  ppc64*) NATIVE_MACHINE=powerpc64;;
+  ppc*) NATIVE_MACHINE=powerpc;;
+  amd64) NATIVE_MACHINE=x86_64;;
+  i*86) NATIVE_MACHINE=i386;;
+  arm64) NATIVE_MACHINE=aarch64;;
+esac
+
 if [ -f "$FOUND_FPCBIN" ] ; then
   OS_TARGET=`$FOUND_FPCBIN -iTO`
   CPU_TARGET=`$FOUND_FPCBIN -iTP`
@@ -119,10 +129,16 @@ if [ -f "$FOUND_FPCBIN" ] ; then
   else
     CROSS=0
   fi
+  is_32bit=1
+  case $CPU_TARGET in
+    aarch64|powerpc64|x86_64|riscv64|sparc64|mips64|mipsel64) is_32bit=0;;
+  esac
 else
+  # Assume 64-bit by default
   OS_TARGET=`uname -s | tr '[:upper:]' '[:lower:]' `
-  CPU_TARGET=`uname -m | tr '[:upper:]' '[:lower:]' `
+  CPU_TARGET=$NATIVE_MACHINE
   CROSS=0
+  is_32bit=0
 fi
 
 if [ -z "$MAKE" ] ; then
@@ -143,6 +159,8 @@ if [ -z "$SVNDIRNAME" ] ; then
   fi
 fi
 
+set -u 
+
 LOGDIR=$HOME/logs/$SVNDIRNAME/test-optimizations-$CPU_TARGET-$OS_TARGET
 
 if [ ! -d $LOGDIR ] ; then
@@ -151,6 +169,10 @@ fi
 
 DATE="date +%Y-%m-%d-%H-%M-%S"
 TODAY=`date +%Y-%m-%d`
+export NATIVE_OPT=""
+export NATIVE_BINUTILSPREFIX=""
+export FPCMAKEOPT=""
+export BINUTILSPREFIX=""
 
 if [ -d "$HOME/pas/${SVNDIRNAME}" ] ; then
   cd "$HOME/pas/${SVNDIRNAME}"
@@ -161,6 +183,44 @@ fi
 
 if [ -d fpcsrc ] ; then
   cd fpcsrc
+fi
+
+if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
+  if [ $is_32bit -eq 1 ] ; then
+    echo "Running 32-bit $CPU_TARGET compiler on $NATIVE_MACHINE machine, needs special options"
+    if [ "$CPU_TARGET" == "sparc" ] ; then
+      NATIVE_OPT="-ao-32"
+    fi
+    if [ -d /lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl/lib32"
+    fi
+    if [ -d /usr/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl/usr/lib32"
+    fi
+    if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl/usr/sparc64-linux-gnu/lib32"
+    fi
+    if [ -d /usr/local/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl/usr/local/lib32"
+    fi
+    if [ -d $HOME/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/gnu/lib32"
+    fi
+    if [ -d $HOME/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/lib32"
+    fi
+    if [ -d $HOME/local/lib32 ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
+    fi
+    M32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+    if [ -d "$M32_GCC_DIR" ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$M32_GCC_DIR"
+    fi
+    export NATIVE_OPT
+    export NATIVE_BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+    export FPCMAKEOPT="$NATIVE_OPT"
+    export BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+  fi
 fi
 
 set -u
@@ -183,8 +243,9 @@ function decho ()
 
 function gen_compiler ()
 {
-  ADD_OPT="$1 ${OPT:-}"
+  ADD_OPT="$1"
   SUFFIX=${ADD_OPT// /_}
+  ADD_OPT="$ADD_OPT ${OPT:-} $NATIVE_OPT"
   cycle_log=$LOGDIR/cycle${SUFFIX}.log
   NEWBIN=${FPCBIN}${SUFFIX}
   if [ -f "./$NEWBIN" ] ; then
@@ -218,12 +279,13 @@ function gen_compiler ()
 function run_compilers ()
 {
   for SUFFIX in $SUFFIX_LIST ; do
+    ADD_OPT="${OPT:-} $NATIVE_OPT"
     NEWFPC=${FPCBIN}${SUFFIX}
     decho "Testing $NEWFPC"
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
     FULL_TARGET=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
     rtl_log=$LOGDIR/rtl${SUFFIX}.log
-    $MAKE -C ../rtl distclean all FPC=$NEWFPCBIN > $rtl_log 2>&1
+    $MAKE -C ../rtl distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       decho "Warning: $MAKE failed in rtl, res=$makeres"
@@ -238,7 +300,7 @@ function run_compilers ()
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}.log
-      $MAKE -C ../packages distclean all FPC=$NEWFPCBIN > $packages_log 2>&1
+      $MAKE -C ../packages distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in packages, res=$makeres"
@@ -265,7 +327,7 @@ function run_compilers ()
     if [ $do_utils -eq 1 ] ; then
       decho "Testing $NEWFPC in utils"
       utils_log=$LOGDIR/utils${SUFFIX}.log
-      $MAKE -C ../utils distclean all FPC=$NEWFPCBIN > $utils_log 2>&1
+      $MAKE -C ../utils distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in utils, res=$makeres"
@@ -292,7 +354,12 @@ function run_compilers ()
     if [ $do_tests -eq 1 ] ; then
       tests_log=$LOGDIR/tests${SUFFIX}.log
       decho "Testing $NEWFPC in tests"
-      $MAKE -C ../tests distclean full FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN > $tests_log 2>&1
+      TEST_ADD_OPT="${OPT:-} $NATIVE_OPT"
+      BASE_ADD_OPT="${OPT:-} $NATIVE_OPT"
+      if [ -n "$BINUTILSPREFIX" ] ; then
+        BASE_ADD_OPT="$BASE_ADD_OPT -XP$BINUTILSPREFIX"
+      fi
+      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE full failed in tests, res=$makeres"
