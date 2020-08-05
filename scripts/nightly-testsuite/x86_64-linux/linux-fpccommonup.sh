@@ -539,11 +539,11 @@ function test_llvm ()
       add_log "Cycling of LLVM version of compiler for $NEW_CPU_TARGET failed, see details in file $llvmlog"
       return
     fi
-    add_log "cp ./compiler/${FPCBIN} ${NEWFPC_FOR_TESTS}"
-    cp ./compiler/${FPCBIN} ${NEWFPC_FOR_TESTS}
-    export FPCFPMAKE=${NEWFPC_FOR_TESTS}
-    export FPCFPMAKENEW=${NEWFPC_FOR_TESTS}
-    export NEWFPC=${NEWFPC_FOR_TESTS}
+    add_log "cp ./compiler/${FPCBIN} ${NEW_FPC_FOR_TESTS}"
+    cp ./compiler/${FPCBIN} ${NEW_FPC_FOR_TESTS}
+    export FPCFPMAKE=${NEW_FPC_FOR_TESTS}
+    export FPCFPMAKENEW=${NEW_FPC_FOR_TESTS}
+    export NEWFPC=${NEW_FPC_FOR_TESTS}
     run_tests "-dWITH_LLVM" "LLVM=1"
     run_tests "-O2 -dWITH_LLVM" "LLVM=1"
     run_tests "-O3 -dWITH_LLVM" "LLVM=1"
