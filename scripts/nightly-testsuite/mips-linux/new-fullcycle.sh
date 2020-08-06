@@ -40,7 +40,6 @@ export TMPDIR=$TMP
 erase_fpmake=0
 more_tests=0
 
-ulimit -t 3600
 
 function decho ()
 {
@@ -68,6 +67,11 @@ if [ "$MACHINE" = "gcc24" ] ; then
   more_tests=1
 fi
 
+if [ "$MACHINE" == "n16" ] ; then
+  ulimit -t 7200
+else
+  ulimit -t 3600
+fi
 
 BASEDIR=$HOME/pas
 HOMEBIN=$HOME/bin
