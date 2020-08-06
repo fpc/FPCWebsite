@@ -400,6 +400,7 @@ if [ $NewBinary -eq 1 ] ; then
     fi
   }
 
+  LOGSUBDIR=$LOGDIR/$TODAY/$NEW_UNITDIR/
   cp ${svnlog} $LOGSUBDIR/svnlog-${NEW_UNITDIR}.txt
   cp ${makelog} $LOGSUBDIR/makelog-${NEW_UNITDIR}.txt
 
