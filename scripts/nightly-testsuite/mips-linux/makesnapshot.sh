@@ -104,7 +104,9 @@ fi
 TAR=`ls -1t ./fpc-${FPC_VER}*.${FPC_CPUOS}.tar.gz 2> /dev/null | head -1 `
 end_date_time=`date +%Y-%m-%d-%H-%M`
 
-cat > README <<EOF
+README=readme-${FPC_CPUOS}
+
+cat > $README <<EOF
 This ${TAR} snapshot was generated ${date} using:
 ${MAKE} ${MAKE_OPTIONS} ${MAKE_EXTRA}
 started using ${FPC}
@@ -125,11 +127,11 @@ EOF
 decho "Script $0 from $start_date_time to $end_date_time"
 decho "Script $0 from $start_date_time to $end_date_time" >> $LOGFILE
 if [[ -n "${TAR}" && -f "${TAR}" ]]; then
-  decho "scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
-  scp ${TAR} README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}a
+  decho "scp ${TAR} $README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}"
+  scp ${TAR} $README fpcftp:ftp/snapshot/$FTP_DIRNAME/${FPC_CPUOS}/
   scpres=$?
-  decho "Upload of ${TAR} and README to fpcftp server, res=$scpres"
-  decho "Upload of ${TAR} and README to fpcftp server, res=$scpres" >> $LOGFILE
+  decho "Upload of ${TAR} and $README to fpcftp server, res=$scpres"
+  decho "Upload of ${TAR} and $README to fpcftp server, res=$scpres" >> $LOGFILE
 else
   decho "Failed to created ${TAR} file"
   decho "Failed to created ${TAR} file" >> $LOGFILE
