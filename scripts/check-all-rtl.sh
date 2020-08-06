@@ -878,7 +878,8 @@ function check_target ()
     # java is installed, no need for prefix
     BINUTILSPREFIX_LOCAL=
   # Darwin, iphonesim and ios targets use clang by default
-  elif [[ ("$OS_TARG_LOCAL" == "darwin") || ("$OS_TARG_LOCAL" == "iphonesim") || ("$OS_TARG_LOCAL" == "ios") ]] ; then
+  elif [[ ("$OS_TARG_LOCAL" == "darwin") || ("$OS_TARG_LOCAL" == "iphonesim") || ("$OS_TARG_LOCAL" == "ios")
+          || (("$OS_TARG_LOCAL" == "win64") && ("$CPU_TARG_LOCAL" == "aarch64")) ]] ; then
     if [ "X${OPT_LOCAL//Aas/}" != "X$OPT_LOCAL" ] ; then
       ASSEMBLER=as
     else
