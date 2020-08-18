@@ -9,7 +9,7 @@
 ## Last Free Pascal Release version
 ## Should be installed on the machine
 #################################################################
-export RELEASEVERSION=3.0.4
+export RELEASEVERSION=3.2.0
 
 #################################################################
 ## Free Pascal trunk and fixes versions
@@ -50,9 +50,12 @@ INSTALLFIXESDIR=${INSTALLFPCDIRPREFIX}${FIXESVERSION}
 ## Free Pascal test of latest release installed
 #################################################################
 if [ ! -d "${INSTALLFPCDIRPREFIX}${RELEASEVERSION}" ]; then
-  RELEASEVERSION=3.0.2
+  RELEASEVERSION=3.0.4
   if [ ! -d "${INSTALLFPCDIRPREFIX}${RELEASEVERSION}" ]; then
-    RELEASEVERSION=3.0.0
+    RELEASEVERSION=3.0.2
+    if [ ! -d "${INSTALLFPCDIRPREFIX}${RELEASEVERSION}" ]; then
+      RELEASEVERSION=3.0.0
+    fi
   fi
 fi
 
