@@ -469,5 +469,17 @@ do_all > $global_log 2>&1
 
 if [ $test_failed -eq 1 ] ; then
   decho "Optimization test $0 failed"
+  machine_host=`uname -n`
+  if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
+    machine_host=gcc21
+  fi
+  # Only keep first part of machine name
+  machine_host=${machine_host//.*/}
+
+  machine_cpu=`uname -m`
+  machine_os=`uname -s`
+  machine_info="$machine_host $machine_cpu $machine_os"
+
+  mutt -x -s "Free Pascal optimization tests $0 failed in ${SVNDIRNAME}, date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 fi
 
