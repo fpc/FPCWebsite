@@ -3,7 +3,7 @@
 . $HOME/bin/fpc-versions.sh
 
 export MAKE=make
-if [ "${HOSTNAME}" == "shredder" ]; then
+if [ "${HOSTNAME}" = "shredder" ]; then
   HOST_PC=gcc123-VM
 else
   HOST_PC=PC_AFM
@@ -12,7 +12,7 @@ fi
 export HOST_OS=`uname -o`
 export HOST_CPU=`uname -p`
 
-if [ "$HOST_CPU" == "x86" ] ; then
+if [ "#${HOST_CPU}#" == "#x86#" ] ; then
   HOST_FPC=ppc386
   SUFF=-32
   DEF_OPT=-gl
@@ -112,7 +112,7 @@ if [ ${makeres} != 0 ]; then
   tail -60 ${makelog} >> $report
   cd compiler 2>&1 >> $report
   echo "Starting make cycle in compiler dir with $STARTFPC " >> $report
-  ${MAKE} distclean cycle OPT="$DEF_OPT" FPC=$STARTFPC 1>> ${makelog} 2>&1
+  ${MAKE} distclean cycle OPT="-n $DEF_OPT" FPC=$STARTFPC 1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "Cycle failed" >> $report
@@ -120,7 +120,7 @@ if [ ${makeres} != 0 ]; then
     exit
   fi
   cp ./$HOST_FPC ./ppstart
-  ${MAKE} distclean cycle DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR FPC=`pwd`/ppstart  1>> ${makelog} 2>&1
+  ${MAKE} distclean cycle DEBUG=1 install OPT="-n $DEF_OPT" INSTALL_PREFIX=$FPC_INSTALLDIR FPC=`pwd`/ppstart  1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "Second cycle with FPC=`pwd`/ppstart failed" >> $report
@@ -128,7 +128,7 @@ if [ ${makeres} != 0 ]; then
     exit
   fi
   cd ../rtl
-  ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  ${MAKE} distclean all DEBUG=1 install OPT="-n $DEF_OPT" INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "make install in rtl failed" >> $report
@@ -136,7 +136,7 @@ if [ ${makeres} != 0 ]; then
     exit
   fi
   cd ../packages
-  ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  ${MAKE} distclean all DEBUG=1 install OPT="-n $DEF_OPT" INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "make install in packages failed" >> $report
@@ -144,7 +144,7 @@ if [ ${makeres} != 0 ]; then
     exit
   fi
   cd ../utils
-  ${MAKE} distclean all DEBUG=1 install INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
+  ${MAKE} distclean all DEBUG=1 install OPT="-n $DEF_OPT" INSTALL_PREFIX=$FPC_INSTALLDIR 1>> ${makelog} 2>&1
   makeres=$?
   if  [ ${makeres} != 0 ]; then
     echo "make install in utils failed" >> $report
@@ -192,39 +192,35 @@ if [ $skipsnapshot -eq 0 ] ; then
   fi
 fi
 
-if [ ${skiptests} == 0 ]; then
-echo "New $HOST_FPC version is ${Build_version} ${Build_date}" >> $report
+if [ ${skiptests} -eq 0 ]; then
+  echo "New $HOST_FPC version is ${Build_version} ${Build_date}" >> $report
 
-# Not supported on haiku: ulimit -t 300
+  # Not supported on haiku: ulimit -t 300
 
-cd tests
-export TEST_DELTEMP=1
-export TEST_DELBEFORE=1
-export TEST_OPT="$DEF_OPT"
-echo "Starting make distclean fulldb with TEST_OPT=$TEST_OPT" >> $report
-${MAKE} distclean fulldb TEST_USER=pierre TEST_OPT="$TEST_OPT" \
-  TEST_FPC=$NEWBIN DB_SSH_EXTRA=" -i $SSHKEY" 1> $testslog 2>&1
-testsres=$?
-echo "Ending make distclean fulldb; result=${testsres}" >> $report
+  cd tests
+  export TEST_DELTEMP=1
+  export TEST_DELBEFORE=1
+  export TEST_OPT="$DEF_OPT"
+  echo "Starting make distclean fulldb with TEST_OPT=$TEST_OPT" >> $report
+  ${MAKE} distclean fulldb TEST_USER=pierre TEST_OPT="$TEST_OPT" \
+    TEST_FPC=$NEWBIN DB_SSH_EXTRA=" -i $SSHKEY" 1> $testslog 2>&1
+  testsres=$?
+  echo "Ending make distclean fulldb; result=${testsres}" >> $report
 
-tail -30 $testslog >> $report
-fi
+  tail -30 $testslog >> $report
 
-if [ ${skiptests} == 0 ]; then
-export TEST_OPT="-O3  -Criot $TEST_OPT"
-echo "Starting make clean fulldb with TEST_OPT=$TEST_OPT" >> ${report}
-${MAKE} distclean fulldb TEST_USER=pierre TEST_OPT="$TEST_OPT"  \
-  TEST_FPC=$NEWBIN DB_SSH_EXTRA=" -i $SSHKEY" 1 >> $testslog 2>&1
-testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=$TEST_OPT; result=${testsres}" >> $report
+  export TEST_OPT="-O3  -Criot $TEST_OPT"
+  echo "Starting make clean fulldb with TEST_OPT=$TEST_OPT" >> ${report}
+  ${MAKE} distclean fulldb TEST_USER=pierre TEST_OPT="$TEST_OPT"  \
+    TEST_FPC=$NEWBIN DB_SSH_EXTRA=" -i $SSHKEY" 1>> $testslog 2>&1
+  testsres=$?
+  echo "Ending make distclean fulldb with TEST_OPT=$TEST_OPT; result=${testsres}" >> $report
 
-tail -30 $testslog >> $report
+  tail -30 $testslog >> $report
 
-
-mutt -x -s "Free Pascal results for $HOST_OS (in ${HOST_PC}, \
-with option -Xn) ${Build_version} ${Build_date} ${Build_date}" \
-     -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log
-
+  mutt -x -s "Free Pascal results for $HOST_OS (in ${HOST_PC}, \
+    with option -Xn) ${Build_version} ${Build_date} ${Build_date}" \
+    -i $report -- pierre@freepascal.org < /dev/null >  ${report}.log
 fi
 
 # Cleanup, should not be needed
