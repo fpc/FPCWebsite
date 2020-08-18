@@ -119,8 +119,9 @@ if [ -z "${FPC:-}" ] ; then
     m68k) FPC=ppc68k ;;
     mipsel*) FPC=ppcmipsel ;;
     mips*) FPC=ppcmips ;;
-    powerpc) FPC=ppcppc ;;
-    powerpc64) FPC=ppcppc64 ;;
+    powerpc64le|ppc64le) FPC=ppcppc64 ;;
+    powerpc|ppc) FPC=ppcppc ;;
+    powerpc64|ppc64) FPC=ppcppc64 ;;
     riscv32) FPC=ppcrv32 ;;
     riscv64) FPC=ppcrv64 ;;
     x86_64|amd64) FPC=ppcx64 ;;
@@ -210,6 +211,18 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
   # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT=
   USE_RELEASE_MAKEFILE_VARIABLE=1
+elif [ "X$machine_host" == "Xgcc135" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
+  DO_FPC_PACKAGES_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  DO_CHECK_LLVM=1
+  RECOMPILE_FULL_OPT="-CriotR -dFPC_SOFT_FPUX80"
+  USE_RELEASE_MAKEFILE_VARIABLE=1
+  MAKEJOPT="-j 16"
+  export FPMAKEOPT="-T 16"
 elif [ "X$machine_host" == "Xgcc202" ] ; then
   test_utils=1
   test_utils_ppudump=1
