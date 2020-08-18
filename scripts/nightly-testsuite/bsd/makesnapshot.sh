@@ -63,6 +63,34 @@ if [ -n "$SVN" ] ; then
 fi
 
 #EXTRAOPT="OPT=\"$OPT\""
+if [ "${STARTPP/ppc386/}" != "${STARTPP}" ] ; then
+  if [ -d /lib/i386 ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/lib/i386"
+  fi
+  if [ -d /usr/lib/i386 ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/usr/lib/i386"
+  fi
+  if [ -d /lib32 ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/lib32"
+  fi
+  if [ -d /usr/lib32 ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/usr/lib32"
+  fi
+  if [ -d /usr/local/lib32 ] ; then
+    NEEDED_OPT="$NEEDED_OPT -Fl/usr/local/lib32"
+  fi
+  SUFFIX=-32
+  if [ "$CPU" != "i386" ] ; then
+    NEEDED_OPT="-Xd $NEEDED_OPT"
+    OS=`${STARTPP} -iTO`
+    export BINUTILSPREFIX=i386-${OS}-
+    export FPCMAKEOPT="$NEEDED_OPT -XP$BINUTILSPREFIX"
+  fi
+else
+  NEEDED_OPT=
+  SUFFIX=-64
+fi
+
 
 # add needed files (libgdb.a)
 if [ -n "$LIBGDBZIP" ]; then
@@ -72,10 +100,10 @@ fi
 
 # make the snapshot!
 cd $CHECKOUTDIR
-echo "Starting $MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT\""
-$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT"
+echo "Starting $MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT $NEEDED_OPT\""
+$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT $NEEDED_OPT"
 res=$?
-echo "$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT\" ended, res=$res"
+echo "$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT $NEEDED_OPT\" ended, res=$res"
 
 if [ -z "$PPCCPU" ]; then
   PPCCPU=ppc386
@@ -136,7 +164,9 @@ if [ "${ERRORMAILADDR}" != "" ]; then
         echo "Reply-to: bugrep@freepascal.org" >> $MAILFILE
         # truncate the log to only the last 100 lines
         /usr/bin/tail -n 100 $LOGFILE >> $MAILFILE
-        sendmail -f fpc@freepascal.org ${ERRORMAILADDR} < $MAILFILE >/dev/null 2>&1
+        mutt -x -s "Free Pascal $0 results for $FTPDIR" \
+     -i $MAILFILE -- pierre@freepascal.org < /dev/null | tee  ${MAILFILE}.log
+
 fi
 
 # End of script.
