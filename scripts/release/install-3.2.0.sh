@@ -67,9 +67,9 @@ fi
 
 function install_this ()
 {
-  tarfile=$1
-  dirname=$2
-  installdir=$3
+  tarfile="$1"
+  dirname="$2"
+  installdir="$3"
   force=${4:-}
   if [[ ( -d "$installdir" ) && ( -z "$force" ) ]] ; then
     echo "Directory $installdir already exists, skipping"
@@ -78,8 +78,13 @@ function install_this ()
   echo "Unpacking $tarfile"
   tar -xvf $tarfile 
   if [ ! -d "$dirname" ] ; then
-    echo "Directory $dirname not found"
-    return
+    altdirname=${dirname/le/}
+    if [ -d "$altdirname" ] ; then
+      dirname="$altdirname"
+    else
+      echo "Directory $dirname not found"
+      return
+    fi
   fi
   echo "Moving to $dirname"
   cd $dirname
