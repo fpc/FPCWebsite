@@ -441,6 +441,54 @@ start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
 export start_system_date=`date +%Y/%m/%d`
 last_time_in_secs=`date --utc +%s`
 
+DATE_FORMAT="+%Y-%m-%d %H:%M"
+now_stamp=`date "+%s"`
+secs_in_one_day=86400
+
+function date2stamp ()
+{
+  date --utc --date "$1" +%s
+}
+
+function dateDiff ()
+{
+  case $1 in
+    -s)   time_unit=1;      shift;;
+    -m)   time_unit=60;     shift;;
+    -h)   time_unit=3600;   shift;;
+    -d)   time_unit=86400;  shift;;
+    *)    time_unit=86400;;
+  esac
+  date1="$1"
+  date2="$2"
+  diffSec=$((date2-date1))
+  if ((diffSec < 0)); then abs=-1; else abs=1; fi
+  diffSec=$((diffSec*abs))
+  if [ $time_unit -eq $secs_in_one_day ] ; then
+    nbDays=0
+    while [ $diffSec -gt $time_unit ] ; do
+      let nbDays++
+      let diffSec=diffSec-time_unit
+    done
+    echo $nbDays
+  else
+    diffRes=$((diffSec / time_unit))
+    echo $diffRes
+  fi
+}
+
+function filedatestamp ()
+{
+  echo `date -r "$1" "+%s"`
+}
+
+# Returns the number of days since file was last modified
+function fileage ()
+{
+  filedate=$(filedatestamp "$1")
+  echo $(dateDiff "$filedate" "$now_stamp")
+}
+
 function time_since_last ()
 {
   now_time_in_secs=`date --utc +%s`
@@ -1067,10 +1115,16 @@ function check_target ()
   fi
   CROSS_DATE=`$fpc_local_exe -iD` 
   if [ "$start_system_date" != "$CROSS_DATE" ] ; then
-    lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $start_system_date"
-    skipped_count=`expr $skipped_count + 1 `
-    skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-    return
+    fpc_local_file_age=$(fileage $fpc_local_exe)
+    lecho "Note: $fpc_local_exe date `date -r $fpc_local_exe \"$DATE_FORMAT\"` is different from $CROSS_DATE, returned by -iD, fileage=$fpc_local_file_age"
+    if [ $fpc_local_file_age -lt 2 ] ; then
+      lecho "Note: using $fpc_local_exe, despite date difference"
+    else
+      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $start_system_date"
+      skipped_count=`expr $skipped_count + 1 `
+      skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
+      return
+    fi
   fi
 
 
