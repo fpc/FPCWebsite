@@ -60,13 +60,16 @@ if [ -z "$FPCBIN" ]; then
   fi
 fi
 
+run_check_all_rtl=0
+
 TEST_OPT_2="-O3 -Cg"
 
 if [ "${processor}" = "ppc64le" ] ; then
   TEST_ABI=le
   MAKE_J_OPT="-j 16"
   export FPMAKEOPT="-T 16"
-  ulimit -d 65536 -s 8192 -t 2400
+  # ulimit -d 65536 -s 8192 -t 2400
+  ulimit -s 8192 -t 2400
 elif [ "${processor}" = "m68k" ] ; then
   TEST_ABI=
   MAKE_J_OPT=
@@ -128,6 +131,10 @@ HOST_PC=${HOSTNAME%%\.*}
 if [ "$HOST_PC" = "gcc2-power8" ] ; then
   HOST_PC=gcc2-power8-ppc64le
   export OVERRIDEVERSIONCHECK=1
+elif [ "$HOST_PC" = "gcc135" ] ; then
+  HOST_PC=gcc135-ppc64le
+  export OVERRIDEVERSIONCHECK=1
+  run_check_all_rtl=1
 fi
 
 export TEST_USER=pierre
@@ -256,12 +263,6 @@ else
   echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
 fi
 
-# Start the testsuite generation part
-cd tests
-# Limit resources (64mb data, 8mb stack, 4 minutes)
-
-ulimit -d 65536 -s 8192 -t 240
-
 export FPC=`which ${FPCBIN}`
 diff "${FPC}" "${NEWFPCBIN}" 
 is_same=$?
@@ -278,6 +279,15 @@ FPC_CPU_TARGET=`${NEWFPCBIN} -iTP`
 export TEST_OPT="${OPT}"
 echo "New FPC is ${FPC}" >> $report
 
+if [ $run_check_all_rtl -eq 1 ] ; then
+  $HOME/bin/check-all-rtl.sh FIXES=$FIXES
+fi
+
+# Start the testsuite generation part
+cd tests
+# Limit resources (64mb data, 8mb stack, 4 minutes)
+
+ulimit -d 65536 -s 8192 -t 240
 
 echo "Starting make distclean fulldb, TEST_OPT=\"${TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> $report
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
