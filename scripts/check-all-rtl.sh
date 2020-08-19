@@ -110,6 +110,11 @@ else
   test_utils_ppudump=0
 fi
 
+# Be sure to only keep compiler name, without directory
+if [ -n "${FPC:-}" ] ; then
+  FPC=`basename $FPC`
+fi
+
 if [ -z "${FPC:-}" ] ; then
   FPC=ppc$machine_cpu
   case $machine_cpu in
@@ -528,7 +533,7 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   if [ $makeres -ne 0 ] ; then
     RELEASE_FPC=`which $FPC`
     mecho "Second try for native compiler, using release FPCC=\"$RELEASE_FPC\""
-    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_$FPC >> $cyclelog 2>&1
+    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_FPC >> $cyclelog 2>&1
     make installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=`pwd`/$FPC >> $cyclelog 2>&1
     makeres=$?
   fi
