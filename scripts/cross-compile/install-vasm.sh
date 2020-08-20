@@ -98,23 +98,42 @@ function recompile_vlink ()
     fi
     # wget http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
     wget http://phoenix.owl.de/tags/$VLINK_SRC
+    res=$?
+    if [ $res -ne 0 ] ; then
+      return $res
+    fi
     tar -xvzf $VLINK_SRC
+    res=$?
+    if [ $res -ne 0 ] ; then
+      return $res
+    fi
   fi
   cd vlink
   make
+  res=$?
+  if [ $res -ne 0 ] ; then
+    return $res
+  fi
   cp vlink $HOME/bin
+  res=$?
+  if [ $res -ne 0 ] ; then
+    return $res
+  fi
 }
 
 # Add vlink linker
 if [ ! -f $HOME/bin/vlink ] ; then
   echo "Trying to recompile vlink version $VLINK_VERSION"
-  res=`recompile_vlink`
-  if [ $res -eq 1 ] ; then
+  recompile_vlink
+  res=$?
+  if [ $res -ne 0 ] ; then
     VLINK_VERSION=
     echo "Trying to recompile generic vlink version"
     recompile_vlink
   fi
 fi
+
+cd $HOME/bin
 
 for os in $z80_os_list ; do
   z80_symlink=z80-${os}-vlink
