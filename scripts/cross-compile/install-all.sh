@@ -17,14 +17,14 @@ if [ ! -s sys-root ] ; then
   mkdir sys-root
 fi
 
-if [ ! -d scripts ] ; then
-  if [ ! -d pas/scripts ] ; then
-    SCRIPTDIR=$HOME/pas/scripts
-  else
-    echo "Installing Free Pascal scripts"
-    svn checkout https://svn.freepascal.org/svn/html/scripts
-    SCRIPTDIR=$HOME/scripts
-  fi
+if [ -d scripts ] ; then
+  SCRIPTDIR=$HOME/scripts
+elif [ -d pas/scripts ] ; then
+  SCRIPTDIR=$HOME/pas/scripts
+else
+  echo "Installing Free Pascal scripts"
+  svn checkout https://svn.freepascal.org/svn/html/scripts
+  SCRIPTDIR=$HOME/scripts
 fi
 
 cd $SCRIPTDIR
@@ -56,9 +56,15 @@ case "$os" in
 esac
 
 case "$cpu" in
-  sparc|sparc64) CPU32=sparc; CPU64=sparc64;;
-  i*86|x86_64|amd64) CPU32=i386; CPU64=x86_64;;
-  arm|aarch64|arm64) CPU32=arm; CPU64=aarch64;;
+  sparc64) CPU32=sparc; CPU64=sparc64;;
+  sparc) CPU32=sparc;;
+  x86_64|amd64) CPU32=i386; CPU64=x86_64;;
+  i*86) CPU32=i386;;
+  aarch64|arm64) CPU32=arm; CPU64=aarch64;;
+  arm*) CPU32=arm;;
+  ppc64le|powerpc64le) CPU64=powerpc64le;;
+  ppc64|powerpc64) CPU32=powerpc; CPU64=powerpc64;;
+  ppc|powerpc) CPU32=powerpc;;
 esac
 
 script_dir=$SCRIPTDIR/nightly-testsuite/$cpu-$os
