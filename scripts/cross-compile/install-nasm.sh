@@ -20,7 +20,8 @@ else
   fi
 fi
 
-if [  $recompile -eq 1 ] ; then
+function recompile_nasm ()
+{
   cd $HOME/gnu
   if [ ! -d nasm ] ; then
     mkdir nasm
@@ -35,7 +36,7 @@ if [  $recompile -eq 1 ] ; then
     echo "wget failed to download file $NASM_SRC"
     return
   fi
-  tar -xvzf nasm-$NASM_SRC
+  tar -xvzf $NASM_SRC
   res=$?
   if [ $res -ne 0 ] ; then
     echo "tar failed to untar file $NASM_SRC"
@@ -56,18 +57,22 @@ if [  $recompile -eq 1 ] ; then
     echo "'make all install' failed for $NASM_SRC"
     return
   fi
+}
 
-  cd $HOME/bin
-  ln -sf $HOME/gnu/bin/nasm nasm
-  nasm_prefix_list="i8086-msdos- i8086-embedded- i8086-win16- i386-go32v2- i386-win32- i386-linux- i386-embedded-"
-
-  for pref in $nasm_prefix_list ; do
-    if [ ! -L "$pref-nasm" ] ; then
-      if [ ! -f "$pref-nasm" ] ; then
-        ln -s nasm $pref-nasm
-      fi
-    fi
-  done
+if [  $recompile -eq 1 ] ; then
+  recompile_nasm
 fi
+
+cd $HOME/bin
+ln -sf $HOME/gnu/bin/nasm nasm
+nasm_prefix_list="i8086-msdos i8086-embedded i8086-win16 i386-go32v2 i386-win32 i386-linux i386-embedded"
+
+for pref in $nasm_prefix_list ; do
+  if [ ! -L "$pref-nasm" ] ; then
+    if [ ! -f "$pref-nasm" ] ; then
+      ln -s nasm $pref-nasm
+    fi
+  fi
+done
 
 
