@@ -68,6 +68,8 @@ if [ $recompile -eq 1 ] ; then
   fi
 fi
 
+cd $HOME/bin
+
 for os in $z80_os_list ; do
   z80_symlink=z80-${os}-vasmz80_std
   if [ ! -L "$z80_symlink" ] ; then
