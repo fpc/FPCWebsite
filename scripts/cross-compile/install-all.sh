@@ -72,6 +72,8 @@ if [ ! -d "$script_dir" ] ; then
   script_dir=$SCRIPTDIR/nightly-testsuite/$os
 fi
 
+maybe_add_symlink $SCRIPTDIR/fpc-versions.sh
+
 for file in $script_dir/*.sh ; do
   maybe_add_symlink $file
 done 
@@ -79,18 +81,15 @@ done
 # Get Free Pascal versions from the fpc-versions.sh script
 . $HOME/bin/fpc-versions.sh
 
-QEMU_VERSION=5.0.0
+QEMU_VERSION=5.1.0
 NASM_VERSION=2.15.03
 VASM_VERSION=1_8h
 VLINK_VERSION=0_16e
 SDCC_VERSION=4.0.0
+
 do_update=0
 
 cd $HOME/pas
-
-case "$os" in
-  solaris) RELEASEVERSION=3.0.2
-esac
 
 CPUOS32=$CPU32-$os
 CPUOS64=$CPU64-$os
@@ -182,7 +181,6 @@ fi
 if [ ! -d gnu ] ; then
   mkdir gnu
 fi
-cd gnu
 
 # Install cross-binutils
 if [ ! -d $HOME/gnu/binutils/build ] ; then
@@ -202,8 +200,10 @@ fi
 
 CROSS_COMPILE_DIR="$SCRIPTDIR/cross-compile"
 
+cd $HOME/gnu
 . $CROSS_COMPILE_DIR/install-qemu.sh
 
+cd $HOME/gnu
 . $CROSS_COMPILE_DIR/install-nasm.sh
 
 
@@ -257,6 +257,8 @@ HERE_SCRIPT
 fi
 
 
+cd $HOME/gnu
 . $CROSS_COMPILE_DIR/install-vasm.sh
 
+cd $HOME/gnu
 . $CROSS_COMPILE_DIR/install-z80.sh
