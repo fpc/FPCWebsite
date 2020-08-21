@@ -5,8 +5,11 @@ if [ -n "$1" ] ; then
 fi
 
 if [ -z "$QEMU_VERSION" ] ; then
-  QEMU_VERSION=5.0.0
+  QEMU_VERSION=5.1.0
 fi
+
+cd $HOME/gnu
+
 if [ ! -f qemu-$QEMU_VERSION.tar.xz ] ; then
   echo "Downloading qemu version $QEMU_VERSION"
   wget https://download.qemu.org/qemu-$QEMU_VERSION.tar.xz
