@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 if [ -z "$VASM_VERSION" ] ; then
-  VASM_VERSION=1_8f
+  VASM_VERSION=1_8h
 fi
 if [ -z "$VLINK_VERSION" ] ; then
-  VLINK_VERSION=0_18e
+  VLINK_VERSION=0_16e
 fi
 
 
