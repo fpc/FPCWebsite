@@ -1595,10 +1595,11 @@ check_target xtensa freertos "-n" "SUBARCH=lx106"
 check_target arm freertos "-n" "SUBARCH=armv6m"
 
 # z80 cpu, also test alternative assemblers
-export ASPROG_LOCAL=z80asm
-check_target z80 embedded "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
-check_target z80 zxspectrum "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
-check_target z80 msxdos "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
+# z80asm does not seem to support relocations
+# export ASPROG_LOCAL=z80asm
+# check_target z80 embedded "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
+# check_target z80 zxspectrum "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
+# check_target z80 msxdos "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 export ASPROG_LOCAL=vasmz80_std
 check_target z80 embedded "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
 check_target z80 zxspectrum "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
