@@ -59,6 +59,8 @@ elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   # export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc122" ] ; then
   run_test_optimizations=1
+  check_cross_trunk=1
+  check_cross_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   check_cross_trunk=1
   check_cross_fixes=1
