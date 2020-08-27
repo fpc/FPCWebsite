@@ -25,10 +25,10 @@
 <ul>
 <li>
 <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.arm-wince.exe">fpc-@latestversion@.i386-win32.cross.arm-wince.exe</a> (16 MB)
-<p><trn key="website.Download_win32_wince_cross_installer" locale="en_US">Contains the installer with the win32 to arm-wince cross-compiler.</trn></p>
+<p><trn key="website.Download_i386_win32_wince_cross_installer_desc" locale="en_US">Contains the installer with the win32 to arm-wince cross-compiler.</trn></p>
 <li>
 <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe">fpc-@latestversion@.i386-win32.cross.x86_64-win64.exe</a> (39 MB)
-<p><trn key="website.Download_win32_win64_cross_installer" locale="en_US">Contains the installer with the win32 to win64 cross-compiler.</trn></p>
+<p><trn key="website.Download_win32_win64_cross_installer_desc" locale="en_US">Contains the installer with the win32 to win64 cross-compiler.</trn></p>
 <li>
 <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe">fpc-@latestversion@.i386-win32.cross.i8086-msdos.exe</a> (161 MB)
 <p><trn key="website.Download_win32_msdos_cross_installer" locale="en_US">Contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler.</trn></p>

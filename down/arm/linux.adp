@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.down.armlinux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Linux ARM</trn></property>
+<property name="header"><trn key="website.down_linux_arm_header" locale="en_US">Download Linux ARM</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -12,10 +12,8 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>@latestversion@</b>.
-</trn>
+  The latest release version is</trn> <b>@latestversion@</b>.
 
-<h1>@latestversion@</h1>
 <trn key="website.down.armlinux.latestversion" locale="en_US">
 The FPC @latestversion@ package for arm-linux is available in two to choose format:
 <ul>

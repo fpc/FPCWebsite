@@ -13,7 +13,9 @@
 
 <p><trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.</p>
 
+<trn key="website.down.x86_64.freebsd.note" locale="en_US">
 <p><b>Note, current release builds of FreeBSD still assume ld is the ld.bfd linker, make sure it is default!</b></p>
+</trn>
 
 <h3><trn key="website.Download_native_compiler" locale="en_US">Download native compiler</trn></h3>
 <ul>

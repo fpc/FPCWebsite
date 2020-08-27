@@ -7,9 +7,8 @@
 <property name="maindir">../../</property>
 <a name="source"></a><h1><trn key="website.down.source.sources.word" locale="en_US">Source</trn></h1>
 <p>
-<trn key="website.down.source.sources.formats" locale="en_US">The complete sources can be downloaded in the following formats:</trn>
-<p>
-<trn key="website.down.source.sources.formats.list" locale="en_US">The complete sources can be downloaded in the following formats:</trn>
+<trn key="website.down.source.sources.formats.list" locale="en_US">
+The complete sources can be downloaded in the following formats:
 <DL>
   <DT>Zip file:</DT>
   <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (86 MB)</DD>

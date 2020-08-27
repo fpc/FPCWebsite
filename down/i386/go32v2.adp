@@ -26,7 +26,7 @@ or you can download a file that contains the same, only without sources and docu
 </ul>
 </trn>
 
-<trn key="website.down.i386.go32v2.download" locale="en_US">
+<trn key="website.down.i386.go32v2.ide.builds" locale="en_US">
 <h3>Alternate IDEs builds</h3>
 <ul>
 <li>

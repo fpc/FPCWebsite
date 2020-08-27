@@ -18,7 +18,7 @@
   <li> <a href="#amigabig"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
 </ul>
 
-<h3><a name="amigabig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file for OS3.0+ 68020+ SoftFPU</trn>:</h3>
+<h3><a name="amigabig"></a><trn key="website.download_in_1_os3_68020file" locale="en_US">Download in 1 big file for OS3.0+ 68020+ SoftFPU</trn>:</h3>
 <ul>
 <li> <a href="@mirror_url@dist/@latestversion@/m68k-amiga/fpc-@latestversion@a-m68k-amiga.lha">fpc-@latestversion@a-m68k-amiga.lha</a> (37 MB)
 </ul>

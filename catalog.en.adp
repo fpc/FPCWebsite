@@ -267,6 +267,9 @@ Advantages of Free Pascal
 <TRN locale="en_US" key="website.contribs.title">
 Free Pascal - Contributions
 </TRN>
+<TRN locale="en_US" key="website.contribs.header">
+Contributions
+</TRN>
 <TRN locale="en_US" key="website.contribs.list">
 
   Below is the list of contributions by various FPC users. You can add an entry if you have a community account.<p>
@@ -376,7 +379,7 @@ development is progressing you can take a peek at the developer versions.</p>
 
 <h3>Download Daily Source Snapshot of Development Tree (trunk)</h3>
 <p>
-You can download today's development (trunk - currently v3.1.x) sources in the form
+You can download today's development (trunk - currently v3.3.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These source snapshots are
 updated on a daily basis, and reflect the state of the source repository.
 </p>
@@ -395,7 +398,7 @@ with documentation sources and release-building-related files in the same direct
 
 <h3>Download Daily Source Snapshot of the Fixes Tree</h3>
 <p>
-You can download today's fixes branch (currently v3.0.x) sources in the form
+You can download today's fixes branch (currently v3.2.x) sources in the form
 of a packed source snapshot from our FTP server (and its mirrors). These sources
 may eventually be used to build the next stable (fixes) release. These source snapshots are updated on
 a daily basis, and reflect the state of the source repository.
@@ -504,18 +507,18 @@ far the most economic way to remain up-to-date in terms of bandwidth.
 </OL>
 
 </TRN>
-<TRN locale="en_US" key="website.develop.fixes30x">
+<TRN locale="en_US" key="website.develop.fixes32x">
 
 <p>
-<b>Fixes to 3.0.x </b>
+<b>Fixes to 3.2.x </b>
 </p>
 <p>
 The sources of the fixes branch need a separate directory, so create a separate directory fixes, enter it, and repeat
-the above checkout command with the URL https://svn.freepascal.org/svn/fpc/branches/fixes_3_0:
+the above checkout command with the URL https://svn.freepascal.org/svn/fpc/branches/fixes_3_2:
 </p>
 <pre>
 cd mysvn/fixes
-svn checkout https://svn.freepascal.org/svn/fpc/branches/fixes_3_0 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/branches/fixes_3_2 fpc
 </pre>
 
 and to update:
@@ -526,7 +529,7 @@ svn update fpc
 
 <p>
 To checkout a release, you have to checkout the tagged versions, e.g.
-svn checkout https://svn.freepascal.org/svn/fpc/tags/release_3_0_2 fpc
+svn checkout https://svn.freepascal.org/svn/fpc/tags/release_3_2_0 fpc
 </p>
 
 <p>
@@ -609,11 +612,19 @@ Run-Time Library (RTL) units reference manual
 <TRN locale="en_US" key="website.Doc_fclurm">
 Free Component Library (FCL) units reference manual
 </TRN>
+<TRN locale="en_US" key="website.Doc_fclresurm">
+Free Component Library (FCL) Resource units reference manual
+</TRN>
 <TRN locale="en_US" key="website.Doc_fpcdocdtrm">
 fpdoc documentation tool reference manual
 </TRN>
 <TRN locale="en_US" key="website.Doc_refchart">
 Reference chart with all compiler options and switches (PDF only)
+</TRN>
+<TRN locale="en_US" key="website.search_docs">
+
+  You can also <a href="docsearch/docsearch.var">search the documentation</a>.
+
 </TRN>
 <TRN locale="en_US" key="website.alternative_doc_formats">
 
@@ -671,20 +682,63 @@ Search the FPC documentation.<p>
 </div>
 
 </TRN>
+<TRN locale="en_US" key="website.down.armandroid.title">
+Free Pascal - Download Android
+</TRN>
+<TRN locale="en_US" key="website.down_android_aarch64">
+Download Android for ARM64
+</TRN>
+<TRN locale="en_US" key="website.latest_version_is">
+
+  The latest release version is
+</TRN>
+<TRN locale="en_US" key="website.down.aarch64android">
+
+<h3><a name="aarch64android"></a>Download in 1 big file:</h3>
+<ul>
+<li> <a
+href="@mirror_url@dist/@latestversion@/aarch64-android/fpc-@latestversion@-aarch64-android.built-on-x86_64-linux.tar">fpc-@latestversion@-aarch64-android.built-on-x86_64-linux.tar</a> (118 MB)
+contains a standard tar archive, with an install script<br>
+After untarring the archive, you can run the install script in the created
+directory by issuing the command "<tt>sh install.sh</tt>".
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.Back_to_mirrorlist">
+Back to mirror list
+</TRN>
+<TRN locale="en_US" key="website.Back_to_general_download_page">
+Back to general download page
+</TRN>
+<TRN locale="en_US" key="website.down.aarch64linux.title">
+Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down_linux_aarch64">
+Download Linux ARM64
+</TRN>
+<TRN locale="en_US" key="website.down.aarch64linux.latestversion">
+
+<h3><a name="linuxbig"></a>Download in 1 big file:</h3>
+<ul>
+<li> <a
+href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar</a> (81 MB)
+contains a standard tar archive, with an install script<br>
+After untarring the archive, you can run the install script in the created
+directory by issuing the command "<tt>sh install.sh</tt>".
+</ul>
+
+</TRN>
 <TRN locale="en_US" key="website.down.android.title">
 Free Pascal - Download Android version
 </TRN>
 <TRN locale="en_US" key="website.down_android">
 Download Android
 </TRN>
-<TRN locale="en_US" key="website.latest_version_is">
-The latest release version is
-</TRN>
 <TRN locale="en_US" key="website.Download_installer">
 Download native compiler
 </TRN>
-<TRN locale="en_US" key="website.native_compiler_not_available_android">
-There is no native compiler available for Android. You have to use a cross-compiler.
+<TRN locale="en_US" key="website.native_compiler_android">
+As opposed to previous releases, there is a native compiler available for Android on several architectures. However, most users would probably still use a cross-compiler from either MS Windows or Linux.
 </TRN>
 <TRN locale="en_US" key="website.Download_cross_compilers_from_other_host_m">
 Download cross-compilers running on another host
@@ -693,13 +747,40 @@ Download cross-compilers running on another host
 This cross-compiler runs on another host and needs the corresponding native compiler as a prerequisite.
 </TRN>
 <TRN locale="en_US" key="website.win32_android_file_download_descr">
-Contains the installer with the Win32 to Android (MIPS, ARM, i386) cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.
+Contains the installer with the Win32 to Android (ARM, ARM64, i386 and x86_64) cross-compilers. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler package</a> (51 MB) to work properly.
 </TRN>
-<TRN locale="en_US" key="website.Back_to_mirrorlist">
-Back to mirror list
+<TRN locale="en_US" key="website.linux_android_file_download_descr">
+Contains the package with the Linux to Android on AArch64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/x86_64-linux/fpc-@latestversion@-x86_64-linux.tar">native Linux compiler package</a> (82 MB) to work properly.
 </TRN>
-<TRN locale="en_US" key="website.Back_to_general_download_page">
-Back to general download page
+<TRN locale="en_US" key="website.down_android_arm">
+Download Android ARM
+</TRN>
+<TRN locale="en_US" key="website.down.armandroid">
+
+<h3><a name="armandroid"></a>Download in 1 big file:</h3>
+<ul>
+<li> <a
+href="@mirror_url@dist/@latestversion@/arm-android/fpc-@latestversion@-arm-android.built-on-x86_64-linux.tar">fpc-@latestversion@-arm-android.built-on-x86_64-linux.tar</a> (59 MB)
+contains a standard tar archive, with an install script<br>
+After untarring the archive, you can run the install script in the created
+directory by issuing the command "<tt>sh install.sh</tt>".
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.down.arm.aros.title">
+Free Pascal - Download AROS
+</TRN>
+<TRN locale="en_US" key="website.down.arm.aros.header">
+Download AROS ARM
+</TRN>
+<TRN locale="en_US" key="website.down.choose.download">
+The FPC package for is available in one easy to choose format:
+</TRN>
+<TRN locale="en_US" key="website.everything_in_1">
+Everything in 1 big package
+</TRN>
+<TRN locale="en_US" key="website.download_in_1_file_aros_on_arm">
+Download in 1 big file for AROS on ARM
 </TRN>
 <TRN locale="en_US" key="website.down.gba.title">
 Free Pascal - Download Game Boy Advance version
@@ -718,6 +799,9 @@ Contains a zip file with the win32 to arm-gba cross-compiler. Extract the zip in
 </TRN>
 <TRN locale="en_US" key="website.down.armlinux.title">
 Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down_linux_arm_header">
+Download Linux ARM
 </TRN>
 <TRN locale="en_US" key="website.down.armlinux.latestversion">
 
@@ -798,11 +882,25 @@ Download documentation
 <TRN locale="en_US" key="website.down.docs.unix">
 (for Unix platforms)
 </TRN>
+<TRN locale="en_US" key="website.down.i386.aros.title">
+Free Pascal - Download AROS
+</TRN>
+<TRN locale="en_US" key="website.down.i386.aros.header">
+Download AROS i386
+</TRN>
+<TRN locale="en_US" key="website.download_in_1_file_aros_on_i386">
+Download in 1 big file for AROS on i386
+</TRN>
 <TRN locale="en_US" key="website.down.i386.freebsd.title">
 Free Pascal - Download FreeBSD Intel x86 version
 </TRN>
 <TRN locale="en_US" key="website.down.i386.freebsd.header">
 Download FreeBSD Intel x86
+</TRN>
+<TRN locale="en_US" key="website.down.x86_64.freebsd.note">
+
+<p><b>Note, current release builds of FreeBSD still assume ld is the ld.bfd linker, make sure it is default!</b></p>
+
 </TRN>
 <TRN locale="en_US" key="website.Download_native_compiler">
 Download native compiler
@@ -829,10 +927,20 @@ isn't supposed to work in Windows NT/2000/XP.
 <ul>
 <li>
 You can download the whole package as 1 big zipped file:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos304full.zip">dos304full.zip</a> (48 MB),<br>
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos@shortversion@full.zip">dos@shortversion@full.zip</a> (75 MB),<br>
 or you can download a file that contains the same, only without sources and documentation:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos304.zip">dos304.zip</a> (21 MB).
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/dos@shortversion@.zip">dos@shortversion@.zip</a> (33 MB).
 <!-- <li>Alternatively, you can download individual packages from <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate">here</a>. -->
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.down.i386.go32v2.ide.builds">
+
+<h3>Alternate IDEs builds</h3>
+<ul>
+<li>
+Alternative textmode IDE build (vesa, no debug etc) are bundled in one big archive:
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/idedos_alternative_builds.zip">idedos_alternative_builds.zip</a> (60 MB).
 </ul>
 
 </TRN>
@@ -846,10 +954,10 @@ You can download the contents of the above zip files as separate files:<br>
 
 <li> <b>Mandatory files:</b>
 <ul>
-<li> Install program: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.exe">install.exe</a> (352 kB)
-<li> ...and its data file <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.dat">install.dat</a> (24 kB)
-<li> Base files (program and units): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/basedos.zip">basedos.zip</a> (4 MB)
-<li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/aslddos.zip">aslddos.zip</a> (1 MB)
+<li> Install program: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.exe">install.exe</a> (205 kB)
+<li> ...and its data file <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/install.dat">install.dat</a> (42 kB)
+<li> Base files (program and units): <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/basedos.zip">basedos.zip</a> (4.7 MB)
+<li> GNU <tt>as</TT> and <tt>ld</tt>: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/aslddos.zip">aslddos.zip</a> (1.2 MB)
 </ul>
 
 </TRN>
@@ -937,12 +1045,12 @@ change the name of the files!
 <li> Optionally, you can download these files as well:
 <ul>
 <li>Make utilities:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/makedos.zip">makedos.zip</a> (1.4 MB)
-<li> Units required for building fpmake.exe: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/ufpmkdos.zip">ufpmkdos.zip</a> (188 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/makedos.zip">makedos.zip</a> (1.1 MB)
+<li> Units required for building fpmake.exe: <a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/ufpmkdos.zip">ufpmkdos.zip</a> (250 kB)
 <li>CWSDPMI (necessary for running the installer unless some DPMI runtime already present):
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (20 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/cwsdpmi.exe">cwsdpmi.exe</a> (21 kB)
 <li>Floating point processor emulator:
-<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (60 kB)
+<a href="@mirror_url@dist/@latestversion@/i386-go32v2/separate/wmemu387.dxe">wmemu387.dxe</a> (26 kB)
 </ul>
 
 </TRN>
@@ -961,13 +1069,13 @@ Download Haiku Intel x86
 <TRN locale="en_US" key="website.down.i386.linux.title">
 Free Pascal - Download Linux
 </TRN>
+<TRN locale="en_US" key="website.down_linux_i386_header">
+Download Intel/i386 Linux
+</TRN>
 <TRN locale="en_US" key="website.It_is_available_in">
 
 It is available in different formats:
 
-</TRN>
-<TRN locale="en_US" key="website.everything_in_1">
-Everything in 1 big package
 </TRN>
 <TRN locale="en_US" key="website.RPM_packages_1">
 RedHat Packages (.rpm)
@@ -980,13 +1088,16 @@ Download in 1 big file
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_1_file_download_descr">
 
-  contains a standard tar archive, with an install script<br>
+  contains a standard tar archive, with an install script.
   After untarring the archive into a temporary location, you can run the install script
   by issuing the command "<tt>sh install.sh</tt>".
 
 </TRN>
 <TRN locale="en_US" key="website.Download_linuxi386_msdos_cross_installer">
  contains tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler only. You can install it like the main package.
+</TRN>
+<TRN locale="en_US" key="website.Download_linuxi386_x86_64_cross_installer">
+ contains tar file with the Linux/i386 to x86_64-linux cross-compiler only. You can install it like the main package.
 </TRN>
 <TRN locale="en_US" key="website.RPM_packages">
 RPM (Redhat Package Manager) Packages
@@ -1009,6 +1120,12 @@ Source Packages
 
        contains the sources for MS-DOS target.<br>
      
+</TRN>
+<TRN locale="en_US" key="website.down_i386_i8086_msdos_binary_packages">
+i8086 MS-DOS cross binary Packages
+</TRN>
+<TRN locale="en_US" key="website.down_i386_i8086_source_packages">
+Source Packages for cross i8086 compilers. 
 </TRN>
 <TRN locale="en_US" key="website.DEB_packages">
 Debian Packages
@@ -1073,6 +1190,9 @@ contains an installation package for compiling Intel (32 bit and 64 bit) program
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.powerpc">
 contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.
+</TRN>
+<TRN locale="en_US" key="website.down.i386.macosx.fpc320intel">
+contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br>
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.fpc305intel">
 contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br>
@@ -1153,6 +1273,9 @@ Free Pascal - Download OS/2 version
 <TRN locale="en_US" key="website.down.i386.os2.header">
 Download OS/2
 </TRN>
+<TRN locale="en_US" key="website.download_in_1_file_single archive">
+Download as a single archive
+</TRN>
 <TRN locale="en_US" key="website.i386-os2_1_file_download">
 
   The FPC package for OS/2 and eComStation is available in the following options:
@@ -1231,8 +1354,11 @@ Download cross-compilers for other targets
 <TRN locale="en_US" key="website.cross_installer_prerequisite">
 These cross-compilers are add-ons to the native compiler and do not work stand-alone.
 </TRN>
-<TRN locale="en_US" key="website.Download_win32_win64_cross_installer">
-Contains the installer with the win32 to x86_64-Win64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (39 MB) to be able to work.
+<TRN locale="en_US" key="website.Download_i386_win32_wince_cross_installer_desc">
+Contains the installer with the win32 to arm-wince cross-compiler.
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_win64_cross_installer_desc">
+Contains the installer with the win32 to win64 cross-compiler.
 </TRN>
 <TRN locale="en_US" key="website.Download_win32_msdos_cross_installer">
 Contains the installer with the win32 to MS-DOS (real mode, i8086) cross-compiler.
@@ -1252,6 +1378,9 @@ Free Pascal - Download i8086 MS-DOS version
 <TRN locale="en_US" key="website.down_i8086_msdos">
 Download i8086 MS-DOS
 </TRN>
+<TRN locale="en_US" key="website.native_compiler_not_available_msdos">
+There is no native compiler available for i8086 MS-DOS. You have to use a cross-compiler.
+</TRN>
 <TRN locale="en_US" key="website.other_host_cross_installer_prerequisite_m">
 These cross-compilers run on another host and need the corresponding native compiler as a prerequisite.
 </TRN>
@@ -1268,22 +1397,25 @@ Contains a tar file with the Linux/x86_64 to MS-DOS (real mode, i8086) cross-com
 A addon RPM to install i386-linux to i8086 msdos crosscompilation
 </TRN>
 <TRN locale="en_US" key="website.Download_linux_i386_msdos_cross_srpm">
-The associated i386 to i8086 SRPM
+The associated i386 and x86_64 to i8086 SRPM
 </TRN>
 <TRN locale="en_US" key="website.Download_linux_x86_64_msdos_cross_rpm">
 A addon RPM to install x86_64-linux to i8086 msdos crosscompilation
 </TRN>
-<TRN locale="en_US" key="website.Download_linux_x86_64_msdos_cross_srpm">
-The associated x86_64 to i8086 SRPM
+<TRN locale="en_US" key="website.down.m68k.amiga.title">
+Free Pascal - Download Amiga
+</TRN>
+<TRN locale="en_US" key="website.down.m68k.amiga.header">
+Download Amiga m68k
+</TRN>
+<TRN locale="en_US" key="website.download_in_1_os3_68020file">
+Download in 1 big file for OS3.0+ 68020+ SoftFPU
 </TRN>
 <TRN locale="en_US" key="website.down.m68k.linux.title">
 Free Pascal - Download Linux
 </TRN>
 <TRN locale="en_US" key="website.down.m68k.linux.header">
 Download Linux M68k
-</TRN>
-<TRN locale="en_US" key="website.down.choose.download">
-The FPC package for is available in one easy to choose format:
 </TRN>
 <TRN locale="en_US" key="website.down.m68k.linux.information">
 
@@ -1392,6 +1524,153 @@ in different formats.
 </ul>
 
 </TRN>
+<TRN locale="en_US" key="website.down.old.i386beos.title">
+Free Pascal - download Beos version
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386beos.header">
+Download old Beos (i386)
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386beos.beos">
+
+<h1><a name="BeOS"></a>BeOS</h1>
+<hr>
+This is version <b>1.0.10a</b> (not supported any more). This version
+differs with 1.0.10 in that a Delphi mode bug has been fixed, and a few patches
+for sysutils (specific to this port) have also been applied.
+<p>
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386beos.download">
+
+<h3><a name="freebeosbig"></a>Download as one big (zip) file</h3>
+<ul>
+<li><a href="@mirror_url@/olddist/1.0.10/beos-1.0.10a/fpc-1.0.10a-ELF.zip">BeOS installation zip</a> (15 MB)
+</ul>
+<p>
+
+</TRN>
+<TRN locale="en_US" key="website.Back_to_old_mirrorlist">
+Back to all old releases
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.title">
+Free Pascal - download EMX version
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.header">
+Download old EMX (i386)
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.info">
+
+<h1><a name="OS2EMX"></a>OS/2 &amp; DOS (EMX)</h1>
+<hr>
+
+This is version <b>1.0.10</b> (not supported any more). Please, note
+that there is a newer fully supported version for the OS/2 platform available
+from the main download page. The only potential reason for using this one
+instead would be the possibility to run the same compiled binaries natively
+under both OS/2 and DOS (with EMX extender).
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.download">
+
+<h3>Download in 1 big file:</h3>
+<ul>
+<li> <A
+HREF="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010full.zip">os21010full.zip</a> (24.7 MB)
+contains all archives and installation program<br>
+<li>Or you can download a file that contains the same, only without sources,gdb and gnu utils:
+<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010.zip">os21010.zip</a> (17.2 MB)
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.files">
+
+<h3><a name="os2emxsep"></a>Download as separate files</h3>
+You can download the contents of the above zip files as separate files:<br>
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.mandatory">
+
+<li> <b>Mandatory files:</b>
+<ul>
+<li> Install program: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.exe">install.exe</a> (286 kB)
+<li> ...and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.dat">install.dat</a> (12 kB)
+<li> ...as well as the unzip dll: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/unzip32.dll">unzip32.dll</a> (220 kB)
+<li> DOS mode install program (only necessary for if installing under DOS): <A
+HREF="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/installd.exe">installd.exe</a> (289 kB)
+and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/installd.dat">installd.dat</a> (12 kB).
+<li> Base files (program and units): <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/baseemx.zip">baseemx.zip</a> (1.2 Mb)
+<li>Selected EMX utilities for Free Pascal:
+<ul>
+  <li> <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/asldemx.zip">asldemx.zip</a> (1.8 MB)</li>
+  <li> <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/gdbemx.zip">gdbemx.zip</a> (654 kB)
+</ul></li>
+<li>Or a complete EMX installation; download from one of these sites:
+<ul>
+  <li> <a href="http://www.leo.org/pub/comp/os/os2/leo/gnu/emx%2Bgcc/index.html">www.leo.org</a></li>
+  <li> <a href="ftp://ftp.cdrom.com/pub/os2/emx09c">ftp.cdrom.com</a></li>
+  <li> <a href="http://src.doc.ic.ac.uk/Mirrors/ftp.cdrom.com/pub/os2/emx09c">src.doc.ic.ac.uk</a></li>
+  <li> <a href="ftp://ftp.funet.fi/mirrors/ftp.cdrom.com/pub/os2/emx09c">ftp.funet.fi</a></li>
+</ul></li>
+  Download at least the following files: Emxrt.zip, emxdev1.zip, emxdev2.zip, gnudev1.zip
+  and gnudev2.zip.
+</ul>
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.optional">
+
+<li> <b>Optional files:</b>
+<ul>
+<li> The readme file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/readme.txt">readme.txt</a> (12 kB)
+<li> The "what's new ?" file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/whatsnew.txt">whatsnew.txt</a> (14 kB)
+<li> FCL units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ufclemx.zip">ufclemx.zip</a> (737 kB)
+<li> GTK units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ugtkemx.zip">ugtkemx.zip</a> (334 kB)
+<li> fpGTK units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ufpgtkemx.zip">ufpgtkemx.zip</a> (226 kB)
+<li> Paszlib units (needed by FCL): <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/upzlemx.zip">upzlemx.zip</a> (81 kB)
+<li> Regular expression  units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/uregemx.zip">uregemx.zip</a> (5 kB)
+<li> Zip units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/uzipemx.zip">uzipemx.zip</a> (28 kB)
+<li> Utilities: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/utilemx.zip">utilemx.zip</a> (995 kB)
+<li> Demo files: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/demo.zip">demo.zip</a> (131 kB)
+<li> Documentation in PDF: <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/docs-pdf.zip">docs-pdf.zip</a> (3.45 MB)
+<li> Documentation in HTML (needed for IDE help): <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">doc-htm.zip</a> (6.7 Mb)
+</ul>
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.source">
+
+<li> <b>Optional source files:</b>
+<ul>
+<li> Sources base (required): <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/basesrc.zip">basesrc.zip</a> (49 kB)
+<li> The compiler sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/compsrc.zip">compsrc.zip</a> (1.6 MB)
+<li> The runtime library sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/rtlsrc.zip">rtlsrc.zip</a> (1.78 MB)
+<li> Free Component Library (FCL) sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/fclsrc.zip">fclsrc.zip</a> (664 kB)
+<li> GDB interface sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/ugdbsrc.zip">ugdbsrc.zip</a> (53 Kb)
+<li> Paszlib sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/upzlsrc.zip">upzlsrc.zip</a> (109 Kb)
+<li> Regular expressions sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/uregsrc.zip">uregsrc.zip</a> (12 Kb)
+<li> Zip sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/uzipsrc.zip">uzipsrc.zip</a> (37 Kb)
+<li> Utilities sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/utilssrc.zip">utilssrc.zip</a> (648 kB)
+<li> Installer sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/instsrc.zip">instsrc.zip</a> (31 kB)
+<li> Documentation sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/docsrc.zip">docsrc.zip</a> (2.14 MB)
+<li> IDE sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/idesrc.zip">idesrc.zip</a> (456 kB)
+</ul>You should download all these files in 1 directory, and then run the install
+program in this directory. It will detect which files you downloaded, and
+offer to install only those files actually present. Therefore, you cannot
+change the name of the files!
+
+</TRN>
+<TRN locale="en_US" key="website.down.old.i386emx.these">
+
+<li> Optionally, you can download these files as well:
+<ul>
+<li>Make utilities (for re-compilation of the compiler and RTL among others):
+<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/makeemx.zip">makeemx.zip</a> (249Kb)
+<li>EMX DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
+<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emx.dll">emx.dll</a> (91Kb)
+<li>EMX wrapper DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
+<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emxwrap.dll">emxwrap.dll</a> (16Kb)
+</ul>
+
+</TRN>
 <TRN locale="en_US" key="website.down.old.i386go32v2.title">
 Free Pascal - download GO32v2 version
 </TRN>
@@ -1493,9 +1772,6 @@ change the name of the files!
 <a href="@mirror_url@/olddist/1.0.10/dos-1.0.10/separate/wemu386.dxe">wemu386.dxe</a> (20Kb)
 </ul>
 
-</TRN>
-<TRN locale="en_US" key="website.Back_to_old_mirrorlist">
-Back to all old releases
 </TRN>
 <TRN locale="en_US" key="website.down.old.i386netbsd.title">
 Free Pascal - download NetBSD version
@@ -1675,6 +1951,15 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 on the geneation of the installation file.
 
 </TRN>
+<TRN locale="en_US" key="website.down.powerpc.amiga.title">
+Free Pascal - Download AmigaOS
+</TRN>
+<TRN locale="en_US" key="website.down.powerpc.amiga.header">
+Download AmigaOS PowerPC
+</TRN>
+<TRN locale="en_US" key="website.download_in_1_file_amigaos4">
+Download in 1 big file for AmigaOS 4.0+
+</TRN>
 <TRN locale="en_US" key="website.down.powerpc.linux.title">
 Free Pascal - Download Linux
 </TRN>
@@ -1727,16 +2012,8 @@ Free Pascal - Download MorphOS
 <TRN locale="en_US" key="website.down.powerpc.morphos.header">
 Download MorphOS PowerPC
 </TRN>
-<TRN locale="en_US" key="website.down.powerpc.morphos.information">
-
-<h3><a name="morphoslha"></a>Download in 1 file:</h3>
-<ul>
-<li> Full installation package: <a href="@mirror_url@dist/powerpc-morphos-2.0.4/fpc-2.0.4.powerpc-morphos.lha">fpc-2.0.4.powerpc-morphos.lha</a> (14 MB),<br>
-or you can download smaller package without documentation:
- <a href="@mirror_url@dist/powerpc-morphos-2.0.4/fpc-2.0.4.powerpc-morphos-nodoc.lha">fpc-2.0.4.powerpc-morphos-nodoc.lha</a> (6.7 MB);<br>
-finally, standalone docs can be downloaded here: <a href="@mirror_url@dist/powerpc-morphos-2.0.4/fpc-docs-2.0.4.lha">fpc-docs-2.0.4.lha</a> (7 MB).
-</ul>
-
+<TRN locale="en_US" key="website.download_in_1_file_morphos">
+Download in 1 big file for MorphOS
 </TRN>
 <TRN locale="en_US" key="website.down.powerpc.wii.title">
 Free Pascal - Download Nintendo Wii version
@@ -1747,6 +2024,9 @@ Download Nintendo Wii
 <TRN locale="en_US" key="website.native_compiler_not_available_wii">
 There is no native compiler available for the Wii. You have to use a cross-compiler.
 </TRN>
+<TRN locale="en_US" key="website.powerpc_wii_file_download_descr">
+Contains a zip file with the win32 to PowerPC Wii cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.
+</TRN>
 <TRN locale="en_US" key="website.down.powerpc64.aix.title">
 Free Pascal - Download AIX
 </TRN>
@@ -1756,7 +2036,7 @@ Download AIX PowerPC64
 <TRN locale="en_US" key="website.down.powerpc64.aix.information">
 
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64-aix/fpc-@latestversion@.powerpc64-aix.tar">fpc-@latestversion@.powerpc64-aix.tar</a> (57 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-aix/fpc-@latestversion@.powerpc64-aix.tar">fpc-@latestversion@.powerpc64-aix.tar</a> (159 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -1773,7 +2053,16 @@ Download Linux PowerPC64
 <TRN locale="en_US" key="website.down.powerpc64.linux.information">
 
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (57 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (145 MB)
+contains a standard tar archive, with an install script<br>
+After untarring the archive, you can run the install script in the created
+directory by issuing the command "<tt>sh install.sh</tt>".
+
+</TRN>
+<TRN locale="en_US" key="website.down.powerpc64le.linux.information">
+
+<li> <a
+href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (135 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -1788,8 +2077,20 @@ Download sources
 <TRN locale="en_US" key="website.down.source.sources.word">
 Source
 </TRN>
-<TRN locale="en_US" key="website.down.source.sources.formats">
+<TRN locale="en_US" key="website.down.source.sources.formats.list">
+
 The complete sources can be downloaded in the following formats:
+<DL>
+  <DT>Zip file:</DT>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (86 MB)</DD>
+  <DT>Gzipped Tar file:</DT>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.tar.gz">fpcbuild-@latestversion@.tar.gz</a> (77MB)</DD>
+  <DT>Zip file:</DT>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.zip">fpc-@latestversion@.source.zip</a> (58 MB)</DD>
+  <DT>Gzipped Tar file:</DT>
+  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (50 MB)</DD>
+</DL>
+
 </TRN>
 <TRN locale="en_US" key="website.down.source.sources.archive">
 
@@ -1832,13 +2133,35 @@ Download Solaris Sparc
 
 </TRN>
 <TRN locale="en_US" key="website.down.x86_64.freebsd.title">
+Free Pascal - Download AMD64/x86_64 FreeBSD version
+</TRN>
+<TRN locale="en_US" key="website.down.x86_64.freebsd.header">
 Download FreeBSD AMD64/x86_64
+</TRN>
+<TRN locale="en_US" key="website.down.x86_64.haiku.title">
+Free Pascal - Download Haiku Intel x86 version
+</TRN>
+<TRN locale="en_US" key="website.down.x86_64.haiku.header">
+Download Haiku Intel x86
+</TRN>
+<TRN locale="en_US" key="website.x86_64-haiku_1_file_download_descr">
+
+  Contains a standard tar archive, with an install script.<br>
+  After untarring the archive, you can run the install script in the created
+  directory by issuing the command "<TT>sh install.sh</TT>".
 </TRN>
 <TRN locale="en_US" key="website.down.x86_64.linux.title">
 Free Pascal - Download Linux
 </TRN>
 <TRN locale="en_US" key="website.down.x86_64.linux.header">
 Download Linux AMD64/x86_64
+</TRN>
+<TRN locale="en_US" key="website.x86_64-linux_1_file_download_descr">
+
+  contains a standard tar archive, with an install script<br>
+  After untarring the archive into a temporary location, you can run the install script
+  by issuing the command "<tt>sh install.sh</tt>".
+
 </TRN>
 <TRN locale="en_US" key="website.x86_64-linux_rpm_download_descr">
 
@@ -1854,6 +2177,27 @@ Download Linux AMD64/x86_64
 
        contains the sources.<br>
      
+</TRN>
+<TRN locale="en_US" key="website.down_x86_64_i8086_msdos_binary_packages">
+i8086 MS-DOS cross binary Packages
+</TRN>
+<TRN locale="en_US" key="website.x86-64-linux_rpm_download_descr">
+
+       contains the cross-compiler, RTL and all units for MS-DOS target. <br>
+     
+</TRN>
+<TRN locale="en_US" key="website.x86-64-linux_rpm_src_download_descr">
+
+       contains the sources for MS-DOS target.<br>
+     
+</TRN>
+<TRN locale="en_US" key="website.DEB_compatibility_x86_64_linux">
+Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)
+</TRN>
+<TRN locale="en_US" key="website.DEB_packages.note">
+
+<li><b>Deb archives for @latestversion@ are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
+  
 </TRN>
 <TRN locale="en_US" key="website.down.x86_64.netbsd.title">
 Free Pascal - Download NetBSD
@@ -1906,8 +2250,17 @@ Free Pascal - Download x86_64 Win64 version
 <TRN locale="en_US" key="website.down_win64_x86_64">
 Download x86_64 Win64
 </TRN>
+<TRN locale="en_US" key="website.native_compiler_nat_available_x86_64">
+There is no native compiler available for x86_64 Win64. You have to use a cross-compiler.
+</TRN>
+<TRN locale="en_US" key="website.Download_win32_win64_cross_installer">
+Contains the installer with the win32 to x86_64-Win64 cross-compiler. It needs the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (51 MB) to be able to work.
+</TRN>
 <TRN locale="en_US" key="website.down2.arm.gba.title">
 Free Pascal - Download Game Boy Advance
+</TRN>
+<TRN locale="en_US" key="website.down2.arm.gba.header">
+Download Game Boy Advance
 </TRN>
 <TRN locale="en_US" key="website.cross_compiler_i386-win32_arm-gba">
 
@@ -1927,6 +2280,9 @@ The FPC package for arm-gba is available in one easy to choose format:
 </TRN>
 <TRN locale="en_US" key="website.down2.arm.linux.title">
 Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down2.arm.linux.header">
+Download Linux ARM
 </TRN>
 <TRN locale="en_US" key="website.cross_compiler_i386-linux_arm-linux">
 
@@ -2027,6 +2383,9 @@ You can download the whole package as 1 big zipped file:
 </TRN>
 <TRN locale="en_US" key="website.down2.i386linux.title">
 Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down2.i386linux.header">
+Download Intel/i386 Linux
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_1_file_download_descr_beta">
 <a href="@mirror_url@beta/2.1.4/i386-linux/fpc-2.1.4a.i386-linux.tar">fpc-2.1.4a.i386-linux.tar</a> (30 MB)
@@ -2199,6 +2558,11 @@ Free Pascal - Download Linux
 <TRN locale="en_US" key="website.down2.sparclinux.header">
 Download Linux Sparc
 </TRN>
+<TRN locale="en_US" key="website.sparc-linux_deb_download_descr_beta">
+<a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">This directory</a> contains
+     the unofficial debian .deb packages.<br>
+  
+</TRN>
 <TRN locale="en_US" key="website.down2.x8664linux.title">
 Free Pascal - Download Linux
 </TRN>
@@ -2286,7 +2650,7 @@ The latest release is
 </TRN>
 <TRN locale="en_US" key="website.available_limited_platforms">
 
-  Because of a lack of release builders and testers, 3.0.4 is only available for a limited
+  Because of a lack of release builders and testers, 3.2.0 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 
@@ -2296,23 +2660,23 @@ Binaries
 </TRN>
 <TRN locale="en_US" key="website.can_download_for_platform">
 
-    You can download the 3.0.4 release for the following cpu and operating systems:
+    You can download the 3.2.0 release for the following cpu and operating systems:
   
 </TRN>
-<TRN locale="en_US" key="website.down_i386_dos_note">
-GO32v2 extender
+<TRN locale="en_US" key="website.down_i386_win32_note">
+and a cross-compiler ARM/MIPS/i386-Android
 </TRN>
 <TRN locale="en_US" key="website.down_i386_macx_dos_note">
 and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android
 </TRN>
-<TRN locale="en_US" key="website.down_i386_netware_note">
-2.0.0 only
-</TRN>
 <TRN locale="en_US" key="website.down_i386_OS2_note">
 and eComStation
 </TRN>
-<TRN locale="en_US" key="website.down_i386_win32_note">
-and a cross-compiler ARM/MIPS/i386-Android
+<TRN locale="en_US" key="website.down_i386_dos_note">
+GO32v2 extender
+</TRN>
+<TRN locale="en_US" key="website.down_i386_netware_note">
+2.0.0 only
 </TRN>
 <TRN locale="en_US" key="website.down_204_only_note">
 2.0.4 only
@@ -2333,29 +2697,6 @@ Source
     The documentation can be downloaded in several formats from one of our
     <a href="down/docs/docs@x@">download sites</a>.
   
-</TRN>
-<TRN locale="en_US" key="website.down_other_down">
-Other downloads
-</TRN>
-<TRN locale="en_US" key="website.down_furthermore">
-Furthermore, you can download the following:
-</TRN>
-<TRN locale="en_US" key="website.down_party">
-There are some third party <a href="down-utils@x@">utilities</a> that can be used with Free Pascal.
-</TRN>
-<TRN locale="en_US" key="website.latest_beta">
-The latest beta is <b>2.1.4</b>
-</TRN>
-<TRN locale="en_US" key="website.can_download_for_platform_beta">
-
-    You can download the 2.1.4 release for the following operating systems:
-  
-</TRN>
-<TRN locale="en_US" key="website.down_i386_freebsd_note">
-FreeBSD 4.x and probably 5.x too
-</TRN>
-<TRN locale="en_US" key="website.Documentation_in_diff_formats">
-<a href="down2/docs/docs@x@">Documentation</a> in different formats
 </TRN>
 <TRN locale="en_US" key="website.snapshots">
 Snapshots
@@ -2601,8 +2942,14 @@ Profiling
 <TRN locale="en_US" key="website.faq.os2.dos">
 Using DOS generated applications under OS/2
 </TRN>
+<TRN locale="en_US" key="website.faq.os2.instal106os2a">
+INSTALL.EXE of version 1.0.6 or below returns an unknown error (-1) under OS/2
+</TRN>
+<TRN locale="en_US" key="website.faq.os2.instal106os2or">
+or
+</TRN>
 <TRN locale="en_US" key="website.faq.os2.instal106os2">
-INSTALL.EXE complains about a missing TZ variable under OS/2
+INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2
 </TRN>
 <TRN locale="en_US" key="website.faq.os2.fp">
 OS/2 compiler not working after upgrading to 1.9.6 or newer
@@ -2685,6 +3032,9 @@ PalmOS-related information
 <TRN locale="en_US" key="website.faq.palmos.release">
 Dynamic libraries
 </TRN>
+<TRN locale="en_US" key="website.General_Information">
+General information
+</TRN>
 <TRN locale="en_US" key="website.a_What_is_FPC">
 
             <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16,32
@@ -2727,14 +3077,15 @@ Dynamic libraries
 	      <li>11/2015: 3.0.0 released
               <li>02/2017: 3.0.2 released
               <li>11/2017: 3.0.4 released
+              <li>06/2020: 3.2.0 released
             </ul>
           
 </TRN>
 <TRN locale="en_US" key="website.a_What_versions_exist">
 
-            <p>The latest official version is 3.0.4, the third release in the 3.0.x series.
-            New development is performed in the 3.1.x series, which will eventually
-            be released as 3.2.0 or 4.0.0, depending on milestones achieved.
+            <p>The latest official version is 3.2.0, the first release in the 3.2.x series.
+            New development is performed in the 3.3.x series, which will eventually
+            be released as 3.4.0 or 4.0.0, depending on milestones achieved.
 
             <h4>Historic versions</h4>
 
@@ -2802,7 +3153,7 @@ Dynamic libraries
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 3.0.4 (November 2017). GNU Pascal is stopped
+            <DD>Currently, Free Pascal is at version 3.2.0 (June 2020). GNU Pascal is stopped
             version 2.1 (from 2002, which can be built with several different GCC's as backend;
             their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>
@@ -3425,7 +3776,7 @@ Dynamic libraries
 	    not willing to implement it yourself, submit patches and maintain
 	    it in the future,
 	    chances are slim.  Remarks as &quot;this will attract a lot of
-	    users because...&quot; are considered with a lot of scepsis, since
+	    users because...&quot; are considered with a lot of scepticism, since
 	    that applies to any new development.
 	  
 </TRN>
@@ -3871,7 +4222,11 @@ OS/2-related information
             problem.
 
 
-        <li><a name="instal106os2"></a><h3>INSTALL.EXE complains about a missing TZ variable under OS/2</h3>
+        <li><a name="instal106os2"></a><h3>INSTALL.EXE of version 1.0.6 or below fails with an unknown error (-1) under OS/2</h3>
+            <p>
+            or
+            
+            <h3>INSTALL.EXE of version 1.0.6 or above complains about missing TZ variable under OS/2</h3>
 
             <p>
             You are most probably using an older version of OS/2 (like OS/2 Warp 3.0)
@@ -3890,7 +4245,7 @@ OS/2-related information
             limitations regarding supported configurations, because this libc needs recent version
             of OS/2 Unicode support libraries (LIBUNI.DLL and UCONV.DLL) not available in base OS/2 Warp 3.0
             and OS/2 Warp 4.0. The updated versions were distributed by IBM in corrective packages (fixpaks)
-            - see e.g. <a href="http://www.warpupdates.mynetcologne.de/english/basesystem.html">WarpUpdates site</a>
+            - see e.g. <a href="http://web.archive.org/web/20080103002005/http://www.warpupdates.mynetcologne.de/english/basesystem.html">WarpUpdates site</a>
             for information about OS/2 fixpaks and links for downloading them.
             This issue isn't valid for WarpServer for e-Business, MCP and eComStation - these already have
             the correct version.
@@ -4311,29 +4666,55 @@ Overview
 </TRN>
 <TRN locale="en_US" key="website.overview_text">
 
-    Free Pascal is a 32, 64 and 16 bit professional Pascal compiler.
-    It can target many processor architectures: Intel x86 (including 8086), AMD64/x86-64,
-    PowerPC, PowerPC64, SPARC, ARM, AArch64, MIPS and the JVM. Supported operating systems include Linux,
-    FreeBSD, Haiku, Mac OS X/iOS/iPhoneSimulator/Darwin, DOS (16 and 32 bit), Win32, Win64, WinCE, OS/2,
-    MorphOS, Nintendo GBA, Nintendo DS, Nintendo Wii, Android, AIX and AROS. Additionally, support for the
-    Motorola 68k architecture is available in the development versions.
+    Free Pascal is a mature, versatile, open source Pascal compiler.
+    It can target many processor architectures: Intel x86 (16 and 32 bit), AMD64/x86-64,
+    PowerPC, PowerPC64, SPARC, SPARC64, ARM, AArch64, MIPS, Motorola 68k, AVR, and the JVM.
+    Supported operating systems include Windows (16/32/64 bit, CE, and native NT), Linux,
+    Mac OS X/iOS/iPhoneSimulator/Darwin, FreeBSD and other BSD flavors, DOS (16 bit, or 32 bit DPMI),
+    OS/2, AIX, Android, Haiku, Nintendo GBA/DS/Wii, AmigaOS, MorphOS, AROS, Atari TOS, and various
+    embedded platforms. Additionally, support for RISC-V (32/64), Xtensa, and Z80 architectures,
+    and for the LLVM compiler infrastructure is available in the development version.
+    Additionally, the Free Pascal team maintains a transpiler for pascal to Javascript called pas2js.
   
 </TRN>
 <TRN locale="en_US" key="website.latest_news">
 Latest News
+</TRN>
+<TRN locale="en_US" key="website.frontpage.news_headline_20200619">
+
+ <li>
+  <em>June 19th, 2020</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.2.0 has been released!
+   <p>
+    This version is a major new release and contains bugfixes and updates packages, <a href="http://wiki.freepascal.org/FPC_New_Features_3.2">new features</a>  and new targets. Due to the
+    age of the FPC 3.0 branch (5 years!) it is recommended to upgrade as soon as possible.
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.2.0">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.2.0 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>. Some links might be stale but will be updated in the coming days.
+   </p>
+  </li>
+ </ul>
+ 
 </TRN>
 <TRN locale="en_US" key="website.frontpage.helpersattributesllvm">
 
   <p>
     <em>July 20, 2019</em>
   </p>
-    FPC has gained several new features lately:
+    FPC has gained several new features lately in trunk (which will not be in the upcoming FPC 3.2.0 release):
     <ul>
       <li>Multiple helper types can now be <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">active at the same time</a></li>
       <li>Support has been added for <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">custom attributes</a></li>
       <li>The compiler can now generate <a href="https://wiki.freepascal.org/LLVM">LLVM bitcode</a> for select platforms (Darwin/x86-64, Linux/x86-64, Linux/AArch64, Linux/ARMHF)</li>
     </ul>
-    The next FPC release, version 3.2, is planned for later this year. While it will not have support for the above list, it will have <a href="https://wiki.freepascal.org/FPC_New_Features_3.2">its own collection of new features</a> and fixes!
+    While FPC 3.2.0 will not have support for the above list, it will have <a href="https://wiki.freepascal.org/FPC_New_Features_3.2">its own collection of new features</a> and fixes!
   <p>
 
   </p>
@@ -4421,15 +4802,18 @@ and FPC still does not only exists, but is more alive and kicking than ever!
  </p>
  
 </TRN>
+<TRN locale="en_US" key="website.fpc.older_news">
+Older news...
+</TRN>
 <TRN locale="en_US" key="website.Current_Version">
 Current Version
 </TRN>
 <TRN locale="en_US" key="website.Current_Version_text">
 
-    Version <em>3.0.4</em> is the latest stable version the Free Pascal.
+    Version <em>3.2.0</em> is the latest stable version the Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
-    The development releases have version numbers <EM>3.1.x</EM>.
+    The development releases have version numbers <EM>3.3.x</EM>.
     See the <a href="develop@x@">development</a> page how to obtain the latest sources and support development.
   
 </TRN>
@@ -4841,6 +5225,7 @@ Estimated difficulty on a scale from 1 to 10 is added in parentheses. <p>
 
 <ul>
   <li>Rework and check the windows unit (macro parameter problem)(<b>3</b>)</li>
+  <li>Rework, reorganize, re-sort the FPC compiler parameter handling and use long options</li>
   <li>More Windows API units (<b>4</b>) </li>
   <li>A set of cross platform and architecture basic networking components (difficulty: <b>5</b> work: <b>7-8</b>)</li>
   <li>Porting Delphi source for projects/contrib (<b>3-6</b>, depending on package)</li>
@@ -5075,7 +5460,7 @@ your chances to contact them ;-).
 <ul>
   <li><a href="http://www.pascalgamedevelopment.com">Pascal Game Development</a> is a website dedicated
     to develop computer games in the Pascal language.
-<!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil també–™ ?OpenSource!</a> -->
+<!--  <li><a href='http://lazaruspascal.codigolivre.org.br/portal.php'>Lazarus Brasil - Porque o Brasil tamb閙 ?OpenSource!</a> -->
   <li><a href="http://www.freepascal.ru">FreePascal.ru: Informacionnyj portal dlya razrabotchikov na Free Pascal & Lazarus & MSE</a>
 <!--    <li><a href='http://pascalzone.uv.ro'>Pascal Zone: Site dedicat limbajului de programare Pascal</a> -->
   <li><a href="http://yann.merignac.free.fr/fpc-and-lazarus-for-slackware.html">Script for converting FPC &amp;&nbsp;Lazarus
@@ -5102,6 +5487,7 @@ your chances to contact them ;-).
 
 </TRN>
 <TRN locale="en_US" key="website.links.otherpascal">
+
 <h2>Other Pascal Pages:</h2>
 <ul>
   <li><a href="https://www.udemy.com/topic/pascal-programming-language/">Udemy</a> has some courses on Pascal that use free pascal.</li>
@@ -5186,18 +5572,21 @@ How to subscribe a mailinglist ?
 There are 2 ways to do this:
 </TRN>
 <TRN locale="en_US" key="website.maillist.email">
+Send an e-mail to
+</TRN>
+<TRN locale="en_US" key="website.maillist.email.list">
 
 <OL>
 <li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">
-   fpc-pascal-request&#x040;lists.freepascal.org</a> for fpc-pascal.
+   fpc-pascal-request&#x040;lists.freepascal.org</a> for fpc-pascal
 <li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">
-   fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel.
+   fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel
 <li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
-   fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce.
+   fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce
 <li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
-   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other.
+   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
-   pas2js-request&#x040;lists.freepascal.org</a> for pas2js.
+   pas2js-request&#x040;lists.freepascal.org</a> for pas2js
 <li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
    mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
@@ -5216,9 +5605,9 @@ Point your browser to
 
 <OL>
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-pascal/">
-https://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal,
+https://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-devel/">
-https://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel.
+https://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel
 
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-announce/">
 https://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
@@ -5227,7 +5616,7 @@ fpc-announce
 https://lists.freepascal.org/mailman/listinfo/pas2js/</a> for
 pas2js
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-other/">
-https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
+https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other
 <li><a href="http://lists.sonic.net/mailman/listinfo/mac-pascal/">http://lists.sonic.net/mailman/listinfo/mac-pascal/</a> for MacPascal
 </OL>
 Enter your e-mail address, your password, and that's it.
@@ -5302,8 +5691,15 @@ hour.
 <TRN locale="en_US" key="website.mirrors.account">
 Using the mirror account
 </TRN>
-<TRN locale="en_US" key="website.mirrors.ftp">
-Mirroring the FTP site
+<TRN locale="en_US" key="website.mirrors.ftp.user">
+
+Since the FTP site restricts the number of simultaneous connections, we've
+set up a mirror account which can be used by mirrors, so they are not
+counted in the <I>anonymous</I> users count.
+If you want to mirror our site and want use to the mirror account, mail
+<a href="mailto:mirrors&#x040;freepascal.org">us</a> to obtain the password for
+the mirroring account.
+
 </TRN>
 <TRN locale="en_US" key="website.mirrors.help">
 Some help to get you going
@@ -5339,6 +5735,12 @@ from our svn repository. You need repository html.
 The URL's are relative, so you should be able to set it up under any
 directory tree (with the exception of the images, maybe).
 
+</TRN>
+<TRN locale="en_US" key="website.mirrors.ftp">
+Mirroring the FTP site
+</TRN>
+<TRN locale="en_US" key="website.mirrors.ftp.using">
+Mirroring the FTP site can be done using:
 </TRN>
 <TRN locale="en_US" key="website.mirrors.ftp.using.info">
 
@@ -5465,7 +5867,73 @@ What's new
 
 </TRN>
 <TRN locale="en_US" key="website.news.previous">
-Previous news (continued from hope page)
+Previous news (continued from home page)
+</TRN>
+<TRN locale="en_US" key="website.frontpage.news_headline_20171127">
+
+ <li>
+  <em>November 28th, 2017</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.0.4 has been released!
+   <p>
+    This version is a point update to 3.0 and contains bugfixes and updates packages,
+     some of which are high priority.
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.4 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
+   </p>
+   </li>
+ </ul>
+ 
+</TRN>
+<TRN locale="en_US" key="website.frontpage.news_headline_20170215">
+
+ <li>
+  <em>Februari 15th, 2017</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.0.2 has been released!
+   <p>
+    This version is a point update to 3.0 and contains bugfixes and updates packages
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.2 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
+   </p>
+   </li>
+ </ul>
+ 
+</TRN>
+<TRN locale="en_US" key="website.frontpage.news_headline_20151125">
+
+ <li>
+  <em>November 25th, 2015</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.0.0 "Pestering Peacock" has been released!
+   <p>
+    This version includes support for several new platforms, codepage-aware strings and an integrated Pascal source-repository.
+   </p>
+   <p>
+    We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
+    Finally, you can view the <a href="https://www.freepascal.org/docs-html/3.0/">FPC 3.0.0 documentation</a>.
+   </p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
+   </p>
+  </li>
+ </ul>
+ 
 </TRN>
 <TRN locale="en_US" key="website.frontpage.news_headline_20151021">
 
@@ -5912,7 +6380,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  <ul>
   <li>
     The <a href="http://lists.freepascal.org/lists/fpc-devel/2009-November/018272.html">first FPC 2.4.0 release candidate</a> has been posted, please give your feedback! While FPC 2.4.0 will
-    primarily offer under-the-hood changes and bug fixes, the current <a href="develop.var">svn trunk</a> has seen
+    primarily offer under-the-hood changes and bug fixes, the current <a href="develop.html">svn trunk</a> has seen
     quite some work recently on the new features front:
    <ul>
     <li><a href="http://wiki.freepascal.org/for-in_loop">For..in-loops</a>
@@ -5984,7 +6452,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  </li>
  <ul>
   <li>
-    The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <a href="http://wiki.freepascal.org/fppkg_field_test">here</a>
+    The new stable version 2.2.4 has been released. Downloads are available from the <a href="download.html">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. A list of changes that may require changes to existing code is available <A HREF="http://wiki.freepascal.org/User_Changes_2.2.4">here</A>. With this release we also want to test our new package system. More information about this test can be found <a href="http://wiki.freepascal.org/fppkg_field_test">here</a>
   </li>
  </ul>
 
@@ -6023,7 +6491,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
  </li>
  <ul>
   <li>
-    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.var">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation. A list of changes that may require changes to existing code is available <a href="http://wiki.freepascal.org/User_Changes_2.2.2">here</a>.
+    The new stable version 2.2.2 is released. Downloads are available from the <A HREF="download.html">download page</A> (mirrors should follow soon). This is mostly a bugfix version, although some new features have been backported as well. Some code suspected of Borland copyright infringement was replaced with a cleanroom implementation. A list of changes that may require changes to existing code is available <a href="http://wiki.freepascal.org/User_Changes_2.2.2">here</a>.
   </li>
  </ul>
 
@@ -6052,7 +6520,7 @@ More information about the JVM backend can be found <a href="http://wiki.freepas
    The release notes can be found <a href="http://svn.freepascal.org/svn/fpcbuild/tags/release_2_2_0/install/doc/whatsnew.txt">here</a>.
   </li>
   <li>
-  Downloads are available at <a href="download.var">http://www.freepascal.org/download.var</a>
+  Downloads are available at <a href="download.html">https://www.freepascal.org/download.html</a>
   </li>
   
 </TRN>
@@ -6202,7 +6670,7 @@ extensive guide how to develop games on the Game Boy Advance</a> using Free Pasc
   <li>In addition to the originally published builds
 for release 2.0.4, powerpc-macos and x86_64-linux .deb packages have been made
 available (thanks to Olle Raab and Stefan Kisdaroczi). As usually, go to the
-<a href="download@x@">download page</a> to select your nearest mirror.
+<a href="download.html">download page</a> to select your nearest mirror.
   </li>
  </ul>
 
@@ -9513,7 +9981,7 @@ for C code.
 <li> <a href="rstconv.var"><b>rstconv</b></a> is a small utility that
 converts <b>.rst</b> files (files that contain resource strings, as created
 by the compiler to some other format. (GNU gettext at the moment)
-<li> <a href="http://www.musikwissenschaft.uni-mainz.de/~ag/tply/tply.html"><b>TP Lex and Yacc</b></a>, written by <A
+<li> <a href="https://web.archive.org/web/20181116101101/http://www.musikwissenschaft.uni-mainz.de/~ag/tply/tply.html"><b>TP Lex and Yacc (Wayback, site defunct since approx. 2019-01-01)</b></a>, written by <A
 HREF="mailto:ag@muwiinfa.geschichte.uni-mainz.de">Albert Graef</a>. It can be used
 to create pascal units from a Lex vocabulary and Yacc grammar.
 </OL>
@@ -9599,293 +10067,4 @@ Runtime Library Units
   None yet
 </ul>
 
-</TRN>
-<TRN locale="en_US" key="website.fpc.older_news">
-Older news...
-</TRN>
-<TRN locale="en_US" key="website.native_compiler_not_available_msdos">
-There is no native compiler available for i8086 MS-DOS. You have to use a cross-compiler.
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386beos.title">
-Free Pascal - download Beos version
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386beos.header">
-Download old Beos (i386)
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386beos.beos">
-
-<h1><a name="BeOS"></a>BeOS</h1>
-<hr>
-This is version <b>1.0.10a</b> (not supported any more). This version
-differs with 1.0.10 in that a Delphi mode bug has been fixed, and a few patches
-for sysutils (specific to this port) have also been applied.
-<p>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386beos.download">
-
-<h3><a name="freebeosbig"></a>Download as one big (zip) file</h3>
-<ul>
-<li><a href="@mirror_url@/olddist/1.0.10/beos-1.0.10a/fpc-1.0.10a-ELF.zip">BeOS installation zip</a> (15 MB)
-</ul>
-<p>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.title">
-Free Pascal - download EMX version
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.header">
-Download old EMX (i386)
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.info">
-
-<h1><a name="OS2EMX"></a>OS/2 &amp; DOS (EMX)</h1>
-<hr>
-
-This is version <b>1.0.10</b> (not supported any more). Please, note
-that there is a newer fully supported version for the OS/2 platform available
-from the main download page. The only potential reason for using this one
-instead would be the possibility to run the same compiled binaries natively
-under both OS/2 and DOS (with EMX extender).
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.download">
-
-<h3>Download in 1 big file:</h3>
-<ul>
-<li> <A
-HREF="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010full.zip">os21010full.zip</a> (24.7 MB)
-contains all archives and installation program<br>
-<li>Or you can download a file that contains the same, only without sources,gdb and gnu utils:
-<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/os21010.zip">os21010.zip</a> (17.2 MB)
-</ul>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.files">
-
-<h3><a name="os2emxsep"></a>Download as separate files</h3>
-You can download the contents of the above zip files as separate files:<br>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.mandatory">
-
-<li> <b>Mandatory files:</b>
-<ul>
-<li> Install program: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.exe">install.exe</a> (286 kB)
-<li> ...and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/install.dat">install.dat</a> (12 kB)
-<li> ...as well as the unzip dll: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/unzip32.dll">unzip32.dll</a> (220 kB)
-<li> DOS mode install program (only necessary for if installing under DOS): <A
-HREF="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/installd.exe">installd.exe</a> (289 kB)
-and its data file <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/installd.dat">installd.dat</a> (12 kB).
-<li> Base files (program and units): <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/baseemx.zip">baseemx.zip</a> (1.2 Mb)
-<li>Selected EMX utilities for Free Pascal:
-<ul>
-  <li> <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/asldemx.zip">asldemx.zip</a> (1.8 MB)</li>
-  <li> <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/gdbemx.zip">gdbemx.zip</a> (654 kB)
-</ul></li>
-<li>Or a complete EMX installation; download from one of these sites:
-<ul>
-  <li> <a href="http://www.leo.org/pub/comp/os/os2/leo/gnu/emx%2Bgcc/index.html">www.leo.org</a></li>
-  <li> <a href="ftp://ftp.cdrom.com/pub/os2/emx09c">ftp.cdrom.com</a></li>
-  <li> <a href="http://src.doc.ic.ac.uk/Mirrors/ftp.cdrom.com/pub/os2/emx09c">src.doc.ic.ac.uk</a></li>
-  <li> <a href="ftp://ftp.funet.fi/mirrors/ftp.cdrom.com/pub/os2/emx09c">ftp.funet.fi</a></li>
-</ul></li>
-  Download at least the following files: Emxrt.zip, emxdev1.zip, emxdev2.zip, gnudev1.zip
-  and gnudev2.zip.
-</ul>
-</ul>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.optional">
-
-<li> <b>Optional files:</b>
-<ul>
-<li> The readme file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/readme.txt">readme.txt</a> (12 kB)
-<li> The "what's new ?" file: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/whatsnew.txt">whatsnew.txt</a> (14 kB)
-<li> FCL units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ufclemx.zip">ufclemx.zip</a> (737 kB)
-<li> GTK units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ugtkemx.zip">ugtkemx.zip</a> (334 kB)
-<li> fpGTK units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/ufpgtkemx.zip">ufpgtkemx.zip</a> (226 kB)
-<li> Paszlib units (needed by FCL): <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/upzlemx.zip">upzlemx.zip</a> (81 kB)
-<li> Regular expression  units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/uregemx.zip">uregemx.zip</a> (5 kB)
-<li> Zip units: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/uzipemx.zip">uzipemx.zip</a> (28 kB)
-<li> Utilities: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/utilemx.zip">utilemx.zip</a> (995 kB)
-<li> Demo files: <a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/demo.zip">demo.zip</a> (131 kB)
-<li> Documentation in PDF: <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/docs-pdf.zip">docs-pdf.zip</a> (3.45 MB)
-<li> Documentation in HTML (needed for IDE help): <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">doc-htm.zip</a> (6.7 Mb)
-</ul>
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.source">
-
-<li> <b>Optional source files:</b>
-<ul>
-<li> Sources base (required): <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/basesrc.zip">basesrc.zip</a> (49 kB)
-<li> The compiler sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/compsrc.zip">compsrc.zip</a> (1.6 MB)
-<li> The runtime library sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/rtlsrc.zip">rtlsrc.zip</a> (1.78 MB)
-<li> Free Component Library (FCL) sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/fclsrc.zip">fclsrc.zip</a> (664 kB)
-<li> GDB interface sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/ugdbsrc.zip">ugdbsrc.zip</a> (53 Kb)
-<li> Paszlib sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/upzlsrc.zip">upzlsrc.zip</a> (109 Kb)
-<li> Regular expressions sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/uregsrc.zip">uregsrc.zip</a> (12 Kb)
-<li> Zip sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/uzipsrc.zip">uzipsrc.zip</a> (37 Kb)
-<li> Utilities sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/utilssrc.zip">utilssrc.zip</a> (648 kB)
-<li> Installer sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/instsrc.zip">instsrc.zip</a> (31 kB)
-<li> Documentation sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/docsrc.zip">docsrc.zip</a> (2.14 MB)
-<li> IDE sources: <a href="ftp://ftp.freepascal.org/pub/fpc/dist/Source/short/idesrc.zip">idesrc.zip</a> (456 kB)
-</ul>You should download all these files in 1 directory, and then run the install
-program in this directory. It will detect which files you downloaded, and
-offer to install only those files actually present. Therefore, you cannot
-change the name of the files!
-
-</TRN>
-<TRN locale="en_US" key="website.down.old.i386emx.these">
-
-<li> Optionally, you can download these files as well:
-<ul>
-<li>Make utilities (for re-compilation of the compiler and RTL among others):
-<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/makeemx.zip">makeemx.zip</a> (249Kb)
-<li>EMX DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
-<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emx.dll">emx.dll</a> (91Kb)
-<li>EMX wrapper DLL (necessary for the OS/2 installer if EMX runtime not installed yet):
-<a href="@mirror_url@/olddist/1.0.10/os2-1.0.10/separate/emxwrap.dll">emxwrap.dll</a> (16Kb)
-</ul>
-
-</TRN>
-<TRN locale="en_US" key="website.down.source.sources.formats.list">
-
-<DL>
-  <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.zip">fpcbuild-@latestversion@.zip</a> (74 MB)</DD>
-  <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpcbuild-@latestversion@.tar.gz">fpcbuild-@latestversion@.tar.gz</a> (67MB)</DD>
-  <DT>Zip file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.zip">fpc-@latestversion@.source.zip</a> (45 MB)</DD>
-  <DT>Gzipped Tar file:</DT>
-  <DD><a href="@mirror_url@dist/@latestversion@/source/fpc-@latestversion@.source.tar.gz">fpc-@latestversion@.source.tar.gz</a> (38 MB)</DD>
-</DL>
-
-</TRN>
-<TRN locale="en_US" key="website.DEB_packages.note">
-
-<li><b>Deb archives for 3.0.2 are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
-  
-</TRN>
-<TRN locale="en_US" key="website.native_compiler_nat_available_x86_64">
-There is no native compiler available for x86_64 Win64. You have to use a cross-compiler.
-</TRN>
-<TRN locale="en_US" key="website.mirrors.ftp.user">
-
-Since the FTP site restricts the number of simultaneous connections, we've
-set up a mirror account which can be used by mirrors, so they are not
-counted in the <I>anonymous</I> users count.
-If you want to mirror our site and want use to the mirror account, mail
-<a href="mailto:mirrors&#x040;freepascal.org">us</a> to obtain the password for
-the mirroring account.
-
-</TRN>
-<TRN locale="en_US" key="website.mirrors.ftp.using">
-Mirroring the FTP site can be done using:
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20171127">
-
- <li>
-  <em>November 28th, 2017</em>
- </li>
- <ul>
-  <li>
-   FPC version 3.0.4 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority.
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.4 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
-   </li>
- </ul>
- 
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20170215">
-
- <li>
-  <em>Februari 15th, 2017</em>
- </li>
- <ul>
-  <li>
-   FPC version 3.0.2 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
-   </li>
- </ul>
- 
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20151125">
-
- <li>
-  <em>November 25th, 2015</em>
- </li>
- <ul>
-  <li>
-   FPC version 3.0.0 "Pestering Peacock" has been released!
-   <p>
-    This version includes support for several new platforms, codepage-aware strings and an integrated Pascal source-repository.
-   </p>
-   <p>
-    We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
-    Finally, you can view the <a href="http://www.freepascal.org/docs-html/3.0/">FPC 3.0.0 documentation</a>.
-   </p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
-  </li>
- </ul>
- 
-</TRN>
-<TRN locale="en_US" key="website.contribs.header">
-Contributions
-</TRN>
-<TRN locale="en_US" key="website.powerpc_wii_file_download_descr">
-Contains a zip file with the win32 to PowerPC Wii cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.
-</TRN>
-<TRN locale="en_US" key="website.down2.arm.gba.header">
-Download Game Boy Advance
-</TRN>
-<TRN locale="en_US" key="website.down2.arm.linux.header">
-Download Linux ARM
-</TRN>
-<TRN locale="en_US" key="website.down2.i386linux.header">
-Download Intel/i386 Linux
-</TRN>
-<TRN locale="en_US" key="website.sparc-linux_deb_download_descr_beta">
-<a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">This directory</a> contains
-     the unofficial debian .deb packages.<br>
-  
-</TRN>
-<TRN locale="en_US" key="website.down_linux_arm_header">
-Download Linux ARM
-</TRN>
-<TRN locale="en_US" key="website.down.i386.linux.header">
-Download Intel/i386 Linux
-</TRN>
-<TRN locale="en_US" key="website.i8086_cross_Binary_packages">
-i8086 MS-DOS cross binary Packages
-</TRN>
-<TRN locale="en_US" key="website.Download_win32_wince_cross_installer_desc">
-Contains the installer with the win32 to arm-wince cross-compiler.
-</TRN>
-<TRN locale="en_US" key="website.Download_win32_win64_cross_installer_desc">
-Contains the installer with the win32 to win64 cross-compiler.
-</TRN>
-<TRN locale="en_US" key="website.DEB_compatibility_x86_64_linux">
-Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)
 </TRN>

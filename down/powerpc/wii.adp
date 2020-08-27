@@ -21,7 +21,7 @@
 <ul>
   <li>
     <a href="@mirror_url@dist/@latestversion@/powerpc-wii/powerpc-wii-fpc-@latestversion@.i386-win32.zip">powerpc-wii-fpc-@latestversion@.i386-win32.zip</a> (54.3 MB)
-    <p><trn key="website.arm-gba_file_download_descr" locale="en_US">Contains a zip file with the win32 to PowerPC Wii cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.</trn></p>
+    <p><trn key="website.powerpc_wii_file_download_descr" locale="en_US">Contains a zip file with the win32 to PowerPC Wii cross-compiler. Extract the zip into your fpc directory created by the <a href="@mirror_url@dist/@latestversion@/i386-win32/fpc-@latestversion@.i386-win32.exe">native Win32 compiler</a> (31.4 MB). See the included readme file for further instructions.</trn></p>
 </ul>
 
 <hr>

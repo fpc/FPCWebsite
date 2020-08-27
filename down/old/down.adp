@@ -46,5 +46,5 @@ in different formats.
 <hr>
 <p>
 <a href="down@x@"><trn key="website.Back_to_mirrorlist" locale="en_US">Back to mirror list</trn></a><BR/>
-<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to the general download page</trn></a>
+<a href="../../download@x@"><trn key="website.Back_to_general_download_page" locale="en_US">Back to general download page</trn></a>
 <p>

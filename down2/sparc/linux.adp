@@ -14,7 +14,7 @@
 <h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
 <em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu.</trn></em>
 <ul>
-<li><trn key="website.i386-linux_deb_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">This directory</a> contains
+<li><trn key="website.sparc-linux_deb_download_descr_beta" locale="en_US"><a href="@mirror_url@beta/2.1.4/sparc-linux/deb/">This directory</a> contains
      the unofficial debian .deb packages.<br>
   </trn>
 </ul>

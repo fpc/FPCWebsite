@@ -21,7 +21,7 @@
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
 
-<trn key="website.down.powerpc64.linux.information" locale="en_US">
+<trn key="website.down.powerpc64le.linux.information" locale="en_US">
 <li> <a
 href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (135 MB)
 contains a standard tar archive, with an install script<br>

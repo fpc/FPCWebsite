@@ -23,7 +23,7 @@
     </ul>
   <li>.tar.gz <trn key="website.down.docs.unix" locale="en_US">(for Unix platforms)</trn>
     <ul>
-      <li> <a href="@mirror_url@beta/2.1.4/docs/doc-pdf.tar.gz">PDF</a> (6.3 MB) <trn key="website.down.docs.format" locale="en_US">(Default and Preferred format)</trn>
+      <li> <a href="@mirror_url@beta/2.1.4/docs/doc-pdf.tar.gz">PDF</a> (6.3 MB) <trn key="website.down.docs.format" locale="en_US">(Default and preferred format)</trn>
       <li> <a href="@mirror_url@beta/2.1.4/docs/doc-html.tar.gz">HTML</a> (3.6 MB)
       <li> <a href="@mirror_url@beta/2.1.4/docs/doc-ps.tar.gz">PostScript</a> (3.9 MB)
     </ul>

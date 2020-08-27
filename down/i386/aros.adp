@@ -18,7 +18,7 @@
   <li> <a href="#arosbig"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
 </ul>
 
-<h3><a name="arosbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file for AROS on i386</trn>:</h3>
+<h3><a name="arosbig"></a><trn key="website.download_in_1_file_aros_on_i386" locale="en_US">Download in 1 big file for AROS on i386</trn>:</h3>
 <ul>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-aros/fpc-@latestversion@a-i386-aros.lha">fpc-@latestversion@a-i386-aros.lha</a> (53 MB)
 </ul>

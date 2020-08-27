@@ -14,7 +14,7 @@
 <trn key="website.latest_version_is" locale="en_US">
   The latest release version is</trn> <b>@latestversion@</b>
 
-<h3><a name="os2big"></a><trn key="website.download_in_1_file" locale="en_US">Download as a single archive</trn>:</h3>
+<h3><a name="os2big"></a><trn key="website.download_in_1_file_single archive" locale="en_US">Download as a single archive</trn>:</h3>
 <p>
 <trn key="website.i386-os2_1_file_download" locale="en_US">
   The FPC package for OS/2 and eComStation is available in the following options:

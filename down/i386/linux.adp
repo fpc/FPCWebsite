@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.down.i386.linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Intel/i386 Linux</trn></property>
+<property name="header"><trn key="website.down_linux_i386_header" locale="en_US">Download Intel/i386 Linux</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -37,7 +37,7 @@ It is available in different formats:
 <li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz">fpc-@latestversion@.i386-linux.cross.i8086-msdos.tar.xz</a> (160 MB)
 <trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to MS-DOS (real mode, i8086) cross-compiler only. You can install it like the main package.</trn></li>
 <li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.cross.x86_64-linux.tar">fpc-@latestversion@.i386-linux.cross.x86_64-linux.tar</a> (104 MB)
-<trn key="website.Download_linuxi386_msdos_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to x86_64-linux cross-compiler only. You can install it like the main package.</trn></li>
+<trn key="website.Download_linuxi386_x86_64_cross_installer" locale="en_US"> contains tar file with the Linux/i386 to x86_64-linux cross-compiler only. You can install it like the main package.</trn></li>
 </ul>
 
 <h3><a name="linuxrpm"></a><trn key="website.RPM_packages" locale="en_US">RPM (Redhat Package Manager) Packages</trn>:</h3>
@@ -53,12 +53,12 @@ It is available in different formats:
      <trn key="website.i386-linux_rpm_src_download_descr" locale="en_US">
        contains the sources.<br>
      </trn>
-<li> <b><trn key="website.Binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
+<li> <b><trn key="website.down_i386_i8086_msdos_binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@i-1.i686.rpm</a> (176 MB)
      <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
        contains the cross-compiler, RTL and all units for MS-DOS target. <br>
      </trn>
-<li> <b><trn key="website.Source_packages" locale="en_US">Source Packages for cross i8086 compilers. </trn></b>
+<li> <b><trn key="website.down_i386_i8086_source_packages" locale="en_US">Source Packages for cross i8086 compilers. </trn></b>
 <li> <a href="@mirror_url@dist/@latestversion@/x86_64-linux/rpm/fpc-i8086-msdos-@latestversion@-1.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (76 MB)
      <trn key="website.i386-linux_rpm_src_download_descr" locale="en_US">
        contains the sources for MS-DOS target.<br>

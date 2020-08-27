@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.probs.title" locale="en_US">Free Pascal - Known problems</trn></property>
 <property name="entry">bugs</property>
-<property name="header"><trn key="website.Known_Problems" locale="en_US">Known problems</trn></property>
+<property name="header"><trn key="website.Known_Problems" locale="en_US">Known Problems</trn></property>
 <ol>
 
 <li><h3><trn key="website.Delphi_unimplemented" locale="en_US">The following Delphi functionality is as of yet not implemented</trn>:</h3>

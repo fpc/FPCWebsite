@@ -19,13 +19,13 @@ downloaded in the following formats:
 <ul>
   <li>.zip
     <ul>
-      <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-pdf.zip">PDF</a> (5.5 MB) <trn key="website.down.docs.format" locale="en_US">(default and preferred format)</trn>
+      <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-pdf.zip">PDF</a> (5.5 MB) <trn key="website.down.docs.format" locale="en_US">(Default and preferred format)</trn>
       <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-html.zip">HTML</a> (7.0 MB)
       <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-htm.zip">HTML <trn key="website.down.old.docs.83limited" locale="en_US">(for 8.3-limited platforms)</trn></a> (7.0 MB)
     </ul>
   <li>.tar.gz <trn key="website.down.docs.unix" locale="en_US">(for Unix platforms)</trn>
     <ul>
-      <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-pdf.tar.gz">PDF</a> (3.4 MB) <trn key="website.down.docs.format" locale="en_US">(default and preferred format)</trn>
+      <li> <a href="@mirror_url@/olddist/1.0.10/docs-1.0.10/doc-pdf.tar.gz">PDF</a> (3.4 MB) <trn key="website.down.docs.format" locale="en_US">(Default and preferred format)</trn>
     </ul>
 </ul>
 <p>

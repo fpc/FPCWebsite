@@ -18,7 +18,7 @@
   <li> <a href="#morphosbig"><trn key="website.everything_in_1" locale="en_US">Everything in 1 big package</trn></a>
 </ul>
 
-<h3><a name="morphosbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file for MorphOS</trn>:</h3>
+<h3><a name="morphosbig"></a><trn key="website.download_in_1_file_morphos" locale="en_US">Download in 1 big file for MorphOS</trn>:</h3>
 <ul>
 <li> <a href="@mirror_url@dist/@latestversion@/powerpc-morphos/fpc-@latestversion@a-powerpc-morphos.lha">fpc-@latestversion@a-powerpc-morphos.lha</a> (54 MB)
 </ul>

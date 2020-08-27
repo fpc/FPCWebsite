@@ -33,18 +33,18 @@ This is not an FPC-specific mailing list, but most discussions about using FPC o
 
 <OL>
 <li> <trn key="website.maillist.email" locale="en_US">Send an e-mail to</trn>
-<trn key="website.maillist.email" locale="en_US">
+<trn key="website.maillist.email.list" locale="en_US">
 <OL>
 <li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">
-   fpc-pascal-request&#x040;lists.freepascal.org</a> for fpc-pascal.
+   fpc-pascal-request&#x040;lists.freepascal.org</a> for fpc-pascal
 <li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">
-   fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel.
+   fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel
 <li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
-   fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce.
+   fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce
 <li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
-   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other.
+   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
-   pas2js-request&#x040;lists.freepascal.org</a> for pas2js.
+   pas2js-request&#x040;lists.freepascal.org</a> for pas2js
 <li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
    mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
@@ -59,9 +59,9 @@ subscribe yourpassword [address=youremailaddres]
 <trn key="website.maillist.browser.list" locale="en_US">
 <OL>
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-pascal/">
-https://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal,
+https://lists.freepascal.org/mailman/listinfo/fpc-pascal/</a> for fpc-pascal
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-devel/">
-https://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel.
+https://lists.freepascal.org/mailman/listinfo/fpc-devel/</a> for fpc-devel
 
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-announce/">
 https://lists.freepascal.org/mailman/listinfo/fpc-announce/</a> for
@@ -70,7 +70,7 @@ fpc-announce
 https://lists.freepascal.org/mailman/listinfo/pas2js/</a> for
 pas2js
 <li><a href="https://lists.freepascal.org/mailman/listinfo/fpc-other/">
-https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other.
+https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> for fpc-other
 <li><a href="http://lists.sonic.net/mailman/listinfo/mac-pascal/">http://lists.sonic.net/mailman/listinfo/mac-pascal/</a> for MacPascal
 </OL>
 Enter your e-mail address, your password, and that's it.

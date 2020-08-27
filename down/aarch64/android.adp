@@ -12,10 +12,8 @@
 -->
 
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>@latestversion@</b>.
-</trn>
+  The latest release version is</trn> <b>@latestversion@</b>.
 
-<h1>@latestversion@</h1>
 <trn key="website.down.aarch64android" locale="en_US">
 <h3><a name="aarch64android"></a>Download in 1 big file:</h3>
 <ul>

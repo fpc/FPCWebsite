@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.down2.i386linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down_linux_arm" locale="en_US">Download Intel/i386 Linux</trn></property>
+<property name="header"><trn key="website.down2.i386linux.header" locale="en_US">Download Intel/i386 Linux</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

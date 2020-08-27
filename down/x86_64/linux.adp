@@ -11,8 +11,8 @@
 *****************************************************************************
 -->
 <trn key="website.latest_version_is" locale="en_US">
-  The latest release version is <b>@latestversion@</b>.
-</trn>
+  The latest release version is</trn> <b>@latestversion@</b>.
+
 
 <P>
 
@@ -58,7 +58,7 @@ It is available in different formats:
      <trn key="website.x86_64-linux_rpm_src_download_descr" locale="en_US">
        contains the sources.<br>
      </trn>
-<li> <b><trn key="website.Binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
+<li> <b><trn key="website.down_x86_64_i8086_msdos_binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
 <li> <a href="@mirror_url@dist/@latestversion@/x86-64-linux/rpm/fpc-i8086-msdos-@latestversion@-1.x86_64.rpm">fpc-i8086-msdos-@latestversion@i-1.x86_64.rpm</a> (176 MB)
      <trn key="website.x86-64-linux_rpm_download_descr" locale="en_US">
        contains the cross-compiler, RTL and all units for MS-DOS target. <br>
@@ -72,7 +72,7 @@ It is available in different formats:
 
 
 <h3><a name="linuxdeb"></a><trn key="website.DEB_packages" locale="en_US">Debian Packages</trn>:</h3>
-<em><trn key="website.DEB_compatibility" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)</trn></em>
+<em><trn key="website.DEB_compatibility_x86_64_linux" locale="en_US">Our DEB packages are compatible with all DEB based distributions, including Debian, Linspire, Ubuntu. (Currently still at <b>2.4.2</b>)</trn></em>
 <ul>
 <trn key="website.DEB_packages.note" locale="en_US">
 <li><b>Deb archives for @latestversion@ are not available from us. Please refer to the official Debian experimental repository instead.</b><br>
