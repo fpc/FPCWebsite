@@ -150,6 +150,7 @@ RECOMPILE_OPT=
 RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
 ULIMIT_TIME=333
+COMPILE_EACH_CPU=0
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -203,6 +204,7 @@ elif [ "X$machine_host" == "Xgcc122" ] ; then
   DO_RECOMPILE_FULL=1
   RECOMPILE_FULL_OPT="-CriotR"
   RECOMPILE_FULL_OPT_O="-O4"
+  COMPILE_EACH_CPU=1
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
 elif [ "X$machine_host" == "Xgcc123" ] ; then
@@ -224,7 +226,10 @@ elif [ "X$machine_host" == "Xgcc135" ] ; then
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
   DO_CHECK_LLVM=1
-  RECOMPILE_FULL_OPT="-CriotR -dFPC_SOFT_FPUX80"
+  RECOMPILE_FULL_OPT="-CriotR -gwl -dFPC_SOFT_FPUX80"
+  COMPILE_EACH_CPU=1
+  # It seems that QWord range checking is not correct of powerpc64le
+  RECOMPILE_FULL_OPT="-gwl -dFPC_SOFT_FPUX80"
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
   export FPMAKEOPT="-T 16"
@@ -236,6 +241,8 @@ elif [ "X$machine_host" == "Xgcc202" ] ; then
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
+  DO_RECOMPILE_FULL=1
+  COMPILE_EACH_CPU=1
   MAKEJOPT="-j 32"
   ULIMIT_TIME=999
   # Force use of 32-bit version compiler
@@ -344,6 +351,26 @@ fi
 
 START_DIR=`pwd`
 
+script_dir=`dirname "$0"`
+if [ -z "$script_dir" ] ; then
+  script_name=`which "$0"`
+else
+  script_name="$0"
+fi
+script_source=`realpath -P "$script_name" 2> /dev/null `
+if [ -z "$script_source" ] ; then
+  script_source=`readlink "$script_name" 2> /dev/null `
+fi
+
+if [ -f "$script_source" ] ; then
+  svn_script_version=` svnversion -c "$script_source"`
+  script_date=` find "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
+else
+  svn_script_version="Unknown \"$script_source\" \"$script_name\""
+  script_date=Unknown
+fi
+
+
 cd $CHECKOUTDIR
 
 if [ -d fpcsrc ] ; then
@@ -358,25 +385,6 @@ svn_rtl_version=`svnversion -c rtl`
 svn_compiler_version=`svnversion -c compiler`
 svn_packages_version=`svnversion -c packages`
 svn_utils_version=`svnversion -c utils`
-script_dir=`dirname "$0"`
-if [ -z "$script_dir" ] ; then
-  script_name=`which "$0"`
-else
-  script_name="$0"
-fi
-script_source=`realpath "$script_name" 2> /dev/null `
-if [ -z "$script_source" ] ; then
-  script_source=`readlink "$script_name" 2> /dev/null `
-fi
-
-if [ -f "$script_source" ] ; then
-  svn_script_version=` svnversion -c "$script_source"`
-  script_date=` find "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
-else
-  svn_script_version=Unknown
-  script_date=Unknown
-fi
-
 # This variable is reset after
 # all -T"OS" have been parsed
 # it serves to add a comment that 
@@ -571,7 +579,7 @@ if [ -f "$script_source" ] ; then
   fi
 fi 
 
-if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
+if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   cd compiler
   cyclelog=$LOGDIR/native-cycle.log
   fullcyclelog=$LOGDIR/full-cycle.log
@@ -602,6 +610,9 @@ if [ "X${DO_RECOMPILE_FULL}" == "X1" ] ; then
   fi
   if [ $makeres -ne 0 ] ; then
     mecho "Generating all cross-compilers failed, see $fullcyclelog for details"
+    COMPILE_EACH_CPU=1
+  fi
+  if [ $COMPILE_EACH_CPU -eq 1 ] ; then
     export FPCCPUOPT="-O-"
     mecho "Recompiling rtl"
     make rtlclean rtl OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
@@ -1116,11 +1127,15 @@ function check_target ()
   CROSS_DATE=`$fpc_local_exe -iD` 
   if [ "$start_system_date" != "$CROSS_DATE" ] ; then
     fpc_local_file_age=$(fileage $fpc_local_exe)
-    lecho "Note: $fpc_local_exe date `date -r $fpc_local_exe \"$DATE_FORMAT\"` is different from $CROSS_DATE, returned by -iD, fileage=$fpc_local_file_age"
+    if [ $fpc_local_file_age -eq 0 ] ; then
+      lecho "Note: start script date is different from date returned by $fpc_local_exe -iD, but fileage=$fpc_local_file_age, so this is simply timezone issue"
+    else
+      lecho "Note: start script date $start_system_date is different from $CROSS_DATE, returned by $fpc_local_exe -iD, fileage=$fpc_local_file_age"
+    fi
     if [ $fpc_local_file_age -lt 2 ] ; then
       lecho "Note: using $fpc_local_exe, despite date difference"
     else
-      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, date returns $start_system_date"
+      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, Date from $fpc_local_exe binary is $CROSS_DATE, start script date is $start_system_date"
       skipped_count=`expr $skipped_count + 1 `
       skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       return

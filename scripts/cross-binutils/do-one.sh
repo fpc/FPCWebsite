@@ -187,7 +187,7 @@ function copytofpcbin ()
 	  ( cd ../${binutilsdir} ; patch -p 1 -i ../${difffile} )
 	else
 	  patchfile=${difffile}
-	  local_binutilsdir=$binutilsdir
+	  binutilsdir_local=$binutilsdir
 	  binutilsdir=${binutilsdir_off}
 	fi
       fi
