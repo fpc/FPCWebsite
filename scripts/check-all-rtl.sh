@@ -207,6 +207,7 @@ elif [ "X$machine_host" == "Xgcc122" ] ; then
   COMPILE_EACH_CPU=1
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
+  export FPMAKEOPT="-T 8"
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -550,7 +551,7 @@ function generate_local_diff_file ()
   fi
 }
 
-echo "$0 for $svnname, version $FPCVERSION starting at `date`" > $LOCKFILE
+echo "$0 for $svnname, version $FPCVERSION starting at `date --utc \"$DATE_FORMAT\"`" > $LOCKFILE
 
 rm -f $LOGFILE $LISTLOGFILE $TIMEDLISTLOGFILE $EMAILFILE
 
@@ -1878,8 +1879,8 @@ else
   prev_date=
 fi
 
-echo "Ending at `date`" >> $LOGFILE
-echo "Ending at `date`" >> $LISTLOGFILE
+echo "Ending at `date --utc \"$DATE_FORMAT\"`" >> $LOGFILE
+echo "Ending at `date --utc \"$DATE_FORMAT\"`" >> $LISTLOGFILE
 
 # Generate email summarizing found problems
 
