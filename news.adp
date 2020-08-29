@@ -35,7 +35,6 @@
  </ul>
  </trn>
 
-
  <trn locale="en_US" key="website.frontpage.news_headline_20170215">
  <li>
   <em>February 15th, 2017</em>
@@ -54,49 +53,6 @@
     Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
   </li>
- </ul>
- </trn>
-
- <trn locale="en_US" key="website.frontpage.news_headline_20171127">
- <li>
-  <em>November 28th, 2017</em>
- </li>
- <ul>
-  <li>
-   FPC version 3.0.4 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority.
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.4 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
-   </p>
-   </li>
- </ul>
- </trn>
-
- <trn locale="en_US" key="website.frontpage.news_headline_20170215">
- <li>
-  <em>Februari 15th, 2017</em>
- </li>
- <ul>
-  <li>
-   FPC version 3.0.2 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.0.2 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
-   </p>
-   </li>
  </ul>
  </trn>
 
