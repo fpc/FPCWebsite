@@ -45,42 +45,55 @@
 
 <p>
  <trn locale="en_US" key="website.frontpage.helpersattributesllvm">
-  <p>
+  <li>
     <em>July 20, 2019</em>
-  </p>
+  </li>
+  <ul>
+   <li>
     FPC has gained several new features lately in trunk (which will not be in the upcoming FPC 3.2.0 release):
     <ul>
       <li>Multiple helper types can now be <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">active at the same time</a></li>
       <li>Support has been added for <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">custom attributes</a></li>
       <li>The compiler can now generate <a href="https://wiki.freepascal.org/LLVM">LLVM bitcode</a> for select platforms (Darwin/x86-64, Linux/x86-64, Linux/AArch64, Linux/ARMHF)</li>
     </ul>
+	<p>
     While FPC 3.2.0 will not have support for the above list, it will have <a href="https://wiki.freepascal.org/FPC_New_Features_3.2">its own collection of new features</a> and fixes!
-  <p>
-
-  </p>
+	</p>
+   </li>
+  </ul>
  </trn>
 </p>
 
 <p>
  <trn locale="en_US" key="website.frontpage.fpc25">
-  <p>
+  <li>
     <em>June 8, 2018</em>
-  </p>
-  <p>
-    Today FPC celebrates its 25th birthday ! 25 years have passed since 8 june 1993,
-and FPC still does not only exists, but is more alive and kicking than ever!
-  </p>
+  </li>
+  <ul>
+  <li>
+   <p>
+    Today FPC celebrates its 25th birthday !
+   </p>
+   <p>
+    25 years have passed since 8 june 1993, and FPC still does not only exists, but is more alive and kicking than ever!
+   </p>
+  </li>
+  </ul>
  </trn>
 </p>
 
 <p>
  <trn locale="en_US" key="website.frontpage.privacy">
-  <p>
+  <li>
     <em>May 28, 2018</em>
-  </p>
-  <p>
-   As required by the European <a href="https://gdpr-info.eu/">GDPR</a>, we have published a <a href="privacy@x@">privacy statement</a>
-  </p>
+  </li>
+  <ul>
+   <li>
+    <p>
+     As required by the European <a href="https://gdpr-info.eu/">GDPR</a>, we have published a <a href="privacy@x@">privacy statement</a>
+    </p>
+   </li>
+  </ul>
  </trn>
 </p>
 
