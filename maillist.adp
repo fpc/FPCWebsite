@@ -5,7 +5,7 @@
 <property name="header"><trn key="website.maillist.header" locale="en_US">Mailing lists</trn></property>
 
 <h3> <trn key="website.maillist.need" locale="en_US">Which mailing list do you need ?</trn></h3>
-<trn key="website.maillist.lists4" locale="en_US">There are 4 (four) mailing lists:</trn>
+<trn key="website.maillist.lists4" locale="en_US">There are several mailing lists:</trn>
 
 <trn key="website.maillist.lists" locale="en_US">
 <OL>
@@ -19,7 +19,7 @@ and small patches to fix compiler bugs.
 <li> <I>FPC-Announce</I>:
 Here important announcements (such as new releases) will be posted.
 <li> <I>pas2js</I>:
-For all questions and discussions about the pas2js pascal-to-javascript compiler
+For all questions and discussions about the pas2js (Pascal-to-JavaScript) compiler
 <li> <I>FPC-Other</I>:
 For all other mail that is not in the above categories.
 <li> <I>MacPascal</I>:
@@ -41,10 +41,10 @@ This is not an FPC-specific mailing list, but most discussions about using FPC o
    fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel
 <li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
    fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce
-<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
-   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
    pas2js-request&#x040;lists.freepascal.org</a> for pas2js
+<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
+   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
    mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
@@ -109,8 +109,7 @@ the archives, go here:
 
 <h4><trn key="website.maillist.game" locale="en_US">GMANE</trn></h4>
 <trn key="website.maillist.access.game" locale="en_US">
-<a href="http://www.gmane.org">GMANE</a> allows access to the main mailing list via <a href="http://news.gmane.org/gmane.comp.compilers.free-pascal.general">http</a>
-or via your news client: <a href="nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general</a>.
+<a href="http://gmane.io">GMANE</a> allows access to the main mailing list via a news client: <a href="nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general</a>.
 </trn>
 </ol>
 
