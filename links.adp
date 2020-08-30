@@ -151,8 +151,8 @@ your chances to contact them ;-).
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
     the MacOS/PowerPC platform. -->
-  <li><a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
-    for information on the yacc and lex prgrams for pascal.
+  <li><a href="https://web.archive.org/web/20181116101101/http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
+    for information on the yacc and lex programs for pascal.
 </ul>
 </trn>
 
