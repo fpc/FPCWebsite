@@ -181,8 +181,7 @@ and wants to search for the original content elsewhere via some search engine:
     GUI toolkit like Visual Pascal for making grafical programs that will
     compile with BP7 and Free Pascal; it comes with a visual development tool
     for resource editing and should run under DOS and Windows.
-  <li><a href="http://www.friends-of-fpc.org">Friends-of-fpc: Lots of good articles</a>
-  <li><a href="http://www.math.uni-magdeburg.de/%7Emkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
+  <li><a href="http://web.archive.org/web/20100618224628/http://www.math.ucdavis.edu/~mkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
     a clone of Turbo Vision that works in graphics mode; a port
     for FPC is being developed.
 </ul>
