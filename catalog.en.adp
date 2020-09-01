@@ -4705,101 +4705,53 @@ Latest News
 </TRN>
 <TRN locale="en_US" key="website.frontpage.helpersattributesllvm">
 
-  <p>
+  <li>
     <em>July 20, 2019</em>
-  </p>
+  </li>
+  <ul>
+   <li>
     FPC has gained several new features lately in trunk (which will not be in the upcoming FPC 3.2.0 release):
     <ul>
       <li>Multiple helper types can now be <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">active at the same time</a></li>
       <li>Support has been added for <a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">custom attributes</a></li>
       <li>The compiler can now generate <a href="https://wiki.freepascal.org/LLVM">LLVM bitcode</a> for select platforms (Darwin/x86-64, Linux/x86-64, Linux/AArch64, Linux/ARMHF)</li>
     </ul>
+	<p>
     While FPC 3.2.0 will not have support for the above list, it will have <a href="https://wiki.freepascal.org/FPC_New_Features_3.2">its own collection of new features</a> and fixes!
-  <p>
-
-  </p>
+	</p>
+   </li>
+  </ul>
  
 </TRN>
 <TRN locale="en_US" key="website.frontpage.fpc25">
 
-  <p>
+  <li>
     <em>June 8, 2018</em>
-  </p>
-  <p>
-    Today FPC celebrates its 25th birthday ! 25 years have passed since 8 june 1993,
-and FPC still does not only exists, but is more alive and kicking than ever!
-  </p>
+  </li>
+  <ul>
+  <li>
+   <p>
+    Today FPC celebrates its 25th birthday !
+   </p>
+   <p>
+    25 years have passed since 8 june 1993, and FPC still does not only exists, but is more alive and kicking than ever!
+   </p>
+  </li>
+  </ul>
  
 </TRN>
 <TRN locale="en_US" key="website.frontpage.privacy">
 
-  <p>
+  <li>
     <em>May 28, 2018</em>
-  </p>
-  <p>
-   As required by the European <a href="https://gdpr-info.eu/">GDPR</a>, we have published a <a href="privacy@x@">privacy statement</a>
-  </p>
- 
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20171127_index">
-
- <p>
-  <em>November 28th, 2017</em>
- </p>
-  <p>
-   FPC version 3.0.4 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages,
-     some of which are high priority.
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.4">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.4 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
-   </p>
- 
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20170215_index">
-
- <p>
-  <em>February 15th, 2017</em>
- </p>
- <p>
-   FPC version 3.0.2 has been released!
-   <p>
-    This version is a point update to 3.0 and contains bugfixes and updates packages
-   </p>
-   <p>
-    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.0.2">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
- </p>
- 
-</TRN>
-<TRN locale="en_US" key="website.frontpage.news_headline_20151125_index">
-
- <p>
-  <em>November 25th, 2015</em>
- </p>
- <p>
-   FPC version 3.0.0 "Pestering Peacock" has been released!
-   <p>
-    This version includes support for several new platforms, codepage-aware strings and an integrated Pascal source-repository.
-   </p>
-   <p>
-    We have the traditional lists of <a href="http://wiki.freepascal.org/FPC_New_Features_3.0">new features</a> and <a href="http://wiki.freepascal.org/User_Changes_3.0">changes that may break backward compatibility</a>.
-    You can also have a look at the <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 documentation</a>.
-   </p>
-   <p>
-    Downloads are available at <a href="http://www.freepascal.org/download.var">the download section</a>.
-   </p>
- </p>
+  </li>
+  <ul>
+   <li>
+    <p>
+     As required by the European <a href="https://gdpr-info.eu/">GDPR</a>, we have published a <a href="privacy@x@">privacy statement</a>
+    </p>
+   </li>
+  </ul>
  
 </TRN>
 <TRN locale="en_US" key="website.fpc.older_news">
@@ -5495,8 +5447,8 @@ your chances to contact them ;-).
     programming on the Mac, but also quite a few general Pascal links.
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal Compiler page</a>: project to port FPC to
     the MacOS/PowerPC platform. -->
-  <li><a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
-    for information on the yacc and lex prgrams for pascal.
+  <li><a href="https://web.archive.org/web/20181116101101/http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">The pascal Yacc and Lex home page</a>
+    for information on the yacc and lex programs for pascal.
 </ul>
 
 </TRN>
@@ -5542,7 +5494,7 @@ Mailing lists
 Which mailing list do you need ?
 </TRN>
 <TRN locale="en_US" key="website.maillist.lists4">
-There are 4 (four) mailing lists:
+There are several mailing lists:
 </TRN>
 <TRN locale="en_US" key="website.maillist.lists">
 
@@ -5557,7 +5509,7 @@ and small patches to fix compiler bugs.
 <li> <I>FPC-Announce</I>:
 Here important announcements (such as new releases) will be posted.
 <li> <I>pas2js</I>:
-For all questions and discussions about the pas2js pascal-to-javascript compiler
+For all questions and discussions about the pas2js (Pascal-to-JavaScript) compiler
 <li> <I>FPC-Other</I>:
 For all other mail that is not in the above categories.
 <li> <I>MacPascal</I>:
@@ -5583,10 +5535,10 @@ Send an e-mail to
    fpc-devel-request&#x040;lists.freepascal.org</a> for fpc-devel
 <li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
    fpc-announce-request&#x040;lists.freepascal.org</a> for fpc-announce
-<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
-   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
    pas2js-request&#x040;lists.freepascal.org</a> for pas2js
+<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
+   fpc-other-request&#x040;lists.freepascal.org</a> for fpc-other
 <li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
    mac-pascal-request&#x040;listman.sonic.net</a> for MacPascal
 </OL>
@@ -5666,8 +5618,7 @@ GMANE
 </TRN>
 <TRN locale="en_US" key="website.maillist.access.game">
 
-<a href="http://www.gmane.org">GMANE</a> allows access to the main mailing list via <a href="http://news.gmane.org/gmane.comp.compilers.free-pascal.general">http</a>
-or via your news client: <a href="nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general</a>.
+<a href="http://gmane.io">GMANE</a> allows access to the main mailing list via a news client: <a href="nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general</a>.
 
 </TRN>
 <TRN locale="en_US" key="website.mirrors.title">
@@ -5787,24 +5738,24 @@ If you need more information you can:
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.documentation">
 read the <a href="docs@x@">documentation</a> online.
-  <br>German users can buy the German translation of the book from
-  <a href="http://www.cul.de/freepascal@x@">C&amp;L</a>.
+  <br>German users can buy the German translation of the book e.g. from
+  <a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">Amazon</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.faq">
 read the <a href="faq@x@">General FAQ</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.Building">
-read the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">Building faq (PDF)</a>.
+read the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">Building FAQ (PDF)</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.news">
 read the <a href="news@x@">news</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.mailing">
-join one of the <a href="maillist@x@">mailing lists</a>.
+join one or more <a href="maillist@x@">mailing lists</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.irc">
 have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>.
-  The log of this channel is available <a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">
+  <!--The log of this channel is available <a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">
   here</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.wiki">
@@ -5833,9 +5784,9 @@ if you have general pascal questions, please post them to one of the following
 <TRN locale="en_US" key="website.moreinfo.questions.list">
 
   <ul>
-    <a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a><br>
-    <a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a><br>
-    <a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a><br>
+    <li><a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a></li>
+    <li><a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a></li>
+    <li><a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a></li>
   </ul>
   
 </TRN>
@@ -5843,14 +5794,15 @@ if you have general pascal questions, please post them to one of the following
 A guide how to <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">make code written in C or C++ accessible in Pascal</a>. Thanks to Gilles Marcou!
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.manuals">
-Our manuals are written for people who already know how to program in Pascal. <br>
-  If you are looking for information how you can learn Pascal,<br>
-  Tao Yue's <a href="http://wiki.lazarus.freepascal.org/Object_Pascal_Tutorial">Learn Pascal Tutor</a>  is a good choice.
+Our manuals are written for people who already know how to program in Pascal.
+  If you are looking for information how you can learn Pascal,
+  Tao Yue's <a href="https://www.taoyue.com/tutorials/pascal">Learn Pascal Tutorial</a> is a good choice.
+  There is also <a href="https://wiki.lazarus.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines">a list of books</a> available in the wiki.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.windows">
 The <b>windows</b> unit is not documented in Free Pascal. The reason for
   this is that this is a HUGE unit, which would describe the complete win32
-  API, and that is not the purpose of this documentation.<p>
+  API, and that is not the purpose of this documentation.<br>
   The complete and up-to-date documentation of the Windows API is also on-line
   available on <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts website</a>.
 </TRN>
@@ -5895,7 +5847,7 @@ Previous news (continued from home page)
 <TRN locale="en_US" key="website.frontpage.news_headline_20170215">
 
  <li>
-  <em>Februari 15th, 2017</em>
+  <em>February 15th, 2017</em>
  </li>
  <ul>
   <li>
@@ -5910,7 +5862,7 @@ Previous news (continued from home page)
    <p>
     Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>.
    </p>
-   </li>
+  </li>
  </ul>
  
 </TRN>

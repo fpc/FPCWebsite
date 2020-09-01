@@ -3521,70 +3521,40 @@ FPC 3.2.0 发布！
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.frontpage.helpersattributesllvm">
-<p> <em>2019年7月20日</em> </p> FPC 最近在主干中增加了几个新功能（即将发布的 FPC 3.2.0 中不会包含这些功能）： <ul>
-    <li>现在可以<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">同时激活多个</a>助手类型</li>
-    <li>添加了对<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">自定义属性</a>的支持</li>
-    <li>编译器现在可以为特定平台（Darwin/x86-64，Linux/x86-64，Linux/AArch64，Linux/ARMHF）生成 <a href="https://wiki.freepascal.org/LLVM">LLVM 位码</a></li>
-</ul> FPC 3.2 虽然不支持上述列表，但是它将具有<a href="https://wiki.freepascal.org/FPC_New_Features_3.2">自己的新功能</a>和修复补丁！ <p> </p>
+<li> <em>2019年7月20日</em> </li>
+<ul>
+    <li>
+    FPC 最近在主干中增加了几个新功能（即将发布的 FPC 3.2.0 中不会包含这些功能）：
+    <ul>
+        <li>现在可以<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">同时激活多个</a>助手类型</li>
+        <li>添加了对<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">自定义属性</a>的支持</li>
+        <li>编译器现在可以为特定平台（Darwin/x86-64，Linux/x86-64，Linux/AArch64，Linux/ARMHF）生成 <a href="https://wiki.freepascal.org/LLVM">LLVM 位码</a></li>
+    </ul>
+    <p>FPC 3.2 虽然不支持上述列表，但是它将具有<a href="https://wiki.freepascal.org/FPC_New_Features_3.2">自己的新功能</a>和修复补丁！</p>
+    </li>
+</ul>
 </TRN>
 <TRN locale="zh-CN" key="website.frontpage.fpc25">
-<p>
-    <em>2018年6月8日</em>
-  </p>
-  <p>
-    今天，庆祝 FPC 成立 25周年！自1993年6月8日以来已经过去了25年，FPC 不仅仍然存在，而且比以往任何时候都更加活跃和充满活力！
-  </p>
+<li>
+<em>2018年6月8日</em>
+</li>
+<ul>
+    <li>
+        <p>今天，庆祝 FPC 成立 25周年！</p>
+        <p>自1993年6月8日以来已经过去了25年，FPC 不仅仍然存在，而且比以往任何时候都更加活跃和充满活力！</p>
+    </li>
+</ul>
 </TRN>
 <TRN locale="zh-CN" key="website.frontpage.privacy">
-<p>
+<li>
     <em>2018年5月28日</em>
-  </p>
-  <p>
-   根据欧洲 <a href="https://gdpr-info.eu/">GDPR</a> 的要求，我们已经发布了<a href="privacy@x@">隐私声明</a>
-  </p>
-</TRN>
-<TRN locale="zh-CN" key="website.frontpage.news_headline_20171127_index">
-<p>
-  <em>2017年11月28日</em>
- </p>
-  <p>
-   FPC 3.0.4 已发布！
-   <p>
-    此版本是对 3.0 的一些更新，其中包含错误修正和更新包，其中一些是高优先级的。
-   </p>
-   <p>
-    存在会<a href="http://wiki.freepascal.org/User_Changes_3.0.4">破坏向后兼容性的变更列表</a>。
-    你也可以查看 <a href="http://www.freepascal.org/docs.var">FPC 3.0.4 文档</a>。
+</li>
+<ul>
+    <li>
+    <p>根据欧洲 <a href="https://gdpr-info.eu/">GDPR</a> 的要求，我们发布了<a href="privacy@x@">隐私声明</a>。</p>
+    </li>
+</ul>
 
-   </p>
-   <p>
-    通过<a href="http://www.freepascal.org/download.var">下载页面</a>获得。
-   </p>
-   </p>
-</TRN>
-<TRN locale="zh-CN" key="website.frontpage.news_headline_20170215_index">
-<p>
-  <em>2017年2月15日</em>
- </p>
- <p>
-   FPC 3.0.2 已发布！
-   <p>
-    此版本是对 3.0 的一些更新，其中包含错误修正和更新包。
-   </p>
-   <p>
-    列出了可能会<a href="http://wiki.freepascal.org/User_Changes_3.0.2">破坏向后兼容性的更改</a>。你也可以查看 <a href="http://www.freepascal.org/docs.var">FPC 3.0.2 文档</a>。
-   </p>
-   <p>
-    通过<a href="http://www.freepascal.org/download.var">下载页面</a>下载。
-   </p>
- </p>
-</TRN>
-<TRN locale="zh-CN" key="website.frontpage.news_headline_20151125_index">
-<p> <em>2015年11月25日</em> </p>
-<p> FPC 3.0.0 "Pestering Peacock" 已发布！ <p> 该版本包含对多个新平台的支持，可识别代码页的字符串以及集成的 Pascal 源代码库。 </p>
-    <p> 查看<a href="http://wiki.freepascal.org/FPC_New_Features_3.0">新特性</a>和<a href="http://wiki.freepascal.org/User_Changes_3.0">打破向后兼容性</a>的变更列表。 你还可以查看 <a href="https://www.freepascal.org/docs.var">FPC 3.0.2 文档</a>。 </p>
-    <p> 通过<a href="https://www.freepascal.org/download.var">下载页面</a>下载。 </p>
-</p>
 </TRN>
 <TRN locale="zh-CN" key="website.fpc.older_news">
 旧消息...
@@ -4088,7 +4058,7 @@ Free Pascal - 链接
   <li><a href="https://www.udemy.com/topic/pascal-programming-language/">Udemy</a> 上有一些使用 free pascal 的 pascal 教程。</li>
   <li><a href="http://www.pascal-central.com/">Pascal Central</a>，在那里你可以找到在 Mac 进行 Pascal 编程的信息，但也有相当多的通用 Pascal 链接。
 <!--  <li><a href="http://pascal-central.com/osp/">Mac Pascal 编译器页面</a>： 项目将 FPC 移植到 MacOS/PowerPC 平台 -->
-  <li>有关 pascal  yacc 和 lex 程序的信息，请访问 <a href="http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">pascal  Yacc 和 Lex 的主页</a>。
+  <li>有关 pascal  yacc 和 lex 程序的信息，请访问 <a href="https://web.archive.org/web/20181116101101/http://www.musikwissenschaft.uni-mainz.de/%7Eag/tply/tply.html">pascal  Yacc 和 Lex 的主页</a>。
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.links.programinfo">
@@ -4119,7 +4089,7 @@ Free Pascal - 邮件列表
 你需要哪个邮件列表？
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.lists4">
-有4个邮件列表：
+目前有：
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.lists">
 <OL>
@@ -4130,7 +4100,7 @@ Free Pascal - 邮件列表
 <li> <I>FPC-Announce</I>:
 重要公告（如新版本）将在此处发布。
 <li> <I>pas2js</I>:
-有关 pas2js pascal-to-javascript 编译器的所有问题和讨论
+有关 pas2js（Pascal-to-JavaScript）编译器的问题和讨论。
 <li> <I>FPC-Other</I>:
 对于不在上述类别中的所有其他邮件。
 <li> <I>MacPascal</I>:
@@ -4148,18 +4118,12 @@ Free Pascal - 邮件列表
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.email.list">
 <OL>
-<li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">
-   fpc-pascal-request&#x040;lists.freepascal.org</a> 对于 fpc-pascal
-<li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">
-   fpc-devel-request&#x040;lists.freepascal.org</a> 对于 fpc-devel
-<li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
-   fpc-announce-request&#x040;lists.freepascal.org</a> 对于 fpc-announce
-<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
-   fpc-other-request&#x040;lists.freepascal.org</a> 对于 fpc-other
-<li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
-   pas2js-request&#x040;lists.freepascal.org</a> 对于 pas2js
-<li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
-   mac-pascal-request&#x040;listman.sonic.net</a> 对于 MacPascal
+<li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">fpc-pascal-request&#x040;lists.freepascal.org</a> 针对 fpc-pascal
+<li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">fpc-devel-request&#x040;lists.freepascal.org</a> 针对 fpc-devel
+<li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">fpc-announce-request&#x040;lists.freepascal.org</a> 针对 fpc-announce
+<li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">pas2js-request&#x040;lists.freepascal.org</a> 针对 pas2js
+<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">fpc-other-request&#x040;lists.freepascal.org</a> 针对 fpc-other
+<li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">mac-pascal-request&#x040;listman.sonic.net</a> 针对 MacPascal
 </OL>
 
 使用
@@ -4226,8 +4190,7 @@ https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> 对于 fpc-other
 GMANE
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.access.game">
-<a href="http://www.gmane.org">GMANE</a> 允许通过 <a href="http://news.gmane.org/gmane.comp.compilers.free-pascal.general">http</a> 或新闻客户端访问主要
-邮件列表：<a href="nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.org/gmane.comp.compilers.free-pascal.general</a>。
+<a href="http://www.gmane.io">GMANE</a> 允许通过新闻客户端访问主邮件列表：<a href="nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.mirrors.title">
 Free Pascal - 链接
@@ -4307,7 +4270,7 @@ Free Pascal - 更多信息
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.documentation">
 阅读在线<a href="docs@x@">文档</a>。
-<br>德语用户可以从 <a href="http://www.cul.de/freepascal@x@">C&amp;L</a> 购买该书的德语翻译。
+<br>德语用户可以购买该书的译本，如，从<a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">亚马逊</a>购买。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.faq">
 阅读<a href="faq@x@">常见问题解答</a>。
@@ -4319,10 +4282,10 @@ Free Pascal - 更多信息
 阅读<a href="news@x@">新闻</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.mailing">
-加入一个<a href="maillist@x@">邮件列表</a>。
+加入一个或多个<a href="maillist@x@">邮件列表</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.irc">
-通过 IRC 服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。
+通过 IRC 服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。<!-- 该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。-->
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.wiki">
 搜索 <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>。
@@ -4346,22 +4309,22 @@ Free Pascal - 更多信息
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.questions.list">
 <ul>
-    <a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a><br>
-    <a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a><br>
-    <a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a><br>
-  </ul>
+    <li><a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a></li>
+    <li><a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a></li>
+    <li><a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a></li>
+</ul>
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.guide">
 关于 <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">C 或 C++ 代码如何在 Pascal 中使用</a>。感谢 Gilles Marcou！
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.manuals">
-我们的手册是为已经知道如何在 Pascal 编程的人编写的。
+我们的手册是为有 Pascal 编程经验的人编写的。
 如果你正在寻找有关如何学习 Pascal 的信息，
-Tao Yue 的 <a href="http://wiki.lazarus.freepascal.org/Object_Pascal_Tutorial">学习 Pascal 教程</a>是个不错的选择。
+Tao Yue 的 <a href="https://www.taoyue.com/tutorials/pascal">学习 Pascal 教程</a>是个不错的选择。
+另外，wiki 上提供了<a href="https://wiki.lazarus.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines">书籍清单</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.windows">
-Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。
-
+Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。<br>
 Windows API 完整的和最新文档也可以在 <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts 网站</a>上在线获得。
 </TRN>
 <TRN locale="zh-CN" key="website.news.title">
