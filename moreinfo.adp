@@ -5,7 +5,7 @@
 <p><trn key="website.moreinfo.information" locale="en_US">If you need more information you can:</trn></p>
 <ul>
   <li><trn key="website.moreinfo.documentation" locale="en_US">read the <a href="docs@x@">documentation</a> online.
-  <br>German users can buy the German translation of the book e.g. from
+  <br>German users can buy the German translation of the FPC guides e.g. from
   <a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">Amazon</a>.</trn></li>
   <li><trn key="website.moreinfo.faq" locale="en_US">read the <a href="faq@x@">General FAQ</a>.</trn></li>
   <li><trn key="website.moreinfo.Building" locale="en_US">read the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">Building FAQ (PDF)</a>.</trn></li>
