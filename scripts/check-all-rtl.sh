@@ -185,6 +185,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_BINARY_INSTALL=1
   DO_RECOMPILE_FULL=1
+  RECOMPILE_FULL_OPT_O="-gwl"
   DO_CHECK_LLVM=1
   RECOMPILE_FULL_OPT="-dFPC_SOFT_FPUX80"
   test_utils=1
