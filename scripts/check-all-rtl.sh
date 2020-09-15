@@ -1660,27 +1660,32 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
       echo "Copying LLVM version of compiler for $cpu failed"
     fi
     llvm_os_list_name=llvm_os_list_${cpu}
-    for os in ${!llvm_os_list_name} ; do
-      export FPC_LOCAL_SUFFIX=-llvm
-      if [ "$cpu" == "arm" ] ; then
-        if [ "$NATIVE_MACHINE" == "aarch64" ] ; then
-          LLVM_OPT="-dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
+    if [ $SKIP_CLANG -eq 1 ] ; then
+      echo "clang too old or not found, skipping all LLVM tests" >> $llvmlogfile
+      echo "clang too old or not found, skipping all LLVM tests"
+    else 
+      for os in ${!llvm_os_list_name} ; do
+        export FPC_LOCAL_SUFFIX=-llvm
+        if [ "$cpu" == "arm" ] ; then
+          if [ "$NATIVE_MACHINE" == "aarch64" ] ; then
+            LLVM_OPT="-dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
+          else
+            LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+          fi
         else
-          LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+          LLVM_OPT=""
         fi
-      else
-        LLVM_OPT=""
-      fi
-      # We need to handle native case specially
-      if [[ ( "$NATIVE_OS" == "$os" ) && ( "$NATIVE_CPU" == "$cpu" ) ]] ; then
-	export FPCFPMAKE=${LLVM_FPC}
-	export FPCFPMAKENEW=${LLVM_FPC}
-      fi
-      check_target $cpu $os "-n $LLVM_OPT" "LLVM=1" "-llvm"
-      export FPC_LOCAL_SUFFIX=
-      export FPCFPMAKE=
-      export FPCFPMAKENEW=
-    done
+        # We need to handle native case specially
+        if [[ ( "$NATIVE_OS" == "$os" ) && ( "$NATIVE_CPU" == "$cpu" ) ]] ; then
+          export FPCFPMAKE=${LLVM_FPC}
+          export FPCFPMAKENEW=${LLVM_FPC}
+        fi
+        check_target $cpu $os "-n $LLVM_OPT" "LLVM=1" "-llvm"
+        export FPC_LOCAL_SUFFIX=
+        export FPCFPMAKE=
+        export FPCFPMAKENEW=
+      done
+    fi
   done
 fi
 
