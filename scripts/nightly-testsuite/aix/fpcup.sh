@@ -4,7 +4,7 @@ date >> $HOME/.env.txt
 
 machine=`uname -n`
 
-if [ "$machine" = "powerpc-aix" ] ; then
+if [ "$machine" = "power-aix" ] ; then
   do_trunk=1
   do_fixes=1
   gen_snapshots=1
@@ -51,4 +51,10 @@ if [ $gen_snapshots -eq 1 ] ; then
     export FPC_BIN=ppcppc64
     $HOME/bin/makesnapshot-aix.sh
   fi
+fi
+
+if [ $use_git -eq 0 ] ; then
+  cd $HOME/scripts
+  svn cleanup
+  svn up 
 fi
