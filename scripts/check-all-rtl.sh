@@ -990,6 +990,9 @@ function check_target ()
     if [ "X${OPT_LOCAL//-Az80asm/}" != "X$OPT_LOCAL" ] ; then
       # -Avasm can be used for arm, m68k or z80 vasm assembler 
       ASSEMBLER=z80asm
+    elif [ "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ] ; then
+      # -Avasm can be used for arm, m68k or z80 vasm assembler 
+      ASSEMBLER=z80vasm
     else
       ASSEMBLER=sdasz80
     fi
@@ -1618,9 +1621,9 @@ check_target arm freertos "-n" "SUBARCH=armv6m"
 # check_target z80 zxspectrum "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 # check_target z80 msxdos "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 export ASPROG_LOCAL=vasmz80_std
-check_target z80 embedded "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
-check_target z80 zxspectrum "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
-check_target z80 msxdos "-n -Avasm -CX -XX -Cfsoft" "" "-vasmz80"
+check_target z80 embedded "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
+check_target z80 zxspectrum "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
+check_target z80 msxdos "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
 export ASPROG_LOCAL=
 # Test with -Cfsoft option
 check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
