@@ -263,6 +263,7 @@ if [ "X${FIXES:-0}" == "X1" ] ; then
   FPCVERSION=$FIXESVERSION
   # LLVM is trunk only for now
   DO_CHECK_LLVM=0
+  cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64"
 else
   CHECKOUTDIR=$TRUNKDIR
   svnname=trunk
