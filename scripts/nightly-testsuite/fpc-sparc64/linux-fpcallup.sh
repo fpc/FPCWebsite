@@ -28,6 +28,7 @@ if [ -d $RELEASE32BINDIR ] ; then
 fi
 
 GLOGFILE=$HOME/logs/linux-fpcallup.log
+LASTLOGFILE=$HOME/logs/last-linux-fpcallup.log
 
 if [ -f "$GLOGFILE" ] ; then
   mv -f $GLOGFILE ${GLOGFILE}.previous
@@ -47,6 +48,10 @@ TODAY=`date +%Y-%m-%d`
 
 
 echo "`date +%Y-%m-%d-%H:%M`: Starting script $0" > $GLOGFILE
+if [ -f "$LASTLOGFILE" ] ; then
+  cp -fp "$LASTLOGFILE" "${LASTLOGFILE}-previous"
+fi
+echo "`date +%Y-%m-%d-%H:%M`: Starting script $0" > $LASTLOGFILE
 today_sparc_linux_trunk=`ssh fpcftp "find ftp/snapshot/trunk/sparc-linux/ -name "fpc*.gz" -newermt $TODAY" 2> /dev/null `
 today_sparc64_linux_trunk=`ssh fpcftp "find ftp/snapshot/trunk/sparc64-linux/ -name "fpc*.gz" -newermt $TODAY" 2> /dev/null `
 today_sparc_linux_fixes=`ssh fpcftp "find ftp/snapshot/fixes/sparc-linux/ -name "fpc*.gz" -newermt $TODAY" 2> /dev/null `
@@ -147,6 +152,7 @@ echo "`date +%Y-%m-%d-%H:%M`: Starting script svn up" >> $GLOGFILE
 svn cleanup > $HOME/logs/update-scripts.log 2>&1
 svn up --accept theirs-conflict >> $HOME/logs/update-scripts.log 2>&1
 echo "`date +%Y-%m-%d-%H:%M`: Finished script $0" >> $GLOGFILE
+echo "`date +%Y-%m-%d-%H:%M`: Finished script $0" >> $LASTLOGFILE
 
 
 
