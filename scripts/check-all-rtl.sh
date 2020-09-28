@@ -234,7 +234,7 @@ elif [ "X$machine_host" == "Xgcc135" ] ; then
   RECOMPILE_FULL_OPT="-gwl -dFPC_SOFT_FPUX80"
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
-  export FPMAKEOPT="-T 16"
+  export FPMAKEOPT="-T 16 -v"
 elif [ "X$machine_host" == "Xgcc202" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -563,7 +563,7 @@ for file in $prev_failure_list ; do
   rm -f $file
 done
 
-mecho "$0 for $svnname, version $FPCVERSION starting at `date`"
+mecho "$0 for $svnname, version $FPCVERSION starting at `date --utc \"$DATE_FORMAT\"`"
 mecho "Machine info: $machine_info"
 mecho "RTL svn version: $svn_rtl_version"
 generate_local_diff_file rtl $svn_rtl_version
