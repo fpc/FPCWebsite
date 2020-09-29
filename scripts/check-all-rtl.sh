@@ -452,7 +452,7 @@ start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
 export start_system_date=`date +%Y/%m/%d`
 last_time_in_secs=`date --utc +%s`
 
-DATE_FORMAT="+%Y-%m-%d %H:%M"
+DATE_FORMAT="+%Y-%m-%d %H:%M:%S"
 now_stamp=`date "+%s"`
 secs_in_one_day=86400
 
