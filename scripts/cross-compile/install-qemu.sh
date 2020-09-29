@@ -8,7 +8,11 @@ if [ -z "$QEMU_VERSION" ] ; then
   QEMU_VERSION=5.1.0
 fi
 
-cd $HOME/gnu
+if [ ! -d $HOME/gnu/qemu ] ; then
+  mkdir -p $HOME/gnu/qemu
+fi
+
+cd $HOME/gnu/qemu
 
 if [ ! -f qemu-$QEMU_VERSION.tar.xz ] ; then
   echo "Downloading qemu version $QEMU_VERSION"
@@ -42,7 +46,7 @@ export CFLAGS="-gdwarf-4 -I$HOME/gnu/include -L$HOME/gnu/lib"
 echo "Configuring qemu version $QEMU_VERSION, using CFLAGS=\"$CFLAGS\""
 ../qemu-$QEMU_VERSION/configure --prefix=$HOME/sys-root --enable-curses --extra-cflags="$CFLAGS"
 echo "Making qemu version $QEMU_VERSION"
-make > make-$QEMU_VERSION.log 2>&1
+make $MAKE_OPT > make-$QEMU_VERSION.log 2>&1
 res=$?
 cd ..
 if [ $res -eq 0 ] ; then
