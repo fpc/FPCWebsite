@@ -285,9 +285,6 @@ fi
 
 # Start the testsuite generation part
 cd tests
-# Limit resources (64mb data, 8mb stack, 4 minutes)
-
-ulimit -d 65536 -s 8192 -t 240
 
 testsres=0
 
@@ -298,6 +295,19 @@ function run_tests ()
   ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  ${MAKE} ${MAKE_J_OPT} testprep TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
+    TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
+    DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
+  testprep_res=$?
+  if [ $testprep_res -ne 0 ] ; then
+    echo "Ending make testprep, TEST_OPT=\"${LOCAL_TEST_OPT}\"; result=${testprep_res}" >> $report
+    tail -30 $testslog >> $report
+    echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+    return $testprep_res
+  fi
+  # Limit resources (64mb data, 8mb stack, 4 minutes)
+  (
+  ulimit -d 65536 -s 8192 -t 240
   ${MAKE} ${MAKE_J_OPT} fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
@@ -306,6 +316,7 @@ function run_tests ()
   tail -30 $testslog >> $report
   echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
   return $testsres
+  )
 }
 
 run_tests "$TEST_OPT"
