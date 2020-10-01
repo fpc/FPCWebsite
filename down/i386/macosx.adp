@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.down.i386.macosx.title" locale="en_US">Free Pascal - Download Mac OS X</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down.i386.macosx.header" locale="en_US">Download Mac OS X i386</trn></property>
+<property name="header"><trn key="website.down.i386.macosx.header" locale="en_US">Download Mac OS X for Intel</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -12,19 +12,33 @@
 -->
 
 <p>
-<trn key="website.down.i386.macosx.latest" locale="en_US">The latest release version is </trn><b>@latestversion@</b></p>
+<trn key="website.down.i386.macosx.latest" locale="en_US">This version The latest release version is </trn><b>@latestversion@</b></p>
 
 <trn key="website.down.i386.macosx.unknown" locale="en_US">
 <h3>&quot;Unknown developer&quot; error when installing (Mac OS X 10.7 and later)</h3>
  If you get the message that the FPC installer was created by an unknown
  developer and cannot be opened, right-click on the installation package and
  choose &quot;Open&quot; in the contextual menu. This workaround is required because we
- don't pay Apple 79 euro per year, which would prove you can trust us.
+ don't pay Apple 99 euro per year, which would prove you can trust us.
 </trn>
+
+<trn key="website.down.i386.macosx.xcode11" locale="en_US">
+<h3>Xcode 11+ compatibility (macOS 10.15 Catalina and later)</h3>
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
+ If you wish to compile such programs, you will have to copy an older Mac OS X SDK from a previous Xcode installation and point the compiler
+ to it with the -XR command line parameter.
+</trn>
+
+<trn key="website.down.i386.macosx.xcode10" locale="en_US">
+<h3>Xcode 10+ compatibility (macOS 10.14 Mojave and later)</h3>
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 10+ installs some command line file in different
+ locations compared to previous releases. If you already installed FPC under a previous Mac OS X/OS X/macOS version, you
+ will have to reinstall FPC 3.2.0 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
+ files). See also the section below on how to install the command line tools.</trn>
 
 <trn key="website.down.i386.macosx.xcode5" locale="en_US">
 <h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
- FPC 3.0.4 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. Xcode 5 and later however
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
@@ -32,7 +46,7 @@
 
 <trn key="website.down.i386.macosx.xcode435" locale="en_US">
 <h3>Xcode 4.3-5.x compatibility (Mac OS X 10.7/OS X 10.8)</h3>
- FPC 3.0.4 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. Xcode 4.3 and later however
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
@@ -40,7 +54,7 @@
 
 <trn key="website.down.i386.macosx.xcode324" locale="en_US">
 <h3>Xcode 3.2.x-4.2 compatibility (Mac OS X 10.6)</h3>
- FPC 3.0.2 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. There is
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
