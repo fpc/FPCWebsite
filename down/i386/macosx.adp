@@ -16,10 +16,10 @@
 
 <trn key="website.down.i386.macosx.unknown" locale="en_US">
 <h3>&quot;Unknown developer&quot; error when installing (Mac OS X 10.7 and later)</h3>
- If you get the message that the FPC installer was created by an unknown
- developer and cannot be opened, right-click on the installation package and
- choose &quot;Open&quot; in the contextual menu. This workaround is required because we
- don't pay Apple 99 euro per year, which would prove you can trust us.
+ If you get the message that the FPC installer was created by an unknown developer and cannot be opened, right-click (or ctrl-click) on the
+ installation package and choose "Open" in the contextual menu. If this does not work, you may first have to go to
+ "System Preferences" -&gt; "Security & Privacy" -&gt; "General", and "Allow apps downloaded from: Mac App Store and Identified developers".
+ These workarounds are required because we do not pay Apple 99 euro per year, which would prove you can trust us.
 </trn>
 
 <trn key="website.down.i386.macosx.xcode11" locale="en_US">
