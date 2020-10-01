@@ -46,7 +46,7 @@ export BINUTILS_RELEASE=
 ## system_arm_linux,          { 31 }
 ./do-one.sh arm-linux arm-unknown-linux-gnu
 ## system_arm_nds,            { 47 }
-./do-one.sh arm-nds arm-unknown-nds
+./do-one.sh arm-nds arm-nds32le-elf
 ## system_arm_netbsd          { 95 }
 ./do-one.sh arm-netbsd arm-unknown-netbsdelf
 ## system_arm_palmos,         { 45 }
