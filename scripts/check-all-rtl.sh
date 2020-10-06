@@ -140,6 +140,9 @@ cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 risc
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
 MAKEJOPT=
+TRUNK_FPMAKEOPT=
+FIXES_FPMAKEOPT=
+FPMAKEOPT=
 DO_FPC_BINARY_INSTALL=0
 DO_FPC_RTL_INSTALL=0
 DO_FPC_PACKAGES_INSTALL=0
@@ -247,6 +250,7 @@ elif [ "X$machine_host" == "Xstadler" ] ; then
   COMPILE_EACH_CPU=1
   MAKEJOPT="-j 32"
   ULIMIT_TIME=999
+  TRUNK_FPMAKEOPT="-T 16"
   # Force use of 32-bit version compiler
   export FPC=ppcsparc
 else
@@ -264,10 +268,16 @@ if [ "X${FIXES:-0}" == "X1" ] ; then
   # LLVM is trunk only for now
   DO_CHECK_LLVM=0
   cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 sparc sparc64 x86_64"
+  if [ -n "$FIXES_FPMAKEOPT" ] ; then
+    export FPMAKEOPT="$FIXES_FPMAKEOPT"
+  fi
 else
   CHECKOUTDIR=$TRUNKDIR
   svnname=trunk
   FPCVERSION=$TRUNKVERSION
+  if [ -n "$TRUNK_FPMAKEOPT" ] ; then
+    export FPMAKEOPT="$TRUNK_FPMAKEOPT"
+  fi
 fi
 
 # Some programs might freeze
