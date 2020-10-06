@@ -23,9 +23,11 @@ export BINUTILS_RELEASE="2.30-aros"
 export BINUTILS_RELEASE=
 ## system_aarch64_android     { 100 }
 ./do-one.sh aarch64-linux-android aarch64-linux-android
+##  system_aarch64_win64,      { 107 }
+## Not yet supported by binutils
 
 ## alpha CPU
-## Alpha CPU is obbsolete
+## Alpha CPU is obsolete
 ## ./do-one.sh alpha-linux alpha-unknown-linux-gnu
 
 ## arm CPU
@@ -41,6 +43,8 @@ export BINUTILS_RELEASE=
 ./do-one.sh arm-darwin arm-apple-darwin11
 ## system_arm_embedded,       { 57 }
 ./do-one.sh arm-embedded arm-none-elf
+##  system_arm_freertos,       { 106 }
+## Not directly supported by binutils
 ## system_arm_gba,            { 42 }
 ./do-one.sh arm-gba arm-agb-elf
 ## system_arm_linux,          { 31 }
@@ -186,8 +190,8 @@ export BINUTILS_RELEASE=
 # export BINUTILS_RELEASE="2.17"
 ./do-one.sh m68k-linux m68k-unknown-linux-gnu
 #export BINUTILS_RELEASE=
-## system_m68k_Mac,           { 9 }
-./do-one.sh m68k-macos m68k-unknown-macos
+## system_m68k_macosclassic,  { 9 }
+./do-one.sh m68k-macosclassic m68k-unknown-macos
 ## system_m68k_netbsd,        { 18 }
 ./do-one.sh m68k-netbsd m68k-unknown-netbsdelf
 ## system_m68k_openbsd,       { 25 }
@@ -233,8 +237,8 @@ export BINUTILS_RELEASE=
 ./do-one.sh powerpc-embedded powerpc-none-elf
 ## system_powerpc_linux,      { 13 }
 ./do-one.sh powerpc-linux powerpc-unknown-linux-gnu
-## system_powerpc_macos,      { 14 }
-./do-one.sh powerpc-macos powerpc-unknown-macos
+## system_powerpc_macosclassic, { 14 }
+./do-one.sh powerpc-macosclassic powerpc-unknown-macos
 ## system_powerpc_MorphOS,    { 33 }
 ./do-one.sh powerpc-morphos powerpc-unknown-morphos
 ## system_powerpc_netbsd,     { 29 }
@@ -322,6 +326,17 @@ export BINUTILS_RELEASE=
 ## xtensa CPU
 ## system_xtensa_embedded,    { 103 }
 ./do-one.sh xtensa-embedded xtensa-none-elf
+##  system_xtensa_freertos,    { 104 }
+## Not directly supported by binutils
+##  system_xtensa_linux,       { 105 }
+./do-one.sh xtensa-linux xtensa-none-linux-gnu
+
+## z80 CPU
+##  system_z80_embedded,       { 108 }
+##  system_z80_zxspectrum,     { 109 }
+##  system_z80_msxdos,         { 110 }
+##  system_aarch64_darwin,     { 111 }
+##  system_z80_amstradcpc      { 112 }
 
 ## List was generated using
 ## sed -n "s:^ *\(system_.*\)$:## \1:p" ~/pas/trunk/fpcsrc/compiler/systems.inc  | sort
