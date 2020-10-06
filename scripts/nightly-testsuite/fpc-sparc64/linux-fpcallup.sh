@@ -10,7 +10,7 @@ export NATIVEFPC=ppcsparc
 
 if [ "$machine_host" == "stadler" ] ; then
   enable_64bit_tests=1
-  run_check_all_rtl=1
+  run_check_all_rtl=0
   export FPMAKEOPT=
   export INCREASE_ULIMIT_NB_FILES=1
   DO_SNAPSHOTS=1
