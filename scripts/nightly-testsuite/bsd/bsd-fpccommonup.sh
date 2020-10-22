@@ -76,6 +76,10 @@ HOSTNAME=${HOSTNAME/.*/}
 if [ "$HOSTNAME" == "gcc300" ] ; then
   cleantests=1
   export run_tests=0
+elif [ "$HOSTNAME" == "gcc220" ] ; then
+  cleantests=1
+  export run_tests=1
+  NEEDED_OPT+="-dFPC_USE_LIBC"
 elif [ "$HOSTNAME" == "OpenBSD386" ] ; then
   # VM inside gcc123, skip test runs
   cleantests=1
@@ -372,8 +376,8 @@ if [ $NewBinary -eq 1 ] ; then
       DB_SSH_EXTRA=\" -i ~/.ssh/freepascal\" " >> $report
     echo "`$DATE`" >> $report
     TIME=`date +%H-%M-%S`
-    ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" > $cleantestslog 2>&1
-    ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEDDED_OPT" >> $cleantestslog 2>&1
+    ${MAKE} -C ../rtl distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" > $cleantestslog 2>&1
+    ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" >> $cleantestslog 2>&1
     ${MAKE} ${MAKE_J_OPT} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1

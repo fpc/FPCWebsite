@@ -90,12 +90,14 @@ else
   NEEDED_OPT=
   SUFFIX=-64
 fi
-
+if [ "$HOSTNAME" == "gcc220" ] ; then
+  NEEDED_OPT+="-dFPC_USE_LIBC"
+fi
 
 # add needed files (libgdb.a)
 if [ -n "$LIBGDBZIP" ]; then
-        cd $CHECKOUTDIR/$FPCSRCDIR
-        unzip -o ${LIBGDBZIP}
+  cd $CHECKOUTDIR/$FPCSRCDIR
+  unzip -o ${LIBGDBZIP}
 fi
 
 # make the snapshot!
