@@ -48,14 +48,15 @@ else
   SUFFIX=-64
 fi
 
-if [ "$OS" == "openbsd" ] ; then
+#if [ "$OS" == "openbsd" ] ; then
   # OpenBSD still using old 6.4 GDB version
+  # Obsolete as we use egdb 7.12.1
   # which does not undersantd dwarf sets
   # -gonodwarfsets allows GDB to correctly parse dwarf information
-  if [ "${NEEDED_OPT//-g/}" != "${NEEDED_OPT}" ] ; then
-    NEEDED_OPT="$NEEDED_OPT -gonodwarfsets"
-  fi
-fi
+#  if [ "${NEEDED_OPT//-g/}" != "${NEEDED_OPT}" ] ; then
+#    NEEDED_OPT="$NEEDED_OPT -gonodwarfsets"
+#  fi
+#fi
 
 export MAKE=`which gmake`
 
@@ -79,7 +80,7 @@ if [ "$HOSTNAME" == "gcc300" ] ; then
 elif [ "$HOSTNAME" == "gcc220" ] ; then
   cleantests=1
   export run_tests=1
-  NEEDED_OPT+="-dFPC_USE_LIBC"
+  NEEDED_OPT+="-dFPC_USE_LIBC -gw"
 elif [ "$HOSTNAME" == "OpenBSD386" ] ; then
   # VM inside gcc123, skip test runs
   cleantests=1
@@ -381,6 +382,7 @@ if [ $NewBinary -eq 1 ] ; then
     ${MAKE} ${MAKE_J_OPT} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+    ulimit -t 60  1>> $testslog 2>&1
     ${MAKE} ${MAKE_J_OPT} fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1

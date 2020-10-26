@@ -203,7 +203,9 @@ echo "Special method used to generate ${target_full} ${release_version} distribu
 cyclelog=$basedir/cycle.log
 
 cd fpcsrc/compiler/
-if [ "$start_os" == "solaris" ] ; then
+if [ "$start_os" == "openbsd" ] ; then
+  NEEDED_OPT="$NEEDED_OPT -dFPC_USE_LIBC"
+elif [ "$start_os" == "solaris" ] ; then
   if [ "$start_cpu" == "sparc" ] ; then
     export PATH=$HOME/pas/sparc/fpc-${previous_release_version}/bin:$PATH
   elif [ "$start_cpu" == "i386" ] ; then

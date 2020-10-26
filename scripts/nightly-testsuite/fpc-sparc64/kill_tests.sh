@@ -10,7 +10,7 @@ fi
 if [ -f $PIDFILE ] ; then
   # Check if still running
   pid=`cat $PIDFILE`
-  psout=`ps xf | grep -w "^[[:space:]]*$pid" 2> /dev/null`
+  psout=`ps x | grep -w "^[[:space:]]*$pid" 2> /dev/null`
   if [ "X${psout}" != "X" ] ; then
     if [ $debug -eq 1 ] ; then
       echo "Found $pid, $psout"
@@ -21,20 +21,30 @@ fi
 
 echo $$ > $PIDFILE
 
-while [ $cyclescript -eq 1 ] ; do
-  ls -l /proc/*/exe 2> /dev/null | grep "$HOME/pas/.*/tests/output/"  | sed -n "s:.*/proc/\(.*\)/exe.*:\1:p" | xargs  ps  -o "pid start_time args" -p > ~/.kill.list1 2> /dev/null
+function get_pid_list ()
+{
+ps -O cwd 2> /dev/null | grep "$HOME/pas/.*/tests/ou"  | grep -v "utils/dotest" | grep -vw grep
+}
 
+if [ "X$1" != "X" ] ; then
+  sleep_time=$1
+  shift
+#   cyclescript=0
+else
+  sleep_time=240
+fi
+
+while [ $cyclescript -eq 1 ] ; do
+  get_pid_list > ~/.kill.list1 2> /dev/null
+
+  if [ $debug -eq 1 ] ; then
+    echo "pid list is \"`cat ~/.kill.list1`\""
+  fi
   list=`cat ~/.kill.list1 | sed -n "s:^ *\([1-9][0-9]*\) .*:\1:p" `
 
-  if [ "X$1" != "X" ] ; then
-    sleep $1
-    shift
-    cyclescript=0
-  else
-    sleep 240
-  fi
+  sleep $sleep_time
 
-  ls -l /proc/*/exe 2> /dev/null | grep "$HOME/pas/.*/tests/output/"  | sed -n "s:.*/proc/\(.*\)/exe.*:\1:p" | xargs  ps  -o "pid start_time args" -p > ~/.kill.list2 2> /dev/null
+  get_pid_list > ~/.kill.list2 2> /dev/null
 
   if [ $debug -eq 1 ] ; then
     echo "list2 is \"`cat ~/.kill.list2`\""
@@ -52,12 +62,15 @@ while [ $cyclescript -eq 1 ] ; do
 
   if [ "X$kill_list" != "X" ] ; then
     echo "`date +%Y-%m-%d-%H-%M`" >> ~/.kill.listing
+    if [ $debug -eq 1 ] ; then
+      echo "Going to kill \"$kill_list\""
+    fi
     for pid in $kill_list ; do
-      ps -o "pid etime stime time args" | grep -w "^[[:space:]]*$pid" >> ~/.kill.listing
+      ps  | grep -w "^[[:space:]]*$pid[[:space:]]" >> ~/.kill.listing
     done
-    kill -SIGKILL $kill_list
+    kill -KILL $kill_list
   fi
 
-  sleep 60
+  sleep $sleep_time
 done
 

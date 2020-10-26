@@ -90,7 +90,13 @@ else
   NEEDED_OPT=
   SUFFIX=-64
 fi
-if [ "$HOSTNAME" == "gcc220" ] ; then
+
+if [ -z "$OS" ] ; then
+  OS=`uname -s | tr '[:upper:]' '[:lower:]' `
+  # echo "OS is $OS"
+fi
+
+if [ "$OS" == "openbsd" ] ; then
   NEEDED_OPT+="-dFPC_USE_LIBC"
 fi
 
