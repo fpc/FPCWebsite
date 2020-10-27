@@ -154,6 +154,7 @@ RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
 ULIMIT_TIME=333
 COMPILE_EACH_CPU=0
+set_home_bindir_first=0
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -238,6 +239,8 @@ elif [ "X$machine_host" == "Xgcc135" ] ; then
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
   export FPMAKEOPT="-T 16 -v"
+  export LD_LIBRARY_PATH=$HOME/gnu/lib64
+  set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc202" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -300,7 +303,11 @@ fi
 
 # Also add $HOME/bin to PATH if it exists, but as last
 if [ -d ${HOME}/bin ] ; then
-  export PATH=${PATH}:${HOME}/bin
+  if [ $set_home_bindir_first -eq 1 ] ; then
+    export PATH=${HOME}/bin:${PATH}
+  else
+    export PATH=${PATH}:${HOME}/bin
+  fi
 fi
 
 
