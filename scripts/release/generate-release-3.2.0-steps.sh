@@ -696,13 +696,6 @@ fi
 echo "STARTFPC is $STARTFPC, default CPU is $TARGETCPU, default OS $TARGETOS"
 echo "STARTFPC is $STARTFPC, default CPU is $TARGETCPU, default OS $TARGETOS" > $start_tty
 
-if [ ! -z "${1:-}" ] ; then
-  echo "Handling specific target OS: $TARGETOS, CPU: $TARGETCPU"
-  echo "Handling specific target OS: $TARGETOS, CPU: $TARGETCPU" > $start_tty
-  make_release $1 2>&1 | tee $logdir/make-release-${FPC_RELEASE_VERSION}-${TARGETCPU}-${TARGETOS}.log
-  exit
-fi
-
 listed=0
 success_list=""
 failure_list=""
@@ -711,6 +704,13 @@ success_count=0
 failure_count=0
 upload_count=0
 trial_count=0
+
+if [ ! -z "${1:-}" ] ; then
+  echo "Handling specific target OS: $TARGETOS, CPU: $TARGETCPU"
+  echo "Handling specific target OS: $TARGETOS, CPU: $TARGETCPU" > $start_tty
+  make_release $1 2>&1 | tee $logdir/make-release-${FPC_RELEASE_VERSION}-${TARGETCPU}-${TARGETOS}.log
+  exit
+fi
 
 echo "rm -Rf $BASE_PAS_DIR/$FPC_RELEASE_SVN_DIR/readme-*"
 echo "rm -Rf $BASE_PAS_DIR/$FPC_RELEASE_SVN_DIR/readme-*" >> $LISTLOGFILE
