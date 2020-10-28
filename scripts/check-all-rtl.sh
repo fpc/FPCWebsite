@@ -5,33 +5,42 @@
 
 . $HOME/bin/fpc-versions.sh
 
-if [ "$1" == "--verbose" ] ; then
-  verbose=1
-  shift
-else
-  verbose=0
-fi
+check_option_arg=1
+verbose=0
+use_clean=0
+test_add_dir=0
+dir_name_suffix=
 
-if [ "$1" == "test_add_dir" ] ; then
-  test_add_dir=1
-  dir_name_suffix=-test_add_dir
-  verbose=1
-  shift
-else
-  test_add_dir=0
-  dir_name_suffix=
-fi
+while [ $check_option_arg -eq 1 ] ; do
+  check_option_arg=0
+  if [ "$1" == "--verbose" ] ; then
+    verbose=1
+    check_option_arg=1
+    shift
+  fi
 
-# Evaluate all arguments containing an equal sign
-# as variable definition
-while [ "$1" != "" ] ; do
+  if [ "$1" == "--use-clean" ] ; then
+    use_clean=1
+    check_option_arg=1
+    shift
+  fi
+
+  if [ "$1" == "test_add_dir" ] ; then
+    test_add_dir=1
+    dir_name_suffix=-test_add_dir
+    verbose=1
+    check_option_arg=1
+    shift
+  fi
+  # Evaluate all arguments containing an equal sign
+  # as variable definition
   if [ "${1/=/_}" != "$1" ] ; then
     eval export "$1"
+    check_option_arg=1
     shift
-  else
-    break
   fi
 done
+
 
 if [ -n "$1" ] ; then
   selected_cpu="$1"
@@ -48,6 +57,14 @@ else
 fi
 
 set -u
+
+if [ $use_clean -eq 1 ] ; then
+  CLEAN_RULE=clean
+  CLEAN_AFTER=1
+else
+  CLEAN_RULE=distclean
+  CLEAN_AFTER=0
+fi
 
 if [ -z "$dir_name_suffix" ] ; then
   if [ -n "${GLOBAL_OPT:=}" ] ; then
@@ -149,7 +166,8 @@ DO_FPC_PACKAGES_INSTALL=0
 DO_FPC_UTILS_INSTALL=0
 DO_RECOMPILE_FULL=0
 DO_CHECK_LLVM=0
-RECOMPILE_OPT=
+RECOMPILE_INSTALL_NAME=
+RECOMPILE_COMPILER_OPT=
 RECOMPILE_FULL_OPT=
 RECOMPILE_FULL_OPT_O=
 ULIMIT_TIME=333
@@ -161,6 +179,7 @@ if [ "X$machine_host" == "Xgcc10" ] ; then
   MAKEJOPT="-j 5"
   test_utils=1
   test_utils_ppudump=1
+  set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc20" ] ; then
   DO_FPC_BINARY_INSTALL=1
 elif [ "X$machine_host" == "Xgcc21" ] ; then
@@ -660,6 +679,12 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   fi
   export FPCCPUOPT=
   cd ..
+  if [ -f ./packages/fpmake ] ; then
+    rm -f ./packages/fpmake
+  fi
+  if [ -f ./utils/fpmake ] ; then
+    rm -f ./utils/fpmake
+  fi
 fi
 
 export LOGPREFIX=$LOGDIR/${name}-check
@@ -870,6 +895,17 @@ function list_used_binaries ()
       done
     fi
   fi
+}
+
+function clean_for_target ()
+{
+  # Distclean in rtl, packages and utils first
+  echo "Running \"make $CLEAN_RULE in rtl, packages and utils first" > $LOGFILE_DISTCLEAN
+  $MAKE $MAKEJOPT -C $rtldir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
+  $MAKE $MAKEJOPT -C $packagesdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
+  $MAKE $MAKEJOPT -C $packagesdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
+  $MAKE $MAKEJOPT -C $utilsdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
+  $MAKE $MAKEJOPT -C $utilsdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
 }
 
 ######################################
@@ -1103,18 +1139,18 @@ function check_target ()
   fi
 
   export ASTARGET=""
-  if [ -n "${RECOMPILE_OPT}" ] ; then
+  if [ -n "${RECOMPILE_COMPILER_OPT}" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
     # First recompile rtl
     make -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
     res=$?
     if [ $res -eq 0 ] ; then
       # Now recompile compiler, using CPC_TARGET, so that clean removes the old stuff
-      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL PPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_OPT" >> $LOGFILE_RECOMPILE 2>&1
+      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL PPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_COMPILER_OPT" >> $LOGFILE_RECOMPILE 2>&1
       res=$?
     fi
     if [ $res -ne 0 ] ; then
-      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
+      lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$RECOMPILE_COMPILER_OPT\" ${FPC_LOCAL} recompilation failed, res=$res"
       skipped_count=`expr $skipped_count + 1 `
       skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
       return
@@ -1122,6 +1158,26 @@ function check_target ()
     fpc_local_exe=`pwd`/compiler/$FPC_LOCAL
     if [ -n "$RECOMPILE_INSTALL_NAME" ] ; then
       cp -fp $fpc_local_exe $LOCAL_INSTALL_PREFIX/bin/$RECOMPILE_INSTALL_NAME
+    fi
+    if [ -f ./packages/fpmake ] ; then
+      rm -f ./packages/fpmake
+    fi
+    if [ -f ./utils/fpmake ] ; then
+      rm -f ./utils/fpmake
+    fi
+    if [ $use_clean -eq 1 ] ; then
+      echo "Re-compiling native rtl to allow for fpmake compilation"
+      $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX > $LOGFILE_NATIVE_RTL 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Re-compiling native rtl to allow for fpmake compilation failed, res=$res"
+      fi
+      echo "Re-compiling packages to allow for fpmake compilation"
+      $MAKE $MAKEJOPT -C packages all FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_NATIVE_RTL 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Re-compiling packages to allow for fpmake compilation failed, res=$res"
+      fi
     fi
   else
     fpc_local_exe=`which $FPC_LOCAL 2> /dev/null `
@@ -1271,14 +1327,7 @@ function check_target ()
   previous_target_failures=`sed -n "s|^Failure:.*See .*\(${LOGPREFIX}.*-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt\).*|\1|p" ${PREVLISTLOGFILE} `
 
   step_ok_count=0
-  # Distclean in rtl, packages and utils first
-  echo "Distclean in rtl, packages and utils first" > $LOGFILE_DISTCLEAN
-  $MAKE $MAKEJOPT -C $rtldir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
-  $MAKE $MAKEJOPT -C $packagesdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
-  $MAKE $MAKEJOPT -C $packagesdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
-  $MAKE $MAKEJOPT -C $utilsdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
-  $MAKE $MAKEJOPT -C $utilsdir distclean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
-
+  clean_for_target 
   echo "$MAKE $MAKEJOPT -C $rtldir info CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_USED_BINARIES
   $MAKE $MAKEJOPT -C $rtldir info CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_USED_BINARIES 2>&1
   echo "$MAKE $MAKEJOPT -C $rtldir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT=\"$OPT_LOCAL\" $MAKEEXTRA" > $LOGFILE_RTL
@@ -1305,6 +1354,9 @@ function check_target ()
       lecho "Failure: See $LOGFILE_RTL for details"
     fi
     list_used_binaries
+    if [ $CLEAN_AFTER -eq 1 ] ; then
+      clean_for_target
+    fi
     return 1
   else
     let ++step_ok_count
@@ -1326,6 +1378,9 @@ function check_target ()
     lecho "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
     lecho "Failure: See $LOGFILE_RTL_2 for details"
     list_used_binaries
+    if [ $CLEAN_AFTER -eq 1 ] ; then
+      clean_for_target
+    fi
     return 2
   fi
   fpc_called=`grep -E "(^|[^=])$FPC_LOCAL" $LOGFILE_RTL_2 `
@@ -1335,6 +1390,9 @@ function check_target ()
     lecho "Failure: 2nd $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text, $FPC_LOCAL called again"
     lecho "Failure: See $LOGFILE_RTL_2 for details"
     list_used_binaries
+    if [ $CLEAN_AFTER -eq 1 ] ; then
+      clean_for_target
+    fi
     return 2
   else
     let ++step_ok_count
@@ -1371,10 +1429,20 @@ function check_target ()
     OPT_NAME=OPT
   fi
   if [ $test_packages -eq 1 ] ; then
-    echo "Re-compiling native rtl to allow for fpmake compilation"
-    $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX > $LOGFILE_NATIVE_RTL 2>&1
-    echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation"
-    $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_NATIVE_RTL 2>&1
+    if [ $use_clean -eq 0 ] ; then
+      echo "Re-compiling native rtl to allow for fpmake compilation"
+      $MAKE $MAKEJOPT -C rtl FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX > $LOGFILE_NATIVE_RTL 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Re-compiling native rtl to allow for fpmake compilation failed, res=$res"
+      fi
+      echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation"
+      $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_NATIVE_RTL 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation failed, res=$res"
+      fi
+    fi
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
     echo "Testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
     $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
@@ -1385,9 +1453,11 @@ function check_target ()
 	export buildfullnative_text=""
         echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
         $MAKE $MAKEJOPT -C $packagesdir clean CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
-        # Warning, we need to re-compile bootstrap in fmpkunit after that clean, otherwise compilation of fpmake in utils might fail
-        echo "Re-compiling bootstrap in packages/fpmkunit for fpmake compilation in utils"
-        $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_NATIVE_RTL 2>&1
+        if [ $use_clean -eq 0 ] ; then
+          # Warning, we need to re-compile bootstrap in fmpkunit after that clean, otherwise compilation of fpmake in utils might fail
+          echo "Re-compiling bootstrap in packages/fpmkunit for fpmake compilation in utils"
+          $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_NATIVE_RTL 2>&1
+        fi
         $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
         res=$?
       fi
@@ -1399,6 +1469,9 @@ function check_target ()
       lecho "Failure: Testing $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_PACKAGES for details"
       list_used_binaries
+      if [ $CLEAN_AFTER -eq 1 ] ; then
+        clean_for_target
+      fi
       return 3
     fi
     lecho "OK: Testing 1st $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
@@ -1453,6 +1526,9 @@ function check_target ()
       lecho "Failure: Testing $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
       lecho "Failure: See $LOGFILE_UTILS for details"
       list_used_binaries
+      if [ $CLEAN_AFTER -eq 1 ] ; then
+        clean_for_target
+      fi
       return 3
     fi
     lecho "OK: Testing 1st $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
@@ -1483,6 +1559,9 @@ function check_target ()
         rm -Rf $LOGFILE_UTILS_PPU
         mv ${LOGFILE_UTILS_PPU}-tmp ${LOGFILE_UTILS_PPU}
       fi
+    fi
+    if [ $CLEAN_AFTER -eq 1 ] ; then
+      clean_for_target
     fi
   fi
   date "+%Y-%m-%d %H:%M:%S"
@@ -1545,7 +1624,7 @@ check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
 # check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
 check_target xtensa embedded "-n" "SUBARCH=lx106"
 
-# Darwin OS check both clang and GNU binutils
+
 # Known to be broken, disabled
 # check_target i386 darwin "-n -Aas-darwin" "" "-with-darwin-as"
 # check_target x86_64 darwin "-n -Aas-darwin" "" "-gnu-as"
@@ -1566,37 +1645,37 @@ check_target powerpc64 darwin "-n -Aas-darwin"
 
 # arm linux
 
-export RECOMPILE_OPT="-dFPC_ARMEL"
+export RECOMPILE_COMPILER_OPT="-dFPC_ARMEL"
 export RECOMPILE_INSTALL_NAME=ppcarmel
 export CROSSASTARGET="-march=armv6 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caeabi -Cfsoft" "" "-armeabi"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
-export RECOMPILE_OPT=
+export RECOMPILE_COMPILER_OPT=
 
-export RECOMPILE_OPT="-dFPC_ARMEB"
+export RECOMPILE_COMPILER_OPT="-dFPC_ARMEB"
 export RECOMPILE_INSTALL_NAME=ppcarmeb
 export CROSSASTARGET="-march=armv5 -meabi=5 -mfpu=softvfp "
 check_target arm linux "-n -gl -Cparmv6 -Caarmeb -Cfsoft" "" "-armeb"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
-export RECOMPILE_OPT=
+export RECOMPILE_COMPILER_OPT=
 
-export RECOMPILE_OPT="-dFPC_OARM"
+export RECOMPILE_COMPILER_OPT="-dFPC_OARM"
 export RECOMPILE_INSTALL_NAME=ppcoarm
 export CROSSASTARGET="-march=armv5 -mfpu=softvfp "
 check_target arm linux "-n -gl" "" "-arm_softvfp"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
-export RECOMPILE_OPT=
+export RECOMPILE_COMPILER_OPT=
 
-export RECOMPILE_OPT="-dFPC_ARMHF"
+export RECOMPILE_COMPILER_OPT="-dFPC_ARMHF"
 export RECOMPILE_INSTALL_NAME=ppcarmhf
 export CROSSASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
-export RECOMPILE_OPT=
+export RECOMPILE_COMPILER_OPT=
 
 # msdos OS
 check_target i8086 msdos "-n -CX -XX -Wmtiny" "" "-tiny"
