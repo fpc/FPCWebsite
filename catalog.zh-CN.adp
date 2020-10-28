@@ -905,34 +905,35 @@ Debian 包
 Free Pascal - 下载 Mac OS X
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.header">
-下载 Mac OS X i386
+下载适用于 Intel 的 Mac OS X
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.latest">
-最新版本是
+当前版本最新版本是
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.unknown">
 <h3>安装时（Mac OS X 10.7 及更高版本）出现 &quot;Unknown developer&quot; 错误</h3>
-如果你收到 FPC 安装程序是提示 unknown developer 且无法打开的消息，
-右键单击安装包，然后在弹出的菜单中选择 &quot;打开&quot;。
-你必须这样才能解决这个问题，因为我们不会每年向 Apple 支付 79 欧元，这将证明你可以信任我们。
+如果你收到 FPC 安装程序是提示 unknown developer 且无法打开的消息， 请右键单击安装包，然后在弹出的菜单中选择 &quot;打开&quot;。
+如果这不起作用，则需要到&quot;系统偏好设置&quot;->&quot;安全和隐私&quot;->&quot;常规&quot;，以及允许&quot;从以下位置下载应用程序：Mac App Store 和已识别的开发者&quot;。
+
+这些变通方法是必须的，因为我们不会每年向 Apple 支付 99 欧元，这将证明你信任我们。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode5">
 <h3>Xcode 5+ 兼容性（OS X 10.9 及更高版本；对于 OS X 10.8，请参见下文）</h3>
-FPC 3.0.4 适用于 Mac OS X 10.4 到 OS X 10.11，以及 macOS 10.12 和 10.13。
+FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15，以及 macOS 10.12 和 10.13。
 但是，在默认情况下，Xcode 5 和更高版本不再安装 FPC 所需的命令行工具。
 需要手动安装它们，打开 &quot;/Applications/Utilities/Terminal&quot;，
 执行 <tt>xcode-select --install</tt> 并选择 &quot;安装&quot;。之后，FPC 将正常运行。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode435">
 <h3>Xcode 4.3-5.x 兼容性（Mac OS X 10.7 / OS X 10.8）</h3>
-FPC 3.0.4 适用于 Mac OS X 10.4 至 OS X 10.11 以及 macOS 10.12 和 10.13。
+FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
 但是，默认情况下，Xcode 4.3 及更高版本不再安装 FPC 所需的命令行工具。
 要手动安装它们，请打开 Xcode，转到“偏好设置”，选择 &quot;下载;&quot;；
 并安装 &quot;命令行工具&quot;。之后，FPC 将安装并正常运行。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode324">
 <h3>Xcode 3.2.x-4.2 兼容性（Mac OS X 10.6）</h3>
-FPC 3.0.2 适用于 Mac OS X 10.4 和 OS X 10.11 以及 macOS 10.12 和 10.13。
+FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
 但是，由于 Xcode 3.2.x 链接器中的错误，在 Mac OS X 10.6 下用 FPC 编译动态库时会出现问题。
 此错误已在 Xcode 4 中修复。
 你可以在编译动态库时使用 <tt>-k-no_order_inits</tt> 命令行参数来解决 Xcode 3.2.x 中的错误。
@@ -3521,27 +3522,32 @@ FPC 3.2.0 发布！
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.frontpage.helpersattributesllvm">
-<li> <em>2019年7月20日</em> </li>
+<li> 
+    <em>2019年7月20日</em> 
+</li> 
 <ul>
-    <li>
-    FPC 最近在主干中增加了几个新功能（即将发布的 FPC 3.2.0 中不会包含这些功能）：
-    <ul>
-        <li>现在可以<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">同时激活多个</a>助手类型</li>
-        <li>添加了对<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">自定义属性</a>的支持</li>
-        <li>编译器现在可以为特定平台（Darwin/x86-64，Linux/x86-64，Linux/AArch64，Linux/ARMHF）生成 <a href="https://wiki.freepascal.org/LLVM">LLVM 位码</a></li>
-    </ul>
-    <p>FPC 3.2 虽然不支持上述列表，但是它将具有<a href="https://wiki.freepascal.org/FPC_New_Features_3.2">自己的新功能</a>和修复补丁！</p>
+    <li>FPC 最近在主干中增加了几个新功能（即将发布的 FPC 3.2.0 中不会包含这些功能）： 
+        <ul>
+            <li>现在可以<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_multiple_active_helpers_per_type">同时激活多个</a>助手类型</li>
+            <li>添加了对<a href="https://wiki.freepascal.org/FPC_New_Features_Trunk#Support_for_custom_attributes">自定义属性</a>的支持</li>
+            <li>编译器现在可以为特定平台（Darwin/x86-64，Linux/x86-64，Linux/AArch64，Linux/ARMHF）生成 <a href="https://wiki.freepascal.org/LLVM">LLVM 位码</a></li>
+        </ul> 
+        <p>FPC 3.2 虽然不支持上述列表，但是它将具有<a href="https://wiki.freepascal.org/FPC_New_Features_3.2">自己的新功能</a>和修复补丁！</p>
     </li>
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.frontpage.fpc25">
 <li>
-<em>2018年6月8日</em>
+    <em>2018年6月8日</em>
 </li>
 <ul>
     <li>
-        <p>今天，庆祝 FPC 成立 25周年！</p>
-        <p>自1993年6月8日以来已经过去了25年，FPC 不仅仍然存在，而且比以往任何时候都更加活跃和充满活力！</p>
+    <p>
+    今天，FPC 庆祝成立 25 周年！
+    </p>
+    <p>
+    自1993年6月8日以来已经过去了25年，FPC 不仅仍然存在，而且比以往任何时候都活跃、充满活力！
+    </p>
     </li>
 </ul>
 </TRN>
@@ -3551,10 +3557,11 @@ FPC 3.2.0 发布！
 </li>
 <ul>
     <li>
-    <p>根据欧洲 <a href="https://gdpr-info.eu/">GDPR</a> 的要求，我们发布了<a href="privacy@x@">隐私声明</a>。</p>
+        <p>
+         根据欧洲 <a href="https://gdpr-info.eu/">GDPR</a> 的要求，我们已经发布了<a href="privacy@x@">隐私声明</a>
+        </p>
     </li>
 </ul>
-
 </TRN>
 <TRN locale="zh-CN" key="website.fpc.older_news">
 旧消息...
@@ -4075,8 +4082,7 @@ Free Pascal - 链接
 <ul>
   <li><a href="http://www.mos.fr.st">MOS</a>（主操作系统）是一个类似于 Visual Pascal 的 GUI 工具包，用于制作可与 BP7 和 Free Pascal 一起编译的通用程序；
 它带有用于资源编辑的可视化开发工具，在 DOS 和 Windows 下运行。
-  <li><a href="http://www.friends-of-fpc.org">fpc 之友：很多好文章</a>
-  <li><a href="http://www.math.uni-magdeburg.de/%7Emkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>，Turbo Vision 的克隆版本，可在图形模式下工作；正在开发 FPC 端。
+  <li><a href="http://web.archive.org/web/20100618224628/http://www.math.ucdavis.edu/~mkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>，Turbo Vision 的克隆版本，可在图形模式下工作；正在开发 FPC 端。
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.title">
@@ -4089,7 +4095,7 @@ Free Pascal - 邮件列表
 你需要哪个邮件列表？
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.lists4">
-目前有：
+有以下邮件列表：
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.lists">
 <OL>
@@ -4100,7 +4106,7 @@ Free Pascal - 邮件列表
 <li> <I>FPC-Announce</I>:
 重要公告（如新版本）将在此处发布。
 <li> <I>pas2js</I>:
-有关 pas2js（Pascal-to-JavaScript）编译器的问题和讨论。
+有关 pas2js（Pascal 到 JavaScript）编译器的所有问题和讨论
 <li> <I>FPC-Other</I>:
 对于不在上述类别中的所有其他邮件。
 <li> <I>MacPascal</I>:
@@ -4118,12 +4124,18 @@ Free Pascal - 邮件列表
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.email.list">
 <OL>
-<li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">fpc-pascal-request&#x040;lists.freepascal.org</a> 针对 fpc-pascal
-<li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">fpc-devel-request&#x040;lists.freepascal.org</a> 针对 fpc-devel
-<li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">fpc-announce-request&#x040;lists.freepascal.org</a> 针对 fpc-announce
-<li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">pas2js-request&#x040;lists.freepascal.org</a> 针对 pas2js
-<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">fpc-other-request&#x040;lists.freepascal.org</a> 针对 fpc-other
-<li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">mac-pascal-request&#x040;listman.sonic.net</a> 针对 MacPascal
+<li> <a href="mailto:fpc-pascal-request&#x040;lists.freepascal.org">
+   fpc-pascal-request&#x040;lists.freepascal.org</a> 对于 fpc-pascal
+<li> <a href="mailto:fpc-devel-request&#x040;lists.freepascal.org">
+   fpc-devel-request&#x040;lists.freepascal.org</a> 对于 fpc-devel
+<li> <a href="mailto:fpc-announce-request&#x040;lists.freepascal.org">
+   fpc-announce-request&#x040;lists.freepascal.org</a> 对于 fpc-announce
+<li> <a href="mailto:pas2js-request&#x040;lists.freepascal.org">
+   pas2js-request&#x040;lists.freepascal.org</a> 对于 pas2js
+<li> <a href="mailto:fpc-other-request&#x040;lists.freepascal.org">
+   fpc-other-request&#x040;lists.freepascal.org</a> 对于 fpc-other
+<li> <a href="mailto:mac-pascal-request&#x040;listman.sonic.net">
+   mac-pascal-request&#x040;listman.sonic.net</a> 对于 MacPascal
 </OL>
 
 使用
@@ -4190,7 +4202,8 @@ https://lists.freepascal.org/mailman/listinfo/fpc-other/</a> 对于 fpc-other
 GMANE
 </TRN>
 <TRN locale="zh-CN" key="website.maillist.access.game">
-<a href="http://www.gmane.io">GMANE</a> 允许通过新闻客户端访问主邮件列表：<a href="nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general</a>。
+<a href="http://gmane.io">GMANE</a> 允许通过新闻客户端访问主
+邮件列表：<a href="nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general">nntp://news.gmane.io/gmane.comp.compilers.free-pascal.general</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.mirrors.title">
 Free Pascal - 链接
@@ -4270,7 +4283,7 @@ Free Pascal - 更多信息
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.documentation">
 阅读在线<a href="docs@x@">文档</a>。
-<br>德语用户可以购买该书的译本，如，从<a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">亚马逊</a>购买。
+<br>德国用户可以从 <a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">Amazon</a> 购买该书的德语翻译。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.faq">
 阅读<a href="faq@x@">常见问题解答</a>。
@@ -4285,7 +4298,7 @@ Free Pascal - 更多信息
 加入一个或多个<a href="maillist@x@">邮件列表</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.irc">
-通过 IRC 服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。<!-- 该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。-->
+通过 IRC 服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。<!--该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。-->
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.wiki">
 搜索 <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>。
@@ -4312,19 +4325,20 @@ Free Pascal - 更多信息
     <li><a href="news:comp.lang.pascal.ansi-iso">comp.lang.pascal.ansi-iso</a></li>
     <li><a href="news:comp.lang.pascal.borland">comp.lang.pascal.borland</a></li>
     <li><a href="news:comp.lang.pascal.misc">comp.lang.pascal.misc</a></li>
-</ul>
+  </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.guide">
 关于 <a href="ftp://ftp.freepascal.org/pub/fpc/docs-pdf/CinFreePascal.pdf">C 或 C++ 代码如何在 Pascal 中使用</a>。感谢 Gilles Marcou！
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.manuals">
-我们的手册是为有 Pascal 编程经验的人编写的。
+我们的手册是为已经知道如何使用 Pascal 开发的人编写的。
 如果你正在寻找有关如何学习 Pascal 的信息，
-Tao Yue 的 <a href="https://www.taoyue.com/tutorials/pascal">学习 Pascal 教程</a>是个不错的选择。
-另外，wiki 上提供了<a href="https://wiki.lazarus.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines">书籍清单</a>。
+Tao Yue 的<a href="https://www.taoyue.com/tutorials/pascal">学习 Pascal 教程</a>是个不错的选择。
+Wiki 中还有一份<a href="https://wiki.lazarus.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines">书籍清单</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.windows">
-Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。<br>
+Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。
+
 Windows API 完整的和最新文档也可以在 <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts 网站</a>上在线获得。
 </TRN>
 <TRN locale="zh-CN" key="website.news.title">
@@ -7577,4 +7591,17 @@ Free Pascal - 运行时库单元
 <ul>
   还没有
 </ul>
+</TRN>
+<TRN locale="zh-CN" key="website.down.i386.macosx.xcode11">
+<h3>Xcode 11+ 兼容性（macOS 10.15 Catalina 及更高版本）</h3>
+FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。 
+Xcode 11+ 不再支持编译 Intel 32 位程序。
+如果你想编译此类程序，则必须从以前的 Xcode 安装中复制旧的 Mac OS X SDK，并使用 -XR 命令行参数将编译器指向它。
+</TRN>
+<TRN locale="zh-CN" key="website.down.i386.macosx.xcode10">
+<h3>Xcode 10+ 兼容性（macOS 10.14 Mojave 及更高版本）</h3>
+FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
+与以前的版本相比，Xcode 10+ 在某些位置安装了命令行文件。
+如果你在以前的 Mac OS X/OS X/macOS 版本中安装了 FPC，则必须在 macOS 10.14 下重新安装 FPC 3.2.0，以便编译器能够找到所需的配置文件。
+另请参阅以下有关如何安装命令行工具的部分。
 </TRN>

@@ -1140,24 +1140,24 @@ Deb archives for @latestversion@ are not available from us. Please refer to the 
 Free Pascal - Download Mac OS X
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.header">
-Download Mac OS X i386
+Download Mac OS X for Intel
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.latest">
-The latest release version is 
+This version The latest release version is 
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.unknown">
 
 <h3>&quot;Unknown developer&quot; error when installing (Mac OS X 10.7 and later)</h3>
- If you get the message that the FPC installer was created by an unknown
- developer and cannot be opened, right-click on the installation package and
- choose &quot;Open&quot; in the contextual menu. This workaround is required because we
- don't pay Apple 79 euro per year, which would prove you can trust us.
+ If you get the message that the FPC installer was created by an unknown developer and cannot be opened, right-click (or ctrl-click) on the
+ installation package and choose "Open" in the contextual menu. If this does not work, you may first have to go to
+ "System Preferences" -&gt; "Security & Privacy" -&gt; "General", and "Allow apps downloaded from: Mac App Store and Identified developers".
+ These workarounds are required because we do not pay Apple 99 euro per year, which would prove you can trust us.
 
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.xcode5">
 
 <h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
- FPC 3.0.4 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. Xcode 5 and later however
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
@@ -1166,7 +1166,7 @@ The latest release version is
 <TRN locale="en_US" key="website.down.i386.macosx.xcode435">
 
 <h3>Xcode 4.3-5.x compatibility (Mac OS X 10.7/OS X 10.8)</h3>
- FPC 3.0.4 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. Xcode 4.3 and later however
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
@@ -1175,7 +1175,7 @@ The latest release version is
 <TRN locale="en_US" key="website.down.i386.macosx.xcode324">
 
 <h3>Xcode 3.2.x-4.2 compatibility (Mac OS X 10.6)</h3>
- FPC 3.0.2 is qualified for use with Mac OS X 10.4 till OS X 10.11, and with macOS 10.12 and 10.13. There is
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
@@ -5477,8 +5477,7 @@ and wants to search for the original content elsewhere via some search engine:
     GUI toolkit like Visual Pascal for making grafical programs that will
     compile with BP7 and Free Pascal; it comes with a visual development tool
     for resource editing and should run under DOS and Windows.
-  <li><a href="http://www.friends-of-fpc.org">Friends-of-fpc: Lots of good articles</a>
-  <li><a href="http://www.math.uni-magdeburg.de/%7Emkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
+  <li><a href="http://web.archive.org/web/20100618224628/http://www.math.ucdavis.edu/~mkoeppe/gvfpk/gvfpk.html">Graphics Vision</a>,
     a clone of Turbo Vision that works in graphics mode; a port
     for FPC is being developed.
 </ul>
@@ -5738,7 +5737,7 @@ If you need more information you can:
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.documentation">
 read the <a href="docs@x@">documentation</a> online.
-  <br>German users can buy the German translation of the book e.g. from
+  <br>German users can buy the German translation of the FPC guides e.g. from
   <a href="https://www.amazon.de/s?k=free+pascal+michael+van+canneyt&i=stripbooks&dc">Amazon</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.faq">
@@ -10019,4 +10018,20 @@ Runtime Library Units
   None yet
 </ul>
 
+</TRN>
+<TRN locale="en_US" key="website.down.i386.macosx.xcode11">
+
+<h3>Xcode 11+ compatibility (macOS 10.15 Catalina and later)</h3>
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
+ If you wish to compile such programs, you will have to copy an older Mac OS X SDK from a previous Xcode installation and point the compiler
+ to it with the -XR command line parameter.
+
+</TRN>
+<TRN locale="en_US" key="website.down.i386.macosx.xcode10">
+
+<h3>Xcode 10+ compatibility (macOS 10.14 Mojave and later)</h3>
+ FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 10+ installs some command line file in different
+ locations compared to previous releases. If you already installed FPC under a previous Mac OS X/OS X/macOS version, you
+ will have to reinstall FPC 3.2.0 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
+ files). See also the section below on how to install the command line tools.
 </TRN>
