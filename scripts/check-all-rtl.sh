@@ -244,6 +244,7 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
   # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT=
   USE_RELEASE_MAKEFILE_VARIABLE=1
+  set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc135" ] ; then
   test_utils=1
   test_utils_ppudump=1
