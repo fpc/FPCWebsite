@@ -16,7 +16,7 @@
 
 <h3><a name="solarisbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-solaris/fpc-@latestversion@i386-solaris.tar">fpc-@latestversion@.i386-solaris.tar</a> (147 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-solaris/fpc-@latestversion@.i386-solaris.tar">fpc-@latestversion@.i386-solaris.tar</a> (147 MB)
 <li> <a href="@mirror_url@dist/@latestversion@/i386-solaris/readme.txt"><trn key="website.down.i386.solaris.readme" locale="en_US">readme.txt for this release</trn></a>  </li>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-solaris/readme-i386-solaris.txt"><trn key="website.down.i386.solaris.readmesolaris" locale="en_US">readme-i386-solaris.txt for this release</trn></a>  </li>
 </ul>
