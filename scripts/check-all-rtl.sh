@@ -232,6 +232,7 @@ elif [ "X$machine_host" == "Xgcc122" ] ; then
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
   export FPMAKEOPT="-T 8"
+  set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
