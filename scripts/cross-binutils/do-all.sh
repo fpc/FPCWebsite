@@ -333,6 +333,7 @@ export BINUTILS_RELEASE=
 
 ## z80 CPU
 ##  system_z80_embedded,       { 108 }
+./do-one.sh z80-embedded z80-none-elf
 ##  system_z80_zxspectrum,     { 109 }
 ##  system_z80_msxdos,         { 110 }
 ##  system_aarch64_darwin,     { 111 }
