@@ -616,6 +616,7 @@ scripts/release/gen-3.2.0-rc1-native.sh svneol=native#text/plain
 scripts/release/generate-release-3.0.4-steps.sh svneol=native#text/plain
 scripts/release/generate-release-3.2.0-steps.sh svneol=native#text/plain
 scripts/release/install-3.2.0.sh svneol=native#text/plain
+scripts/run-cross-tests-using-qemu.sh svneol=native#text/plain
 scripts/test-optimizations.sh svneol=native#text/plain
 scripts/test_packages.sh svneol=native#text/plain
 scripts/updatearchive svneol=native#text/plain
