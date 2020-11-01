@@ -118,13 +118,26 @@ function add_dir ()
 {
 FIRST_ARG=$1
 
-TARGET_FPC=`which $FIRST_ARG 2> /dev/null`
+decho "Starting run_one_testsuite $FIRST_ARG"
 
-if [ -x "$TARGET_FPC" ] ; then
-  shift
-  CPU_TARGET=`$TARGET_FPC -iTP`
-  OS_TARGET=`$TARGET_FPC -iTO`
+TARGET_FPC=`which $FIRST_ARG 2> /dev/null`
+decho "Found \"$TARGET_FPC\""
+if [[ ( -n "$TARGET_FPC" ) && ( -x "$TARGET_FPC" ) ]] ; then
+  $TARGET_FPC -iVDW 2> /dev/null
+  res=$?
+  if [ $res -ne 0 ] ; then
+    use_cpu=1
+  else
+    shift
+    CPU_TARGET=`$TARGET_FPC -iTP`
+    OS_TARGET=`$TARGET_FPC -iTO`
+    use_cpu=0
+  fi
 else
+  use_cpu=1
+fi
+
+if [ $use_cpu -eq 1 ] ; then
   CPU_TARGET=$1
   shift
   OS_TARGET=$1
@@ -454,6 +467,11 @@ if [ "$1" == "all" ] ; then
     run_one_testsuite $cpu linux "${@}"
   done
 else
+  if [ "$*" == "" ] ; then
+    decho "Usage: $0 CPU"
+    decho  " or    $0 all"
+    exit 1
+  fi
   run_one_testsuite "${@}"
 fi
 
