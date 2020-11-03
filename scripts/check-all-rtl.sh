@@ -1740,15 +1740,15 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
     set_fpc_local $cpu
     LLVM_FPC=${FPC_LOCAL}-llvm
     if [ "$cpu" == "arm" ] ; then
-      LLVM_COMPILE_OPT="-n -dFPC_ARMHF"
+      LLVM_COMPILE_OPT="-n -gwl -dFPC_ARMHF"
     else
-      LLVM_COMPILE_OPT="-n"
+      LLVM_COMPILE_OPT="-n -gwl"
     fi
     llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
     echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
-    ${MAKE} -C compiler rtlclean >> $llvmlogfile 2>&1
+    ${MAKE} -C rtl clean >> $llvmlogfile 2>&1
     ${MAKE} -C compiler clean PPC_TARGET=${cpu} LLVM=1 >> $llvmlogfile 2>&1
-    ${MAKE} -C compiler rtl LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlogfile 2>&1
+    ${MAKE} -C rtl all OPT="$LLVM_COMPILE_OPT" >> $llvmlogfile 2>&1
     ${MAKE} -C compiler PPC_TARGET=${cpu} LLVM=1 OPT="$LLVM_COMPILE_OPT" >> $llvmlogfile 2>&1
     llvm_res=$?
     if [ $llvm_res -ne 0 ] ; then
