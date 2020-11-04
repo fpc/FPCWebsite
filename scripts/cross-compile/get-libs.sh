@@ -329,6 +329,8 @@ if [ -n "$machine" ] ; then
 
   #libgcc.a
   maybe_upload_files "libgcc.a"
+  #libgcc_s.so*
+  maybe_upload_files "libgcc_s${dynlib_suffix}*"
 
   if [ "$os" == "solaris" ] ; then
     echo "Trying to get Solaris specific files"
