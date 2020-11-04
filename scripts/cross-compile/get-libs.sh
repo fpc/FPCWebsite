@@ -38,7 +38,6 @@ done
 
 machine=$1
 
-
 if [ $local_links -eq 0 ]; then
   if [ -z "$machine" ] ; then
     echo "Usage: $0 [-f] [-l] [-all] machine_name [dir_name]"
@@ -54,6 +53,13 @@ if [ $local_links -eq 0 ]; then
 fi
 
 dir_name=$2
+
+if [ -n "$3" ] ; then
+  add_just_one_lib="$3"
+else
+  add_just_one_lib=""
+fi
+
 
 FIND=` which gfind 2> /dev/null `
 
@@ -252,7 +258,10 @@ function maybe_upload_files ()
   fi
 }
 
-if [ -n "$machine" ] ; then
+if [ -n "$add_just_one_lib" ] ; then
+  echo "Only looking for \"$add_just_one_lib\""
+  maybe_upload_files "$add_just_one_lib"
+elif [ -n "$machine" ] ; then
   # Checking for crt1.o file
   crt_o_files=`ssh $machine find "/usr/lib*" "/lib*" -name "crt0.o" 2> /dev/null`
 
