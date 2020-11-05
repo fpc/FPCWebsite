@@ -391,6 +391,7 @@ scripts/cross-compile/comp-riscv64.sh svneol=native#text/plain
 scripts/cross-compile/comp-sparc32.sh svneol=native#text/plain
 scripts/cross-compile/comp-sparc64.sh svneol=native#text/plain
 scripts/cross-compile/comp-x86_64.sh svneol=native#text/plain
+scripts/cross-compile/dummy-as svneol=native#text/plain
 scripts/cross-compile/emul-aarch64.sh svneol=native#text/plain
 scripts/cross-compile/emul-arm.sh svneol=native#text/plain
 scripts/cross-compile/emul-avr.sh svneol=native#text/plain

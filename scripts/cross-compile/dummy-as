@@ -1,0 +1,130 @@
+#!/usr/bin/env bash
+
+# Use a timeout to avoid running endless dummy-as
+Timeout=300 # 5 minutes
+
+function timeout_monitor() {
+   sleep "$Timeout"
+   kill -TERM "$1"
+}
+
+pipe_input=0
+keyb_input=0
+file_input=0
+next_is_object_name=0
+ignore_next=0
+object_name=dummy.o
+source_name=-
+if [ "X$verbose_dummy_as" != "X" ] ; then
+  verbose=1
+else
+  verbose=0
+fi
+
+argc=0
+
+script_name="$0"
+
+if [ "${script_name/clang/}" != "$script_name" ] ; then
+  is_clang=1
+else
+  is_clang=0
+fi
+
+for arg in "${@}" ; do
+  let argc++
+  if [ $verbose -eq 1 ] ; then
+    echo "arg $argc is \"$arg\""
+  fi
+
+  if [ $next_is_object_name -eq 1 ] ; then
+    object_name="$arg"
+    next_is_object_name=0
+    continue
+  elif [ $ignore_next -eq 1 ] ; then
+    ignore_next=0
+    continue
+  else
+    last="$arg"
+  fi
+  if [ "X$arg" == "X-o" ] ; then
+    next_is_object_name=1
+  fi
+  if [ "X$arg" == "X-I" ] ; then
+    ignore_next=1
+  fi
+  if [ $is_clang -eq 1 ] ; then
+    # Handle clang specific options 
+    # but only the ones used by the compiler directly
+    if [ "X$arg" == "X-x" ] ; then
+      ignore_next=1
+    fi
+    if [ "X$arg" == "X-target" ] ; then
+      ignore_next=1
+    fi
+  fi
+  if [ "${arg:0:1}" != "-" ] ; then
+    if [ "$source_name" != "-" ] ; then
+      echo "Warning: overriding source_name from $source_name to $arg"
+    fi
+    source_name="$arg"
+  fi
+done
+
+if readlink /proc/$$/fd/0 | grep -q "^pipe:"; then
+  pipe_input=1
+  input=" input from pipe"
+elif file $( readlink /proc/$$/fd/0 ) | grep -q "character special"; then
+  keyb_input=1
+  input=" input from keyboard"
+else
+  # File input (myscript < file.txt)
+  file_input=1
+  input=" input from file"
+fi
+
+if [ $verbose -eq 1 ] ; then
+  echo "Running $0 $* $input"
+fi
+
+
+function terminated_by_term_signal ()
+{
+  echo "TERM signal recieved, ending without generating $object_name"
+  exit 1
+}
+
+trap terminated_by_term_signal SIGTERM
+
+if [[ ($pipe_input -eq 1) && ("$source_name" == "-") ]] ; then
+    # start the timeout monitor in 
+    # background and pass the PID:
+    timeout_monitor "$$" &
+    Timeout_monitor_pid=$!
+
+    # Pipe input (echo abc | myscript)
+    # Wait until pipe is empty
+    OIFS="$IFS"
+    IFS="
+"
+    while read var ; do
+       if [ $verbose -eq 1 ] ; then
+         echo $var
+       fi
+    done
+    IFS="$OIFS"
+    # kill timeout monitor when terminating:
+    kill $Timeout_monitor_pid
+fi
+
+echo "Dummy generated object from $source_name using $0" > $object_name
+echo "Date: `date +%Y-%m-%d-%H:%M:%S`" >> $object_name
+
+if [ $verbose -eq 1 ] ; then
+  if [ "$source_name" != "-" ] ; then
+    echo "Dummy generated object $object_name from $source_name"
+  else
+    echo "Dummy generated object $object_name using $input"
+  fi
+fi
+
