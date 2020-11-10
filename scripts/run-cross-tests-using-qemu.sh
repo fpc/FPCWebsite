@@ -309,14 +309,6 @@ if [ -d "$QEMU_SYSROOT" ] ; then
     if [ "${OS_TARGET}" != "aix" ] ; then
       OPT_LOCAL="$OPT_LOCAL -Xr$sysroot"
     fi
-    # -Xa is only supported for Linux OS in trunk
-    # It allows to use the standard linker script included 
-    # inside the cross-linkers even with -Xr option
-    if [ "${OS_TARGET}" == "linux" ] ; then
-      if [ "$BRANCH" == "trunk" ] ; then
-        OPT_LOCAL="$OPT_LOCAL -Xa"
-      fi
-    fi
     if [ $verbose -eq 1 ] ; then
       decho "OPT_LOCAL set to \"$OPT_LOCAL\""
     fi
@@ -443,8 +435,8 @@ copy_to_logdir log
 if [ -d $LOGDIR/$OUTPUTDIR ] ; then 
   rm -Rf $LOGDIR/$OUTPUTDIR
 fi
-decho "Moving $OUTPUTDIR to $LOGDIR"
-mv -f $OUTPUTDIR $LOGDIR/
+decho "Moving $OUTPUTDIR to $LOGDIR/output"
+mv -f $OUTPUTDIR $LOGDIR/output
 
 if [ $fullres -eq 0 ] ; then
   DIGESTFILE=$LOGDIR/test-digest.log
