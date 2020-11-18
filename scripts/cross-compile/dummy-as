@@ -31,6 +31,12 @@ else
   is_clang=0
 fi
 
+if [ "${script_name/PPCAsm/}" != "$script_name" ] ; then
+  is_PPCAsm=1
+else
+  is_PPCAsm=0
+fi
+
 for arg in "${@}" ; do
   let argc++
   if [ $verbose -eq 1 ] ; then
@@ -60,6 +66,13 @@ for arg in "${@}" ; do
       ignore_next=1
     fi
     if [ "X$arg" == "X-target" ] ; then
+      ignore_next=1
+    fi
+  fi
+  if [ $is_PPCAsm -eq 1 ] ; then
+    # Handle PPCAsm specific options 
+    # but only the ones used by the compiler directly
+    if [ "X$arg" == "X-case" ] ; then
       ignore_next=1
     fi
   fi
