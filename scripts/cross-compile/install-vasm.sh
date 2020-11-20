@@ -21,6 +21,15 @@ if [ "$1" == "--force" ] ; then
   recompile_vasm=1
   recompile_vlink=1
   force_symlinks=1
+  shift
+fi
+
+if [ "$1" == "--help" ] ; then
+  echo "Usage: $0 [--force]"
+  echo "  Downloads, compiles and installs vasm and vlink"
+  echo "  for use with Free Pascal compiler"
+  echo "  Use --force option to force update"
+  exit
 fi
 
 
@@ -29,7 +38,7 @@ if [ -z "$MAKE" ] ; then
   MAKE=`which gmake 2> /dev/null`
   if [ -z "$MAKE" ] ; then
     MAKE=`which make`
-    if [-z "$MAKE" ] ; then
+    if [ -z "$MAKE" ] ; then
       echo "Warning: unable to find make utility"
       MAKE=make
     fi
@@ -40,7 +49,7 @@ if [ -z "$TAR" ] ; then
   TAR=`which gtar 2> /dev/null`
   if [ -z "$TAR" ] ; then
     TAR=`which tar`
-    if [-z "$TAR" ] ; then
+    if [ -z "$TAR" ] ; then
       echo "Warning: unable to find tar utility"
       TAR=tar
     fi
@@ -58,11 +67,11 @@ fi
 set -u
 
 
-if [ ! -f $HOME/bin/vasmm68k_std ] ; then
+if [ ! -f "$HOME/bin/vasmm68k_std" ] ; then
   recompile_vasm=1
 fi
 
-if [ ! -f $HOME/bin/vasmz80_std ] ; then
+if [ ! -f "$HOME/bin/vasmz80_std" ] ; then
   recompile_vasm=1
 fi
 
@@ -76,21 +85,22 @@ function do_recompile_vasm ()
   VASM_SRC=vasm${VASM_VERSION}.tar.gz 
 
   if [ ! -f "$VASM_SRC" ] ; then
-    if [ -d vasm ] ; then
-      rm -Rf vasm
-    fi
     $WGET http://server.owl.de/~frank/tags/${VASM_SRC}
     wget_res=$?
     if [ $wget_res -ne 0 ] ; then
       echo "Error: $WGET failed to download $VASM_SRC"
       return 1
     fi
-    $TAR -xvzf ${VASM_SRC}
-    tar_res=$?
-    if [ $tar_res -ne 0 ] ; then
-      echo "Error: $TAR failed to untar $VASM_SRC"
-      return 2
-    fi
+  fi
+
+  if [ -d vasm ] ; then
+    rm -Rf vasm
+  fi
+  $TAR -xvzf ${VASM_SRC}
+  tar_res=$?
+  if [ $tar_res -ne 0 ] ; then
+    echo "Error: $TAR failed to untar $VASM_SRC"
+    return 2
   fi
   cd vasm
   make CPU=m68k SYNTAX=mot
@@ -166,9 +176,6 @@ function recompile_vlink ()
   cd vlink
   VLINK_SRC=vlink${VLINK_VERSION}.tar.gz
   if [ ! -f "$VLINK_SRC" ] ; then
-    if [ -d vlink ] ; then
-      rm -Rf vlink
-    fi
     # $WGET http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
     $WGET http://phoenix.owl.de/tags/$VLINK_SRC
     wget_res=$?
@@ -176,12 +183,16 @@ function recompile_vlink ()
       echo "Error: failed to download $VLINK_SRC"
       return $wget_res
     fi
-    $TAR -xvzf $VLINK_SRC
-    tar_res=$?
-    if [ $tar_res -ne 0 ] ; then
-      echo "Error: failed to untar $VLINK_SRC"
-      return $tar_res
-    fi
+  fi
+
+  if [ -d vlink ] ; then
+    rm -Rf vlink
+  fi
+  $TAR -xvzf $VLINK_SRC
+  tar_res=$?
+  if [ $tar_res -ne 0 ] ; then
+    echo "Error: failed to untar $VLINK_SRC"
+    return $tar_res
   fi
   cd vlink
   make
