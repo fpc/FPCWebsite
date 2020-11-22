@@ -51,6 +51,15 @@ elif [ "${HOSTNAME}" == "stadler" ]; then
   export NOGDB=1
   export DO_TESTS=1
   export NATIVE_OPT="-Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32 -XPsparc-unknown-linux-gnu-"
+elif [ "${HOSTNAME}" == "ravirin" ]; then
+  export HOST_PC=new-fpc-sparc64
+  export USER=pierre
+  export ASTARGET=-32
+  export NEEDED_OPT="-ao-32 -Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32"
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
+  export DO_TESTS=1
+  export NATIVE_OPT="-Fo/usr/lib32 -Fl/usr/lib32 -Fl/usr/sparc64-linux-gnu/lib32 -Fl/home/pierre/local/lib32 -XPsparc-unknown-linux-gnu-"
 elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre

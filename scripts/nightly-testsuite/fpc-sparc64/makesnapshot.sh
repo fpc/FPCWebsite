@@ -124,6 +124,18 @@ if [ "${HOSTNAME}" == "stadler" ]; then
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
+elif [ "${HOSTNAME}" == "ravirin" ]; then
+  HOST_PC=new-fpc-sparc64
+  USER=pierre
+  if [ "X$TARGET_CPU" == "Xsparc" ] ; then
+    export ASTARGET=-32
+    export NEEDED_OPT="$NATIVE_OPT32"
+  else
+    export NEEDED_OPT="$NATIVE_OPT64"  
+  fi
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
+  export DO_TESTS=1
 elif [ "${HOSTNAME}" == "gcc202" ]; then
   USER=pierre
   if [ "X$TARGET_CPU" == "Xsparc" ] ; then

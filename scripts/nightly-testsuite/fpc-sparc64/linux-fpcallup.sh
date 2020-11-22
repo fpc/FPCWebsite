@@ -8,7 +8,7 @@ machine_host=`uname -n`
 # We want to use the 32-bit compiler by default
 export NATIVEFPC=ppcsparc
 
-if [ "$machine_host" == "stadler" ] ; then
+if [[ ( "$machine_host" == "stadler" ) || ( "$machine_host" == "ravirin" ) ]] ; then
   enable_64bit_tests=1
   run_check_all_rtl=0
   export FPMAKEOPT=

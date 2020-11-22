@@ -277,6 +277,16 @@ elif [ "X$machine_host" == "Xstadler" ] ; then
   TRUNK_FPMAKEOPT="-T 16"
   # Force use of 32-bit version compiler
   export FPC=ppcsparc
+elif [ "X$machine_host" == "Xravirin" ] ; then
+  test_utils=1
+  test_utils_ppudump=1
+  DO_RECOMPILE_FULL=1
+  COMPILE_EACH_CPU=1
+  MAKEJOPT="-j 32"
+  ULIMIT_TIME=999
+  TRUNK_FPMAKEOPT="-T 16"
+  # Force use of 32-bit version compiler
+  export FPC=ppcsparc
 else
   echo "Unknown machine $machine_host"
 fi

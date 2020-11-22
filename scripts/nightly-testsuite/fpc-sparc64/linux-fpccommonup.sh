@@ -96,6 +96,15 @@ elif [ "${HOSTNAME}" == "stadler" ]; then
   # Set until I find out how to cross-compile GDB for sparc32
   export NOGDB=1
   export DO_TESTS=1
+elif [ "${HOSTNAME}" == "ravirin" ]; then
+  export HOST_PC=new-fpc-sparc64
+  export USER=pierre
+  export ASTARGET=-32
+  export NEEDED_OPT="$NATIVE_OPT32"
+  export MAKEOPT="BINUTILSPREFIX=sparc-linux-"
+  # Set until I find out how to cross-compile GDB for sparc32
+  export NOGDB=1
+  export DO_TESTS=1
 elif [ "${HOSTNAME}" == "deb4g" ]; then
   export HOST_PC=fpc-sparc64-T5
   export USER=pierre
