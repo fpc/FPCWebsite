@@ -1040,7 +1040,7 @@ function check_target ()
       # Use symbolic links to clang with CPU-OS- prefixes
       # instead of resetting BINUTILSPREFIX=
     fi
-  elif [ "$CPU_TARG_LOCAL" == "i8086" ] ; then
+  elif [[ ( "$CPU_TARG_LOCAL" == "i8086" ) || ( "X${OPT_LOCAL/-Anasm/}" != "X$OPT_LOCAL}" ) ]] ; then
     ASSEMBLER=nasm
   elif [[ ( "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ) || ( "$OS_TARG_LOCAL" == "sinclairql"  ) ]] ; then
     # -Avasm can be used for arm, m68k or z80 vasm assembler 
@@ -1058,7 +1058,7 @@ function check_target ()
       ASSEMBLER=z80asm
     elif [ "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ] ; then
       # -Avasm can be used for arm, m68k or z80 vasm assembler 
-      ASSEMBLER=z80vasm
+      ASSEMBLER=z80vasm_std
     else
       ASSEMBLER=sdasz80
     fi
@@ -1138,6 +1138,15 @@ function check_target ()
   elif [ "$ASSEMBLER" == "vasmm68k_std" ] ; then
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="vasm"
+  elif [ "$ASSEMBLER" == "vasmz80_std" ] ; then
+    ASSEMBLER_VER_OPT=--version
+    ASSEMBLER_VER_REGEXPR="vasm"
+  elif [ "$ASSEMBLER" == "sdasz80" ] ; then
+    ASSEMBLER_VER_OPT=--version
+    ASSEMBLER_VER_REGEXPR="sdas Assembler"
+  elif [ "$ASSEMBLER" == "z80asm" ] ; then
+    ASSEMBLER_VER_OPT=--version
+    ASSEMBLER_VER_REGEXPR="Z80 assembler"
   elif [ "$ASSEMBLER" == "java" ] ; then
     ASSEMBLER_VER_OPT=-version
     ASSEMBLER_VER_REGEXPR="version"
@@ -1751,6 +1760,8 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
     LLVM_FPC=${FPC_LOCAL}-llvm
     if [ "$cpu" == "arm" ] ; then
       LLVM_COMPILE_OPT="-n -gwl -dFPC_ARMHF"
+    elif [ "$cpu" == "x86_64" ] ; then
+      LLVM_COMPILE_OPT="-n -gwl -dFPC_USE_SOFTX80"
     else
       LLVM_COMPILE_OPT="-n -gwl"
     fi
