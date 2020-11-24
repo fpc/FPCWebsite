@@ -1040,7 +1040,7 @@ function check_target ()
       # Use symbolic links to clang with CPU-OS- prefixes
       # instead of resetting BINUTILSPREFIX=
     fi
-  elif [[ ( "$CPU_TARG_LOCAL" == "i8086" ) || ( "X${OPT_LOCAL/-Anasm/}" != "X$OPT_LOCAL}" ) ]] ; then
+  elif [[ ( "$CPU_TARG_LOCAL" == "i8086" ) || ( "X${OPT_LOCAL/-Anasm/}" != "X$OPT_LOCAL" ) ]] ; then
     ASSEMBLER=nasm
   elif [[ ( "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ) || ( "$OS_TARG_LOCAL" == "sinclairql"  ) ]] ; then
     # -Avasm can be used for arm, m68k or z80 vasm assembler 
