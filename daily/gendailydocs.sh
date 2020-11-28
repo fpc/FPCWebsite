@@ -10,11 +10,13 @@ function usage {
   echo "-l file       Specify delp executable location"
   echo "-n            Only echo commands"
   echo "-nu           Do not update sources from SVN"
-  echo "-s file       Specify svn executable locaion"
+  echo "-p file       Set compiler executable location"
+  echo "-s file       Specify svn executable location"
   echo "-S URL        Specify SVN repository base URL"
   echo "-sd           Skip generating documentation"
   echo "-sp           Skip generating package documentation"
   echo "-v            be verbose"  
+  
 
 }
 
@@ -99,6 +101,8 @@ do
       DELP="$1";;
   -d) shift
       DAILYDOC="$1";;
+  -p) shift
+      FPC="$1";;     
   -s) shift
       SVN="$1";;
   -sd)  SKIPDOCS=YES;;
@@ -205,7 +209,7 @@ if [ -z "$SKIPPACKAGES" ]; then
   checkcmd $? "Switching to build dir" || exit 1
 
   doinfo "Building fpmake"
-  $DOECHO $FPC fpmake.pp -Fufpmkunit/src
+  $DOECHO $FPC -dNO_THREADING fpmake.pp -Fufpmkunit/src
   checkcmd $? "Building fpmake" || exit 1
 
   doinfo "Generating documentation file"
