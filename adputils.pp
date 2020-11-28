@@ -184,7 +184,8 @@ begin
       FindClose(Rec) ;
       end;
     for i:=0 to dirs.Count-1 do
-      findfile(dirs[i],lst);
+      if not SameText(dirs[i],'daily') then
+        findfile(dirs[i],lst);
   finally
     dirs.Free;
   end;
