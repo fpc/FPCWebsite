@@ -230,7 +230,7 @@ if [ -z "$SKIPPACKAGES" ]; then
   fi
 
   doinfo "Generating documentation in $NEWPACKAGESDIR"
-  $DOECHO $DAILYDOC -i fpmake-docs.xml -o "$NEWPACKAGESDIR" -t
+  $DOECHO $DAILYDOC -f "$FPDOC" -i fpmake-docs.xml -o "$NEWPACKAGESDIR" -t
   checkcmd $? "Generating fpdocproject" || exit 1
 fi
 
@@ -238,7 +238,7 @@ fi
 # Move everything into place
 #
 doinfo "Going to destination directory $DAILYDIR"
-cd $DAILYDIR
+$DOECHO cd $DAILYDIR
 checkcmd $? "Going to destination directory $DAILYDIR" || exit 1
 
 
@@ -284,7 +284,7 @@ if [ -z "$SKIPPACKAGES" ]; then
   #
   # Copy CSS file
   #
-  CSSFILE=$(find packages-new -name 'fpdoc.css' | head -1) 
+  $DOECHO CSSFILE=$(find packages-new -name 'fpdoc.css' | head -1) 
   if [ -z "$CSSFILE" ]; then
     echo "Could not find fpdoc.css, styling will be incomplete"
   else
@@ -300,12 +300,7 @@ if [ -z "$SKIPPACKAGES" ]; then
      echo "Failed to move new documentation into place, attempting restore"
      $DOECHO rm -fr packages
      $DOECHO mv packages-prev packages  
-  fi
-  
+  fi  
 fi
-
-if [ ! -z "$SKIPINDEX" ]; then
-
-doinfo "C"
 
 doinfo "That's all, Folks!"
