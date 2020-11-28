@@ -94,6 +94,7 @@ do
       SVNBASE=$1;;      
   -v) INFO=YES;;   
   -n) DOECHO=echo;;
+  -i) DOINFO=YES;;
   -nu) NOUPDATE=YES;;
   -f) shift
       FPDOC="$1";; 
