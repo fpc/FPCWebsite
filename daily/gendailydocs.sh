@@ -1,12 +1,21 @@
 #!/bin/bash
 
 function usage {
-  echo "-i          Show info info"
-  echo "-d DIR      Set directory for daily docs"
-  echo "-b DIR      Set base directory for building docs"
-  echo "-n          Only echo commands"
-  echo "-v          be verbose"  
-  echo "-nu         No update";
+  echo "-B DIR        Set base directory for building docs"
+  echo "-D DIR        Set directory for daily docs"
+  echo "-d file       Specify dailydoc executable location"
+  echo "-f file       Specify fpdoc executable location"
+  echo "-h or --help  this help text";
+  echo "-i            Show info info"
+  echo "-l file       Specify delp executable location"
+  echo "-n            Only echo commands"
+  echo "-nu           Do not update sources from SVN"
+  echo "-s file       Specify svn executable locaion"
+  echo "-S URL        Specify SVN repository base URL"
+  echo "-sd           Skip generating documentation"
+  echo "-sp           Skip generating package documentation"
+  echo "-v            be verbose"  
+
 }
 
 BASEDIR=$(pwd)
@@ -23,8 +32,6 @@ NOUPDATE=NO
 SKIPDOCS=
 SKIPPACKAGES=
 SVNBASE=svn+ssh://svn.freepascal.org/FPC/svn/
-SVNDOCS=${SVNBASE}fpcdocs/trunk/
-SVNSRC=${SVNBASE}fpc/trunk/
 
 function showinfo {
   SD=no
@@ -80,8 +87,9 @@ do
   -B) shift
       BUILDDIR="$1";;
   -L) shift
-      LOGFILE=$1;;    
-  -i) DOSHOWINFO=YES;;
+      LOGFILE=$1;; 
+  -S) shift
+      SVNBASE=$1;;      
   -v) INFO=YES;;   
   -n) DOECHO=echo;;
   -nu) NOUPDATE=YES;;
@@ -103,6 +111,8 @@ done
 
 # correct some things
 SVN="$DOECHO $SVN --quiet"
+SVNDOCS=${SVNBASE}fpcdocs/trunk/
+SVNSRC=${SVNBASE}fpc/trunk/
 ADIR=$(dirname "$DAILYDOC")
 if [ "$ADIR" = "." ]; then
   echo correcting
