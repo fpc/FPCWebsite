@@ -25,8 +25,18 @@ if [ -z "$verbose" ] ; then
   verbose=0
 fi
 
+if [ -n "$TEST_OPT" ] ; then
+  GLOBAL_TEST_OPT="$TEST_OPT"
+  TEST_OPT=""
+fi
+
+if [ -z "${EMUL_OPTIONS:-}" ] ; then
+  EMUL_OPTIONS=""
+fi
+
 export PATH=${INSTALLFPCDIRPREFIX}${TARGET_VERSION}/bin:$PATH
 
+set -u
 
 function decho ()
 {
@@ -140,7 +150,7 @@ fi
 if [ $use_cpu -eq 1 ] ; then
   CPU_TARGET=$1
   shift
-  OS_TARGET=$1
+  OS_TARGET=${1:-}
   shift
   TARGET_FPC=ppc$CPU_TARGET
   case $CPU_TARGET in
@@ -168,7 +178,7 @@ if [ "$VER_TARGET" != "$TARGET_VERSION" ] ; then
   exit
 fi
 
-if [ -z "$QEMU_CPU" ] ; then
+if [ -z "${QEMU_CPU:-}" ] ; then
   QEMU_CPU=$CPU_TARGET
   case $CPU_TARGET in
     aarch64|arm64) QEMU_CPU=aarch64 ;;
@@ -190,8 +200,9 @@ if [ -z "$QEMU_CPU" ] ; then
   esac
 fi
 
-if [ -z "$QEMU_OPT" ] ; then
+if [ -z "${QEMU_OPT:-}" ] ; then
   QEMU_OPT=
+  TEST_ABI=
   case $QEMU_CPU in
     arm) QEMU_OPT="-cpu cortex7a" ; TEST_OPT="$TEST_OPT -Cparmv7 -Cfvfpv2 -Caeabihf"; TEST_ABI=eabihf ;;
     m68k) QEMU_OPT="-cpu m68040" ;;
@@ -208,7 +219,7 @@ source_os=`uname -s | tr [:upper:] [:lower:] `
 # Might need some adaptations
 OS_SOURCE=$source_os
 
-if [ -z "$OS_TARGET" ] ; then
+if [ -z "${OS_TARGET:-}" ] ; then
   OS_TARGET=$OS_SOURCE
 fi
 
@@ -217,7 +228,16 @@ if [ "$OS_SOURCE" == "$OS_TARGET" ] ; then
 else
   EMUL=qemu-system-$QEMU_CPU
 fi
+
+ORIG_PATH=$PATH
+# Try to use local qemu binaries if installed in $HOME/sys-root/bin
+if [ -d $HOME/sys-root/bin ] ; then
+  PATH=$HOME/sys-root/bin:$PATH
+  QEMUL_PATH=$PATH
+fi
 EMUL_BIN=`which $EMUL 2> /dev/null`
+
+PATH=$ORIG_PATH
 
 if [ -z "$EMUL_BIN" ] ; then
   decho "$EMUL not found in $PATH"
@@ -252,7 +272,7 @@ else
   dir_list="/lib32 /usr/lib32"
 fi
 
-if [ -z "$QEMU_SYSROOT" ] ; then
+if [ -z "${QEMU_SYSROOT:-}" ] ; then
   QEMU_SYSROOT=$HOME/sys-root/${QEMU_FULL_TARGET}
 fi
 if [  ! -d "$QEMU_SYSROOT" ] ; then
@@ -261,7 +281,7 @@ fi
 
 if [ -d "$QEMU_SYSROOT" ] ; then
   sysroot=$QEMU_SYSROOT
-  EMUL="$EMUL -L $QEMU_SYSROOT"
+  EMUL_OPTIONS+=" -L $QEMU_SYSROOT"
   TEST_OPT="$TEST_OPT -k--sysroot=$QEMU_SYSROOT"
   dir_found=0
   for dir in "/lib" "/usr/lib" $dir_list ; do
@@ -363,10 +383,14 @@ else
 fi
 export LD_LIBRARY_PATH=$HOME/gnu/lib64
 
+if [ -z "\$EMUL_BIN" ] ; then
+  EMUL_BIN=$EMUL_BIN
+fi
+
 if [ \$debug_target_exe -eq 0 ] ; then
-  \$GDB_QEMU $EMUL "\${@}"
+  \$GDB_QEMU \$EMUL_BIN $EMUL_OPTIONS "\${@}"
 else
-  $EMUL -g \$GDB_PORT "\${@}" &
+  \$EMUL_BIN $EMUL_OPTIONS -g \$GDB_PORT "\${@}" &
   \$GDB -ex "target extended-remote localhost:\$GDB_PORT" -ex "set sysroot $QEMU_SYSROOT" \$1
 fi
 HERE
@@ -404,13 +428,16 @@ if [ $res -ne 0 ] ; then
   return
 fi
 
+(
 LOGFILE=$LOGDIR/test-full.log
 decho "$MAKE -j 8 full  TEST_FPC=$TARGET_FPC TEST_OS_TARGET=\"$OS_TARGET\" TEST_CPU_TARGET=\"$CPU_TARGET\" \
   TEST_BINUTILSPREFIX=${FULL_TARGET}- EMULATOR=\"$QEMU_SCRIPT\" TEST_OPT=\"$TEST_OPT\" TEST_ABI=\"$TEST_ABI\""
+ulimit -s 8192 -t 240
 time $MAKE -j 8 full  TEST_FPC=$TARGET_FPC TEST_OS_TARGET="$OS_TARGET" TEST_CPU_TARGET="$CPU_TARGET" \
   TEST_BINUTILSPREFIX=${FULL_TARGET}- EMULATOR="$QEMU_SCRIPT" TEST_OPT="$TEST_OPT" TEST_ABI="$TEST_ABI" > $LOGFILE 2>&1
 fullres=$?
 decho "make full finished res=$fullres"
+
 if [ -d "./output/${FULL_TARGET}" ] ; then
   OUTPUTDIR="./output/${FULL_TARGET}"
 elif [ -d "./output/${OS_TARGET}" ] ; then
@@ -434,9 +461,11 @@ copy_to_logdir log
 # Also move all tests
 if [ -d $LOGDIR/$OUTPUTDIR ] ; then 
   rm -Rf $LOGDIR/$OUTPUTDIR
+  rm_res=$?
+  if [ $rm_res -ne 0 ] ; then
+    echo "Failed to  remove $LOGDIR/$OUTPUTDIR"
+  fi
 fi
-decho "Moving $OUTPUTDIR to $LOGDIR/output"
-mv -f $OUTPUTDIR $LOGDIR/output
 
 if [ $fullres -eq 0 ] ; then
   DIGESTFILE=$LOGDIR/test-digest.log
@@ -450,6 +479,10 @@ if [ $fullres -eq 0 ] ; then
     TEST_BINUTILSPREFIX=${FULL_TARGET}- EMULATOR="$QEMU_SCRIPT" TEST_OPT="$TEST_OPT" DB_SSH_EXTRA="-i ~/.ssh/freepascal" > $UPLOADFILE 2>&1
   fi
 fi
+
+decho "Moving $OUTPUTDIR to $LOGDIR/output"
+mv -f $OUTPUTDIR $LOGDIR/output
+)
 decho "run_one_testsuite finished for $FULL_TARGET"
 }
 
@@ -459,14 +492,14 @@ if [ "$1" == "all" ] ; then
     QEMU_SYSROOT=
     QEMU_CPU=
     QEMU_OPT=
-    TEST_OPT=
+    TEST_OPT="$GLOBAL_TEST_OPT"
     TEST_ABI=
     run_one_testsuite $cpu linux "${@}"
   done
 else
   if [ "$*" == "" ] ; then
     decho "Usage: $0 CPU"
-    decho  " or    $0 all"
+    decho "   or: $0 all"
     exit 1
   fi
   run_one_testsuite "${@}"
