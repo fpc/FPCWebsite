@@ -26,7 +26,9 @@ function test_help ()
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
 # one argument does not contain an equal sign
+all_args=""
 while [ "$1" != "" ] ; do
+  all_args+=" $1"
   if [ "$1" == "--help" ] ; then
     test_help
     exit 1
@@ -354,7 +356,7 @@ function run_compilers ()
     if [ $do_tests -eq 1 ] ; then
       tests_log=$LOGDIR/tests${SUFFIX}.log
       decho "Testing $NEWFPC in tests"
-      TEST_ADD_OPT="${OPT:-} $NATIVE_OPT"
+      TEST_ADD_OPT="-O2 ${OPT:-} $NATIVE_OPT"
       BASE_ADD_OPT="${OPT:-} $NATIVE_OPT"
       if [ -n "$BINUTILSPREFIX" ] ; then
         BASE_ADD_OPT="$BASE_ADD_OPT -XP$BINUTILSPREFIX"
@@ -377,6 +379,7 @@ function run_compilers ()
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
         file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
+	file_list+=" log faillist"
         for f in $file_list ; do
           if [ "${f/tw26472/}" != "$f" ] ; then
             # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
@@ -468,7 +471,7 @@ global_log=$LOGDIR/global.log
 do_all > $global_log 2>&1
 
 if [ $test_failed -eq 1 ] ; then
-  decho "Optimization test $0 failed"
+  decho "Optimization test $0 $all_args failed"
   machine_host=`uname -n`
   if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
     machine_host=gcc21
