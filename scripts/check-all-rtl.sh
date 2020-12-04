@@ -265,8 +265,17 @@ elif [ "X$machine_host" == "Xgcc135" ] ; then
 elif [ "X$machine_host" == "Xgcc202" ] ; then
   test_utils=1
   test_utils_ppudump=1
+  DO_FPC_BINARY_INSTALL=1
+  DO_FPC_RTL_INSTALL=1
+  DO_FPC_PACKAGES_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  RECOMPILE_FULL_OPT="-CitR -gwl -dFPC_SOFT_FPUX80"
+  RECOMPILE_FULL_OPT_O="-O4"
+  DO_CHECK_LLVM=1
   export MAKEJOPT="-j 16"
-  # export FPMAKEOPT="-T 16"
+  export FPMAKEOPT="-T 16"
+  # Force use of 32-bit version compiler
+  export FPC=ppcsparc
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -639,7 +648,7 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     RELEASE_FPC=`which $FPC`
-    mecho "Second try for native compiler, using release FPCC=\"$RELEASE_FPC\""
+    mecho "Second try for native compiler, using release FPC=\"$RELEASE_FPC\""
     make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_FPC >> $cyclelog 2>&1
     make installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=`pwd`/$FPC >> $cyclelog 2>&1
     makeres=$?
@@ -650,13 +659,12 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
     exit
   fi
   native_cpu=`$LOCAL_INSTALL_PREFIX/bin/$FPC -iSP`
-  mecho "Recompiling cross-compilers"
+  mecho "Recompiling cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}\""
   make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
-    mecho "Second try for cross-compilers, using FPCCPUOPT=\"-O-\""
-    export FPCCPUOPT="-O-"
-    make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    mecho "Second try for cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} -O-\""
+    make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} -O-" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
@@ -684,11 +692,10 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
         mecho "Generating $cpu cross-compiler failed, see $fullcyclelog for details"
       fi
     done
-  else
-    # Using new temp installation bin dir
-    export PATH=$LOCAL_INSTALL_PREFIX/bin:$PATH
-    mecho "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable"
   fi
+  # Using new temp installation bin dir
+  export PATH=$LOCAL_INSTALL_PREFIX/bin:$PATH
+  mecho "Adding $LOCAL_INSTALL_PREFIX/bin to front of PATH variable"
   export FPCCPUOPT=
   cd ..
   if [ -f ./packages/fpmake ] ; then
