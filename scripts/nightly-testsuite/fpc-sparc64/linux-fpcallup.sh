@@ -14,6 +14,12 @@ if [[ ( "$machine_host" == "stadler" ) || ( "$machine_host" == "ravirin" ) ]] ; 
   export FPMAKEOPT=
   export INCREASE_ULIMIT_NB_FILES=1
   DO_SNAPSHOTS=1
+elif [ "$machine_host" == "gcc202" ] ; then
+  enable_64bit_tests=1
+  run_check_all_rtl=1
+  export FPMAKEOPT="-T 8"
+  export INCREASE_ULIMIT_NB_FILES=1
+  DO_SNAPSHOTS=0
 fi
 
 . $HOME/bin/fpc-versions.sh
