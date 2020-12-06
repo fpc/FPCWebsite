@@ -94,8 +94,32 @@ fi
 INSTALLRELEASEBINDIR=$INSTALLRELEASEDIR/bin
 
 if [ -d "$INSTALLRELEASEBINDIR" ] ; then
-  if [ "${PATH/$INSTALLRELEASEBINDIR/}" != "$PATH" ] ; then
+  if [ "${PATH/$INSTALLRELEASEBINDIR/}" = "$PATH" ] ; then
     export PATH=$PATH:$INSTALLRELEASEBINDIR
+  fi
+fi
+
+if [ -z "$SVNDIRNAME" ] ; then
+  if [ "x$FIXES" == "x1" ] ; then
+    SVNDIRNAME=$FIXESDIRNAME
+    FPC_VERSION=$FIXESVERSION
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=fixes
+    fi
+  else
+    SVNDIRNAME=$TRUNKDIRNAME
+    FPC_VERSION=$TRUNKVERSION
+    if [ -z "$SVNDIRNAME" ] ; then
+      SVNDIRNAME=trunk
+    fi
+  fi
+fi
+
+FPC_BINDIR=$PASDIR/fpc-$FPC_VERSION/bin
+
+if [ -d "$FPC_BINDIR" ] ; then
+  if [ "${PATH/$FPC_BINDIR/}" = "$PATH" ] ; then
+    export PATH=$FPC_BINDIR:$PATH
   fi
 fi
 
@@ -145,20 +169,6 @@ fi
 
 if [ -z "$MAKE" ] ; then
   export MAKE=make
-fi
-
-if [ -z "$SVNDIRNAME" ] ; then
-  if [ "x$FIXES" == "x1" ] ; then
-    SVNDIRNAME=$FIXESDIRNAME
-    if [ -z "$SVNDIRNAME" ] ; then
-      SVNDIRNAME=fixes
-    fi
-  else
-    SVNDIRNAME=$TRUNKDIRNAME
-    if [ -z "$SVNDIRNAME" ] ; then
-      SVNDIRNAME=trunk
-    fi
-  fi
 fi
 
 set -u 
@@ -237,6 +247,7 @@ COMPILER_DIR=`pwd`
 COMPILER_LIST=""
 SUFFIX_LIST=""
 log_list=""
+MAKE_OPT=""
 
 function decho ()
 {
@@ -263,9 +274,13 @@ function gen_compiler ()
   fi
   if [ $CROSS -eq 1 ] ; then
     export BINUTILSPREFIX="${CPU_TARGET}-${OS_TARGET}-"
+    # Pretend FPCBIN is a native compiler
+    MAKE_OPT="CPU_SOURCE=$CPU_TARGET"
+  else
+    MAKE_OPT=""
   fi
-  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" in $COMPILER_DIR"
-  $MAKE distclean cycle OPT="-n -gl $ADD_OPT" FPC=$FPCBIN > $cycle_log 2>&1
+  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$FPCBIN in $COMPILER_DIR"
+  $MAKE distclean cycle OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     decho "Cycle failed, see $cycle_log"
