@@ -394,7 +394,7 @@ function run_compilers ()
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
         file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
-	file_list+=" log faillist"
+	file_list+=" $dir/log $dir/faillist"
         for f in $file_list ; do
           if [ "${f/tw26472/}" != "$f" ] ; then
             # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
