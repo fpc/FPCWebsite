@@ -6,7 +6,7 @@
 cd $HOME
 
 if [ -z "$NASM_VERSION" ] ; then
-  NASM_VERSION=2.15.03
+  NASM_VERSION=2.15.05
 fi
 
 recompile=0
