@@ -7,6 +7,7 @@ keep=0
 do_packages=0
 do_utils=0
 do_tests=0
+do_llvm=0
 all_variants=0
 test_failed=0
 IS_CROSS=0
@@ -18,11 +19,12 @@ function test_help ()
   echo "List of options:"
   echo "  --all: generate variants for all optimizations levels"
   echo "  --clean: re-generate compiler, even if it already exists"
-  echo "  --keep: Do not delete copied and log files"
-  echo "  --packages: recompile packages"
-  echo "  --utils: recompile utils"
-  echo "  --tests: recompile tests"
   echo "  --full: enable all options above"
+  echo "  --keep: Do not delete copied and log files"
+  echo "  --llvm: compile LLVM compiler"
+  echo "  --packages: recompile packages"
+  echo "  --tests: recompile tests"
+  echo "  --utils: recompile utils"
 }
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -50,6 +52,11 @@ while [ "$1" != "" ] ; do
   fi
   if [ "$1" == "--keep" ] ; then
     keep=1
+    shift
+    continue
+  fi
+  if [ "$1" == "--llvm" ] ; then
+    do_llvm=1
     shift
     continue
   fi
@@ -249,6 +256,12 @@ COMPILER_LIST=""
 SUFFIX_LIST=""
 log_list=""
 MAKE_OPT=""
+if [ $do_llvm -eq 1 ] ; then
+  log_suffix="-llvm.log"
+else
+  log_suffix=".log"
+fi
+
 
 function decho ()
 {
@@ -260,7 +273,7 @@ function gen_compiler ()
   ADD_OPT="$1"
   SUFFIX=${ADD_OPT// /_}
   ADD_OPT="$ADD_OPT ${OPT:-} $NATIVE_OPT"
-  cycle_log=$LOGDIR/cycle${SUFFIX}.log
+  cycle_log=$LOGDIR/cycle${SUFFIX}$log_suffix
   NEWBIN=${FPCBIN}${SUFFIX}
   if [ -f "./$NEWBIN" ] ; then
     if [ $clean -eq 1 ] ; then
@@ -287,6 +300,16 @@ function gen_compiler ()
     decho "Cycle failed, see $cycle_log"
     return
   fi
+  if [ $do_llvm -eq 1 ] ; then
+    cp ./$FPCBIN ./${NEWBIN}
+    decho "Generating LLVM compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$NEWBIN in $COMPILER_DIR"
+    $MAKE distclean rtlclean rtl all OPT="-n -gl $ADD_OPT" LLVm=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      decho "Compilation of llvm version failed, see $cycle_log"
+      return
+    fi
+  fi
   cp ./$FPCBIN ./${NEWBIN}
   COMPILER_LIST="$COMPILER_LIST ${NEWBIN}"
   SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
@@ -302,7 +325,7 @@ function run_compilers ()
     decho "Testing $NEWFPC"
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
     FULL_TARGET=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
-    rtl_log=$LOGDIR/rtl${SUFFIX}.log
+    rtl_log=$LOGDIR/rtl${SUFFIX}$log_suffix
     $MAKE -C ../rtl distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
@@ -317,7 +340,7 @@ function run_compilers ()
     cp -Rf ../rtl/units ../rtl/units${SUFFIX}
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
-      packages_log=$LOGDIR/packages${SUFFIX}.log
+      packages_log=$LOGDIR/packages${SUFFIX}$log_suffix
       $MAKE -C ../packages distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
@@ -325,7 +348,7 @@ function run_compilers ()
       else
         log_list="$log_list $packages_log"
       fi
-      packages_move_log=$LOGDIR/packages-move${SUFFIX}.log
+      packages_move_log=$LOGDIR/packages-move${SUFFIX}$log_suffix
       decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}"
       decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}" > $packages_move_log
       for dir in ../packages/*/units ../packages/*/bin ; do
@@ -344,7 +367,7 @@ function run_compilers ()
     fi
     if [ $do_utils -eq 1 ] ; then
       decho "Testing $NEWFPC in utils"
-      utils_log=$LOGDIR/utils${SUFFIX}.log
+      utils_log=$LOGDIR/utils${SUFFIX}$log_suffix
       $MAKE -C ../utils distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
@@ -352,7 +375,7 @@ function run_compilers ()
       else
         log_list="$log_list $utils_log"
       fi
-      utils_move_log=$LOGDIR/utils-move${SUFFIX}.log
+      utils_move_log=$LOGDIR/utils-move${SUFFIX}$log_suffix
       decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}"
       decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}" > utils_move_log
       for dir in ../utils/*/units ../utils/*/bin utils/units utils/bin ; do
@@ -370,7 +393,7 @@ function run_compilers ()
       log_list="$log_list $utils_move_log"
     fi
     if [ $do_tests -eq 1 ] ; then
-      tests_log=$LOGDIR/tests${SUFFIX}.log
+      tests_log=$LOGDIR/tests${SUFFIX}$log_suffix
       decho "Testing $NEWFPC in tests"
       TEST_ADD_OPT="-O2 ${OPT:-} $NATIVE_OPT"
       BASE_ADD_OPT="${OPT:-} $NATIVE_OPT"
@@ -384,7 +407,7 @@ function run_compilers ()
       else
         log_list="$log_list $tests_log"
       fi
-      tests_move_log=$LOGDIR/tests-move${SUFFIX}.log
+      tests_move_log=$LOGDIR/tests-move${SUFFIX}$log_suffix
       move_count=0
       decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests"
       decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests" > $tests_move_log
@@ -431,7 +454,7 @@ function generate_diffs()
     for SUF2 in $SUFFIX_LIST ; do
       if [[ "$SUF1" > "$SUF2" ]] ; then
         decho "Comparing $SUF1 to $SUF2"
-        diff_file=$LOGDIR/diffs${SUF1}-${SUF2}.log
+        diff_file=$LOGDIR/diffs${SUF1}-${SUF2}$log_suffix
         diff -rc ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
         diffres=$?
         if [ $diffres -ne 0 ] ; then
@@ -488,7 +511,7 @@ function do_all ()
   fi
 }
 
-global_log=$LOGDIR/global.log
+global_log=$LOGDIR/global$log_suffix
 
 do_all > $global_log 2>&1
 
