@@ -23,6 +23,12 @@ if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
+if [ "$1"  == "no_upload" ] ; then
+  do_upload=0
+else
+  do_upload=1
+fi
+
 # Prepend release binary path and local $HOME/bin to PATH
 export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 # Prepend current version binary path
@@ -188,47 +194,47 @@ today_docs=`ssh ${UPLOAD_LOGIN}@${UPLOAD_HOST} "find ${UPLOAD_DIR} -newermt $TOD
 
 if [ -n "$today_docs" ] ; then
   echo "Files are on server: $today_docs"
-else
-if [ -n "$pdf_listing" ] ; then
-  echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
-  echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scppdflogfile
-  res=1
-  let trial=1
-  while [ $res -ne 0 ] ; do 
-    scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scppdflogfile
-    res=$?
-    if [ $res -ne 0 ] ; then
-      echo "scp upload error error $res, nb=$trial" >> $report
-      tail -11 $logfile >> $report
-      let trial++
-      if [ $trial -gt $max_trial ] ; then
-        res=0
+elif [ $do_upload -eq 1 ] ; then
+  if [ -n "$pdf_listing" ] ; then
+    echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
+    echo "Starting 'scp $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scppdflogfile
+    res=1
+    let trial=1
+    while [ $res -ne 0 ] ; do 
+      scp $UPLOAD_SSH_KEY $pdf_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scppdflogfile
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "scp upload error error $res, nb=$trial" >> $report
+        tail -11 $logfile >> $report
+        let trial++
+        if [ $trial -gt $max_trial ] ; then
+          res=0
+        fi
+      else
+        uploaded=1
       fi
-    else
-      uploaded=1
-    fi
-  done  
-fi
-if [ -n "$html_listing" ] ; then
-  echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
-  echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scphtmllogfile
-  res=1
-  let trial=1
-  while [ $res -ne 0 ] ; do 
-    scp $UPLOAD_SSH_KEY $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scphtmllogfile
-    res=$?
-    if [ $res -ne 0 ] ; then
-      echo "scp upload error error $res, nb=$trial" >> $report
-      tail -11 $logfile >> $report
-      let trial++
-      if [ $trial -gt $max_trial ] ; then
-        res=0
+    done  
+  fi
+  if [ -n "$html_listing" ] ; then
+    echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" >> $report
+    echo "Starting 'scp $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR}' at fpcdocs level" > $scphtmllogfile
+    res=1
+    let trial=1
+    while [ $res -ne 0 ] ; do 
+      scp $UPLOAD_SSH_KEY $html_listing ${UPLOAD_LOGIN}@${UPLOAD_HOST}:${UPLOAD_DIR} >> $scphtmllogfile
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "scp upload error error $res, nb=$trial" >> $report
+        tail -11 $logfile >> $report
+        let trial++
+        if [ $trial -gt $max_trial ] ; then
+          res=0
+        fi
+      else
+        uploaded=1
       fi
-    else
-      uploaded=1
-    fi
-  done  
-fi
+    done  
+  fi
 fi
 
 # installed TeX is pdftex, so no html possible
