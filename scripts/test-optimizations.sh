@@ -9,6 +9,7 @@ do_utils=0
 do_tests=0
 all_variants=0
 test_failed=0
+IS_CROSS=0
 
 function test_help ()
 {
@@ -198,8 +199,8 @@ if [ -d fpcsrc ] ; then
 fi
 
 if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
+  IS_CROSS=1
   if [ $is_32bit -eq 1 ] ; then
-    echo "Running 32-bit $CPU_TARGET compiler on $NATIVE_MACHINE machine, needs special options"
     if [ "$CPU_TARGET" == "sparc" ] ; then
       NATIVE_OPT="-ao-32"
     fi
@@ -446,6 +447,12 @@ function generate_diffs()
 
 function do_all ()
 {
+  if [ $IS_CROSS -eq 1 ] ; then
+    decho "Cross-configuration detected: machine_cpu=$NATIVE_MACHINE, target_cpu=$CPU_TARGET" 
+    if [ $is_32bit -eq 1 ] ; then
+      decho "Running 32-bit $CPU_TARGET compiler on $NATIVE_MACHINE machine, needs special option NATIVE_OPT=\"$NATIVE_OPT\"" 
+    fi
+  fi
   decho "Using FPCBIN=$FPCBIN"
   gen_compiler "-O-"
   if [ $all_variants -eq 1 ] ; then
