@@ -36,6 +36,7 @@ do_trunk_i386=1
 do_fixes_i386=1
 do_x86_64=1
 do_docs=0
+do_docs_options=""
 run_test_optimizations=0
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
@@ -56,6 +57,8 @@ elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   do_trunk_i386=1
   do_fixes_i386=1
   do_docs=1
+  # upload disabled for now
+  do_docs_options=no_upload
   # export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc122" ] ; then
   run_test_optimizations=1
@@ -171,7 +174,7 @@ if [ $test_go32v2_fixes -eq 1 ] ; then
 fi
 
 if [ $do_docs -eq 1 ] ; then
-  $HOME/bin/check-docs.sh
+  $HOME/bin/check-docs.sh $do_docs_options
 fi
 
 
