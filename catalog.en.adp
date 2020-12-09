@@ -10035,3 +10035,47 @@ Runtime Library Units
  will have to reinstall FPC 3.2.0 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
  files). See also the section below on how to install the command line tools.
 </TRN>
+<TRN locale="en_US" key="website.daily.title">
+Free Pascal - Daily  documentation
+</TRN>
+<TRN locale="en_US" key="website.Daily_documentation">
+Daily generated documentation
+</TRN>
+<TRN locale="en_US" key="website.DailyDocsTitle">
+Daily generated documentation.
+</TRN>
+<TRN locale="en_US" key="website.dailydocsdescr">
+
+The FPC documentation is generated on a daily basis based on the latest sources.
+Their contents may be incomplete, but fixes in documentation can be checked
+here.
+</TRN>
+<TRN locale="en_US" key="website.dailydocsview">
+
+  Access the <a href="doc/fpctoc.html">Documentation table of contents</a>.
+
+</TRN>
+<TRN locale="en_US" key="website.dailypackages">
+Daily generated package & unit overview.
+</TRN>
+<TRN locale="en_US" key="website.dailypackagesdescr">
+
+FPC is distributed with a lot of units (well over 1500), organized in packages.
+For most of these, no real documentation is available:
+for C library header translations or OS APIs, the official library
+documentation must be consulted. The pages provided here are automatically generated with
+the <em>fpdoc</em> documentation tool and give you an idea of what is available, but
+they will not help you if you look for documentation.
+
+</TRN>
+<TRN locale="en_US" key="website.dailypackagesview">
+
+  Access the FPC <a href="packages/index.html">Package and unit overview</a>.
+
+</TRN>
+<TRN locale="en_US" key="website.dailypackagesnote">
+
+Note that only packages which can be correctly parsed are added to this
+overview: if a package fails to be parsed, it is removed from the list.
+
+</TRN>

@@ -4337,7 +4337,7 @@ Tao Yue 的<a href="https://www.taoyue.com/tutorials/pascal">学习 Pascal 教�
 Wiki 中还有一份<a href="https://wiki.lazarus.freepascal.org/Pascal_and_Lazarus_Books_and_Magazines">书籍清单</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.windows">
-Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。
+Free Pascal 中未记录 <b>windows</b> 单元。它是一个巨大的单元，为描述完整的 win32 API，并不是本文档的目的。<br>
 
 Windows API 完整的和最新文档也可以在 <a href="http://msdn.microsoft.com/en-us/library/default.aspx">Microsofts 网站</a>上在线获得。
 </TRN>
@@ -7604,4 +7604,36 @@ FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
 与以前的版本相比，Xcode 10+ 在某些位置安装了命令行文件。
 如果你在以前的 Mac OS X/OS X/macOS 版本中安装了 FPC，则必须在 macOS 10.14 下重新安装 FPC 3.2.0，以便编译器能够找到所需的配置文件。
 另请参阅以下有关如何安装命令行工具的部分。
+</TRN>
+<TRN locale="zh-CN" key="website.daily.title">
+Free Pascal - 每日文档
+</TRN>
+<TRN locale="zh-CN" key="website.Daily_documentation">
+每日生成文档
+</TRN>
+<TRN locale="zh-CN" key="website.DailyDocsTitle">
+每日生成文档。
+</TRN>
+<TRN locale="zh-CN" key="website.dailydocsdescr">
+FPC 文档每天根据最新资源生成。
+它们的内容可能不完整，但可以在这里查看文档中的修复。
+</TRN>
+<TRN locale="zh-CN" key="website.dailydocsview">
+访问<a href="doc/fpctoc.html">文档目录</a>。
+</TRN>
+<TRN locale="zh-CN" key="website.dailypackages">
+每日生成的包和单元概述。
+</TRN>
+<TRN locale="zh-CN" key="website.dailypackagesdescr">
+FPC 以包的形式分发，有很多单元（远远超过 1500 个）。
+其中的大多数没有真正的可用文档：
+对于 C 库头翻译或 OS API，必须查阅官方库文档。
+这里提供的页面是使用 <em>fpdoc</em> 文档工具自动生成的，让你大致了解可用的内容，
+要想查找文档，这些页面并不能帮助到你。
+</TRN>
+<TRN locale="zh-CN" key="website.dailypackagesview">
+访问 <a href="packages/index.html">FPC 软件包和单元概述</a>。
+</TRN>
+<TRN locale="zh-CN" key="website.dailypackagesnote">
+请注意，只有可以被正确解析的包才会添加到此概述中：如果包无法解析，则会从列表中删除。
 </TRN>

@@ -19,15 +19,15 @@ here.</trn>
 </trn>
 </p>
 
-<h3><trn locale="en_US" key="website.dailypackages>Daily generated package & unit overview.</trn></h3>
+<h3><trn locale="en_US" key="website.dailypackages">Daily generated package & unit overview.</trn></h3>
 
 <p>
 <trn locale="en_US" key="website.dailypackagesdescr">
-FPC is distributed with a lot of units (well over 1500), organized in packages. 
-For most of these, no real documentation is available: 
+FPC is distributed with a lot of units (well over 1500), organized in packages.
+For most of these, no real documentation is available:
 for C library header translations or OS APIs, the official library
 documentation must be consulted. The pages provided here are automatically generated with
-the <em>fpdoc</em> documentation tool and give you an idea of what is available, but 
+the <em>fpdoc</em> documentation tool and give you an idea of what is available, but
 they will not help you if you look for documentation.
 </trn>
 </p>
