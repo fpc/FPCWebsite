@@ -293,12 +293,15 @@ function run_tests ()
       echo "Error in rule $rule res=$testsres, echoing 30 last lines of $testslog" >> $report
       tail -30 $testslog >> $report
       echo "End of $testslog" >> $report
+      break
     fi
   done
   echo "`$DATETIMESTAMP` Ending make distclean $FULL; result=${testsres}" >> $report
-  if [ $do_upload -eq 0 ] ; then
-    echo "`$DATETIMESTAMP` cp output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/" >> $report
-    cp output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/ >> $report 2>&1
+  if [ $testsres -eq 0 ] ; then
+    if [ $do_upload -eq 0 ] ; then
+      echo "`$DATETIMESTAMP` cp output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/" >> $report
+      cp -p output/${FPC_TARGET_CPU}-${FPC_TARGET_OS}/*.tar.gz ~/logs/to_upload/ >> $report 2>&1
+    fi
   fi
 }
 
@@ -349,9 +352,9 @@ if [ -f ./compiler/${FPCBIN} ]; then
   run_tests "-Agas"
   test_tmt1_kill
 
-# testslog=${testslog/-3.txt/-4.txt}
-# run_tests "-Agas -Xn"
-# test_tmt1_kill
+  testslog=${testslog/-3.txt/-4.txt}
+  run_tests "-O2   -Xn"
+  test_tmt1_kill
 
   mutt -x -s "Free Pascal results on ${HOSTNAME} ${Build_target_cpu}-${Build_target_os}, ${Build_version} ${Build_date}, on host $HOST_PC" \
      -i $report -- pierre@freepascal.org < /dev/null 2>&1 | tee  ${report}.log
