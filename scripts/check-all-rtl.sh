@@ -1264,9 +1264,15 @@ function check_target ()
     # Do not try to go directly into rtl/$OS_TARG_LOCAL,
     # This is wrong at least for jvm android
     rtldir=rtl
+    extra_text="$extra_text using rtl/$OS_TARG_LOCAL"
   else
     rtldir=rtl
-    extra_text="$extra_text no rtl/$OS_TARG_LOCAL found"
+    rtl_subdir_name=`sed -n "s;dirs_$OS_TARG_LOCAL=\(.*\);\1;p" rtl/Makefile.fpc ` 
+    if [[ ( -z "$rtl_subdir_name" ) || ( ! -d "rtl/$rtl_subdir_name" ) ]] ; then
+      extra_text="$extra_text no rtl/$OS_TARG_LOCAL found"
+    else
+      extra_text="$extra_text using rtl/$rtl_subdir_name"
+    fi
   fi
 
   if [ -n "${ASPROG_LOCAL:-}" ] ; then
