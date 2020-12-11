@@ -8,10 +8,10 @@ else
   SCRIPTDIR=
 fi
 
-$HOME/bin/linux-fpctrunkup.sh
-$HOME/bin/linux-fpcfixesup.sh
 $HOME/bin/makesnapshottrunk-arm.sh
 $HOME/bin/makesnapshotfixes-arm.sh
+$HOME/bin/linux-fpctrunkup.sh
+$HOME/bin/linux-fpcfixesup.sh
 
 # Check if script directory exists
 SVNLOGFILE=$HOME/logs/svn-scripts.log
