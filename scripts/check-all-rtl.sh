@@ -257,7 +257,7 @@ elif [ "X$machine_host" == "Xgcc135" ] ; then
   RECOMPILE_FULL_OPT="-CriotR -gwl -dFPC_SOFT_FPUX80"
   COMPILE_EACH_CPU=1
   # It seems that QWord range checking is not correct of powerpc64le
-  RECOMPILE_FULL_OPT="-gwl -dFPC_SOFT_FPUX80"
+  # RECOMPILE_FULL_OPT="-gwl -dFPC_SOFT_FPUX80"
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 16"
   export FPMAKEOPT="-T 16 -v"
@@ -1767,11 +1767,11 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
     set_fpc_local $cpu
     LLVM_FPC=${FPC_LOCAL}-llvm
     if [ "$cpu" == "arm" ] ; then
-      LLVM_COMPILE_OPT="-n -gwl -dFPC_ARMHF"
+      LLVM_COMPILE_OPT="-n -gwl -dFPC_ARMHF $RECOMPILE_FULL_OPT"
     elif [ "$cpu" == "x86_64" ] ; then
-      LLVM_COMPILE_OPT="-n -gwl -dFPC_USE_SOFTX80"
+      LLVM_COMPILE_OPT="-n -gwl $RECOMPILE_FULL_OPT"
     else
-      LLVM_COMPILE_OPT="-n -gwl"
+      LLVM_COMPILE_OPT="-n -gwl $RECOMPILE_FULL_OPT"
     fi
     llvmlogfile=${LOGDIR}/llvm_${cpu}_compile.log
     echo "Starting compilation of compiler with LLVM=1 for $cpu" > $llvmlogfile
