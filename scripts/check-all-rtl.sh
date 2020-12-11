@@ -205,6 +205,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   RECOMPILE_FULL_OPT_O="-O4"
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 2"
+  set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_BINARY_INSTALL=1
   DO_RECOMPILE_FULL=1
