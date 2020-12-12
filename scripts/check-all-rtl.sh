@@ -166,6 +166,7 @@ DO_FPC_PACKAGES_INSTALL=0
 DO_FPC_UTILS_INSTALL=0
 DO_RECOMPILE_FULL=0
 DO_CHECK_LLVM=0
+LLVM_COMMON_OPT=
 RECOMPILE_INSTALL_NAME=
 RECOMPILE_COMPILER_OPT=
 RECOMPILE_FULL_OPT=
@@ -403,6 +404,9 @@ if [ -f "$clang_bin" ] ; then
   # echo "clang__minor=\"$clang_minor\"" 
   if [[ ( $clang_major -ge $min_clang_major ) && ( $clang_minor -ge $min_clang_minor ) ]] ; then
     SKIP_CLANG=0
+  fi
+  if [ $clang_major -ge 11 ] ; then
+    LLVM_COMMON_OPT+=" -Clv11.0"
   fi
 fi
 
@@ -1807,12 +1811,12 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
         export FPC_LOCAL_SUFFIX=-llvm
         if [ "$cpu" == "arm" ] ; then
           if [ "$NATIVE_MACHINE" == "aarch64" ] ; then
-            LLVM_OPT="-dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
+            LLVM_OPT="$LLVM_COMMON_OPT -dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
           else
-            LLVM_OPT="-dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+            LLVM_OPT="$LLVM_COMMON_OPT -dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
           fi
         else
-          LLVM_OPT=""
+          LLVM_OPT="$LLVM_COMMON_OPT"
         fi
         # We need to handle native case specially
         if [[ ( "$NATIVE_OS" == "$os" ) && ( "$NATIVE_CPU" == "$cpu" ) ]] ; then
