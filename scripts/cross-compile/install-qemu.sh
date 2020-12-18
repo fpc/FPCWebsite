@@ -5,7 +5,7 @@ if [ -n "$1" ] ; then
 fi
 
 if [ -z "$QEMU_VERSION" ] ; then
-  QEMU_VERSION=5.1.0
+  QEMU_VERSION=5.2.0
 fi
 
 if [ ! -d $HOME/gnu/qemu ] ; then
@@ -19,7 +19,7 @@ if [ ! -f qemu-$QEMU_VERSION.tar.xz ] ; then
   wget https://download.qemu.org/qemu-$QEMU_VERSION.tar.xz
 fi
 if [ -d qemu-$QEMU_VERSION ] ; then
-  rm -Rf qemu-$QEMU_VERSION
+  mv -f qemu-$QEMU_VERSION prev-qemu-$QEMU_VERSION
 fi
 
 echo "Unpacking qemu version $QEMU_VERSION"
