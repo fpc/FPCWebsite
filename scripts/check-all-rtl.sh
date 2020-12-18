@@ -236,6 +236,8 @@ elif [ "X$machine_host" == "Xgcc122" ] ; then
   export FPMAKEOPT="-T 8"
   set_home_bindir_first=1
   DO_CHECK_LLVM=1
+  # clang is much slower, increase ulimit
+  ULIMIT_TIME=999
 elif [ "X$machine_host" == "Xgcc123" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -243,11 +245,13 @@ elif [ "X$machine_host" == "Xgcc123" ] ; then
   DO_FPC_RTL_INSTALL=1
   DO_FPC_PACKAGES_INSTALL=1
   DO_RECOMPILE_FULL=1
-  DO_CHECK_LLVM=1
   # RECOMPILE_FULL_OPT=-CriotR
   RECOMPILE_FULL_OPT=
   USE_RELEASE_MAKEFILE_VARIABLE=1
   set_home_bindir_first=1
+  DO_CHECK_LLVM=1
+  # clang is much slower, increase ulimit
+  ULIMIT_TIME=999
 elif [ "X$machine_host" == "Xgcc135" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -274,11 +278,13 @@ elif [ "X$machine_host" == "Xgcc202" ] ; then
   DO_RECOMPILE_FULL=1
   RECOMPILE_FULL_OPT="-CitR -gwl -dFPC_SOFT_FPUX80"
   RECOMPILE_FULL_OPT_O="-O4"
-  DO_CHECK_LLVM=1
   export MAKEJOPT="-j 16"
   export FPMAKEOPT="-T 16"
   # Force use of 32-bit version compiler
   export FPC=ppcsparc
+  DO_CHECK_LLVM=1
+  # clang is much slower, increase ulimit
+  ULIMIT_TIME=999
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
