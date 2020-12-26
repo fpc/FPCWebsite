@@ -28,6 +28,8 @@ fi
 if [ -n "$TEST_OPT" ] ; then
   GLOBAL_TEST_OPT="$TEST_OPT"
   TEST_OPT=""
+else
+  GLOBAL_TEST_OPT=""
 fi
 
 if [ -z "${EMUL_OPTIONS:-}" ] ; then
@@ -486,7 +488,7 @@ mv -f $OUTPUTDIR $LOGDIR/output
 decho "run_one_testsuite finished for $FULL_TARGET"
 }
 
-if [ "$1" == "all" ] ; then
+if [ "${1:-}" == "all" ] ; then
   shift
   for cpu in $linux_cpu_list ; do
     QEMU_SYSROOT=
