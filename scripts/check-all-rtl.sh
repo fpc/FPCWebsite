@@ -1494,7 +1494,23 @@ function check_target ()
     $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
-      if [ "$BUILDFULLNATIVE" == "1" ] ; then
+      error_bootstrap="`grep 'bootstrap.*Error' $LOGFILE_PACKAGES `"
+      error_fpmkunit="`grep -E 'fpmkunit.*(Error|Fatal)' $LOGFILE_PACKAGES `"
+      if [[ ( -n "$error_bootstrap" ) && ( -n "$error_fpmkunit" ) ]] ; then
+        echo "Error in compilation of fpmake in $LOGFILE_PACAKAGES" >> $LOGFILE_PACKAGES
+        echo "Listing rtl/units" >> $LOGFILE_PACKAGES
+        ls -ltrR $rtldir/units/ >> $LOGFILE_PACKAGES
+        echo "Trying to re-compile packages/fpmkunit bootstrap to allow for fpmake compilation"
+        $MAKE $MAKEJOPT -C packages/fpmkunit bootstrap FPC=$NATIVE_FPCBIN OPT="-n -g -va $NATIVE_OPT" ASTARGET= BINUTILSPREFIX=$NATIVE_BINUTILSPREFIX >> $LOGFILE_PACKAGES 2>&1
+        res=$?
+        if [ $res -ne 0 ] ; then
+          echo "Re-compiling packages/fpmkunit bootstrap to allow for fpmake compilation failed, res=$res"
+        else
+          echo "Re-testing compilation in $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text" > $LOGFILE_PACKAGES
+          $MAKE $MAKEJOPT -C $packagesdir all CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $OPT_NAME="$OPT_LOCAL" FPC=$FPC_LOCAL FPCMAKEOPT="$NATIVE_OPT" $MAKEEXTRA >> $LOGFILE_PACKAGES 2>&1
+        fi
+      fi
+      if [[ ( $res -ne 0 ) && ( "$BUILDFULLNATIVE" == "1" ) ]] ; then
         export BUILDFULLNATIVE=
 	export buildfullnative_text=""
         echo "Testing second compilation in $packagesdir (without BUILDFULLNATIVE=1) for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with $OPT_NAME=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
