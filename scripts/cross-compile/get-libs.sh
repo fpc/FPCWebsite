@@ -123,6 +123,7 @@ else
   fi
 
   cd $dir_name
+  echo "\"$0 ${@}\" run on `date`" > $0.log
 fi
 
 is_32bit=1;
@@ -294,6 +295,10 @@ elif [ -n "$machine" ] ; then
         mkdir -p .$dir
       fi
       scp -p $machine:"$dir/*.o" .$dir/
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "scp -p $machine:$dir/*.o .$dir failed, res=$res"
+      fi
     fi
   done
 
@@ -310,7 +315,11 @@ elif [ -n "$machine" ] ; then
         echo "Adding local directory .$dir"
         mkdir -p .$dir
       fi
-      scp $machine:"$dir/*.o" .$dir/
+      scp -p $machine:"$dir/*.o" .$dir/
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "scp -p $machine:$dir/*.o .$dir failed, res=$res"
+      fi
     fi
   done
 
@@ -378,7 +387,6 @@ elif [ -n "$machine" ] ; then
 
   cd ..
 fi
-
 
 absolute_link_list=`$FIND . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" `
 absolute_link_names=`$FIND . -not -type d | xargs ls -l | grep "^l.*$HOME/sys-root" | gawk '{ print $ 9}' `
