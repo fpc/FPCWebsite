@@ -282,8 +282,17 @@ if [ -n "$sysroot" ] ; then
     export BUILDFULLNATIVE=1
     CROSSOPT="$CROSSOPT -Xd -k--sysroot=$sysroot -XR$sysroot"
     echo "Using BUILDFULLNATIVE=1 with CROSSOPT=\"$CROSSOPT\""
-    # -Xr is not supported for AIX OS
-    if [ "$OS_TARGET" != "aix" ] ; then
+    # -Xr is only supported for these OSes:
+    #  suppported_targets_x_smallr = systems_linux + systems_solaris + systems_android
+    #                       + [system_i386_haiku,system_x86_64_haiku]
+    #                       + [system_i386_beos]
+    #                       + [system_m68k_amiga];
+    if [[ ( "${OS_TARG_LOCAL}" = "linux" )
+          || ( "${OS_TARG_LOCAL}" = "solaris" )
+          || ( "${OS_TARG_LOCAL}" = "haiku" )
+          || ( "${OS_TARG_LOCAL}" = "android" )
+          || (( "${OS_TARG_LOCAL}" = "amiga" ) && ( "${CPU_TARG_LOCAL}" = "m68k" ))
+       ]] ; then
       CROSSOPT="$CROSSOPT -Xr$sysroot"
     fi
     echo "CROSSOPT set to \"$CROSSOPT\""

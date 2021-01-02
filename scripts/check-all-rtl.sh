@@ -1339,8 +1339,17 @@ function check_target ()
       export BUILDFULLNATIVE=1
       export buildfullnative_text="with BUILDFULLNATIVE=1"
       OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
-      # -Xr is not supported for AIX OS
-      if [ "${OS_TARG_LOCAL}" != "aix" ] ; then
+      # -Xr is only supported for these OSes:
+      #  suppported_targets_x_smallr = systems_linux + systems_solaris + systems_android
+      #                       + [system_i386_haiku,system_x86_64_haiku]
+      #                       + [system_i386_beos]
+      #                       + [system_m68k_amiga];
+      if [[ ( "${OS_TARG_LOCAL}" = "linux" )
+            || ( "${OS_TARG_LOCAL}" = "solaris" )
+            || ( "${OS_TARG_LOCAL}" = "haiku" )
+            || ( "${OS_TARG_LOCAL}" = "android" )
+            || (( "${OS_TARG_LOCAL}" = "amiga" ) && ( "${CPU_TARG_LOCAL}" = "m68k" ))
+         ]] ; then
         OPT_LOCAL="$OPT_LOCAL -Xr$sysroot"
       fi
       echo "OPT_LOCAL set to \"$OPT_LOCAL\""
