@@ -265,6 +265,12 @@ fi
 if [ ! -f ./compiler/$FPCBIN ] ; then
   # Try a simple cycle in compiler subdirectory
   ${MAKE} -C compiler distclean cycle $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPC=$FPCBIN >> ${makelog} 2>&1
+  res=$?
+  if [ $res -ne 0 ] ; then
+    PREVPATH=$PATH
+    # Try with release compiler
+    ${MAKE} -C compiler distclean cycle $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPC=$INSTALLRELEASEDIR/bin/$FPCBIN >> ${makelog} 2>&1
+  fi
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
