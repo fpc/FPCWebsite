@@ -48,6 +48,10 @@ else
   FPCVERSION=$TRUNKVERSION
 fi
 
+if [ -z "${global_sysroot:-}" ] ; then
+  global_sysroot=$HOME/sys-root
+fi
+
 # Need for makesnapshot.sh call
 export CHECKOUTDIR
 
@@ -93,7 +97,83 @@ function set_fpc_local ()
 
 }
 
- function run_one_snapshot ()
+# Add a directory to CROSSOPT
+# if pattern is found
+is_64=0
+sysroot=
+dir_found=0
+
+function add_dir ()
+{
+  pattern="$1"
+  file_list=
+
+  if [ "${pattern:0:1}" == "-" ] ; then
+    find_expr="${pattern}"
+    pattern="$2"
+  else
+    find_expr=
+  fi
+
+  echo "add_dir: testing \"$pattern\""
+  if [ "${pattern/\//_}" != "$pattern" ] ; then
+    if [ -f "$sysroot/$pattern" ] ; then
+      file_list=$pattern
+    else
+      find_expr="-wholename"
+    fi
+  else
+    find_expr="-iname"
+  fi
+
+  if [ -z "$file_list" ] ; then
+    file_list=` find $sysroot/ $find_expr "$pattern" `
+  fi
+
+  for file in $file_list ; do
+    use_file=0
+    file_type=`file $file`
+    if [ "$file_type" != "${file_type//symbolic link/}" ] ; then
+      ls_line=`ls -l $file`
+      echo "ls line is \"$ls_line\""
+      link_target=${ls_line/* /}
+      echo "link target is \"$link_target\""
+      if [[ "${link_target:0:1}" == / || "${link_target:0:2}" == ~[/a-z] ]] ; then
+        is_absolute=1
+        add_dir $link_target
+      else
+        is_absolute=0
+        dir=`dirname $file`
+        add_dir $dir/$link_target
+      fi
+      continue
+    fi
+
+    file_is_64=`echo $file_type | grep "64-bit" `
+    if [[ ( -n "$file_is_64" ) && ( $is_64 -eq 1 ) ]] ; then
+      use_file=1
+    fi
+    if [[ ( -z "$file_is_64" ) && ( $is_64 -eq 0 ) ]] ; then
+      use_file=1
+    fi
+    if [ "$OS_TARG_LOCAL" == "aix" ] ; then
+      # AIX puts 32 and 64 bit versions into the same library
+      use_file=1
+    fi
+    echo "add_dir found file=$file, is_64=$is_64, file_is_64=\"$file_is_64\""
+    if [ $use_file -eq 1 ] ; then
+      file_dir=`dirname $file`
+      echo "Adding $file_dir"
+      if [ "${CROSSOPT/-Fl$file_dir /}" == "$CROSSOPT" ] ; then
+        echo "Adding $file_dir directory to library path list"
+        CROSSOPT="$CROSSOPT -Fl$file_dir "
+        dir_found=1
+      fi
+    fi
+  done
+}
+
+function run_one_snapshot ()
 {
   CPU_TARGET=$1
   # mipseb and mips are just aliases
@@ -126,6 +206,11 @@ function set_fpc_local ()
     OS_TARGET=${OS_TARGET}6432
   fi
    
+  is_64=0
+  case $CPU_TARGET in
+    aarch64|powerpc64|riscv64|sparc64|x86_64) is_64=1;;
+  esac
+
   # jvm-java and jvm-android have 32 suffix
   # in their system_CPU_OS names
   if [ "X$OS_TARGET" == "Xandroid32" ] ; then
@@ -245,6 +330,61 @@ function set_fpc_local ()
 
   extra_text="$assembler_version"
 
+  if [ -d "$global_sysroot/${CPU_TARGET}-${OS_TARGET}" ] ; then
+    sysroot=$global_sysroot/${CPU_TARGET}-${OS_TARGET}
+    dir_found=0
+    add_dir "crt1.o"
+    add_dir "crti.o"
+    add_dir "crtbegin.o"
+    add_dir "libc.a"
+    add_dir "libc.so"
+    add_dir -regex "'.*/libc\.so\..*'"
+    add_dir "ld.so"
+    add_dir -regex "'.*/ld\.so\.[0-9.]*'"
+    if [ "${OS_TARGET}" == "linux" ] ; then
+      add_dir -regex "'.*/ld-linux.*\.so\.*[0-9.]*'"
+    fi
+    if [ "${OS_TARGET}" == "beos" ] ; then
+      add_dir "libroot.so"
+      add_dir "libnetwork.so"
+    fi
+    if [ "${OS_TARGET}" == "haiku" ] ; then
+      add_dir "libroot.so"
+      add_dir "libnetwork.so"
+    fi
+    if [ "${OS_TARGET}" == "aix" ] ; then
+      add_dir "libm.a"
+      add_dir "libbsd.a"
+      if [ $is_64 -eq 1 ] ; then
+        add_dir "crt*_64.o"
+      fi
+    fi
+    if [ $dir_found -eq 1 ] ; then
+      echo "Trying to build ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX} using BUILDFULLNATIVE=1"
+      export BUILDFULLNATIVE=1
+      export buildfullnative_text="with BUILDFULLNATIVE=1"
+      OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
+      # -Xr is not supported for AIX OS
+      if [ "${OS_TARGET}" != "aix" ] ; then
+        OPT_LOCAL="$OPT_LOCAL -Xr$sysroot"
+      fi
+      echo "OPT_LOCAL set to \"$OPT_LOCAL\""
+    else
+      export BUILDFULLNATIVE=
+      export buildfullnative_text=""
+    fi
+  else
+    export BUILDFULLNATIVE=
+    export buildfullnative_text=""
+  fi
+
+  if [ $FORCE_BUILDFULLNATIVE -eq 1 ] ; then
+    if [ -z "$BUILDFULLNATIVE" ] ; then
+      export BUILDFULLNATIVE=1
+      export buildfullnative_text="with BUILDFULLNATIVE=1 forced"
+    fi
+  fi
+
   if [ $listed -eq 0 ] ; then
     extra_text="not listed in $FPC_LOCAL -h"
   fi
@@ -290,7 +430,7 @@ function set_fpc_local ()
     # Do not export BINUTILSPREFIX, because
     # this would be used already in first cycle...
 
-    echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version)"
+    echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version)"
     export LOGFILE=$LOGDIR/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
     FPC_PREV=$FPC 
     export FPC=$fpc_local_exe
@@ -299,6 +439,17 @@ function set_fpc_local ()
     export SKIP_SVN=1
     $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
     res=$?
+    if [ $res -ne 0 ] ; then
+      if [ "$BUILDFULLNATIVE" == "1" ] ; then
+        echo "makesnapshot.sh failed with BUILDFULLNATIVE=1, res=$res" 
+        echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
+        export BUILDFULLNATIVE=
+        export buildfullnative_text=""
+        echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version)"
+        $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
+        res=$?
+      fi
+    fi
     if [ $res -ne 0 ] ; then
       echo "makesnapshot.sh failed, res=$res" 
       echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
@@ -326,23 +477,28 @@ function list_os ()
   local local_FPC=$1
   local local_CPU_TARGET=$2
   local local_OPT="$3"
-  local os_list=`$local_FPC -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
-  listed=1
-  for local_OS in ${os_list} ; do
-   echo "run_one_snapshot $local_CPU_TARGET $local_OS \"$local_OPT\""
-   date "+%Y-%m-%d %H:%M:%S"
-   run_one_snapshot $local_CPU_TARGET $local_OS "$local_OPT"
-   date "+%Y-%m-%d %H:%M:%S"
-  done
-  listed=0
+  local full_local_FPC=`which $local_FPC 2> /dev/null`
+  if [ -f "$full_local_FPC" ] ; then
+    local os_list=`$local_FPC -h | sed -n "s:.*-T\([a-zA-Z_][a-zA-Z_0-9]*\).*:\1:p" `
+    listed=1
+    for local_OS in ${os_list} ; do
+     echo "run_one_snapshot $local_CPU_TARGET $local_OS \"$local_OPT\""
+     date "+%Y-%m-%d %H:%M:%S"
+     run_one_snapshot $local_CPU_TARGET $local_OS "$local_OPT"
+     date "+%Y-%m-%d %H:%M:%S"
+    done
+    listed=0
+  else
+    echo "Compiler $local_FPC not found"
+  fi
 }
 
-LOGFILE=$LOGDIR/all-${svnname}-snapshots.log
+GLOBALLOGFILE=$LOGDIR/all-${svnname}-snapshots.log
 LISTLOGFILE=$LOGDIR/list-all-snapshots-${svnname}.log
 EMAILFILE=$LOGDIR/all-snapshots-${svnname}-log.txt
 
-if [ -f $LOGFILE ] ; then
-  mv -f $LOGFILE ${LOGFILE}.previous
+if [ -f $GLOBALLOGFILE ] ; then
+  mv -f $GLOBALLOGFILE ${GLOBALLOGFILE}.previous
 fi
 
 if [ -f $LISTLOGFILE ] ; then
@@ -357,6 +513,7 @@ echo "Using PATH=$PATH" >> $LISTLOGFILE
 echo "Script $0 started at  `date +%Y-%m-%d-%H-%M `" > $EMAILFILE
 echo "Using PATH=$PATH" >> $EMAILFILE
 listed=0
+FORCE_BUILDFULLNATIVE=0
 list_os ppca64 aarch64 "-n -g"
 # -Tlinux is not listed on `ppca64 -h` output
 run_one_snapshot aarch64 linux "-n -gl"
@@ -435,7 +592,7 @@ run_one_snapshot avr embedded "-n" "SUBARCH=avr4" "-avr4"
 export MAKESNAPSHOT_SUFFIX=
 run_one_snapshot avr embedded "-n" "SUBARCH=avr6"
 run_one_snapshot mipsel embedded "-n" "SUBARCH=pic32mx"
-run_one_snapshot xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
+# run_one_snapshot xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
 run_one_snapshot xtensa embedded "-n" "SUBARCH=lx106" 
 
 # FreeRTOS 
@@ -444,21 +601,21 @@ run_one_snapshot xtensa freertos "-n" "SUBARCH=lx106"
 run_one_snapshot arm freertos "-n" "SUBARCH=armv6m"
 
 # Targets that use internal linker can be built with BUILDFULLNATIVE=1
-export BUILDFULLNATIVE=1
+FORCE_BUILDFULLNATIVE=1
 run_one_snapshot i386 win32 "-n -gl" 
 run_one_snapshot i386 go32v2 "-n -gl" 
 run_one_snapshot x86_64 win64 "-n -gl" 
 run_one_snapshot mips linux "-n -gwl -ao-xgot -fPIC"
 run_one_snapshot mipsel linux "-n -gwl -ao-xgot -fPIC"
-export BUILDFULLNATIVE=
+FORCE_BUILDFULLNATIVE=0
 # nativent has no lineinfo unit support
 run_one_snapshot i386 nativent "-n -g" 
 # aros also has no lineinfo support for arm and x86_64
 run_one_snapshot arm aros "-n -g"
 run_one_snapshot x86_64 aros "-n -gw"
 # haiku needs explicit debug information type
-run_one_snapshot i386 aros "-n -gl"
-run_one_snapshot x86_64 aros "-n -gwl"
+run_one_snapshot i386 haiku "-n -gl"
+run_one_snapshot x86_64 haiku "-n -gwl"
 
 list_os ppcarm arm "-n -gl"
 list_os ppcavr avr "-n -gl"
@@ -506,7 +663,7 @@ for index_cpu_os in $index_cpu_os_list ; do
 done
 
 echo  "Script $0 ended at  `date +%Y-%m-%d-%H-%M `"
-) > $LOGFILE 2>&1
+) > $GLOBALLOGFILE 2>&1
 
 ok_count=` grep "OK" $LISTLOGFILE | wc -l `
 pb_count=` grep "Error:" $LISTLOGFILE | wc -l `
