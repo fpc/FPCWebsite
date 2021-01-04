@@ -97,7 +97,7 @@ if [ -z "$OS" ] ; then
 fi
 
 if [ "$OS" == "openbsd" ] ; then
-  NEEDED_OPT+="-dFPC_USE_LIBC"
+  NEEDED_OPT+=" -dFPC_USE_LIBC"
 fi
 
 # add needed files (libgdb.a)
