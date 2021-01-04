@@ -401,12 +401,16 @@ if [ $NewBinary -eq 1 ] ; then
     ${MAKE} -C ../packages distclean $MAKE_OPTS FPC=${NEWFPC} OPT="$NEEDED_OPT" >> $cleantestslog 2>&1
     ${MAKE} ${MAKE_J_OPT} distclean $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
+      DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $cleantestslog 2>&1
+    ${MAKE} ${MAKE_J_OPT} testprep $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
+      TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
     ulimit -t 60  1>> $testslog 2>&1
     ${MAKE} ${MAKE_J_OPT} fulldb $MAKE_OPTS TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
       TEST_FPC=${NEWFPC} FPC=${NEWFPC} TEST_OPT="$TEST_OPT" OPT="$NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" TEST_USE_LONGLOG=1 \
       DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
     testsres=$?
+    ulimit -t 240 1>> $testslog 2>&1
     echo "Ending make distclean fulldb; result=${testsres}" >> $report
     echo "`$DATE`" >> $report
     if [ $testsres -ne 0 ] ; then
