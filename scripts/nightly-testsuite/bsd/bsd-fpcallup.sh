@@ -48,3 +48,27 @@ if [ $run_32 -eq 1 ] ; then
 fi
 
 $HOME/bin/makesnapshotfixes.sh
+
+# Check if script directory exists
+SVNLOGFILE=$HOME/logs/svn-scripts.log
+SVN=`which svn 2> /dev/null`
+if [ -f "$SVN" ] ; then
+  if [ -n "$SCRIPTDIR" ] ; then
+    cd $SCRIPTDIR
+    $SVN cleanup > $SVNLOGFILE 2>&1
+    $SVN up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
+    cd $HOME
+  else
+    if [ ! -d $HOME/pas/scripts ] ; then
+      cd $HOME/pas
+      $SVN checkout https://svn.freepascal.org/svn/html/scripts > $SVNLOGFILE 2>&1
+    else
+      cd $HOME/pas/scripts
+      $SVN cleanup > $SVNLOGFILE 2>&1
+    fi
+    $SVN up --non-interactive --accept theirs-conflict >> $SVNLOGFILE 2>&1 
+    cd $HOME
+  fi
+fi
+
+
