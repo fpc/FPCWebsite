@@ -675,6 +675,7 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
+    mecho "Generating all cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}\" failed, makeres=$makeres, see $fullcyclelog for details"
     mecho "Second try for cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} -O-\""
     make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} -O-" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
