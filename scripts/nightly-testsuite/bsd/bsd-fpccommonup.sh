@@ -80,11 +80,11 @@ if [ "$HOSTNAME" == "gcc300" ] ; then
 elif [ "$HOSTNAME" == "gcc220" ] ; then
   cleantests=1
   export run_tests=1
-  NEEDED_OPT+="-dFPC_USE_LIBC -gw"
+  NEEDED_OPT+=" -dFPC_USE_LIBC -gw"
 elif [ "$HOSTNAME" == "OpenBSD386" ] ; then
   # VM inside gcc123, skip test runs
   cleantests=1
-  export run_tests=0
+  export run_tests=1
 else
   export run_tests=1
 fi
@@ -170,6 +170,16 @@ SVN=`which svn`
 if [ -n "$SVN" ] ; then
   $SVN cleanup 1> $cleanlog 2>&1
   $SVN up --accept theirs-conflict 1>> $svnlog 2>&1
+  res=$?
+  if [[ ( $res -ne 0 ) && ( -d ./fpcsrc ) ]] ; then
+    cd fpcsrc
+    $SVN cleanup 1>> $cleanlog 2>&1
+    $SVN up --accept theirs-conflict 1>> $svnlog 2>&1
+    cd ../fpcdocs
+    $SVN cleanup 1>> $cleanlog 2>&1
+    $SVN up --accept theirs-conflict 1>> $svnlog 2>&1
+    cd ..
+  fi
 else
   cd  ~/pas
   echo "Checking if $SVNDIR exists and is from today"
@@ -243,8 +253,8 @@ echo "##Start make all `$DATE`" >> $report
 echo "##Start make all `$DATE`" > $makelog
 ${MAKE} all $MAKEDEBUG $MAKE_EXTRA OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$FPCBIN 1>> ${makelog} 2>&1
 makeres=$?
-echo "##End make all `$DATE`, res=$res" >> $report
-echo "##End make all `$DATE`, res=$res" >> $makelog
+echo "##End make all `$DATE`, res=$makeres" >> $report
+echo "##End make all `$DATE`, res=$makeres" >> $makelog
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} distclean all failed result=${makeres}" >> $report
   tail -30 ${makelog} >> $report
@@ -258,8 +268,11 @@ if [ ! -f ./compiler/$FPCBIN ] ; then
 fi
 
 if [ -f ./compiler/$FPCBIN ] ; then
-  Build_version=`./compiler/$FPCBIN -iV`
-  Build_date=`./compiler/$FPCBIN -iD`
+  NEWFPCBIN=${FPCBIN}-new
+  cp ./compiler/${FPCBIN} ./compiler/${NEWFPCBIN}
+  NEWFPCBIN=`pwd`/compiler/${NEWFPCBIN}
+  Build_version=`$NEWFPCBIN -iV`
+  Build_date=`$NEWFPCBIN -iD`
   NewBinary=1
 else
   NewBinary=0
@@ -268,7 +281,7 @@ fi
 
 if [ $NewBinary -eq 1 ] ; then
   echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
-  NEW_UNITDIR=`./compiler/$FPCBIN -iTP`-`./compiler/$FPCBIN -iTO`
+  NEW_UNITDIR=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
 
   # Register system.ppu state
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
@@ -280,7 +293,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make installsymlink in compiler dir" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA installsymlink INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     echo "${MAKE} -C compiler installsymlink failed ${makeres}" >> $report
@@ -290,7 +303,7 @@ if [ $NewBinary -eq 1 ] ; then
   echo "##`$DATE`" >> $report
   echo "Starting make install" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
   makeres=$?
 
   if [ $makeres -ne 0 ] ; then
@@ -300,7 +313,7 @@ if [ $NewBinary -eq 1 ] ; then
       echo "##`$DATE`" >> $report
       echo "Starting make install in dir $dir" >> $makelog
       echo "##`$DATE`" >> $makelog
-      ${MAKE} -C ./$dir install $MAKEDEBUG $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=`pwd`/compiler/$FPCBIN 1>> ${makelog} 2>&1
+      ${MAKE} -C ./$dir install $MAKEDEBUG $MAKE_EXTRA INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
       makeres=$?
       echo "Ending make -C ./$dir install; result=${makeres}" >> $report
       echo "##`$DATE`" >> $report
@@ -314,11 +327,12 @@ if [ $NewBinary -eq 1 ] ; then
   fi
 
   # fullinstall in compiler
+  NEWFPCBIN=~/pas/fpc-${Build_version}/bin/$FPCBIN
   echo "Starting make fullinstall in compiler" >> $report
   echo "##`$DATE`" >> $report
   echo "Starting make fullinstall in compiler" >> $makelog
   echo "##`$DATE`" >> $makelog
-  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=~/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C compiler $MAKEDEBUG $MAKE_EXTRA cycle install fullinstall INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
 
   # Check if system.ppu changed
   if [ -f /home/${USER}/pas/fpc-${Build_version}/bin/ppudump ] ; then
@@ -335,7 +349,7 @@ if [ $NewBinary -eq 1 ] ; then
       ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
       echo "Reinstalling packages as system.ppu has changed" >> $report
       echo "Reinstalling packages as system.ppu has changed" >> $makelog
-      ${MAKE} -C packages $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=/home/${USER}/pas/fpc-${Build_version}/bin/$FPCBIN 1>> ${makelog} 2>&1
+      ${MAKE} -C packages $MAKEDEBUG $MAKE_EXTRA install INSTALL_PREFIX=~/pas/fpc-${Build_version} OPT="-n $NEEDED_OPT" FPCMAKEOPT="$FPCMAKEOPT" FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
     fi
   fi
   # Add new bin dir as first in PATH
