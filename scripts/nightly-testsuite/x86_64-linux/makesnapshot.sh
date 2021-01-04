@@ -306,15 +306,15 @@ cd $CHECKOUTDIR
 
 if [ "X$BUILDFULLNATIVE" == "X1" ] ; then
   if [ "${MAKE_EXTRA/BUILDFULLNATIVE=1/}" == "${MAKE_EXTRA}" ] ; then
-    MAKE_EXTRA+="BUILDFULLNATIVE=1"
+    MAKE_EXTRA+=" BUILDFULLNATIVE=1"
   fi
 fi
 
 # Regenerate native rtl units, needed for bs_units
 echo "Running make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP"
 make -C ${FPCSRCDIR}/rtl clean all PP=$STARTPP >> $LONGLOGFILE 2>&1
-echo "Running make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
-make singlezipinstall OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 $MAKE_EXTRA PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
+echo "Running make singlezipinstall $MAKE_EXTRA OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT=\"$CROSSOPT\" OPT=\"$OPT\"" 
+make singlezipinstall $MAKE_EXTRA OS_TARGET=${OS_TARGET} CPU_TARGET=${CPU_TARGET} SNAPSHOT=1 PP=$STARTPP CROSSOPT="$CROSSOPT" OPT="$OPT" >> $LONGLOGFILE 2>&1
 res=$?
 
 if [ $res -ne 0 ] ; then
