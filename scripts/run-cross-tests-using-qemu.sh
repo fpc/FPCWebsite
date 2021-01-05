@@ -232,19 +232,23 @@ else
   EMUL=qemu-system-$QEMU_CPU
 fi
 
-QEMU_VERSION=`$EMUL --version | sed -n "s:.*version \([0-9.]*\).*:\1:p" `
-
-
 ORIG_PATH=$PATH
 # Try to use local qemu binaries if installed in $HOME/sys-root/bin
 if [ -d "$HOME/sys-root/bin" ] ; then
   PATH="$HOME/sys-root/bin:$PATH"
   QEMUL_PATH=$PATH
 fi
+
+QEMU_VERSION=`$EMUL --version | sed -n "s:.*version \([0-9.]*\).*:\1:p" `
+
 # Try also build directory, as this will contain unstripped version of the
 # QEMU executables
 if [ -d "$HOME/gnu/qemu/build-qemu-$QEMU_VERSION" ] ; then
   PATH="$HOME/gnu/qemu/build-qemu-$QEMU_VERSION:$PATH"
+  QEMUL_PATH=$PATH
+fi
+if [ -d "$HOME/gnu/qemu/build-qemu-$QEMU_VERSION/${QEMU_CPU}-linux-user" ] ; then
+  PATH="$HOME/gnu/qemu/build-qemu-$QEMU_VERSION/${QEMU_CPU}-linux-user:$PATH"
   QEMUL_PATH=$PATH
 fi
 EMUL_BIN=`which $EMUL 2> /dev/null`
