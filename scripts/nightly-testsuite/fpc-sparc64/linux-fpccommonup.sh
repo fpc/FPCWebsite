@@ -3,6 +3,8 @@
 . $HOME/bin/fpc-versions.sh
 
 NATIVE_OPT64=""
+ASTARGET=""
+
 # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
 NATIVE_OPT32="-ao-32 -XPsparc-linux-"
 if [ -d /lib32 ] ; then
@@ -71,11 +73,17 @@ if [ -z "$MAKE" ] ; then
   MAKE=make
 fi
 
+if [ -z "$MAKEOPT" ] ; then
+  MAKEOPT=""
+fi
+
 export MAKE
 
 if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n`
 fi
+
+set -u 
 
 if [ "${HOSTNAME}" == "gcc202" ]; then
   export HOST_PC=gcc202
@@ -123,7 +131,7 @@ if [ "X$USER" == "X" ]; then
   USER=$LOGNAME
 fi
 
-if [ "X$FPCBIN" == "X" ]; then
+if [ -z "${FPCBIN:-}" ]; then
   FPCBIN=ppcsparc
 fi
 
@@ -142,7 +150,7 @@ fi
 
 DATE="date +%Y-%m-%d-%H-%M"
 DATESTR=`$DATE`
-if [ "x$FIXES" == "x1" ] ; then
+if [ "x${FIXES:-}" == "x1" ] ; then
   SVNDIR=fixes
 else
   SVNDIR=trunk
@@ -150,10 +158,10 @@ fi
 
 cd ~/pas/${SVNDIR}
 
-LOGDIR=$HOME/logs/$SVNDIR
+LOGDIR="$HOME/logs/$SVNDIR"
 
-if [ ! -d $LOGDIR ] ; then
-  mkdir -p $LOGDIR
+if [ ! -d "$LOGDIR" ] ; then
+  mkdir -p "$LOGDIR"
 fi
 
 export report=$LOGDIR/report-${DATESTR}${LOGSUFFIX}.txt
@@ -180,9 +188,9 @@ fi
 echo "Starting make distclean all" >> $report
 echo "Start make `$DATE`" >> $report
 echo "On host ${HOSTNAME}" >> $report
-if [ "X$NEEDED_OPT" != "X" ]; then
+if [ "X${NEEDED_OPT:=}" != "X" ]; then
   echo "Using needed opt \"$NEEDED_OPT\"" >> $report
-  export OPT="$NEEDED_OPT $OPT"
+  export OPT="$NEEDED_OPT ${OPT:-}"
 fi
 
 NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
@@ -222,6 +230,11 @@ if [ $makeres -ne 0 ] ; then
   ${MAKE} -C ./compiler rtlinstall installsymlink $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make -C ./compiler installsymlink; result=${makeres}" >> $report
+  Build_version=`$NEW_PPC_BIN -iV 2> /dev/null`
+  Build_date=`$NEW_PPC_BIN -iD 2> /dev/null`
+
+  echo "New $FPCBIN version is ${Build_version} ${Build_date}" >> $report
+
   for dir in packages utils ide ; do
     echo "Starting install in dir $dir" >> $report
     ${MAKE} -C ./$dir install $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEWFPCBIN 1>> ${makelog} 2>&1
