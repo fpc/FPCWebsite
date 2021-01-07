@@ -19,7 +19,16 @@ function usage {
   
 
 }
-
+#
+# Add /usr/local/bin to path if it is not there yet. FPC is installed there...
+#
+echo $PATH | grep /usr/local/bin/ >/dev/null 2>&1
+if [ $? != 0 ]; then
+  PATH="${PATH}:/usr/local/bin"
+fi  
+#
+# Do some detections.
+#
 BASEDIR=$(pwd)
 BUILDDIR=${BASEDIR}/build
 DAILYDIR=${BASEDIR}/daily
@@ -284,7 +293,7 @@ if [ -z "$SKIPPACKAGES" ]; then
   #
   # Copy CSS file
   #
-  $DOECHO CSSFILE=$(find packages-new -name 'fpdoc.css' | head -1) 
+  CSSFILE=$(find packages-new -name 'fpdoc.css' | head -1) 
   if [ -z "$CSSFILE" ]; then
     echo "Could not find fpdoc.css, styling will be incomplete"
   else
