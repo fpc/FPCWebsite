@@ -364,8 +364,17 @@ function run_one_snapshot ()
       export BUILDFULLNATIVE=1
       export buildfullnative_text="with BUILDFULLNATIVE=1"
       OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd -k--sysroot=$sysroot"
-      # -Xr is not supported for AIX OS
-      if [ "${OS_TARGET}" != "aix" ] ; then
+      # -Xr is only supported for these OSes:
+      #  suppported_targets_x_smallr = systems_linux + systems_solaris + systems_android
+      #                       + [system_i386_haiku,system_x86_64_haiku]
+      #                       + [system_i386_beos]
+      #                       + [system_m68k_amiga];
+      if [[ ( "${OS_TARGET}" = "linux" )
+            || ( "${OS_TARGET}" = "solaris" )
+            || ( "${OS_TARGET}" = "haiku" )
+            || ( "${OS_TARGET}" = "android" )
+            || (( "${OS_TARGET}" = "amiga" ) && ( "${CPU_TARGET}" = "m68k" ))
+         ]] ; then
         OPT_LOCAL="$OPT_LOCAL -Xr$sysroot"
       fi
       echo "OPT_LOCAL set to \"$OPT_LOCAL\""
@@ -432,6 +441,7 @@ function run_one_snapshot ()
 
     echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version)"
     export LOGFILE=$LOGDIR/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}.log
+    export LONGLOGFILE=$LOGDIR/makesnapshot-${BRANCH}-${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}-long.log
     FPC_PREV=$FPC 
     export FPC=$fpc_local_exe
     export MAKE_EXTRA
@@ -443,11 +453,28 @@ function run_one_snapshot ()
       if [ "$BUILDFULLNATIVE" == "1" ] ; then
         echo "makesnapshot.sh failed with BUILDFULLNATIVE=1, res=$res" 
         echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
-        export BUILDFULLNATIVE=
-        export buildfullnative_text=""
-        echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version)"
-        $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
-        res=$?
+        SYSROOT_PROBLEM=`grep "this linker was not configured to use sysroot" $LONGLOGFILE 2> /dev/null `
+        if [ -n "$SYSROOT_PROBLEM" ] ; then
+          echo "Trying without sysroot options"
+          export BUILDFULLNATIVE=1
+          export buildfullnative_text="with BUILDFULLNATIVE=1"
+          OPT_LOCAL="-XR$sysroot $CROSSOPT -Xd"
+          echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version)"
+          $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
+          res=$?
+          if [ $res -ne 0 ] ; then
+            echo "makesnapshot.sh failed with BUILDFULLNATIVE=1, res=$res" 
+            echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
+          fi
+        fi
+
+        if [ $res -ne 0 ] ; then
+          export BUILDFULLNATIVE=
+          export buildfullnative_text=""
+          echo "$HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET, with CROSSOPT=\"$CROSSOPT\", using $target_as ($assembler_version)"
+          $HOME/bin/makesnapshot.sh $CPU_TARGET $OS_TARGET
+          res=$?
+        fi
       fi
     fi
     if [ $res -ne 0 ] ; then
