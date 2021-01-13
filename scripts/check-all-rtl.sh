@@ -1507,7 +1507,7 @@ function check_target ()
       error_bootstrap="`grep 'bootstrap.*Error' $LOGFILE_PACKAGES `"
       error_fpmkunit="`grep -E 'fpmkunit.*(Error|Fatal)' $LOGFILE_PACKAGES `"
       if [[ ( -n "$error_bootstrap" ) && ( -n "$error_fpmkunit" ) ]] ; then
-        echo "Error in compilation of fpmake in $LOGFILE_PACAKAGES" >> $LOGFILE_PACKAGES
+        echo "Error in compilation of fpmake in $LOGFILE_PACKAGES" >> $LOGFILE_PACKAGES
         echo "Listing rtl/units" >> $LOGFILE_PACKAGES
         ls -ltrR $rtldir/units/ >> $LOGFILE_PACKAGES
         echo "Trying to re-compile packages/fpmkunit bootstrap to allow for fpmake compilation"
