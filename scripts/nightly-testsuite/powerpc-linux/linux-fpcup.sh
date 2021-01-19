@@ -61,6 +61,7 @@ if [ -z "$FPCBIN" ]; then
 fi
 
 run_check_all_rtl=0
+run_all_tests=0
 
 TEST_OPT_2="-O3 -Cg"
 
@@ -131,6 +132,7 @@ HOST_PC=${HOSTNAME%%\.*}
 if [ "$HOST_PC" = "gcc2-power8" ] ; then
   HOST_PC=gcc2-power8-ppc64le
   export OVERRIDEVERSIONCHECK=1
+  run_all_tests=1
 elif [ "$HOST_PC" = "gcc135" ] ; then
   HOST_PC=gcc135-ppc64le
   export OVERRIDEVERSIONCHECK=1
@@ -319,6 +321,22 @@ function run_tests ()
   )
 }
 
+TESTSUITEOPTS=(
+"-O-"
+"-O1"
+"-O2"
+"-O3"
+"-O4"
+"-Cg -O-"
+"-Cg -O4"
+"-gwl -O-"
+"-gwl -O4"
+"-CX -XX -O-"
+"-CX -XX -O4"
+"-gwlttt -CriotR -O-"
+"-gwlttt -CriotR -O4"
+)
+
 run_tests "$TEST_OPT"
 
 if [ $testsres -ne 0 ] ; then
@@ -329,8 +347,13 @@ if [ $testsres -ne 0 ] ; then
   fi
 fi
 
-run_tests "${TEST_OPT_2} ${TEST_OPT}"
-
+if [ $run_all_tests -eq 1 ] ; then
+  for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
+    run_tests "${TESTSUITEOPTS[TESTOPTS]}" 
+  done
+else
+  run_tests "${TEST_OPT_2} ${TEST_OPT}"
+fi
 mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET}, ${Build_version} ${Build_date}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
