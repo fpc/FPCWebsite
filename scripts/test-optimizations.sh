@@ -177,7 +177,12 @@ else
 fi
 
 if [ -z "$MAKE" ] ; then
-  export MAKE=make
+  GMAKE=`which gmake 2> /dev/null`
+  if [ -f "$GMAKE" ] ; then
+    export MAKE="$GMAKE"
+  else
+    export MAKE=make
+  fi
 fi
 
 set -u 
