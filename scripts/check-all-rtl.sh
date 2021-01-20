@@ -174,6 +174,7 @@ RECOMPILE_FULL_OPT_O=
 ULIMIT_TIME=333
 COMPILE_EACH_CPU=0
 set_home_bindir_first=0
+inside_main_subscript=0
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -1681,6 +1682,60 @@ if [ "X$selected_cpu" != "X" ] ; then
   exit
 fi
 
+function finish_main_subscript ()
+{
+$MAKE -C rtl distclean 1> /dev/null 2>&1
+echo "dummy_count=$dummy_count"
+if [ $dummy_count -gt 0 ] ; then
+  echo "dummy_list=\"$dummy_list\""
+fi
+echo "skipped_count=$skipped_count"
+if [ $skipped_count -gt 0 ] ; then
+  echo "skipped_list=\"$skipped_list\""
+fi
+echo "run_fpcmake_first_failure=$run_fpcmake_first_failure"
+if [ $run_fpcmake_first_failure -gt 0 ] ; then
+  echo "run_fpcmake_first_list=\"$run_fpcmake_first_list\""
+fi
+echo "os_target_not_supported_failure=$os_target_not_supported_failure"
+if [ $os_target_not_supported_failure -gt 0 ] ; then
+  echo "os_target_not_supported_list=\"$os_target_not_supported_list\""
+fi
+echo "rtl_1_failure=$rtl_1_failure"
+if [ $rtl_1_failure -gt 0 ] ; then
+  echo "rtl_1_list=\"$rtl_1_list\""
+fi
+echo "rtl_2_failure=$rtl_2_failure"
+if [ $rtl_2_failure -gt 0 ] ; then
+  echo "rtl_2_list=\"$rtl_2_list\""
+fi
+echo "rtl_ppu_failure=$rtl_ppu_failure"
+if [ $rtl_ppu_failure -gt 0 ] ; then
+  echo "rtl_ppu_list=\"$rtl_ppu_list\""
+fi
+echo "packages_failure=$packages_failure"
+if [ $packages_failure -gt 0 ] ; then
+  echo "packages_list=\"$packages_list\""
+fi
+echo "packages_ppu_failure=$packages_ppu_failure"
+if [ $packages_ppu_failure -gt 0 ] ; then
+  echo "packages_ppu_list=\"$packages_ppu_list\""
+fi
+
+echo "utils_failure=$utils_failure"
+if [ $utils_failure -gt 0 ] ; then
+  echo "utils_list=\"$utils_list\""
+fi
+echo "utils_ppu_failure=$utils_ppu_failure"
+if [ $utils_ppu_failure -gt 0 ] ; then
+  echo "utils_ppu_list=\"$utils_ppu_list\""
+fi
+}
+
+# Here the main sub-script starts
+function main_subscript ()
+{
+inside_main_subscript=1
 (
 
 # Remove all existing logs, but not failed ones
@@ -1912,55 +1967,14 @@ for index_cpu_os in $index_cpu_os_list ; do
    check_target $cpu $os "-n"
 done
 
-$MAKE -C rtl distclean 1> /dev/null 2>&1
-echo "dummy_count=$dummy_count"
-if [ $dummy_count -gt 0 ] ; then
-  echo "dummy_list=\"$dummy_list\""
-fi
-echo "skipped_count=$skipped_count"
-if [ $skipped_count -gt 0 ] ; then
-  echo "skipped_list=\"$skipped_list\""
-fi
-echo "run_fpcmake_first_failure=$run_fpcmake_first_failure"
-if [ $run_fpcmake_first_failure -gt 0 ] ; then
-  echo "run_fpcmake_first_list=\"$run_fpcmake_first_list\""
-fi
-echo "os_target_not_supported_failure=$os_target_not_supported_failure"
-if [ $os_target_not_supported_failure -gt 0 ] ; then
-  echo "os_target_not_supported_list=\"$os_target_not_supported_list\""
-fi
-echo "rtl_1_failure=$rtl_1_failure"
-if [ $rtl_1_failure -gt 0 ] ; then
-  echo "rtl_1_list=\"$rtl_1_list\""
-fi
-echo "rtl_2_failure=$rtl_2_failure"
-if [ $rtl_2_failure -gt 0 ] ; then
-  echo "rtl_2_list=\"$rtl_2_list\""
-fi
-echo "rtl_ppu_failure=$rtl_ppu_failure"
-if [ $rtl_ppu_failure -gt 0 ] ; then
-  echo "rtl_ppu_list=\"$rtl_ppu_list\""
-fi
-echo "packages_failure=$packages_failure"
-if [ $packages_failure -gt 0 ] ; then
-  echo "packages_list=\"$packages_list\""
-fi
-echo "packages_ppu_failure=$packages_ppu_failure"
-if [ $packages_ppu_failure -gt 0 ] ; then
-  echo "packages_ppu_list=\"$packages_ppu_list\""
-fi
-
-echo "utils_failure=$utils_failure"
-if [ $utils_failure -gt 0 ] ; then
-  echo "utils_list=\"$utils_list\""
-fi
-echo "utils_ppu_failure=$utils_ppu_failure"
-if [ $utils_ppu_failure -gt 0 ] ; then
-  echo "utils_ppu_list=\"$utils_ppu_list\""
-fi
-
+finish_main_subscript
 ) >> $LOGFILE 2>&1
+inside_main_subscript=0
+}
 
+function finish_script ()
+{
+finish_script_started=0
 dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
 skipped_count_new_val=` grep "^skipped_count=" $LOGFILE `
@@ -2023,7 +2037,9 @@ function get_prev_var_value ()
     eval "$prev_value"
   fi
 }
-  
+
+
+ 
 if [ -f $PREVLOGFILE ] ; then
   prev_var_list=`sed -n "s:^\([a-zA-Z0-9_]*\)=\(.*\)$:prev_\1=\"\2\";:p" $PREVLOGFILE | grep -v "^prev_prev_" `
   # eval $prev_var_list ;
@@ -2225,4 +2241,26 @@ if [ ${DO_FPC_BINARY_INSTALL} -eq 0 ] ; then
 fi
 
 rm_lockfile
+}
+
+finish_script_started=0
+
+function handle_TERM ()
+{
+  if [ $inside_main_subscript -ne 0 ] ; then
+    inside_main_subscript=0
+    echo "TERM signal recieved at `date --utc`" >> $LOGFILE
+    finish_main_subscript >> $LOGFILE
+  fi
+  if [ $finish_script_started -eq 0 ] ; then
+    finish_script_started=1
+    finish_script
+  fi
+  rm_lockfile
+}
+
+trap handle_TERM SIGTERM
+
+main_subscript
+finish_script
 
