@@ -488,6 +488,7 @@ fi
 
 PREVLOGFILE=${LOGFILE}${PREVIOUS_SUFFIX}
 PREVLISTLOGFILE=${LISTLOGFILE}${PREVIOUS_SUFFIX}
+PREVTIMEDLISTLOGFILE=${TIMEDLISTLOGFILE}${PREVIOUS_SUFFIX}
 
 if [ -f "$LOGFILE" ] ; then
   if [ $verbose -eq 1 ] ; then
@@ -516,6 +517,13 @@ if [ -f "$LISTLOGFILE" ] ; then
   done
 else
   prev_failure_list=""
+fi
+
+if [ -f "$TIMEDLISTLOGFILE" ] ; then
+  if [ $verbose -eq 1 ] ; then
+    echo "moving $TIMEDLISTLOGFILE to ${PREVTIMEDLISTLOGFILE}"
+  fi
+  cp -f -p $TIMEDLISTLOGFILE ${PREVTIMEDLISTLOGFILE}
 fi
 
 start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
@@ -802,7 +810,12 @@ if [[ ("$NATIVE_MACHINE" == "sparc64") && ("$NATIVE_CPU" == "sparc") ]] ; then
   export NATIVE_OPT
   export NATIVE_BINUTILSPREFIX=sparc-linux-
 else
-  export NATIVE_OPT=
+  NATIVE_OPT=""
+  GCC_DIR=` gcc -print-libgcc-file-name | xargs dirname`
+  if [ -d "$GCC_DIR" ] ; then
+    NATIVE_OPT="$NATIVE_OPT -Fl$GCC_DIR"
+  fi
+  export NATIVE_OPT
   export NATIVE_BINUTILSPREFIX=
 fi
 
