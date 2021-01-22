@@ -2,6 +2,41 @@
 
 . $HOME/bin/fpc-versions.sh
 
+check_option_arg=1
+verbose=0
+upload=0
+do_all=0
+
+while [ $check_option_arg -eq 1 ] ; do
+  check_option_arg=0
+  if [ "$1" == "--verbose" ] ; then
+    verbose=1
+    check_option_arg=1
+    shift
+  fi
+
+  if [ "$1" == "--upload" ] ; then
+    upload=1
+    check_option_arg=1
+    shift
+  fi
+
+  if [ "$1" == "--all" ] ; then
+    do_all=1
+    check_option_arg=1
+    shift
+  fi
+
+  # Evaluate all arguments containing an equal sign
+  # as variable definition
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    check_option_arg=1
+    shift
+  fi
+done
+
+
 # linux_cpu_list="aarch64 arm i386 m68k mips mipsel powerpc powerpc64be powerpc64le riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
 linux_cpu_list="aarch64 arm i386 m68k mips mipsel powerpc powerpc64be riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
 
@@ -15,14 +50,6 @@ if [ ${FIXES:-0} -eq 1 ] ; then
 else
   BRANCH=trunk
   TARGET_VERSION=$TRUNKVERSION
-fi
-
-if [ -z "$upload" ] ; then
-  upload=0
-fi
-
-if [ -z "$verbose" ] ; then
-  verbose=0
 fi
 
 if [ -n "$TEST_OPT" ] ; then
@@ -502,7 +529,7 @@ mv -f $OUTPUTDIR $LOGDIR/output
 decho "run_one_testsuite finished for $FULL_TARGET"
 }
 
-if [ "${1:-}" == "all" ] ; then
+if [ $do_all -eq 1 ] ; then
   shift
   for cpu in $linux_cpu_list ; do
     QEMU_SYSROOT=
@@ -515,7 +542,7 @@ if [ "${1:-}" == "all" ] ; then
 else
   if [ "$*" == "" ] ; then
     decho "Usage: $0 CPU"
-    decho "   or: $0 all"
+    decho "   or: $0 --all"
     exit 1
   fi
   run_one_testsuite "${@}"
