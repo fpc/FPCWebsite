@@ -293,10 +293,13 @@ testsres=0
 function run_tests ()
 {
   LOCAL_TEST_OPT="$1"
-  echo "Starting make distclean followed by fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> $report
+  echo "Starting make distclean in run_tests, TEST_OPT=\"${LOCAL_TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> $report
   ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
+  distclean_res=$?
+  echo "Ending make distclean in run_tests, TEST_OPT=\"${LOCAL_TEST_OPT}\" TEST_ABI=${TEST_ABI}, res=$distclean_res" >> $report
+  echo "Starting make testprep in run_tests, TEST_OPT=\"${LOCAL_TEST_OPT}\" TEST_ABI=${TEST_ABI}" >> $report
   ${MAKE} ${MAKE_J_OPT} testprep TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
@@ -309,13 +312,16 @@ function run_tests ()
   fi
   # Limit resources (64mb data, 8mb stack, 4 minutes)
   (
+  echo "Starting make distclean fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"" >> $report
   ulimit -d 65536 -s 8192 -t 240
   ${MAKE} ${MAKE_J_OPT} fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
   testsres=$?
   echo "Ending make distclean fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"; result=${testsres}" >> $report
-  tail -30 $testslog >> $report
+  if [ $testsres -ne 0 ] ; then
+    tail -30 $testslog >> $report
+  fi
   echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
   return $testsres
   )
