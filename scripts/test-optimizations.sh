@@ -534,6 +534,6 @@ if [ $test_failed -eq 1 ] ; then
   machine_os=`uname -s`
   machine_info="$machine_host $machine_cpu $machine_os"
 
-  mutt -x -s "Free Pascal optimization tests $0 failed in ${SVNDIRNAME}, date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+  mutt -x -s "Free Pascal optimization tests $0 $all_args failed in ${SVNDIRNAME}, date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 fi
 
