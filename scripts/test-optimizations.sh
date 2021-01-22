@@ -424,7 +424,7 @@ function run_compilers ()
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
         file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
-	file_list+=" $dir/log $dir/faillist"
+	file_list+=" $dir/log $dir/longlog $dir/faillist"
         for f in $file_list ; do
           if [ "${f/tw26472/}" != "$f" ] ; then
             # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
@@ -461,7 +461,7 @@ function generate_diffs()
       if [[ "$SUF1" > "$SUF2" ]] ; then
         decho "Comparing $SUF1 to $SUF2"
         diff_file=$LOGDIR/diffs${SUF1}-${SUF2}$log_suffix
-        diff -rc ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
+        diff -rc -x longlog ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
         diffres=$?
         if [ $diffres -ne 0 ] ; then
           decho "Units directories differ, see $diff_file"
