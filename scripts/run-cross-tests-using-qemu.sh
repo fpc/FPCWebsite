@@ -57,6 +57,11 @@ if [ -n "$TEST_OPT" ] ; then
   TEST_OPT=""
 else
   GLOBAL_TEST_OPT=""
+  TEST_OPT=""
+fi
+
+if [ "${DEBUG:-0}" != "0" ] ; then
+  GLOBAL_TEST_OPT+=" -gl"
 fi
 
 if [ -z "${EMUL_OPTIONS:-}" ] ; then
