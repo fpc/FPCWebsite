@@ -2,6 +2,7 @@
 . ~/bin/fpc-versions.sh
 
 machine=`uname -m`
+run_cross_tests=0
 
 if [ "$machine" = "ppc64le" ] ; then
   gen_64bit=1
@@ -17,6 +18,12 @@ else
   gen_32bit=0
   echo "Warning: unrecognized machine $machine"
 fi
+
+if [ -z "$HOSTNAME" ] ; then
+  HOSTNAME="`uname -n `"
+fi
+
+HOST_PC=${HOSTNAME%%\.*}
 
 export CURVER=$TRUNKVERSION
 export RELEASEVER=$RELEASEVERSION
@@ -45,6 +52,19 @@ fi
 if [ $gen_32bit -eq 1 ] ; then
   . ~/bin/linux32-fpcfixesup.sh
   . ~/bin/makesnapshot-new-powerpc.sh
+fi
+
+
+if [ -f $HOME/gen_cross_tests ] ; then
+  run_cross_tests=1
+  rm -Rf $HOME/gen_cross_tests
+fi
+
+if [ $run_cross_tests -eq 1 ] ; then 
+  RUNLOGFILE=$HOME/logs/trunk/cross-tests.log
+  . ~/bin/run-cross-tests-using-qemu.sh FIXES=0 --all > $RUNLOGFILE 2>&1
+  RUNLOGFILE=$HOME/logs/fixes/cross-tests.log
+  . ~/bin/run-cross-tests-using-qemu.sh FIXES=1 --all > $RUNLOGFILE 2>&1
 fi
 
 # Check if script directory exists
