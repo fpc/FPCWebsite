@@ -52,25 +52,26 @@ fi
 export ERRORMAILADDR=pierre@freepascal.org
 # Checkout dir
 CHECKOUTDIR=$FIXESDIR
-STARTPP=$STARTPP64
-INSTALLCOMPILER=$HOME/bin/ppcx64-fixes
-MAILFILE=$HOME/logs/snapshot-fixes.mail
-LOGFILE=$HOME/logs/snapshot-fixes.log
-PPCCPU=ppcx64
-FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/x86_64-$OS
-export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
+
 if [ $run_64 -eq 1 ] ; then
+  STARTPP=$STARTPP64
+  INSTALLCOMPILER=$HOME/bin/ppcx64-fixes
+  MAILFILE=$HOME/logs/snapshot-fixes.mail
+  LOGFILE=$HOME/logs/snapshot-fixes.log
+  PPCCPU=ppcx64
+  FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/x86_64-$OS
+  export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
   . $HOME/bin/makesnapshot.sh
 fi
 
-STARTPP=$STARTPP32
-INSTALLCOMPILER=$HOME/bin/ppc386-fixes
-MAILFILE=$HOME/logs/snapshot32-fixes.mail
-LOGFILE=$HOME/logs/snapshot32-fixes.log
-PPCCPU=ppc386
-FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/i386-$OS
-# export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
-OPT="-Fl/lib/i386 -Fl/usr/lib/i386"
 if [ $run_32 -eq 1 ] ; then
+  STARTPP=$STARTPP32
+  INSTALLCOMPILER=$HOME/bin/ppc386-fixes
+  MAILFILE=$HOME/logs/snapshot32-fixes.mail
+  LOGFILE=$HOME/logs/snapshot32-fixes.log
+  PPCCPU=ppc386
+  FTPDIR=fpc@ftpmaster.freepascal.org:ftp/snapshot/fixes/i386-$OS
+  # export NOGDB=1 # LIBGDBDIR=$HOME/pas/libgdb/gdb-7.9.1
+  OPT="-Fl/lib/i386 -Fl/usr/lib/i386"
   . $HOME/bin/makesnapshot.sh
 fi
