@@ -6,11 +6,16 @@ clean=0
 keep=0
 do_packages=0
 do_utils=0
+do_fullcycle=0
 do_tests=0
 do_llvm=0
 all_variants=0
 test_failed=0
 IS_CROSS=0
+ignore_list=""
+exe_ext=""
+
+cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
 
 function test_help ()
 {
@@ -19,7 +24,8 @@ function test_help ()
   echo "List of options:"
   echo "  --all: generate variants for all optimizations levels"
   echo "  --clean: re-generate compiler, even if it already exists"
-  echo "  --full: enable all options above"
+  echo "  --full: enable --all, --clean, --packages, --utils and --tests options"
+  echo "  --fullcycle: Also test fullcycle target in compiler directory"
   echo "  --keep: Do not delete copied and log files"
   echo "  --llvm: compile LLVM compiler"
   echo "  --packages: recompile packages"
@@ -48,6 +54,11 @@ while [ "$1" != "" ] ; do
   fi
   if [ "$1" == "--clean" ] ; then
     clean=1
+    shift
+    continue
+  fi
+  if [ "$1" == "--fullcycle" ] ; then
+    do_fullcycle=1
     shift
     continue
   fi
@@ -89,6 +100,22 @@ while [ "$1" != "" ] ; do
     shift
   fi
 done
+
+if [ $do_fullcycle -eq 1 ] ; then
+  # version unit uses revision.inc include file, 
+  # which is regenerated at each cycle, leading
+  # to timestamp differences for source list in version.ppu
+  ignore_list+=" version.ppu"
+fi
+if [ $do_tests -eq 1 ] ; then
+  # longlog file contains details that can vary 
+  # Add it to ignore_list
+  ignore_list+=" longlog"
+  # Test tw26472 can vary:
+  # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
+  # which are expected to be different, do not copy these files
+  ignore_list+=" tw26472*"
+fi
 
 if [ -z "$USER" ]; then
   USER=$LOGNAME
@@ -344,6 +371,26 @@ function run_compilers ()
     fi
     decho "Moving ../rtl/units to ../rtl/units${SUFFIX}"
     cp -Rf ../rtl/units ../rtl/units${SUFFIX}
+    if [ $do_fullcycle -eq 1 ] ; then
+      decho "Testing $NEWFPC in compiler with fullcycle target"
+      fullcycle_log=$LOGDIR/fullcycle${SUFFIX}$log_suffix
+      $MAKE -C . distclean fullcycle OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $fullcycle_log 2>&1
+      makeres=$?
+      if [ $makeres -ne 0 ] ; then
+        decho "Warning: $MAKE failed for fullcycle in compiler, res=$makeres"
+      else
+        log_list="$log_list $fullcycle_log"
+      fi
+      for CPU in $cpu_list ; do 
+        if [ -d ./$CPU/units ] ; then
+          decho "Moving $CPU/units to ../rtl/units${SUFFIX}/compiler-$CPU"
+          if [ ! -d ../rtl/units${SUFFIX}/compiler-$CPU ] ; then
+            mkdir -p ../rtl/units${SUFFIX}/compiler-$CPU
+          fi
+          cp -Rf ./$CPU/units ../rtl/units${SUFFIX}/compiler-$CPU/
+       fi
+      done
+    fi
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}$log_suffix
@@ -426,11 +473,6 @@ function run_compilers ()
         file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
 	file_list+=" $dir/log $dir/longlog $dir/faillist"
         for f in $file_list ; do
-          if [ "${f/tw26472/}" != "$f" ] ; then
-            # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
-	    # which are expected to be different, do not copy these files
-	    continue
-	  fi
 	  # Do not try to copy directories directly
 	  if [ ! -d "$f" ] ; then
             cp -f $f $destdir >> $tests_move_log 2>&1
@@ -461,7 +503,15 @@ function generate_diffs()
       if [[ "$SUF1" > "$SUF2" ]] ; then
         decho "Comparing $SUF1 to $SUF2"
         diff_file=$LOGDIR/diffs${SUF1}-${SUF2}$log_suffix
-        diff -rc -x longlog ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
+        if [ -n "${ignore_list}" ] ; then
+          diff_x=""
+          for f in ${ignore_list} ; do
+            diff_x+=" -x $f"
+          done
+        else
+          diff_x=""
+        fi
+        diff -rc ${diff_x} ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
         diffres=$?
         if [ $diffres -ne 0 ] ; then
           decho "Units directories differ, see $diff_file"
