@@ -14,6 +14,8 @@ test_failed=0
 IS_CROSS=0
 ignore_list=""
 exe_ext=""
+FPCBIN=
+OPT=""
 
 cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
 
@@ -24,7 +26,7 @@ function test_help ()
   echo "List of options:"
   echo "  --all: generate variants for all optimizations levels"
   echo "  --clean: re-generate compiler, even if it already exists"
-  echo "  --full: enable --all, --clean, --packages, --utils and --tests options"
+  echo "  --full: enable --all, --clean, --fullcycle, --packages, --utils and --tests options"
   echo "  --fullcycle: Also test fullcycle target in compiler directory"
   echo "  --keep: Do not delete copied and log files"
   echo "  --llvm: compile LLVM compiler"
@@ -32,6 +34,7 @@ function test_help ()
   echo "  --tests: recompile tests"
   echo "  --utils: recompile utils"
   echo "FPCBIN=ppcXXX to force use of a particular CPU compiler"
+  echo "OPT=\"-X -Y\" options added when testing the compilers"
 }
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -45,6 +48,7 @@ while [ "$1" != "" ] ; do
   fi
   if [ "$1" == "--full" ] ; then
     clean=1
+    do_fullcycle=1
     do_packages=1
     do_utils=1
     do_tests=1
@@ -93,7 +97,7 @@ while [ "$1" != "" ] ; do
     continue
   fi
   if [ "${1/=/_}" != "$1" ] ; then
-    eval export "$1"
+    eval export "\"$1\""
     shift
   else
     echo "parameter \"$1\" not handled"
@@ -238,32 +242,67 @@ if [ -d fpcsrc ] ; then
   cd fpcsrc
 fi
 
+can_run_target=1
+
 if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
   IS_CROSS=1
-  if [ $is_32bit -eq 1 ] ; then
+  target_sysroot=$HOME/sys-root/$CPU_TARGET-$OS_TARGET
+  if [ -d "$target_sysroot" ] ; then
+    sysroot="$target_sysroot"
+  else
+    sysroot=""
+  fi
+  can_run_target=0
+  if [[ ( "$CPU_SOURCE" == "x86_64" ) && ( "$CPU_TARGET" == "i386" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "aarch64" ) && ( "$CPU_TARGET" == "arm" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "sparc64" ) && ( "$CPU_TARGET" == "sparc" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "mips64" ) && ( "$CPU_TARGET" == "mips" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "mipsel64" ) && ( "$CPU_TARGET" == "mipsel" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "powerpc64" ) && ( "$CPU_TARGET" == "powerpc" ) ]] ; then
+    can_run_target=1
+  fi
+  if [[ ( "$CPU_SOURCE" == "riscv64" ) && ( "$CPU_TARGET" == "riscv32" ) ]] ; then
+    can_run_target=1
+  fi
+
+  if [[ ( $can_run_target -eq 1 ) && ( $is_32bit -eq 1 ) ]] ; then
     if [ "$CPU_TARGET" == "sparc" ] ; then
       NATIVE_OPT="-ao-32"
     fi
-    if [ -d /lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl/lib32"
+    if [ -d "$sysroot/lib32" ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/lib32"
     fi
-    if [ -d /usr/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl/usr/lib32"
+    if [ -d "$sysroot/usr/lib32" ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/usr/lib32"
     fi
-    if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl/usr/sparc64-linux-gnu/lib32"
+    if [ "$CPU_TARGET" == "sparc" ] ; then
+      if [ -d "$sysroot/usr/sparc64-linux-gnu/lib32" ] ; then
+        NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/usr/sparc64-linux-gnu/lib32"
+      fi
     fi
-    if [ -d /usr/local/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl/usr/local/lib32"
+    if [ -d "$sysroot/usr/local/lib32" ] ; then
+      NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/usr/local/lib32"
     fi
-    if [ -d $HOME/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/gnu/lib32"
-    fi
-    if [ -d $HOME/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/lib32"
-    fi
-    if [ -d $HOME/local/lib32 ] ; then
-      NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
+    if [ $can_run_target -eq 1 ] ; then
+      if [ -d "$HOME/gnu/lib32" ] ; then
+        NATIVE_OPT="$NATIVE_OPT -Fl$HOME/gnu/lib32"
+      fi
+      if [ -d "$HOME/lib32" ] ; then
+        NATIVE_OPT="$NATIVE_OPT -Fl$HOME/lib32"
+      fi
+      if [ -d $HOME/local/lib32 ] ; then
+        NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
+      fi
     fi
     M32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
     if [ -d "$M32_GCC_DIR" ] ; then
@@ -274,6 +313,15 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
     export FPCMAKEOPT="$NATIVE_OPT"
     export BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
   fi
+fi
+
+if [ $can_run_target -eq 0 ] ; then
+  gen_compiler_target="rtl $CPU_TARGET"
+  START_FPCBIN=`fpc -PB`
+  do_fullcycle=0
+else
+  gen_compiler_target="cycle"
+  START_FPCBIN=$FPCBIN
 fi
 
 set -u
@@ -319,34 +367,38 @@ function gen_compiler ()
       return
     fi
   fi
-  if [ $CROSS -eq 1 ] ; then
+  if [[ ( $CROSS -eq 1 ) && ( $can_run_target -eq 1 ) ]] ; then
     export BINUTILSPREFIX="${CPU_TARGET}-${OS_TARGET}-"
     # Pretend FPCBIN is a native compiler
     MAKE_OPT="CPU_SOURCE=$CPU_TARGET"
   else
     MAKE_OPT=""
   fi
-  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$FPCBIN in $COMPILER_DIR"
-  $MAKE distclean cycle OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$FPCBIN > $cycle_log 2>&1
+  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
+  $MAKE distclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
-    decho "Cycle failed, see $cycle_log"
+    decho "$MAKE distclean $gen_compiler_target failed, res=$res, see $cycle_log"
     return
   fi
   if [ $do_llvm -eq 1 ] ; then
     cp ./$FPCBIN ./${NEWBIN}
     decho "Generating LLVM compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$NEWBIN in $COMPILER_DIR"
-    $MAKE distclean rtlclean rtl all OPT="-n -gl $ADD_OPT" LLVm=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
+    $MAKE distclean rtlclean rtl all OPT="-n -gl $ADD_OPT" LLVM=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       decho "Compilation of llvm version failed, see $cycle_log"
       return
     fi
   fi
-  cp ./$FPCBIN ./${NEWBIN}
-  COMPILER_LIST="$COMPILER_LIST ${NEWBIN}"
-  SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
-  log_list="$log_list $cycle_log"
+  if [ -f "./${FPCBIN}" ] ; then
+    cp ./$FPCBIN ./${NEWBIN}
+    COMPILER_LIST="$COMPILER_LIST ${NEWBIN}"
+    SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
+    log_list="$log_list $cycle_log"
+  else
+    echo "No new ${FPCBIN}"
+  fi
 }
 
 
@@ -359,7 +411,9 @@ function run_compilers ()
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
     FULL_TARGET=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
     rtl_log=$LOGDIR/rtl${SUFFIX}$log_suffix
-    $MAKE -C ../rtl distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
+    # Do not use distclean for rtl, to keep native rtl compiled
+    #which is required in case of cross-compilation
+    $MAKE -C ../rtl clean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       decho "Warning: $MAKE failed in rtl, res=$makeres"
@@ -394,7 +448,7 @@ function run_compilers ()
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}$log_suffix
-      $MAKE -C ../packages distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $packages_log 2>&1
+      $MAKE -C ../packages distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in packages, res=$makeres"
@@ -421,7 +475,7 @@ function run_compilers ()
     if [ $do_utils -eq 1 ] ; then
       decho "Testing $NEWFPC in utils"
       utils_log=$LOGDIR/utils${SUFFIX}$log_suffix
-      $MAKE -C ../utils distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $utils_log 2>&1
+      $MAKE -C ../utils distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in utils, res=$makeres"
@@ -453,7 +507,7 @@ function run_compilers ()
       if [ -n "$BINUTILSPREFIX" ] ; then
         BASE_ADD_OPT="$BASE_ADD_OPT -XP$BINUTILSPREFIX"
       fi
-      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN > $tests_log 2>&1
+      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE full failed in tests, res=$makeres"
