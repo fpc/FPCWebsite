@@ -110,7 +110,7 @@ elif [ "$FPCBIN" = "ppc68k" ] ; then
   # IDE compilation fails because it tries to use /usr/lib64/libbfd.a 
   # instead of supplied libbfd.a from GDB compilation.
   export SPECIALLINK="-Xd"
-  export FPCCPUOPT=-O1
+  # export FPCCPUOPT=-O1 
 else
   GCC_DIR=` gcc -m64 -print-libgcc-file-name | xargs dirname`
   export FPMAKE_SKIP_CONFIG="-n -Fl$GCC_DIR"
