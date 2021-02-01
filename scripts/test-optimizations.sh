@@ -375,7 +375,7 @@ function gen_compiler ()
     MAKE_OPT=""
   fi
   decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
-  $MAKE distclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
+  $MAKE distclean rtlclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     decho "$MAKE distclean $gen_compiler_target failed, res=$res, see $cycle_log"
