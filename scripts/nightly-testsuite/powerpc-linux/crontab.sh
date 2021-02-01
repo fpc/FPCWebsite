@@ -30,6 +30,8 @@ export RELEASEVER=$RELEASEVERSION
 export FTP_SNAPSHOT_DIR=$TRUNKDIRNAME
 export FPCSVNDIR=$TRUNKDIR
 
+ulimit -t 600
+
 if [ $gen_64bit -eq 1 ] ; then
   . ~/bin/linux64-fpctrunkup.sh
   . ~/bin/makesnapshot-new-powerpc64.sh
