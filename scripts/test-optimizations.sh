@@ -163,6 +163,31 @@ if [ -d "$FPC_BINDIR" ] ; then
   fi
 fi
 
+cpu_target_explicit=0
+if [ -n "${CPU_TARGET:-}" ] ; then
+  cpu_target_explicit=1
+  if [ -z "${FPCBIN:-}" ] ; then
+    FPCBIN="ppc$CPU_TARGET"
+    case "$CPU_TARGET" in
+      aarch64|arm64) FPCBIN=ppca64 ;;
+      arm) FPCBIN=ppcarm ;;
+      i*86) FPCBIN=ppc386 ;;
+      m68k) FPCBIN=ppc68k ;;
+      mipsel*) FPCBIN=ppcmipsel ;;
+      mips*) FPCBIN=ppcmips ;;
+      powerpc64le|ppc64le) FPCBIN=ppcppc64 ;;
+      powerpc|ppc) FPCBIN=ppcppc ;;
+      powerpc64|ppc64) FPCBIN=ppcppc64 ;;
+      riscv32) FPCBIN=ppcrv32 ;;
+      riscv64) FPCBIN=ppcrv64 ;;
+      x86_64|amd64) FPCBIN=ppcx64 ;;
+      xtensa) FPCBIN=ppcxtensa ;;
+      z80) FPCBIN=ppz80 ;;
+    esac
+    export FPCBIN
+  fi
+fi
+
 if [ -z "$FPCBIN" ] ; then
   WHICH_FPC=`which fpc`
   if [ -f "$WHICH_FPC" ] ; then
@@ -190,22 +215,27 @@ if [ -f "$FOUND_FPCBIN" ] ; then
   CPU_TARGET=`$FOUND_FPCBIN -iTP`
   OS_SOURCE=`$FOUND_FPCBIN -iSO`
   CPU_SOURCE=`$FOUND_FPCBIN -iSP`
-  if [[ ( "$CPU_SOURCE" != "$CPU_TARGET" ) || ( "$OS_SOURCE" != "$OS_TARGET" ) ]] ; then
-    CROSS=1
-  else
-    CROSS=0
-  fi
-  is_32bit=1
-  case $CPU_TARGET in
-    aarch64|powerpc64|x86_64|riscv64|sparc64|mips64|mipsel64) is_32bit=0;;
-  esac
+elif [ $cpu_target_explicit -eq 1 ] ; then
+  OS_TARGET=`fpc -iTO`
+  OS_SOURCE=`fpc -iSO`
+  CPU_SOURCE=`fpc -iSP`
 else
-  # Assume 64-bit by default
   OS_TARGET=`uname -s | tr '[:upper:]' '[:lower:]' `
   CPU_TARGET=$NATIVE_MACHINE
-  CROSS=0
-  is_32bit=0
+  OS_SOURCE=$OS_TARGET
+  CPU_SOURCE=$CPU_TARGET
 fi
+
+if [[ ( "$CPU_SOURCE" != "$CPU_TARGET" ) || ( "$OS_SOURCE" != "$OS_TARGET" ) ]] ; then
+  CROSS=1
+else
+  CROSS=0
+fi
+
+is_32bit=1
+case $CPU_TARGET in
+  aarch64|powerpc64|x86_64|riscv64|sparc64|mips64|mipsel64) is_32bit=0;;
+esac
 
 if [ -z "$MAKE" ] ; then
   GMAKE=`which gmake 2> /dev/null`
@@ -316,7 +346,7 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
 fi
 
 if [ $can_run_target -eq 0 ] ; then
-  gen_compiler_target="rtl $CPU_TARGET"
+  gen_compiler_target="rtlclean rtl $CPU_TARGET"
   START_FPCBIN=`fpc -PB`
   do_fullcycle=0
 else
@@ -375,7 +405,7 @@ function gen_compiler ()
     MAKE_OPT=""
   fi
   decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
-  $MAKE distclean rtlclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
+  $MAKE distclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     decho "$MAKE distclean $gen_compiler_target failed, res=$res, see $cycle_log"
@@ -507,7 +537,8 @@ function run_compilers ()
       if [ -n "$BINUTILSPREFIX" ] ; then
         BASE_ADD_OPT="$BASE_ADD_OPT -XP$BINUTILSPREFIX"
       fi
-      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" FPC=$NEWFPCBIN TEST_FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $tests_log 2>&1
+      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
+        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${BINUTILSPREFIX} > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE full failed in tests, res=$makeres"
