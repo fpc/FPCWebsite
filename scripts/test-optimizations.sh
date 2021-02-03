@@ -334,7 +334,12 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
         NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
       fi
     fi
-    M32_GCC_DIR=` gcc -m32 -print-libgcc-file-name | xargs dirname`
+    M32_GCC=`which $CPU_TARGET-$OS_TARGET-gcc 2> /dev/null`
+    if [ -f "$M32_GCC" ] ; then
+      M32_GCC_DIR=`$M32_GCC -print-libgcc-file-name | xargs dirname`
+    else
+      M32_GCC_DIR=`gcc -m32 -print-libgcc-file-name | xargs dirname`
+    fi
     if [ -d "$M32_GCC_DIR" ] ; then
       NATIVE_OPT="$NATIVE_OPT -Fl$M32_GCC_DIR"
     fi
