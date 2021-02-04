@@ -134,15 +134,13 @@ if [ $gen_source_zips -eq 1 ] ; then
 fi
 
 if [ $gen_cross_snapshots_trunk -eq 1 ] ; then
-  # Finally try to generate snapshots
-  export FIXES=0
-  $HOME/bin/all-snapshots.sh
+  # Finally try to generate trunk snapshots
+  $HOME/bin/all-snapshots.sh FIXES=0
 fi
 
 if [ $gen_cross_snapshots_fixes -eq 1 ] ; then
-  # Finally try to generate snapshots
-  export FIXES=1
-  $HOME/bin/all-snapshots.sh
+  # Finally try to generate fixes snapshots
+  $HOME/bin/all-snapshots.sh FIXES=1
 fi
 
 if [ $test_msdos_trunk -eq 1 ] ; then
