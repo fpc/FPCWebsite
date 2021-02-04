@@ -195,7 +195,7 @@ function add_dir ()
         use_file=1
       fi
     fi
-    if [ "$OS_TARG_LOCAL" == "aix" ] ; then
+    if [ "$OS_TARGET" == "aix" ] ; then
       # AIX puts 32 and 64 bit versions into the same library
       use_file=1
     fi
@@ -219,24 +219,24 @@ if [ -d "$global_sysroot/${FULL_TARGET}" ] ; then
   sysroot=$global_sysroot/${FULL_TARGET}
 else
   # For Android we set special variables if NDK is present
-  if [ "${OS_TARG_LOCAL}" == "android" ] ; then
-    if [ "${CPU_TARG_LOCAL}" == "aarch64" ] ; then
+  if [ "${OS_TARGET}" == "android" ] ; then
+    if [ "${CPU_TARGET}" == "aarch64" ] ; then
       if [ -n "$AARCH64_ANDROID_ROOT" ] ; then
         sysroot=$AARCH64_ANDROID_ROOT
       fi
-    elif [ "${CPU_TARG_LOCAL}" == "arm" ] ; then
+    elif [ "${CPU_TARGET}" == "arm" ] ; then
       if [ -n "$ARM_ANDROID_ROOT" ] ; then
         sysroot=$ARM_NDROID_ROOT
       fi
-    elif [ "${CPU_TARG_LOCAL}" == "i386" ] ; then
+    elif [ "${CPU_TARGET}" == "i386" ] ; then
       if [ -n "$I386_ANDROID_ROOT" ] ; then
         sysroot=$I386_ANDROID_ROOT
       fi
-    elif [ "${CPU_TARG_LOCAL}" == "mipsel" ] ; then
+    elif [ "${CPU_TARGET}" == "mipsel" ] ; then
       if [ -n "$MIPSEL_ANDROID_ROOT" ] ; then
         sysroot=$MIPSEL_ANDROID_ROOT
       fi
-    elif [ "${CPU_TARG_LOCAL}" == "x86_64" ] ; then
+    elif [ "${CPU_TARGET}" == "x86_64" ] ; then
       if [ -n "$X86_64_ANDROID_ROOT" ] ; then
         sysroot=$X86_64_ANDROID_ROOT
       fi
@@ -260,7 +260,7 @@ if [ -n "$sysroot" ] ; then
   add_dir -regex "'.*/libc\.so\..*'"
   add_dir "ld.so"
   add_dir -regex "'.*/ld\.so\.[0-9.]*'"
-  if [ "${OS_TARG_LOCAL}" == "linux" ] ; then
+  if [ "${OS_TARGET}" == "linux" ] ; then
     add_dir -regex "'.*/ld-linux.*\.so\.*[0-9.]*'"
   fi
   if [ "${OS_TARGET}" == "haiku" ] ; then
@@ -280,18 +280,22 @@ if [ -n "$sysroot" ] ; then
   fi
   if [ $dir_found -eq 1 ] ; then
     export BUILDFULLNATIVE=1
-    CROSSOPT="$CROSSOPT -Xd -k--sysroot=$sysroot -XR$sysroot"
+    CROSSOPT="$CROSSOPT -Xd -XR$sysroot"
+    if [ "${OS_TARGET}" != "openbsd" ] ; then
+      # OpenBSD linkers do not support --sysroot option by default
+      CROSSOPT="$CROSSOPT -Xd -k--sysroot=$sysroot"
+    fi
     echo "Using BUILDFULLNATIVE=1 with CROSSOPT=\"$CROSSOPT\""
     # -Xr is only supported for these OSes:
     #  suppported_targets_x_smallr = systems_linux + systems_solaris + systems_android
     #                       + [system_i386_haiku,system_x86_64_haiku]
     #                       + [system_i386_beos]
     #                       + [system_m68k_amiga];
-    if [[ ( "${OS_TARG_LOCAL}" = "linux" )
-          || ( "${OS_TARG_LOCAL}" = "solaris" )
-          || ( "${OS_TARG_LOCAL}" = "haiku" )
-          || ( "${OS_TARG_LOCAL}" = "android" )
-          || (( "${OS_TARG_LOCAL}" = "amiga" ) && ( "${CPU_TARG_LOCAL}" = "m68k" ))
+    if [[ ( "${OS_TARGET}" = "linux" )
+          || ( "${OS_TARGET}" = "solaris" )
+          || ( "${OS_TARGET}" = "haiku" )
+          || ( "${OS_TARGET}" = "android" )
+          || (( "${OS_TARGET}" = "amiga" ) && ( "${CPU_TARGET}" = "m68k" ))
        ]] ; then
       CROSSOPT="$CROSSOPT -Xr$sysroot"
     fi
