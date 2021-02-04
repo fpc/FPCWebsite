@@ -454,6 +454,9 @@ function run_one_snapshot ()
         echo "makesnapshot.sh failed with BUILDFULLNATIVE=1, res=$res" 
         echo "$HOME/bin/makesnapshot.sh ${CPU_TARGET}-${OS_TARGET}${EXTRASUFFIX}, with CROSSOPT=\"$CROSSOPT\", $buildfullnative_text using $target_as ($assembler_version) Error: $res" >> $LISTLOGFILE
         SYSROOT_PROBLEM=`grep "this linker was not configured to use sysroot" $LONGLOGFILE 2> /dev/null `
+        if [ -z "$SYSROOT_PROBLEM" ] ; then
+          SYSROOT_PROBLEM=`grep "unknown flag: --sysroot=" $LONGLOGFILE 2> /dev/null `
+        fi
         if [ -n "$SYSROOT_PROBLEM" ] ; then
           echo "Trying without sysroot options"
           export BUILDFULLNATIVE=1
