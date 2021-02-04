@@ -124,9 +124,11 @@ export config_option=
 ## system_i386_netwlibc,      { 35 }
 ./do-one.sh i386-newlibc i386-unknown-newlibc
 ## system_i386_openbsd,       { 24 }
+export ADD_CFLAGS=-DTARGET_SYSTEM_ROOT_RELOCATABLE
 export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh i386-openbsd i386-unknown-openbsd
 export BINUTILS_RELEASE=
+export ADD_CFLAGS=
 ## system_i386_OS2,           { 4 }
 export BINUTILS_RELEASE="2.14-os2"
 # This semms also required for cofigure to succeed
@@ -195,9 +197,11 @@ export BINUTILS_RELEASE=
 ## system_m68k_netbsd,        { 18 }
 ./do-one.sh m68k-netbsd m68k-unknown-netbsdelf
 ## system_m68k_openbsd,       { 25 }
+export ADD_CFLAGS=-DTARGET_SYSTEM_ROOT_RELOCATABLE
 export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh m68k-openbsd m68k-unknown-openbsd
 export BINUTILS_RELEASE=
+export ADD_CFLAGS=
 ## system_m68k_PalmOS,        { 11 }
 export BINUTILS_RELEASE="2.14-palmos"
 ./do-one.sh m68k-palmos m68k-unknown-palmos
@@ -244,9 +248,11 @@ export BINUTILS_RELEASE=
 ## system_powerpc_netbsd,     { 29 }
 ./do-one.sh powerpc-netbsd powerpc-unknown-netbsd-gnu
 ## system_powerpc_openbsd,    { 30 }
+export ADD_CFLAGS=-DTARGET_SYSTEM_ROOT_RELOCATABLE
 export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh powerpc-openbsd powerpc-unknown-openbsd
 export BINUTILS_RELEASE=
+export ADD_CFLAGS=
 ## system_powerpc_wii,        { 70 }
 ./do-one.sh powerpc-wii powerpc-eabi
 
@@ -315,9 +321,11 @@ export BINUTILS_RELEASE=
 ## system_x86_64_netbsd,      { 72 }
 ./do-one.sh x86_64-netbsd amd64-unknown-netbsd-gnu
 ## system_x86_64_openbsd,     { 71 }
+export ADD_CFLAGS=-DTARGET_SYSTEM_ROOT_RELOCATABLE
 export BINUTILS_RELEASE=2.17-openbsd
 ./do-one.sh x86_64-openbsd amd64-unknown-openbsd
 export BINUTILS_RELEASE=
+export ADD_CFLAGS=
 ## system_x86_64_solaris,     { 65 }
 ./do-one.sh x86_64-solaris x86_64-unknown-solaris2.10
 ## system_x86_64_win64,       { 37 }
