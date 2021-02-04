@@ -2,11 +2,17 @@
 
 . $HOME/bin/fpc-versions.sh
 
-# Latest binutils release version is 2.34 (2020/02/01)
+# Latest binutils release version is 2.36 (2021/01/24)
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
-  BINUTILS_RELEASE=2.35
+  BINUTILS_RELEASE=2.36
 fi
+bca600eea3b8fc33ad3265c9c1eee8d4  binutils-2.35.1.tar.gz
+5ef92bfbfac46a8457ed2865a0588e9e  binutils-2.35.2.tar.gz
+4009acf0f62bab6696bc87b3370953fa  binutils-2.36.tar.gz
 
+BINUTILS_2_36_BZ2_MD5SUM=4009acf0f62bab6696bc87b3370953fa
+BINUTILS_2_35_2_BZ2_MD5SUM=5ef92bfbfac46a8457ed2865a0588e9e
+BINUTILS_2_35_1_BZ2_MD5SUM=bca600eea3b8fc33ad3265c9c1eee8d4
 BINUTILS_2_35_BZ2_MD5SUM=f5ee1b8aab816dce3badf8513be6dd75
 BINUTILS_2_34_BZ2_MD5SUM=b0afc4d29db31ee6fdf3ebc34e85e482
 BINUTILS_2_33_1_BZ2_MD5SUM=56a3be5f8f8ee874417a4f19ef3f10c8
@@ -66,10 +72,10 @@ if [ "X$CFLAGS" != "X" ] ; then
   if [ "$CFLAGS" == " " ]; then
     LOCAL_CFLAGS=""
   else
-    LOCAL_CFLAGS=CFLAGS="$CFLAGS"
+    LOCAL_CFLAGS=CFLAGS="$CFLAGS $ADD_CFLAGS"
   fi
 else
-  LOCAL_CFLAGS=CFLAGS="$DEBUG_OPT -O0"
+  LOCAL_CFLAGS=CFLAGS="$DEBUG_OPT -O0 $ADD_CFLAGS"
 fi
 
 # Set config_option (might have a non empty startig value)
@@ -100,6 +106,13 @@ if [ -n "DO_ONE_PREFIX_PATTERN" ] ; then
     echo "prefix $prefix does not match $DO_ONE_PREFIX_PATTERN, skipping"
     exit
   fi
+fi
+
+if [ -d "$HOME/sys-root/$prefix" ] ; then
+  USE_SYSROOT="=$HOME/sys-root/$prefix"
+  echo "Using sysroot: $USE_SYSROOT"
+else
+  USE_SYSROOT=""
 fi
 
 target=$2
@@ -274,8 +287,8 @@ function copytofpcbin ()
   if [ -z "$copy_only" ]; then
     export "$LOCAL_CFLAGS"
     export LDFLAGS="${LDFLAGS}"
-    echo "Starting: ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot --disable-intl --disable-libtool --disable-werror"
-    ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot --disable-intl --disable-libtool --disable-werror 2>&1 | tee $LOGFILE
+    echo "Starting: ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot$USE_SYSROOT --disable-intl --disable-libtool --disable-werror"
+    ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot$USE_SYSROOT --disable-intl --disable-libtool --disable-werror 2>&1 | tee $LOGFILE
     configres=$?
     if [ $configres -ne 0 ] ; then
       echo "Configure failed, trying to erase build directory content before second try"
@@ -283,7 +296,7 @@ function copytofpcbin ()
       rm -Rf ${prefix}
       mkdir -p ${prefix}
       cd ${prefix}
-      ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot --disable-intl --disable-libtool --disable-werror 2>&1 | tee $LOGFILE
+      ../../${binutilsdir}/configure $config_option --target=$target --with-sysroot$USE_SYSROOT --disable-intl --disable-libtool --disable-werror 2>&1 | tee $LOGFILE
       configres=$?
     fi
     make all-binutils all-gas all-ld 2>&1 | tee -a $LOGFILE
