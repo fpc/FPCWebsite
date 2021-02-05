@@ -373,6 +373,12 @@ if [ "X${MAKE:-}" == "X" ] ; then
     MAKE=make
   fi
 fi
+FIND=` which gfind 2> /dev/null `
+
+if [ -z "$FIND" ] ; then
+  FIND=find
+fi
+
 
 if [ -z "${USER:-}" ]; then
   USER=${LOGNAME:-Unknown}
@@ -437,7 +443,7 @@ fi
 
 if [ -f "$script_source" ] ; then
   svn_script_version=` svnversion -c "$script_source"`
-  script_date=` find "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
+  script_date=`$FIND "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
 else
   svn_script_version="Unknown \"$script_source\" \"$script_name\""
   script_date=Unknown
@@ -849,7 +855,7 @@ function add_dir ()
   fi
 
   if [ -z "$file_list" ] ; then
-    file_list=` find $sysroot/ $find_expr "$pattern" `
+    file_list=`$FIND -L $sysroot/ $find_expr "$pattern" `
   fi
 
   for file in $file_list ; do
@@ -1482,7 +1488,7 @@ function check_target ()
       let ++step_ok_count
     fi
     LOGFILE_RTL_PPUNAME=`basename $LOGFILE_RTL_PPU`
-    IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILE_RTL_PPUNAME -size +1M`
+    IS_HUGE=`$FIND $LOGDIR -maxdepth 1 -name $LOGFILE_RTL_PPUNAME -size +1M`
     if [ ! -z "$IS_HUGE" ] ; then
       echo "$LOGFILE_RTL_PPU is huge: `wc -c $LOGFILE_RTL_PPU`"
       echo "Original $LOGFILE_RTL_PPU was huge: `wc -c $LOGFILE_RTL_PPU`" > ${LOGFILE_RTL_PPU}-tmp
@@ -1578,7 +1584,7 @@ function check_target ()
         lecho "OK: Testing ppudump of $packagesdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_PACKAGES_PPU`
-      IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
+      IS_HUGE=`$FIND $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
       if [ ! -z "$IS_HUGE" ] ; then
         echo "$LOGFILE_PACKAGES_PPU is huge: `wc -c $LOGFILE_PACKAGES_PPU`"
         echo "Original $LOGFILE_PACKAGES_PPU was huge: `wc -c $LOGFILE_PACKAGES_PPU`" > ${LOGFILE_PACKAGES_PPU}-tmp
@@ -1635,7 +1641,7 @@ function check_target ()
         lecho "OK: Testing ppudump of $utilsdir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" $buildfullnative_text FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
       fi
       LOGFILEPPUNAME=`basename $LOGFILE_UTILS_PPU`
-      IS_HUGE=`find $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
+      IS_HUGE=`$FIND $LOGDIR -maxdepth 1 -name $LOGFILEPPUNAME -size +1M`
       if [ ! -z "$IS_HUGE" ] ; then
         echo "$LOGFILE_UTILS_PPU is huge: `wc -c $LOGFILE_UTILS_PPU`"
         echo "Original $LOGFILE_UTILS_PPU was huge: `wc -c $LOGFILE_UTILS_PPU`" > ${LOGFILE_UTILS_PPU}-tmp
