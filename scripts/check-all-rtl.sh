@@ -1085,12 +1085,26 @@ function check_target ()
     else
       # clang does not need a prefix, as it is multi-platform
       ASSEMBLER=clang
+      if [[ (("$OS_TARG_LOCAL" == "darwin") && ("$CPU_TARG_LOCAL" == "aarch64")) ]] ; then
+        clang_min_major_local=11
+      else
+        clang_min_major_local=
+      fi
+      
       if [ $SKIP_CLANG -eq 1 ] ; then
         echo "clang too old or not found, skipping"
         skipped_count=`expr $skipped_count + 1 `
         skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
         lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" clang not found or too old"
         return
+      elif [ -n "${clang_min_major_local:-}" ] ; then
+        if [ $clang_major -lt $clang_min_major_local ] ; then
+          echo "clang version $clang_major below $clang_min_major_local, skipping"
+          skipped_count=`expr $skipped_count + 1 `
+          skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
+          lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" clang version $clang_version below $clang_min_major_local"
+          return
+        fi
       fi
       # Use symbolic links to clang with CPU-OS- prefixes
       # instead of resetting BINUTILSPREFIX=
