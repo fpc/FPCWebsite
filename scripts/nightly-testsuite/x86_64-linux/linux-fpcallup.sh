@@ -38,6 +38,9 @@ do_x86_64=1
 do_docs=0
 do_docs_options=""
 run_test_optimizations=0
+run_cross_test_optimizations=0
+run_test_optimizations_args=""
+run_cross_test_optimizations_args=""
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
@@ -95,6 +98,10 @@ elif [ "X$HOSTNAME" == "Xgcc70" ] ; then
 elif [ "X$HOSTNAME" == "Xgcc10" ] ; then
   gen_snapshot_trunk=1
   check_cross_trunk=1
+  run_test_optimizations=1
+  run_test_optimizations_args="OPT=\"-altr\""
+  run_cross_test_optimizations=1
+  run_cross_test_optimizations_args="OPT=\"-altr\""
 fi
 
 # Start with ppc386
@@ -189,12 +196,19 @@ fi
 
 if [ $run_test_optimizations -eq 1 ] ; then
   # Start with ppc386
-  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=0
-  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=1
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=0 $run_test_optimizations_args
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=1 $run_test_optimizations_args
   # By default use ppcx64
-  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=0
-  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=1
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=0 $run_test_optimizations_args
+  $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=1 $run_test_optimizations_args
 fi
+if [ $run_cross_test_optimizations -eq 1 ] ; then
+  for fpcbin in ppca64 ppcarm ppc68k ppc8086 ppcmips ppcmipsel ppcppc ppcppc64 ppcrv32 ppcrv64 ppcsparc ppcsparc64 ppcxtensa ; do
+    $HOME/bin/test-optimizations.sh --full FPCBIN=$fpcbin FIXES=0 $run_cross_test_optimizations_args
+    $HOME/bin/test-optimizations.sh --full FPCBIN=$fpcbin FIXES=1 $run_cross_test_optimizations_args
+  done
+fi
+
 
 # Check if script directory exists
 SVNLOGFILE=$HOME/logs/svn-scripts.log
