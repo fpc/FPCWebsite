@@ -443,10 +443,18 @@ fi
 
 if [ -f "$script_source" ] ; then
   svn_script_version=` svnversion -c "$script_source"`
+  scripts_source_dir=`dirname "$script_source"`
+  if [ -d "$scripts_source_dir" ] ; then
+    svn_scripts_version=`svnversion -c "$scripts_source_dir"`
+  else
+    svn_scripts_version="Unknown scripts svn version"
+  fi
   script_date=`$FIND "$script_source" -printf "%TY-%Tm-%Td_%TH:%TM"`
 else
   svn_script_version="Unknown \"$script_source\" \"$script_name\""
   script_date=Unknown
+  scripts_source_dir=Unknown
+  svn_scripts_version="Unknown scripts svn version"
 fi
 
 
@@ -626,11 +634,16 @@ function generate_local_diff_file ()
   subdir=$1
   svn_version=$2
   if [ "${svn_version/M/}" != "${svn_version}" ] ; then
-    SVNLOGFILE=$LOGDIR/svn_diff_${subdir}.patch
-    mecho "${subdir} is locally modified, saving into $SVNLOGFILE"
-    cd $subdir
-    svn diff > $SVNLOGFILE 2>&1
-    cd ..
+    if [ -d "$subdir" ] ; then
+      (
+      SVNLOGFILE=$LOGDIR/svn_diff_${subdir}.patch
+      mecho "${subdir} is locally modified, saving into $SVNLOGFILE"
+      cd $subdir
+      svn diff > $SVNLOGFILE 2>&1
+      )
+    else
+      mecho "$subdir with version $svn_version not found"
+    fi
     eval "svn_${subdir}_modified=1"
   else
     eval "svn_${subdir}_modified=0"
@@ -657,6 +670,8 @@ mecho "Packages svn version: $svn_packages_version"
 generate_local_diff_file packages $svn_packages_version
 mecho "Utils svn version: $svn_utils_version"
 generate_local_diff_file utils $svn_utils_version
+mecho "Scripts svn version: $svn_scripts_version"
+generate_local_diff_file scripts "$svn_scripts_version"
 mecho "Script svn version: $svn_script_version ($script_date)"
 if [ -f "$script_source" ] ; then
   if [ "${svn_script_version/M/}" != "${svn_script_version}" ] ; then
