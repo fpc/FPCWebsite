@@ -175,6 +175,7 @@ ULIMIT_TIME=333
 COMPILE_EACH_CPU=0
 set_home_bindir_first=0
 inside_main_subscript=0
+finish_script_started=0
 
 if [ "X$machine_host" == "Xgcc10" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -2022,7 +2023,7 @@ inside_main_subscript=0
 
 function finish_script ()
 {
-finish_script_started=0
+finish_script_started=1
 dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
 skipped_count_new_val=` grep "^skipped_count=" $LOGFILE `
@@ -2301,7 +2302,6 @@ function handle_TERM ()
     finish_main_subscript >> $LOGFILE
   fi
   if [ $finish_script_started -eq 0 ] ; then
-    finish_script_started=1
     finish_script
   fi
   rm_lockfile
@@ -2311,4 +2311,3 @@ trap handle_TERM SIGTERM
 
 main_subscript
 finish_script
-
