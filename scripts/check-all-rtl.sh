@@ -454,7 +454,7 @@ if [ -f "$script_source" ] ; then
 else
   svn_script_version="Unknown \"$script_source\" \"$script_name\""
   script_date=Unknown
-  scripts_source_dir=Unknown
+  scripts_source_dir=scripts
   svn_scripts_version="Unknown scripts svn version"
 fi
 
@@ -672,7 +672,7 @@ generate_local_diff_file packages $svn_packages_version
 mecho "Utils svn version: $svn_utils_version"
 generate_local_diff_file utils $svn_utils_version
 mecho "Scripts svn version: $svn_scripts_version"
-generate_local_diff_file scripts "$svn_scripts_version"
+generate_local_diff_file $scripts_source_dir "$svn_scripts_version"
 mecho "Script svn version: $svn_script_version ($script_date)"
 if [ -f "$script_source" ] ; then
   if [ "${svn_script_version/M/}" != "${svn_script_version}" ] ; then
