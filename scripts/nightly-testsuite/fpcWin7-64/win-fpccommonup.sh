@@ -37,7 +37,7 @@ if [ "${HOSTNAME}" == "WIN-G8VVDPH2N8D" ]; then
 fi
 
 if [ -z "${STARTVERSION}" ]; then
-  STARTVERSION=3.0.4
+  STARTVERSION=3.2.0
 fi
 if [ -z "${SVNDIR}" ]; then
   SVNDIR=${HOME}/pas/trunk
@@ -69,7 +69,7 @@ if [ "${HOSTNAME}" == "PC-Nanion" ]; then
   export MINGW_CYGWINDIR=c:/cygwin64
   export CYGWIN_FPCDIR=/cygdrive/c/pas
   export MINGW_FPCDIR=c:/pas
-  export STARTVERSION=3.0.2
+  # export STARTVERSION=3.0.2
   export FPCPATH=${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/${FPCFULLTARGET}:${CYGWIN_FPCDIR}/fpc-${STARTVERSION}/bin/i386-win32
   if [ "X${MAKE}" == "Xmake" ] ; then
     export MAKE="c:\\pas\\fpc-${STARTVERSION}\\bin\\i386-win32\\make.exe"
