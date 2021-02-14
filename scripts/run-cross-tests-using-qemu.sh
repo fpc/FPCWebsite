@@ -71,6 +71,12 @@ START_EMUL_OPTIONS="$EMUL_OPTIONS"
 
 export PATH=${INSTALLFPCDIRPREFIX}${TARGET_VERSION}/bin:$PATH
 
+FIND=` which gfind 2> /dev/null `
+
+if [ -z "$FIND" ] ; then
+  FIND=find
+fi
+
 set -u
 
 function decho ()
@@ -104,7 +110,7 @@ function add_dir ()
   fi
 
   if [ -z "$file_list" ] ; then
-    file_list=` find $sysroot/ $find_expr "$pattern" `
+    file_list=` $FIND -L $sysroot/ $find_expr "$pattern" `
   fi
 
   for file in $file_list ; do
