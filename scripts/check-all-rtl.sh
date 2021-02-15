@@ -637,7 +637,8 @@ function generate_local_diff_file ()
   if [ "${svn_version/M/}" != "${svn_version}" ] ; then
     if [ -d "$subdir" ] ; then
       (
-      SVNLOGFILE=$LOGDIR/svn_diff_${subdir}.patch
+      dir_name=`basename $subdir`
+      SVNLOGFILE=$LOGDIR/svn_diff_${dir_name}.patch
       mecho "${subdir} is locally modified, saving into $SVNLOGFILE"
       cd $subdir
       svn diff > $SVNLOGFILE 2>&1
