@@ -34,6 +34,7 @@ function test_help ()
   echo "  --tests: recompile tests"
   echo "  --utils: recompile utils"
   echo "FPCBIN=ppcXXX to force use of a particular CPU compiler"
+  echo "CPU_TARGET=XXX to force use of a XXX compiler"
   echo "OPT=\"-X -Y\" options added when testing the compilers"
 }
 # Evaluate all arguments containing an equal sign
@@ -87,11 +88,13 @@ while [ "$1" != "" ] ; do
     continue
   fi
   if [ "$1" == "--utils" ] ; then
+    do_packages=1
     do_utils=1
     shift
     continue
   fi
   if [ "$1" == "--tests" ] ; then
+    do_packages=1
     do_tests=1
     shift
     continue
@@ -115,6 +118,11 @@ if [ $do_tests -eq 1 ] ; then
   # longlog file contains details that can vary 
   # Add it to ignore_list
   ignore_list+=" longlog"
+  if [ "$tests_target" = "full" ] ; then
+    ignore_list+=" longlog"
+  else
+    ignore_list+=" longlog.*log"
+  fi
   # Test tw26472 can vary:
   # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
   # which are expected to be different, do not copy these files
@@ -164,19 +172,24 @@ if [ -d "$FPC_BINDIR" ] ; then
 fi
 
 cpu_target_explicit=0
+FORCE_LE=0
+FORCE_BE=0
 if [ -n "${CPU_TARGET:-}" ] ; then
   cpu_target_explicit=1
+  SCRIPT_CPU_TARGET=$CPU_TARGET
+  unset CPU_TARGET
   if [ -z "${FPCBIN:-}" ] ; then
-    FPCBIN="ppc$CPU_TARGET"
-    case "$CPU_TARGET" in
+    FPCBIN="ppc$SCRIPT_CPU_TARGET"
+    case "$SCRIPT_CPU_TARGET" in
       aarch64|arm64) FPCBIN=ppca64 ;;
-      arm) FPCBIN=ppcarm ;;
+      armeb*) FPCBIN=ppcarm ; FORCE_BE=1 ;;
+      arm) FPCBIN=ppcarm ; FORCE_LE=1 ;;
       i*86) FPCBIN=ppc386 ;;
       m68k) FPCBIN=ppc68k ;;
       mipsel*) FPCBIN=ppcmipsel ;;
       mips*) FPCBIN=ppcmips ;;
-      powerpc64le|ppc64le) FPCBIN=ppcppc64 ;;
-      powerpc|ppc) FPCBIN=ppcppc ;;
+      powerpc64le|ppc64le) FPCBIN=ppcppc64 ; FORCE_LE=1 ;;
+      powerpc|ppc) FPCBIN=ppcppc ; FORCE_BE=1 ;;
       powerpc64|ppc64) FPCBIN=ppcppc64 ;;
       riscv32) FPCBIN=ppcrv32 ;;
       riscv64) FPCBIN=ppcrv64 ;;
@@ -211,29 +224,29 @@ case $NATIVE_MACHINE in
 esac
 
 if [ -f "$FOUND_FPCBIN" ] ; then
-  OS_TARGET=`$FOUND_FPCBIN -iTO`
-  CPU_TARGET=`$FOUND_FPCBIN -iTP`
-  OS_SOURCE=`$FOUND_FPCBIN -iSO`
-  CPU_SOURCE=`$FOUND_FPCBIN -iSP`
+  SCRIPT_OS_TARGET=`$FOUND_FPCBIN -iTO`
+  SCRIPT_CPU_TARGET=`$FOUND_FPCBIN -iTP`
+  SCRIPT_OS_SOURCE=`$FOUND_FPCBIN -iSO`
+  SCRIPT_CPU_SOURCE=`$FOUND_FPCBIN -iSP`
 elif [ $cpu_target_explicit -eq 1 ] ; then
-  OS_TARGET=`fpc -iTO`
-  OS_SOURCE=`fpc -iSO`
-  CPU_SOURCE=`fpc -iSP`
+  SCRIPT_OS_TARGET=`fpc -iTO`
+  SCRIPT_OS_SOURCE=`fpc -iSO`
+  SCRIPT_CPU_SOURCE=`fpc -iSP`
 else
-  OS_TARGET=`uname -s | tr '[:upper:]' '[:lower:]' `
-  CPU_TARGET=$NATIVE_MACHINE
-  OS_SOURCE=$OS_TARGET
-  CPU_SOURCE=$CPU_TARGET
+  SCRIPT_OS_TARGET=`uname -s | tr '[:upper:]' '[:lower:]' `
+  SCRIPT_CPU_TARGET=$NATIVE_MACHINE
+  SCRIPT_OS_SOURCE=$SCRIPT_OS_TARGET
+  SCRIPT_CPU_SOURCE=$SCRIPT_CPU_TARGET
 fi
 
-if [[ ( "$CPU_SOURCE" != "$CPU_TARGET" ) || ( "$OS_SOURCE" != "$OS_TARGET" ) ]] ; then
+if [[ ( "$SCRIPT_CPU_SOURCE" != "$SCRIPT_CPU_TARGET" ) || ( "$SCRIPT_OS_SOURCE" != "$SCRIPT_OS_TARGET" ) ]] ; then
   CROSS=1
 else
   CROSS=0
 fi
 
 is_32bit=1
-case $CPU_TARGET in
+case $SCRIPT_CPU_TARGET in
   aarch64|powerpc64|x86_64|riscv64|sparc64|mips64|mipsel64) is_32bit=0;;
 esac
 
@@ -248,7 +261,7 @@ fi
 
 set -u 
 
-LOGDIR=$HOME/logs/$SVNDIRNAME/test-optimizations-$CPU_TARGET-$OS_TARGET
+LOGDIR=$HOME/logs/$SVNDIRNAME/test-optimizations-$SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET
 
 if [ ! -d $LOGDIR ] ; then
   mkdir -p $LOGDIR
@@ -259,7 +272,7 @@ TODAY=`date +%Y-%m-%d`
 export NATIVE_OPT=""
 export NATIVE_BINUTILSPREFIX=""
 export FPCMAKEOPT=""
-export BINUTILSPREFIX=""
+export SCRIPT_BINUTILSPREFIX=""
 
 if [ -d "$HOME/pas/${SVNDIRNAME}" ] ; then
   cd "$HOME/pas/${SVNDIRNAME}"
@@ -274,39 +287,39 @@ fi
 
 can_run_target=1
 
-if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
+if [ "$NATIVE_MACHINE" != "$SCRIPT_CPU_TARGET" ] ; then
   IS_CROSS=1
-  target_sysroot=$HOME/sys-root/$CPU_TARGET-$OS_TARGET
+  target_sysroot=$HOME/sys-root/$SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET
   if [ -d "$target_sysroot" ] ; then
     sysroot="$target_sysroot"
   else
     sysroot=""
   fi
   can_run_target=0
-  if [[ ( "$CPU_SOURCE" == "x86_64" ) && ( "$CPU_TARGET" == "i386" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "x86_64" ) && ( "$SCRIPT_CPU_TARGET" == "i386" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "aarch64" ) && ( "$CPU_TARGET" == "arm" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "aarch64" ) && ( "$SCRIPT_CPU_TARGET" == "arm" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "sparc64" ) && ( "$CPU_TARGET" == "sparc" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "sparc64" ) && ( "$SCRIPT_CPU_TARGET" == "sparc" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "mips64" ) && ( "$CPU_TARGET" == "mips" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "mips64" ) && ( "$SCRIPT_CPU_TARGET" == "mips" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "mipsel64" ) && ( "$CPU_TARGET" == "mipsel" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "mipsel64" ) && ( "$SCRIPT_CPU_TARGET" == "mipsel" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "powerpc64" ) && ( "$CPU_TARGET" == "powerpc" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "powerpc64" ) && ( "$SCRIPT_CPU_TARGET" == "powerpc" ) ]] ; then
     can_run_target=1
   fi
-  if [[ ( "$CPU_SOURCE" == "riscv64" ) && ( "$CPU_TARGET" == "riscv32" ) ]] ; then
+  if [[ ( "$SCRIPT_CPU_SOURCE" == "riscv64" ) && ( "$SCRIPT_CPU_TARGET" == "riscv32" ) ]] ; then
     can_run_target=1
   fi
 
   if [[ ( $can_run_target -eq 1 ) && ( $is_32bit -eq 1 ) ]] ; then
-    if [ "$CPU_TARGET" == "sparc" ] ; then
+    if [ "$SCRIPT_CPU_TARGET" == "sparc" ] ; then
       NATIVE_OPT="-ao-32"
     fi
     if [ -d "$sysroot/lib32" ] ; then
@@ -315,7 +328,7 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
     if [ -d "$sysroot/usr/lib32" ] ; then
       NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/usr/lib32"
     fi
-    if [ "$CPU_TARGET" == "sparc" ] ; then
+    if [ "$SCRIPT_CPU_TARGET" == "sparc" ] ; then
       if [ -d "$sysroot/usr/sparc64-linux-gnu/lib32" ] ; then
         NATIVE_OPT="$NATIVE_OPT -Fl$sysroot/usr/sparc64-linux-gnu/lib32"
       fi
@@ -334,7 +347,7 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
         NATIVE_OPT="$NATIVE_OPT -Fl$HOME/local/lib32"
       fi
     fi
-    M32_GCC=`which $CPU_TARGET-$OS_TARGET-gcc 2> /dev/null`
+    M32_GCC=`which $SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET-gcc 2> /dev/null`
     if [ -f "$M32_GCC" ] ; then
       M32_GCC_DIR=`$M32_GCC -print-libgcc-file-name | xargs dirname`
     else
@@ -344,18 +357,29 @@ if [ "$NATIVE_MACHINE" != "$CPU_TARGET" ] ; then
       NATIVE_OPT="$NATIVE_OPT -Fl$M32_GCC_DIR"
     fi
     export NATIVE_OPT
-    export NATIVE_BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+    CROSSOPT=""
+    if [ $FORCE_BE -eq 1 ] ; then
+      CROSSOPT="-Cb"
+    elif [ $FORCE_LE -eq 1 ] ; then
+      CROSSOPT="-Cb-"
+    fi
+    export CROSSOPT
+    export NATIVE_BINUTILSPREFIX=${SCRIPT_CPU_TARGET}-${SCRIPT_OS_TARGET}-
     export FPCMAKEOPT="$NATIVE_OPT"
-    export BINUTILSPREFIX=${CPU_TARGET}-${OS_TARGET}-
+    export SCRIPT_BINUTILSPREFIX=${SCRIPT_CPU_TARGET}-${SCRIPT_OS_TARGET}-
   fi
 fi
 
 if [ $can_run_target -eq 0 ] ; then
-  gen_compiler_target="rtlclean rtl $CPU_TARGET"
+  gen_compiler_target="rtlclean rtl $SCRIPT_CPU_TARGET"
+  tests_target="alltests"
   START_FPCBIN=`fpc -PB`
+  use_cycle=0
   do_fullcycle=0
 else
   gen_compiler_target="cycle"
+  tests_target="full"
+  use_cycle=1
   START_FPCBIN=$FPCBIN
 fi
 
@@ -403,11 +427,12 @@ function gen_compiler ()
     fi
   fi
   if [[ ( $CROSS -eq 1 ) && ( $can_run_target -eq 1 ) ]] ; then
-    export BINUTILSPREFIX="${CPU_TARGET}-${OS_TARGET}-"
+    export BINUTILSPREFIX="${SCRIPT_BINUTILSPREFIX}"
     # Pretend FPCBIN is a native compiler
-    MAKE_OPT="CPU_SOURCE=$CPU_TARGET"
+    MAKE_OPT="CPU_SOURCE=$SCRIPT_CPU_TARGET"
   else
     MAKE_OPT=""
+    unset BINUTILSPREFIX
   fi
   decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
   $MAKE distclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
@@ -448,7 +473,7 @@ function run_compilers ()
     rtl_log=$LOGDIR/rtl${SUFFIX}$log_suffix
     # Do not use distclean for rtl, to keep native rtl compiled
     #which is required in case of cross-compilation
-    $MAKE -C ../rtl clean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
+    $MAKE -C ../compiler rtlclean rtl OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       decho "Warning: $MAKE failed in rtl, res=$makeres"
@@ -539,19 +564,24 @@ function run_compilers ()
       decho "Testing $NEWFPC in tests"
       TEST_ADD_OPT="-O2 ${OPT:-} $NATIVE_OPT"
       BASE_ADD_OPT="${OPT:-} $NATIVE_OPT"
-      if [ -n "$BINUTILSPREFIX" ] ; then
-        BASE_ADD_OPT="$BASE_ADD_OPT -XP$BINUTILSPREFIX"
+      if [ $CROSS -eq 1 ] ; then
+        SCRIPT_BINUTILSPREFIX="${SCRIPT_CPU_TARGET}-${SCRIPT_OS_TARGET}-"
       fi
-      $MAKE -C ../tests distclean full OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
-        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${BINUTILSPREFIX} > $tests_log 2>&1
+      if [ -n "$NATIVE_BINUTILSPREFIX" ] ; then
+        BASE_ADD_OPT="$BASE_ADD_OPT -XP$NATIVE_BINUTILSPREFIX"
+      fi
+      $MAKE -C ../tests distclean $tests_target OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
+        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
+        BINUTILSPREFIX="${NATIVE_BINUTILSPREFIX}" > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
-        decho "Warning: $MAKE full failed in tests, res=$makeres"
+        decho "Warning: $MAKE $tests_target failed in tests, res=$makeres"
       else
         log_list="$log_list $tests_log"
       fi
       tests_move_log=$LOGDIR/tests-move${SUFFIX}$log_suffix
       move_count=0
+      failed_move_count=0
       decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests"
       decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests" > $tests_move_log
       destdir=../rtl/units${SUFFIX}/tests
@@ -561,14 +591,20 @@ function run_compilers ()
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
         file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
-	file_list+=" $dir/log $dir/longlog $dir/faillist"
+	if [ "$tests_target" = "full" ] ; then
+          file_list+=" $dir/log $dir/longlog $dir/faillist"
+	else
+          file_list+=" $dir/log.*log $dir/longlog.*log $dir/faillist.*log"
+	fi
         for f in $file_list ; do
 	  # Do not try to copy directories directly
 	  if [ ! -d "$f" ] ; then
             cp -f $f $destdir >> $tests_move_log 2>&1
             cpres=$?
             if [ $cpres -ne 0 ] ; then
+              let failed_move_count++
               decho "Error moving $f to $destdir, res=$cpres"
+              decho "Error moving $f to $destdir, res=$cpres" >> $tests_move_log
 	    else
 	      let move_count++
               decho "Moved $f to $destdir" >> $tests_move_log
@@ -581,6 +617,10 @@ function run_compilers ()
       fi
       decho "Moved $move_count files from $dir to $destdir"
       decho "Moved $move_count files from $dir to $destdir" >> $tests_move_log
+      if [ $failed_move_count -ne 0 ] ; then
+        decho "$failed_move_count files failed to copy from $dir to $destdir"
+        decho "$failed_move_count files failed to copy from $dir to $destdir" >> $tests_move_log
+      fi
       log_list="$log_list $tests_move_log"
     fi
   done
@@ -617,16 +657,18 @@ function generate_diffs()
 function do_all ()
 {
   if [ $IS_CROSS -eq 1 ] ; then
-    decho "Cross-configuration detected: machine_cpu=$NATIVE_MACHINE, target_cpu=$CPU_TARGET" 
+    decho "Cross-configuration detected: machine_cpu=$NATIVE_MACHINE, target_cpu=$SCRIPT_CPU_TARGET" 
     if [ $is_32bit -eq 1 ] ; then
-      decho "Running 32-bit $CPU_TARGET compiler on $NATIVE_MACHINE machine, needs special option NATIVE_OPT=\"$NATIVE_OPT\"" 
+      decho "Running 32-bit $SCRIPT_CPU_TARGET compiler on $NATIVE_MACHINE machine, needs special option NATIVE_OPT=\"$NATIVE_OPT\"" 
     fi
   fi
   decho "Using FPCBIN=$FPCBIN"
   gen_compiler "-O-"
   if [ $all_variants -eq 1 ] ; then
     gen_compiler "-O1"
-    gen_compiler "-O2"
+  fi
+  gen_compiler "-O2"
+  if [ $all_variants -eq 1 ] ; then
     gen_compiler "-O3"
     gen_compiler "-O4 -CX -XX"
   fi
