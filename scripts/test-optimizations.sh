@@ -127,6 +127,9 @@ if [ $do_tests -eq 1 ] ; then
   # tests/webtbs/tw26472.pp uses {$I  %TIMEXXX}
   # which are expected to be different, do not copy these files
   ignore_list+=" tw26472*"
+  # webtbs/tw23185 uses ppas.sh script,
+  # which contains link$PID.res file, so we also ignore ppas.sh scripts
+  ignore_list+=" ppas.sh"
 fi
 
 if [ -z "$USER" ]; then
