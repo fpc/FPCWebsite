@@ -633,11 +633,11 @@ function rm_lockfile ()
 function generate_local_diff_file ()
 {
   subdir=$1
+  dir_name=`basename $subdir`
   svn_version=$2
   if [ "${svn_version/M/}" != "${svn_version}" ] ; then
     if [ -d "$subdir" ] ; then
       (
-      dir_name=`basename $subdir`
       SVNLOGFILE=$LOGDIR/svn_diff_${dir_name}.patch
       mecho "${subdir} is locally modified, saving into $SVNLOGFILE"
       cd $subdir
@@ -646,9 +646,9 @@ function generate_local_diff_file ()
     else
       mecho "$subdir with version $svn_version not found"
     fi
-    eval "svn_${subdir}_modified=1"
+    eval "svn_${dir_name}_modified=1"
   else
-    eval "svn_${subdir}_modified=0"
+    eval "svn_${dir_name}_modified=0"
   fi
 }
 
