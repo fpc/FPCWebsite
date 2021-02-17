@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
+
 if [ -z "$VASM_VERSION" ] ; then
-  VASM_VERSION=1_8i
+  # Latest version published 2020/12/31
+  VASM_VERSION=1_8j
+  #Old HMTL dir http://server.owl.de/~frank/tags
+  VASM_HTML_DIR=http://sun.hasenbraten.de/vasm/release
 fi
 if [ -z "$VLINK_VERSION" ] ; then
-  VLINK_VERSION=0_16f
+  # Latest version published 2020/12/31
+  VLINK_VERSION=0_16g
+  #Old HTML dir http://phoenix.owl.de/tags
+  VLINK_HTML_DIR=http://sun.hasenbraten.de/vlink/release
 fi
 
 
@@ -85,7 +92,7 @@ function do_recompile_vasm ()
   VASM_SRC=vasm${VASM_VERSION}.tar.gz 
 
   if [ ! -f "$VASM_SRC" ] ; then
-    $WGET http://server.owl.de/~frank/tags/${VASM_SRC}
+    $WGET ${VASM_HTML_DIR}/${VASM_SRC}
     wget_res=$?
     if [ $wget_res -ne 0 ] ; then
       echo "Error: $WGET failed to download $VASM_SRC"
@@ -177,7 +184,7 @@ function recompile_vlink ()
   VLINK_SRC=vlink${VLINK_VERSION}.tar.gz
   if [ ! -f "$VLINK_SRC" ] ; then
     # $WGET http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
-    $WGET http://phoenix.owl.de/tags/$VLINK_SRC
+    $WGET $VLINK_HTML_DIR/$VLINK_SRC
     wget_res=$?
     if [ $wget_res -ne 0 ] ; then
       echo "Error: failed to download $VLINK_SRC"
