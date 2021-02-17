@@ -375,7 +375,6 @@ if [ $can_run_target -eq 0 ] ; then
   tests_target="alltests"
   START_FPCBIN=`fpc -PB`
   use_cycle=0
-  do_fullcycle=0
 else
   gen_compiler_target="cycle"
   tests_target="full"
@@ -488,22 +487,32 @@ function run_compilers ()
     if [ $do_fullcycle -eq 1 ] ; then
       decho "Testing $NEWFPC in compiler with fullcycle target"
       fullcycle_log=$LOGDIR/fullcycle${SUFFIX}$log_suffix
-      $MAKE -C . distclean fullcycle OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $fullcycle_log 2>&1
+      error_in_full_cycle=0
+      $MAKE -C . distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $fullcycle_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
-        decho "Warning: $MAKE failed for fullcycle in compiler, res=$makeres"
+        error_in_full_cycle=1
+        decho "Warning: $MAKE failed for distclean in compiler, res=$makeres"
       else
+        for CPU in $cpu_list ; do 
+          $MAKE -C . $CPU OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN >> $fullcycle_log 2>&1
+          makeres=$?
+          if [ $makeres -ne 0 ] ; then
+            decho "Warning: $MAKE failed for $CPU in compiler, res=$makeres"
+            error_in_full_cycle=1
+          fi
+          if [ -d ./$CPU/units ] ; then
+            decho "Moving $CPU/units to ../rtl/units${SUFFIX}/compiler-$CPU"
+            if [ ! -d ../rtl/units${SUFFIX}/compiler-$CPU ] ; then
+              mkdir -p ../rtl/units${SUFFIX}/compiler-$CPU
+            fi
+            cp -Rf ./$CPU/units ../rtl/units${SUFFIX}/compiler-$CPU/
+          fi
+        done
+      fi
+      if [ $erro_in_full_cycle -eq 0 ] ; then
         log_list="$log_list $fullcycle_log"
       fi
-      for CPU in $cpu_list ; do 
-        if [ -d ./$CPU/units ] ; then
-          decho "Moving $CPU/units to ../rtl/units${SUFFIX}/compiler-$CPU"
-          if [ ! -d ../rtl/units${SUFFIX}/compiler-$CPU ] ; then
-            mkdir -p ../rtl/units${SUFFIX}/compiler-$CPU
-          fi
-          cp -Rf ./$CPU/units ../rtl/units${SUFFIX}/compiler-$CPU/
-       fi
-      done
     fi
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
@@ -716,6 +725,7 @@ if [ $test_failed -eq 1 ] ; then
   machine_os=`uname -s`
   machine_info="$machine_host $machine_cpu $machine_os"
 
-  mutt -x -s "Free Pascal optimization tests $0 $all_args failed in ${SVNDIRNAME}, date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+  mutt -x -s "Free Pascal optimization tests $0 $all_args failed in ${SVNDIRNAME}, \
+    date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 fi
 
