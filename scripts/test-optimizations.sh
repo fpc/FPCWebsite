@@ -112,6 +112,8 @@ done
 if [ -n "$OPT" ] ; then
   SCRIPT_OPT="$OPT"
   OPT=""
+else
+  SCRIPT_OPT=""
 fi
 
 if [ -z "$COMPILE_COMPILER_OPT" ] ; then
