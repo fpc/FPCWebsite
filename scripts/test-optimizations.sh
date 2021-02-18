@@ -525,7 +525,7 @@ function run_compilers ()
           fi
         done
       fi
-      if [ $erro_in_full_cycle -eq 0 ] ; then
+      if [ $error_in_full_cycle -eq 0 ] ; then
         log_list="$log_list $fullcycle_log"
       fi
     fi
