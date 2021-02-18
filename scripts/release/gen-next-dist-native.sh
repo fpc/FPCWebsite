@@ -1,16 +1,54 @@
 #!/usr/bin/env bash
 
-release_version=3.2.0
-release_version_last_rc=3.2.0-rc1
-is_beta=0
+verbose=0
+check_option_arg=1
 
-if [ $is_beta -eq 0 ] ; then
-  ftpdir=ftp/dist/$release_version
-else
-  ftpdir=ftp/beta/$release_version
+while [ $check_option_arg -eq 1 ] ; do
+  check_option_arg=0
+  if [ "$1" == "--verbose" ] ; then
+    verbose=1
+    check_option_arg=1
+    shift
+  fi
+
+  # Evaluate all arguments containing an equal sign
+  # as variable definition
+  if [ "${1/=/_}" != "$1" ] ; then
+    eval export "$1"
+    check_option_arg=1
+    shift
+  fi
+done
+
+if [ -z "$release_version" ] ; then
+  release_version=3.2.2-rc1
+  release_version_last_rc=3.2.0-rc1
 fi
 
-previous_release_version=3.0.4
+svn_branch_name=release_${release_version//./_}
+svn_branch_name=${svn_branch_name//-/_}
+
+svn_html_base=https://svn.freepascal.org/svn/fpcbuild/tags
+
+if [ -z "$is_beta" ] ; then
+  if [ "${release_version/rc/}" != "$release_version" ] ; then
+    is_beta=1
+  else
+    is_beta=0
+  fi
+fi
+
+if [ -z "$ftpdir" ] ; then
+  if [ $is_beta -eq 0 ] ; then
+    ftpdir=ftp/dist/$release_version
+  else
+    ftpdir=ftp/beta/$release_version
+  fi
+fi
+
+if [ -z "$previous_release_version" ] ; then
+  previous_release_version=3.2.0
+fi
 
 if [ -z "$FPC" ] ; then
   FPC=fpc
@@ -48,8 +86,21 @@ function set_cpu_suffix ()
   cpu_suffix=$cpu
 }
 
-target_cpu=`$FPC -iTP`
-target_os=`$FPC -iTO`
+if [ -z "$target_cpu" ] ; then
+  target_cpu=`$FPC -iTP`
+  if [ $verbose -eq 1 ] ; then
+    echo "Using target_cpu=$target_cpu from $FPC -iTP"
+  fi
+else
+  if [ $verbose -eq 1 ] ; then
+    echo "Using target_cpu=$target_cpu from environ/parameters"
+  fi
+fi
+
+if [ -z "$target_os" ] ; then
+  target_os=`$FPC -iTO`
+fi
+
 set_cpu_suffix $target_cpu
 target_compiler_suffix=${cpu_suffix}
 target_compiler=ppc$target_compiler_suffix
@@ -101,6 +152,14 @@ if [ -z "$MAKE" ] ; then
   MAKE=`which make 2> /dev/null`
 fi
 
+if [ -z "$FIND" ] ; then
+  FIND=`which gfind 2> /dev/null`
+fi
+
+if [ -z "$FIND" ] ; then
+  FIND=`which find 2> /dev/null`
+fi
+
 if [ -z "$NEEDED_OPT" ] ; then
   NEEDED_OPT=
 fi
@@ -110,14 +169,18 @@ set -u
 if [ $is_32bit -eq 1 ] ; then
   NATIVE_OPT32=""
   if [ "$target_cpu" == "sparc" ] ; then
-    # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+    if [ $verbose -eq 1 ] ; then
+      echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+    fi
     NATIVE_OPT32="-ao-32 -Xd -vx"
     if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
     fi
   fi
   if [ "$target_cpu" == "powerpc" ] ; then
-    # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+    if [  $verbose -ne 0 ] ;then
+      echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+    fi
     NATIVE_OPT32="-Xd -vx"
     if [ -d /usr/powerpc64-linux-gnu/lib32 ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/powerpc64-linux-gnu/lib32"
@@ -197,8 +260,36 @@ if [ $is_64bit -eq 1 ] ; then
 fi
 
 basedir=`pwd`
+
+if [ -d "$svn_branch_name" ] ; then
+  cd $svn_branch_name
+fi
+
+svn_version=`svnversion -c . 2> /dev/null`
+
+if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" )  ]] ; then
+  cd $HOME/pas/release-build
+  svn checkout $svn_html_base/$svn_branch_name
+  checkout_res=$?
+  if [ $checkout_res -ne 0 ] ; then
+    echo "Failed to checkout $svn_branch_name"
+    exit
+  fi
+  cd $svn_branch_name
+  svn_version=`svnversion -c . 2> /dev/null`
+
+  if [ -z "$svn_version" ] ; then
+    echo "svnversion fails, aborting"
+    exit
+  fi
+fi
+
+basedir=`pwd`
+
 readme=$basedir/readme.${ftp_target_full}
 echo "Special method used to generate ${target_full} ${release_version} distribution" > $readme
+echo "svn version is $svn_version"
+echo "svn version is $svn_version" >> $readme
 
 cyclelog=$basedir/cycle.log
 
@@ -284,7 +375,7 @@ export FPC=`pwd`/fpcsrc/compiler/${target_compiler}-${release_version}
 
 if [ ! -f doc-pdf.tar.gz ] ; then
   cd ..
-  pdf_doc=`find . -name "doc-pdf.tar.gz" 2> /dev/null | xargs ls -1tr | head -1`
+  pdf_doc=`$FIND . -name "doc-pdf.tar.gz" 2> /dev/null | xargs ls -1tr | head -1`
   if [ -f "$pdf_doc" ] ; then
     echo "copying $pdf_doc to $basedir"
     cp -fp "$pdf_doc" $basedir
@@ -310,17 +401,20 @@ fi
 
 cd $basedir
 
-echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
-(cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
-export EXTRAOPT="-n -gl $NEEDED_OPT"
+if [ -f "`which pyacc`" ] ;then
+  echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
+  (cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
+fi
+
+export EXTRAOPT="-n -gl -vwx $NEEDED_OPT"
 echo "Generated on machine: `uname -a`" >> $readme
 echo "Starting ./install/makepack $target_full"
 echo "Starting ./install/makepack $target_full" >> $readme
-echo "with FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\""
-echo "with FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" >> $readme
+echo "with EXTRAOPT=\"$EXTRAOPT\""
+echo "with EXTRAOPT=\"$EXTRAOPT\"" >> $readme
 
 logfile=`pwd`/makepack-$target_full.log
-bash ./install/makepack $target_full > $logfile 2>&1
+( unset FPC ; bash ./install/makepack $target_full ) > $logfile 2>&1
 
 makepackres=$?
 if [ $makepackres -ne 0 ] ; then
