@@ -326,6 +326,12 @@ else
   dir_list="/lib32 /usr/lib32"
 fi
 
+FIND=` which gfind 2> /dev/null `
+
+if [ -z "$FIND" ] ; then
+  FIND=find
+fi
+
 if [ -z "${QEMU_SYSROOT:-}" ] ; then
   QEMU_SYSROOT=$HOME/sys-root/${QEMU_FULL_TARGET}
 fi
@@ -529,8 +535,15 @@ if [ $fullres -eq 0 ] ; then
   if [ $upload -eq 1 ] ; then
     UPLOADFILE=$LOGDIR/test-upload.log
     decho "Uploading $UPLOADFILE"
+    TEST_COMMENT=""
+    for opt in $TEST_OPT ; do
+      if [[ ( "${opt/-Fl/}" = "${opt}" ) && ( "${opt/-k--sysroot/}" = "${opt}" ) ]] ; then
+        TEST_COMMENT+=" $opt"
+      fi
+    done
     $MAKE uploadrun TEST_FPC=$TARGET_FPC TEST_OS_TARGET="$OS_TARGET" TEST_CPU_TARGET="$CPU_TARGET" \
-    TEST_BINUTILSPREFIX=${FULL_TARGET}- EMULATOR="$QEMU_SCRIPT" TEST_OPT="$TEST_OPT" DB_SSH_EXTRA="-i ~/.ssh/freepascal" > $UPLOADFILE 2>&1
+    TEST_BINUTILSPREFIX=${FULL_TARGET}- EMULATOR="$QEMU_SCRIPT" TEST_OPT="$TEST_OPT" \
+    TEST_COMMENT="$TEST_COMMENT" DB_SSH_EXTRA="-i ~/.ssh/freepascal" > $UPLOADFILE 2>&1
   fi
 fi
 
@@ -556,6 +569,13 @@ else
     decho "   or: $0 --all"
     exit 1
   fi
-  run_one_testsuite "${@}"
+  QEMU_SYSROOT=
+  QEMU_CPU=
+  QEMU_OPT=
+  TEST_OPT="$GLOBAL_TEST_OPT"
+  TEST_ABI=
+  for cpu in "${@}" ; do
+    run_one_testsuite $cpu
+  done
 fi
 
