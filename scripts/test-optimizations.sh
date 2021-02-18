@@ -36,6 +36,7 @@ function test_help ()
   echo "FPCBIN=ppcXXX to force use of a particular CPU compiler"
   echo "CPU_TARGET=XXX to force use of a XXX compiler"
   echo "OPT=\"-X -Y\" options added when testing the compilers"
+  echo "COMPILE_COMPILER_OPT=\"-X -Y\" options added when compiling the compilers"
 }
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -107,6 +108,15 @@ while [ "$1" != "" ] ; do
     shift
   fi
 done
+
+if [ -n "$OPT" ] ; then
+  SCRIPT_OPT="$OPT"
+  OPT=""
+fi
+
+if [ -z "$COMPILE_COMPILER_OPT" ] ; then
+  COMPILE_COMPILER_OPT=""
+fi
 
 if [ $do_fullcycle -eq 1 ] ; then
   # version unit uses revision.inc include file, 
@@ -414,7 +424,7 @@ function gen_compiler ()
 {
   ADD_OPT="$1"
   SUFFIX=${ADD_OPT// /_}
-  ADD_OPT="$ADD_OPT ${OPT:-} $NATIVE_OPT"
+  ADD_OPT="$ADD_OPT ${SCRIPT_OPT} $NATIVE_OPT"
   cycle_log=$LOGDIR/cycle${SUFFIX}$log_suffix
   NEWBIN=${FPCBIN}${SUFFIX}
   if [ -f "./$NEWBIN" ] ; then
@@ -436,8 +446,8 @@ function gen_compiler ()
     MAKE_OPT=""
     unset BINUTILSPREFIX
   fi
-  decho "Generating compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
-  $MAKE distclean $gen_compiler_target OPT="-n -gl $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
+  decho "Generating compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
+  $MAKE distclean $gen_compiler_target OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
     decho "$MAKE distclean $gen_compiler_target failed, res=$res, see $cycle_log"
@@ -445,8 +455,8 @@ function gen_compiler ()
   fi
   if [ $do_llvm -eq 1 ] ; then
     cp ./$FPCBIN ./${NEWBIN}
-    decho "Generating LLVM compiler with OPT=\"-n -gl $ADD_OPT\" $MAKE_OPT FPC=$NEWBIN in $COMPILER_DIR"
-    $MAKE distclean rtlclean rtl all OPT="-n -gl $ADD_OPT" LLVM=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
+    decho "Generating LLVM compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$NEWBIN in $COMPILER_DIR"
+    $MAKE distclean rtlclean rtl all OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" LLVM=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
     res=$?
     if [ $res -ne 0 ] ; then
       decho "Compilation of llvm version failed, see $cycle_log"
@@ -467,7 +477,7 @@ function gen_compiler ()
 function run_compilers ()
 {
   for SUFFIX in $SUFFIX_LIST ; do
-    ADD_OPT="${OPT:-} $NATIVE_OPT"
+    ADD_OPT="${SCRIPT_OPT} $NATIVE_OPT"
     NEWFPC=${FPCBIN}${SUFFIX}
     decho "Testing $NEWFPC"
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
