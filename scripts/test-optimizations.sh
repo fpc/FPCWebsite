@@ -37,6 +37,7 @@ function test_help ()
   echo "CPU_TARGET=XXX to force use of a XXX compiler"
   echo "OPT=\"-X -Y\" options added when testing the compilers"
   echo "COMPILE_COMPILER_OPT=\"-X -Y\" options added when compiling the compilers"
+  echo "MAKE_OPT variable value will be added to GNU make calls"
 }
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -409,7 +410,10 @@ COMPILER_DIR=`pwd`
 COMPILER_LIST=""
 SUFFIX_LIST=""
 log_list=""
-MAKE_OPT=""
+if [ -z "${MAKE_OPT:-}" ] ; then
+  MAKE_OPT=""
+fi
+
 if [ $do_llvm -eq 1 ] ; then
   log_suffix="-llvm.log"
 else
@@ -448,22 +452,33 @@ function gen_compiler ()
     MAKE_OPT=""
     unset BINUTILSPREFIX
   fi
-  decho "Generating compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
-  $MAKE distclean $gen_compiler_target OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
+  decho "$MAKE distclean in compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
+  $MAKE distclean OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN > $cycle_log 2>&1
   res=$?
   if [ $res -ne 0 ] ; then
-    decho "$MAKE distclean $gen_compiler_target failed, res=$res, see $cycle_log"
+    decho "$MAKE disclean failed, res=$res, see $cycle_log"
     return
   fi
+  for make_rule in $gen_compiler_target ; do
+    decho "$MAKE $make_rule in compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$START_FPCBIN in $COMPILER_DIR"
+    $MAKE $make_rule OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" $MAKE_OPT FPC=$START_FPCBIN >> $cycle_log 2>&1
+    res=$?
+    if [ $res -ne 0 ] ; then
+      decho "$MAKE $make_rule failed, res=$res, see $cycle_log"
+      return
+    fi
+  done
   if [ $do_llvm -eq 1 ] ; then
     cp ./$FPCBIN ./${NEWBIN}
     decho "Generating LLVM compiler with OPT=\"-n -gl $COMPILE_COMPILER_OPT $ADD_OPT\" $MAKE_OPT FPC=$NEWBIN in $COMPILER_DIR"
-    $MAKE distclean rtlclean rtl all OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" LLVM=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
-    res=$?
-    if [ $res -ne 0 ] ; then
-      decho "Compilation of llvm version failed, see $cycle_log"
-      return
-    fi
+    for make_rule in distclean rtlclean rtl all ; do
+      $MAKE $make_rule OPT="-n -gl $COMPILE_COMPILER_OPT $ADD_OPT" LLVM=1 $MAKE_OPT FPC=`pwd`/$NEWBIN >> $cycle_log 2>&1
+      res=$?
+      if [ $res -ne 0 ] ; then
+        decho "Compilation of llvm version failed in $make_rule, see $cycle_log"
+        return
+      fi
+    done
   fi
   if [ -f "./${FPCBIN}" ] ; then
     cp ./$FPCBIN ./${NEWBIN}
@@ -487,7 +502,8 @@ function run_compilers ()
     rtl_log=$LOGDIR/rtl${SUFFIX}$log_suffix
     # Do not use distclean for rtl, to keep native rtl compiled
     #which is required in case of cross-compilation
-    $MAKE -C ../compiler rtlclean rtl OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
+    $MAKE $MAKE_OPT -C ../compiler rtlclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $rtl_log 2>&1
+    $MAKE $MAKE_OPT -C ../compiler rtl OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN >> $rtl_log 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       decho "Warning: $MAKE failed in rtl, res=$makeres"
@@ -503,14 +519,14 @@ function run_compilers ()
       decho "Testing $NEWFPC in compiler with fullcycle target"
       fullcycle_log=$LOGDIR/fullcycle${SUFFIX}$log_suffix
       error_in_full_cycle=0
-      $MAKE -C . distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $fullcycle_log 2>&1
+      $MAKE $MAKE_OPT -C . distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN > $fullcycle_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         error_in_full_cycle=1
         decho "Warning: $MAKE failed for distclean in compiler, res=$makeres"
       else
         for CPU in $cpu_list ; do 
-          $MAKE -C . $CPU OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN >> $fullcycle_log 2>&1
+          $MAKE $MAKE_OPT -C . $CPU OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN >> $fullcycle_log 2>&1
           makeres=$?
           if [ $makeres -ne 0 ] ; then
             decho "Warning: $MAKE failed for $CPU in compiler, res=$makeres"
@@ -532,7 +548,8 @@ function run_compilers ()
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}$log_suffix
-      $MAKE -C ../packages distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $packages_log 2>&1
+      $MAKE $MAKE_OPT -C ../packages distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $packages_log 2>&1
+      $MAKE $MAKE_OPT -C ../packages all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN >> $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in packages, res=$makeres"
@@ -559,7 +576,8 @@ function run_compilers ()
     if [ $do_utils -eq 1 ] ; then
       decho "Testing $NEWFPC in utils"
       utils_log=$LOGDIR/utils${SUFFIX}$log_suffix
-      $MAKE -C ../utils distclean all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $utils_log 2>&1
+      $MAKE $MAKE_OPT -C ../utils distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $utils_log 2>&1
+      $MAKE $MAKE_OPT -C ../utils all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN >> $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in utils, res=$makeres"
@@ -594,7 +612,10 @@ function run_compilers ()
       if [ -n "$NATIVE_BINUTILSPREFIX" ] ; then
         BASE_ADD_OPT="$BASE_ADD_OPT -XP$NATIVE_BINUTILSPREFIX"
       fi
-      $MAKE -C ../tests distclean $tests_target OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
+      $MAKE $MAKE_OPT -C ../tests distclean OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
+        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
+        BINUTILSPREFIX="${NATIVE_BINUTILSPREFIX}" > $tests_log 2>&1
+      $MAKE $MAKE_OPT -C ../tests $tests_target OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
         TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
         BINUTILSPREFIX="${NATIVE_BINUTILSPREFIX}" > $tests_log 2>&1
       makeres=$?
