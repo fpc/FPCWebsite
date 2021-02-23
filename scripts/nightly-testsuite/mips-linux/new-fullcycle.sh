@@ -503,7 +503,7 @@ if [ -f $BASEDIR/trunk/fpcsrc/tests/do-checks.txt ] ; then
   doit=`cat $BASEDIR/trunk/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$TRUNKVERSION/bin:$PATH
-    $HOMEBIN/check-optimizations.sh
+    $HOMEBIN/test-optimizations.sh --full
     rm $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
     echo "no" >  $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
   fi
@@ -514,7 +514,7 @@ if [ -f $BASEDIR/fixes/fpcsrc/tests/do-checks.txt ] ; then
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$FIXESVERSION/bin:$PATH
     export FIXES=1
-    $HOMEBIN/check-optimizations.sh
+    $HOMEBIN/test-optimizations.sh --full
     rm $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
     echo "no" >  $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
   fi
