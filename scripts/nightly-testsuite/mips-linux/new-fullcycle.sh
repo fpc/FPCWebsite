@@ -499,24 +499,24 @@ if [ $skiptrunk -eq 0 ] ; then
   $HOMEBIN/makesnapshot-trunk.sh
 fi
 
-if [ -f $BASEDIR/trunk/fpcsrc/tests/do-checks.txt ] ; then
-  doit=`cat $BASEDIR/trunk/fpcsrc/tests/do-checks.txt`
+if [ -f $TRUNKDIR/fpcsrc/tests/do-checks.txt ] ; then
+  doit=`cat $TRUNKDIR/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$TRUNKVERSION/bin:$PATH
     $HOMEBIN/test-optimizations.sh --full
-    rm $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
-    echo "no" >  $BASEDIR/trunk/fpcsrc/tests/do-checks.txt
+    rm $TRUNKDIR/fpcsrc/tests/do-checks.txt
+    echo "no" >  $TRUNKDIR/fpcsrc/tests/do-checks.txt
   fi
 fi
 
-if [ -f $BASEDIR/fixes/fpcsrc/tests/do-checks.txt ] ; then
-  doit=`cat $BASEDIR/fixes/fpcsrc/tests/do-checks.txt`
+if [ -f $FIXESDIR/fpcsrc/tests/do-checks.txt ] ; then
+  doit=`cat $FIXESDIR/fpcsrc/tests/do-checks.txt`
   if [ "X$doit" == "Xyes" ] ; then
     export PATH=$BASEDIR/fpc-$FIXESVERSION/bin:$PATH
     export FIXES=1
     $HOMEBIN/test-optimizations.sh --full
-    rm $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
-    echo "no" >  $BASEDIR/fixes/fpcsrc/tests/do-checks.txt
+    rm $FIXESDIR/fpcsrc/tests/do-checks.txt
+    echo "no" >  $FIXESDIR/fpcsrc/tests/do-checks.txt
   fi
 fi
 
