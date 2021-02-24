@@ -64,6 +64,7 @@ run_check_all_rtl=0
 run_all_tests=0
 
 TEST_OPT_2="-O3 -Cg"
+TEST_OPT_3=""
 
 if [ "${processor}" = "ppc64le" ] ; then
   TEST_ABI=le
@@ -77,6 +78,8 @@ elif [ "${processor}" = "m68k" ] ; then
   export FPMAKEOPT=
   ulimit -s 8192 -t 2400
   TEST_OPT_2="-O2"
+  # Add vasm assembler testing 
+  TEST_OPT_3="-Avasm"
 else
   TEST_ABI=
   MAKE_J_OPT="-j 8"
@@ -359,6 +362,9 @@ if [ $run_all_tests -eq 1 ] ; then
   done
 else
   run_tests "${TEST_OPT_2} ${TEST_OPT}"
+  if [ -n "${TEST_OPT_3}" ] ; then
+    run_tests "${TEST_OPT_3} ${TEST_OPT}"
+  fi
 fi
 mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET}, ${Build_version} ${Build_date}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
