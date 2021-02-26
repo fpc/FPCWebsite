@@ -540,6 +540,7 @@ scripts/nightly-testsuite/i386-linux/makesnapshotfixes.sh svneol=native#text/pla
 scripts/nightly-testsuite/i386-linux/makesnapshottrunk.sh svneol=native#text/plain
 scripts/nightly-testsuite/i386-linux/test-go32v2.sh svneol=native#text/plain
 scripts/nightly-testsuite/i386-linux/test-msdos.sh svneol=native#text/plain
+scripts/nightly-testsuite/m68k-linux/all-m68k-linux.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/check-optimization.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/makesnapshot-fixes.sh svneol=native#text/plain
 scripts/nightly-testsuite/mips-linux/makesnapshot-trunk.sh svneol=native#text/plain
