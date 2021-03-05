@@ -230,12 +230,13 @@ fi
 FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
 NATIVE_MACHINE=`uname -m`
+HAS_NATIVE_FPUX80=0
 
 case $NATIVE_MACHINE in
   ppc64*) NATIVE_MACHINE=powerpc64;;
   ppc*) NATIVE_MACHINE=powerpc;;
-  amd64) NATIVE_MACHINE=x86_64;;
-  i*86) NATIVE_MACHINE=i386;;
+  amd64) NATIVE_MACHINE=x86_64 ; HAS_NATIVE_FPUX80=1 ;;
+  i*86) NATIVE_MACHINE=i386 ; HAS_NATIVE_FPUX80=1 ;;
   arm64) NATIVE_MACHINE=aarch64;;
 esac
 
@@ -391,6 +392,17 @@ if [ $can_run_target -eq 0 ] ; then
   tests_target="alltests"
   START_FPCBIN=`fpc -PB`
   use_cycle=0
+  if [ $HAS_NATIVE_FPUX80 -eq 0 ] ; then
+    if [ "$SCRIPT_CPU_TARGET" == "i386" ] ; then
+      COMPILE_COMPILER_OPT+=" -dFPC_SOFT_FPUX80"
+    fi
+    if [ "$SCRIPT_CPU_TARGET" == "i8086" ] ; then
+      COMPILE_COMPILER_OPT+=" -dFPC_SOFT_FPUX80"
+    fi
+    if [ "$SCRIPT_CPU_TARGET" == "x86_64" ] ; then
+      COMPILE_COMPILER_OPT+=" -dFPC_SOFT_FPUX80"
+    fi
+  fi 
 else
   gen_compiler_target="cycle"
   tests_target="full"
@@ -526,7 +538,19 @@ function run_compilers ()
         decho "Warning: $MAKE failed for distclean in compiler, res=$makeres"
       else
         for CPU in $cpu_list ; do 
-          $MAKE $MAKE_OPT -C . $CPU OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN >> $fullcycle_log 2>&1
+          CPU_OPT="-n -gl $ADD_OPT"
+          if [ $HAS_NATIVE_FPUX80 -eq 0 ] ; then
+            if [ "$CPU" == "i386" ] ; then
+              CPU_OPT+=" -dFPC_SOFT_FPUX80"
+            fi
+            if [ "$CPU" == "i8086" ] ; then
+              CPU_OPT+=" -dFPC_SOFT_FPUX80"
+            fi
+            if [ "$CPU" == "x86_64" ] ; then
+              CPU_OPT+=" -dFPC_SOFT_FPUX80"
+            fi
+          fi 
+          $MAKE $MAKE_OPT -C . $CPU OPT="$CPU_OPT" FPC=$NEWFPCBIN >> $fullcycle_log 2>&1
           makeres=$?
           if [ $makeres -ne 0 ] ; then
             decho "Warning: $MAKE failed for $CPU in compiler, res=$makeres"
