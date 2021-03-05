@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-export FPC_RELEASE_VERSION=3.2.0
-export FPC_RELEASE_VERSION_LAST_RC=3.2.0-rc1
-export FPC_RELEASE_VERSION_IN_TAR=3.2.0
-export FPC_START_VERSION=3.0.4
-export FPC_RELEASE_SVN_DIR=release_3_2_0
+export FPC_RELEASE_VERSION=3.2.2-rc1
+export FPC_RELEASE_VERSION_LAST_RC=3.2.2-rc1
+export FPC_RELEASE_VERSION_IN_TAR=3.2.2rc1
+export FPC_START_VERSION=3.2.0
+export FPC_RELEASE_SVN_DIR=release_3_2_2_rc1
 
 export BUILDFULLNATIVE_OS_LIST="win32 win64"
 
@@ -20,9 +20,10 @@ fi
 if [ -z "$BASE_PAS_DIR" ] ; then
   BASE_PAS_DIR=$HOME/pas/release-build
 fi
+
 export FPC_TMP_INSTALL=$BASE_PAS_DIR/fpc-tmp-$FPC_RELEASE_VERSION
 
-if [ "X${FPC_RELEASE_SVN_DIR/_rc/}" != "X${FPC_RELEASE_SVN_DIR}" ] ; then
+if [ "X${FPC_RELEASE_SVN_DIR/rc/}" != "X${FPC_RELEASE_SVN_DIR}" ] ; then
   is_beta=1
   ftpdir=ftp/beta
   tags=tags
@@ -302,22 +303,29 @@ if [ ! -f $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz ] ; then
   mkdir $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
 
   cd $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}
-  echo "Copying doc files to docs-$FPC_RELEASE_VERSION"
+  echo "Uploading doc files to docs-$FPC_RELEASE_VERSION from  fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/"
   scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/*  .
   res=$?
   if [[ ( $res -ne 0 ) || ( ! -f doc-pdf.tar.gz ) ]] ; then
+    echo "Uploading doc files to docs-$FPC_RELEASE_VERSION from  fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION_LAST_RC}/docs/"
     scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:ftp/beta/${FPC_RELEASE_VERSION_LAST_RC}/docs/*  .
     res=$?
   fi
-  if [ $res -ne 0 ] ; then
+  if [[ ( $res -ne 0 ) || ( ! -f ./doc-pdf.tar.gz ) ]] ; then
     # Using previous RC
     scp -p  -i ~/.ssh/freepascal fpc@ftpmaster.freepascal.org:${ftpdir}/${FPC_RELEASE_VERSION}/docs/*  .
     res=$?
-    if [ $res -ne 0 ] ; then
-      echo "Failed to download docs"
-      let failure_count++
-      failure_list="$failure_list $TARGETCPU-$TARGETOS"
-      return 1
+    if [[ ( $res -ne 0 ) || ( ! -f ./doc-pdf.tar.gz ) ]] ; then
+      cp -fp $BASE_PAS_DIR/docs-${FPC_START_VERSION}/doc-pdf.tar.gz .
+      res=$?
+      if [ $res -ne 0 ] ; then
+        echo "Failed to download docs"
+        let failure_count++
+        failure_list="$failure_list $TARGETCPU-$TARGETOS"
+        return 1
+      else
+        echo "Copied $BASE_PAS_DIR/docs-${FPC_START_VERSION}/doc-pdf.tar.gz to $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}"
+      fi
     else
       echo "Docs copied to `pwd`"
     fi
@@ -326,6 +334,11 @@ fi
 
 echo "$BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz copied to $BASE_PAS_DIR/$FPC_RELEASE_SVN_DIR"
 cp -f $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz $BASE_PAS_DIR/$FPC_RELEASE_SVN_DIR
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "Failed to copy $BASE_PAS_DIR/docs-${FPC_RELEASE_VERSION}/doc-pdf.tar.gz to $BASE_PAS_DIR/$FPC_RELEASE_SVN_DIR, res=$res"
+  return 1
+fi
 
 # We need to install libgdb or add NOGDB=1
 # This is only used for internal GDB,
@@ -501,15 +514,17 @@ if [ "${BUILDFULLNATIVE_OS_LIST/${TARGETOS}/}" != "$BUILDFULLNATIVE_OS_LIST" ] ;
   export BUILDFULLNATIVE=1
 fi
 
+cp -f ./fpcsrc/packages/fpmake-saved ./fpcsrc/packages/fpmake
+cp -f ./fpcsrc/utils/fpmake-saved ./fpcsrc/utils/fpmake
+
 if [ $BUILDFULLNATIVE -eq 1  ] ; then
   export CROSSOPT
-  export EXTRAOPT="$CROSSOPT"
-  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\""
-  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" > $start_tty
-  echo "Starting: bash -v ./install/makepack $1 with BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" > $MAKEPACK_LOG_FULLNATIVE
+  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\""
+  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\"" > $start_tty
+  echo "Starting: bash -v ./install/makepack $1 with BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\"" > $MAKEPACK_LOG_FULLNATIVE
   echo "Using STARTFPC=$STARTFPC"
   export BUILDFULLNATIVE=1
-  bash ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1
+  ( export FPC=$STARTFPC ; bash ./install/makepack CROSSOPT="$CROSSOPT" BUILDFULLNATIVE=$BUILDFULLNATIVE $1 ) >> $MAKEPACK_LOG_FULLNATIVE 2>&1
   build_full_native_res=$?
   echo "Ending: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, res=$build_full_native_res"
   echo "Ending: bash -v ./install/makepack $1 >> $MAKEPACK_LOG_FULLNATIVE 2>&1, with BUILDFULLNATIVE=1, res=$build_full_native_res" > $start_tty
@@ -521,15 +536,16 @@ else
   build_full_native_res=1
 fi
 if [ $build_full_native_res -ne 0 ] ; then
+  cp -f ./fpcsrc/packages/fpmake-saved ./fpcsrc/packages/fpmake
+  cp -f ./fpcsrc/utils/fpmake-saved ./fpcsrc/utils/fpmake
   export CROSSOPT="$CROSSOPT_ORIG"
-  export EXTRAOPT="$CROSSOPT"
   export OPTLEVEL3="$CROSSOPT"
   export BUILDFULLNATIVE=
-  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\""
-  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" > $start_tty
-  echo "Starting: bash -v ./install/makepack $1, without BUILDFULLNATIVE=1, FPC=$FPC and EXTRAOPT=\"$EXTRAOPT\"" > $MAKEPACK_LOG
+  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\""
+  echo "Starting: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\"" > $start_tty
+  echo "Starting: bash -v ./install/makepack $1, without BUILDFULLNATIVE=1, and CROSSOPT=\"$CROSSOPT\"" > $MAKEPACK_LOG
   echo "Using STARTFPC=$STARTFPC"
-  bash ./install/makepack $1 >> $MAKEPACK_LOG 2>&1
+  ( export FPC=$STARTFPC ; bash ./install/makepack CROSSOPT="$CROSSOPT" $1 ) >> $MAKEPACK_LOG 2>&1
   res=$?
   echo "Ending: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, res=$res"
   echo "Ending: bash -v ./install/makepack $1 >> $MAKEPACK_LOG 2>&1, without BUILDFULLNATIVE=1, res=$res" > $start_tty
@@ -556,8 +572,12 @@ if [ -n "$suffix" ]; then
   fi
 fi
 
-last_file=`ls -1tr ./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar 2> /dev/null | tail -1 `
-files=`ls -1tr ./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar 2> /dev/null `
+PATTERN1="./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar"
+PATTERN2="./fpc-${FPC_RELEASE_VERSION_IN_TAR}.${TARGETCPU}-${TARGETOS}*tar"
+PATTERN3="./${TARGETCPU}-${TARGETOS}-fpc-${FPC_RELEASE_VERSION_IN_TAR}.*tar"
+
+last_file=`ls -1tr $PATTERN1 $PATTERN2 $PATTERN3 2> /dev/null | tail -1 `
+files=`ls -1tr $PATTERN1 $PATTERN2 $PATTERN3 2> /dev/null `
 
 if [ -f "$files" ] ; then
   echo "Successfully generated files: `ls -ltr $files`"
@@ -577,9 +597,9 @@ if [ "$files" != "$last_file" ] ; then
 fi
 
 if [ -z "$files" ] ; then
-  echo "No tar file found with 'ls -1 ./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar'"
-  echo "No tar file found with 'ls -1 ./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar'" > $start_tty
-  echo "No tar file found with 'ls -1 ./fpc-${FPC_RELEASE_VERSION_IN_TAR}-${TARGETCPU}-${TARGETOS}*tar'" >> $readme
+  echo "No files found for ls -1tr $PATTERN1 $PATTERN2"
+  echo "No files found for ls -1tr $PATTERN1 $PATTERN2" > $start_tty
+  echo "No files found for ls -1tr $PATTERN1 $PATTERN2" >> $readme
   echo "Full tar listing: `ls -ltr *.tar `" >> $readme
   let failure_count++
   failure_list="$failure_list $1"
@@ -683,6 +703,31 @@ if [ $res -ne 0 ] ; then
 else
   echo "$MAKE fullcycle fullinstallsymlink finished OK"
 fi
+
+# Generate fpmake and all in packages
+cd ../packages
+$MAKE all OPT="-n ${REQUIRED_OPT:-}" FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL >> $LOGFILE2 2>&1
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "$MAKE fpmake in packages failed, res=$res"
+  exit
+else
+  echo "$MAKE fpmake in packages finished OK"
+fi
+cp -fp ./fpmake ./fpmake-saved
+
+# Generate fpmake in utils
+cd ../utils
+$MAKE fpmake OPT="-n ${REQUIRED_OPT:-}" FPC=$FPC_TMP_INSTALL/bin/$FPC_NATIVE_BIN INSTALL_PREFIX=$FPC_TMP_INSTALL >> $LOGFILE2 2>&1
+res=$?
+if [ $res -ne 0 ] ; then
+  echo "$MAKE fpmake in utils failed, res=$res"
+  exit
+else
+  echo "$MAKE fpmake in utils finished OK"
+fi
+cp -fp ./fpmake ./fpmake-saved
+
 cd $BASE_PAS_DIR
 
 if [ $# -ne 0 ]; then
