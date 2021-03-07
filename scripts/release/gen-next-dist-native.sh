@@ -267,7 +267,7 @@ fi
 
 svn_version=`svnversion -c . 2> /dev/null`
 
-if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" )  ]] ; then
+if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" ) || ( "$svn_version" = "exported" )  ]] ; then
   cd $HOME/pas/release-build
   svn checkout $svn_html_base/$svn_branch_name
   checkout_res=$?
