@@ -99,9 +99,9 @@ elif [ "X$HOSTNAME" == "Xgcc10" ] ; then
   gen_snapshot_trunk=1
   check_cross_trunk=1
   run_test_optimizations=1
-  run_test_optimizations_args="OPT=\"-altr\""
+  run_test_optimizations_args="OPT=\"-altr\" FPMAKEOPT=\"-T 8\""
   run_cross_test_optimizations=1
-  run_cross_test_optimizations_args="OPT=\"-altr\""
+  run_cross_test_optimizations_args="OPT=\"-altr\" FPMAKEOPT=\"-T 8\""
 fi
 
 # Start with ppc386
