@@ -779,7 +779,9 @@ function do_all ()
 
 global_log=$LOGDIR/global$log_suffix
 
-do_all > $global_log 2>&1
+echo "Starting $0 $all_args at `date +%Y-%m-%d:\H-%M`" > $global_log
+do_all >> $global_log 2>&1
+echo "Ending $0 $all_args at `date +%Y-%m-%d:\H-%M`" >> $global_log
 
 if [ $test_failed -eq 1 ] ; then
   decho "Optimization test $0 $all_args failed"
@@ -794,7 +796,7 @@ if [ $test_failed -eq 1 ] ; then
   machine_os=`uname -s`
   machine_info="$machine_host $machine_cpu $machine_os"
 
-  mutt -x -s "Free Pascal optimization tests $0 $all_args failed in ${SVNDIRNAME}, \
+  mutt -x -s "Free Pascal optimization tests $0 failed in ${SVNDIRNAME}, \
     date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 fi
 
