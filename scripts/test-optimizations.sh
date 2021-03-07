@@ -276,6 +276,15 @@ if [ -z "$MAKE" ] ; then
   fi
 fi
 
+if [ -z "$FIND" ] ; then
+  GFIND=`which gfind 2> /dev/null`
+  if [ -f "$GFIND" ] ; then
+    export FIND="$GFIND"
+  else
+    export FIND=find
+  fi
+fi
+
 set -u 
 
 LOGDIR=$HOME/logs/$SVNDIRNAME/test-optimizations-$SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET
@@ -659,7 +668,7 @@ function run_compilers ()
       fi
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
-        file_list=`find $dir -name "*.o" -or -name "*.ppu" -or -executable `
+        file_list=`$FIND $dir -name "*.o" -or -name "*.ppu" -or -executable `
 	if [ "$tests_target" = "full" ] ; then
           file_list+=" $dir/log $dir/longlog $dir/faillist"
 	else
