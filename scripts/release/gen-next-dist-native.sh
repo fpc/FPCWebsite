@@ -179,15 +179,20 @@ if [ $is_32bit -eq 1 ] ; then
   fi
   if [ "$target_cpu" == "powerpc" ] ; then
     if [  $verbose -ne 0 ] ;then
-      echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+      echo "Running 32bit powerpc fpc on powerpc64 machine, needs special options"
     fi
     NATIVE_OPT32="-Xd -vx"
     if [ -d /usr/powerpc64-linux-gnu/lib32 ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/powerpc64-linux-gnu/lib32"
     fi
-    export BINUTILSPREFIX=powerpc-
+    POWERPC_AS=`which powerpc-as 2> /dev/null`
+    if [ -f "$POWERPC_AS" ] ; then
+      export BINUTILSPREFIX=powerpc-
+    else
+      export BINUTILSPREFIX=powerpc-${target_os}-
+    fi
     export NATIVE_OPT32="${NATIVE_OPT32} -Fl/usr/lib -Fl/lib -Fd"
-    export FPMAKE_SKIP_CONFIG="-n -XPpowerpc-"
+    export FPMAKE_SKIP_CONFIG="-n -XP$BINUTILSPREFIX"
   fi
   if [ -d /lib32 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
