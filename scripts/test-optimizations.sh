@@ -155,13 +155,23 @@ else
   MAKEDEBUG=
 fi
 
-INSTALLRELEASEBINDIR=$INSTALLRELEASEDIR/bin
-
-if [ -d "$INSTALLRELEASEBINDIR" ] ; then
-  if [ "${PATH/$INSTALLRELEASEBINDIR/}" = "$PATH" ] ; then
-    export PATH=$PATH:$INSTALLRELEASEBINDIR
+# Prepend $HOME/bin to PATH
+HOMEBINDIR=$HOME/bin
+if [ -d "$HOMEBIN" ] ; then
+  if [ "${PATH/$HOMEBIN/}" = "$PATH" ] ; then
+    export PATH=$HOMEBINDIR:$PATH
   fi
 fi
+
+# Prepend release binary path to PATH
+FPCRELEASEVERSION=$RELEASEVERSION
+FPCRELEASEVERSIONBINDIR=${HOME}/pas/fpc-$FPCRELEASEVERSION/bin
+if [ -d "$FPCRELEASEVERSIONBINDIR" ] ; then
+  if [ "${PATH/$FPCRELEASEVERSIONBINDIR/}" = "$PATH" ] ; then
+    export PATH=$FPCRELEASEVERSIONBINDIR:$PATH
+  fi
+fi
+
 
 if [ -z "$SVNDIRNAME" ] ; then
   if [ "x$FIXES" == "x1" ] ; then
@@ -179,12 +189,10 @@ if [ -z "$SVNDIRNAME" ] ; then
   fi
 fi
 
+# And put current version at front
 FPC_BINDIR=$PASDIR/fpc-$FPC_VERSION/bin
-
 if [ -d "$FPC_BINDIR" ] ; then
-  if [ "${PATH/$FPC_BINDIR/}" = "$PATH" ] ; then
     export PATH=$FPC_BINDIR:$PATH
-  fi
 fi
 
 cpu_target_explicit=0
@@ -420,10 +428,6 @@ else
 fi
 
 set -u
-
-FPCRELEASEVERSION=$RELEASEVERSION
-# Prepend release binary path and local $HOME/bin to PATH
-export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 
 cd compiler
 COMPILER_DIR=`pwd`
