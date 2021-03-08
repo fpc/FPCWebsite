@@ -278,7 +278,7 @@ if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" ) || (
   checkout_res=$?
   if [ $checkout_res -ne 0 ] ; then
     echo "Failed to checkout $svn_branch_name"
-    exit
+    # exit
   fi
   cd $svn_branch_name
   svn_version=`svnversion -c . 2> /dev/null`
@@ -288,6 +288,27 @@ if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" ) || (
     exit
   fi
 fi
+
+cd $HOME/pas/release-build/$svn_branch_name
+
+max_retries=25
+
+retries=0
+
+while [ $retries -lt $max_retries ] ; do
+  echo "Running 'svn cleanup', retries=$retries"
+  svn cleanup
+  echo "Running 'svn up', retries=$retries"
+  svn up
+  svnres=$?
+  if [ $svnres -eq 0 ] ; then
+    break
+  else
+    echo "'svn up' failed, res=$svnres"
+  fi
+  let retries++
+done
+
 
 basedir=`pwd`
 
