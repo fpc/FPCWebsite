@@ -105,7 +105,7 @@ fi
 cd $CHECKOUTDIR
 
 if [ -z "${SKIP_SVN}" ] ; then
-  svn cleanup
+  svn cleanup --include-externals
   svn up
 fi
 

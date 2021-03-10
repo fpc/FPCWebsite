@@ -25,7 +25,7 @@ date
 # Clean, ignore errors makefile can be broken
 cd $CHECKOUTDIR
 # Run cvs update
-svn cleanup
+svn cleanup --include-externals
 svn up --accept theirs-conflict
 
 if [ -d fpcsrc ] ; then

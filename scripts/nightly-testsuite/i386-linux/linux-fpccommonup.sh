@@ -88,7 +88,7 @@ echo "Start bin is $START_PPC_BIN" >> $report
 echo "Start time `$DATE`" >> $report
 echo "PATH=$PATH" >> $report
 ulimit -d 65536 -s 8192 -t 2400  1>> $report 2>&1
-svn cleanup 1>> $report 2>&1
+svn cleanup --include-externals 1>> $report 2>&1
 svn up --accept theirs-conflict 1>> $report 2>&1
 
 if [ -d fpcsrc ]; then

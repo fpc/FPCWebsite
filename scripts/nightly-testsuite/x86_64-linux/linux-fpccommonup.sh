@@ -309,7 +309,7 @@ add_log "PATH=$PATH"
 #ulimit -d 65536 -s 8192 -t 2400  1>> $report 2>&1
 ulimit -t 2400  1>> $report 2>&1
 add_log "Updating svn in `pwd`"
-svn cleanup 1> $cleanlog 2>&1
+svn cleanup --include-externals 1> $cleanlog 2>&1
 svn up --accept theirs-conflict 1>> $svnlog 2>&1
 
 if [ -d fpcsrc ]; then

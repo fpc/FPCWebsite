@@ -261,7 +261,7 @@ if [ "X$RELEASEVERSION" != "X" ] ; then
 fi
 
 cd $srcdir
-svn cleanup
+svn cleanup --include-externals
 svn up $svnup_option
 
 cd $srcdir

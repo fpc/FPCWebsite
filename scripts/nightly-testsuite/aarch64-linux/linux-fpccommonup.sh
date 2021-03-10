@@ -203,7 +203,7 @@ Start_date=`${FPCBIN} -iD`
 echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
 echo "Start FPCBIN full info: `$FPCBIN -iVDWSOSPTOTP`" >> $report
 echo "with  OPT=\"$OPT\"" >> $report
-svn cleanup 1>> $report 2>&1
+svn cleanup --include-externals 1>> $report 2>&1
 svn up --force --accept theirs-conflict  1>> $report 2>&1
 
 if [ -d fpcsrc ]; then

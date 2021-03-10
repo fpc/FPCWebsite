@@ -297,7 +297,7 @@ retries=0
 
 while [ $retries -lt $max_retries ] ; do
   echo "Running 'svn cleanup', retries=$retries"
-  svn cleanup
+  svn cleanup --include-externals
   echo "Running 'svn up', retries=$retries"
   svn up
   svnres=$?
