@@ -8,6 +8,10 @@ export DB_SSH_EXTRA="-i ${HOME}/.ssh/freepascal"
 export SCP_EXTRA="-i ${HOME}/.ssh/freepascal"
 export TEST_USER=pierre
 
+if [ -z "$lastsnapshot" ] ; then
+  lastsnapshot=${LOGFILE}.res
+fi
+
 if [ "$CHECKOUTDIR" == "" ]; then
     echo "No CHECKOUTDIR set"
     exit 1
@@ -31,6 +35,7 @@ ulimit -t 2400
 PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/usr/pkg/bin"
 (
 date
+snapshot_res=0
 
 ulimit -a
 
@@ -112,6 +117,7 @@ echo "Starting $MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=
 $MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT="$OPT $NEEDED_OPT"
 res=$?
 echo "$MAKE info singlezipinstall SNAPSHOT=1 PP=$STARTPP $EXTRAOPT OPT=\"$OPT $NEEDED_OPT\" ended, res=$res"
+snapshot_res=$res
 
 if [ -z "$PPCCPU" ]; then
   PPCCPU=ppc386
@@ -123,20 +129,25 @@ if [ -n "$INSTALLCOMPILER" ] ; then
   cp $CHECKOUTDIR/$FPCSRCDIR/compiler/$PPCCPU $INSTALLCOMPILER
 fi
 
-# move snapshot
-echo "Upload snapshot"
-if [ "$FTPDIR" != "" ]; then
-  cd $CHECKOUTDIR
-  if [ $? -eq 0 ]; then
-     #  FTP machine must trust this account. Copy public key to that machine
-     # if needed Everything is set
-     echo "scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}"
-     scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
-     if [ $? -eq 0 ]; then   
-       set ERRORMAILADDR = ""
-     fi
-       else
-	   echo "Error moving to $CHECKOUTDIR"
+if [ $snapshot_res -eq 0 ] ; then
+  # move snapshot
+  echo "Upload snapshot"
+  if [ "$FTPDIR" != "" ]; then
+    cd $CHECKOUTDIR
+    if [ $? -eq 0 ]; then
+      #  FTP machine must trust this account. Copy public key to that machine
+      # if needed Everything is set
+      echo "scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}"
+      scp ${SCP_EXTRA} *.tar.gz ${FTPDIR}
+      scp_res=$?
+      if [ $scp_res -eq 0 ]; then   
+        set ERRORMAILADDR = ""
+      else
+        snapshot_res=$scp_res
+      fi
+    else
+      echo "Error moving to $CHECKOUTDIR"
+    fi
   fi
 fi
 
@@ -159,12 +170,19 @@ cd $CHECKOUTDIR/$FPCSRCDIR
 cd $CHECKOUTDIR
 $MAKE distclean FPC=$INSTALLCOMPILER > /dev/null
 $MAKE -C $FPCSRCDIR/tests distclean TEST_FPC=$INSTALLCOMPILER FPC=$INSTALLCOMPILER > /dev/null
+if [ $snapshot_res -eq 0 ] ; then
+  echo "Ok" > $lastsnapshot
+else
+  echo "Fail" > $lastsnapshot
+fi
 
 date
 ) > $LOGFILE 2>&1 </dev/null
 
+snapshot_res="`cat $lastsnapshot`"
+
 # send result to webmaster
-if [ "${ERRORMAILADDR}" != "" ]; then
+if [ "${snapshot_res}" != "Ok" ]; then
         # Create email
         echo "To: ${ERRORMAILADDR}" > $MAILFILE
         echo "From: fpc@freepascal.org" >> $MAILFILE
