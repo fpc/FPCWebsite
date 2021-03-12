@@ -41,6 +41,7 @@ run_test_optimizations=0
 run_cross_test_optimizations=0
 run_test_optimizations_args=""
 run_cross_test_optimizations_args=""
+run_riscv64_tests=0
 
 if [ "X$HOSTNAME" == "Xgcc67" ] ; then
   check_cross_fixes=1
@@ -74,6 +75,9 @@ elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
   gen_cross_snapshots_trunk=1
   do_trunk_i386=0
   do_fixes_i386=0
+elif [ "X$HOSTNAME" == "Xgcc140" ] ; then
+  run_test_optimizations=1
+  run_riscv64_tests=1
 elif [ "X$HOSTNAME" == "Xgcc21" ] ; then
   check_cross_fixes=1
   check_cross_trunk=1
@@ -192,6 +196,11 @@ today_fixes_sources=`ssh fpcftp "find ftp/snapshot/fixes/source -newermt $TODAY"
 if [ -z "$today_trunk_sources$today_fixes_sources" ] ; then
   # Update source on fpcftp machine
   . $SCRIPTDIR/allsourcezips
+fi
+
+if [ $run_riscv64_tests -eq 1 ] ; then
+  # Only for trunk
+  $HOME/bin/test-riscv64.sh
 fi
 
 if [ $run_test_optimizations -eq 1 ] ; then
