@@ -70,24 +70,28 @@ if [ -z "$MAKE" ] ; then
 fi
 
 cleantests=0
+run_tests=0
+run_test_optimizations=0
 if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n`
 fi
 HOSTNAME=${HOSTNAME/.*/}
 if [ "$HOSTNAME" == "gcc300" ] ; then
   cleantests=1
-  export run_tests=0
 elif [ "$HOSTNAME" == "gcc220" ] ; then
   cleantests=1
-  export run_tests=1
+  run_tests=1
+  run_test_optimizations=1
   NEEDED_OPT+=" -dFPC_USE_LIBC -gw"
 elif [ "$HOSTNAME" == "OpenBSD386" ] ; then
   # VM inside gcc123, skip test runs
   cleantests=1
-  export run_tests=1
+  run_tests=1
 else
-  export run_tests=1
+  run_tests=1
 fi
+export run_tests
+export run_test_optimizations
 
 HOST_PC=${HOSTNAME}
 
@@ -153,6 +157,7 @@ export report=$LOGDIR/report${SUFFIX}.txt
 export svnlog=$LOGDIR/svnlog${SUFFIX}.txt 
 export cleanlog=$LOGDIR/cleanlog${SUFFIX}.txt 
 export makelog=$LOGDIR/makelog${SUFFIX}.txt 
+export optlog=$LOGDIR/optlog${SUFFIX}.txt 
 
 echo "Starting $0" > $report
 Start_binary=`which $FPCBIN`
@@ -448,8 +453,11 @@ if [ $NewBinary -eq 1 ] ; then
 
   if [ $run_tests -eq 1 ] ; then
     run_tests ""
-    run_tests "$ALT_PIC"
+    run_tests "-O1"
+    run_tests "-O2"
+    run_tests "-O3"
     run_tests "-O4"
+    run_tests "$ALT_PIC"
     run_tests "-gwl"
     run_tests "$ALT_PIC -gwl"
     run_tests "-O4 -gwl"
@@ -481,6 +489,9 @@ if [ $NewBinary -eq 1 ] ; then
     rm -Rf output* 1>> ${cleanlog} 2>&1
   fi
 
+  if [ $run_test_optimizations -eq 1 ] ; then
+    test-optimizations.sh --full > ${optlog} 2>&1
+  fi
   ) >> $report 2>&1
 
 fi # NewBinary -eq 1
