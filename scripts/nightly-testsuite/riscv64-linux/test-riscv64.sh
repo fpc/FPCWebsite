@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+. $HOME/bin/fpc-versions.sh 
+
 NATIVE_CPU=`uname -m`
 
 if [ "$NATIVE_CPU" == "riscv64" ] ; then
@@ -22,6 +24,24 @@ fi
 cd tests
 
 TEST_FPC=ppcrv64
+
+FULL_FPC=`which $TEST_FPC 2> /dev/null `
+if [ -z "$FULL_FPC" ] ; then
+  # Prepend release binary path and local $HOME/bin to PATH
+  if [ -d "${HOME}/pas/${NATIVE_CPU}/fpc-${TRUNKVERSION}/bin" ] ; then
+    PASDIR_PREFIX=$HOME/pas/${NATIVE_CPU}
+  else
+    PASDIR_PREFIX=$HOME/pas
+  fi
+  export PATH=${PASDIR_PREFIX}/fpc-${TRUNKVERSION}/bin:${HOME}/bin:$PATH
+  FULL_FPC=`which $TEST_FPC 2> /dev/null `
+fi
+
+if [ -z "$FULL_FPC" ] ; then
+  echo "Unable to find $TEST_FPC in PATH=$PATH"
+  exit
+fi
+
 CPU_TARGET=`$TEST_FPC -iTP`
 OS_TARGET=`$TEST_FPC -iTO`
 FULL_TARGET=$CPU_TARGET-$OS_TARGET
