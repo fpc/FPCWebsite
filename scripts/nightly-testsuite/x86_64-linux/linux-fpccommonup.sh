@@ -73,9 +73,15 @@ currentlog=""
 
 set -u
 
+NATIVE_CPU=`uname -m`
+
 FPCRELEASEVERSION=$RELEASEVERSION
 # Prepend release binary path and local $HOME/bin to PATH
-export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+if [ -d "${HOME}/pas/${NATIVE_CPU}/fpc-${FPCRELEASEVERSION}/bin" ] ; then
+  export PATH=${HOME}/pas/${NATIVE_CPU}/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+else
+  export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+fi
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
@@ -90,7 +96,7 @@ if [ -f "$WHICH_FPCBIN" ] ; then
   START_OS_TARGET=`$WHICH_FPCBIN -iTO`
   START_CPU_TARGET=`$WHICH_FPCBIN -iTP`
 else
-  echo "Start $FPCBIN cannot be found"
+  echo "Start $FPCBIN cannot be found in $PATH"
   exit
 fi
 
