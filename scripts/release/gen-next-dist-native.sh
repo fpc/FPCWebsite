@@ -295,16 +295,37 @@ max_retries=25
 
 retries=0
 
+svn_supports_include_externals=1
+
 while [ $retries -lt $max_retries ] ; do
   echo "Running 'svn cleanup', retries=$retries"
-  svn cleanup --include-externals
+  if [ $svn_supports_include_externals -eq 1 ] ; then
+    svn cleanup --include-externals 2> /dev/null
+    svn_cleanup_res=$?
+    if [ $svn_cleanup_res -ne 0 ] ; then
+      svn_supports_include_externals=0
+    fi
+  fi
+  if [ $svn_supports_include_externals -eq 0 ] ; then
+    svn cleanup fpcsrc
+    svn cleanup fpcdocs
+    svn cleanup
+  fi
   echo "Running 'svn up', retries=$retries"
   svn up
-  svnres=$?
-  if [ $svnres -eq 0 ] ; then
+  svn_up_res=$?
+  if [ $svn_supports_include_externals -eq 0 ] ; then
+    svn up fpcsrc
+    svn_up_fpcsrc_res=$?
+    let svn_up_res+=svn_up_fpcsrc_res
+    svn up fpcdocs
+    svn_up_fpcdocs_res=$?
+    let svn_up_res+=svn_up_fpcdocs_res
+  fi
+  if [ $svn_up_res -eq 0 ] ; then
     break
   else
-    echo "'svn up' failed, res=$svnres"
+    echo "'svn up' failed, res=$svn_up_res"
   fi
   let retries++
 done
