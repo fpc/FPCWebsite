@@ -78,10 +78,11 @@ NATIVE_CPU=`uname -m`
 FPCRELEASEVERSION=$RELEASEVERSION
 # Prepend release binary path and local $HOME/bin to PATH
 if [ -d "${HOME}/pas/${NATIVE_CPU}/fpc-${FPCRELEASEVERSION}/bin" ] ; then
-  export PATH=${HOME}/pas/${NATIVE_CPU}/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+  PASDIR_PREFIX=$HOME/pas/${NATIVE_CPU}
 else
-  export PATH=${HOME}/pas/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
+  PASDIR_PREFIX=$HOME/pas
 fi
+export PATH=${PASDIR_PREFIX}/fpc-${FPCRELEASEVERSION}/bin:${HOME}/bin:$PATH
 
 # Limit resources (64mb data, 8mb stack, 40 minutes)
 
@@ -258,9 +259,9 @@ function gen_ppu_log ()
   ppusuff="$3"
   ppu="$dir/$ppufilename"
   logfile="$logdir/${ppufilename}${ppusuff}$SUFFIX"
-  if [ -f ${HOME}/pas/fpc-${Build_version}/bin/ppudump ] ; then
-    echo "${HOME}/pas/fpc-${Build_version}/bin/ppudump $ppu > $logfile" >> $makelog
-    ${HOME}/pas/fpc-${Build_version}/bin/ppudump "$ppu" > $logfile 2>&1
+  if [ -f $PASDIR_PREFIX/fpc-${Build_version}/bin/ppudump ] ; then
+    echo "$PASDIR_PREFIX/fpc-${Build_version}/bin/ppudump $ppu > $logfile" >> $makelog
+    $PASDIR_PREFIX/fpc-${Build_version}/bin/ppudump "$ppu" > $logfile 2>&1
     grep -E "(^Analysing|Checksum)" $logfile > ${logfile}-short 2>&1
   fi
 }
@@ -387,10 +388,10 @@ else
 
   add_log "No new binary ./compiler/$FPCBIN"
 fi
-NEW_INSTALL_PREFIX=$HOME/pas/fpc-${Build_version}
+NEW_INSTALL_PREFIX=$PASDIR_PREFIX/fpc-${Build_version}
 if [ "$SUFFIX" == "-32" ] ; then
   if [ -d "${NEW_INSTALL_PREFIX}-32" ] ; then
-    NEW_INSTALL_PREFIX=$HOME/pas/fpc-${Build_version}-32
+    NEW_INSTALL_PREFIX=$PASDIR_PREFIX/fpc-${Build_version}-32
     export FPCMAKEOPT="$NEEDED_OPT"
   fi
 fi
