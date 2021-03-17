@@ -448,9 +448,11 @@ fi
 
 cd $basedir
 
-if [ -f "`which pyacc`" ] ;then
-  echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
-  (cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
+if [ "X$DISABLE_PYACC" == "X" ] ; then
+  if [ -f "`which pyacc`" ] ;then
+    echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
+    (cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
+  fi
 fi
 
 export EXTRAOPT="-n -gl -vwx $NEEDED_OPT"
