@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-release_version=3.2.0
-is_beta=0
-prev_release_version=3.0.4
+release_version=3.2.2-rc1
+prev_release_version=3.2.0
 
 target_cpu=aarch64
 target_os=linux
@@ -17,6 +16,14 @@ start_full=${start_cpu}-${start_os}
 
 if [ -z "$MAKE" ] ; then
   MAKE=make
+fi
+
+if [ -z "$is_beta" ] ; then
+  if [ "${release_version/rc/}" != "$release_version" ] ; then
+    is_beta=1
+  else
+    is_beta=0
+  fi
 fi
 
 set -u
