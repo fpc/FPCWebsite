@@ -373,6 +373,7 @@ rtl/win95-rtl-260-fix.html svneol=native#text/plain
 scripts/allsourcezips svneol=native#text/plain
 scripts/check-all-rtl.sh svneol=native#text/plain
 scripts/check-fpc-cfg.sh svneol=native#text/plain
+scripts/check-packages.sh svneol=native#text/plain
 scripts/compare-check-results.sh svneol=native#text/plain
 scripts/copydocs svneol=native#text/plain
 scripts/cross-binutils/do-all.sh svneol=native#text/plain
