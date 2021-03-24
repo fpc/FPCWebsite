@@ -140,7 +140,7 @@ fi
 if [ ! "${skipsvn}" == "1" ]; then
   echo "Running svn" 
   echo "Running svn at `$CYG_DATE`" >> $report
-  $SVN cleanup > ${svnlog} 2>&1
+  $SVN cleanup --include-externals > ${svnlog} 2>&1
   $SVN up --accept theirs-conflict --force >> ${svnlog} 2>&1
   svnres=$?
   if [ ${svnres} != 0 ]; then
@@ -207,10 +207,12 @@ while [ -f $lockfile ]; do
   fi
 done
 
-echo "Had to wait $waittime seconds for lock file $lockfile" >> $report
+if [ $waittime -gt 0 ] ; then
+  echo "Had to wait $waittime seconds for lock file $lockfile" >> $report
+fi
 
 echo "Win32 cycle or tests in progress, `date`" > $lockfile
-
+cat $lockfile >> $report
 
 PATH_NO_CYGWIN=
 
@@ -250,30 +252,56 @@ if [ "${do_info}" == "1" ]; then
   ${CMD} /c "${MAKE}  info DEBUG=1 ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
   makeres=$?
   if [ ${makeres} != 0 ]; then
-    echo Make failed ${makeres}
+    echo "Make failed ${makeres}"
+    echo "Make failed ${makeres}" >> ${report}
     ${TAIL} -30 ${makelog} 
+    echo ">>>> Last 30 lines of ${makelog}" >> ${report}
     ${TAIL} -30 ${makelog}  >> ${report}
+    echo ">>>> End of ${makelog}" >> ${report}
     attachment="-a ${makelog}"
     skipinstall=1
     skiptests=1
     skipupload=1
+  else
+    echo "${MAKE} info OK" >> ${report}
   fi
   exit 0;
 fi
 
 if [ ! "${skipmake}" == "1" ]; then
+  # First recompile all compilers
+  echo "Running make -C compiler distclean cycle fullcycle install fullinstall"
+  echo "Running make -C compiler distclean cycle fullcycle install fullinstall" >> $report
+  ${CMD} /c "${MAKE} -C compiler distclean cycle fullcycle install fullinstall \
+    INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} DEBUG=1 ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
+  makeres=$?
+  if [ ${makeres} != 0 ]; then
+    echo "Make failed ${makeres}"
+    echo "Make failed ${makeres}" >> $report
+    ${TAIL} -30 ${makelog} 
+    echo ">>>> Last 30 lines of ${makelog}" >> ${report}
+    ${TAIL} -30 ${makelog}  >> ${report}
+    echo ">>>> End of ${makelog}" >> ${report}
+  else
+    echo "Running make -C compiler distclean cycle fullcycle install fullinstall OK" >> $report
+  fi
   echo "Running make distclean all"
   echo "Running make distclean all" >> $report
   ${CMD} /c "${MAKE}  distclean all DEBUG=1 ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
   makeres=$?
   if [ ${makeres} != 0 ]; then
-    echo Make failed ${makeres}
+    echo "Make failed ${makeres}"
+    echo "Make failed ${makeres}" >> $report
     ${TAIL} -30 ${makelog} 
+    echo ">>>> Last 30 lines of ${makelog}" >> ${report}
     ${TAIL} -30 ${makelog}  >> ${report}
+    echo ">>>> End of ${makelog}" >> ${report}
     attachment="-a ${makelog}"
     skipinstall=1
     skiptests=1
     skipupload=1
+  else
+    echo  "make distclean all at level `pwd` finished OK" >> $report
   fi
 fi
 
@@ -301,16 +329,20 @@ if [ ! "${skipinstall}" == "1" ]; then
   ${CMD} /c "${MAKE} install INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER}  ${MAKE_EXTRA}"  1>> ${makelog} 2>&1
   makeres=$?
   if [ ${makeres} != 0 ]; then
-    echo Make install failed ${makeres}
+    echo "Make install failed ${makeres}"
+    echo "Make install failed ${makeres}" >> ${report}
     ${TAIL} -30 ${makelog} 
+    echo ">>>>> last 30 lines of ${makelog}" >> ${report}
     ${TAIL} -30 ${makelog}  >> ${report}
+    echo ">>>>> end of ${makelog}" >> ${report}
     attachment="-a ${makelog}"
     skiptests=1
     skipupload=1
   else
-    ${CMD} /c "${MAKE} -C compiler distclean fullcycle fullinstall \
-      INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} DEBUG=1 ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
-    # Remove all generated unit fto for complete recompilation of units
+    echo "Running make install finished OK at `${CYG_DATE}`" >> $report
+    # ${CMD} /c "${MAKE} -C compiler distclean fullcycle fullinstall \
+    #  INSTALL_PREFIX=${MINGW_FPCDIR}/fpc-${FPC_VER} DEBUG=1 ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
+    # Remove all generated units to force complete recompilation of units
     ${CMD} /c "${MAKE} distclean ${MAKE_EXTRA}" 1>> ${makelog} 2>&1
   fi
 
@@ -328,11 +360,16 @@ if [ ! "${skiptests}" == "1" ]; then
 	TEST_HOSTNAME=${TEST_HOSTNAME} ${MAKE_EXTRA}  1>> $testslog 2>&1
   testsres=$?
   if [ ${testsres} != 0 ]; then
-    echo Make distclean fulldb failed ${makeres}
+    echo "Make distclean fulldb failed ${makeres}"
+    echo "Make distclean fulldb failed ${makeres}" >> ${report}
     ${TAIL} -30 ${testslog} 
+    echo ">>>>> last 30 lines of ${testslog}" >> ${report}
     ${TAIL} -30 ${testslog}  >> ${report}
+    echo ">>>>> end of ${testslog}" >> ${report}
     attachment="-a ${testslog}"
     skipupload=1
+  else
+    echo "Running make distclean fulldb finished OK at `${CYG_DATE}`" >> $report
   fi
 fi
 export TEST_OPT="-Aas -al -Xe"
@@ -347,11 +384,16 @@ if [ ! "${skiptests}" == "1" ]; then
 	TEST_HOSTNAME=${TEST_HOSTNAME} ${MAKE_EXTRA}  1>> $testslog 2>&1
   testsres=$?
   if [ ${testsres} != 0 ]; then
-    echo Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres}
+    echo "Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres}"
+    echo "Make distclean fulldb TEST_OPT=${TEST_OPT} failed ${makeres}" >> ${report}
     ${TAIL} -30 ${testslog} 
+    echo ">>>>> last 30 lines of ${testslog}" >> ${report}
     ${TAIL} -30 ${testslog}  >> ${report}
+    echo ">>>>> End of ${testslog}" >> ${report}
     attachment="-a ${testslog}"
     skipupload=1
+  else
+    echo "Running make distclean fulldb finished OK at `${CYG_DATE}`" >> $report
   fi
 fi
 export TEST_OPT="-CX -XX -O3"
@@ -371,6 +413,8 @@ if [ ! "${skiptests}" == "1" ]; then
     ${TAIL} -30 ${testslog}  >> ${report}
     attachment="-a ${testslog}"
     skipupload=1
+  else
+    echo "Running make distclean fulldb finished OK at `${CYG_DATE}`" >> $report
   fi
 fi
 # go32v2 tests
@@ -406,6 +450,8 @@ if [ ! "${skiptests}" == "1" ]; then
     ${TAIL} -30 ${testslog}  >> ${report}
     attachment="-a ${testslog}"
     skipupload=1
+  else
+    echo "Running make distclean fulldb for go32v2 finished OK at `${CYG_DATE}`" >> $report
   fi
 fi
 export TEST_OPT="-Fle:/djgpp/cvs/lib -Fle:/djgpp/cvs/lib/gcc/djgpp/3.44 -CX -XX -O3"
@@ -427,9 +473,12 @@ if [ ! "${skiptests}" == "1" ]; then
     ${TAIL} -30 ${testslog}  >> ${report}
     attachment="-a ${testslog}"
     skipupload=1
+  else
+    echo "Running make distclean fulldb for go32v2 finished OK at `${CYG_DATE}`" >> $report
   fi
 fi
 fi
+
 
 export PATH=${STARTPATH}
 export TEST_OPT=""
