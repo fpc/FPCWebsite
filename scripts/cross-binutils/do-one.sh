@@ -6,9 +6,6 @@
 if [ "X$BINUTILS_RELEASE" == "X" ] ; then
   BINUTILS_RELEASE=2.36
 fi
-bca600eea3b8fc33ad3265c9c1eee8d4  binutils-2.35.1.tar.gz
-5ef92bfbfac46a8457ed2865a0588e9e  binutils-2.35.2.tar.gz
-4009acf0f62bab6696bc87b3370953fa  binutils-2.36.tar.gz
 
 BINUTILS_2_36_BZ2_MD5SUM=4009acf0f62bab6696bc87b3370953fa
 BINUTILS_2_35_2_BZ2_MD5SUM=5ef92bfbfac46a8457ed2865a0588e9e
