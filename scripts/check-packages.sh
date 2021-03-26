@@ -25,18 +25,20 @@ while [ $check_option_arg -eq 1 ] ; do
   fi
 done
 
-if [ -z "${PASDIR}" ] ; then
+if [ -z "${PASVERDIR}" ] ; then
   if [ "$FIXES" == "1" ] ; then
-    PASDIR=$TRUNKDIR/fpcsrc
+    PASVERDIR=$FIXESDIR/fpcsrc
   else
-    PASDIR=$FIXESDIR/fpcsrc
+    PASVERDIR=$TRUNKDIR/fpcsrc
   fi
 fi
 
-UTILSDIR=${PASDIR}/utils
-PACKAGESDIR=${PASDIR}/packages
-fpcbuild_makefile_fpc=${PASDIR}/../Makefile.fpc
-install_dat=${PASDIR}/installer/install.dat
+echo "Using PASVERDIR=$PASVERDIR"
+
+UTILSDIR=${PASVERDIR}/utils
+PACKAGESDIR=${PASVERDIR}/packages
+fpcbuild_makefile_fpc=${PASVERDIR}/../Makefile.fpc
+install_dat=${PASVERDIR}/installer/install.dat
 
 set -u
 
@@ -105,7 +107,9 @@ function parse_dir ()
             echo "No fpmake.pp found in $dir"
             let pb_count++
             pb_list+=" $dir"
-            ls "$dir"
+            if [ $verbose -eq 1 ] ; then
+              ls "$dir"
+            fi
           fi
         fi
       fi
@@ -131,13 +135,17 @@ function analyze ()
   else
     shortprefix=""
   fi
-  echo "Analyzing $group $path $name $shortname"
+  if [ $verbose -eq 1 ] ; then
+    echo "Analyzing $group $path $name $shortname"
+  fi
   before=')'
   after='\$'
   count=`grep -c "MOVE.*)$name[$].* $shortprefix$shortname[$].*zip" $fpcbuild_makefile_fpc`
   line=` grep -n "MOVE.*)$name[$].* $shortprefix$shortname[$].*zip" $fpcbuild_makefile_fpc`
   if [ $count -eq 1 ] ; then
-    echo "Found in $fpcbuild_makefile_fpc: $line"
+    if [ $verbose -eq 1 ] ; then
+      echo "Found in $fpcbuild_makefile_fpc: $line"
+    fi
   elif [ $count -eq 0 ] ; then
     echo "$shortname not found in $fpcbuild_makefile_fpc"
     let pb_count++
@@ -153,7 +161,9 @@ function analyze ()
 i=0
 for package in $packages_list ; do
   let i++
-  echo "Package $i: $package"
+  if [ $verbose -eq 1 ] ; then
+    echo "Package $i: $package"
+  fi
   path=${package/:*/}
   rest=${package/*:/}
   name=${rest/|*/}
@@ -162,7 +172,9 @@ for package in $packages_list ; do
 done
 for package in $utils_list ; do
   let i++
-  echo "Utils package $i: $package"
+  if [ $verbose -eq 1 ] ; then
+    echo "Utils package $i: $package"
+  fi
   path=${package/:*/}
   rest=${package/*:/}
   name=${rest/|*/}
@@ -172,7 +184,7 @@ done
 
 echo "list of problems: $pb_list"
 
-cd $PASDIR/..
+cd $PASVERDIR/..
 echo "pwd=`pwd`"
 
 long_dos_list=`ls -1 *go32v2*.zip 2> /dev/null `
@@ -211,6 +223,9 @@ for target in src dos os2 emx w32 ; do
   zip_count=0
   zip_ok_count=0
   zip_pb_count=0
+  zip_count_2=0
+  zip_ok_count_2=0
+  zip_pb_count_2=0
   if [ -z "$short_list" ] ; then
     if [ -z "$long_list" ] ; then
       echo "No short nor long zip file for $target"
@@ -239,9 +254,6 @@ for target in src dos os2 emx w32 ; do
         let zip_ok_count++
       fi
     done
-    zip_count_2=0
-    zip_ok_count_2=0
-    zip_pb_count_2=0
     short_in_install=`sed -n "s;^package=.*[[]\(.*\)[]].*;\1;p" $install_dat.${targetsuffix} `
     for zip in $short_in_install ; do
       let zip_count_2++
@@ -263,5 +275,140 @@ for target in src dos os2 emx w32 ; do
   echo "For $target: ok: $zip_ok_count, pb: $zip_pb_count, total: $zip_count"
   echo "In $install_dat $target: ok: $zip_ok_count_2, pb: $zip_pb_count_2, total: $zip_count_2"
 done
+
+function analyze_pkglist ()
+{
+  file="$1"
+  dir="$2"
+  section_file="$3"
+  short_list=`sed -n "s:.*[[]\([^.]*\).*:\1:p" $file`
+  long_list=`sed -n "s:.*package=\([^.]*\)[^[]*,.*:\1:p" $file`
+  ok_count=0
+  pb_count=0
+  total_count=0
+  pb_list=""
+  for base in $short_list $long_list ; do
+    let total_count++
+    if [ $verbose -eq 1 ] ; then
+      echo "checking $base in $section_file"
+    fi
+    found=`grep -w "$base" $section_file `
+    if [ -z "$found" ] ; then
+      if [ "$dir" == "packages" ] ; then
+        # Also look for u prefix
+        found=`grep -w "u$base" $section_file `
+        if [ "${base:0:4}" == "fpca" ] ; then
+          if [ $verbose -eq 1 ] ; then
+            echo "Skipping $base for $dir because it is known to be empty"
+          fi
+          continue
+        fi
+      fi
+    fi
+    if [ -z "$found" ] ; then
+      if [ $verbose -eq 1 ] ; then
+        echo "$base not found"
+      fi
+      let pb_count++
+      pb_list+=" $base"
+    else
+      if [ $verbose -eq 1 ] ; then
+        echo "$base found: $found"
+      fi
+      let ok_count++
+    fi
+  done
+  echo "analyze_pkglist $dir $file: pb=$pb_count/$total_count"
+  if [ $pb_count -ne 0 ] ; then
+    echo "List of problems: $pb_list"
+  fi
+  # Keep with dir suffix
+  mv $file ${file/.lst/-$dir.lst}
+}
+ 
+
+function gen_pkglist ()
+{
+  os="$1"
+  cpu="$2"
+  dir="$3"
+  section_file="$4"
+  if [ ! -d "$dir" ] ; then
+    echo "Directory $dir does not exist"
+    return 1
+  fi
+  if [ ! -x "$dir/fpmake" ] ; then
+    echo "$dir/fpmake is not executable"
+    return 2
+  fi
+  $dir/fpmake pkglist --os="$os" --cpu="$cpu"
+  if [ -f $dir/pkg-$os.lst ] ; then
+    analyze_pkglist $dir/pkg-$os.lst $dir $section_file
+  elif [ -f $dir/pkg-$cpu-$os.lst ] ; then
+    analyze_pkglist $dir/pkg-$cpu-$os.lst $dir $section_file
+  elif [ -f pkg-$os.lst ] ; then
+    analyze_pkglist pkg-$os.lst $dir $section_file
+  elif [ -f pkg-$cpu-$os.lst ] ; then
+    analyze_pkglist pkg-$cpu-$os.lst $dir $section_file
+  else
+    echo " No pkg-list file found for $cpu-$os"
+  fi
+}
+
+extra_packages="asld base rtl gdb installer"
+
+function check_install_dat ()
+{
+  install=$1
+  pkglist_pattern="$2"
+  pkglist_files=`ls -1 ${pkglist_pattern}* `
+  short_list=`sed -n "s:package=.*[[]\([^.]*\).*:\1:p" $install `
+  long_list=`sed -n "s:.*package=\([^.]*\)[^[]*,.*:\1:p" $install `
+  ok_count=0
+  pb_count=0
+  total_count=0
+  pb_list=""
+  for base in $short_list $long_list ; do
+    let total_count++
+    found=`grep -w "$base" $pkglist_files `
+    if [ -z "$found" ] ; then
+      for extra in $extra_packages ; do
+        if [ "base" == "$extra" ] ; then
+          if [ $verbose -eq 1 ] ; then
+            echo "Skipping known package $extra"
+          fi
+          continue
+        fi
+      done
+      echo "$base not found in $pkglist_files"
+      let pb_count++
+      pb_list+=" $base"
+    else
+      let ok_count++
+    fi
+  done
+  echo "For $install: ok: $ok_count, pb: $pb_count, total: $total_count"
+  if [ $pb_count -ne 0 ] ; then
+    echo "pb list: $pb_list"
+  fi
+}
+
+cd $PASVERDIR
+
+gen_pkglist emx i386 utils $install_dat.emx
+gen_pkglist emx i386 packages $install_dat.emx
+check_install_dat $install_dat.emx "pkg-emx"
+
+gen_pkglist os2 i386 utils $install_dat.os_2
+gen_pkglist os2 i386 packages $install_dat.os_2
+check_install_dat $install_dat.os_2 "pkg-os2"
+
+gen_pkglist go32v2 i386 utils $install_dat.go32v2
+gen_pkglist go32v2 i386 packages $install_dat.go32v2
+check_install_dat $install_dat.go32v2 "pkg-go32v2"
+
+gen_pkglist win32 i386 utils $install_dat.win32
+gen_pkglist win32 i386 packages $install_dat.win32
+check_install_dat $install_dat.win32 "pkg-i386-win32"
 
 
