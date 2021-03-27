@@ -294,6 +294,10 @@ export ADD_CFLAGS=
 
 ## WASM CPU
 ## system_wasm_wasm32,        { 92 }
+## renamed system_wasm_embedded,        { 92 }
+./do-one.sh wasm32-embedded wasm32-none-elf
+## system_wasm32_wasi         { 114 }
+./do-one.sh wasm32-wasi wasm32-wasi-elf
 
 ## x86_64 CPU
 ## system_x86_6432_linux,     { 41 }
