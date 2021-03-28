@@ -647,6 +647,7 @@ scripts/updatesourcezipsbuild_trunk svneol=native#text/plain
 scripts/updatesourcezipslazarus svneol=native#text/plain
 scripts/updatesvnstats svneol=native#text/plain
 scripts/updatetestsuite svneol=native#text/plain
+scripts/use_mkinsadd.sh svneol=native#text/plain
 sf/index.html svneol=native#text/plain
 /site-master.adp svneol=native#text/plain
 /split.fp svneol=native#text/plain
