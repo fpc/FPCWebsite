@@ -98,7 +98,7 @@ fi
 
 if [ ! -d fpcdocs ] ; then
   echo "Missing fpcdocs directory" >> $report
-  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}i, error: no fpcdocs" \
+  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, error: no fpcdocs" \
        -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 fi
@@ -145,10 +145,19 @@ make pdfinstall pdfzip pdftar LATEXOPT=-halt-on-error LATEXPOSTOPT=" < /dev/null
 res=$?
 if [ $res -ne 0 ] ; then
   echo "make pdfinstall failed, res=$res" >> $report
-  tail -30 $pdflogfile >> $report
-  mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, pdf generation failed" \
-       -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
-  exit
+  if [ -f "$HOME/pas/fpc-$FPCRELEASEVERSION/bin/fpdoc" ] ; then
+    FPDOCBIN="$HOME/pas/fpc-$FPCRELEASEVERSION/bin/fpdoc"
+    echo "Starting 'make pdfinstall pdfzip pdftar' at fpcdocs leveli with release FPDOC=$FPDOCBIN" >> $report
+    make pdfinstall pdfzip pdftar LATEXOPT=-halt-on-error LATEXPOSTOPT=" < /dev/null" FPC=fpc FPDOC="$FPDOCBIN" PPOPTS="-gl" INSTALL_PREFIX=$HOME/pas/fpc-$CURVER > $pdflogfile 2>&1
+    res=$?
+  fi
+  # Retry with FPDOC  make variable set to release binary
+  if [ $res -ne 0 ] ; then
+    tail -30 $pdflogfile >> $report
+    mutt -x -s "Free Pascal results for fpcdocs on ${HOSTNAME}, pdf generation failed" \
+         -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
+    exit
+  fi
 else
   echo "make pdfinstall success, new files:" >> $report
   ls -ltr doc-pdf.* >> $report
