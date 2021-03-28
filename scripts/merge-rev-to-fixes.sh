@@ -4,6 +4,7 @@
 
 notests=1
 clear_tests=0
+no_fpcsrc=0
 
 # Evaluate all arguments containing an equal sign
 # as variable definition, stop as soon as
@@ -16,6 +17,11 @@ while [ "$1" != "" ] ; do
   fi
   if [ "$1" == "--clear" ] ; then
     clear_tests=1
+    shift
+    continue
+  fi
+  if [ "$1" == "--no-fpcsrc" ] ; then
+    no_fpcsrc=1
     shift
     continue
   fi
@@ -38,15 +44,19 @@ fi
 set -u
 
 cd $TRUNKDIR
-if [ -d fpcsrc ] ; then
-  cd fpcsrc
+if [ $no_fpcsrc -eq 0 ] ; then
+  if [ -d fpcsrc ] ; then
+    cd fpcsrc
+  fi
 fi
 MERGE_FROM_DIR=`pwd`
 
 cd $FIXESDIR
 
-if [ -d fpcsrc ] ; then
-  cd fpcsrc
+if [ $no_fpcsrc -eq 0 ] ; then
+  if [ -d fpcsrc ] ; then
+    cd fpcsrc
+  fi
 fi
 
 if [ $clear_tests -eq 1 ] ; then
@@ -92,7 +102,7 @@ if [ $has_local_mods -eq 0 ] ; then
       echo "Using list from file ./commit-list"
       merge_list=`cat ./commit-list`
     else
-      echo "$0 [-clear] rev_nb1 [rev_nb2 ...]"
+      echo "$0 [--clear] [--notests] [--no-fpcsrc] rev_nb1 [rev_nb2 ...]"
       exit
     fi
   else
