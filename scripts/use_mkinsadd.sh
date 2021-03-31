@@ -2,10 +2,12 @@
 
 . $HOME/bin/fpc-versions.sh
 
-if [ "$FIXES"  == "1" ] ; then
-  VERDIR=$FIXESDIR
-else
-  VERDIR=$TRUNKDIR
+if [ -z "$VERDIR" ] ; then
+  if [ "$FIXES"  == "1" ] ; then
+    VERDIR=$FIXESDIR
+  else
+    VERDIR=$TRUNKDIR
+  fi
 fi
 
 
@@ -14,6 +16,8 @@ MKINSADD=`which mkinsadd`
 if [ ! -f "$MKINSADD" ] ; then
   echo "mkinsadd Free Pascal utility not found!"
   exit 1
+else
+  echo "Using utility $MKINSADD"
 fi
 
 pkg_file_list=""
