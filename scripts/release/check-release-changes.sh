@@ -165,6 +165,6 @@ function run_and_compare_tests ()
   fi
 }
   
-run_and_compare_tests "-n"
+run_and_compare_tests "-n" ""
 run_and_compare_tests "-n" RELEASE=1
 
