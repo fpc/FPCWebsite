@@ -12,7 +12,9 @@ if [ -z "$FPC" ] ; then
   export PATH=$INSTALLRELEASEDIR/bin:$PATH
   FPC=`which fpc 2> /dev/null`
   if [ -z "$FPC" ] ; then
-    echo "Could not find fpc binary"
+    echo "Could not find fpc binary in $PATH"
+    env
+    set
     exit
   fi
 fi
