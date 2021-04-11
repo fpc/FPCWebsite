@@ -2,6 +2,7 @@
 
 verbose=0
 check_option_arg=1
+DISABLE_PYACC=0
 
 while [ $check_option_arg -eq 1 ] ; do
   check_option_arg=0
