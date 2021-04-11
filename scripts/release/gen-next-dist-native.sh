@@ -169,11 +169,13 @@ set -u
 
 if [ $is_32bit -eq 1 ] ; then
   NATIVE_OPT32=""
+  need_Xd=0
   if [ "$target_cpu" == "sparc" ] ; then
     if [ $verbose -eq 1 ] ; then
       echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
     fi
-    NATIVE_OPT32="-ao-32 -Xd -vx"
+    NATIVE_OPT32="-ao-32 -vx"
+    need_Xd=1
     if [ -d /usr/sparc64-linux-gnu/lib32 ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/sparc64-linux-gnu/lib32"
     fi
@@ -182,7 +184,8 @@ if [ $is_32bit -eq 1 ] ; then
     if [  $verbose -ne 0 ] ;then
       echo "Running 32bit powerpc fpc on powerpc64 machine, needs special options"
     fi
-    NATIVE_OPT32="-Xd -vx"
+    NATIVE_OPT32=" -vx"
+    need_Xd=1
     if [ -d /usr/powerpc64-linux-gnu/lib32 ] ; then
       NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/powerpc64-linux-gnu/lib32"
     fi
@@ -196,10 +199,20 @@ if [ $is_32bit -eq 1 ] ; then
     export FPMAKE_SKIP_CONFIG="-n -XP$BINUTILSPREFIX"
   fi
   if [ -d /lib32 ] ; then
+    need_Xd=1
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib32"
   fi
   if [ -d /usr/lib32 ] ; then
+    need_Xd=1
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib32"
+  fi
+  if [ -d /lib/$target_cpu ] ; then
+    need_Xd=1
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/lib/$target_cpu"
+  fi
+  if [ -d /usr/lib/$target_cpu ] ; then
+    need_Xd=1
+    NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/lib/$target_cpu"
   fi
   libgcc_file_name=`gcc -m32 -print-libgcc-file-name 2> /dev/null`
   if [ -f "$libgcc_file_name" ] ; then
@@ -209,9 +222,10 @@ if [ $is_32bit -eq 1 ] ; then
     fi
   fi
   if [ -d /usr/local/lib32 ] ; then
+    need_Xd=1
     NATIVE_OPT32="$NATIVE_OPT32 -Fl/usr/local/lib32"
   fi
-  if [ -d $HOME/lib32 ] ; then
+  if [ -d $HOME/gnu/lib32 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/gnu/lib32"
   fi
   if [ -d $HOME/lib32 ] ; then
@@ -219,6 +233,9 @@ if [ $is_32bit -eq 1 ] ; then
   fi
   if [ -d $HOME/local/lib32 ] ; then
     NATIVE_OPT32="$NATIVE_OPT32 -Fl$HOME/local/lib32"
+  fi
+  if [ $need_Xd -eq 1 ] ; then
+    NATIVE_OPT32="-Xd $NATIVE_OPT32"
   fi
   NEEDED_OPT="$NEEDED_OPT $NATIVE_OPT32"
   if [ "$target_cpu" == "sparc" ] ; then
