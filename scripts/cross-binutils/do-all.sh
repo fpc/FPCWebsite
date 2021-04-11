@@ -25,6 +25,8 @@ export BINUTILS_RELEASE=
 ./do-one.sh aarch64-linux-android aarch64-linux-android
 ##  system_aarch64_win64,      { 107 }
 ## Not yet supported by binutils
+##             system_aarch64_freebsd     { 115 }
+./do-one.sh aarch64-freebsd aarch64-unknown-freebsd11
 
 ## alpha CPU
 ## Alpha CPU is obsolete
