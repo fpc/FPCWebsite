@@ -266,70 +266,78 @@ fi
 
 basedir=`pwd`
 
-if [ -d "$svn_branch_name" ] ; then
-  cd $svn_branch_name
-fi
+SVN=`which svn 2> /dev/null`
 
-svn_version=`svnversion -c . 2> /dev/null`
-
-if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" ) || ( "$svn_version" = "exported" )  ]] ; then
-  cd $HOME/pas/release-build
-  svn checkout $svn_html_base/$svn_branch_name
-  checkout_res=$?
-  if [ $checkout_res -ne 0 ] ; then
-    echo "Failed to checkout $svn_branch_name"
-    # exit
-  fi
-  cd $svn_branch_name
+if [ -f "$SVN" ] ; then
   svn_version=`svnversion -c . 2> /dev/null`
 
-  if [ -z "$svn_version" ] ; then
-    echo "svnversion fails, aborting"
-    exit
+  if [[ ( -z "$svn_version" ) || ( "$svn_version" = "Unversioned directory" ) || ( "$svn_version" = "exported" )  ]] ; then
+    cd $HOME/pas/release-build
+    $SVN checkout $svn_html_base/$svn_branch_name
+    checkout_res=$?
+    if [ $checkout_res -ne 0 ] ; then
+      echo "Failed to checkout $svn_branch_name"
+      # exit
+    fi
+    cd $svn_branch_name
+    svn_version=`svnversion -c . 2> /dev/null`
+
+    if [ -z "$svn_version" ] ; then
+      echo "svnversion fails, aborting"
+      exit
+    fi
   fi
+else
+  if [ ! -d "$svn_branch_name" ] ; then
+    scp fpcftp:$ftpdir/source/fpcbuild-${release_version/-rc/rc}*gz .
+    tar -xvzf fpcbuild-${release_version/-rc/rc}*gz
+    mv fpcbuild-${release_version/-rc/rc} $svn_branch_name
+  fi
+  svn_version=`sed -n "s:^version=::p" $svn_branch_name/Makefile.fpc`
 fi
 
 cd $HOME/pas/release-build/$svn_branch_name
 
-max_retries=25
+if [ -f "$SVN" ] ; then
+  max_retries=25
 
-retries=0
+  retries=0
 
-svn_supports_include_externals=1
+  svn_supports_include_externals=1
 
-while [ $retries -lt $max_retries ] ; do
-  echo "Running 'svn cleanup', retries=$retries"
-  if [ $svn_supports_include_externals -eq 1 ] ; then
-    svn cleanup --include-externals 2> /dev/null
-    svn_cleanup_res=$?
-    if [ $svn_cleanup_res -ne 0 ] ; then
-      svn_supports_include_externals=0
+  while [ $retries -lt $max_retries ] ; do
+    echo "Running '$SVN cleanup', retries=$retries"
+    if [ $svn_supports_include_externals -eq 1 ] ; then
+      $SVN cleanup --include-externals 2> /dev/null
+      svn_cleanup_res=$?
+      if [ $svn_cleanup_res -ne 0 ] ; then
+        svn_supports_include_externals=0
+      fi
     fi
-  fi
-  if [ $svn_supports_include_externals -eq 0 ] ; then
-    svn cleanup fpcsrc
-    svn cleanup fpcdocs
-    svn cleanup
-  fi
-  echo "Running 'svn up', retries=$retries"
-  svn up
-  svn_up_res=$?
-  if [ $svn_supports_include_externals -eq 0 ] ; then
-    svn up fpcsrc
-    svn_up_fpcsrc_res=$?
-    let svn_up_res+=svn_up_fpcsrc_res
-    svn up fpcdocs
-    svn_up_fpcdocs_res=$?
-    let svn_up_res+=svn_up_fpcdocs_res
-  fi
-  if [ $svn_up_res -eq 0 ] ; then
-    break
-  else
-    echo "'svn up' failed, res=$svn_up_res"
-  fi
-  let retries++
-done
-
+    if [ $svn_supports_include_externals -eq 0 ] ; then
+      $SVN cleanup fpcsrc
+      $SVN cleanup fpcdocs
+      $SVN cleanup
+    fi
+    echo "Running '$SVN up', retries=$retries"
+    $SVN up
+    svn_up_res=$?
+    if [ $svn_supports_include_externals -eq 0 ] ; then
+      $SVN up fpcsrc
+      svn_up_fpcsrc_res=$?
+      let svn_up_res+=svn_up_fpcsrc_res
+      $SVN up fpcdocs
+      svn_up_fpcdocs_res=$?
+      let svn_up_res+=svn_up_fpcdocs_res
+    fi
+    if [ $svn_up_res -eq 0 ] ; then
+      break
+    else
+      echo "'$SVN up' failed, res=$svn_up_res"
+    fi
+    let retries++
+  done
+fi
 
 basedir=`pwd`
 
@@ -484,13 +492,17 @@ if [ -f "$TARFILE" ] ; then
     fi
   fi
   echo "Files $readme and $TARFILE uploaded" >> $readme
-  echo "Used slightly modifed svn checkout" >> $readme
-  echo "svn st -q" >> $readme
-  svn st -q >> $readme
-  echo "svn diff" >> $readme
-  svn diff >> $readme
-  echo "svn diff fpcsrc" >> $readme
-  svn diff fpcsrc >> $readme
+  if [ -f "$SVN" ] ; then
+    echo "Used slightly modified svn checkout" >> $readme
+    echo "$SVN st -q" >> $readme
+    $SVN st -q >> $readme
+    echo "$SVN diff" >> $readme
+    $SVN diff >> $readme
+    echo "$SVN diff fpcsrc" >> $readme
+    $SVN diff fpcsrc >> $readme
+  else
+    echo "Using sources downloaded from ftp server in $ftpdir/source/fpcbuild-${release_version/-rc/rc}*gz" >> $readme
+  fi
 
   scp $readme $TARFILE fpcftp:${ftpdir}/${ftp_target_full}/
 else
