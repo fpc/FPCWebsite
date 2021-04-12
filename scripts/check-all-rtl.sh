@@ -958,7 +958,7 @@ function list_used_binaries ()
     log_file_list=`ls -1 ${LOGFILE_LIST} 2> /dev/null`
     if [ -n "$log_file_list" ] ; then
       used_binaries=`sed -n -e 's:^Executing "\([^ "]*\).*:\1:p' -e 's,.* \([^: ]*\): Command not found.*,\1,p' ${LOGFILE_LIST} | sort | uniq `
-      listed_binaries=`sed -n -e 's;^As\.* \(.*\);\1;p' -e 's;^Ld\.* \(.*\);\1;p' `
+      listed_binaries=`sed -n -e 's;^As\.* \(.*\);\1;p' -e 's;^Ld\.* \(.*\);\1;p' ${LOG} `
       for bin in $used_binaries $listed_binaries ; do
         echo "> $bin --version" >> $LOG
         $bin --version < /dev/null  >> $LOG
