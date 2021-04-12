@@ -688,28 +688,31 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   cyclelog=$LOGDIR/native-cycle.log
   fullcyclelog=$LOGDIR/full-cycle.log
   mecho "Recompiling native compiler"
-  make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $cyclelog 2>&1
+  mecho "${MAKE} distclean cycle installsymlink OPT=\"-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}\" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
+  ${MAKE} distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX > $cyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
+    mecho "Generating new native compiler failed, see $cyclelog for details"
     RELEASE_FPC=`which $FPC`
     mecho "Second try for native compiler, using release FPC=\"$RELEASE_FPC\""
-    make distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_FPC >> $cyclelog 2>&1
-    make installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=`pwd`/$FPC >> $cyclelog 2>&1
+    mecho "${MAKE} distclean cycle installsymlink OPT=\"-n -gl ${RECOMPILE_FULL_OPT}\" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
+    ${MAKE} distclean cycle installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$RELEASE_FPC >> $cyclelog 2>&1
+    ${MAKE} installsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=`pwd`/$FPC >> $cyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
-    mecho "Generating new native compiler failed, see $fullcyclelog for details"
+    mecho "Generating new native compiler failed, see $cyclelog for details"
     rm_lockfile
     exit
   fi
   native_cpu=`$LOCAL_INSTALL_PREFIX/bin/$FPC -iSP`
   mecho "Recompiling cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}\""
-  make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC > $fullcyclelog 2>&1
+  ${MAKE} rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC > $fullcyclelog 2>&1
   makeres=$?
   if [ $makeres -ne 0 ] ; then
     mecho "Generating all cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} ${RECOMPILE_FULL_OPT_O}\" failed, makeres=$makeres, see $fullcyclelog for details"
     mecho "Second try for cross-compilers, using OPT=\"-n -gl ${RECOMPILE_FULL_OPT} -O-\""
-    make rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} -O-" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    ${MAKE} rtlclean rtl fullinstallsymlink OPT="-n -gl ${RECOMPILE_FULL_OPT} -O-" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
   fi
   if [ $makeres -ne 0 ] ; then
@@ -719,7 +722,7 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
   if [ $COMPILE_EACH_CPU -eq 1 ] ; then
     export FPCCPUOPT="-O-"
     mecho "Recompiling rtl"
-    make rtlclean rtl OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+    ${MAKE} rtlclean rtl OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
     makeres=$?
     if [ $makeres -ne 0 ] ; then
       mecho "Generating new native rtl failed, see $fullcyclelog for details"
@@ -731,7 +734,7 @@ if [ $DO_RECOMPILE_FULL -eq 1 ] ; then
         continue
       fi
       mecho "Compiling compiler for $cpu"
-      make $cpu ${cpu}_exe_install OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
+      ${MAKE} $cpu ${cpu}_exe_install OPT="-n -gl ${RECOMPILE_FULL_OPT}" INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX FPC=$LOCAL_INSTALL_PREFIX/bin/$FPC >> $fullcyclelog 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         mecho "Generating $cpu cross-compiler failed, see $fullcyclelog for details"
@@ -970,7 +973,7 @@ function list_used_binaries ()
 function clean_for_target ()
 {
   # Distclean in rtl, packages and utils first
-  echo "Running \"make $CLEAN_RULE in rtl, packages and utils first" > $LOGFILE_DISTCLEAN
+  echo "Running \"${MAKE} $CLEAN_RULE in rtl, packages and utils first" > $LOGFILE_DISTCLEAN
   $MAKE $MAKEJOPT -C $rtldir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
   $MAKE $MAKEJOPT -C $packagesdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
   $MAKE $MAKEJOPT -C $packagesdir $CLEAN_RULE CPU_TARGET=$CPU_TARG_LOCAL OS_TARGET=$OS_TARG_LOCAL FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL OPT="$OPT_LOCAL" $MAKEEXTRA >> $LOGFILE_DISTCLEAN 2>&1
@@ -1246,11 +1249,11 @@ function check_target ()
   if [ -n "${RECOMPILE_COMPILER_OPT}" ] ; then
     LOGFILE_RECOMPILE=${LOGPREFIX}-recompile-${CPU_TARG_LOCAL}-${OS_TARG_LOCAL}${EXTRASUFFIX}.txt
     # First recompile rtl
-    make -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
+    ${MAKE} -C compiler rtlclean rtl OPT="-n -gl" > $LOGFILE_RECOMPILE 2>&1
     res=$?
     if [ $res -eq 0 ] ; then
       # Now recompile compiler, using CPC_TARGET, so that clean removes the old stuff
-      make -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL PPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_COMPILER_OPT" >> $LOGFILE_RECOMPILE 2>&1
+      ${MAKE} -C compiler clean all CPC_TARGET=$CPU_TARG_LOCAL PPC_TARGET=$CPU_TARG_LOCAL OPT="-n -gl $RECOMPILE_COMPILER_OPT" >> $LOGFILE_RECOMPILE 2>&1
       res=$?
     fi
     if [ $res -ne 0 ] ; then
@@ -1481,7 +1484,7 @@ function check_target ()
     let ++step_ok_count
   fi
   lecho "OK: Testing 1st $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL $extra_text"
-  echo "Re-running make should do nothing"
+  echo "Re-running ${MAKE} should do nothing"
   MAKEEXTRA="$MAKEEXTRA INSTALL_PREFIX=$LOCAL_INSTALL_PREFIX"
   if [ $DO_FPC_RTL_INSTALL -eq 1 ] ; then
     rtl_make_target="all install"
@@ -1494,7 +1497,7 @@ function check_target ()
   if [ $res -ne 0 ] ; then
     rtl_2_failure=`expr $rtl_2_failure + 1 `
     rtl_2_list="$rtl_2_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-    lecho "Failure: Rerunning make $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
+    lecho "Failure: Rerunning ${MAKE} $rtldir for $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" FPC=$FPC_LOCAL BINUTILSPREFIX=$BINUTILSPREFIX_LOCAL, res=$res $extra_text"
     lecho "Failure: See $LOGFILE_RTL_2 for details"
     list_used_binaries
     if [ $CLEAN_AFTER -eq 1 ] ; then
