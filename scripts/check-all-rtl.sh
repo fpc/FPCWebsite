@@ -208,6 +208,7 @@ elif [ "X$machine_host" == "Xgcc70" ] ; then
   RECOMPILE_FULL_OPT_O="-O4"
   USE_RELEASE_MAKEFILE_VARIABLE=1
   MAKEJOPT="-j 2"
+  export FPMAKEOPT="-T 2"
   set_home_bindir_first=1
 elif [ "X$machine_host" == "Xgcc113" ] ; then
   DO_FPC_BINARY_INSTALL=1
@@ -2080,6 +2081,11 @@ inside_main_subscript=0
 
 function finish_script ()
 {
+if [ $finish_script_started -eq 1 ] ; then
+  echo "finish_script already called" >> $LOGFILE
+  echo "finish_script already called" >> $EMAILFILE
+  return
+fi
 finish_script_started=1
 dummy_count_new_val=` grep "^dummy_count=" $LOGFILE `
 eval $dummy_count_new_val
