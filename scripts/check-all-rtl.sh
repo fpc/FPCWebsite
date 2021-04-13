@@ -429,9 +429,14 @@ min_llvm_mc_major=7
 min_llvm_mc_minor=0
 
 SKIP_LLVM_MC=1
+LLVM_SUPPORTS_WASM32=0
 
 if [ -f "$llvm_mc_bin" ] ; then
   llvm_mc_version=`$llvm_mc_bin --version | sed -n "s:^.*LLVM.*version *\([^ ]*\).*:\1:p"`
+  llvm_mc_wasm32=`$llvm_mc_bin --version | sed -n "s:^.*wasm32.*-\(.*\):\1:p"`
+  if [ -n "$llvm_mc_wasm32" ] ; then
+    LLVM_SUPPORTS_WASM32=1
+  fi
   #echo "llvm_mc_version=\"$llvm_mc_version\""
   llvm_mc_major=${llvm_mc_version/.*/}
   llvm_mc_not_major=`echo ${llvm_mc_version} | sed "s:^[^.]*\.::" `
@@ -1119,6 +1124,12 @@ function check_target ()
         skipped_count=`expr $skipped_count + 1 `
         skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
         lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc not found or too old"
+        return
+      elif [ $LLVM_SUPPORTS_WASM32 -eq 0 ] ; then 
+        echo "Installed llvm-mc does not support wasm32 target, skipping"
+        skipped_count=`expr $skipped_count + 1 `
+        skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
+        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc does not support wasm32"
         return
       fi
     fi
