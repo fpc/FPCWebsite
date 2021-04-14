@@ -308,6 +308,14 @@ export NATIVE_BINUTILSPREFIX=""
 export FPCMAKEOPT=""
 export SCRIPT_BINUTILSPREFIX=""
 
+if [ "$SCRIPT_OS_TARGET" == "darwin" ] ; then
+  if [ "$SCRIPT_CPU_TARGET" == "aarch64" ] ; then
+    if [ -d "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" ] ; then
+      NATIVE_OPT="$NATIVE_OPT -XR/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+    fi
+  fi
+fi
+
 if [ -d "$HOME/pas/${SVNDIRNAME}" ] ; then
   cd "$HOME/pas/${SVNDIRNAME}"
 else
