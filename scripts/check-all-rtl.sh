@@ -451,6 +451,8 @@ if [ -f "$llvm_mc_bin" ] ; then
   #if [ $llvm_mc_major -ge 11 ] ; then
   #  LLVM_COMMON_OPT+=" -Clv11.0"
   #fi
+else
+  llvm_mc_version="No llvm-mc binary found"
 fi
 
 export PATH
@@ -1121,16 +1123,16 @@ function check_target ()
     else
       ASSEMBLER=llvm-mc
       if [ $SKIP_LLVM_MC -eq 1 ] ; then
-        echo "llvm-mc too old or not found, skipping"
+        echo "llvm-mc $llvm_mc_version not found or too old, skipping"
         skipped_count=`expr $skipped_count + 1 `
         skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc not found or too old"
+        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc $llvm_mc_version not found or too old"
         return
       elif [ $LLVM_SUPPORTS_WASM32 -eq 0 ] ; then 
-        echo "Installed llvm-mc does not support wasm32 target, skipping"
+        echo "Installed llvm-mc $llvm_mc_version does not support wasm32 target, skipping"
         skipped_count=`expr $skipped_count + 1 `
         skipped_list="$skipped_list $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}"
-        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc does not support wasm32"
+        lecho "Skip: Not testing $CPU_TARG_LOCAL-${OS_TARG_LOCAL}${EXTRASUFFIX}, with OPT=\"$OPT_LOCAL\" llvm-mc $llvm_mc_version does not support wasm32"
         return
       fi
     fi
@@ -1960,6 +1962,11 @@ export ASPROG_LOCAL=
 check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 check_target z80 zxspectrum "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 check_target z80 msxdos "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+# wasm32 using wasa
+check_target wasm32 embedded "-n -Awabt" "" "-wabt"
+check_target wasm32 wasi "-n -Awabt" "" "-wabt"
+check_target wasm32 embedded "-n -Abinaryen" "" "-binaryen"
+check_target wasm32 wasi "-n -Abinaryen" "" "-binaryen"
 
 # LLVM compiler trials
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
@@ -2053,6 +2060,7 @@ list_os sparc "-n"
 list_os sparc64 "-n"
 list_os x86_64 "-n"
 list_os xtensa "-n"
+list_os wasm32 "-n"
 list_os z80 "-n -CX -XX"
 
 listed=0
