@@ -1107,7 +1107,7 @@ function check_target ()
   elif [ "X${BINUTILSPREFIX:-}" == "X" ] ; then
     BINUTILSPREFIX_LOCAL=not_set
   fi
-  # Reset BINUTILSPREFIX here, to avoid troybles with fpmake compilation
+  # Reset BINUTILSPREFIX here, to avoid troubles with fpmake compilation
   BINUTILSPREFIX=
 
   if [ "$CPU_TARG_LOCAL" == "jvm" ] ; then
@@ -1963,10 +1963,12 @@ check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 check_target z80 zxspectrum "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 check_target z80 msxdos "-n -CX -XX -Cfsoft" "" "-Cfsoft"
 # wasm32 using wasa
-check_target wasm32 embedded "-n -Awabt" "" "-wabt"
-check_target wasm32 wasi "-n -Awabt" "" "-wabt"
-check_target wasm32 embedded "-n -Abinaryen" "" "-binaryen"
-check_target wasm32 wasi "-n -Abinaryen" "" "-binaryen"
+check_target wasm32 embedded "-n -Awabt" FPCCPUOPT=-O- "-wabt"
+check_target wasm32 wasi "-n -Awabt" FPCCPUOPT=-O- "-wabt"
+check_target wasm32 embedded "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
+check_target wasm32 wasi "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
+check_target wasm32 embedded "-n" FPCCPUOPT=-O-
+check_target wasm32 wasi "-n" FPCCPUOPT=-O-
 
 # LLVM compiler trials
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
