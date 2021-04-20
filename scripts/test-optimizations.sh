@@ -720,7 +720,7 @@ function run_compilers ()
 	  if [ ! -d "$f" ] ; then
             if [ $use_codesign -eq 1 ] ; then
 	      cpf=$f-no-sig
-	      cp -fp $f $cfp
+	      cp -fp $f $cpf
               strip -no_uuid $cpf
               $CODESIGN --remove-signature $cpf
             else
