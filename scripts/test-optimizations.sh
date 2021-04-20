@@ -238,6 +238,7 @@ fi
 FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
 NATIVE_MACHINE=`uname -m`
+NATIVE_OS=`uname -s`
 HAS_NATIVE_FPUX80=0
 
 case $NATIVE_MACHINE in
@@ -292,6 +293,18 @@ if [ -z "$FIND" ] ; then
     export FIND=find
   fi
 fi
+
+if [  "$NATIVE_OS" == "Darwin" ] ; then
+  CODESIGN=`which codesign 2> /dev/null`
+  if [ -n "$CODESIGN" ] ; then
+    use_codesign=1
+  else
+    use_codesign=0
+  fi
+else
+  use_codesign=0
+fi
+
 
 set -u 
 
@@ -680,7 +693,8 @@ function run_compilers ()
       fi
       dir=../tests/output/$FULL_TARGET
       if [ -d "$dir" ] ; then
-        file_list=`$FIND $dir -name "*.o" -or -name "*.ppu" -or -executable `
+        file_list=`$FIND $dir -name "*.o" -or -name "*.ppu" `
+        binary_list=`$FIND $dir -executable `
 	if [ "$tests_target" = "full" ] ; then
           file_list+=" $dir/log $dir/longlog $dir/faillist"
 	else
@@ -698,6 +712,29 @@ function run_compilers ()
 	    else
 	      let move_count++
               decho "Moved $f to $destdir" >> $tests_move_log
+            fi
+	  fi
+        done
+        for f in $binary_list ; do
+	  # Do not try to copy directories directly
+	  if [ ! -d "$f" ] ; then
+            if [ $use_codesign -eq 1 ] ; then
+	      cpf=$f-no-sig
+	      cp -fp $f $cfp
+              strip -no_uuid $cpf
+              $CODESIGN --remove-signature $cpf
+            else
+              cpf=$f
+	    fi
+            cp -f $cpf $destdir >> $tests_move_log 2>&1
+            cpres=$?
+            if [ $cpres -ne 0 ] ; then
+              let failed_move_count++
+              decho "Error moving $cpf to $destdir, res=$cpres"
+              decho "Error moving $cpf to $destdir, res=$cpres" >> $tests_move_log
+	    else
+	      let move_count++
+              decho "Moved $cpf to $destdir" >> $tests_move_log
             fi
 	  fi
         done
