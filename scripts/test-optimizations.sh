@@ -309,6 +309,7 @@ fi
 set -u 
 
 LOGDIR=$HOME/logs/$SVNDIRNAME/test-optimizations-$SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET
+cycle_log=$LOGDIR/cycle.log
 
 if [ ! -d $LOGDIR ] ; then
   mkdir -p $LOGDIR
@@ -791,6 +792,12 @@ function do_all ()
   fi
   decho "Using FPCBIN=$FPCBIN"
   gen_compiler "-O-"
+  uses_Cg_opt=`grep " -Cg " $cycle_log`
+  if [ ! -z "$uses_Cg_opt" ] ; then
+    alt_Cg="-Cg-"
+  else
+    alt_Cg="-Cg"
+  fi
   if [ $all_variants -eq 1 ] ; then
     gen_compiler "-O1"
   fi
@@ -800,6 +807,10 @@ function do_all ()
     gen_compiler "-O4 -CX -XX"
   fi
   gen_compiler "-O4"
+  if [ $all_variants -eq 1 ] ; then
+    gen_compiler "-O- $alt_Cg"
+    gen_compiler "-O4 $alt_Cg"
+  fi
 
   run_compilers
   nb_failure=0
