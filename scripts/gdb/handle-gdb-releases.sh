@@ -83,7 +83,16 @@ function handle_release ()
   builddir=build-gdb-${release}${build_variant}
 
   if [[ ( ! -f sha512.sum ) || ( $zipname -nt sha512.sum ) ]] ; then
+    if [ -f sha512.sum ] ; then
+      mv -f sha512.sum sha512.sum.old
+    fi
     wget -t 5 ftp://sourceware.org/pub/gdb/releases/sha512.sum
+    wget_res=$?
+    if [ $wget_res -ne 0 ] ; then
+      if [ -f sha512.sum.old ] ; then
+        mv -f sha512.sum.old sha512.sum
+      fi
+    fi 
   fi
 
   if [ -f sha512.sum ] ; then
@@ -295,6 +304,7 @@ handle_release gdb-8.3.1.tar.gz
 handle_release gdb-9.1.tar.gz
 handle_release gdb-9.2.tar.gz
 handle_release gdb-10.1.tar.gz
+handle_release gdb-10.2.tar.gz
 ) | tee  all.log 2>&1
 
 if [ ! -z "$MAILTO" ] ; then
