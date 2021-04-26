@@ -4,6 +4,7 @@
 
 # set correct locale for widestring tests
 export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 export DB_SSH_EXTRA="-i ${HOME}/.ssh/freepascal"
 export SCP_EXTRA="-i ${HOME}/.ssh/freepascal"
 export TEST_USER=pierre

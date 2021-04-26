@@ -21,6 +21,10 @@ if [ -z "$LC_ALL" ] ; then
   export LC_ALL=en_US.UTF-8
 fi
 
+if [ -z "LC_CTYPE" ] ; then
+  export LC_CTYPE=en_US.UTF-8
+fi
+
 if [ "$FPCBIN" == "ppc386" ] ; then
   if [ -d /lib/i386 ] ; then
     NEEDED_OPT="$NEEDED_OPT -Fl/lib/i386"
