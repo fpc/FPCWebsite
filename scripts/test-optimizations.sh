@@ -157,8 +157,8 @@ fi
 
 # Prepend $HOME/bin to PATH
 HOMEBINDIR=$HOME/bin
-if [ -d "$HOMEBIN" ] ; then
-  if [ "${PATH/$HOMEBIN/}" = "$PATH" ] ; then
+if [ -d "$HOMEBINDIR" ] ; then
+  if [ "${PATH/$HOMEBINDIR/}" == "$PATH" ] ; then
     export PATH=$HOMEBINDIR:$PATH
   fi
 fi
