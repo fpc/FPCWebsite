@@ -2,38 +2,43 @@
 
 force=0
 local_links=0
+get_all=0
+get_32=0
+get_64=0
 
 while [ "${1:0:1}" = "-" ] ; do
-if [ "$1" == "-f" ] ; then
-  force=1
-  shift
-fi
+  echo "Handling option \"$1\""
+  if [ "$1" == "-f" ] ; then
+    force=1
+    shift
+    continue
+  fi
 
-if [ "$1" == "-l" ] ; then
-  local_links=1
-  shift
-fi
+  if [ "$1" == "-l" ] ; then
+    local_links=1
+    shift
+    continue
+  fi
 
-if [ "$1" == "-all" ] ; then
-  get_all=1
-  shift
-else
-  get_all=0
-fi
+  if [ "$1" == "-all" ] ; then
+    get_all=1
+    shift
+    continue
+  fi
 
-if [ "$1" == "-32" ] ; then
-  get_32=1
-  shift
-else
-  get_32=0
-fi
+  if [ "$1" == "-32" ] ; then
+    get_32=1
+    shift
+    continue
+  fi
 
-if [ "$1" == "-64" ] ; then
-  get_64=1
+  if [ "$1" == "-64" ] ; then
+    get_64=1
+    shift
+    continue
+  fi
+  echo "Warning: unhandled option \"$1\""
   shift
-else
-  get_64=0
-fi
 done
 
 machine=$1
@@ -260,7 +265,7 @@ function maybe_upload_files ()
 }
 
 if [ -n "$add_just_one_lib" ] ; then
-  echo "Only looking for \"$add_just_one_lib\""
+  echo "Only looking for \"$add_just_one_lib\" on machine $machine"
   maybe_upload_files "$add_just_one_lib"
 elif [ -n "$machine" ] ; then
   # Checking for crt1.o file
