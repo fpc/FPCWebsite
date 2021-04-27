@@ -1116,7 +1116,7 @@ function check_target ()
     BINUTILSPREFIX_LOCAL=
   # Darwin, iphonesim and ios targets use clang by default
   elif [ "$CPU_TARG_LOCAL" == "wasm32" ] ; then
-    if [ "X${OPT_LOCAL//-Awasa/}" != "X$OPT_LOCAL" ] ; then
+    if [ "X${OPT_LOCAL//-Awabt/}" != "X$OPT_LOCAL" ] ; then
       ASSEMBLER=wasa
     elif [ "X${OPT_LOCAL//-Abinaryen/}" != "X$OPT_LOCAL" ] ; then
       ASSEMBLER=wasm-as
