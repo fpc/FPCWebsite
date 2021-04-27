@@ -839,9 +839,9 @@ function do_all ()
 
 global_log=$LOGDIR/global$log_suffix
 
-echo "Starting $0 $all_args at `date +%Y-%m-%d:\H-%M`" > $global_log
+echo "Starting $0 $all_args at `date +%Y-%m-%d:%H-%M`" > $global_log
 do_all >> $global_log 2>&1
-echo "Ending $0 $all_args at `date +%Y-%m-%d:\H-%M`" >> $global_log
+echo "Ending $0 $all_args at `date +%Y-%m-%d:%H-%M`" >> $global_log
 
 if [ $test_failed -eq 1 ] ; then
   decho "Optimization test $0 $all_args failed"
