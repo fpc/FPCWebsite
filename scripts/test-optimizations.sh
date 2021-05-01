@@ -189,10 +189,24 @@ if [ -z "$SVNDIRNAME" ] ; then
   fi
 fi
 
+NATIVE_MACHINE=`uname -m`
+case $NATIVE_MACHINE in
+  ppc64*) NATIVE_MACHINE=powerpc64;;
+  ppc*) NATIVE_MACHINE=powerpc;;
+  amd64) NATIVE_MACHINE=x86_64 ; HAS_NATIVE_FPUX80=1 ;;
+  i*86) NATIVE_MACHINE=i386 ; HAS_NATIVE_FPUX80=1 ;;
+  arm64) NATIVE_MACHINE=aarch64;;
+esac
+
 # And put current version at front
-FPC_BINDIR=$PASDIR/fpc-$FPC_VERSION/bin
+FPC_BINDIR=$PASDIR/$NATIVE_MACHINE/fpc-$FPC_VERSION/bin
 if [ -d "$FPC_BINDIR" ] ; then
     export PATH=$FPC_BINDIR:$PATH
+else
+  FPC_BINDIR=$PASDIR/fpc-$FPC_VERSION/bin
+  if [ -d "$FPC_BINDIR" ] ; then
+    export PATH=$FPC_BINDIR:$PATH
+  fi
 fi
 
 cpu_target_explicit=0
@@ -237,17 +251,8 @@ fi
 
 FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
-NATIVE_MACHINE=`uname -m`
 NATIVE_OS=`uname -s`
 HAS_NATIVE_FPUX80=0
-
-case $NATIVE_MACHINE in
-  ppc64*) NATIVE_MACHINE=powerpc64;;
-  ppc*) NATIVE_MACHINE=powerpc;;
-  amd64) NATIVE_MACHINE=x86_64 ; HAS_NATIVE_FPUX80=1 ;;
-  i*86) NATIVE_MACHINE=i386 ; HAS_NATIVE_FPUX80=1 ;;
-  arm64) NATIVE_MACHINE=aarch64;;
-esac
 
 if [ -f "$FOUND_FPCBIN" ] ; then
   SCRIPT_OS_TARGET=`$FOUND_FPCBIN -iTO`
