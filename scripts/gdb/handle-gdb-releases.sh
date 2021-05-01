@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "$GDBMAINDIR" ] ; then
-  GDBMAINDIR=$HOME/gnu/gdb
-fi
-
+os=`uname -o`
 if [ -z "$PASCALMAINDIR" ] ; then
   PASCALMAINDIR=$HOME/pas
 fi
@@ -31,12 +28,21 @@ if [ "X$1" == "X--help" ] ; then
 fi
 
 if [ "X$1" == "X--all" ] ; then
-  default_config_options="--enable-targets=all --enable-64-bit-bfd"
+  default_config_options+=" --enable-targets=all --enable-64-bit-bfd"
   build_variant=-all
   shift
 else
-  default_config_options=
   build_variant=
+fi
+
+if [ "X$os" == "XCygwin" ] ; then
+  echo "Cygwin detected, using i686-w64-mingw32 cross-compiler"
+  default_config_options+=" --host=i686-w64-mingw32"
+  GDBMAINDIR=/usr/local/src/gdb-releases
+  pasbindir=$HOME/pas/fpc-$FPC_VERSION/bin/i386-win32
+else
+  GDBMAINDIR=$HOME/gnu/gdb
+  pasbindir=$HOME/pas/fpc-$FPC_VERSION/bin
 fi
 
 # Function handling a single source tarball
@@ -193,12 +199,14 @@ function handle_release ()
     echo "Error: make all-gdb failed, res=$res"
     if [ -f ./gdb/gdb ]; then
       echo "./gdb/gdb exists nontheless, copied to gdb-${release}"
-      cp ./gdb/gdb ~/bin/gdb-${release}
+      cp ./gdb/gdb ~/bin/gdb-${release}${build_variant}
+      cp ./gdb/gdb $pasbindir/gdb-${release}${build_variant}
     fi
     return
   else
     echo "make all-gdb OK, copied to gdb-$release"
-    cp ./gdb/gdb ~/bin/gdb-${release}
+    cp ./gdb/gdb ~/bin/gdb-${release}${build_variant}
+    cp ./gdb/gdb $pasbindir/gdb-${release}${build_variant}
   fi
 
   cd gdb
