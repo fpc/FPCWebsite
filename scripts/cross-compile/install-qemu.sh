@@ -5,7 +5,7 @@ if [ -n "$1" ] ; then
 fi
 
 if [ -z "$QEMU_VERSION" ] ; then
-  QEMU_VERSION=5.2.0
+  QEMU_VERSION=6.0.0
 fi
 
 if [ ! -d $HOME/gnu/qemu ] ; then
