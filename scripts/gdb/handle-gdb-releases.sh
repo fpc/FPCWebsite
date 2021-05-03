@@ -86,6 +86,7 @@ function handle_release ()
     return
   fi
   dirname=gdb-${release}
+  patch=${dirname}.patch
   builddir=build-gdb-${release}${build_variant}
 
   if [[ ( ! -f sha512.sum ) || ( $zipname -nt sha512.sum ) ]] ; then
@@ -166,13 +167,20 @@ function handle_release ()
       has_obstack_problem=`grep '\*[(][(]void \*\*[)]__o->next_free.*\+\+ = [(][(]void \*[)]datum[)];.*\$' include/obstack.h`
       if [ "X$has_obstack_problem" != "X" ]; then
         echo "Applying obstack patch"
-	cp include/obstack.h include/obstack.h.ori
-	sed 's:.*\*[(]\(.*__o->next_free\)[)]+\+\+ = [(]\(.*\)[)]\(;.*\)$:\1 = \2; \1 += sizeof (\2)\3:' -i include/obstack.h
-	diff -s include/obstack.h include/obstack.h.ori
+        cp include/obstack.h include/obstack.h.ori
+        sed 's:.*\*[(]\(.*__o->next_free\)[)]+\+\+ = [(]\(.*\)[)]\(;.*\)$:\1 = \2; \1 += sizeof (\2)\3:' -i include/obstack.h
+        diff -s include/obstack.h include/obstack.h.ori
         res=$?
-	if [ $res -ne 1 ] ; then
-	  echo "diff return=$res, sed script might have failed"
-	fi
+        if [ $res -ne 1 ] ; then
+          echo "diff return=$res, sed script might have failed"
+        fi
+      fi
+    fi
+    if [ -f "../$patch" ] ; then
+      patch -p 1 -i ../$patch
+      patchres=$?
+      if [ $patchres -ne 0 ] ; then
+          echo "patch returned $patchres, patch ../$patch might not have been applied properly"
       fi
     fi
     cd ..
