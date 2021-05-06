@@ -220,13 +220,16 @@ fi
 
 if [ $makeres -ne 0 ] ; then
   echo "${MAKE} install failed ${makeres}" >> $report
-  ${MAKE} -C ./compiler rtlclean distclean cycle $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$FPCBIN 1>> ${makelog} 2>&1
+  ${MAKE} -C ./compiler rtlclean distclean cycle $MAKEOPT FPC=$FPCBIN 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make -C ./compiler cycle; result=${makeres}" >> $report
   if [ ! -f $NEW_PPC_BIN ] ; then
     echo "No new $NEW_PPC_BIN, aborting" >> $report
     exit
   fi
+  Build_version=`$NEW_PPC_BIN -iV 2> /dev/null`
+  Build_date=`$NEW_PPC_BIN -iD 2> /dev/null`
+
   ${MAKE} -C ./compiler rtlinstall installsymlink $MAKEOPT INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   makeres=$?
   echo "Ending make -C ./compiler installsymlink; result=${makeres}" >> $report
