@@ -23,7 +23,17 @@ echo $$ > $PIDFILE
 
 function get_pid_list ()
 {
-ps -O cwd 2> /dev/null | grep "$HOME/pas/.*/tests/ou"  | grep -v "utils/dotest" | grep -vw grep
+pid_list=`ps x -U $USER -o pid`
+test_list=""
+for pid in $pid_list ; do
+  ps_cwd=`ls -l /proc/$pid/cwd`
+  ps_ps=`ps -fp $pid`
+  is_test=`echo "$ps_cwd $ps_ps" | grep "$HOME/pas/.*/tests/ou"  | grep -v "utils/dotest" | grep -vw grep`
+  if [ -n "$is_test" ] ; then
+    test_list="$test_list $pid"
+    echo "$pid"
+  fi
+done
 }
 
 if [ "X$1" != "X" ] ; then
@@ -58,7 +68,7 @@ while [ $cyclescript -eq 1 ] ; do
     echo "Still running is \"$still_running\""
   fi
 
-  kill_list=`cat ~/.kill.list1 ~/.kill.list2 | sort | uniq -d | sed -n "s:^ *\([1-9][0-9]*\) .*$:\1:p" `
+  kill_list=`cat ~/.kill.list1 ~/.kill.list2 | sort | uniq -d | sed -n "s:^ *\([1-9][0-9]*\)[^0-9]*.*$:\1:p" `
 
   if [ "X$kill_list" != "X" ] ; then
     echo "`date +%Y-%m-%d-%H-%M`" >> ~/.kill.listing
