@@ -1974,7 +1974,7 @@ check_target wasm32 wasi "-n" FPCCPUOPT=-O-
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
   # List comes from fpcsrc/compiler/Makefile.fpc
   llvm_cpu_list="aarch64 arm x86_64"
-  llvm_os_list_aarch64="linux"
+  llvm_os_list_aarch64="darwin linux"
   llvm_os_list_arm="linux"
   llvm_os_list_x86_64="darwin linux"
   for cpu in $llvm_cpu_list ; do
