@@ -2013,10 +2013,10 @@ if [ $DO_CHECK_LLVM -eq 1 ] ; then
       for os in ${!llvm_os_list_name} ; do
         export FPC_LOCAL_SUFFIX=-llvm
         if [ "$cpu" == "arm" ] ; then
-          if [ "$NATIVE_MACHINE" == "aarch64" ] ; then
-            LLVM_OPT="$LLVM_COMMON_OPT -dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
-          else
+          if [ "$NATIVE_MACHINE" == "arm" ] ; then
             LLVM_OPT="$LLVM_COMMON_OPT -dARMHF -CaEABIHF -CpARMv6 -CfVFPv2"
+          else
+            LLVM_OPT="$LLVM_COMMON_OPT -dARMHF -CaEABIHF -CpARMv7a -CfVFPv4"
           fi
         else
           LLVM_OPT="$LLVM_COMMON_OPT"
