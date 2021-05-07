@@ -77,10 +77,12 @@ for arg in "${@}" ; do
     fi
   fi
   if [ "${arg:0:1}" != "-" ] ; then
-    if [ "$source_name" != "-" ] ; then
-      echo "Warning: overriding source_name from $source_name to $arg"
+    if [ -n "${arg}" ] ; then
+      if [ "$source_name" != "-" ] ; then
+        echo "Warning: overriding source_name from $source_name to $arg"
+      fi
+      source_name="$arg"
     fi
-    source_name="$arg"
   fi
 done
 
