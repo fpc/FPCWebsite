@@ -190,6 +190,8 @@ if [ -z "$SVNDIRNAME" ] ; then
 fi
 
 NATIVE_MACHINE=`uname -m`
+HAS_NATIVE_FPUX80=0
+
 case $NATIVE_MACHINE in
   ppc64*) NATIVE_MACHINE=powerpc64;;
   ppc*) NATIVE_MACHINE=powerpc;;
@@ -252,7 +254,6 @@ fi
 FOUND_FPCBIN=`which $FPCBIN 2> /dev/null`
 
 NATIVE_OS=`uname -s`
-HAS_NATIVE_FPUX80=0
 
 if [ -f "$FOUND_FPCBIN" ] ; then
   SCRIPT_OS_TARGET=`$FOUND_FPCBIN -iTO`
@@ -562,11 +563,12 @@ function run_compilers ()
     else
       log_list="$log_list $rtl_log"
     fi
-    if [ -d ../rtl/units${SUFFIX} ] ; then
-      rm -Rf ../rtl/units${SUFFIX}
+    STORE_DIR="../rtl/units${SUFFIX}-${FULL_TARGET}"
+    if [ -d "$STORE_DIR" ] ; then
+      rm -Rf $STORE_DIR
     fi
-    decho "Moving ../rtl/units to ../rtl/units${SUFFIX}"
-    cp -Rf ../rtl/units ../rtl/units${SUFFIX}
+    decho "Moving ../rtl/units to $STORE_DIR"
+    cp -Rf ../rtl/units $STORE_DIR
     if [ $do_fullcycle -eq 1 ] ; then
       decho "Testing $NEWFPC in compiler with fullcycle target"
       fullcycle_log=$LOGDIR/fullcycle${SUFFIX}$log_suffix
@@ -597,11 +599,18 @@ function run_compilers ()
             error_in_full_cycle=1
           fi
           if [ -d ./$CPU/units ] ; then
-            decho "Moving $CPU/units to ../rtl/units${SUFFIX}/compiler-$CPU"
-            if [ ! -d ../rtl/units${SUFFIX}/compiler-$CPU ] ; then
-              mkdir -p ../rtl/units${SUFFIX}/compiler-$CPU
+            decho "Moving $CPU/units to $STORE_DIR/compiler-$CPU"
+            if [ ! -d $STORE_DIR/compiler-$CPU ] ; then
+              mkdir -p $STORE_DIR/compiler-$CPU
             fi
-            cp -Rf ./$CPU/units ../rtl/units${SUFFIX}/compiler-$CPU/
+            cp -Rf ./$CPU/units $STORE_DIR/compiler-$CPU/
+          fi
+          if [ -d ./$CPU/bin ] ; then
+            decho "Moving $CPU/bin to $STORE_DIR/compiler-$CPU"
+            if [ ! -d $STORE_DIR/compiler-$CPU ] ; then
+              mkdir -p $STORE_DIR/compiler-$CPU
+            fi
+            cp -Rf ./$CPU/bin $STORE_DIR/compiler-$CPU/
           fi
         done
       fi
@@ -621,17 +630,17 @@ function run_compilers ()
         log_list="$log_list $packages_log"
       fi
       packages_move_log=$LOGDIR/packages-move${SUFFIX}$log_suffix
-      decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}"
-      decho "Moving packages units/bin dirs to ../rtl/units${SUFFIX}" > $packages_move_log
+      decho "Moving packages units/bin dirs to $STORE_DIR"
+      decho "Moving packages units/bin dirs to $STORE_DIR" > $packages_move_log
       for dir in ../packages/*/units ../packages/*/bin ; do
         if [ -d "$dir" ] ; then
           updir=`dirname $dir`
           package_name=`basename $updir` 
-          decho "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $packages_move_log
-          cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+          decho "Moving $dir to $STORE_DIR/$package_name" >> $packages_move_log
+          cp -Rf $dir $STORE_DIR/$package_name
           cpres=$?
           if [ $cpres -ne 0 ] ; then
-            decho "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+            decho "Error moving  $dir to $STORE_DIR/$package_name, res=$cpres"
           fi
         fi
       done
@@ -649,17 +658,17 @@ function run_compilers ()
         log_list="$log_list $utils_log"
       fi
       utils_move_log=$LOGDIR/utils-move${SUFFIX}$log_suffix
-      decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}"
-      decho "Moving utils units/bin dirs to ../rtl/units${SUFFIX}" > utils_move_log
+      decho "Moving utils units/bin dirs to $STORE_DIR"
+      decho "Moving utils units/bin dirs to $STORE_DIR" > utils_move_log
       for dir in ../utils/*/units ../utils/*/bin utils/units utils/bin ; do
         if [ -d "$dir" ] ; then
           updir=`dirname $dir`
           package_name=`basename $updir` 
-          decho "Moving $dir to ../rtl/units${SUFFIX}/$package_name" >> $utils_move_log
-          cp -Rf $dir ../rtl/units${SUFFIX}/$package_name
+          decho "Moving $dir to $STORE_DIR/utils-$package_name" >> $utils_move_log
+          cp -Rf $dir $STORE_DIR/utils-$package_name
           cpres=$?
           if [ $cpres -ne 0 ] ; then
-            decho "Error moving  $dir to ../rtl/units${SUFFIX}/$package_name, res=$cpres"
+            decho "Error moving  $dir to $STORE_DIR/utils-$package_name, res=$cpres"
           fi
         fi
       done
@@ -691,9 +700,9 @@ function run_compilers ()
       tests_move_log=$LOGDIR/tests-move${SUFFIX}$log_suffix
       move_count=0
       failed_move_count=0
-      decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests"
-      decho "Moving tests objects, ppu files and executables to ../rtl/units${SUFFIX}/tests" > $tests_move_log
-      destdir=../rtl/units${SUFFIX}/tests
+      decho "Moving tests objects, ppu files and executables to $STORE_DIR/tests"
+      decho "Moving tests objects, ppu files and executables to $STORE_DIR/tests" > $tests_move_log
+      destdir=$STORE_DIR/tests
       if [ ! -d $destdir ] ; then
         mkdir -p $destdir
       fi
@@ -774,7 +783,7 @@ function generate_diffs()
         else
           diff_x=""
         fi
-        diff -rc ${diff_x} ../rtl/units$SUF1 ../rtl/units$SUF2 > $diff_file
+        diff -rc ${diff_x} ../rtl/units$SUF1-$FULL_TARGET ../rtl/units$SUF2-$FULL_TARGET > $diff_file
         diffres=$?
         if [ $diffres -ne 0 ] ; then
           decho "Units directories differ, see $diff_file"
