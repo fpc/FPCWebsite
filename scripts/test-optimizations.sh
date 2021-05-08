@@ -132,7 +132,7 @@ if [ $do_tests -eq 1 ] ; then
   # Add it to ignore_list
   ignore_list+=" longlog"
   if [ "$tests_target" = "full" ] ; then
-    ignore_list+=" longlog"
+    ignore_list+=" log-ori longlog"
   else
     ignore_list+=" longlog.*log"
   fi
@@ -297,6 +297,15 @@ if [ -z "$FIND" ] ; then
     export FIND="$GFIND"
   else
     export FIND=find
+  fi
+fi
+
+if [ -z "$SED" ] ; then
+  GSED=`which gsed 2> /dev/null`
+  if [ -f "$GSED" ] ; then
+    export SED="$GSED"
+  else
+    export SED=sed
   fi
 fi
 
@@ -711,7 +720,9 @@ function run_compilers ()
         file_list=`$FIND $dir -name "*.o" -or -name "*.ppu" `
         binary_list=`$FIND $dir -executable `
 	if [ "$tests_target" = "full" ] ; then
-          file_list+=" $dir/log $dir/longlog $dir/faillist"
+          cp $dir/log $dir/log-ori
+	  $SED "s: internalerror generated::" -i $dir/log
+          file_list+=" $dir/log $dir/log-ori $dir/longlog $dir/faillist"
 	else
           file_list+=" $dir/log.*log $dir/longlog.*log $dir/faillist.*log"
 	fi
