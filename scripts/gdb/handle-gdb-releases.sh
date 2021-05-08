@@ -45,6 +45,15 @@ else
   pasbindir=$HOME/pas/fpc-$FPC_VERSION/bin
 fi
 
+if [ -z "$SED" ] ; then
+  GSED=`which gsed 2> /dev/null`
+  if [ -f "$GSED" ] ; then
+    export SED="$GSED"
+  else
+    export SED=sed
+  fi
+fi
+
 # Function handling a single source tarball
 function handle_release ()
 {
@@ -53,7 +62,7 @@ function handle_release ()
   zipname=$1
 
   # Extract version number
-  release=`echo $zipname | sed -n "s:.*gdb-\([0-9.]*\)a*\..*:\1:p" `
+  release=`echo $zipname | $SED -n "s:.*gdb-\([0-9.]*\)a*\..*:\1:p" `
   # Extract compression type
   compression=${zipname//*.}
 
@@ -144,7 +153,7 @@ function handle_release ()
       exec_c_includes_arch_utils_c=`grep '#include "arch-utils.c"' gdb/exec.c`
       if [ -n "$exec_c_includes_arch_utils_c" ] ; then
 	echo "Fixing error in gdb/exec.c include"
-        sed -i "s:arch-utils\.c:arch-utils.h:" gdb/exec.c
+        $SED -i "s:arch-utils\.c:arch-utils.h:" gdb/exec.c
       fi
     fi
     if [ -f gdb/linux-nat.h ] ; then
@@ -154,8 +163,8 @@ function handle_release ()
         file_list=`grep "struct *siginfo" -rl gdb/*linux* gdb/*/*linux* `
         for file in $file_list ; do
           # This first replacement is for gdbserver/linux-low.h only
-          sed -e "s:^struct *siginfo;$:#include <signal.h>:" -i $file
-          sed -e "s:struct *siginfo:siginfo_t:g" -i $file
+          $SED -e "s:^struct *siginfo;$:#include <signal.h>:" -i $file
+          $SED -e "s:struct *siginfo:siginfo_t:g" -i $file
           res=$?
           if [ $res -ne 0 ] ; then
 	    echo "Warning, sed substitution faile for file $file"
@@ -168,7 +177,7 @@ function handle_release ()
       if [ "X$has_obstack_problem" != "X" ]; then
         echo "Applying obstack patch"
         cp include/obstack.h include/obstack.h.ori
-        sed 's:.*\*[(]\(.*__o->next_free\)[)]+\+\+ = [(]\(.*\)[)]\(;.*\)$:\1 = \2; \1 += sizeof (\2)\3:' -i include/obstack.h
+        $SED 's:.*\*[(]\(.*__o->next_free\)[)]+\+\+ = [(]\(.*\)[)]\(;.*\)$:\1 = \2; \1 += sizeof (\2)\3:' -i include/obstack.h
         diff -s include/obstack.h include/obstack.h.ori
         res=$?
         if [ $res -ne 1 ] ; then
@@ -248,7 +257,7 @@ function handle_release ()
 # Get listing of GNU GDB files
 wget -t 5 ftp://sourceware.org/pub/gdb/old-releases/  -O ftp-old-gdb-index.html
 wget -t 5 ftp://ftp.gnu.org/gnu/gdb/ -O ftp-gdb-index.html
-gdb_ftp_list=`sed -n "s:.*/gdb-\([0-9.]*\)a*\.tar.*\".*:handle_release gdb-\1.tar.gz:p" ftp-*gdb-index.html `
+gdb_ftp_list=`$SED -n "s:.*/gdb-\([0-9.]*\)a*\.tar.*\".*:handle_release gdb-\1.tar.gz:p" ftp-*gdb-index.html `
 
 # When specifying a given release file, only handle that version
 if [ "X$1" != "X" ] ; then

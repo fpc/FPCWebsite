@@ -10,6 +10,15 @@ if [ -z "$VERDIR" ] ; then
   fi
 fi
 
+if [ -z "$SED" ] ; then
+  GSED=`which gsed 2> /dev/null`
+  if [ -f "$GSED" ] ; then
+    export SED="$GSED"
+  else
+    export SED=sed
+  fi
+fi
+
 
 MKINSADD=`which mkinsadd`
 
@@ -51,7 +60,7 @@ function check_target ()
     fi
   fi
   if [ -f "$pkglist" ] ; then
-    sed -i "s:\.tar\.gz:.zip:g" $pkglist
+    $SED "s:\.tar\.gz:.zip:g" -i $pkglist
   fi
 }
 
