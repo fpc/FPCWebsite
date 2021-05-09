@@ -131,9 +131,11 @@ if [ $do_tests -eq 1 ] ; then
   # longlog file contains details that can vary 
   # Add it to ignore_list
   ignore_list+=" longlog"
-  if [ "$tests_target" = "full" ] ; then
-    ignore_list+=" log-ori longlog"
-  else
+  # We change log to remove internalerror marker
+  # but keep the otriginal file as log-ori
+  # Thus also exclude log-ori
+  ignore_list+=" log-ori"
+  if [ "$tests_target" != "full" ] ; then
     ignore_list+=" longlog.*log"
   fi
   # Test tw26472 can vary:
