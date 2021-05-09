@@ -24,7 +24,11 @@ if [ "X${DO_STRIP}" == "X" ] ; then
   DO_STRIP=0
 fi
 
-SOURCE_OS=`uname -o`
+SOURCE_OS=`uname -o 2> /dev/null`
+if [ -z "$SOURCE_OS" ] ; then
+  SOURCE_OS=`uname -s`
+fi
+
 echo "SOURCE_OS=$SOURCE_OS"
 
 # If on Cygwin/Msys system
