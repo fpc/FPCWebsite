@@ -1265,6 +1265,9 @@ function check_target ()
   elif [ "$ASSEMBLER" == "clang" ] ; then
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="clang"
+  elif [ "$ASSEMBLER" == "vasmarm_std" ] ; then
+    ASSEMBLER_VER_OPT=--version
+    ASSEMBLER_VER_REGEXPR="vasm"
   elif [ "$ASSEMBLER" == "vasmm68k_std" ] ; then
     ASSEMBLER_VER_OPT=--version
     ASSEMBLER_VER_REGEXPR="vasm"
@@ -1909,6 +1912,7 @@ export RECOMPILE_COMPILER_OPT="-dFPC_ARMHF"
 export RECOMPILE_INSTALL_NAME=ppcarmhf
 export CROSSASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
+check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2 -Avasm" "" "-arm_eabihf-vasm"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_COMPILER_OPT=
