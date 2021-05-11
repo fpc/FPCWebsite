@@ -1912,7 +1912,8 @@ export RECOMPILE_COMPILER_OPT="-dFPC_ARMHF"
 export RECOMPILE_INSTALL_NAME=ppcarmhf
 export CROSSASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
-check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2 -Avasm" "" "-arm_eabihf-vasm"
+# vasm seems to have problems with dwarf debug information
+check_target arm linux "-n -gsl -CaEABIHF -CpARMv6 -CfVFPv2 -Avasm" "" "-arm_eabihf-vasm"
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_COMPILER_OPT=
