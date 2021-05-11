@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+ALT_HTML_DIR=http://phoenix.owl.de/tags
+
 if [ -z "$VASM_VERSION" ] ; then
   # Latest version published 2020/12/31
   VASM_VERSION=1_8j
@@ -93,8 +95,13 @@ function do_recompile_vasm ()
   VASM_SRC=vasm${VASM_VERSION}.tar.gz 
 
   if [ ! -f "$VASM_SRC" ] ; then
-    $WGET ${VASM_HTML_DIR}/${VASM_SRC}
+    echo "$WGET ${VASM_HTML_DIR}/${VASM_SRC}"
+    $WGET ${VASM_HTML_DIR}/${VASM_SRC} > wget-vasm-${VASM_VERSION}.log 2>&1
     wget_res=$?
+    if [ $wget_res -ne 0 ] ; then
+      $WGET ${ALT_HTML_DIR}/${VASM_SRC} > wget-alt-vasm-${VASM_VERSION}.log 2>&1
+      wget_res=$?
+    fi
     if [ $wget_res -ne 0 ] ; then
       echo "Error: $WGET failed to download $VASM_SRC"
       return 1
@@ -193,8 +200,14 @@ function recompile_vlink ()
   VLINK_SRC=vlink${VLINK_VERSION}.tar.gz
   if [ ! -f "$VLINK_SRC" ] ; then
     # $WGET http://server.owl.de/~frank/tags/vlink${VLINK_VERSION}.tar.gz
-    $WGET $VLINK_HTML_DIR/$VLINK_SRC
+    echo "$WGET $VLINK_HTML_DIR/$VLINK_SRC"
+    $WGET $VLINK_HTML_DIR/$VLINK_SRC > wget-vlink-${VLINK_VERSION}.log 2>&1
     wget_res=$?
+    if [ $wget_res -ne 0 ] ; then
+      $WGET $ALT_HTML_DIR/$VLINK_SRC > wget-alt-vlink-${VLINK_VERSION}.log 2>&1
+
+      wget_res=$?
+    fi
     if [ $wget_res -ne 0 ] ; then
       echo "Error: failed to download $VLINK_SRC"
       return $wget_res
