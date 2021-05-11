@@ -7,8 +7,8 @@ if [ -z "$VASM_VERSION" ] ; then
   VASM_HTML_DIR=http://sun.hasenbraten.de/vasm/release
 fi
 if [ -z "$VLINK_VERSION" ] ; then
-  # Latest version published 2020/12/31
-  VLINK_VERSION=0_16g
+  # Latest version published 2021/04/28
+  VLINK_VERSION=0_16h
   #Old HTML dir http://phoenix.owl.de/tags
   VLINK_HTML_DIR=http://sun.hasenbraten.de/vlink/release
 fi
