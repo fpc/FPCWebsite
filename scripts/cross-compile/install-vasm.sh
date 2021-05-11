@@ -197,10 +197,10 @@ fi
 cd $HOME/bin
 
 for os in $asm_os_list ; do
-  asm_symlink=asm-${os}-vasmasm_std
+  asm_symlink=asm-${os}-vasmarm_std
   if [[ ( ! -L "$asm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
-    echo "Adding $asm_symlink symbolic link to vasmasm_std"
-    ln -sf vasmasm_std $asm_symlink
+    echo "Adding $asm_symlink symbolic link to vasmarm_std"
+    ln -sf vasmarm_std $asm_symlink
   fi
 done
 
