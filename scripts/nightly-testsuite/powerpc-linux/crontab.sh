@@ -7,15 +7,19 @@ run_cross_tests=0
 if [ "$machine" = "ppc64le" ] ; then
   gen_64bit=1
   gen_32bit=0
+  run_test_opt=1
 elif [ "$machine" = "ppc64" ] ; then
   gen_64bit=1
   gen_32bit=1
+  run_test_opt=0
 elif [ "$machine" = "ppc" ] ; then
   gen_64bit=0
   gen_32bit=1
+  run_test_opt=0
 else
   gen_64bit=0
   gen_32bit=0
+  run_test_opt=0
   echo "Warning: unrecognized machine $machine"
 fi
 
@@ -67,6 +71,13 @@ if [ $run_cross_tests -eq 1 ] ; then
   . ~/bin/run-cross-tests-using-qemu.sh FIXES=0 --all > $RUNLOGFILE 2>&1
   RUNLOGFILE=$HOME/logs/fixes/cross-tests.log
   . ~/bin/run-cross-tests-using-qemu.sh FIXES=1 --all > $RUNLOGFILE 2>&1
+fi
+
+if [ $run_test_opt -eq 1 ] ; then 
+  RUNLOGFILE=$HOME/logs/trunk/test-opt.log
+  . ~/bin/test-optimizations.sh FIXES=0 --full > $RUNLOGFILE 2>&1
+  RUNLOGFILE=$HOME/logs/fixes/test-opt.log
+  . ~/bin/test-optimizations.sh FIXES=1 --full > $RUNLOGFILE 2>&1
 fi
 
 # Check if script directory exists
