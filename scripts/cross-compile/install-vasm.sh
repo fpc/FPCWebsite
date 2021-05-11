@@ -15,6 +15,8 @@ if [ -z "$VLINK_VERSION" ] ; then
   VLINK_HTML_DIR=http://sun.hasenbraten.de/vlink/release
 fi
 
+VASM_DISPLAY_VERSION=${VASM_VERSION//_/.}
+VLINK_DISPLAY_VERSION=${VLINK_VERSION//_/.}
 
 # Add vasm assembler
 asm_os_list="linux embedded"
@@ -77,12 +79,40 @@ fi
 set -u
 
 
-if [ ! -f "$HOME/bin/vasmm68k_std" ] ; then
+if [ ! -f "$HOME/bin/vasmarm_std" ] ; then
+  echo "$HOME/bin/vasmarm_std not found, recompiling vasm"
   recompile_vasm=1
+else
+  INSTALLED_VASM_VERSION=`$HOME/bin/vasmarm_std -v 2> /dev/null | head -1`
+  echo "Installed arm vasm version is $INSTALLED_VASM_VERSION"
+  if [ "${INSTALLED_VASM_VERSION/${VASM_DISPLAY_VERSION}/}" == "$INSTALLED_VASM_VERSION" ] ; then
+    echo "Older version detected, recompiling"
+    recompile_vasm=1
+  fi
+fi
+
+if [ ! -f "$HOME/bin/vasmm68k_std" ] ; then
+  echo "$HOME/bin/vasmm68k_std not found, recompiling vasm"
+  recompile_vasm=1
+else
+  INSTALLED_VASM_VERSION=`$HOME/bin/vasmm68k_std -v 2> /dev/null | head -1`
+  echo "Installed m68k vasm version is $INSTALLED_VASM_VERSION"
+  if [ "${INSTALLED_VASM_VERSION/${VASM_DISPLAY_VERSION}/}" == "$INSTALLED_VASM_VERSION" ] ; then
+    echo "Older version detected, recompiling"
+    recompile_vasm=1
+  fi
 fi
 
 if [ ! -f "$HOME/bin/vasmz80_std" ] ; then
+  echo "$HOME/bin/vasmz80_std not found, recompiling vasm"
   recompile_vasm=1
+else
+  INSTALLED_VASM_VERSION=`$HOME/bin/vasmz80_std -v 2> /dev/null | head -1`
+  echo "Installed z80 vasm version is $INSTALLED_VASM_VERSION"
+  if [ "${INSTALLED_VASM_VERSION/${VASM_DISPLAY_VERSION}/}" == "$INSTALLED_VASM_VERSION" ] ; then
+    echo "Older version detected, recompiling"
+    recompile_vasm=1
+  fi
 fi
 
 function do_recompile_vasm ()
@@ -239,6 +269,13 @@ function recompile_vlink ()
 # Add vlink linker
 if [ ! -f $HOME/bin/vlink ] ; then
   recompile_vlink=1
+else
+  INSTALLED_VLINK_VERSION=`$HOME/bin/vlink -v 2> /dev/null | head -1`
+  echo "Installed version is $INSTALLED_VLINK_VERSION"
+  if [ "${INSTALLED_VLINK_VERSION/${VLINK_DISPLAY_VERSION}/}" == "$INSTALLED_VLINK_VERSION" ] ; then
+    echo "Older version detected, recompiling"
+    recompile_vlink=1
+  fi
 fi
 
 if [ $recompile_vlink -ne 0 ] ; then
