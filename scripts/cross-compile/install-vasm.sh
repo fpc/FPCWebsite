@@ -19,7 +19,7 @@ VASM_DISPLAY_VERSION=${VASM_VERSION//_/.}
 VLINK_DISPLAY_VERSION=${VLINK_VERSION//_/.}
 
 # Add vasm assembler
-asm_os_list="linux embedded"
+arm_os_list="linux embedded"
 m68k_os_list="amiga atari embedded linux macos macosclassic netbsd sinclairql"
 z80_os_list="amstradcpc embedded msxdos zxspectrum"
 
@@ -196,11 +196,11 @@ fi
 
 cd $HOME/bin
 
-for os in $asm_os_list ; do
-  asm_symlink=asm-${os}-vasmarm_std
-  if [[ ( ! -L "$asm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
-    echo "Adding $asm_symlink symbolic link to vasmarm_std"
-    ln -sf vasmarm_std $asm_symlink
+for os in $arm_os_list ; do
+  arm_symlink=arm-${os}-vasmarm_std
+  if [[ ( ! -L "$arm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $arm_symlink symbolic link to vasmarm_std"
+    ln -sf vasmarm_std $arm_symlink
   fi
 done
 
@@ -296,11 +296,11 @@ fi
 
 cd $HOME/bin
 
-for os in $asm_os_list ; do
-  asm_symlink=asm-${os}-vlink
-  if [[ ( ! -L "$asm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
-    echo "Adding $asm_symlink symbolic link to vlink"
-    ln -sf vlink $asm_symlink
+for os in $arm_os_list ; do
+  arm_symlink=arm-${os}-vlink
+  if [[ ( ! -L "$arm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $arm_symlink symbolic link to vlink"
+    ln -sf vlink $arm_symlink
   fi
 done
 
