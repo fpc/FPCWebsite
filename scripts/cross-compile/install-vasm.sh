@@ -15,8 +15,9 @@ fi
 
 
 # Add vasm assembler
-z80_os_list="amstradcpc embedded msxdos zxspectrum"
+asm_os_list="linux embedded"
 m68k_os_list="amiga atari embedded linux macos macosclassic netbsd sinclairql"
+z80_os_list="amstradcpc embedded msxdos zxspectrum"
 
 # Recompile vasm assembler
 recompile_vasm=0
@@ -158,11 +159,11 @@ fi
 
 cd $HOME/bin
 
-for os in $z80_os_list ; do
-  z80_symlink=z80-${os}-vasmz80_std
-  if [[ ( ! -L "$z80_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
-    echo "Adding $z80_symlink symbolic link to vasmz80_std"
-    ln -sf vasmz80_std $z80_symlink
+for os in $asm_os_list ; do
+  asm_symlink=asm-${os}-vasmasm_std
+  if [[ ( ! -L "$asm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $asm_symlink symbolic link to vasmasm_std"
+    ln -sf vasmasm_std $asm_symlink
   fi
 done
 
@@ -171,6 +172,14 @@ for os in $m68k_os_list ; do
   if [[ ( ! -L "$m68k_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
     echo "Adding $m68k_symlink symbolic link to vasmm68k_std"
     ln -sf vasmm68k_std $m68k_symlink
+  fi
+done
+
+for os in $z80_os_list ; do
+  z80_symlink=z80-${os}-vasmz80_std
+  if [[ ( ! -L "$z80_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $z80_symlink symbolic link to vasmz80_std"
+    ln -sf vasmz80_std $z80_symlink
   fi
 done
 
