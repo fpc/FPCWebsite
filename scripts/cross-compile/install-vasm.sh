@@ -246,11 +246,11 @@ fi
 
 cd $HOME/bin
 
-for os in $z80_os_list ; do
-  z80_symlink=z80-${os}-vlink
-  if [[ ( ! -L "$z80_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
-    echo "Adding $z80_symlink symbolic link to vlink"
-    ln -sf vlink $z80_symlink
+for os in $asm_os_list ; do
+  asm_symlink=asm-${os}-vlink
+  if [[ ( ! -L "$asm_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $asm_symlink symbolic link to vlink"
+    ln -sf vlink $asm_symlink
   fi
 done
 
@@ -259,6 +259,14 @@ for os in $m68k_os_list ; do
   if [[ ( ! -L "$m68k_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
     echo "Adding $m68k_symlink symbolic link to vlink"
     ln -sf vlink $m68k_symlink
+  fi
+done
+
+for os in $z80_os_list ; do
+  z80_symlink=z80-${os}-vlink
+  if [[ ( ! -L "$z80_symlink" ) || ( $force_symlinks -ne 0 ) ]] ; then
+    echo "Adding $z80_symlink symbolic link to vlink"
+    ln -sf vlink $z80_symlink
   fi
 done
 
