@@ -730,7 +730,8 @@ function run_compilers ()
 	fi
         for f in $file_list ; do
 	  # Do not try to copy directories directly
-	  if [ ! -d "$f" ] ; then
+          # Only copy non-empty files
+	  if [[ ( -f "$f" ) && ( -s "$f" ) ]] ; then
             cp -f $f $destdir >> $tests_move_log 2>&1
             cpres=$?
             if [ $cpres -ne 0 ] ; then
@@ -745,7 +746,8 @@ function run_compilers ()
         done
         for f in $binary_list ; do
 	  # Do not try to copy directories directly
-	  if [ ! -d "$f" ] ; then
+          # Only copy non-empty files
+	  if [[ ( -f "$f" ) && ( -s "$f" ) ]] ; then
             if [ $use_codesign -eq 1 ] ; then
 	      cpf=$f-no-sig
 	      cp -fp $f $cpf
