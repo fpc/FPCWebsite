@@ -154,7 +154,7 @@
         <li><a name='WhatIsFP'></a>
           <h3><trn key="website.q_What_is_FPC" locale="en_US">What is Free Pascal (FPC)?</trn></h3>
           <trn key="website.a_What_is_FPC" locale="en_US">
-            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16,32
+            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16, 32
             and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
             Linux, Windows, OS/2, FreeBSD, Mac OS X, DOS and
             several other platforms (the number of supported targets grows
@@ -162,7 +162,7 @@
             the main ones).
 
             <p>The Free Pascal compiler is available for several
-            architectures: x86 (16,32 and 64 bit), ARM, PowerPC (32 and 64 bit),
+            architectures: x86 (16, 32 and 64 bit), ARM, PowerPC (32 and 64 bit),
             SPARC (v8, v9), Java Virtual Machine (under development) and MIPS (little and big endian, under development).
             An older version (the 1.0 series) and current development versions also supported m68k.
 
@@ -195,13 +195,14 @@
               <li>02/2017: 3.0.2 released
               <li>11/2017: 3.0.4 released
               <li>06/2020: 3.2.0 released
+              <li>05/2021: 3.2.2 released
             </ul>
           </trn>
 
         <li><a name='versions'></a>
           <h3><trn key="website.q_What_versions_exist" locale="en_US">Which versions exist, and which one should I use?</trn></h3>
           <trn key="website.a_What_versions_exist" locale="en_US">
-            <p>The latest official version is 3.2.0, the first release in the 3.2.x series.
+            <p>The latest official version is 3.2.2, the first minor update in the 3.2.x series.
             New development is performed in the 3.3.x series, which will eventually
             be released as 3.4.0 or 4.0.0, depending on milestones achieved.
 
@@ -251,12 +252,12 @@
             users. Ask on the mailing lists if it is worth the trouble in your case if
             you are not sure.
 
-            <p>Snapshots of the stable branch (fixes_3_0) are meant to test release engineering. They are
+            <p>Snapshots of the stable branch (fixes_3_2) are meant to test release engineering. They are
 		mainly interesting in the months before a release to extensively
 		test the branch from which the release is created.
 
             <p>We advise all users to upgrade to the newest version for their
-            target (preferably the new stable 3.0.x series).
+            target (preferably the new stable 3.2.x series).
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
@@ -272,7 +273,7 @@
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 3.2.0 (June 2020). GNU Pascal is stopped
+            <DD>Currently, Free Pascal is at version 3.2.2 (May 2021). GNU Pascal is stopped
             version 2.1 (from 2002, which can be built with several different GCC's as backend;
             their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>
