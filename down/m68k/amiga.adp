@@ -11,7 +11,7 @@
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@a</b>.
+<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.
 
 <trn key="website.down.choose.download" locale="en_US">The FPC package for is available in one easy to choose format:</trn>
 <ul>

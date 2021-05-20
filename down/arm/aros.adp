@@ -11,7 +11,7 @@
 *****************************************************************************
 -->
 
-<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@a</b>.
+<trn key="website.latest_version_is" locale="en_US">The latest release version is</trn> <b>@latestversion@</b>.
 
 <trn key="website.down.choose.download" locale="en_US">The FPC package for is available in one easy to choose format:</trn>
 <ul>
@@ -20,7 +20,7 @@
 
 <h3><a name="arosbig"></a><trn key="website.download_in_1_file_aros_on_arm" locale="en_US">Download in 1 big file for AROS on ARM</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/arm-aros/fpc-@latestversion@a-arm-aros.lha">fpc-@latestversion@a-arm-aros.lha</a> (53 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/arm-aros/fpc-@latestversion@-arm-aros.lha">fpc-@latestversion@-arm-aros.lha</a> (53 MB)
 </ul>
 
 <hr>
