@@ -24,21 +24,21 @@
 
 <trn key="website.down.i386.macosx.xcode11" locale="en_US">
 <h3>Xcode 11+ compatibility (macOS 10.15 Catalina and later)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
  If you wish to compile such programs, you will have to copy an older Mac OS X SDK from a previous Xcode installation and point the compiler
  to it with the -XR command line parameter.
 </trn>
 
 <trn key="website.down.i386.macosx.xcode10" locale="en_US">
 <h3>Xcode 10+ compatibility (macOS 10.14 Mojave and later)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 10+ installs some command line file in different
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 10+ installs some command line file in different
  locations compared to previous releases. If you already installed FPC under a previous Mac OS X/OS X/macOS version, you
- will have to reinstall FPC 3.2.0 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
+ will have to reinstall FPC 3.2.2 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
  files). See also the section below on how to install the command line tools.</trn>
 
 <trn key="website.down.i386.macosx.xcode5" locale="en_US">
 <h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 5 and later however
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
@@ -46,7 +46,7 @@
 
 <trn key="website.down.i386.macosx.xcode435" locale="en_US">
 <h3>Xcode 4.3-5.x compatibility (Mac OS X 10.7/OS X 10.8)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 4.3 and later however
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
@@ -54,7 +54,7 @@
 
 <trn key="website.down.i386.macosx.xcode324" locale="en_US">
 <h3>Xcode 3.2.x-4.2 compatibility (Mac OS X 10.6)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. There is
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 10.15. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
@@ -71,7 +71,7 @@
 <trn key="website.down.i386.macosx.powerpc" locale="en_US">contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.</trn>
 <br>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.ios.dmg">fpc-@latestversion@.intel-macosx.cross.ios.dmg</a> (177 MB)
-<trn key="website.down.i386.macosx.fpc320intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br></trn>
+<trn key="website.down.i386.macosx.fpc322intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br></trn>
 <br>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-3.0.5.intel-macosx.cross.ios.dmg">fpc-3.0.5.intel-macosx.cross.ios.dmg</a> (66 MB)
 <trn key="website.down.i386.macosx.fpc305intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br></trn>
