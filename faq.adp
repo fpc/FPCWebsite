@@ -738,8 +738,8 @@
               as this is the limit of some processors. Use const or var parameters
               where appropriate.
               <li><TT>CPU16</TT>,<TT>CPU32</TT> or <TT>CPU64</TT> is defined indicating
-              whether the target is a 16,32-bit or 64-bit cpu. This can help with
-              incorporating 16,32-bit and 64-bit specific code.
+              whether the target is a 16-bit, 32-bit or 64-bit cpu. This can help with
+              incorporating 16-bit, 32-bit and 64-bit specific code.
 
               <li>Use the <TT>ptruint</TT> type when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
