@@ -20,7 +20,7 @@
 
 <h3><a name="morphosbig"></a><trn key="website.download_in_1_file_morphos" locale="en_US">Download in 1 big file for MorphOS</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc-morphos/fpc-@latestversion@a-powerpc-morphos.lha">fpc-@latestversion@a-powerpc-morphos.lha</a> (54 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc-morphos/fpc-@latestversion@-powerpc-morphos.lha">fpc-@latestversion@-powerpc-morphos.lha</a> (54 MB)
 </ul>
 
 <hr>
