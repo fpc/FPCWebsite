@@ -64,17 +64,14 @@
 <trn key="website.down.i386.macosx.download" locale="en_US"><h3><a name="macosxdmg"></a>Download the @latestversion@ release in 1 big file:</h3></trn>
 
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intelarm64-macosx.dmg">fpc-@latestversion@.intelarm64-macosx.dmg</a> (262 MB)
-<trn key="website.down.i386.macosx.intel" locale="en_US">contains an installation package for compiling Intel (32 bit and 64 bit) programs (updated to install successfully on macOS 10.14 "Mojave").</trn>
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intelarm64-macosx.dmg">fpc-@latestversion@.intelarm64-macosx.dmg</a> (274 MB)
+<trn key="website.down.i386.macosx.intel" locale="en_US">contains an installation package for compiling Intel (32 bit and 64 bit) and ARM64 programs.</trn>
 <br>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg">fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg</a> (127 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg">fpc-@latestversion@.intel-macosx.cross.powerpc-macosx.dmg</a> (132 MB)
 <trn key="website.down.i386.macosx.powerpc" locale="en_US">contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.</trn>
 <br>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.ios.dmg">fpc-@latestversion@.intel-macosx.cross.ios.dmg</a> (177 MB)
-<trn key="website.down.i386.macosx.fpc322intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br></trn>
-<br>
-<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-3.0.5.intel-macosx.cross.ios.dmg">fpc-3.0.5.intel-macosx.cross.ios.dmg</a> (66 MB)
-<trn key="website.down.i386.macosx.fpc305intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br></trn>
+<li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.ios.dmg">fpc-@latestversion@.intel-macosx.cross.ios.dmg</a> (184 MB)
+<trn key="website.down.i386.macosx.fpc322intel" locale="en_US">contains an installation package for compiling iPhone/iPod Touch/iPad programs.</trn>
 <br>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-macosx/fpc-@latestversion@.intel-macosx.cross.jvm.dmg">fpc-@latestversion@.intel-macosx.cross.jvm.dmg</a> (12 MB)
 <trn key="website.down.i386.macosx.jvm" locale="en_US">contains an add-on installation package for compiling JVM programs.</trn>
