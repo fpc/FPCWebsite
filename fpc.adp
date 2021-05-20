@@ -22,6 +22,32 @@
 <p>
  <trn locale="en_US" key="website.frontpage.news_headline_20200619">
  <li>
+  <em>May 20th, 2021</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.2.2 has been released!
+   <p>
+     This version is a point update to 3.0 and contains bugfixes and updates packages,
+       some of which are high priority. In this case a new target was also backported
+      from trunk.
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.2.2">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.2.2 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>. Some links might be stale but will be updated in the coming days.
+    If you have trouble using FTP due to recent browser updates, try the sourceforge mirror.
+   </p>
+  </li>
+ </ul>
+ </trn>
+</p>
+
+<p>
+ <trn locale="en_US" key="website.frontpage.news_headline_20200619">
+ <li>
   <em>June 19th, 2020</em>
  </li>
  <ul>

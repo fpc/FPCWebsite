@@ -20,7 +20,7 @@
 
 <h3><a name="amigabig"></a><trn key="website.download_in_1_file_amigaos4" locale="en_US">Download in 1 big file for AmigaOS 4.0+</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc-amiga/fpc-@latestversion@a-powerpc-amiga.lha">fpc-@latestversion@a-powerpc-amiga.lha</a> (54 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc-amiga/fpc-@latestversion@-powerpc-amiga.lha">fpc-@latestversion@-powerpc-amiga.lha</a> (55 MB)
 </ul>
 
 <hr>
