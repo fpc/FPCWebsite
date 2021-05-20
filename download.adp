@@ -41,6 +41,7 @@
     <ul>
       <li><a href="down/aarch64/linux@x@">Linux</a>
       <li><a href="down/aarch64/android@x@">Android</a>
+      <li><a href="down/i386/macosx@x@">macOS</a>
     </ul>
 
   <li>Intel x86/i386
@@ -48,7 +49,7 @@
       <li><a href="down/i386/win32@x@">Windows 32-bit</a> (<trn key="website.down_i386_win32_note" locale="en_US">and a cross-compiler ARM/MIPS/i386-Android</trn>)
    <!-- (<s>Windows 95,</s> Windows 98, ME, NT, 2000, XP, Vista) for Windows 95 please see <a href="rtl/win95-rtl-260-fix.html"> this fix for 2.6.0 RTL.</a> -->
       <li><a href="down/i386/linux@x@">Linux</a>
-      <li><a href="down/i386/macosx@x@">Mac OS X/OS X/macOS</a> (<trn key="website.down_i386_macx_dos_note" locale="en_US">and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
+      <li><a href="down/i386/macosx@x@">Mac OS X/OS X/macOS</a> (<trn key="website.down_i386_macx_dos_note" locale="en_US">and cross-compilers for ARM64, PowerPC(64), iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
       <li><a href="down/i386/freebsd@x@">FreeBSD</a>
       <li><a href="down/i386/solaris@x@">Solaris</a>
       <li><a href="down/i386/os2@x@">OS/2 (<trn key="website.down_i386_OS2_note" locale="en_US">and eComStation</trn>)</a>
