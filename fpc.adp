@@ -28,7 +28,7 @@
   <li>
    FPC version 3.2.2 has been released!
    <p>
-     This version is a point update to 3.0 and contains bugfixes and updates packages,
+     This version is a point update to 3.2.0 and contains bugfixes and updated packages,
        some of which are high priority. In this case a new target was also backported
       from trunk.
    </p>
