@@ -22,8 +22,8 @@ while [ $check_option_arg -eq 1 ] ; do
 done
 
 if [ -z "$release_version" ] ; then
-  release_version=3.2.2-rc1
-  release_version_last_rc=3.2.0-rc1
+  release_version=3.2.2
+  release_version_last_rc=3.2.2-rc1
 fi
 
 svn_branch_name=release_${release_version//./_}
