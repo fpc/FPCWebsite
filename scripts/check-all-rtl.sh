@@ -335,6 +335,10 @@ else
   fi
 fi
 
+FPCVERSION_MAJOR=${FPCVERSION/.*/}
+FPCVERSION_NOT_MAJOR=`echo ${FPCVERSION} | sed "s:^[^.]*\.::" `
+FPCVERSION_MINOR=${FPCVERSION_NOT_MAJOR/.*/}
+
 # Some programs might freeze
 # like i386-darwin-as...
 
@@ -1184,11 +1188,10 @@ function check_target ()
     ASSEMBLER=wasm
   elif [ "$CPU_TARG_LOCAL" == "z80" ] ; then
     if [ "X${OPT_LOCAL//-Az80asm/}" != "X$OPT_LOCAL" ] ; then
-      # -Avasm can be used for arm, m68k or z80 vasm assembler 
       ASSEMBLER=z80asm
     elif [ "X${OPT_LOCAL//-Avasm/}" != "X$OPT_LOCAL" ] ; then
       # -Avasm can be used for arm, m68k or z80 vasm assembler 
-      ASSEMBLER=z80vasm_std
+      ASSEMBLER=vasmz80_std
     else
       ASSEMBLER=sdasz80
     fi
@@ -1859,10 +1862,11 @@ check_target avr embedded "-n" "SUBARCH=avr25" "-avr25"
 check_target avr embedded "-n" "SUBARCH=avr4" "-avr4"
 check_target avr embedded "-n" "SUBARCH=avr6"
 check_target mipsel embedded "-n" "SUBARCH=pic32mx"
-check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
-# check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
-check_target xtensa embedded "-n" "SUBARCH=lx106"
-
+if [[ ( $FPCVERSION_MAJOR -ge 3 ) && ( $FPCVERSION_MINOR -ge 3 ) ]] ; then
+  check_target riscv32 embedded "-n" "SUBARCH=rv32imac"
+  # check_target xtensa embedded "-n" "SUBARCH=lx6" "-lx6"
+  check_target xtensa embedded "-n" "SUBARCH=lx106"
+fi
 
 # Known to be broken, disabled
 # check_target i386 darwin "-n -Aas-darwin" "" "-with-darwin-as"
@@ -1913,7 +1917,9 @@ export RECOMPILE_INSTALL_NAME=ppcarmhf
 export CROSSASTARGET="-march=armv6 -mfpu=vfpv2 -mfloat-abi=hard"
 check_target arm linux "-n -gl -CaEABIHF -CpARMv6 -CfVFPv2" "" "-arm_eabihf"
 # vasm seems to have problems with dwarf debug information
-check_target arm linux "-n -gsl -CaEABIHF -CpARMv6 -CfVFPv2 -Avasm" "" "-arm_eabihf-vasm"
+if [[ ( $FPCVERSION_MAJOR -ge 3 ) && ( $FPCVERSION_MINOR -ge 3 ) ]] ; then
+  check_target arm linux "-n -gsl -CaEABIHF -CpARMv6 -CfVFPv2 -Avasm" "" "-arm_eabihf-vasm"
+fi
 export CROSSASTARGET=
 export RECOMPILE_INSTALL_NAME=
 export RECOMPILE_COMPILER_OPT=
@@ -1958,22 +1964,24 @@ check_target arm freertos "-n" "SUBARCH=armv6m"
 # check_target z80 embedded "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 # check_target z80 zxspectrum "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
 # check_target z80 msxdos "-n -Az80asm -CX -XX -Cfsoft" "" "-z80asm"
-export ASPROG_LOCAL=vasmz80_std
-check_target z80 embedded "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
-check_target z80 zxspectrum "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
-check_target z80 msxdos "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
-export ASPROG_LOCAL=
-# Test with -Cfsoft option
-check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
-check_target z80 zxspectrum "-n -CX -XX -Cfsoft" "" "-Cfsoft"
-check_target z80 msxdos "-n -CX -XX -Cfsoft" "" "-Cfsoft"
-# wasm32 using wasa
-check_target wasm32 embedded "-n -Awabt" FPCCPUOPT=-O- "-wabt"
-check_target wasm32 wasi "-n -Awabt" FPCCPUOPT=-O- "-wabt"
-check_target wasm32 embedded "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
-check_target wasm32 wasi "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
-check_target wasm32 embedded "-n" FPCCPUOPT=-O-
-check_target wasm32 wasi "-n" FPCCPUOPT=-O-
+if [[ ( $FPCVERSION_MAJOR -ge 3 ) && ( $FPCVERSION_MINOR -ge 3 ) ]] ; then
+  export ASPROG_LOCAL=vasmz80_std
+  check_target z80 embedded "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
+  check_target z80 zxspectrum "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
+  check_target z80 msxdos "-n -Avasm -CX -XX -XV -Cfsoft" "" "-vasmz80"
+  export ASPROG_LOCAL=
+  # Test with -Cfsoft option
+  check_target z80 embedded "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+  check_target z80 zxspectrum "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+  check_target z80 msxdos "-n -CX -XX -Cfsoft" "" "-Cfsoft"
+  # wasm32 using wasa
+  check_target wasm32 embedded "-n -Awabt" FPCCPUOPT=-O- "-wabt"
+  check_target wasm32 wasi "-n -Awabt" FPCCPUOPT=-O- "-wabt"
+  check_target wasm32 embedded "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
+  check_target wasm32 wasi "-n -Abinaryen" FPCCPUOPT=-O- "-binaryen"
+  check_target wasm32 embedded "-n" FPCCPUOPT=-O-
+  check_target wasm32 wasi "-n" FPCCPUOPT=-O-
+fi
 
 # LLVM compiler trials
 if [ $DO_CHECK_LLVM -eq 1 ] ; then
@@ -2066,9 +2074,11 @@ list_os riscv64 "-n"
 list_os sparc "-n"
 list_os sparc64 "-n"
 list_os x86_64 "-n"
-list_os xtensa "-n"
-list_os wasm32 "-n"
-list_os z80 "-n -CX -XX"
+if [[ ( $FPCVERSION_MAJOR -ge 3 ) && ( $FPCVERSION_MINOR -ge 3 ) ]] ; then
+  list_os xtensa "-n"
+  list_os wasm32 "-n"
+  list_os z80 "-n -CX -XX"
+fi
 
 listed=0
 
