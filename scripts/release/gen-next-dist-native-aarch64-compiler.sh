@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-release_version=3.2.2-rc1
+release_version=3.2.2
 prev_release_version=3.2.0
 
 target_cpu=aarch64
