@@ -41,7 +41,11 @@ if [ -z "$SVNDIR" ] ; then
 fi
 
 if [ "$RELEASEVER" == "" ]; then
-  export RELEASEVER=3.2.0
+  if [ -n "$RELEASEVERSION" ]; then
+    export RELEASEVER=$RELEASEVERSION
+  else
+    export RELEASEVER=3.2.2
+  fi
 fi
 
 if [ "$FPCBIN" == "" ]; then
