@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PREVIOUS_RELEASE=3.2.0
-TEST_RELEASE=3.2.2rc1
+TEST_RELEASE=3.2.2
 
 if [ -z "$FPC" ] ; then
   FPC=`which fpc`
@@ -76,7 +76,7 @@ elif [ "$FPC_FULLVERSION" == "$TEST_RELEASE" ] ; then
   ALL_FPC=`which -a $FPCBASE` 
   for f in $ALL_FPC ; do
     ver=`$f -iW`
-    if [ "$ver " != "$PREVIOUS_RELEASE" ] ; then
+    if [ "$ver" != "$PREVIOUS_RELEASE" ] ; then
       echo "Skipping $f, version is $ver, while we are looking for $PREVIOUS_RELEASE"
       continue
     else
