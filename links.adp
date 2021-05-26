@@ -87,7 +87,7 @@ for instructions on how to do it.
 <trn key="website.links.fpcirc" locale="en_US">
 <h2>IRC channels</h2>
 You can try to meet the core Free Pascal developers using IRC channel #fpc on server
-<a href="http://www.freenode.net">irc.freenode.net</a>. Most of the core
+<a href="https://libera.chat">irc.libera.chat</a>. Most of the core
 developers are Europeans, so choosing a decent European hour may improve
 your chances to contact them ;-).
 </trn>

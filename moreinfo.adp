@@ -11,7 +11,7 @@
   <li><trn key="website.moreinfo.Building" locale="en_US">read the <a href="http://www.stack.nl/~marcov/buildfaq.pdf">Building FAQ (PDF)</a>.</trn></li>
   <li><trn key="website.moreinfo.news" locale="en_US">read the <a href="news@x@">news</a>.</trn></li>
   <li><trn key="website.moreinfo.mailing" locale="en_US">join one or more <a href="maillist@x@">mailing lists</a>.</trn></li>
-  <li><trn key="website.moreinfo.irc" locale="en_US">have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>.
+  <li><trn key="website.moreinfo.irc" locale="en_US">have a chat with the FPC developers on IRC channel #fpc on server <a href="https://libera.chat">irc.libera.chat</a>.
   <!--The log of this channel is available <a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">
   here</a>.</trn></li> -->
   <li><trn key="website.moreinfo.wiki" locale="en_US">search the <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>.</trn></li>
