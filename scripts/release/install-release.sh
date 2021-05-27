@@ -174,16 +174,32 @@ fi
 }
 
 
+PAS_BASE=$HOME/pas
+same_install_base=1
 
-if [[ ( -n "$CPU32" ) && ( -n "$CPU64" ) ]] ; then
-  install_this $TARFILE32 $DIRNAME32 $HOME/pas/fpc-$RELEASE_VERSION-32 $CPU32
-  install_this $TARFILE64 $DIRNAME64 $HOME/pas/fpc-$RELEASE_VERSION-64 $CPU64
+if [ -d "$PAS_BASE/$CPU32" ] ; then
+  PAS_BASE32=$PAS_BASE/$CPU32
+  same_install_base=0
+else
+  PAS_BASE32=$PAS_BASE
+fi
+
+if [ -d "$PAS_BASE/$CPU64" ] ; then
+  PAS_BASE64=$PAS_BASE/$CPU64
+  same_install_base=0
+else
+  PAS_BASE64=$PAS_BASE
+fi
+
+if [[ ( -n "$CPU32" ) && ( -n "$CPU64" ) && ( $same_install_base -eq 1 ) ]] ; then
+  install_this $TARFILE32 $DIRNAME32 $PAS_BASE32/fpc-$RELEASE_VERSION-32 $CPU32
+  install_this $TARFILE64 $DIRNAME64 $PAS_BASE64/fpc-$RELEASE_VERSION-64 $CPU64
 fi
 if [ -n "$CPU32" ] ; then
-  install_this $TARFILE32 $DIRNAME32 $HOME/pas/fpc-$RELEASE_VERSION $CPU32
+  install_this $TARFILE32 $DIRNAME32 $PAS_BASE32/fpc-$RELEASE_VERSION $CPU32
 fi
 if [ -n "$CPU64" ] ; then
-  install_this $TARFILE64 $DIRNAME64 $HOME/pas/fpc-$RELEASE_VERSION $CPU64 force
+  install_this $TARFILE64 $DIRNAME64 $PAS_BASE64/fpc-$RELEASE_VERSION $CPU64 force
 fi
 
 
