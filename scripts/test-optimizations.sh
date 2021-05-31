@@ -395,7 +395,7 @@ if [ "$NATIVE_MACHINE" != "$SCRIPT_CPU_TARGET" ] ; then
     if [ "$SCRIPT_CPU_TARGET" == "sparc" ] ; then
       NATIVE_OPT="-ao-32"
     fi
-    if [ "$CPU_TARGET" = "powerpc" ]; then
+    if [ "$SCRIPT_CPU_TARGET" = "powerpc" ]; then
       export TEST_BINUTILSPREFIX=powerpc-linux-
       export BINUTILSPREFIX=powerpc-linux-
       export FPMAKE_SKIP_CONFIG=" -XPpowerpc-linux-"
