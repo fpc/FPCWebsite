@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-export FPC_RELEASE_VERSION=3.2.2-rc1
+export FPC_RELEASE_VERSION=3.2.2
 export FPC_RELEASE_VERSION_LAST_RC=3.2.2-rc1
-export FPC_RELEASE_VERSION_IN_TAR=3.2.2rc1
+export FPC_RELEASE_VERSION_IN_TAR=3.2.2
 export FPC_START_VERSION=3.2.0
-export FPC_RELEASE_SVN_DIR=release_3_2_2_rc1
+export FPC_RELEASE_SVN_DIR=release_3_2_2
 
 export BUILDFULLNATIVE_OS_LIST="win32 win64"
 
@@ -72,8 +72,10 @@ fi
 
 START_FPC_VERSION=`$STARTFPC -iV`
 if [ "$FPC_START_VERSION" != "$START_FPC_VERSION" ] ; then
-  echo "Found fpc ($STARTFPC) is not version $FPC_START_VERSION, but $START_FPC_VERSION"
-  exit
+  if [ "$FPC_RELEASE_VERSION" != "$START_FPC_VERSION" ] ; then
+    echo "Found fpc ($STARTFPC) is not version $FPC_START_VERSION, but $START_FPC_VERSION"
+    exit
+  fi
 fi
 
 if [ -z "${FPC_NATIVE_BIN:-}" ] ; then
