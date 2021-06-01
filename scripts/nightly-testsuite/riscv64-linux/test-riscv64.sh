@@ -52,6 +52,7 @@ if [ "$NATIVE_CPU" != "$CPU_TARGET" ] ; then
   TARGET_SYSROOT="$HOME/sys-root/$FULL_TARGET"
   TEST_BINUTILSPREFIX=$FULL_TARGET-
   export QEMU_LD_PREFIX=$HOME/sys-root/$FULL_TARGET/
+  export LD_PRELOAD=
   SUBDIR=riscv64-on-x86_64
   native_riscv=0
 else
@@ -83,13 +84,22 @@ if [[ ( -z "$TARGET_SYSROOT" ) || ( -d "$TARGET_SYSROOT" ) ]] ; then
     COMMON_TEST_OPT+=" -k-rpath-link=$TARGET_SYSROOT/usr/lib/gcc/$GNU_TARGET_DIR/9 -k-L -k$TARGET_SYSROOT/usr/lib/gcc/$GNU_TARGET_DIR/9"
   fi
   if [ -n "$TARGET_SYSROOT" ] ; then
-    COMMON_TEST_OPT+=" -Xd -k--sysroot=$TARGET_SYSROOT -k-nostdlib"
+    COMMON_TEST_OPT+=" -vx -XR$TARGET_SYSROOT -Xd -k--sysroot=$TARGET_SYSROOT -k-nostdlib"
   else
     COMMON_TEST_OPT+=" -vx"
   fi
 fi
 
+# Test Florian's configuration
+# as options with
+# LIBGCCPATH=$(dirname `riscv64-linux-gnu-gcc -print-libgcc-file-name`)
+# COMMON_TEST_OPT="-XR$TARGET_SYSROOT -Fl$TARGET_SYSROOT/usr/lib/gcc/riscv64-linux-gnu/9"
+
+
+# Further, I set
+QEMU_LD_PREFIX=/usr/riscv64-linux-gnu
 MAKE_J_OPT="-j 8"
+export FPMAKEOPT="-T 8"
 BASELOGDIR=$HOME/logs/$BRANCH/$SUBDIR
 
 if [ ! -d "$BASELOGDIR" ] ; then
@@ -131,7 +141,7 @@ function kill_runaway_tests ()
         if [ "${pslist_before/$pid/}" != "$pslist_before" ] ; then
   	  decho "kill_runaway_tests $pid: $pid_details"
           kill -TERM $pid
-          sleep $wait_amount
+          sleep $sleep_amount
         fi
       fi
     done
@@ -167,10 +177,16 @@ function run_tests ()
   cp output/$FULL_TARGET/longlog $TESTLOGDIR/ 
   cp output/$FULL_TARGET/log $TESTLOGDIR/ 
   cp output/$FULL_TARGET/faillist $TESTLOGDIR/ 
-  if [ $try_upload -eq 1 ] ; then
-    # Try upload
-    make $MAKE_J_OPT uploadrun TEST_FPC=$TEST_FPC TEST_OPT="$TEST_OPT" FPC=$NATIVE_FPC \
+  fail_count=`wc -l $TESTLOGDIR/faillist | gawk '{print $1}'`
+
+  if [ $fail_count -le 500 ] ; then
+    if [ $try_upload -eq 1 ] ; then
+      # Try upload
+      make $MAKE_J_OPT uploadrun TEST_FPC=$TEST_FPC TEST_OPT="$TEST_OPT" FPC=$NATIVE_FPC \
 	    TEST_COMMENT="$1" DB_SSH_EXTRA="-i ~/.ssh/freepascal"  TEST_BINUTILSPREFIX=$TEST_BINUTILSPREFIX >> $testslog 2>&1
+    fi
+  else
+    echo "tests with TEST_COMMENT=\"$1\" generated $fail_count errors, not uploaded"
   fi
 }
 
@@ -180,18 +196,18 @@ decho "Starting $0"
 kill_runaway_tests &
 
 if [ "X$1" == "X" ] ; then
-  run_tests "-O-"
-  run_tests "-O1"
-  run_tests "-O2"
-  run_tests "-O3"
-  run_tests "-O4"
+  run_tests "-O- -Cg"
+  run_tests "-O1 -Cg"
+  run_tests "-O2 -Cg"
+  run_tests "-O3 -Cg"
+  run_tests "-O4 -Cg"
 else
   run_tests "$1"
 fi
 
 running=0
 echo $running > $GLOBAL_LOCK_RUNNING
-sleep $wait_amount
+sleep $sleep_amount
 decho "Ending $0"
 
 mv -f $GLOBAL_LOCK $GLOBAL_LOCK-last 
