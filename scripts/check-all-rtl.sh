@@ -148,11 +148,12 @@ if [ -z "${FPC:-}" ] ; then
     riscv64) FPC=ppcrv64 ;;
     x86_64|amd64) FPC=ppcx64 ;;
     xtensa) FPC=ppcxtensa ;;
-    z80) FPC=ppz80 ;;
+    wasm*) FPC=ppcwasm32 ;;
+    z80) FPC=ppcz80 ;;
   esac
   export FPC
 fi
-cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
+cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa wasm32 z80"
 
 # Install all cross-rtl-packages on gcc20/gcc21/gcc123 machines
 # Install all packages on gcc21 and gcc123
@@ -981,6 +982,7 @@ function set_fpc_local ()
     vis)       FPC_LOCAL=ppcvis;;
     x86_64)    FPC_LOCAL=ppcx64;;
     xtensa)    FPC_LOCAL=ppcxtensa;;
+    wasm32)    FPC_LOCAL=ppcwasm32;;
     z80)       FPC_LOCAL=ppcz80;;
     *)         FPC_LOCAL=ppc$LOC_CPU_TARGET;;
   esac

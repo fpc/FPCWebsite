@@ -91,6 +91,7 @@ function set_fpc_local ()
     vis)       FPC_LOCAL=ppcvis;;
     x86_64)    FPC_LOCAL=ppcx64;;
     xtensa)    FPC_LOCAL=ppcxtensa;;
+    wasm32)    FPC_LOCAL=ppcwasm32;;
     z80)       FPC_LOCAL=ppcz80;;
     *)         FPC_LOCAL=ppc$CPU_TARGET;;
   esac

@@ -17,7 +17,7 @@ exe_ext=""
 FPCBIN=
 OPT=""
 
-cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa z80"
+cpu_list="aarch64 arm avr i386 i8086 jvm m68k mips mipsel powerpc powerpc64 riscv32 riscv64 sparc sparc64 x86_64 xtensa wasm32 z80"
 
 function test_help ()
 {
@@ -237,7 +237,8 @@ if [ -n "${CPU_TARGET:-}" ] ; then
       riscv64) FPCBIN=ppcrv64 ;;
       x86_64|amd64) FPCBIN=ppcx64 ;;
       xtensa) FPCBIN=ppcxtensa ;;
-      z80) FPCBIN=ppz80 ;;
+      wasm32) FPCBIN=ppcwasm32 ;;
+      z80) FPCBIN=ppcz80 ;;
     esac
     export FPCBIN
   fi
