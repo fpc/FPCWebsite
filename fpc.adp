@@ -129,7 +129,7 @@
 <h2><trn locale="en_US" key="website.Current_Version">Current Version</trn></h2>
 <p>
   <trn locale="en_US" key="website.Current_Version_text">
-    Version <em>3.2.0</em> is the latest stable version the Free Pascal.
+    Version <em>3.2.2</em> is the latest stable version of Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
     The development releases have version numbers <EM>3.3.x</EM>.
