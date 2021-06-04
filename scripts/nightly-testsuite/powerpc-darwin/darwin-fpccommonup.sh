@@ -109,6 +109,11 @@ if [ "$MAKE" == "" ]; then
   fi
 fi
 
+DATE=` which gdate 2> /dev/null `
+if [ -z "$DATE" ] ; then
+  DATE=date
+fi
+
 HOST_PC=${HOSTNAME%%\.*}
 export TEST_USER=pierre
 FPCRELEASEBINDIR=${HOME}/pas/fpc-${RELEASEVER}/bin
@@ -131,7 +136,7 @@ export makelog=$LOGDIR/make-$SVNDIRNAME.txt
 export makecleanlog=$LOGDIR/makeclean-$SVNDIRNAME.txt 
 
 echo "Starting $0" > $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+echo "Start time `$DATE +%Y-%m-%d-%H:%M:%S`" >> $report
 echo "Start FPCBIN `which ${FPCBIN}`" >> $report
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
@@ -248,7 +253,7 @@ function run_tests ()
   export testslog="$LOGDIR/tests-${TESTSUFFIX}.txt" 
   LOCAL_TEST_OPT+=" ${TEST_OPT}"
   rm -Rf $testslog
-  echo "Start time: `date +%Y-%m-%d-%H:%M:%S`" >> $report
+  echo "Start time: `$DATE +%Y-%m-%d-%H:%M:%S`" >> $report
   if [ $distclean_all -eq 1 ] ; then
     echo "Starting make -C .. distclean with TEST_OPT=\"${LOCAL_TEST_OPT}\"" >> $report
     ${MAKE} ${MAKE_J_OPT} -C .. distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
@@ -300,7 +305,7 @@ function run_tests ()
       cp -fp  output/$FPC_CPU_TARGET-$FPC_OS_TARGET/$f $LOGDIR/$f-${TESTSUFFIX}
     fi
   done
-  echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+  echo "End time `$DATE +%Y-%m-%d-%H:%M:%S`" >> $report
 }
 
 
