@@ -84,6 +84,9 @@ if [ "$machine_host" == "CFARM-IUT-TLSE3" ] ; then
 fi
 # Only keep first part of machine name
 machine_host=${machine_host//.*/}
+if [ "$machine_host" == "minimac" ] ; then
+  machine_host=gcc304
+fi
 
 machine_cpu=`uname -m`
 machine_os=`uname -s`
@@ -289,6 +292,17 @@ elif [ "X$machine_host" == "Xgcc202" ] ; then
   DO_CHECK_LLVM=1
   # clang is much slower, increase ulimit
   ULIMIT_TIME=999
+elif [ "X$machine_host" == "Xgcc304" ] ; then
+  # aarch64-darwin test machine
+  DO_FPC_BINARY_INSTALL=1
+  DO_RECOMPILE_FULL=1
+  RECOMPILE_FULL_OPT_O="-gwl"
+  DO_CHECK_LLVM=1
+  RECOMPILE_FULL_OPT="-dFPC_SOFT_FPUX80"
+  test_utils=1
+  test_utils_ppudump=1
+  export MAKEJOPT="-j 16"
+  export FPMAKEOPT="-T 16"
 elif [ "X$machine_host" == "Xstadler" ] ; then
   test_utils=1
   test_utils_ppudump=1
@@ -380,10 +394,15 @@ if [ "X${MAKE:-}" == "X" ] ; then
     MAKE=make
   fi
 fi
-FIND=` which gfind 2> /dev/null `
 
+FIND=` which gfind 2> /dev/null `
 if [ -z "$FIND" ] ; then
   FIND=find
+fi
+
+DATE=` which gdate 2> /dev/null `
+if [ -z "$DATE" ] ; then
+  DATE=date
 fi
 
 
@@ -577,17 +596,17 @@ if [ -f "$TIMEDLISTLOGFILE" ] ; then
   cp -f -p $TIMEDLISTLOGFILE ${PREVTIMEDLISTLOGFILE}
 fi
 
-start_date_time=`date "+%Y-%m-%d %H:%M:%S"`
-export start_system_date=`date +%Y/%m/%d`
-last_time_in_secs=`date --utc +%s`
+start_date_time=`$DATE "+%Y-%m-%d %H:%M:%S"`
+export start_system_date=`$DATE +%Y/%m/%d`
+last_time_in_secs=`$DATE --utc +%s`
 
 DATE_FORMAT="+%Y-%m-%d %H:%M:%S"
-now_stamp=`date "+%s"`
+now_stamp=`$DATE "+%s"`
 secs_in_one_day=86400
 
 function date2stamp ()
 {
-  date --utc --date "$1" +%s
+  $DATE --utc --date "$1" +%s
 }
 
 function dateDiff ()
@@ -619,7 +638,7 @@ function dateDiff ()
 
 function filedatestamp ()
 {
-  echo `date -r "$1" "+%s"`
+  echo `$DATE -r "$1" "+%s"`
 }
 
 # Returns the number of days since file was last modified
@@ -631,7 +650,7 @@ function fileage ()
 
 function time_since_last ()
 {
-  now_time_in_secs=`date --utc +%s`
+  now_time_in_secs=`$DATE --utc +%s`
   diffSec=$((now_time_in_secs - last_time_in_secs))
   last_time_in_secs=$now_time_in_secs
   echo $diffSec
@@ -643,7 +662,7 @@ function mecho ()
   echo "$*" >> $LOGFILE
   echo "$*" >> $LISTLOGFILE
   time_since_last > /dev/null
-  echo "$diffSec `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
+  echo "$diffSec `$DATE --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
   echo "$*" >> $EMAILFILE
   if [ $verbose -eq 1 ] ; then
   echo "$*"
@@ -656,7 +675,7 @@ function lecho ()
   echo "$*"
   echo "$*" >> $LISTLOGFILE
   time_since_last > /dev/null
-  echo "$diffSec `date --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
+  echo "$diffSec `$DATE --utc "+%Y-%m-%d %H:%M:%S"` $*" >> $TIMEDLISTLOGFILE
 }
 
 function rm_lockfile ()
@@ -688,7 +707,7 @@ function generate_local_diff_file ()
   fi
 }
 
-echo "$0 for $svnname, version $FPCVERSION starting at `date --utc \"$DATE_FORMAT\"`" > $LOCKFILE
+echo "$0 for $svnname, version $FPCVERSION starting at `$DATE --utc \"$DATE_FORMAT\"`" > $LOCKFILE
 
 rm -f $LOGFILE $LISTLOGFILE $TIMEDLISTLOGFILE $EMAILFILE
 
@@ -698,7 +717,7 @@ for file in $prev_failure_list ; do
   rm -f $file
 done
 
-mecho "$0 for $svnname, version $FPCVERSION starting at `date --utc \"$DATE_FORMAT\"`"
+mecho "$0 for $svnname, version $FPCVERSION starting at `$DATE --utc \"$DATE_FORMAT\"`"
 mecho "Machine info: $machine_info"
 mecho "RTL svn version: $svn_rtl_version"
 generate_local_diff_file rtl $svn_rtl_version
@@ -1098,7 +1117,7 @@ function check_target ()
   EXTRASUFFIX=${5:-}
 
   echo "Testing rtl for $CPU_TARG_LOCAL $OS_TARG_LOCAL, with OPT=\"$OPT_LOCAL\" and MAKEEXTRA=\"$MAKEEXTRA\""
-  date "+%Y-%m-%d %H:%M:%S"
+  $DATE "+%Y-%m-%d %H:%M:%S"
 
   # Check if same test has already been performed
   already_tested=`grep " $CPU_TARG_LOCAL-${OS_TARG_LOCAL}$EXTRASUFFIX," $LISTLOGFILE `
@@ -1754,7 +1773,7 @@ function check_target ()
       clean_for_target
     fi
   fi
-  date "+%Y-%m-%d %H:%M:%S"
+  $DATE "+%Y-%m-%d %H:%M:%S"
   BINUTILSPREFIX_LOCAL=
   ASSEMBLER_LOCAL=
   ASPROG_LOCAL=
@@ -2214,8 +2233,8 @@ else
   prev_date=
 fi
 
-echo "Ending at `date --utc \"$DATE_FORMAT\"`" >> $LOGFILE
-echo "Ending at `date --utc \"$DATE_FORMAT\"`" >> $LISTLOGFILE
+echo "Ending at `$DATE --utc \"$DATE_FORMAT\"`" >> $LOGFILE
+echo "Ending at `$DATE --utc \"$DATE_FORMAT\"`" >> $LISTLOGFILE
 
 # Generate email summarizing found problems
 
@@ -2373,7 +2392,7 @@ if [ -d $HOME/bin ] ; then
   PATH=$HOME/bin:$PATH
 fi
 
-mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `date +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
+mutt -x -s "Free Pascal check RTL/Packages ${svnname}, $FPC_INFO results date `$DATE +%Y-%m-%d` on $machine_info" -i $EMAILFILE -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 
 if [ ${DO_FPC_BINARY_INSTALL} -eq 0 ] ; then
   rm -Rf $LOCAL_INSTALL_PREFIX
@@ -2388,7 +2407,7 @@ function handle_TERM ()
 {
   if [ $inside_main_subscript -ne 0 ] ; then
     inside_main_subscript=0
-    echo "TERM signal recieved at `date --utc`" >> $LOGFILE
+    echo "TERM signal recieved at `$DATE --utc`" >> $LOGFILE
     finish_main_subscript >> $LOGFILE
   fi
   if [ $finish_script_started -eq 0 ] ; then
