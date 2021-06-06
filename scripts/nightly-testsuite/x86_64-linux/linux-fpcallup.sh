@@ -38,8 +38,10 @@ do_x86_64=1
 do_docs=0
 do_docs_options=""
 run_test_optimizations=0
+run_llvm_test_optimizations=0
 run_cross_test_optimizations=0
 run_test_optimizations_args=""
+run_llvm_test_optimizations_args=""
 run_cross_test_optimizations_args=""
 run_riscv64_tests=0
 
@@ -66,6 +68,7 @@ elif [ "X$HOSTNAME" == "Xgcc121" ] ; then
   # export MAKE_TESTS_TARGET=full
 elif [ "X$HOSTNAME" == "Xgcc122" ] ; then
   run_test_optimizations=1
+  run_llvm_test_optimizations=1
   check_cross_trunk=1
   check_cross_fixes=1
 elif [ "X$HOSTNAME" == "Xgcc123" ] ; then
@@ -212,6 +215,12 @@ if [ $run_test_optimizations -eq 1 ] ; then
   # By default use ppcx64
   $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=0 ${run_test_optimizations_args}
   $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=1 ${run_test_optimizations_args}
+fi
+if [ $run_llvm_test_optimizations -eq 1 ] ; then
+  eval "export $run_test_prefix"
+  # By default use ppcx64
+  $HOME/bin/test-optimizations.sh --full --llvm FPCBIN=ppcx64 FIXES=0 ${run_llvm_test_optimizations_args}
+  $HOME/bin/test-optimizations.sh --full --llvm FPCBIN=ppcx64 FIXES=1 ${run_llvm_test_optimizations_args}
 fi
 if [ $run_cross_test_optimizations -eq 1 ] ; then
   for fpcbin in ppca64 ppcarm ppc68k ppc8086 ppcmips ppcmipsel ppcppc ppcppc64 ppcrv32 ppcrv64 ppcsparc ppcsparc64 ppcxtensa ; do
