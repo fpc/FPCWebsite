@@ -29,6 +29,13 @@ fi
 OS=`uname -s | tr "[:upper:]" "[:lower:]" `
 CPU=`uname -m | tr "[:upper:]" "[:lower:]" `
 
+if [ "${CPU/mips/}" != "${CPU}" ] ; then
+  ENDIAN=`readelf -h /bin/sh | grep endian`
+  if [ "${ENDIAN//little/}" != "${ENDIAN}" ] ; then
+    CPU=mipsel
+  fi
+fi
+
 echo "Trying to install Free Pascal release $RELEASE_VERSION on $CPU-$OS"
 
 CPU32=""
