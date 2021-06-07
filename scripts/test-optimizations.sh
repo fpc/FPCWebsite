@@ -110,6 +110,11 @@ while [ "$1" != "" ] ; do
   fi
 done
 
+if [ $do_llvm -eq 1 ] ; then
+  # Disable fullcycle in that case
+  do_fullcycle=0
+fi
+
 if [ -n "$OPT" ] ; then
   SCRIPT_OPT="$OPT"
   OPT=""
