@@ -23,11 +23,13 @@
 
 <trn key="website.down.powerpc64.linux.information" locale="en_US">
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (145 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (143 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </trn>
+For more information, please read:
+ <a href="@mirror_url@dist/@latestversion@/powerpc64-linux/readme.powerpc64-linux">readme.powerpc64-linux</a>
 </ul>
 
 <hr>

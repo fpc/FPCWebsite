@@ -20,13 +20,15 @@
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/mips-linux/fpc-@latestversion@.mips-linux.tar">fpc-@latestversion@.mips-linux.tar</a> (150 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/mips-linux/fpc-@latestversion@.mips-linux.tar">fpc-@latestversion@.mips-linux.tar</a> (85 MB)
 
 <trn key="website.down.mips.linux.information" locale="en_US">
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </trn>
+For more information, please read:
+ <a href="@mirror_url@dist/@latestversion@/mipsel-linux/readme.mips-linux">readme.mips-linux</a>
 </ul>
 
 <hr>

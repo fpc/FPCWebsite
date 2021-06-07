@@ -28,7 +28,7 @@ It is available in different formats:
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">fpc-@latestversion@.i386-linux.tar</a> (147 MB)
+<li><a href="@mirror_url@dist/@latestversion@/i386-linux/fpc-@latestversion@.i386-linux.tar">fpc-@latestversion@.i386-linux.tar</a> (82 MB)
 <trn key="website.i386-linux_1_file_download_descr" locale="en_US">
   contains a standard tar archive, with an install script.
   After untarring the archive into a temporary location, you can run the install script

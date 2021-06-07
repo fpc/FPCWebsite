@@ -20,7 +20,7 @@
 
 <h3><a name="linuxbig"></a><trn key="website.download_in_1_file" locale="en_US">Download in 1 big file</trn>:</h3>
 <ul>
-<li> <a href="@mirror_url@dist/@latestversion@/mipsel-linux/fpc-@latestversion@.m68k-linux.tar">fpc-@latestversion@.m68k-linux.tar</a> (150 MB)
+<li> <a href="@mirror_url@dist/@latestversion@/m68k-linux/fpc-@latestversion@.m68k-linux.tar">fpc-@latestversion@.m68k-linux.tar</a> (144 MB)
 
 <trn key="website.down.m68k.linux.information" locale="en_US">
 contains a standard tar archive, with an install script<br>
@@ -32,7 +32,7 @@ and that the file install/makepack had to be modified to generate it.
 <p>
 For more information, please read:
 </trn>
- <a href="@mirror_url@dist/@latestversion@/mipsel-linux/readme-mipsel-linux.tar">readme-mipsel-linux.tar</a>
+ <a href="@mirror_url@dist/@latestversion@/m68k-linux/readme.m68k-linux">readme.m68k-linux</a>
 </ul>
 
 <hr>

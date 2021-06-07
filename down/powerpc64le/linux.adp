@@ -1,7 +1,7 @@
 <master>
-<property name="title"><trn key="website.down.powerpc64.linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
+<property name="title"><trn key="website.down.powerpc64le.linux.title" locale="en_US">Free Pascal - Download Linux</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down.powerpc64.linux.header" locale="en_US">Download Linux PowerPC64</trn></property>
+<property name="header"><trn key="website.down.powerpc64le.linux.header" locale="en_US">Download Linux little endian PowerPC64</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>
@@ -23,11 +23,13 @@
 
 <trn key="website.down.powerpc64le.linux.information" locale="en_US">
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (135 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (134 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </trn>
+For more information, please read:
+ <a href="@mirror_url@dist/@latestversion@/powerpc64le-linux/readme.powerpc64le-linux">readme.powerpc64le-linux</a>
 </ul>
 
 <hr>

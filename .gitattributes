@@ -132,6 +132,7 @@ down/powerpc64le/linux.adp svneol=native#text/plain
 down/source/sources.adp svneol=native#text/plain
 down/sparc/linux.adp svneol=native#text/plain
 down/sparc/solaris.adp svneol=native#text/plain
+down/sparc64/linux.adp svneol=native#text/plain
 down/x86_64/freebsd.adp svneol=native#text/plain
 down/x86_64/haiku.adp svneol=native#text/plain
 down/x86_64/linux.adp svneol=native#text/plain
