@@ -42,7 +42,7 @@ index.html: fpc.html
 english: all_pages
 
 %.html: %.adp default-master.adp site-master.adp ./catalog.bg.adp
-	./adp2html -m default-master.adp -o $@ $<
+	$(ADP2HTML) -m default-master.adp -o $@ $<
 
 
 mirrors.dat:
@@ -51,7 +51,7 @@ mirrors.dat:
 	echo -e 'Canada\tcanada\tftp://mirror.freemirror.org/pub/fpc/' >> mirrors.dat
 
 all_pages: $(GENVARFILE) $(ADP2HTML) mirrors.dat
-	adp2html -a 
+	$(ADP2HTML) -a 
 
 #adp2html tool
 $(ADP2HTML): adp2html.pp adpconverter.pp adputils.pp adpdata.pp
