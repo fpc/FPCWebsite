@@ -119,7 +119,6 @@
    <p>
     Downloads are available at:
     <ul>
-     <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
      <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
     </ul>
    </p>
