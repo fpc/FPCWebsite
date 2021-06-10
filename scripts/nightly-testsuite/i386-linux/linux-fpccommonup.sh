@@ -7,7 +7,12 @@ if [ -z "$skip_tests" ] ; then
   skip_tests=0
 fi
 
-export MAKE=make
+if [ -z "$MAKE" ] ; then
+  MAKE=make
+fi
+
+export MAKE
+
 if [ "${HOSTNAME}" == "vadmin" ]; then
   HOST_PC=PC_AFM
   USER=vadmin
@@ -24,6 +29,7 @@ if [ "X$FPCBIN" == "X" ]; then
 fi
 
 DATE="date +%Y-%m-%d-%H-%M"
+TODAY=`date +%Y-%m-%d`
 # Use Free Pascal Release Version from fpc-versions script
 FPCRELEASEVERSION=$RELEASEVERSION
 
@@ -37,14 +43,16 @@ fi
 
 cd ~/pas/${SVNDIR}
 
-logdir=~/logs/$SVNDIR
+logdir=~/logs/$SVNDIR/$TODAY
+
 if [ ! -d $logdir ] ; then
   mkdir -p $logdir
 fi
 
 export report=$logdir/report.txt
 export makelog=$logdir/make.txt
-export testslog=$logdir/tests.txt
+export cleanlog=$logdir/clean.txt
+export testslog_gen=$logdir/tests_OPT.txt
 
 function gen_ppu_log ()
 {
@@ -75,7 +83,7 @@ function gen_ppu_diff ()
     echo "ppudump output changed" >> $report
     cat "${difffile}" >> $report
     echo "Cleaning packages to be sure" >> $report
-    make -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
+    ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   fi
 }
 
@@ -95,17 +103,27 @@ if [ -d fpcsrc ]; then
   cd fpcsrc
 fi
 
-echo "Starting make distclean all" >> $report
-echo "Start make `$DATE`" >> $report
-${MAKE} distclean all DEBUG=1 1> ${makelog} 2>&1
+echo "Starting ${MAKE} distclean" >> $report
+echo "Start ${MAKE} `$DATE`" >> $report
+${MAKE} distclean DEBUG=1 1> ${makelog} 2>&1
 makeres=$?
 if [ $makeres -ne 0 ] ; then
-  echo "${MAKE} distclean all failed result=${makeres}" >> $report
+  echo "${MAKE} distclean failed result=${makeres}" >> $report
   tail -30 ${makelog} >> $report
 else
-  echo "Ending make distclean all; result=${makeres}" >> $report
+  echo "Ending ${MAKE} distclean; result=${makeres}" >> $report
 fi
 
+echo "Starting ${MAKE} -C compiler cycle" >> $report
+echo "Start ${MAKE} `$DATE`" >> $report
+${MAKE} -C compiler cycle DEBUG=1 1> ${makelog} 2>&1
+makeres=$?
+if [ $makeres -ne 0 ] ; then
+  echo "${MAKE} -C compiler cycle failed result=${makeres}" >> $report
+  tail -30 ${makelog} >> $report
+else
+  echo "Ending ${MAKE} -C compiler cycle; result=${makeres}" >> $report
+fi
 
 NEW_PPC_BIN=`pwd`/compiler/$FPCBIN
 
@@ -127,18 +145,22 @@ gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log1
 gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log1
 
 # Update all cross-compilers (with DEBUG set)
-echo "make -C compiler cycle install fullcycle fullinstall DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version}" >> $report
 NEW_PPC_SAFE=`pwd`/compiler/startppc
 cp $NEW_PPC_BIN $NEW_PPC_SAFE
 
-make -C compiler cycle install fullcycle fullinstall RELEASE=1 DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
-makeres=$?
-if [ $makeres -ne 0 ] ; then
-  echo "${MAKE} distclean all failed result=${makeres}" >> $report
-  tail -30 ${makelog} >> $report
-else
-  echo "Ending make distclean all; result=${makeres}" >> $report
-fi
+make_targets="distclean cycle installsymlink rtlclean rtl fullinstall"
+for make_target in $make_targets ; do
+  echo "${MAKE} -C compiler $make_target DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version}" >> $report
+  ${MAKE} -C compiler $make_target RELEASE=1 DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
+  makeres=$?
+  if [ $makeres -ne 0 ] ; then
+    echo "${MAKE} -C compiler $make_target failed result=${makeres}" >> $report
+    tail -30 ${makelog} >> $report
+  else
+    echo "Ending ${MAKE} -C compiler $make_target; result=${makeres}" >> $report
+  fi
+done
+
 # Check if system.ppu changed
 gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} system.ppu -log2
 gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} objpas.ppu -log2
@@ -146,7 +168,12 @@ gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log2
 gen_ppu_diff system.ppu -log1 -log2
 gen_ppu_diff objpas.ppu -log1 -log2
 gen_ppu_diff sysutils.ppu -log1 -log2
-echo "Starting make install" >> $report
+echo "Starting ${MAKE} distclean" >> $report
+echo "`$DATE`" >> $report
+${MAKE} DEBUG=1 distclean INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
+makeres=$?
+
+echo "Starting ${MAKE} install" >> $report
 echo "`$DATE`" >> $report
 ${MAKE} DEBUG=1 install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
 makeres=$?
@@ -157,10 +184,10 @@ if [ $makeres -ne 0 ] ; then
     echo "Starting install in dir $dir" >> $report
     ${MAKE} -C ./$dir install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
     makeres=$?
-    echo "Ending make -C ./$dir install; result=${makeres}" >> $report
+    echo "Ending ${MAKE} -C ./$dir install; result=${makeres}" >> $report
   done
 else
-  echo "Ending make install; result=${makeres}" >> $report
+  echo "Ending ${MAKE} install; result=${makeres}" >> $report
 fi
 
 # Add new bin dir as first in PATH
@@ -173,49 +200,61 @@ NEW_OS_TARGET=`$NEWFPC -iTO`
 NEW_CPU_TARGET=`$NEWFPC -iTP`
 NEW_FULL_TARGET=${NEW_CPU_TARGET}-${NEW_OS_TARGET}
 
+LIBGCC_DIR=`gcc -m32 -print-libgcc-file-name | xargs dirname`
+
+if [ -d $LIBGCC_DIR ] ; then
+  BASE_OPT="-Fl$LIBGCC_DIR"
+else
+  BASE_OPT=""
+fi
 
 if [ $skip_tests -eq 0 ] ; then
   cd tests
   # Limit resources (64mb data, 8mb stack, 4 minutes)
-  
   ulimit -d 65536 -s 8192 -t 240
-  
-  echo "Starting make distclean fulldb" >> $report
+
+  echo "Starting ${MAKE} -C .. distclean" >> $report
+  ${MAKE} -C .. distclean > $cleanlog 2>&1
+
+  echo "Starting ${MAKE} distclean fulldb" >> $report
   echo "`$DATE`" >> $report
+  testslog=${testslog_gen/OPT/}
   ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
-  TEST_OPT="" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
+  TEST_OPT="$BASE_OPT" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
   testsres=$?
-  echo "Ending make distclean fulldb; result=${testsres}" >> $report
+  echo "Ending ${MAKE} distclean fulldb; result=${testsres}" >> $report
   echo "`$DATE`" >> $report
-  
-  tail -43 $testslog >> $report
-  
-  TEST_OPT="-Cg"
+  if [ $testsres -ne 0 ] ; then
+    tail -43 $testslog >> $report
+  fi
+  TEST_OPT="$BASE_OPT -Cg"
+  testslog=${testslog_gen/OPT/-Cg}
   export testslog=$logdir/tests-Cg.txt
-  echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
+  echo "Starting ${MAKE} clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
   echo "`$DATE`" >> $report
   ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
   testsres=$?
-  echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+  echo "Ending ${MAKE} distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
   echo "`$DATE`" >> $report
-  
-  tail -43 $testslog >> $report
-  
-  TEST_OPT="-O4 -gwl"
-  export testslog=$logdir/tests-O4-gwl.txt
-  echo "Starting make clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
+  if [ $testsres -ne 0 ] ; then
+    tail -43 $testslog >> $report
+  fi
+  TEST_OPT="$BASE_OPT -O4 -gwl"
+  testslog=${testslog_gen/OPT/-O4--gwl}
+  echo "Starting ${MAKE} clean fulldb with TEST_OPT=${TEST_OPT}" >> $report
   echo "`$DATE`" >> $report
   ${MAKE} distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_OPT="${TEST_OPT}" TEST_FPC=${NEWFPC} FPC=${NEWFPC} \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
   testsres=$?
-  echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+  echo "Ending ${MAKE} distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
   echo "`$DATE`" >> $report
-  
-  tail -43 $testslog >> $report
+  if [ $testsres -ne 0 ] ; then
+    tail -43 $testslog >> $report
+  fi
 fi
 
 mutt -x -s "Free Pascal results for ${NEW_FULL_TARGET} on ${HOST_PC}, ${Build_version} ${Build_date}" \
