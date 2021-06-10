@@ -54,6 +54,7 @@ export SDL_AUDIODRIVER=dummy
 export DB_SSH_EXTRA="-i $HOME/.ssh/freepascal"
 # Needed files are not copied to temp dir by dosbox_wrapper
 export DOSBOX_NO_TEMPDIR=1
+export DOSBOX_VERBOSE=1
 # export SINGLEDOTESTRUNS=1
 export doupload=1
 
@@ -181,6 +182,9 @@ else
   display_time "End of running go32v2 testsuite full with OPT=\"$1\""
   MAKEFULLOPT=
 fi
+cp -fp output/go32v2/longlog $logdir/longlog-$DIR_OPT
+cp -fp output/go32v2/log $logdir/log-$DIR_OPT
+cp -fp output/go32v2/faillist $logdir/faillist-$DIR_OPT
 if [ $res -ne 0 ] ; then
   display_time "Running testsuite failed, res=$res"
   return 1
