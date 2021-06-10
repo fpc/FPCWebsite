@@ -115,6 +115,12 @@ if [ "$machine" = "ppc64le" ] ; then
   ftp_target_cpu=powerpc64le
 fi
 
+if [ "${machine/64/}" != "${machine}" ] ; then
+  machine_64=1
+else
+  machine_64=0
+fi
+
 start_cpu=`$FPC -iSP`
 start_os=`$FPC -iSO`
 set_cpu_suffix ${start_cpu}
@@ -402,6 +408,8 @@ $start_compiler -iVDWSOSPTOTP >> $readme
 
 if [ "${target_full}" != "${start_full}" ] ; then
   BINUTILSPREFIX_MAKE_OPT="BINUTILSPREFIX=${start_full}-"
+elif [[ ( $machine_64 -eq 1 ) && ( $is_32bit -eq 1 ) ]] ; then
+  BINUTILSPREFIX_MAKE_OPT="BINUTILSPREFIX=${start_full}-"
 else
   BINUTILSPREFIX_MAKE_OPT=
 fi
@@ -479,6 +487,10 @@ if [ "X$DISABLE_PYACC" == "X" ] ; then
     echo "Running 'pyacc h2pas.y h2pas.pas' and 'plex ./scan.l ./scan.pas' in fpcsrc/utils/h2pas"
     (cd fpcsrc/utils/h2pas ; pyacc ./h2pas.y ./h2pas.pas ; plex ./scan.l ./scan.pas )
   fi
+fi
+
+if [ -n "$BINUTILSPREFIX_MAKE_OPT" ] ; then
+  NEEDED_OPT+=" -XP${BINUTILSPREFIX_MAKE_OPT/BINUTILSPREFIX=/}"
 fi
 
 export EXTRAOPT="-n -gl -vwx $NEEDED_OPT"
