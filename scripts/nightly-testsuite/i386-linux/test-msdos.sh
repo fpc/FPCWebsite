@@ -6,11 +6,23 @@ if [ "X$SVNDIR" == "X" ] ; then
   SVNDIR=trunk
 fi
 
+if [ -z "$all" ] ; then
+  do_all=0
+else
+  do_all=1
+fi
+
 if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n`
 fi
 
 FPCDIR=$HOME/pas/$SVNDIR/fpcsrc
+
+if [ "X$SVNDIR" == "Xtrunk" ] ; then
+  CURRENTVERSION=$TRUNKVERSION
+else
+  CURRENTVERSION=$FIXESVERSION
+fi
 
 # Add $HOME/bin to PATH variable
 if [ -d ${HOME}/bin ] ; then
@@ -43,6 +55,7 @@ export FPCMAKE=`which fpcmake`
 # section [dos] contians an entry called
 # copy_con_to_file, with the name of the file to write to.
 export DOSBOX=$HOME/bin/dosbox
+export DOSBOX_VERBOSE=1
 export SDL_VIDEODRIVER=dummy
 export SDL_AUDIODRIVER=dummy
 export DB_SSH_EXTRA="-i $HOME/.ssh/freepascal"
@@ -168,6 +181,9 @@ if [ $res -eq 0 ] ; then
   res=$?
   MAKEFULLOPT=
 fi
+cp -fp output/msdos/longlog $logdir/longlog-$DIR_OPT
+cp -fp output/msdos/log $logdir/log-$DIR_OPT
+cp -fp output/msdos/faillist $logdir/faillist-$DIR_OPT
 if [ $res -ne 0 ] ; then
   display_time "Running testsuite failed, res=$res"
   exit
@@ -184,10 +200,12 @@ else
   prepare_msdos
   run_one_model tiny
   run_one_model small
-  run_one_model medium
   run_one_model compact
-  run_one_model large
-  run_one_model huge
+  if [ $do_all -eq 1 ] ; then
+    run_one_model medium
+    run_one_model large
+    run_one_model huge
+  fi
   run_one_model medium "-Wh"
   run_one_model large "-Wh"
   run_one_model huge "-Wh"
@@ -198,16 +216,18 @@ else
   NEWCROSSFPC=$FPCDIR/compiler/${CROSSPP}sls-safe
   cp ../compiler/ppc8086 ${NEWCROSSFPC}
   MSDOSOPT=""
-  run_one_model tiny "-dTEST_SLS"
-  run_one_model small "-dTEST_SLS"
-  run_one_model medium "-dTEST_SLS"
-  run_one_model compact "-dTEST_SLS"
-  run_one_model large "-dTEST_SLS"
-  run_one_model huge "-dTEST_SLS"
-  run_one_model medium "-Wh -dTEST_SLS"
-  run_one_model large "-Wh -dTEST_SLS"
-  run_one_model huge "-Wh -dTEST_SLS"
-  ) > $GLOBAL_LOGFILE 2>&1
+  if [ $do_all -eq 1 ] ; then
+    run_one_model tiny "-dTEST_SLS"
+    run_one_model small "-dTEST_SLS"
+    run_one_model medium "-dTEST_SLS"
+    run_one_model compact "-dTEST_SLS"
+    run_one_model large "-dTEST_SLS"
+    run_one_model huge "-dTEST_SLS"
+    run_one_model medium "-Wh -dTEST_SLS"
+    run_one_model large "-Wh -dTEST_SLS"
+    run_one_model huge "-Wh -dTEST_SLS"
+  fi
+) > $GLOBAL_LOGFILE 2>&1
   Build_version=`$NEWCROSSFPC -iV 2> /dev/null`
   Build_date=`$NEWCROSSFPC -iD 2> /dev/null`
   mutt -x -s "Free Pascal results for msdos on ${HOSTNAME}, ${Build_version} ${Build_date}" \
