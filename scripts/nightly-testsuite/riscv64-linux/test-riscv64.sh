@@ -24,6 +24,7 @@ fi
 cd tests
 
 TEST_FPC=ppcrv64
+export TEST_USER=pierre
 
 FULL_FPC=`which $TEST_FPC 2> /dev/null `
 if [ -z "$FULL_FPC" ] ; then
@@ -51,8 +52,10 @@ COMMON_TEST_OPT=""
 if [ "$NATIVE_CPU" != "$CPU_TARGET" ] ; then
   TARGET_SYSROOT="$HOME/sys-root/$FULL_TARGET"
   TEST_BINUTILSPREFIX=$FULL_TARGET-
-  export QEMU_LD_PREFIX=$HOME/sys-root/$FULL_TARGET/
-  export LD_PRELOAD=
+  if [ -d "$TARGET_SYSROOT" ] ; then
+    export QEMU_LD_PREFIX=$TARGET_SYSROOT
+    export LD_PRELOAD=
+  fi
   SUBDIR=riscv64-on-x86_64
   native_riscv=0
 else
@@ -97,7 +100,16 @@ fi
 
 
 # Further, I set
-QEMU_LD_PREFIX=/usr/riscv64-linux-gnu
+if [ "$NATIVE_CPU" != "$CPU_TARGET" ] ; then
+  if [ -z "$QEMU_LD_PREFIX" ] ; then
+    if [ -d "/usr/riscv64-linux-gnu" ] ; then
+     export QEMU_LD_PREFIX=/usr/riscv64-linux-gnu
+    else
+      echo "Unable to find QEMU_LD_PREFIX"
+    fi
+  fi
+fi
+
 MAKE_J_OPT="-j 8"
 export FPMAKEOPT="-T 8"
 BASELOGDIR=$HOME/logs/$BRANCH/$SUBDIR
