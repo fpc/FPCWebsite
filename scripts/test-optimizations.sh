@@ -551,7 +551,10 @@ function gen_compiler ()
       res=$?
       if [ $res -ne 0 ] ; then
         decho "Compilation of llvm version failed in $make_rule, see $cycle_log"
-        return
+        return 1
+      else
+        NEWBIN=${NEWBIN}-llvm
+	SUFFIX="${SUFFIX}-llvm"
       fi
     done
   fi
@@ -561,7 +564,7 @@ function gen_compiler ()
     SUFFIX_LIST="$SUFFIX_LIST ${SUFFIX}"
     log_list="$log_list $cycle_log"
   else
-    echo "No new ${FPCBIN}"
+    echo "Failed to generate ${NEWBIN}"
   fi
 }
 
@@ -573,6 +576,10 @@ function run_compilers ()
     NEWFPC=${FPCBIN}${SUFFIX}
     decho "Testing $NEWFPC"
     NEWFPCBIN=${COMPILER_DIR}/${NEWFPC}
+    if [ ! -f $NEWFPCBIN ] ; then
+      decho "File $NEWFPCBIN not found, skipping"
+      return 1
+    fi
     FULL_TARGET=`$NEWFPCBIN -iTP`-`$NEWFPCBIN -iTO`
     rtl_log=$LOGDIR/rtl${SUFFIX}$log_suffix
     # Do not use distclean for rtl, to keep native rtl compiled
@@ -640,11 +647,16 @@ function run_compilers ()
         log_list="$log_list $fullcycle_log"
       fi
     fi
+    if [ $do_llvm -eq 1 ] ; then
+      export FPCFPMAKE=$NEWFPCBIN
+    else
+      export FPCFPMAKE=$START_FPCBIN
+    fi
     if [ $do_packages -eq 1 ] ; then
       decho "Testing $NEWFPC in packages"
       packages_log=$LOGDIR/packages${SUFFIX}$log_suffix
-      $MAKE $MAKE_OPT -C ../packages distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $packages_log 2>&1
-      $MAKE $MAKE_OPT -C ../packages all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN >> $packages_log 2>&1
+      $MAKE $MAKE_OPT -C ../packages distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$FPCFPMAKE > $packages_log 2>&1
+      $MAKE $MAKE_OPT -C ../packages all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$FPCFPMAKE >> $packages_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in packages, res=$makeres"
@@ -671,8 +683,8 @@ function run_compilers ()
     if [ $do_utils -eq 1 ] ; then
       decho "Testing $NEWFPC in utils"
       utils_log=$LOGDIR/utils${SUFFIX}$log_suffix
-      $MAKE $MAKE_OPT -C ../utils distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN > $utils_log 2>&1
-      $MAKE $MAKE_OPT -C ../utils all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$START_FPCBIN >> $utils_log 2>&1
+      $MAKE $MAKE_OPT -C ../utils distclean OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$FPCFPMAKE > $utils_log 2>&1
+      $MAKE $MAKE_OPT -C ../utils all OPT="-n -gl $ADD_OPT" FPC=$NEWFPCBIN FPCFPMAKE=$FPCFPMAKE >> $utils_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
         decho "Warning: $MAKE failed in utils, res=$makeres"
@@ -708,10 +720,10 @@ function run_compilers ()
         BASE_ADD_OPT="$BASE_ADD_OPT -XP$NATIVE_BINUTILSPREFIX"
       fi
       $MAKE $MAKE_OPT -C ../tests distclean OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
-        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
+        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$FPCFPMAKE TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
         BINUTILSPREFIX="${NATIVE_BINUTILSPREFIX}" > $tests_log 2>&1
       $MAKE $MAKE_OPT -C ../tests $tests_target OPT="-gl $BASE_ADD_OPT" TEST_OPT="-n -gl $TEST_ADD_OPT" \
-        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$START_FPCBIN TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
+        TEST_FPC=$NEWFPCBIN FPC=$START_FPCBIN FPCFPMAKE=$FPCFPMAKE TEST_BINUTILSPREFIX=${SCRIPT_BINUTILSPREFIX} \
         BINUTILSPREFIX="${NATIVE_BINUTILSPREFIX}" > $tests_log 2>&1
       makeres=$?
       if [ $makeres -ne 0 ] ; then
