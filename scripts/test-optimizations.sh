@@ -552,11 +552,10 @@ function gen_compiler ()
       if [ $res -ne 0 ] ; then
         decho "Compilation of llvm version failed in $make_rule, see $cycle_log"
         return 1
-      else
-        NEWBIN=${NEWBIN}-llvm
-	SUFFIX="${SUFFIX}-llvm"
       fi
     done
+    NEWBIN=${NEWBIN}-llvm
+    SUFFIX="${SUFFIX}-llvm"
   fi
   if [ -f "./${FPCBIN}" ] ; then
     cp ./$FPCBIN ./${NEWBIN}
