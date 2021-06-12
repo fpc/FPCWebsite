@@ -23,6 +23,10 @@ if [ -z "$FPCBIN" ] ; then
   FPCBIN=ppcx64
 fi
 
+if [ -d $HOME/gnu/LaTeX/bin/x86_64-linux ] ; then
+  PATH=$HOME/gnu/LaTeX/bin/x86_64-linux:$PATH
+fi
+
 if [ "$1"  == "no_upload" ] ; then
   do_upload=0
 else
