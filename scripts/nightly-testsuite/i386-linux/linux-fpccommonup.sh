@@ -81,7 +81,8 @@ function gen_ppu_diff ()
   diffres=$?
   if [ $diffres -ne 0 ] ; then
     echo "ppudump output changed" >> $report
-    cat "${difffile}" >> $report
+    head -30 "${difffile}" >> $report
+    echo "See file: ${difffile}" >> $report
     echo "Cleaning packages to be sure" >> $report
     ${MAKE} -C packages distclean FPC=$NEW_PPC_BIN 1>> ${makelog} 2>&1
   fi
