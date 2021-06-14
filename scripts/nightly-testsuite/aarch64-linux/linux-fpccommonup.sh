@@ -381,8 +381,11 @@ ${MAKE} distclean fulldb $MAKE_EXTRA TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
     TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
 echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
-
-tail -30 $testslog >> $report
+echo "Test results in file: $testslog" >> $report
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
+echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 }
 
 if [ $SKIP_TESTS -eq 0 ] ; then
