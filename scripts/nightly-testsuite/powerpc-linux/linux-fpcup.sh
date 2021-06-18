@@ -69,7 +69,7 @@ TEST_OPT_3=""
 if [ "${processor}" = "ppc64le" ] ; then
   TEST_ABI=le
   MAKE_J_OPT="-j 16"
-  export FPMAKEOPT="-T 16"
+  export FPMAKEOPT="-v -d -T 16"
   # ulimit -d 65536 -s 8192 -t 2400
   ulimit -s 8192 -t 2400
 elif [ "${processor}" = "m68k" ] ; then
@@ -139,7 +139,9 @@ if [ "$HOST_PC" = "gcc2-power8" ] ; then
 elif [ "$HOST_PC" = "gcc135" ] ; then
   HOST_PC=gcc135-ppc64le
   export OVERRIDEVERSIONCHECK=1
-  run_check_all_rtl=1
+  if [ -z "${disable_check_all_rtl:-}" ] ; then
+    run_check_all_rtl=1
+  fi
 fi
 
 export TEST_USER=pierre
@@ -315,13 +317,13 @@ function run_tests ()
   fi
   # Limit resources (64mb data, 8mb stack, 4 minutes)
   (
-  echo "Starting make distclean fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"" >> $report
+  echo "Starting make fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"" >> $report
   ulimit -d 65536 -s 8192 -t 240
   ${MAKE} ${MAKE_J_OPT} fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} TEST_ABI=${TEST_ABI} \
     TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${LOCAL_TEST_OPT}" \
     DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1>> $testslog 2>&1
   testsres=$?
-  echo "Ending make distclean fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"; result=${testsres}" >> $report
+  echo "Ending make fulldb, TEST_OPT=\"${LOCAL_TEST_OPT}\"; result=${testsres}" >> $report
   if [ $testsres -ne 0 ] ; then
     tail -30 $testslog >> $report
   fi
@@ -347,23 +349,27 @@ TESTSUITEOPTS=(
 )
 
 run_tests "$TEST_OPT"
+global_testsres=$?
 
-if [ $testsres -ne 0 ] ; then
+if [ $global_testsres -ne 0 ] ; then
   if [ -n "$MAKE_J_OPT" ] ; then
     echo "run_tests failed with MAKE_J_OPT set to \"$MAKE_J_OPT\", retry with MAKE_J_OPT reset"
     MAKE_J_OPT=
     run_tests "$TEST_OPT"
+    global_testsres=$?
   fi
 fi
 
-if [ $run_all_tests -eq 1 ] ; then
-  for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
-    run_tests "${TESTSUITEOPTS[TESTOPTS]}" 
-  done
-else
-  run_tests "${TEST_OPT_2} ${TEST_OPT}"
-  if [ -n "${TEST_OPT_3}" ] ; then
-    run_tests "${TEST_OPT_3} ${TEST_OPT}"
+if [ $global_testsres -eq 0 ] ; then
+  if [ $run_all_tests -eq 1 ] ; then
+    for TESTOPTS in ${!TESTSUITEOPTS[@]}; do
+      run_tests "${TESTSUITEOPTS[TESTOPTS]}" 
+    done
+  else
+    run_tests "${TEST_OPT_2} ${TEST_OPT}"
+    if [ -n "${TEST_OPT_3}" ] ; then
+      run_tests "${TEST_OPT_3} ${TEST_OPT}"
+    fi
   fi
 fi
 mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET}, ${Build_version} ${Build_date}" \
@@ -372,9 +378,10 @@ mutt -x -s "Free Pascal results on ${HOST_PC}, ${FPC_CPU_TARGET}-${FPC_OS_TARGET
 
 # Cleanup
 
-if [ "${testsres}" == "0" ]; then
-  cd $FPCSVNDIR
-  ${MAKE} distclean 1>> ${makecleanlog} 2>&1
+if [ -z "${disable_check_all_rtl:-}" ] ; then
+  if [ "${global_testsres}" == "0" ]; then
+    cd $FPCSVNDIR
+    ${MAKE} distclean 1>> ${makecleanlog} 2>&1
+  fi
 fi
-
 
