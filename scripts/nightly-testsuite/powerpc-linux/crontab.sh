@@ -75,9 +75,9 @@ fi
 
 if [ $run_test_opt -eq 1 ] ; then 
   RUNLOGFILE=$HOME/logs/trunk/test-opt.log
-  . ~/bin/test-optimizations.sh FIXES=0 --full > $RUNLOGFILE 2>&1
+  ~/bin/test-optimizations.sh FIXES=0 --full > $RUNLOGFILE 2>&1
   RUNLOGFILE=$HOME/logs/fixes/test-opt.log
-  . ~/bin/test-optimizations.sh FIXES=1 --full > $RUNLOGFILE 2>&1
+  ~/bin/test-optimizations.sh FIXES=1 --full > $RUNLOGFILE 2>&1
 fi
 
 # Check if script directory exists
