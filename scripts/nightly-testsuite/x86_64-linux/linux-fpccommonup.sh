@@ -173,9 +173,23 @@ if [ "${FPCBINNAME/ppc386/}" != "${FPCBINNAME}" ] ; then
       add_to_log="$add_to_log Warning: this GNU i386-linux linker has a bug for i386 emulation"
     else
       add_to_log="$add_to_log Using i386-linux-ld instead"
-  # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
+      # echo "Running 32bit sparc fpc on sparc64 machine, needs special options"
       export BINUTILSPREFIX=i386-linux-
       NATIVE_OPT32="$NATIVE_OPT32 -XP$BINUTILSPREFIX"
+    fi
+  fi
+
+  if [ -d "$HOME/sys-root/i386-linux" ] ; then
+    SYSROOT="$HOME/sys-root/i386-linux"
+    # Try to add sys-root directories also
+    if [ -d "$SYSROOT/lib" ] ; then
+      NATIVE_OPT32="$NATIVE_OPT32 -Fl$SYSROOT/lib"
+    fi
+    if [ -d "$SYSROOT/usr/lib" ] ; then
+      NATIVE_OPT32="$NATIVE_OPT32 -Fl$SYSROOT/usr/lib"
+    fi
+    if [ -d "$SYSROOT/usr/local/lib" ] ; then
+      NATIVE_OPT32="$NATIVE_OPT32 -Fl$SYSROOT/usr/local/lib"
     fi
   fi
   NEEDED_OPT="$NATIVE_OPT32"
