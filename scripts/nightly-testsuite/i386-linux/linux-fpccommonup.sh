@@ -149,7 +149,7 @@ gen_ppu_log rtl/units/${NEW_CPU_TARGET}-${NEW_OS_TARGET} sysutils.ppu -log1
 NEW_PPC_SAFE=`pwd`/compiler/startppc
 cp $NEW_PPC_BIN $NEW_PPC_SAFE
 
-make_targets="distclean cycle installsymlink rtlclean rtl fullinstall"
+make_targets="distclean cycle installsymlink clean rtlclean rtl fullinstall"
 for make_target in $make_targets ; do
   echo "${MAKE} -C compiler $make_target DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version}" >> $report
   ${MAKE} -C compiler $make_target RELEASE=1 DEBUG=1 INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=$NEW_PPC_SAFE 1>> ${makelog} 2>&1
