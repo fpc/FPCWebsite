@@ -5,6 +5,9 @@ pkill  --signal TERM -x -f $HOME/bin/check-all-rtl.sh
 pkill  --signal TERM -f "$HOME/bin/makesnapshot.*.sh"
 pkill  --signal TERM -f "$HOME/bin/test-.*.sh"
 
+# Allow some time to finish scripts above
+sleep 60
+
 # Set up HOSTNAME variable if empty
 if [ -z "$HOSTNAME" ] ; then
   export HOSTNAME=`uname -n` 
@@ -208,7 +211,9 @@ if [ $run_riscv64_tests -eq 1 ] ; then
 fi
 
 if [ $run_test_optimizations -eq 1 ] ; then
-  eval "export $run_test_prefix"
+  if [ -n "$run_test_prefix" ] ; then
+    eval "export $run_test_prefix"
+  fi
   # Start with ppc386
   $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=0 ${run_test_optimizations_args}
   $HOME/bin/test-optimizations.sh --full FPCBIN=ppc386 FIXES=1 ${run_test_optimizations_args}
@@ -217,7 +222,9 @@ if [ $run_test_optimizations -eq 1 ] ; then
   $HOME/bin/test-optimizations.sh --full FPCBIN=ppcx64 FIXES=1 ${run_test_optimizations_args}
 fi
 if [ $run_llvm_test_optimizations -eq 1 ] ; then
-  eval "export $run_test_prefix"
+  if [ -n "$run_test_prefix" ] ; then
+    eval "export $run_test_prefix"
+  fi
   # By default use ppcx64
   $HOME/bin/test-optimizations.sh --full --llvm FPCBIN=ppcx64 FIXES=0 ${run_llvm_test_optimizations_args}
   $HOME/bin/test-optimizations.sh --full --llvm FPCBIN=ppcx64 FIXES=1 ${run_llvm_test_optimizations_args}
