@@ -89,19 +89,24 @@ cd $SVNDIR
 
 export report=`pwd`/report${LOGSUFFIX}.txt 
 export makelog=`pwd`/make${LOGSUFFIX}.txt 
-export testslog=`pwd`/tests${LOGSUFFIX}.txt 
 
 echo "Starting $0" > $report
 echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+
+function decho ()
+{
+  echo "`date +%Y-%m-%d-%H:%M:%S`: $*" >> $report
+}
+
 Start_version=`${FPCBIN} -iV`
 Start_date=`${FPCBIN} -iD`
-echo "Start ${FPCBIN} version is ${Start_version} ${Start_date}" >> $report
+decho "Start ${FPCBIN} version is ${Start_version} ${Start_date}"
 if [ "${use_git:-0}" = "1" ] ; then
   git stash save 1>> $report 2>&1
   git pull --ff 1>> $report 2>&1
   git stash pop 1>> $report 2>&1
 else
-  svn cleanup 1>> $report 2>&1
+  svn cleanup --include-externals 1>> $report 2>&1
   svn up --force --accept theirs-conflict  1>> $report 2>&1
 fi
 
@@ -110,33 +115,33 @@ if [ -d fpcsrc ]; then
   cd fpcsrc
 fi
 
-echo "Starting make distclean all" >> $report
+decho "Starting make distclean all"
 ${MAKE} distclean all DEBUG=1 FPC=${FPCBIN} OVERRIDEVERSIONCHECK=1 \
   FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" 1> ${makelog} 2>&1
 makeres=$?
 
-echo "Ending make distclean all; result=${makeres}" >> $report
+decho "Ending make distclean all; result=${makeres}"
 if [ ${makeres} -ne 0 ]; then
   tail -30 ${makelog} >> $report
 fi
 
 if [ ${makeres} -ne 0 ] ; then
-  echo "Starting make distclean all, using ${FPCRELEASEBIN}" >> $report
+  decho "Starting make distclean all, using ${FPCRELEASEBIN}"
     ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} \
     FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" 1> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make distclean all with release binary; result=${makeres}" >> $report
+  decho "Ending make distclean all with release binary; result=${makeres}"
   if [ ${makeres} -ne 0 ]; then
     tail -30 ${makelog} >> $report
   fi
 fi
 
 if [ ${makeres} -ne 0 ] ; then
-  echo "Starting make distclean all, using ${FPCRELEASEBIN} and FPCCPUOPT=-O1" >> $report
+  decho "Starting make distclean all, using ${FPCRELEASEBIN} and FPCCPUOPT=-O1"
     ${MAKE} distclean all DEBUG=1 FPC=${FPCRELEASEBIN} FPCCPUOPT=-O1 \
     FPMAKE_SKIP_CONFIG="${FPMAKE_SKIP_CONFIG}" 1> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make distclean all with release binary and FPCCPUOPT=-O1; result=${makeres}" >> $report
+  decho "Ending make distclean all with release binary and FPCCPUOPT=-O1; result=${makeres}"
   if [ ${makeres} -ne 0 ]; then
     tail -30 ${makelog} >> $report
   fi
@@ -149,40 +154,40 @@ if [ -f ${NEWFPCBIN} ] ; then
   Build_version=`${NEWFPCBIN} -iV`
   Build_date=`${NEWFPCBIN} -iD`
 else
-  echo "make all failed to create new binary" >> $report
+  decho "make all failed to create new binary"
   mutt -x -s "Free Pascal compilation failed ${HOST_PC}" \
      -i $report -a ${makelog} -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 fi
 
-echo "New ${NEWFPCBIN} version is ${Build_version} ${Build_date}" >> $report
+decho "New ${NEWFPCBIN} version is ${Build_version} ${Build_date}"
 
 if [ ${makeres} -eq 0 ] ; then
-  echo "Starting make install" >> $report
+  decho "Starting make install"
   ${MAKE} DEBUG=1 install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN}  1>> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make install; result=${makeres}" >> $report
+  decho "Ending make install; result=${makeres}"
   if [ ${makeres} -ne 0 ]; then
     tail -30 ${makelog} >> $report
   fi
 else
-  echo "Make all failed, trying to install new by parts" >> $report
+  decho "Make all failed, trying to install new by parts"
   INSTALLSRC=compiler
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
+  decho "Ending make install in ${INSTALLSRC}; result=${makeres}"
   INSTALLSRC=rtl
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
+  decho "Ending make install in ${INSTALLSRC}; result=${makeres}"
   INSTALLSRC=packages
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
+  decho "Ending make install in ${INSTALLSRC}; result=${makeres}"
   INSTALLSRC=utils
   ${MAKE} -C ${INSTALLSRC} install INSTALL_PREFIX=~/pas/fpc-${Build_version} FPC=${NEWFPCBIN} 1>> ${makelog} 2>&1
   makeres=$?
-  echo "Ending make install in ${INSTALLSRC}; result=${makeres}" >> $report
+  decho "Ending make install in ${INSTALLSRC}; result=${makeres}"
 fi
 
 # Start the testsuite generation part
@@ -192,99 +197,98 @@ cd tests
 ulimit -d 65536 -s 8192 -t 240
 
 export FPC=`which ${FPCBIN}`
-diff "${FPC}" "${NEWFPCBIN}" 
+decho "diff ${FPC} ${NEWFPCBIN}"
+diff "${FPC}" "${NEWFPCBIN}" > $report 2>&1
 is_same=$?
 
 if [ ${is_same} -ne 0 ] ; then
-  echo " ${FPC} is different from ${NEWFPCBIN}" >> $report
+  decho " ${FPC} is different from ${NEWFPCBIN}"
   mutt -x -s "Free Pascal compilation failed ${HOST_PC}" \
      -i $report -a ${makelog} -- pierre@freepascal.org < /dev/null | tee  ${report}.log
   exit
 fi
 
 export TEST_OPT="${OPT}"
-echo "New FPC is ${FPC}" >> $report
+decho "New FPC is ${FPC}"
 
 
-echo "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+export testslog=`pwd`/tests${LOGSUFFIX}.txt 
+decho "Starting make distclean, TEST_OPT=\"${TEST_OPT}\""
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make -j 15 fulldb, TEST_OPT=\"${TEST_OPT}\"" >> $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+decho "Starting make -j 15 fulldb, TEST_OPT=\"${TEST_OPT}\" > $testslog 2>&1"
 ${MAKE} -j 15 distclean fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
-echo "Ending make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"; result=${testsres}" >> $report
+decho "Ending make distclean fulldb, TEST_OPT=\"${TEST_OPT}\"; result=${testsres}"
 
-tail -30 $testslog >> $report
-echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
-
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
 
 # mutt -x -s "Free Pascal results on ${HOST_PC} ${Build_version} ${Build_date}" \
 #      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 TEST_OPT="-O- -g ${OPT}"
-echo "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /_}.txt 
+decho "Starting make distclean, TEST_OPT=\"${TEST_OPT}\""
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make -j 15 fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+decho "Starting make -j 15 fulldb with TEST_OPT=${TEST_OPT} >$testslog 2>&1"
 ${MAKE} -j 15 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
   TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+decho "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}"
 
-tail -30 $testslog >> $report
-
-echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
 
 # mutt -x -s "Free Pascal results on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
 #      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 TEST_OPT="-O3 -Cg ${OPT}"
-echo "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /_}.txt 
+decho "Starting make distclean, TEST_OPT=\"${TEST_OPT}\""
+decho "Start time `date +%Y-%m-%d-%H:%M:%S`"
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make -j 15 clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+decho "Starting make -j 15 clean fulldb with TEST_OPT=${TEST_OPT}"
 ${MAKE} -j 15 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
   TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+decho "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}"
 
-tail -30 $testslog >> $report
-
-echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
 
 # mutt -x -s "Free Pascal results on ${HOST_PC}, with option ${TEST_OPT}, ${Build_version} ${Build_date}" \
 #      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 TEST_OPT="-Fl/opt/freeware/lib  ${OPT}"
-echo "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /_}.txt 
+decho "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
+decho "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" TEST_OPT="${TEST_OPT}" \
   DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> /dev/null 2>&1
-echo "Starting make -j 15 clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
-echo "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+decho "Starting make -j 15 clean fulldb with TEST_OPT=${TEST_OPT}" >> ${report}
 ${MAKE} -j 15 fulldb TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
   TEST_FPC=${FPC}  FPC=${FPC} OPT="${OPT}" \
   TEST_OPT="${TEST_OPT}"  DB_SSH_EXTRA=" -i ~/.ssh/freepascal" 1> $testslog 2>&1
 testsres=$?
-echo "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
+decho "Ending make distclean fulldb with TEST_OPT=${TEST_OPT}; result=${testsres}" >> $report
 
-tail -30 $testslog >> $report
-
-echo "End time `date +%Y-%m-%d-%H:%M:%S`" >> $report
+if [ $testsres -ne 0 ] ; then
+  tail -30 $testslog >> $report
+fi
 
 mutt -x -s "Free Pascal results for `${FPC} -iTP`-`${FPC} -iTO` version ${Build_version} date ${Build_date} on ${HOST_PC}" \
      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
