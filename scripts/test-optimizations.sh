@@ -489,12 +489,6 @@ if [ -z "${MAKE_OPT:-}" ] ; then
   MAKE_OPT=""
 fi
 
-if [ $do_llvm -eq 1 ] ; then
-  log_suffix="-llvm.log"
-else
-  log_suffix=".log"
-fi
-
 
 function decho ()
 {
@@ -888,9 +882,27 @@ function do_all ()
   fi
 }
 
-global_log=$LOGDIR/global$log_suffix
+log_suffix=".log"
+if [ $do_llvm -eq 1 ] ; then
+  global_log=$LOGDIR/global-llvm$log_suffix
+  email_opts="for llvm variant"
+else
+  global_log=$LOGDIR/global$log_suffix
+  email_opts=""
+fi
+email_opts+=" $SCRIPT_CPU_TARGET-$SCRIPT_OS_TARGET"
 
 echo "Starting $0 $all_args at `date +%Y-%m-%d:%H-%M`" > $global_log
+SVN=`which svn 2> /dev/null` 
+if [ -f "$SVN" ] ; then
+  $SVN info . >> $global_log 2>&1
+fi
+
+SVNVERSION=`which svnversion 2> /dev/null` 
+if [ -f "$SVNVERSION" ] ; then
+  $SVNVERSION -c . >> $global_log 2>&1
+fi
+
 do_all >> $global_log 2>&1
 echo "Ending $0 $all_args at `date +%Y-%m-%d:%H-%M`" >> $global_log
 
@@ -907,7 +919,7 @@ if [ $test_failed -eq 1 ] ; then
   machine_os=`uname -s`
   machine_info="$machine_host $machine_cpu $machine_os"
 
-  mutt -x -s "Free Pascal optimization tests $0 failed in ${SVNDIRNAME}, \
+  mutt -x -s "Free Pascal optimization tests $0 $email_opts failed in ${SVNDIRNAME}, \
     date `date +%Y-%m-%d` on $machine_info" -i $global_log -- pierre@freepascal.org < /dev/null > /dev/null 2>&1
 fi
 
