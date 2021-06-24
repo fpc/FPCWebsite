@@ -340,6 +340,8 @@ function run_one_snapshot ()
     add_dir "libc.a"
     add_dir "libc.so"
     add_dir -regex "'.*/libc\.so\..*'"
+    add_dir "libiconv.a"
+    add_dir "libiconv.so"
     add_dir "ld.so"
     add_dir -regex "'.*/ld\.so\.[0-9.]*'"
     if [ "${OS_TARGET}" == "linux" ] ; then
