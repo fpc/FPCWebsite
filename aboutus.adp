@@ -40,7 +40,6 @@ Contributes the following work to the project:
   <li>i386 compiler development</li>
 </ul>
 <address>Email: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
-<address>Email: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
 </trn>
 
 <hr>
@@ -122,17 +121,17 @@ Contributes the following work to the project:
 <p>
 Year of birth: 1965<br>
 Job: physicist at the Institut Charles Sadron in Strasbourg (France),
-     studying polymers at the air-water interface (what funny things people can
-     work on !!)<br>
+     studying polymers at the air-water interface<br>
 Hobbies: computers<br>
 <p>
 Contributes the following work to the project:
 <ul>
   <li>compiler development</li>
-  <li>i386 compiler development</li>
-  <li>runtime library coordination</li>
+  <li>runtime library development</li>
+  <li>old OSes</li>
+  <li>maintainance of tests runs on different machine types</li>
 </ul>
-<address>Email: <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
+<address>Email: <a href="mailto:pierre&#x040;freepascal.org">Pierre Muller</a></address>
 </trn>
 
 <hr>
