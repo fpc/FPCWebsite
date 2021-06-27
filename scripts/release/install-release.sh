@@ -26,8 +26,12 @@ else
   RCPART=""
 fi
 
-OS=`uname -s | tr "[:upper:]" "[:lower:]" `
-CPU=`uname -m | tr "[:upper:]" "[:lower:]" `
+if [ -z "${OS:-}" ] ; then
+  OS=`uname -s | tr "[:upper:]" "[:lower:]" `
+fi
+if [ -z "${CPU:-}" ] ; then
+  CPU=`uname -m | tr "[:upper:]" "[:lower:]" `
+fi
 
 if [ "${CPU/mips/}" != "${CPU}" ] ; then
   ENDIAN=`readelf -h /bin/sh | grep endian`
