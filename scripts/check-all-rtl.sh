@@ -1451,9 +1451,13 @@ function check_target ()
     add_dir "crtbegin.o"
     add_dir "libc.a"
     add_dir "libc.so"
+    add_dir "libiconv.a"
+    add_dir "libiconv.so"
+    add_dir -regex "'.*/libgcc\..*'"
     add_dir -regex "'.*/libc\.so\..*'"
     add_dir "ld.so"
     add_dir -regex "'.*/ld\.so\.[0-9.]*'"
+    add_dir -regex "'.*/libgcc_s\.so\.[0-9.]*'"
     if [ "${OS_TARG_LOCAL}" == "linux" ] ; then
       add_dir -regex "'.*/ld-linux.*\.so\.*[0-9.]*'"
     fi
