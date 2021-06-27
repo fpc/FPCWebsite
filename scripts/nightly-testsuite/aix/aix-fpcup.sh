@@ -273,7 +273,7 @@ fi
 #      -i $report -- pierre@freepascal.org < /dev/null | tee  ${report}.log
 
 TEST_OPT="-Fl/opt/freeware/lib  ${OPT}"
-export testslog=`pwd`/tests${LOGSUFFIX}-${TEST_OPT// /_}.txt 
+export testslog=`pwd`/tests${LOGSUFFIX}-with-freeware-lib.txt 
 decho "Starting make distclean, TEST_OPT=\"${TEST_OPT}\"" >> $report
 decho "Start time `date +%Y-%m-%d-%H:%M:%S`" >> $report
 ${MAKE} distclean TEST_USER=pierre TEST_HOSTNAME=${HOST_PC} \
