@@ -58,14 +58,6 @@ fi
 
 set -u
 
-if [ $use_clean -eq 1 ] ; then
-  CLEAN_RULE=clean
-  CLEAN_AFTER=1
-else
-  CLEAN_RULE=distclean
-  CLEAN_AFTER=0
-fi
-
 if [ -z "$dir_name_suffix" ] ; then
   if [ -n "${GLOBAL_OPT:=}" ] ; then
     dir_name_suffix=${GLOBAL_OPT// /_}
@@ -292,6 +284,7 @@ elif [ "X$machine_host" == "Xgcc202" ] ; then
   DO_CHECK_LLVM=1
   # clang is much slower, increase ulimit
   ULIMIT_TIME=999
+  # use_clean=1
 elif [ "X$machine_host" == "Xgcc304" ] ; then
   # aarch64-darwin test machine
   DO_FPC_BINARY_INSTALL=1
@@ -325,6 +318,14 @@ elif [ "X$machine_host" == "Xravirin" ] ; then
   export FPC=ppcsparc
 else
   echo "Unknown machine $machine_host"
+fi
+
+if [ $use_clean -eq 1 ] ; then
+  CLEAN_RULE=clean
+  CLEAN_AFTER=1
+else
+  CLEAN_RULE=distclean
+  CLEAN_AFTER=0
 fi
 
 if [ "X${USE_RELEASE_MAKEFILE_VARIABLE:-0}" == "X1" ] ; then
