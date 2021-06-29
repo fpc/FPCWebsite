@@ -27,11 +27,15 @@ pid_list=`ps x -U $USER -o pid`
 test_list=""
 for pid in $pid_list ; do
   ps_cwd=`ls -l /proc/$pid/cwd`
+  ps_exe=`ls -l /proc/$pid/exe`
   ps_ps=`ps -fp $pid`
-  is_test=`echo "$ps_cwd $ps_ps" | grep "$HOME/pas/.*/tests/ou"  | grep -v "utils/dotest" | grep -vw grep`
+  is_test=`echo "$ps_exe $ps_ps" | grep "$HOME/pas/.*/tests/output/"  | grep -v "utils/dotest" | grep -vw grep`
   if [ -n "$is_test" ] ; then
     test_list="$test_list $pid"
     echo "$pid"
+    if [ $debug -eq 1 ] ; then
+      echo "Found $pid, $ps_cwd, $ps_exe, $ps_ps"
+    fi
   fi
 done
 }
