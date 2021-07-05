@@ -427,6 +427,7 @@ scripts/fpc-versions.sh svneol=native#text/plain
 scripts/gdb/handle-gdb-releases.sh svneol=native#text/plain
 scripts/gdb/list_global_symbols_in_gdb_main_o.sh svneol=native#text/plain
 scripts/gdb/test-gdb-releases.sh svneol=native#text/plain
+scripts/gen-llvm-variants.sh svneol=native#text/plain
 scripts/generate-cross-sfpux80.sh svneol=native#text/plain
 scripts/mailtestresults.sh svneol=native#text/plain
 scripts/makereleasezips svneol=native#text/plain
