@@ -81,11 +81,11 @@ done
 # Get Free Pascal versions from the fpc-versions.sh script
 . $HOME/bin/fpc-versions.sh
 
-QEMU_VERSION=5.1.0
-NASM_VERSION=2.15.03
-VASM_VERSION=1_8h
-VLINK_VERSION=0_16e
-SDCC_VERSION=4.0.0
+# Default value of QEMU_VERSION is set in install-qemu.sh script
+# Default value of NASM_VERSION is set in install-nasm.sh script
+# Default value of VASM_VERSION is set in install-vasm.sh script
+# Default value of VLINK_VERSION is set in install-vasm.sh script
+# Default value of SDCC_VERSION is set in install-z80.sh script
 
 do_update=0
 
