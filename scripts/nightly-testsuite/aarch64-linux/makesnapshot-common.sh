@@ -61,7 +61,7 @@ elif [ "$FPC_CPU" == "arm" ] ; then
   export BINUTILSPREFIX=arm-linux-
   export OPT="${OPT} -Xd"
   export TEST_ABI=$ARM_ABI
-  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
+  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' | sed -n "s:\([0-9.]*\).*:\1:p" ` 
   if [ -d /usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then
     export OPT="$OPT -Fl/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
   elif [ -d $HOME/sys-root/arm-linux/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version ] ; then

@@ -123,7 +123,7 @@ elif [ "$FPCBIN" == "ppcarm" ]; then
   export BINUTILSPREFIX=arm-linux-
   export OPT="${OPT} -Xd"
   export TEST_ABI=$ARM_ABI
-  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' `
+  gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}'  | sed -n "s:\([0-9.]*\).*:\1:p" `
   maybe_add_arm_libdir "/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
   export ARM_LIBGCCDIR="/usr/lib/gcc-cross/arm-linux-$ARM_ABI/$gcc_version"
   MAKE_EXTRA="$MAKEEXTRA LIBGCCDIR=$ARM_LIBGCCDIR"
@@ -152,7 +152,7 @@ elif [ "$FPCBIN" == "ppca64" ] ; then
     LIBGCC_DIR=`dirname $LIBGCC_NAME`
     export OPT="$OPT -Fl$LIBGCC_DIR"
   else
-    gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}' ` 
+    gcc_version=` gcc --version | grep '^gcc' | gawk '{print $NF;}'  | sed -n "s:\([0-9.]*\).*:\1:p" ` 
     if [ -d /usr/lib/gcc/aarch64-linux-gnu/$gcc_version ] ; then
       export OPT="$OPT -Fl/usr/lib/gcc/aarch64-linux-gnu/$gcc_version"
     else 
