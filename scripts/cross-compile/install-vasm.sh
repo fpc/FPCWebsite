@@ -3,8 +3,8 @@
 ALT_HTML_DIR=http://phoenix.owl.de/tags
 
 if [ -z "$VASM_VERSION" ] ; then
-  # Latest version published 2020/12/31
-  VASM_VERSION=1_8j
+  # Latest version published 2021/05/13
+  VASM_VERSION=1_8k
   #Old HMTL dir http://server.owl.de/~frank/tags
   VASM_HTML_DIR=http://sun.hasenbraten.de/vasm/release
 fi
