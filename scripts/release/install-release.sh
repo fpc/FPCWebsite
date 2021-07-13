@@ -44,6 +44,7 @@ echo "Trying to install Free Pascal release $RELEASE_VERSION on $CPU-$OS"
 
 CPU32=""
 CPU64=""
+CPU32_SUFFIX=""
 
 case "$CPU" in
   i*86) CPU32=i386;;
@@ -51,7 +52,7 @@ case "$CPU" in
   ppc64|powerpc64) CPU32=powerpc; CPU64=powerpc64;;
   x86_64|amd64) CPU32=i386; CPU64=x86_64;;
   ppc*|powerpc*) CPU32=powerpc;;
-  aarch64|arm64) CPU32=arm; CPU64=aarch64;;
+  aarch64|arm64) CPU32=arm; CPU32_SUFFIX=-on-aarch64; CPU64=aarch64;;
   arm*) CPU32=arm;;
   mipsel*) CPU32=mipsel;;
   mips*) CPU32=mips;;
@@ -65,7 +66,7 @@ esac
 if [ -n "$CPU32" ] ; then
   TARGET32=$CPU32-$OS
   DIRNAME32=fpc-${RELEASE_VERSION/-rc/rc}.$TARGET32
-  TARFILE32=${DIRNAME32}.tar
+  TARFILE32=${DIRNAME32}${CPU32_SUFFIX}.tar
   scp -p ${FTP_MACHINE}:$FTP_BASE_DIR/$RELEASE_VERSION/$TARGET32/$TARFILE32 .
   res=$?
   if [ $res -ne 0 ] ; then
