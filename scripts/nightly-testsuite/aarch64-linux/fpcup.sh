@@ -7,6 +7,7 @@ if [ -z "$HOSTNAME" ] ; then
   HOSTNAME=`uname -n `
 fi
 HOSTNAME=${HOSTNAME%%\.*}
+export run_check_all_rtl=0
 
 if [ "$HOSTNAME" == "gcc115" ] ; then
   export generate_snapshots=1
@@ -14,6 +15,7 @@ if [ "$HOSTNAME" == "gcc115" ] ; then
   export ARM_ABI=gnueabihf
 elif [ "$HOSTNAME" == "gcc113" ] ; then
   export generate_snapshots=0
+  export run_check_all_rtl=1
   export generate_arm_snapshots=1
   export ARM_ABI=gnueabihf
 elif [ "$HOSTNAME" == "gcc118" ] ; then
@@ -21,6 +23,11 @@ elif [ "$HOSTNAME" == "gcc118" ] ; then
   export generate_arm_snapshots=0
   export ARM_ABI=gnueabihf
   export skip_arm=1
+elif [ "$HOSTNAME" == "gcc185" ] ; then
+  export generate_snapshots=1
+  export generate_arm_snapshots=1
+  export run_check_all_rtl=1
+  export ARM_ABI=gnueabihf
 else
   export generate_snapshots=0
 fi

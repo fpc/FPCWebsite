@@ -21,12 +21,18 @@ if [ -z "$generate_arm_snapshots" ] ; then
   generate_arm_snapshots=0
 fi
 
+if [ -z "$run_check_all_rtl" ] ; then
+  run_check_all_rtl=0
+fi
+
 if [ $generate_snapshots -eq 1 ] ; then
   export LOG=~/logs/last-makesnapshot-fixes
   echo "Starting makesnapshot-fixes at `date`" >> $HOME/.lastfpcfixesup
   $HOME/bin/makesnapshot-fixes.sh 1> ${LOG} 2>&1
   echo "Finished makesnapshot-fixes at `date`" >> $HOME/.lastfpcfixesup
-else
+fi
+
+if [ $run_check_all_rtl -eq 1 ] ; then
   export FIXES=1
   export LOG=~/logs/fixes/check-targets/80x-log
   echo "Starting generate-cross-sfpux80.sh at `date`" >> $HOME/.lastfpcfixesup
