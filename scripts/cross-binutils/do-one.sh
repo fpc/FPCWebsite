@@ -207,17 +207,17 @@ function copytofpcbin ()
       fi
       echo "No ${binutilsdir} package found, trying to upload from ftp.gnu.org depository"
       # Should have all from 2.7 to 2.29 (somaetimes with 'a' suffix
-      echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2"
-      ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2 )
+      echo "Trying wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2"
+      ( cd .. ; wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2 )
       res=$?
       if [ $res -ne 0 ] ; then
-        echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2"
-        ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2 )
+        echo "Trying wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2"
+        ( cd .. ; wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}a.tar.bz2 )
 	res=$?
       fi
       if [ $res -ne 0 ] ; then
-        echo "Trying wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz"
-        ( cd .. ; wget ftp://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz )
+        echo "Trying wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz"
+        ( cd .. ; wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.gz )
 	tarfile=`cd .. ; ls -1  binutils-${BINUTILS_RELEASE}*.tar.gz `
 	taropt=z
       else
