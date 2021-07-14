@@ -2,18 +2,18 @@
 
 ALT_HTML_DIR=http://phoenix.owl.de/tags
 
-if [ -z "$VASM_VERSION" ] ; then
+if [ -z "${VASM_VERSION:-}" ] ; then
   # Latest version published 2021/05/13
   VASM_VERSION=1_8k
   #Old HMTL dir http://server.owl.de/~frank/tags
-  VASM_HTML_DIR=http://sun.hasenbraten.de/vasm/release
 fi
-if [ -z "$VLINK_VERSION" ] ; then
+VASM_HTML_DIR=http://sun.hasenbraten.de/vasm/release
+if [ -z "${VLINK_VERSION:-}" ] ; then
   # Latest version published 2021/04/28
   VLINK_VERSION=0_16h
   #Old HTML dir http://phoenix.owl.de/tags
-  VLINK_HTML_DIR=http://sun.hasenbraten.de/vlink/release
 fi
+VLINK_HTML_DIR=http://sun.hasenbraten.de/vlink/release
 
 VASM_DISPLAY_VERSION=${VASM_VERSION//_/.}
 VLINK_DISPLAY_VERSION=${VLINK_VERSION//_/.}
