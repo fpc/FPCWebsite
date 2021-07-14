@@ -5,7 +5,7 @@
 
 cd $HOME
 
-if [ -z "$NASM_VERSION" ] ; then
+if [ -z "${NASM_VERSION:-}" ] ; then
   NASM_VERSION=2.15.05
 fi
 
