@@ -8,11 +8,11 @@ cd $HOME
 # Get Free Pascal versions from the fpc-versions.sh script
 . $HOME/bin/fpc-versions.sh
 
-if [ -z "$SDCC_VERSION" ] ; then
+if [ -z "${SDCC_VERSION:-}" ] ; then
   SDCC_VERSION=4.1.0
 fi
 
-if [ -z "$Z80ASM_VERSION" ] ; then
+if [ -z "${Z80ASM_VERSION:-}" ] ; then
   Z80ASM_VERSION=1.8
 fi
 
