@@ -9,15 +9,25 @@ cd $HOME
 . $HOME/bin/fpc-versions.sh
 
 if [ -z "$SDCC_VERSION" ] ; then
-  SDCC_VERSION=4.0.0
+  SDCC_VERSION=4.1.0
 fi
 
 if [ -z "$Z80ASM_VERSION" ] ; then
   Z80ASM_VERSION=1.8
 fi
 
-recompile_sdasz80=0
-recompile_z80asm=0
+if [ "$1" == "--force" ] ; then
+  force=1
+  recompile_sdasz80=1
+  recompile_z80asm=1
+  shift
+else
+  force=0
+  recompile_sdasz80=0
+  recompile_z80asm=0
+fi
+
+set -u
 
 if [ ! -f $HOME/bin/sdasz80 ] ; then
   recompile_sdasz80=1
@@ -29,6 +39,11 @@ fi
 
 cd $HOME/gnu
 if [ $recompile_sdasz80 -eq 1 ] ; then
+  if [ $force -eq 1 ] ; then
+    if [ -d sdcc ] ; then
+      rm -Rf sdcc
+    fi
+  fi
   if [ ! -d sdcc ] ; then
     mkdir sdcc
   fi
@@ -39,22 +54,32 @@ if [ $recompile_sdasz80 -eq 1 ] ; then
     wget https://sourceforge.net/projects/sdcc/files/sdcc/$SDCC_VERSION/$SDCC_SRC
     tar -xvjf $SDCC_SRC
   fi
+  sdcc_src_dir=` find . -type d -name "sdcc*" | head -1 `
   mkdir build-sdcc
   cd build-sdcc
-  ../sdcc-$SDCC_VERSION/configure
+  ../$sdcc_src_dir/configure
   make
-  cp ./bin/sdasz80 $HOME/bin
-  cp ./bin/sdar $HOME/bin
-  cp ./bin/sdldz80 $HOME/bin
+  cp -fp ./bin/sdasz80 $HOME/bin
+  cp -fp ./bin/sdar $HOME/bin
+  cp -fp ./bin/sdldz80 $HOME/bin
 fi
 
 cd $HOME/gnu
 if [ $recompile_z80asm -eq 1 ] ; then
-  wget http://download.savannah.nongnu.org/releases/z80asm/z80asm-${Z80ASM_VERSION}.tar.gz
-  tar -xvzf z80asm-${Z80ASM_VERSION}.tar.gz
-  cd  z80asm-$Z80ASM_VERSION
+  z80asm_src_dir=z80asm-$Z80ASM_VERSION
+  z80asm_file=z80asm-$Z80ASM_VERSION.tar.gz
+  if [ $force -eq 1 ] ; then
+    if [ -d $z80asm_src_dir ] ; then
+      rm -Rf $z80asm_src_dir
+    fi
+  fi
+  if [ ! -f $z80asm_file ] ; then
+    wget http://download.savannah.nongnu.org/releases/z80asm/z80asm-${Z80ASM_VERSION}.tar.gz
+  fi
+  tar -xvzf $z80asm_file
+  cd $z80asm_src_dir
   make
-  cp ./z80asm $HOME/bin
+  cp  -fp ./z80asm $HOME/bin
 fi
 
 cd $HOME/bin
