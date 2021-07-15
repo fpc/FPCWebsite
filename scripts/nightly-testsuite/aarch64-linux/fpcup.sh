@@ -25,6 +25,10 @@ elif [ "$HOSTNAME" == "gcc118" ] ; then
   export skip_arm=1
 elif [ "$HOSTNAME" == "gcc185" ] ; then
   export generate_snapshots=1
+  export generate_arm_snapshots=0
+  export run_check_all_rtl=0
+  export ARM_ABI=gnueabihf
+elif [ "$HOSTNAME" == "gcc80" ] ; then
   export generate_arm_snapshots=1
   export run_check_all_rtl=1
   export ARM_ABI=gnueabihf
