@@ -65,7 +65,7 @@
     <ul>
       <li><a href="down/x86_64/win64@x@">Windows 64-bit</a>
       <li><a href="down/x86_64/linux@x@">Linux</a>
-      <li><a href="down/i386/macosx@x@">Mac OS X/OS X/macOS</a> (<trn key="website.down_i386_macx_dos_note" locale="en_US">and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
+      <li><a href="down/i386/macosx@x@">Mac OS X/OS X/macOS</a> (<trn key="website.down_i386_macx_dos_cc_note" locale="en_US">and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android</trn>).
       <li><a href="down/x86_64/freebsd@x@">FreeBSD</a>
       <li><a href="down/x86_64/solaris@x@">Solaris</a>
     </ul>
@@ -98,7 +98,7 @@
   <li>PowerPC64 Little Endian
     <ul>
       <li><a href="down/powerpc64le/linux@x@">Linux</a>
-   </ul> 
+   </ul>
 
   <li>SPARC
     <ul>

@@ -2,7 +2,7 @@
 <property name="title"><trn key="website.future.title" locale="en_US">Free Pascal - Future Plans</trn></property>
 <property name="entry">develop</property>
 <property name="subentry">future</property>
-<property name="header"><trn key="website.future.title" locale="en_US">Future Plans</trn></property>
+<property name="header"><trn key="website.future.header" locale="en_US">Future Plans</trn></property>
 
 <ul>
 

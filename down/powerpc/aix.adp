@@ -1,7 +1,7 @@
 <master>
 <property name="title"><trn key="website.down.powerpc.aix.title" locale="en_US">Free Pascal - Download AIX</trn></property>
 <property name="entry">download</property>
-<property name="header"><trn key="website.down.powerpc.aix.title" locale="en_US">Download AIX PowerPC</trn></property>
+<property name="header"><trn key="website.down.powerpc.aix.header" locale="en_US">Download AIX PowerPC</trn></property>
 <property name="modify"></property>
 <property name="picdir">../../pic</property>
 <property name="maindir">../../</property>

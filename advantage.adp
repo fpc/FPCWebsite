@@ -4,7 +4,7 @@
 <property name="header"><trn key="website.Advantages_title" locale="en_US">Advantages of Free Pascal</trn></property>
 
 <h2><trn key="website.Advantages_of" locale="en_US">Advantages of programming in Pascal and Free Pascal</trn></h2>
-<trn key="website.Advantages_of" locale="en_US">
+<trn key="website.Advantages_of_note" locale="en_US">
   Maybe you think, why should I choose Pascal instead of, for example C. Or
   maybe you are comparing Free Pascal to another Pascal compiler. Well, in
   that case, be sure to read this page before making your decision. Well,

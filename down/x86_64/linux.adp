@@ -45,7 +45,7 @@ It is available in different formats:
        contains the compiler, utils, RTL and all units. <br>
      </trn>
 <li> <a href="@mirror_url@dist/3.0.2/x86_64-linux/rpm/fpc-debuginfo-3.0.2-1.x86_64.rpm">fpc-debuginfo-3.0.2-1.x86_64.rpm</a> (27 MB)
-     <trn key="website.x86_64-linux_rpm_download_descr" locale="en_US">
+     <trn key="website.x86_64-linux_rpm_download_descr_debug" locale="en_US">
        debuginfo<br>
      </trn>
 

@@ -20,7 +20,7 @@
 
 <h2><trn locale="en_US" key="website.latest_news">Latest News</trn></h2>
 <p>
- <trn locale="en_US" key="website.frontpage.news_headline_20200619">
+ <trn locale="en_US" key="website.frontpage.news_headline_20210520">
  <li>
   <em>May 20th, 2021</em>
  </li>

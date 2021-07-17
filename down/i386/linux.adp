@@ -55,12 +55,12 @@ It is available in different formats:
      </trn>
 <li> <b><trn key="website.down_i386_i8086_msdos_binary_packages" locale="en_US">i8086 MS-DOS cross binary Packages</trn></b>
 <li> <a href="@mirror_url@dist/@latestversion@/i386-linux/rpm/fpc-i8086-msdos-@latestversion@-1.i686.rpm">fpc-i8086-msdos-@latestversion@i-1.i686.rpm</a> (176 MB)
-     <trn key="website.i386-linux_rpm_download_descr" locale="en_US">
+     <trn key="website.i386-linux_rpm_download_descr_target" locale="en_US">
        contains the cross-compiler, RTL and all units for MS-DOS target. <br>
      </trn>
 <li> <b><trn key="website.down_i386_i8086_source_packages" locale="en_US">Source Packages for cross i8086 compilers. </trn></b>
 <li> <a href="@mirror_url@dist/@latestversion@/x86_64-linux/rpm/fpc-i8086-msdos-@latestversion@-1.src.rpm">fpc-i8086-msdos-@latestversion@-1.src.rpm</a> (76 MB)
-     <trn key="website.i386-linux_rpm_src_download_descr" locale="en_US">
+     <trn key="website.i386-linux_rpm_src_download_descr_target" locale="en_US">
        contains the sources for MS-DOS target.<br>
      </trn>
 </ul>

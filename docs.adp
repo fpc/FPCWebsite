@@ -81,7 +81,7 @@
 </p>
 <p>
 
-<trn key="website.docs.contributed" locale="en_US">
+<trn key="website.docs.contributed.table" locale="en_US">
 <table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
 <tr><th WIDTH="30%" ALIGN=LEFT>Document</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
 <tr><td>class chart in PDF format(Thanks to Tiziano!)</td>

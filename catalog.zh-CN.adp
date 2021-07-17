@@ -35,7 +35,6 @@ Free Pascal 开发团队
   <li>i386 编译器开发</li>
 </ul>
 <address>邮件： <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
-<address>邮件： <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
 </TRN>
 <TRN locale="zh-CN" key="website.aboutus.developer.florian">
 出生： 1975<br>
@@ -101,16 +100,16 @@ Free Pascal 开发团队
 （无头像）
 <p>
 出生：1965<br>
-职业：法国 Strasbourg 的 Charles Sadron 研究所物理学家，研究 air-water interface（多么有趣的事情呀！！）<br>
+职业：法国 Strasbourg 的 Charles Sadron 研究所物理学家，研究空气-水界面的聚合物<br>
 爱好：计算机<br>
 <p>
 为项目贡献以下工作：
 <ul>
   <li>编译器开发</li>
-  <li>i386 编译器开发</li>
-  <li>运行时库协调</li>
+  <li>运行时库开发</li>
+  <li>在不同类型的机器上运行测试维护</li>
 </ul>
-<address>邮件： <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
+<address>邮件： <a href="mailto:pierre&#x040;freepascal.org">Pierre Muller</a></address>
 </TRN>
 <TRN locale="zh-CN" key="website.aboutus.developer.marco">
 <IMG SRC="pic/marco1.jpg" ALT="Marco 头像" HEIGHT=163 WIDTH=162>
@@ -134,7 +133,7 @@ Free Pascal - 使用 Pascal 和 Free Pascal 编程的优点
 Free Pascal 优点
 </TRN>
 <TRN locale="zh-CN" key="website.Advantages_of">
-使用 Pascal 和 Free Pascal 编程的优点
+Pascal 和 Free Pascal 编程优势
 </TRN>
 <TRN locale="zh-CN" key="website.adv_very_clean_lang">
 <STRONG>非常纯净的语言</STRONG> Pascal 是一种非常好的语言，
@@ -481,13 +480,7 @@ fpdoc 文档工具参考手册
 Free pascal 手册已由 <b>C&amp;L</b> 翻译为德语，可从 <a href="http://www.cul.de/freepascal.html">C&amp;L 网站</a>购买。
 </TRN>
 <TRN locale="zh-CN" key="website.docs.contributed">
-<table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
-<tr><th WIDTH="30%" ALIGN=LEFT>文档</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
-<tr><td>PDF 格式的类图表（感谢 Tiziano！）</td>
-   <td><a href="http://www.freepascal.org/docs/ClassChart3.pdf">PDF</a></td>
-   <td>-</td>
-</tr>
-</table>
+用户贡献的文档
 </TRN>
 <TRN locale="zh-CN" key="website.User_contributed_documents">
 以下用户提供的文档可用
@@ -551,9 +544,11 @@ Free Pascal - 下载 Linux
 <h3><a name="linuxbig"></a>下载文件：</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar</a>（81 MB）
+href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar</a>（132 MB）
 包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
 </ul>
+了解更多信息，请阅读：
+ <a href="@mirror_url@dist/@latestversion@/aarch64-linux/readme.aarch64-linux">readme.aarch64-linux</a>
 </TRN>
 <TRN locale="zh-CN" key="website.down.android.title">
 Free Pascal - 下载 Android 版本
@@ -878,13 +873,13 @@ RPM (Redhat 包管理器) 包
 二进制包
 </TRN>
 <TRN locale="zh-CN" key="website.i386-linux_rpm_download_descr">
-包含交叉编译器，RTL 和 MS-DOS 目标的所有单元。<br>
+包含编译器、实用程序、RTL 和所有单元。<br>
 </TRN>
 <TRN locale="zh-CN" key="website.Source_packages">
 源码包
 </TRN>
 <TRN locale="zh-CN" key="website.i386-linux_rpm_src_download_descr">
-包含 MS-DOS 目标的源。<br>
+包含源文件。<br>
 </TRN>
 <TRN locale="zh-CN" key="website.down_i386_i8086_msdos_binary_packages">
 i8086 MS-DOS 交叉二进制软件包
@@ -919,21 +914,21 @@ Free Pascal - 下载 Mac OS X
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode5">
 <h3>Xcode 5+ 兼容性（OS X 10.9 及更高版本；对于 OS X 10.8，请参见下文）</h3>
-FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15，以及 macOS 10.12 和 10.13。
+FPC 3.2.2 适用于 Mac OS X 10.4 至 macOS 11。
 但是，在默认情况下，Xcode 5 和更高版本不再安装 FPC 所需的命令行工具。
 需要手动安装它们，打开 &quot;/Applications/Utilities/Terminal&quot;，
 执行 <tt>xcode-select --install</tt> 并选择 &quot;安装&quot;。之后，FPC 将正常运行。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode435">
 <h3>Xcode 4.3-5.x 兼容性（Mac OS X 10.7 / OS X 10.8）</h3>
-FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
+FPC 3.2.2 适用于 Mac OS X 10.4 至 macOS 11。
 但是，默认情况下，Xcode 4.3 及更高版本不再安装 FPC 所需的命令行工具。
 要手动安装它们，请打开 Xcode，转到“偏好设置”，选择 &quot;下载;&quot;；
 并安装 &quot;命令行工具&quot;。之后，FPC 将安装并正常运行。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode324">
 <h3>Xcode 3.2.x-4.2 兼容性（Mac OS X 10.6）</h3>
-FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
+FPC 3.2.2 适用于 Mac OS X 10.4 至 macOS 11。
 但是，由于 Xcode 3.2.x 链接器中的错误，在 Mac OS X 10.6 下用 FPC 编译动态库时会出现问题。
 此错误已在 Xcode 4 中修复。
 你可以在编译动态库时使用 <tt>-k-no_order_inits</tt> 命令行参数来解决 Xcode 3.2.x 中的错误。
@@ -942,16 +937,10 @@ FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
 <h3><a name="macosxdmg"></a> 以1个大文件下载 @latestversion@ 版：</h3>
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.intel">
-包含一个用于编译 Intel（32位和64位）程序的软件包（已更新为可以在 macOS 10.14 "Mojave" 上成功安装）。
+包含用于编译 Intel（32 和 64 位）和 ARM64 程序的软件包。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.powerpc">
 包含用于编译 PowerPC（32位和64位）程序的附加安装包。
-</TRN>
-<TRN locale="zh-CN" key="website.down.i386.macosx.fpc320intel">
-包含用于编译 iPhone/iPod Touch/iPad 程序的安装包。有关 Xcode 模板，请参见 <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' 站点</a>。<br>
-</TRN>
-<TRN locale="zh-CN" key="website.down.i386.macosx.fpc305intel">
-包含一个用于编译 iPhone/iPod Touch/iPad 程序的安装包。有关 Xcode 模板，请参见 <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess'</a> 网站。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.jvm">
 包含用于编译 JVM 程序的附加安装包。
@@ -1574,7 +1563,7 @@ Free Pascal - 下载 NetBSD （m68k）版本
 <p>
 </TRN>
 <TRN locale="zh-CN" key="website.down.powerpc.aix.title">
-下载 AIX PowerPC
+Free Pascal - 下载 AIX PowerPC
 </TRN>
 <TRN locale="zh-CN" key="website.down.powerpc.aix.information">
 包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
@@ -1598,7 +1587,8 @@ Free Pascal - 下载 Linux
 <TRN locale="zh-CN" key="website.down.powerpc.linux.information">
 包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
 
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc-linux/readme-powerpc-linux.txt">readme-powerpc-linux.txt</a> 包含有关 powerpc linux 版本构建的信息。</ul>
+<li>了解更多信息，请阅读：
+<a href="@mirror_url@dist/@latestversion@/powerpc-linux/readme.powerpc-linux">readme.powerpc-linux</a>
 </TRN>
 <TRN locale="zh-CN" key="website.down.powerpc.macos.title">
 Free Pascal - 下载 Mac OS classic
@@ -1663,10 +1653,10 @@ Free Pascal - 下载 Linux
 下载 Linux PowerPC64
 </TRN>
 <TRN locale="zh-CN" key="website.down.powerpc64.linux.information">
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> （145 MB）包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> （143 MB）包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
 </TRN>
 <TRN locale="zh-CN" key="website.down.powerpc64le.linux.information">
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (135 MB)包含标准的 tar 存档和安装脚本。<br>解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
+<li> <a href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (134 MB)包含标准的 tar 存档和安装脚本。<br>解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
 </TRN>
 <TRN locale="zh-CN" key="website.down.source.sources.title">
 Free Pascal - 下载源代码
@@ -1710,6 +1700,7 @@ Free Pascal - 下载 Linux
 </TRN>
 <TRN locale="zh-CN" key="website.down.sparc.linux.information">
 包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
+了解更多信息，请阅读：
 </TRN>
 <TRN locale="zh-CN" key="website.down.sparc.solaris.title">
 Free Pascal - 下载 Solaris
@@ -1745,7 +1736,7 @@ Free Pascal - 下载 Linux
 包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<TT>sh install.sh</TT>" 在创建的目录中运行安装脚本。
 </TRN>
 <TRN locale="zh-CN" key="website.x86_64-linux_rpm_download_descr">
-调试信息<br>
+包含编译器、实用程序、RTL 和所有单元。<br>
 </TRN>
 <TRN locale="zh-CN" key="website.x86_64-linux_rpm_docs_download_descr">
 包含文档。<br>
@@ -2124,19 +2115,19 @@ Free Pascal - 下载
 最新版本是
 </TRN>
 <TRN locale="zh-CN" key="website.available_limited_platforms">
-由于缺少发布构建器和测试器，因此 3.2.0 仅适用于有限的平台，而并非适用于所有软件包格式。如果你想改变它并构建和测试未来的发行版，请通过邮件列表与我们联系。
+由于缺少发布构建器和测试器，因此 3.2.2 仅适用于有限的平台，而并非适用于所有软件包格式。如果你想改变它并构建和测试未来的发行版，请通过邮件列表与我们联系。
 </TRN>
 <TRN locale="zh-CN" key="website.Binaries">
 二进制
 </TRN>
 <TRN locale="zh-CN" key="website.can_download_for_platform">
-你可以下载适用于以下 cpu 和操作系统的 3.2.0 版本：
+你可以下载适用于以下 cpu 和操作系统的 3.2.2 版本：
 </TRN>
 <TRN locale="zh-CN" key="website.down_i386_win32_note">
 以及交叉编译器 ARM/MIPS/i386-Android
 </TRN>
 <TRN locale="zh-CN" key="website.down_i386_macx_dos_note">
-以及用于 PowerPC（64）/ Mac OS X、iOS 和 iPhoneSimulator、JVM/Java 和 JVM/Android 的交叉编译器
+以及用于 ARM64、PowerPC（64）、iOS 和 iPhoneSimulator、JVM/Java 和 JVM/Android 的交叉编译器
 </TRN>
 <TRN locale="zh-CN" key="website.down_i386_OS2_note">
 以及 eComStation
@@ -2238,7 +2229,7 @@ Free Pascal 安装提示
 应用程序崩溃时获取更多信息
 </TRN>
 <TRN locale="zh-CN" key="website.q_Compiler_skips_files">
-编译器似乎跳过了目录 -Fu 指向的文件
+编译器似乎跳过了 -Fu 指向目录的文件
 </TRN>
 <TRN locale="zh-CN" key="website.q_Big_binaries">
 为什么生成的二进制文件如此之大？
@@ -2331,7 +2322,7 @@ Windows 相关信息
 Graph 单元引发的键盘、鼠标和“虚拟dos窗口”的问题
 </TRN>
 <TRN locale="zh-CN" key="website.q_win_cygwin">
-Cygwin 程序目录存在环境变量 PATH 中会造成的奇怪问题
+Cygwin 程序目录存在于环境变量 PATH 中造成构建失败
 </TRN>
 <TRN locale="zh-CN" key="website.q_win95_fpc">
 在 Windows 95 下使用 DOS 编译器
@@ -2421,7 +2412,7 @@ DOS 相关信息
 分析
 </TRN>
 <TRN locale="zh-CN" key="website.q_fpwithoutfpu">
-在没有 math coprocessor 情况下运行 Free Pascal
+在没有数学协处理器的情况下运行 Free Pascal
 </TRN>
 <TRN locale="zh-CN" key="website.q_app_crash_on_386">
 在 80386 系统上使用 Free Pascal 创建应用程序造成崩溃
@@ -2478,19 +2469,20 @@ Amiga 相关信息
 PalmOS 相关信息
 </TRN>
 <TRN locale="zh-CN" key="website.faq.palmos.release">
-动态库
+发布由 PalmOS 编译器生成的软件
 </TRN>
 <TRN locale="zh-CN" key="website.General_Information">
 常规信息
 </TRN>
 <TRN locale="zh-CN" key="website.a_What_is_FPC">
-<p>Free Pascal 编译器最初名为 FPK-Pascal，是适用于 DOS、Linux、Win32、OS/2、FreeBSD、AmigaOS、Mac OS X、Mac OS classic 和其他几个平台的 32 位和 64 位 Turbo Pascal 和 Delphi 兼容的 Pascal 编译器（支持目标的数量一直在增长，尽管并非所有目标都与主要目标处于同一水平）。
-<p>Free Pascal 编译器可用于多种架构：x86、Sparc（v8、v9）、ARM、x86_64（AMD64/Opteron）和 Powerpc。旧版本（1.0系列）也支持 m68k。
+<p>Free Pascal 最初名为 FPK-Pascal，是一个 16、32 和 64 位 Turbo Pascal 和 Delphi 兼容的 Pascal 编译器；适用于 Linux、Windows、OS/2、FreeBSD、Mac OS X、DOS 和其他几个平台（支持目标的数量一直在增长，尽管并非所有目标都与主要目标处于同一水平）。
+<p>Free Pascal 编译器可用于多种架构：x86（16、32 和 64 位）、ARM 、PowerPC（32 和 64 位）、SPARC（v8、v9）、Java 虚拟机（开发中）和 MIPS（小端和大端，开发中）。旧版本（1.0系列）和当前开发版本也支持 m68k。
 <p>编译器以 Pascal 编写，能够编译自己。源文件在 GPLv2+ 下分发并包含在内。
 <p>简史：
 <ul>
     <li>1993年6月：项目开始
-    <li>1993年10月：第一个小程序工作<li>1995年3月：编译器编译自己
+    <li>1993年10月：第一个小程序工作
+    <li>1995年3月：编译器编译自己
     <li>1996年3月：发布到互联网
     <li>2000年7月：1.0 发布
     <li>2000年12月：1.0.4 发布
@@ -2512,10 +2504,11 @@ PalmOS 相关信息
     <li>2017年2月：3.0.2 发布
     <li>2017年11月：3.0.4 发布
     <li>2020年6月：3.2.0 发布
+    <li>2021年5月：3.2.2 发布
 </ul>
 </TRN>
 <TRN locale="zh-CN" key="website.a_What_versions_exist">
-<p>最新的正式版本是 3.2.0，是 3.2.x 系列中的第一个发行版。在 3.3.x 系列中进行开发，最终将根据所实现的进度发布为 3.4.0 或 4.0.0。
+<p>最新的正式版本是 3.2.2，是 3.2.x 系列中的第一个小更新。在 3.3.x 系列中进行开发，最终将根据所实现的进度发布为 3.4.0 或 4.0.0。
 
 <h4>历史版本</h4>
 <p>多年来，FPC 的版本编号发生了几次更改。1.0 版之前的版本信息已移至 Wiki <a href="http://wiki.freepascal.org/1.0_versioning">1.0 版本</a>页面。
@@ -2535,8 +2528,8 @@ PalmOS 相关信息
     <p>通常情况下，希望你使用稳定版。发行版被认为是稳定的，并且更容易支持（bug、异常和意想不到的“特性”在一段时间后是众所周知的，并且存在解决方法）
     <p>开发快照（每天生成）反映了编译器的当前状态。开发版可能会修复上一版本的问题或增加新功能，但可能存在一些临时的缺陷（通常在第二天修复）。
     <p>开发快照通常对某些用户来说非常有用。如果你不确定的话，在邮件列表中询问你的情况是否需要。
-    <p>稳定分支的快照（fixes_3_0）用于测试发布工程。他们主要在发布前的几个月对创建发布的分支进行广泛测试。
-    <p>我们建议所有用户升级到最新版本（最好是稳定的 3.0.x 系列）。
+    <p>稳定分支的快照（fixes_3_2）用于测试发布工程。他们主要在发布前的几个月对创建发布的分支进行广泛测试。
+    <p>我们建议所有用户升级到最新版本（最好是稳定的 3.2.x 系列）。
     <p>FPC 项目及其近期的时间线图表：
     <img src="pic/timeline.png">
 </TRN>
@@ -2547,7 +2540,7 @@ PalmOS 相关信息
     <DD>Free Pascal 尝试在尽可能多的平台上实现与 Borland 兼容的 pascal 编译器。GNU Pascal 尝试实现基于 POSIX 的便携式 pascal 编译器。
 
     <DT><b>版本：</b>
-    <DD>目前，Free Pascal 的版本为 3.2.0（2020年6月）。GNU Pascal 停止于 2.1版（从 2002 年开始，它可以用几个不同的 GCC 作为后端构建；Mac OS X 版本是一个例外，因为它遵循 GCC 版本号）。
+    <DD>目前，Free Pascal 的版本为 3.2.2（2021年5月）。GNU Pascal 停止于 2.1版（从 2002 年开始，它可以用几个不同的 GCC 作为后端构建；Mac OS X 版本是一个例外，因为它遵循 GCC 版本号）。
 
     <DT><b>跟踪：</b>
     <DD>在发行版之间，FPC 的开发版本可通过每日快照获得，而源代码可通过 CVS 获得。GPC 每年都会发布几次最新版本的补丁程序，并且定期由用户制作 OS X 和 Windows 快照。
@@ -3425,7 +3418,7 @@ FCL - 自由组件库
 </TRN>
 <TRN locale="zh-CN" key="website.fcl.introduction">
 <h2>介绍</h2>
-Free Component Library 旨在免费提供等效于 Delphi 的 VCL。该库中的所有组件都是非可视的。视觉组件是其他项目（<a href="http://www.lazarus.freepascal.org/">Lazarus</a> 或 <a href="http://mseide-msegui.sourceforge.net/">MSEide+MSEgui</a>）的领域。
+Free Component Library 旨在免费提供等效于 Delphi 的 VCL。该库中的所有组件都是非可视的。视觉组件是其他项目（<a href="http://www.lazarus.freepascal.org/">Lazarus</a> 或 <a href="https://github.com/mse-org/mseide-msegui">MSEide+MSEgui</a>）的领域。
 
 <p> FCL 的想法是提供完整的类集，以便程序员能够处理最常见的编程任务；我们将尽可能地保持与 Delphi 的兼容性，因此为一个编译器编写的代码可以由另一个编译器编译。
 </TRN>
@@ -3510,7 +3503,7 @@ Free Pascal 是成熟、通用、开源的 Pascal 编译器。它针对多种处
 <li>
 FPC 3.2.0 发布！
 <p>
-该版本是一个重要的新版本，包含错误修复和更新包、<a href="http://wiki.freepascal.org/FPC_New_Features_3.2">新功能</a>和新目标。FPC 3.0 分支使用年限为5年！。建议尽快升级。
+该版本是一个重要的新版本，包含错误修复和更新包、<a href="http://wiki.freepascal.org/FPC_New_Features_3.2">新功能</a>和新目标。FPC 3.0 分支使用年限为5年！建议尽快升级。
 </p>
 <p>
 这里列出了可能会<a href="http://wiki.freepascal.org/User_Changes_3.2.0">破坏向后兼容性的更改</a>。你也可以查看 <a href="https://www.freepascal.org/docs.html">FPC 3.2.0 文档</a>。
@@ -3570,7 +3563,7 @@ FPC 3.2.0 发布！
 当前版本
 </TRN>
 <TRN locale="zh-CN" key="website.Current_Version_text">
-<em>3.2.0</em> 是 Free Pascal 的最新稳定版本。    点击<a href="download@x@">下载</a>链接并选择较近镜像下载副本。    开发版的版本号为 <EM>3.3.x</EM>。请参阅<a href="develop@x@">开发</a>页面，了解如何获取最新的源代码并支持开发。
+<em>3.2.2</em> 是 Free Pascal 最新的稳定版本。点击<a href="download@x@">下载</a>链接并选择较近镜像下载副本。开发版的版本号为 <EM>3.3.x</EM>。请参阅<a href="develop@x@">开发</a>页面，了解如何获取最新的源代码并支持开发。
 </TRN>
 <TRN locale="zh-CN" key="website.Features">
 特点
@@ -3834,7 +3827,7 @@ Mac 编译器指令，如 $SETC，$IFC，$ELSEC，$ENDC，$J，$Z。在接口文
 <p>最新修改时间 2005-07-28</p>
 </TRN>
 <TRN locale="zh-CN" key="website.future.title">
-未来计划
+Free Pascal - 未来计划
 </TRN>
 <TRN locale="zh-CN" key="website.future.planned">
 计划下一个版本
@@ -4028,7 +4021,7 @@ Free Pascal - 链接
 </TRN>
 <TRN locale="zh-CN" key="website.links.fpcirc">
 <h2>IRC 频道</h2>
-你尝试可以在服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上使用 IRC 频道 #fpc 与 Free Pascal 核心开发人员联系。大多数核心开发人员都是欧洲人，因此选择合适的欧洲时间可能会增加你与他们联系的机会;-)。
+你尝试可以在服务器 <a href="https://libera.chat">irc.libera.chat</a> 上使用 IRC 频道 #fpc 与 Free Pascal 核心开发人员联系。大多数核心开发人员都是欧洲人，因此选择合适的欧洲时间可能会增加你与他们联系的机会;-)。
 </TRN>
 <TRN locale="zh-CN" key="website.links.fpcidesites">
 <h2>与 Free Pascal 相关的项目包含 IDE 和 开发工具：</h2>
@@ -4298,7 +4291,7 @@ Free Pascal - 更多信息
 加入一个或多个<a href="maillist@x@">邮件列表</a>。
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.irc">
-通过 IRC 服务器 <a href="http://www.freenode.net">irc.freenode.net</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。<!--该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。-->
+通过 IRC 服务器 <a href="https://libera.chat">irc.libera.chat</a> 上的 #fpc 频道与 FPC 开发人员进行了聊天。<!--该频道的日志在<a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">这里</a>查看。-->
 </TRN>
 <TRN locale="zh-CN" key="website.moreinfo.wiki">
 搜索 <a href="http://www.freepascal.org/wiki/wiki.phtml">FPC Wiki</a>。
@@ -4420,7 +4413,6 @@ Free Pascal - 新闻
    <p>
     可从以下位置下载：
     <ul>
-     <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
      <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
     </ul>
    </p>
@@ -7594,15 +7586,15 @@ Free Pascal - 运行时库单元
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode11">
 <h3>Xcode 11+ 兼容性（macOS 10.15 Catalina 及更高版本）</h3>
-FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。 
+FPC 3.2.2 适用于 Mac OS X 10.4 至 macOS 11。 
 Xcode 11+ 不再支持编译 Intel 32 位程序。
 如果你想编译此类程序，则必须从以前的 Xcode 安装中复制旧的 Mac OS X SDK，并使用 -XR 命令行参数将编译器指向它。
 </TRN>
 <TRN locale="zh-CN" key="website.down.i386.macosx.xcode10">
 <h3>Xcode 10+ 兼容性（macOS 10.14 Mojave 及更高版本）</h3>
-FPC 3.2.0 适用于 Mac OS X 10.4 至 macOS 10.15。
+FPC 3.2.2 适用于 Mac OS X 10.4 至 macOS 11。
 与以前的版本相比，Xcode 10+ 在某些位置安装了命令行文件。
-如果你在以前的 Mac OS X/OS X/macOS 版本中安装了 FPC，则必须在 macOS 10.14 下重新安装 FPC 3.2.0，以便编译器能够找到所需的配置文件。
+如果你在以前的 Mac OS X/OS X/macOS 版本中安装了 FPC，则必须在 macOS 10.14 下重新安装 FPC 3.2.2，以便编译器能够找到所需的配置文件。
 另请参阅以下有关如何安装命令行工具的部分。
 </TRN>
 <TRN locale="zh-CN" key="website.daily.title">
@@ -7636,4 +7628,91 @@ FPC 以包的形式分发，有很多单元（远远超过 1500 个）。
 </TRN>
 <TRN locale="zh-CN" key="website.dailypackagesnote">
 请注意，只有可以被正确解析的包才会添加到此概述中：如果包无法解析，则会从列表中删除。
+</TRN>
+<TRN locale="zh-CN" key="website.down.i386.macosx.fpc322intel">
+包含用于编译 iPhone/iPod Touch/iPad 程序的安装包。
+</TRN>
+<TRN locale="zh-CN" key="website.down.powerpc64le.linux.title">
+Free Pascal - 下载 Linux
+</TRN>
+<TRN locale="zh-CN" key="website.down.powerpc64le.linux.header">
+下载 Linux 小端 PowerPC64
+</TRN>
+<TRN locale="zh-CN" key="website.down.sparc64.linux.title">
+Free Pascal - 下载 Linux
+</TRN>
+<TRN locale="zh-CN" key="website.down.sparc64.linux.header">
+下载 Linux Sparc64
+</TRN>
+<TRN locale="zh-CN" key="website.down.sparc64.linux.information">
+包含标准的 tar 存档和安装脚本。解压缩归档文件后，通过命令 "<tt>sh install.sh</tt>" 在创建的目录中运行安装脚本。
+了解更多信息，请阅读：
+</TRN>
+<TRN locale="zh-CN" key="website.frontpage.news_headline_20210520">
+
+ <li>
+  <em>2021年5月20日</em>
+ </li>
+ <ul>
+  <li>
+   FPC 3.2.2 发布！
+   <p>
+     此版本是对 3.2.0 的更新，包含错误修正和更新包，其中一些是高优先级。在这种情况下，一个新目标也从主干向后移植。
+   </p>
+   <p>
+    这里列出了可能会破<a href="http://wiki.freepascal.org/User_Changes_3.2.2">坏向后兼容性的更改</a>。你也可以查看 <a href="https://www.freepascal.org/docs.html">FPC 3.2.2 文档</a>。 
+   </p>
+   <p>
+    在<a href="https://www.freepascal.org/download.var">下载页</a>下载。有些链接可能会过时，但会在未来几天内更新。
+    如果因浏览器近期更新造成在使用 FTP 时遇到问题，请尝试使用 sourceforge 镜像。
+   </p>
+  </li>
+ </ul>
+ 
+</TRN>
+<TRN locale="zh-CN" key="website.Advantages_of_note">
+
+也许你会想，为什么我应该选择 Pascal 而不是 C。或者你可能正在将 Free Pascal 与另一个 Pascal 编译器进行比较。在这种情况下，请务必在做出决定之前阅读此页面。那么，用 Free Pascal 有什么好处呢？ 
+
+</TRN>
+<TRN locale="zh-CN" key="website.docs.contributed.table">
+
+<table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
+<tr><th WIDTH="30%" ALIGN=LEFT>文档</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
+<tr><td>PDF 格式的类图（感谢 Tiziano！） </td>
+   <td><a href="http://www.freepascal.org/docs/ClassChart3.pdf">PDF</a></td>
+   <td>-</td>
+</tr>
+</table>
+
+</TRN>
+<TRN locale="zh-CN" key="website.i386-linux_rpm_download_descr_target">
+
+       包含交叉编译器、RTL 和 MS-DOS 目标的所有单元。<br>
+     
+</TRN>
+<TRN locale="zh-CN" key="website.i386-linux_rpm_src_download_descr_target">
+
+       包含 MS-DOS 目标的源。<br>
+     
+</TRN>
+<TRN locale="zh-CN" key="website.down.powerpc.aix.header">
+下载 AIX PowerPC
+</TRN>
+<TRN locale="zh-CN" key="website.x86_64-linux_rpm_download_descr_debug">
+
+       调试信息<br>
+     
+</TRN>
+<TRN locale="zh-CN" key="website.down_i386_macx_dos_cc_note">
+和 PowerPC(64)/Mac OS X、iOS & iPhoneSimulator、JVM/Java 以及 JVM/Android 的交叉编译器
+</TRN>
+<TRN locale="zh-CN" key="website.faq.palmos.debug">
+调试
+</TRN>
+<TRN locale="zh-CN" key="website.faq.palmos.dll">
+动态库
+</TRN>
+<TRN locale="zh-CN" key="website.future.header">
+未来计划
 </TRN>

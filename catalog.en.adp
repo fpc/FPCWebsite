@@ -38,7 +38,6 @@ Contributes the following work to the project:
   <li>i386 compiler development</li>
 </ul>
 <address>Email: <a href="mailto:daniel.mantione&#x040;freepascal.org">daniel.mantione&#x040;freepascal.org</a></address>
-<address>Email: <a href="mailto:ccodere&#x040;spamidontlike.ieee.org">Carl Eric Cod&egravere</a></address>
 
 </TRN>
 <TRN locale="en_US" key="website.aboutus.developer.florian">
@@ -115,17 +114,17 @@ Contributes the following work to the project:
 <p>
 Year of birth: 1965<br>
 Job: physicist at the Institut Charles Sadron in Strasbourg (France),
-     studying polymers at the air-water interface (what funny things people can
-     work on !!)<br>
+     studying polymers at the air-water interface<br>
 Hobbies: computers<br>
 <p>
 Contributes the following work to the project:
 <ul>
   <li>compiler development</li>
-  <li>i386 compiler development</li>
-  <li>runtime library coordination</li>
+  <li>runtime library development</li>
+  <li>old OSes</li>
+  <li>maintainance of tests runs on different machine types</li>
 </ul>
-<address>Email: <a href="mailto:muller&#x040;cerbere.u-strasbg.fr">muller&#x040;janus.u-strasbg.fr</a></address>
+<address>Email: <a href="mailto:pierre&#x040;freepascal.org">Pierre Muller</a></address>
 
 </TRN>
 <TRN locale="en_US" key="website.aboutus.developer.marco">
@@ -152,12 +151,7 @@ Free Pascal - Advantages of programming in Pascal and Free Pascal
 Advantages of Free Pascal
 </TRN>
 <TRN locale="en_US" key="website.Advantages_of">
-
-  Maybe you think, why should I choose Pascal instead of, for example C. Or
-  maybe you are comparing Free Pascal to another Pascal compiler. Well, in
-  that case, be sure to read this page before making your decision. Well,
-  for what is Free Pascal so good?
-
+Advantages of programming in Pascal and Free Pascal
 </TRN>
 <TRN locale="en_US" key="website.adv_very_clean_lang">
 
@@ -639,15 +633,7 @@ Reference chart with all compiler options and switches (PDF only)
 
 </TRN>
 <TRN locale="en_US" key="website.docs.contributed">
-
-<table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
-<tr><th WIDTH="30%" ALIGN=LEFT>Document</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
-<tr><td>class chart in PDF format(Thanks to Tiziano!)</td>
-   <td><a href="http://www.freepascal.org/docs/ClassChart3.pdf">PDF</a></td>
-   <td>-</td>
-</tr>
-</table>
-
+User contributed documentation
 </TRN>
 <TRN locale="en_US" key="website.User_contributed_documents">
 The following user contributed documents are available
@@ -721,11 +707,13 @@ Download Linux ARM64
 <h3><a name="linuxbig"></a>Download in 1 big file:</h3>
 <ul>
 <li> <a
-href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar</a> (81 MB)
+href="@mirror_url@dist/@latestversion@/aarch64-linux/fpc-@latestversion@.aarch64-linux.tar">aarch64-linux/fpc-@latestversion@.aarch64-linux.tar</a> (132 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 </ul>
+For more information, please read:
+ <a href="@mirror_url@dist/@latestversion@/aarch64-linux/readme.aarch64-linux">readme.aarch64-linux</a>
 
 </TRN>
 <TRN locale="en_US" key="website.down.android.title">
@@ -1110,7 +1098,7 @@ Binary Packages
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_rpm_download_descr">
 
-       contains the cross-compiler, RTL and all units for MS-DOS target. <br>
+       contains the compiler, utils, RTL and all units. <br>
      
 </TRN>
 <TRN locale="en_US" key="website.Source_packages">
@@ -1118,7 +1106,7 @@ Source Packages
 </TRN>
 <TRN locale="en_US" key="website.i386-linux_rpm_src_download_descr">
 
-       contains the sources for MS-DOS target.<br>
+       contains the sources.<br>
      
 </TRN>
 <TRN locale="en_US" key="website.down_i386_i8086_msdos_binary_packages">
@@ -1157,7 +1145,7 @@ This version The latest release version is
 <TRN locale="en_US" key="website.down.i386.macosx.xcode5">
 
 <h3>Xcode 5+ compatibility (OS X 10.9 and later; for OS X 10.8, see below)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 5 and later however
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 11. Xcode 5 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open &quot;/Applications/Utilities/Terminal&quot;, execute <tt>xcode-select
  --install</tt> and choose &quot;Install&quot;. Afterwards, FPC will function correctly.
@@ -1166,7 +1154,7 @@ This version The latest release version is
 <TRN locale="en_US" key="website.down.i386.macosx.xcode435">
 
 <h3>Xcode 4.3-5.x compatibility (Mac OS X 10.7/OS X 10.8)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 4.3 and later however
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 11. Xcode 4.3 and later however
  no longer install the command line tools by default, which are required by FPC. To install
  them manually, open Xcode, go to Preferences, select &quot;Downloads;&quot; and install the
  &quot;Command Line Tools&quot;. Afterwards, FPC will install and function correctly.
@@ -1175,7 +1163,7 @@ This version The latest release version is
 <TRN locale="en_US" key="website.down.i386.macosx.xcode324">
 
 <h3>Xcode 3.2.x-4.2 compatibility (Mac OS X 10.6)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. There is
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 11. There is
  however an issue when compiling dynamic libraries with FPC under Mac OS X
  10.6 due to a bug in the Xcode 3.2.x linker. This bug has been fixed in Xcode 4.
  You can work around the bug in Xcode 3.2.x by using the <tt>-k-no_order_inits</tt>
@@ -1186,16 +1174,10 @@ This version The latest release version is
 <h3><a name="macosxdmg"></a>Download the @latestversion@ release in 1 big file:</h3>
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.intel">
-contains an installation package for compiling Intel (32 bit and 64 bit) programs (updated to install successfully on macOS 10.14 "Mojave").
+contains an installation package for compiling Intel (32 bit and 64 bit) and ARM64 programs.
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.powerpc">
 contains an add-on installation package for compiling PowerPC (32 and 64 bit) programs.
-</TRN>
-<TRN locale="en_US" key="website.down.i386.macosx.fpc320intel">
-contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br>
-</TRN>
-<TRN locale="en_US" key="website.down.i386.macosx.fpc305intel">
-contains an installation package for compiling iPhone/iPod Touch/iPad programs. For Xcode templates, see <a href="https://dl.dropbox.com/u/28343282/ObjP/index.html">Phil Hess' site.</a><br>
 </TRN>
 <TRN locale="en_US" key="website.down.i386.macosx.jvm">
 contains an add-on installation package for compiling JVM programs.
@@ -1940,7 +1922,7 @@ See the README inside for more information about the status of this port.
 
 </TRN>
 <TRN locale="en_US" key="website.down.powerpc.aix.title">
-Download AIX PowerPC
+Free Pascal - Download AIX
 </TRN>
 <TRN locale="en_US" key="website.down.powerpc.aix.information">
 
@@ -1972,8 +1954,8 @@ contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
 
-<li> <a href="@mirror_url@dist/@latestversion@/powerpc-linux/readme-powerpc-linux.txt">readme-powerpc-linux.txt</a>
-contains information about powerpc linux release build.</ul>
+<li> For more information, please read:
+ <a href="@mirror_url@dist/@latestversion@/powerpc-linux/readme.powerpc-linux">readme.powerpc-linux</a>
 
 </TRN>
 <TRN locale="en_US" key="website.down.powerpc.macos.title">
@@ -2053,7 +2035,7 @@ Download Linux PowerPC64
 <TRN locale="en_US" key="website.down.powerpc64.linux.information">
 
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (145 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64-linux/fpc-@latestversion@.powerpc64-linux.tar">fpc-@latestversion@.powerpc64-linux.tar</a> (143 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -2062,7 +2044,7 @@ directory by issuing the command "<tt>sh install.sh</tt>".
 <TRN locale="en_US" key="website.down.powerpc64le.linux.information">
 
 <li> <a
-href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (135 MB)
+href="@mirror_url@dist/@latestversion@/powerpc64le-linux/fpc-@latestversion@.powerpc64le-linux.tar">fpc-@latestversion@.powerpc64le-linux.tar</a> (134 MB)
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
@@ -2117,6 +2099,7 @@ Download Linux Sparc
 contains a standard tar archive, with an install script<br>
 After untarring the archive, you can run the install script in the created
 directory by issuing the command "<tt>sh install.sh</tt>".
+For more information, please read:
 
 </TRN>
 <TRN locale="en_US" key="website.down.sparc.solaris.title">
@@ -2165,7 +2148,7 @@ Download Linux AMD64/x86_64
 </TRN>
 <TRN locale="en_US" key="website.x86_64-linux_rpm_download_descr">
 
-       debuginfo<br>
+       contains the compiler, utils, RTL and all units. <br>
      
 </TRN>
 <TRN locale="en_US" key="website.x86_64-linux_rpm_docs_download_descr">
@@ -2650,7 +2633,7 @@ The latest release is
 </TRN>
 <TRN locale="en_US" key="website.available_limited_platforms">
 
-  Because of a lack of release builders and testers, 3.2.0 is only available for a limited
+  Because of a lack of release builders and testers, 3.2.2 is only available for a limited
   number of platforms and not in all package formats. If you want to change this and build and test future
   releases, contact us via the mailing lists.
 
@@ -2660,14 +2643,14 @@ Binaries
 </TRN>
 <TRN locale="en_US" key="website.can_download_for_platform">
 
-    You can download the 3.2.0 release for the following cpu and operating systems:
+    You can download the 3.2.2 release for the following cpu and operating systems:
   
 </TRN>
 <TRN locale="en_US" key="website.down_i386_win32_note">
 and a cross-compiler ARM/MIPS/i386-Android
 </TRN>
 <TRN locale="en_US" key="website.down_i386_macx_dos_note">
-and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android
+and cross-compilers for ARM64, PowerPC(64), iOS & iPhoneSimulator, JVM/Java and JVM/Android
 </TRN>
 <TRN locale="en_US" key="website.down_i386_OS2_note">
 and eComStation
@@ -2790,7 +2773,7 @@ How do I make a game with Free Pascal? Can I make a game like Doom 3?
 Getting more information when an application crashes
 </TRN>
 <TRN locale="en_US" key="website.q_Compiler_skips_files">
-Compiler seems to skip files in directories that -Fu points to
+Compiler seems to skip files in directories -Fu points to
 </TRN>
 <TRN locale="en_US" key="website.q_Big_binaries">
 Why are the generated binaries so big?
@@ -2820,7 +2803,7 @@ What about .NET?
 Pascal language related information
 </TRN>
 <TRN locale="en_US" key="website.q_porting_CPU">
-Considerations in porting to other processors
+Considerations in porting code to other processors
 </TRN>
 <TRN locale="en_US" key="website.q_porting_OS">
 Considerations in porting code to other operating systems
@@ -2835,7 +2818,7 @@ Building a unit
 Compiling the system unit
 </TRN>
 <TRN locale="en_US" key="website.q_how_does_proc_overloading_work">
-How does procedure overloading work?
+How does function overloading work?
 </TRN>
 <TRN locale="en_US" key="website.q_calling_C_functions">
 Calling C functions
@@ -2883,7 +2866,7 @@ Profiling
 Graph and problems with keyboard, mouse and "dummy dos windows"
 </TRN>
 <TRN locale="en_US" key="website.q_win_cygwin">
-Cygwin binary directory in your path sometimes causes strange problems
+Cygwin binary directory in your path sometimes causes builds to fail
 </TRN>
 <TRN locale="en_US" key="website.q_win95_fpc">
 Using the DOS compiler under Windows 95
@@ -2967,13 +2950,13 @@ Releasing software generated by the DOS compiler
 Debugging
 </TRN>
 <TRN locale="en_US" key="website.q_dynamic_libraries">
-Dynamic Libraries
+Dynamic libraries
 </TRN>
 <TRN locale="en_US" key="website.q_profiling">
 Profiling
 </TRN>
 <TRN locale="en_US" key="website.q_fpwithoutfpu">
-Running Free Pascal without a math coprocessor?
+Running Free Pascal without a math coprocessor
 </TRN>
 <TRN locale="en_US" key="website.q_app_crash_on_386">
 Applications created with Free Pascal crash on 80386 systems
@@ -3030,14 +3013,14 @@ Profiling
 PalmOS-related information
 </TRN>
 <TRN locale="en_US" key="website.faq.palmos.release">
-Dynamic libraries
+Releasing software generated by the PalmOS compiler
 </TRN>
 <TRN locale="en_US" key="website.General_Information">
 General information
 </TRN>
 <TRN locale="en_US" key="website.a_What_is_FPC">
 
-            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16,32
+            <p>Originally named FPK-Pascal, the Free Pascal compiler is a 16, 32
             and 64 bit Turbo Pascal and Delphi compatible Pascal compiler for
             Linux, Windows, OS/2, FreeBSD, Mac OS X, DOS and
             several other platforms (the number of supported targets grows
@@ -3045,7 +3028,7 @@ General information
             the main ones).
 
             <p>The Free Pascal compiler is available for several
-            architectures: x86 (16,32 and 64 bit), ARM, PowerPC (32 and 64 bit),
+            architectures: x86 (16, 32 and 64 bit), ARM, PowerPC (32 and 64 bit),
             SPARC (v8, v9), Java Virtual Machine (under development) and MIPS (little and big endian, under development).
             An older version (the 1.0 series) and current development versions also supported m68k.
 
@@ -3078,12 +3061,13 @@ General information
               <li>02/2017: 3.0.2 released
               <li>11/2017: 3.0.4 released
               <li>06/2020: 3.2.0 released
+              <li>05/2021: 3.2.2 released
             </ul>
           
 </TRN>
 <TRN locale="en_US" key="website.a_What_versions_exist">
 
-            <p>The latest official version is 3.2.0, the first release in the 3.2.x series.
+            <p>The latest official version is 3.2.2, the first minor update in the 3.2.x series.
             New development is performed in the 3.3.x series, which will eventually
             be released as 3.4.0 or 4.0.0, depending on milestones achieved.
 
@@ -3133,12 +3117,12 @@ General information
             users. Ask on the mailing lists if it is worth the trouble in your case if
             you are not sure.
 
-            <p>Snapshots of the stable branch (fixes_3_0) are meant to test release engineering. They are
+            <p>Snapshots of the stable branch (fixes_3_2) are meant to test release engineering. They are
 		mainly interesting in the months before a release to extensively
 		test the branch from which the release is created.
 
             <p>We advise all users to upgrade to the newest version for their
-            target (preferably the new stable 3.0.x series).
+            target (preferably the new stable 3.2.x series).
 
             <p> A graphical timeline of the FPC project plus its near future would
             be:
@@ -3153,7 +3137,7 @@ General information
             compiler on as many platforms as possible. GNU Pascal tries to
             implement a portable pascal compiler based on POSIX.
             <DT><b>Version:</b>
-            <DD>Currently, Free Pascal is at version 3.2.0 (June 2020). GNU Pascal is stopped
+            <DD>Currently, Free Pascal is at version 3.2.2 (May 2021). GNU Pascal is stopped
             version 2.1 (from 2002, which can be built with several different GCC's as backend;
             their Mac OS X version is an exception though, as it follows the GCC version number).</DD>
             <DT><b>Tracking:</b>
@@ -3561,8 +3545,8 @@ General information
               as this is the limit of some processors. Use const or var parameters
               where appropriate.
               <li><TT>CPU16</TT>,<TT>CPU32</TT> or <TT>CPU64</TT> is defined indicating
-              whether the target is a 16,32-bit or 64-bit cpu. This can help with
-              incorporating 16,32-bit and 64-bit specific code.
+              whether the target is a 16-bit, 32-bit or 64-bit cpu. This can help with
+              incorporating 16-bit, 32-bit and 64-bit specific code.
 
               <li>Use the <TT>ptruint</TT> type when declaring an ordinal that will store
               a pointer, since pointers can be either 32-bit or 64-bit depending on
@@ -4565,7 +4549,7 @@ FCL - Free Component Library
 <h2>Introduction</h2>
 The Free Component Library is meant to be an free equivalent of Delphi's
 VCL - only all components in this library are non-visual. Visual components
-are the domain of other projects such as <a href="http://www.lazarus.freepascal.org/">Lazarus</a> or <a href="http://mseide-msegui.sourceforge.net/">MSEide+MSEgui</a>.
+are the domain of other projects such as <a href="http://www.lazarus.freepascal.org/">Lazarus</a> or <a href="https://github.com/mse-org/mseide-msegui/">MSEide+MSEgui</a>.
 <p> The idea of FCL is to give a complete set of classes, so a programmer is
     able to tackle most common programming tasks; wherever possible we try to
     keep Delphi compatibility, so code written for one compiler can be compiled
@@ -4762,7 +4746,7 @@ Current Version
 </TRN>
 <TRN locale="en_US" key="website.Current_Version_text">
 
-    Version <em>3.2.0</em> is the latest stable version the Free Pascal.
+    Version <em>3.2.2</em> is the latest stable version of Free Pascal.
     Hit the <a href="download@x@">download</a> link and select a mirror close
     to you to download your copy.
     The development releases have version numbers <EM>3.3.x</EM>.
@@ -5139,7 +5123,7 @@ Look at the step-by-step instruction of how to download and install the <A href 
 
 </TRN>
 <TRN locale="en_US" key="website.future.title">
-Future Plans
+Free Pascal - Future Plans
 </TRN>
 <TRN locale="en_US" key="website.future.planned">
 Planned for next versions
@@ -5382,7 +5366,7 @@ for instructions on how to do it.
 
 <h2>IRC channels</h2>
 You can try to meet the core Free Pascal developers using IRC channel #fpc on server
-<a href="http://www.freenode.net">irc.freenode.net</a>. Most of the core
+<a href="https://libera.chat">irc.libera.chat</a>. Most of the core
 developers are Europeans, so choosing a decent European hour may improve
 your chances to contact them ;-).
 
@@ -5753,7 +5737,7 @@ read the <a href="news@x@">news</a>.
 join one or more <a href="maillist@x@">mailing lists</a>.
 </TRN>
 <TRN locale="en_US" key="website.moreinfo.irc">
-have a chat with the FPC developers on IRC channel #fpc on server <a href="http://www.freenode.net">irc.freenode.net</a>.
+have a chat with the FPC developers on IRC channel #fpc on server <a href="https://libera.chat">irc.libera.chat</a>.
   <!--The log of this channel is available <a href="http://www.hu.freepascal.org/fpcircbot/cgifpcbot?channel=fpc">
   here</a>.
 </TRN>
@@ -5931,7 +5915,6 @@ Previous news (continued from home page)
    <p>
     Downloads are available at:
     <ul>
-     <li><a href="ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1">ftp://freepascal.stack.nl/pub/fpc/beta/3.0.0-rc1</a></li>
      <li><a href="ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1">ftp://ftp.freepascal.org/pub/fpc/beta/3.0.0-rc1</a></li>
     </ul>
    </p>
@@ -10022,7 +10005,7 @@ Runtime Library Units
 <TRN locale="en_US" key="website.down.i386.macosx.xcode11">
 
 <h3>Xcode 11+ compatibility (macOS 10.15 Catalina and later)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 11. Xcode 11+ no longer includes support for compiling Intel 32 bit programs.
  If you wish to compile such programs, you will have to copy an older Mac OS X SDK from a previous Xcode installation and point the compiler
  to it with the -XR command line parameter.
 
@@ -10030,9 +10013,9 @@ Runtime Library Units
 <TRN locale="en_US" key="website.down.i386.macosx.xcode10">
 
 <h3>Xcode 10+ compatibility (macOS 10.14 Mojave and later)</h3>
- FPC 3.2.0 is qualified for use with Mac OS X 10.4 till macOS 10.15. Xcode 10+ installs some command line file in different
+ FPC 3.2.2 is qualified for use with Mac OS X 10.4 till macOS 11. Xcode 10+ installs some command line file in different
  locations compared to previous releases. If you already installed FPC under a previous Mac OS X/OS X/macOS version, you
- will have to reinstall FPC 3.2.0 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
+ will have to reinstall FPC 3.2.2 under macOS 10.14 to get a configuration file that enables the compiler to find the necessary
  files). See also the section below on how to install the command line tools.
 </TRN>
 <TRN locale="en_US" key="website.daily.title">
@@ -10078,4 +10061,101 @@ they will not help you if you look for documentation.
 Note that only packages which can be correctly parsed are added to this
 overview: if a package fails to be parsed, it is removed from the list.
 
+</TRN>
+<TRN locale="en_US" key="website.down.i386.macosx.fpc322intel">
+contains an installation package for compiling iPhone/iPod Touch/iPad programs.
+</TRN>
+<TRN locale="en_US" key="website.down.powerpc64le.linux.title">
+Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down.powerpc64le.linux.header">
+Download Linux little endian PowerPC64
+</TRN>
+<TRN locale="en_US" key="website.down.sparc64.linux.title">
+Free Pascal - Download Linux
+</TRN>
+<TRN locale="en_US" key="website.down.sparc64.linux.header">
+Download Linux Sparc64
+</TRN>
+<TRN locale="en_US" key="website.down.sparc64.linux.information">
+
+contains a standard tar archive, with an install script<br>
+After untarring the archive, you can run the install script in the created
+directory by issuing the command "<tt>sh install.sh</tt>".
+For more information, please read:
+
+</TRN>
+<TRN locale="en_US" key="website.frontpage.news_headline_20210520">
+
+ <li>
+  <em>May 20th, 2021</em>
+ </li>
+ <ul>
+  <li>
+   FPC version 3.2.2 has been released!
+   <p>
+     This version is a point update to 3.2.0 and contains bugfixes and updated packages,
+       some of which are high priority. In this case a new target was also backported
+      from trunk.
+   </p>
+   <p>
+    There is a list of  <a href="http://wiki.freepascal.org/User_Changes_3.2.2">changes that may break backward compatibility</a>.
+    You can also have a look at the <a href="https://www.freepascal.org/docs.html">FPC 3.2.2 documentation</a>.
+   </p>
+   <p>
+    Downloads are available at <a href="https://www.freepascal.org/download.html">the download section</a>. Some links might be stale but will be updated in the coming days.
+    If you have trouble using FTP due to recent browser updates, try the sourceforge mirror.
+   </p>
+  </li>
+ </ul>
+ 
+</TRN>
+<TRN locale="en_US" key="website.Advantages_of_note">
+
+  Maybe you think, why should I choose Pascal instead of, for example C. Or
+  maybe you are comparing Free Pascal to another Pascal compiler. Well, in
+  that case, be sure to read this page before making your decision. Well,
+  for what is Free Pascal so good?
+
+</TRN>
+<TRN locale="en_US" key="website.docs.contributed.table">
+
+<table summary="" width="100%" rules="none" cellspacing="0" cellpadding="3" border="1">
+<tr><th WIDTH="30%" ALIGN=LEFT>Document</th><th WIDTH="5%" ALIGN=LEFT>PDF</th><th WIDTH="5%" ALIGN=LEFT>HTML</th></tr>
+<tr><td>class chart in PDF format(Thanks to Tiziano!)</td>
+   <td><a href="http://www.freepascal.org/docs/ClassChart3.pdf">PDF</a></td>
+   <td>-</td>
+</tr>
+</table>
+
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_rpm_download_descr_target">
+
+       contains the cross-compiler, RTL and all units for MS-DOS target. <br>
+     
+</TRN>
+<TRN locale="en_US" key="website.i386-linux_rpm_src_download_descr_target">
+
+       contains the sources for MS-DOS target.<br>
+     
+</TRN>
+<TRN locale="en_US" key="website.down.powerpc.aix.header">
+Download AIX PowerPC
+</TRN>
+<TRN locale="en_US" key="website.x86_64-linux_rpm_download_descr_debug">
+
+       debuginfo<br>
+     
+</TRN>
+<TRN locale="en_US" key="website.down_i386_macx_dos_cc_note">
+and cross-compilers for PowerPC(64)/Mac OS X, iOS & iPhoneSimulator, JVM/Java and JVM/Android
+</TRN>
+<TRN locale="en_US" key="website.faq.palmos.debug">
+Debugging
+</TRN>
+<TRN locale="en_US" key="website.faq.palmos.dll">
+Dynamic libraries
+</TRN>
+<TRN locale="en_US" key="website.future.header">
+Future Plans
 </TRN>
